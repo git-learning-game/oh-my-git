@@ -98,8 +98,6 @@ func apply_forces():
 func git(args, splitlines = false):
     var output = []
     var a = args.split(" ")
-    a.insert(0, "-C")
-    a.insert(1, "/home/seb/tmp/godotgit")
     #print ("Running: ", a)
     OS.execute("git", a, true, output, true)
     var o = output[0]
