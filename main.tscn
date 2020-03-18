@@ -4,3 +4,24 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="Index" type="Label" parent="."]
+margin_left = 35.0
+margin_top = 120.0
+margin_right = 374.0
+margin_bottom = 1044.0
+text = "file1
+file2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IndexLabel" type="Label" parent="."]
+margin_left = 38.0
+margin_top = 69.0
+margin_right = 377.0
+margin_bottom = 108.0
+text = "Index:"
+__meta__ = {
+"_edit_use_anchors_": false
+}

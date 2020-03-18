@@ -7,9 +7,12 @@ func _ready():
     pass
 
 func _process(delta):
-    var t = get_node("../..").objects[target]
+    var t = get_node("/root/Main").objects[target]
+    #print(t)
     $Line.points[1] = t.position - global_position
     $Label.position = ($Line.points[0] + $Line.points[1])/2
+    $Tip.position = ($Line.points[0] + $Line.points[1])/2
+    $Tip.rotation = PI+$Line.points[0].angle_to($Line.points[1])
     
 func label_set(new_label):
     label = new_label
