@@ -9,6 +9,7 @@ func _ready():
         var n = node.instance()
         n.id = o
         n.type = object_type(o)
+        n.content = object_content(o)
         var viewport_size = get_viewport_rect().size
         n.position = Vector2(rand_range(0, viewport_size.x), rand_range(0, viewport_size.y))
      
@@ -38,8 +39,8 @@ func _ready():
 func git(args, splitlines = false):
     var output = []
     var a = args.split(" ")
-    #a.insert(0, "-C")
-    #a.insert(1, "/home/seb/tmp/godotgit")
+    a.insert(0, "-C")
+    a.insert(1, "/home/seb/tmp/godotgit")
     #print ("Running: ", a)
     OS.execute("git", a, true, output, true)
     var o = output[0]

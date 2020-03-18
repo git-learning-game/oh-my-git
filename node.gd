@@ -1,7 +1,7 @@
 extends Node2D
 
 var id setget id_set
-
+var content setget content_set
 var type setget type_set
 
 var children = [] setget children_set
@@ -17,6 +17,10 @@ func _process(delta):
 func id_set(new_id):
     id = new_id
     $ID.text = id
+    
+func content_set(new_content):
+    content = new_content
+    $Content.text = content
 
 func type_set(new_type):
     type = new_type
@@ -38,3 +42,10 @@ func children_set(new_children):
         a.label = "test"
         a.target = c
         add_child(a)
+
+func _on_hover():
+    $Content.visible = true
+    
+func _on_unhover():
+    $Content.visible = false
+  

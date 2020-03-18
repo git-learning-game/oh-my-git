@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://node.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 69.1778, 29.9015 )
 
 [node name="Node" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,6 +13,7 @@ margin_left = -62.0578
 margin_top = -20.6286
 margin_right = 61.9422
 margin_bottom = 21.3714
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -25,3 +29,22 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Content" type="Label" parent="."]
+visible = false
+margin_left = -57.0
+margin_top = 29.0
+margin_right = 250.0
+margin_bottom = 238.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "content"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource( 1 )
+[connection signal="mouse_entered" from="Area" to="." method="_on_hover"]
+[connection signal="mouse_exited" from="Area" to="." method="_on_unhover"]
