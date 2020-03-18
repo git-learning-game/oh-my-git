@@ -40,7 +40,7 @@ func git(args, splitlines = false):
     var output = []
     var a = args.split(" ")
     a.insert(0, "-C")
-    a.insert(1, "/home/seb/tmp/godotgit")
+    a.insert(1, "/home/seb/wip/wurst-day-ever")
     #print ("Running: ", a)
     OS.execute("git", a, true, output, true)
     var o = output[0]

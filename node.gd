@@ -12,7 +12,13 @@ func _ready():
     pass
 
 func _process(delta):
-    pass
+    for c in children:
+        var other = get_node("..").objects[c]
+        var d = other.position.distance_to(position)
+        var dir = (other.position - position).normalized()
+        var f = ((d-400)*0.01)
+        position += dir*f
+        other.position -= dir*f
     
 func id_set(new_id):
     id = new_id
