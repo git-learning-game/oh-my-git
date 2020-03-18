@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://arrow.gd" type="Script" id=1]
+
+[node name="Arrow" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Line" type="Line2D" parent="."]
+z_index = -1
+points = PoolVector2Array( -0.480499, -0.11055, 205.769, 94.6112 )
+
+[node name="Label" type="Node2D" parent="."]
+position = Vector2( 102, 46 )
+
+[node name="ID" type="Label" parent="Label"]
+margin_left = -19.374
+margin_top = -5.93085
+margin_right = 20.626
+margin_bottom = 8.06915
+text = "label"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

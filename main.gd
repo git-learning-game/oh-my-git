@@ -1,7 +1,17 @@
 extends Node2D
 
+var node = preload("res://node.tscn")
+
+var objects = {}
+
 func _ready():
     for o in all_objects():
+        var n = node.instance()
+        n.id = o
+        n.type = object_type(o)
+        var viewport_size = get_viewport_rect().size
+        n.position = Vector2(rand_range(0, viewport_size.x), rand_range(0, viewport_size.y))
+     
         print(" ")
         print(o)
         var type = object_type(o)
@@ -13,18 +23,23 @@ func _ready():
             "tree":
                 print("Children:")
                 print(tree_children(o))
+                n.children = tree_children(o)
             "commit":
                 print("Tree:")
                 print(commit_tree(o))
                 
                 print("Parents:")
                 print(commit_parents(o))
+                
+                n.children = [commit_tree(o)] + commit_parents(o)
+        add_child(n)
+        objects[o] = n
 
 func git(args, splitlines = false):
     var output = []
     var a = args.split(" ")
-    a.insert(0, "-C")
-    a.insert(1, "/home/seb/tmp/godotgit")
+    #a.insert(0, "-C")
+    #a.insert(1, "/home/seb/tmp/godotgit")
     #print ("Running: ", a)
     OS.execute("git", a, true, output, true)
     var o = output[0]
