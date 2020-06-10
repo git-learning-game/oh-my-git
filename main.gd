@@ -12,17 +12,18 @@ func _ready():
     viewport_size = get_viewport_rect().size
 
 func _process(delta):
-    if Input.is_action_just_pressed("click"):
-        var mindist = 9999999
-        for o in objects.values():
-            var d = o.position.distance_to(get_global_mouse_position())
-            if d < mindist:
-                mindist = d
-                dragged = o
-    if Input.is_action_just_released("click"):
-            dragged = null
-    if dragged:
-        dragged.position = get_global_mouse_position()
+    if true or get_global_mouse_position().x < get_viewport_rect().size.x*0.7:
+        if Input.is_action_just_pressed("click"):
+            var mindist = 9999999
+            for o in objects.values():
+                var d = o.position.distance_to(get_global_mouse_position())
+                if d < mindist:
+                    mindist = d
+                    dragged = o
+        if Input.is_action_just_released("click"):
+                dragged = null
+        if dragged:
+            dragged.position = get_global_mouse_position()
     
     update_head()
     update_refs()
@@ -94,11 +95,17 @@ func apply_forces():
             var f = 3000/pow(d+0.00001,1.5)
             o.position += dir*f
             o2.position -= dir*f
+        var d = o.position.distance_to(Vector2(viewport_size.x/3, viewport_size.y/2))
+        var dir = (o.global_position - Vector2(viewport_size.x/3, viewport_size.y/2)).normalized()
+        var f = (d+0.00001)*0.02
+        o.position -= dir*f
 
 func git(args, splitlines = false):
     var output = []
     var a = args.split(" ")
     #print ("Running: ", a)
+    a.insert(0, "-C")
+    a.insert(1, "/home/seb/tmp/godotgit")
     OS.execute("git", a, true, output, true)
     var o = output[0]
     if splitlines:

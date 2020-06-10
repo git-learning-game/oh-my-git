@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://terminal.gd" type="Script" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
 
 [node name="Main" type="Node2D"]
@@ -25,3 +26,28 @@ text = "Index:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Terminal" type="Node2D" parent="."]
+visible = false
+z_index = 1
+script = ExtResource( 1 )
+
+[node name="Output" type="TextEdit" parent="Terminal"]
+margin_left = 1416.1
+margin_top = 4.0
+margin_right = 1915.1
+margin_bottom = 1008.0
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Input" type="LineEdit" parent="Terminal"]
+margin_left = 1414.0
+margin_top = 1019.0
+margin_right = 1913.0
+margin_bottom = 1075.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_entered" from="Terminal/Input" to="Terminal" method="send_command"]
