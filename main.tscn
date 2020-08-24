@@ -28,7 +28,6 @@ __meta__ = {
 }
 
 [node name="Terminal" type="Node2D" parent="."]
-visible = false
 z_index = 1
 script = ExtResource( 1 )
 
