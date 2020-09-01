@@ -1,31 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://terminal.gd" type="Script" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
+[ext_resource path="res://repository.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
-
-[node name="Index" type="Label" parent="."]
-margin_left = 35.0
-margin_top = 120.0
-margin_right = 374.0
-margin_bottom = 1044.0
-text = "file1
-file2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="IndexLabel" type="Label" parent="."]
-margin_left = 38.0
-margin_top = 69.0
-margin_right = 377.0
-margin_bottom = 108.0
-text = "Index:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Terminal" type="Node2D" parent="."]
 z_index = 1
@@ -69,5 +49,15 @@ text = "SAVE!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Repository" parent="." instance=ExtResource( 3 )]
+position = Vector2( 264.285, 118.658 )
+path = "/tmp/githydragit/"
+size = Vector2( 500, 1000 )
+
+[node name="Repository2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 880.229, 135.918 )
+path = "/tmp/githydragit/"
+size = Vector2( 500, 1000 )
 [connection signal="text_entered" from="Terminal/Input" to="Terminal" method="send_command"]
 [connection signal="pressed" from="CommitMessage/Button" to="." method="save_commit_message"]

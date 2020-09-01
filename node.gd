@@ -3,6 +3,7 @@ extends Node2D
 var id setget id_set
 var content setget content_set
 var type setget type_set
+var repository: Node2D
 
 var children = {} setget children_set
 
@@ -55,6 +56,7 @@ func children_set(new_children):
 			var a = arrow.instance()
 			a.label = new_children[c]
 			a.target = c
+			a.repository = repository
 			$Arrows.add_child(a)  
 	children = new_children
 
