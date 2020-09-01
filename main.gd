@@ -16,13 +16,6 @@ func _ready():
 	
 	server = TCP_Server.new()
 	server.listen(1234)
-
-func _connected(id, proto):
-	print("!!!")
-	print(id)
-	
-func _player_connected(id):
-	print("connected")
 	
 func _process(delta):
 	if server.is_connection_available():
