@@ -18,6 +18,7 @@ func _ready():
 	
 	# Load first level.
 	load_level(0)
+	$Terminal/Input.grab_focus()
 	
 func list_levels():
 	var levels = []
@@ -96,6 +97,7 @@ func read_commit_message():
 	$CommitMessage.show()
 	$Terminal/Input.editable = false
 	$CommitMessage.text = game.read_file($ActiveRepository.path+"/.git/COMMIT_EDITMSG")
+	$CommitMessage.grab_focus()
 
 func save_commit_message():
 	game.write_file($ActiveRepository.path+"/.git/COMMIT_EDITMSG", $CommitMessage.text)
@@ -104,3 +106,4 @@ func save_commit_message():
 	$Terminal/Input.editable = true
 	$CommitMessage.text = ""
 	$CommitMessage.hide()
+	$Terminal/Input.grab_focus()
