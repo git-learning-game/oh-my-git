@@ -95,10 +95,10 @@ func _process(delta):
 func read_commit_message():
 	$CommitMessage.show()
 	$Terminal/Input.editable = false
-	$CommitMessage.text = game.read_file("/tmp/githydragit/.git/COMMIT_EDITMSG")
+	$CommitMessage.text = game.read_file($ActiveRepository.path+"/.git/COMMIT_EDITMSG")
 
 func save_commit_message():
-	game.write_file("/tmp/githydragit/.git/COMMIT_EDITMSG", $CommitMessage.text)
+	game.write_file($ActiveRepository.path+"/.git/COMMIT_EDITMSG", $CommitMessage.text)
 	print("disconnect")
 	client_connection.disconnect_from_host()
 	$Terminal/Input.editable = true

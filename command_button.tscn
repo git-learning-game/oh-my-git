@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://command_button.gd" type="Script" id=1]
+
+[node name="Button" type="Button"]
+margin_left = 1418.81
+margin_top = 760.827
+margin_right = 1672.81
+margin_bottom = 780.827
+text = "git commit --allow-empty -m \"emtpy\""
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="pressed"]
