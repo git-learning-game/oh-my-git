@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo Hi, I am commit-hook
+echo $*
+zenity --question
+echo Goodbye

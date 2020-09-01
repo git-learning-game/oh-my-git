@@ -105,13 +105,16 @@ func git(args, splitlines = false):
 	var a = args.split(" ")
 	#print ("Running: ", a)
 	a.insert(0, "-C")
-	a.insert(1, "/home/seb/tmp/godotgit")
+	a.insert(1, "/tmp/githydragit")
 	OS.execute("git", a, true, output, true)
 	var o = output[0]
+	
 	if splitlines:
 		o = o.split("\n")
+		# Remove last empty line.
 		o.remove(len(o)-1)
 	else:
+		# Remove trailing newline.
 		o = o.substr(0,len(o)-1)
 	return o
 
@@ -123,14 +126,6 @@ func update_head():
 		n.content = ""
 		n.position = Vector2(rand_range(0, viewport_size.x), rand_range(0, viewport_size.y))   
 		objects["HEAD"] = n
-		add_child(n)
-		
-		n = node.instance()
-		n.id = "refs/heads/master"
-		n.type = "ref"
-		n.content = ""
-		n.position = Vector2(rand_range(0, viewport_size.x), rand_range(0, viewport_size.y))
-		objects[n.id] = n
 		add_child(n)
 	var n = objects["HEAD"]
 	n.children = {symref_target("HEAD"): ""}

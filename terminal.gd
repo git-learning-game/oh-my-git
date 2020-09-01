@@ -1,17 +1,22 @@
 extends Node2D
 
-func _ready():
-	pass
-
-
-
-func send_command(new_text):
-	var parts = new_text.split(" ")
-	var cmd = parts[0]
-	var args = parts
-	args.remove(0)
+func send_command(command):
+	var cwd = run("pwd")
+	
 	var output = []
-	OS.execute(cmd, args, true, output, true)
+	
+	var hacky_command = command
+	hacky_command = "cd /tmp/githydragit;"+hacky_command
+	hacky_command = "export EDITOR=fake-editor;"+hacky_command
+	hacky_command = "export PATH=\"$PATH\":"+cwd+"/scripts;"+hacky_command
+	OS.execute("/bin/sh", ["-c",  hacky_command], true, output, true)
+	
 	$Input.text = ""
-	$Output.text = $Output.text + "$ " + new_text + "\n" + output[0]
+	$Output.text = $Output.text + "$ " + command + "\n" + output[0]
 	$Output.scroll_vertical = 999999
+	
+func run(command):
+	var output = []
+	OS.execute(command, [], true, output, true)
+	# Remove trailing newline.
+	return output[0].substr(0,len(output[0])-1)
