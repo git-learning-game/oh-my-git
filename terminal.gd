@@ -12,3 +12,4 @@ func run_command_in_a_thread(command):
 	$Input.text = ""
 	$Output.text = $Output.text + "$ " + command + "\n" + output
 	$Output.scroll_vertical = 999999
+	$"../ActiveRepository".update_everything()

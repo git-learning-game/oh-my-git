@@ -10,20 +10,20 @@ func _ready():
 
 func _process(delta):
 	if path:
-		update_everything()
+		apply_forces()
 		
 func update_everything():
 	update_head()
 	update_refs()
 	update_index()
 	update_objects()
-	apply_forces()
 
 func set_path(new_path):
 	path = new_path
 	for o in objects.values():
 		o.queue_free()
 	objects = {}
+	update_everything()
 	
 func get_path():
 	return path

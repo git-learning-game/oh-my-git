@@ -16,6 +16,9 @@ func _ready():
 	server = TCP_Server.new()
 	server.listen(1234)
 	
+	# Load first level.
+	load_level(0)
+	
 func list_levels():
 	var levels = []
 	var dir = Directory.new()

@@ -25,3 +25,14 @@ text = "Index:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="."]
+margin_left = 36.5602
+margin_top = 67.9891
+margin_right = 94.5602
+margin_bottom = 109.989
+text = "Update"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="update_everything"]
