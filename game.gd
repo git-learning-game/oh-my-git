@@ -31,8 +31,36 @@ func load_state() -> bool:
 	savegame.close()
 	return true
 
+# Run a simple command given as a string, blocking, using execute.
 func run(command):
+	print("run: "+command)
 	var output = []
 	OS.execute(command, [], true, output, true)
 	# Remove trailing newline.
 	return output[0].substr(0,len(output[0])-1)
+
+func sh(command, wd="/tmp/"):
+	print("sh in "+wd+": "+command)
+	var cwd = game.run("pwd")
+	var output = []
+	
+	var hacky_command = command
+	hacky_command = "cd '"+wd+"';"+hacky_command
+	hacky_command = "export EDITOR=fake-editor;"+hacky_command
+	hacky_command = "export PATH=\"$PATH\":"+cwd+"/scripts;"+hacky_command
+	OS.execute("/bin/sh", ["-c",  hacky_command], true, output, true)
+	return output[0]
+
+func read_file(path):
+	var file = File.new()
+	file.open(path, File.READ)
+	var content = file.get_as_text()
+	file.close()
+	return content
+
+func write_file(path, content):
+	var file = File.new()
+	file.open(path, File.WRITE)
+	file.store_string(content)
+	file.close()
+	return true

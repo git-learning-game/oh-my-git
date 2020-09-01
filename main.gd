@@ -6,20 +6,62 @@ var server
 var client_connection
 
 func _ready():
-	var level = "first"
-	var goal_repository_path = "goal"
-	var start_repository_path = "start"
-	var active_repository_path = "active"
-	var active_prefix = "/tmp/"
-	var levels_prefix = game.run("pwd")+"/levels/"+level+"/"
+	# Initialize level select.
+	var options = $LevelSelect.get_popup()
+	for level in list_levels():
+		options.add_item(level)
+	options.connect("id_pressed", self, "load_level")
 	
-	OS.execute("rm", ["-r", active_prefix+active_repository_path], true)
-	OS.execute("cp", ["-ra", levels_prefix+start_repository_path, active_prefix+active_repository_path], true)
-	$GoalRepository.path = levels_prefix+goal_repository_path
-	$ActiveRepository.path = active_prefix+active_repository_path
-	
+	# Initialize TCP server for fake editor.
 	server = TCP_Server.new()
 	server.listen(1234)
+	
+func list_levels():
+	var levels = []
+	var dir = Directory.new()
+	dir.open("levels")
+	dir.list_dir_begin()
+
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with("."):
+			levels.append(file)
+
+	dir.list_dir_end()
+	return levels
+
+func load_level(id):
+	var levels = list_levels()
+	
+	var level = levels[id]
+	var cwd = game.run("pwd")
+	var tmp_prefix = "/tmp/"
+	var level_prefix = cwd+"/levels/"
+	
+	var goal_repository_path = tmp_prefix+"goal/"
+	var active_repository_path = tmp_prefix+"active/"
+	var goal_script = level_prefix+level+"/goal"
+	var active_script = level_prefix+level+"/start"
+	
+	OS.execute("rm", ["-r", active_repository_path], true)
+	OS.execute("rm", ["-r", goal_repository_path], true)
+	construct_repo(goal_script, goal_repository_path)
+	construct_repo(active_script, active_repository_path)
+	
+	$GoalRepository.path = goal_repository_path
+	$ActiveRepository.path = active_repository_path
+	
+func construct_repo(script, path):
+	print(path)
+	game.sh("mkdir "+path)
+	game.sh("git init", path)
+	var commands = game.read_file(script).split("\n")
+	print(commands)
+	for command in commands:
+		print(command)
+		game.sh(command, path)
 	
 func _process(delta):
 	if server.is_connection_available():
@@ -50,23 +92,12 @@ func _process(delta):
 func read_commit_message():
 	$CommitMessage.show()
 	$Terminal/Input.editable = false
-	var file_path = "/tmp/githydragit/.git/COMMIT_EDITMSG"
-	var file = File.new()
-	file.open(file_path, File.READ)
-	var content = file.get_as_text()
-	file.close()
-	$CommitMessage.text = content
+	$CommitMessage.text = game.read_file("/tmp/githydragit/.git/COMMIT_EDITMSG")
 
 func save_commit_message():
-	var file = File.new()
-	var file_path = "/tmp/githydragit/.git/COMMIT_EDITMSG"
-	file.open(file_path, File.WRITE)
-	var content = $CommitMessage.text
-	file.store_string(content)
-	file.close()
+	game.write_file("/tmp/githydragit/.git/COMMIT_EDITMSG", $CommitMessage.text)
 	print("disconnect")
 	client_connection.disconnect_from_host()
 	$Terminal/Input.editable = true
 	$CommitMessage.text = ""
 	$CommitMessage.hide()
-		

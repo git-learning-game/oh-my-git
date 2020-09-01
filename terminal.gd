@@ -7,15 +7,8 @@ func send_command(command):
 	thread.start(self, "run_command_in_a_thread", command)
 
 func run_command_in_a_thread(command):
-	var cwd = game.run("pwd")
-	var output = []
-	
-	var hacky_command = command
-	hacky_command = "cd /tmp/githydragit;"+hacky_command
-	hacky_command = "export EDITOR=fake-editor;"+hacky_command
-	hacky_command = "export PATH=\"$PATH\":"+cwd+"/scripts;"+hacky_command
-	OS.execute("/bin/sh", ["-c",  hacky_command], true, output, true)
+	var output = game.sh(command, "/tmp/active")
 	
 	$Input.text = ""
-	$Output.text = $Output.text + "$ " + command + "\n" + output[0]
+	$Output.text = $Output.text + "$ " + command + "\n" + output
 	$Output.scroll_vertical = 999999

@@ -10,14 +10,20 @@ func _ready():
 
 func _process(delta):
 	if path:
-		update_head()
-		update_refs()
-		update_index()
-		update_objects()
-		apply_forces()
+		update_everything()
+		
+func update_everything():
+	update_head()
+	update_refs()
+	update_index()
+	update_objects()
+	apply_forces()
 
 func set_path(new_path):
 	path = new_path
+	for o in objects.values():
+		o.queue_free()
+	objects = {}
 	
 func get_path():
 	return path
@@ -126,6 +132,16 @@ func update_head():
 		add_child(n)
 	var n = objects["HEAD"]
 	n.children = {symref_target("HEAD"): ""}
+	if not objects.has(symref_target("HEAD")):
+		var n2 = node.instance()
+		var r = symref_target("HEAD")
+		n2.id = r
+		n2.type = "ref"
+		n2.content = ""
+		n2.repository = self
+		n2.position = random_position()
+		objects[r] = n2
+		add_child(n2)
 
 func all_objects():
 	return git("cat-file --batch-check=%(objectname) --batch-all-objects", true)

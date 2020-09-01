@@ -57,5 +57,16 @@ size = Vector2( 500, 1000 )
 [node name="ActiveRepository" parent="." instance=ExtResource( 3 )]
 position = Vector2( 704.399, 17.2594 )
 size = Vector2( 500, 1000 )
+
+[node name="LevelSelect" type="MenuButton" parent="."]
+margin_left = 11.5584
+margin_top = 11.1303
+margin_right = 109.558
+margin_bottom = 31.1303
+text = "Select level..."
+flat = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="text_entered" from="Terminal/Input" to="Terminal" method="send_command"]
 [connection signal="pressed" from="CommitMessage/Button" to="." method="save_commit_message"]
