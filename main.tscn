@@ -50,14 +50,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Repository" parent="." instance=ExtResource( 3 )]
-position = Vector2( 264.285, 118.658 )
-path = "/tmp/githydragit/"
+[node name="GoalRepository" parent="." instance=ExtResource( 3 )]
+position = Vector2( 21.5742, 19.4168 )
 size = Vector2( 500, 1000 )
 
-[node name="Repository2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 880.229, 135.918 )
-path = "/tmp/githydragit/"
+[node name="ActiveRepository" parent="." instance=ExtResource( 3 )]
+position = Vector2( 704.399, 17.2594 )
 size = Vector2( 500, 1000 )
 [connection signal="text_entered" from="Terminal/Input" to="Terminal" method="send_command"]
 [connection signal="pressed" from="CommitMessage/Button" to="." method="save_commit_message"]

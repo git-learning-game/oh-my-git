@@ -30,3 +30,9 @@ func load_state() -> bool:
 		state[key] = new_state[key]
 	savegame.close()
 	return true
+
+func run(command):
+	var output = []
+	OS.execute(command, [], true, output, true)
+	# Remove trailing newline.
+	return output[0].substr(0,len(output[0])-1)

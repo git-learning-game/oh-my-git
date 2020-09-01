@@ -9,11 +9,12 @@ func _ready():
 	pass
 
 func _process(delta):
-	update_head()
-	update_refs()
-	update_index()
-	update_objects()
-	apply_forces()
+	if path:
+		update_head()
+		update_refs()
+		update_index()
+		update_objects()
+		apply_forces()
 
 func set_path(new_path):
 	path = new_path
