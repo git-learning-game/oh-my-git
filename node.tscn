@@ -53,5 +53,6 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Arrows" type="Node2D" parent="."]
+[connection signal="input_event" from="Area" to="." method="_input_event"]
 [connection signal="mouse_entered" from="Area" to="." method="_on_hover"]
 [connection signal="mouse_exited" from="Area" to="." method="_on_unhover"]

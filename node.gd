@@ -35,6 +35,9 @@ func type_set(new_type):
 	type = new_type
 	if type != "ref":
 		$ID.text = $ID.text.substr(0,8)
+	elif type == "ref":
+		var parts = $ID.text.split("/")
+		$ID.text = parts[parts.size()-1]
 	match new_type:
 		"blob":
 			$Rect.color = Color("#333333")
@@ -76,3 +79,8 @@ func _on_unhover():
 		$Content.visible = false
 		$ID.visible = false
   
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		var input = get_tree().get_current_scene().find_node("Terminal").find_node("Control").find_node("Input")
+		input.text += $ID.text
+		input.caret_position = input.text.length()
