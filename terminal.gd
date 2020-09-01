@@ -1,8 +1,13 @@
 extends Node2D
 
+var thread
+
 func send_command(command):
+	thread = Thread.new()
+	thread.start(self, "run_command_in_a_thread", command)
+
+func run_command_in_a_thread(command):
 	var cwd = run("pwd")
-	
 	var output = []
 	
 	var hacky_command = command

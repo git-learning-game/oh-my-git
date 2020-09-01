@@ -2,5 +2,5 @@
 
 echo Hi, I am commit-hook
 echo $*
-zenity --question
+nc localhost 1234
 echo Goodbye

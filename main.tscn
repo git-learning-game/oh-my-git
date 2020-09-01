@@ -49,4 +49,25 @@ margin_bottom = 1075.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CommitMessage" type="TextEdit" parent="."]
+visible = false
+margin_left = 889.832
+margin_top = 16.4234
+margin_right = 1388.83
+margin_bottom = 582.423
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CommitMessage"]
+margin_left = 344.277
+margin_top = 509.45
+margin_right = 493.277
+margin_bottom = 558.45
+text = "SAVE!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="text_entered" from="Terminal/Input" to="Terminal" method="send_command"]
+[connection signal="pressed" from="CommitMessage/Button" to="." method="save_commit_message"]
