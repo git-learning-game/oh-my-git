@@ -5,6 +5,9 @@ var dragged = null
 var server
 var client_connection
 
+onready var input = $Terminal/Control/Input
+onready var output = $Terminal/Control/Output
+
 func _ready():
 	# Initialize level select.
 	var options = $LevelSelect.get_popup()
@@ -18,7 +21,7 @@ func _ready():
 	
 	# Load first level.
 	load_level(0)
-	$Terminal/Input.grab_focus()
+	input.grab_focus()
 	
 func list_levels():
 	var levels = []
@@ -95,7 +98,7 @@ func _process(delta):
 	
 func read_commit_message():
 	$CommitMessage.show()
-	$Terminal/Input.editable = false
+	input.editable = false
 	$CommitMessage.text = game.read_file($ActiveRepository.path+"/.git/COMMIT_EDITMSG")
 	$CommitMessage.grab_focus()
 
@@ -103,7 +106,7 @@ func save_commit_message():
 	game.write_file($ActiveRepository.path+"/.git/COMMIT_EDITMSG", $CommitMessage.text)
 	print("disconnect")
 	client_connection.disconnect_from_host()
-	$Terminal/Input.editable = true
+	input.editable = true
 	$CommitMessage.text = ""
 	$CommitMessage.hide()
-	$Terminal/Input.grab_focus()
+	input.grab_focus()

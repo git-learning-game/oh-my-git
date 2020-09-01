@@ -6,6 +6,7 @@
 script = ExtResource( 1 )
 
 [node name="Index" type="Label" parent="."]
+visible = false
 margin_left = 36.0787
 margin_top = 120.0
 margin_right = 375.079
@@ -17,6 +18,7 @@ __meta__ = {
 }
 
 [node name="IndexLabel" type="Label" parent="."]
+visible = false
 margin_left = 38.0
 margin_top = 69.0
 margin_right = 377.0
@@ -27,6 +29,7 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
+visible = false
 margin_left = 36.5602
 margin_top = 67.9891
 margin_right = 94.5602

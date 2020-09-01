@@ -5,4 +5,4 @@ func _ready():
 
 
 func pressed():
-	$"..".send_command(text)
+	$"../..".send_command(text)

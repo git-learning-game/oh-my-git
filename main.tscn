@@ -1,81 +1,125 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://terminal.gd" type="Script" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
 [ext_resource path="res://repository.tscn" type="PackedScene" id=3]
 [ext_resource path="res://command_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Terminal" type="Node2D" parent="."]
-z_index = 1
-script = ExtResource( 1 )
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1922.0
+margin_bottom = 1081.0
+mouse_filter = 2
+color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Output" type="TextEdit" parent="Terminal"]
-margin_left = 1416.0
-margin_top = 4.0
-margin_right = 1915.0
-margin_bottom = 737.0
+[node name="Terminal" type="Control" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="VBoxContainer" parent="Terminal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1208.0
+margin_top = 6.0
+margin_right = 1908.0
+margin_bottom = 1070.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Output" type="TextEdit" parent="Terminal/Control"]
+margin_right = 700.0
+margin_bottom = 1038.0
+size_flags_vertical = 3
+custom_styles/read_only = SubResource( 1 )
+custom_fonts/font = ExtResource( 5 )
 readonly = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Input" type="LineEdit" parent="Terminal"]
-margin_left = 1414.0
-margin_top = 1019.0
-margin_right = 1913.0
-margin_bottom = 1075.0
+[node name="Button" parent="Terminal/Control" instance=ExtResource( 4 )]
+visible = false
+margin_left = 0.0
+margin_top = 852.0
+margin_right = 700.0
+margin_bottom = 905.0
+align = 0
+
+[node name="Button2" parent="Terminal/Control" instance=ExtResource( 4 )]
+visible = false
+margin_left = 0.0
+margin_top = 905.0
+margin_right = 700.0
+margin_bottom = 958.0
+text = "git switch -c $RANDOM"
+align = 0
+
+[node name="Button3" parent="Terminal/Control" instance=ExtResource( 4 )]
+visible = false
+margin_left = 0.0
+margin_top = 958.0
+margin_right = 700.0
+margin_bottom = 1011.0
+text = "git checkout HEAD^"
+align = 0
+
+[node name="Input" type="LineEdit" parent="Terminal/Control"]
+margin_top = 1038.0
+margin_right = 700.0
+margin_bottom = 1064.0
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Button" parent="Terminal" instance=ExtResource( 4 )]
-
-[node name="Button2" parent="Terminal" instance=ExtResource( 4 )]
-margin_left = 1417.9
-margin_top = 801.646
-margin_right = 1671.9
-margin_bottom = 821.646
-text = "git switch -c $RANDOM"
-
-[node name="Button3" parent="Terminal" instance=ExtResource( 4 )]
-margin_left = 1417.45
-margin_top = 846.547
-margin_right = 1671.45
-margin_bottom = 866.547
-text = "git checkout HEAD^"
 
 [node name="CommitMessage" type="TextEdit" parent="."]
 visible = false
-margin_left = 889.832
-margin_top = 16.4234
-margin_right = 1388.83
-margin_bottom = 582.423
+margin_left = 1209.0
+margin_top = 6.0
+margin_right = 1907.0
+margin_bottom = 1068.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="CommitMessage"]
-margin_left = 344.277
-margin_top = 509.45
-margin_right = 493.277
-margin_bottom = 558.45
-text = "SAVE!"
+[node name="SaveButton" type="Button" parent="CommitMessage"]
+margin_left = 537.443
+margin_top = 997.65
+margin_right = 686.443
+margin_bottom = 1046.65
+text = "Save"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GoalRepository" parent="." instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 21.5742, 19.4168 )
 size = Vector2( 500, 1000 )
 
 [node name="ActiveRepository" parent="." instance=ExtResource( 3 )]
-position = Vector2( 704.399, 17.2594 )
+position = Vector2( 356.756, 44.1985 )
 size = Vector2( 500, 1000 )
 
 [node name="LevelSelect" type="MenuButton" parent="."]
+visible = false
 margin_left = 11.5584
 margin_top = 11.1303
 margin_right = 109.558
@@ -85,5 +129,5 @@ flat = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="text_entered" from="Terminal/Input" to="Terminal" method="send_command"]
-[connection signal="pressed" from="CommitMessage/Button" to="." method="save_commit_message"]
+[connection signal="text_entered" from="Terminal/Control/Input" to="Terminal" method="send_command"]
+[connection signal="pressed" from="CommitMessage/SaveButton" to="." method="save_commit_message"]

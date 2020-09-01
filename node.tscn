@@ -1,42 +1,47 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://node.gd" type="Script" id=1]
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 69.1778, 29.9015 )
+extents = Vector2( 30.4838, 29.9015 )
 
 [node name="Node" type="Node2D"]
+z_index = 1
 script = ExtResource( 1 )
 
 [node name="Rect" type="ColorRect" parent="."]
-margin_left = -62.0578
-margin_top = -20.6286
-margin_right = 61.9422
-margin_bottom = 21.3714
+margin_left = -29.0
+margin_top = -28.0
+margin_right = 29.0
+margin_bottom = 30.0
 mouse_filter = 2
+color = Color( 0.984314, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ID" type="Label" parent="."]
-margin_left = -57.0578
-margin_top = -7.6286
-margin_right = 58.9422
-margin_bottom = 16.3714
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+visible = false
+margin_left = -14.6409
+margin_top = -12.4902
+margin_right = 134.359
+margin_bottom = 40.5098
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "object_id"
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Content" type="Label" parent="."]
 visible = false
-margin_left = -57.0
-margin_top = 29.0
-margin_right = 250.0
-margin_bottom = 238.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_left = -12.8299
+margin_top = 39.5639
+margin_right = 294.17
+margin_bottom = 248.564
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "content"
 __meta__ = {
 "_edit_use_anchors_": false

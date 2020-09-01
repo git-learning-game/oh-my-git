@@ -1,6 +1,3 @@
 #!/bin/sh
 
-echo Hi, I am commit-hook
-echo $*
 nc localhost 1234
-echo Goodbye

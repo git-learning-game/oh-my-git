@@ -99,7 +99,7 @@ func apply_forces():
 			o2.position -= dir*f
 		var d = o.position.distance_to(Vector2(size.x/2, size.y/2))
 		var dir = (o.position - Vector2(size.x/2, size.y/2)).normalized()
-		var f = (d+0.00001)*0.02
+		var f = (d+0.00001)*0.01
 		o.position -= dir*f
 
 func git(args, splitlines = false):

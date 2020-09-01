@@ -6,6 +6,7 @@ var type setget type_set
 var repository: Node2D
 
 var children = {} setget children_set
+var id_always_visible = false
 
 var arrow = preload("res://arrow.tscn")
 
@@ -18,7 +19,7 @@ func _process(delta):
 			var other = get_node("..").objects[c]
 			var d = other.position.distance_to(position)
 			var dir = (other.position - position).normalized()
-			var f = (d*0.05)
+			var f = (d*0.01)
 			position += dir*f
 			other.position -= dir*f
 	
@@ -36,17 +37,22 @@ func type_set(new_type):
 		$ID.text = $ID.text.substr(0,8)
 	match new_type:
 		"blob":
-			$Rect.color = Color.gray
+			$Rect.color = Color("#333333")
 		"tree":
 			$Rect.color = Color.darkgreen
 		"commit":
 			$Rect.color = Color.orange
 		"tag":
 			$Rect.color = Color.blue
+			id_always_visible = true
 		"ref":
 			$Rect.color = Color("#6680ff")
+			id_always_visible = true
 		"head":
 			$Rect.color = Color.red
+			id_always_visible = true
+	if id_always_visible:
+		$ID.show()
 
 func children_set(new_children):
 	for c in $Arrows.get_children():
@@ -63,7 +69,10 @@ func children_set(new_children):
 
 func _on_hover():
 	$Content.visible = true
+	$ID.visible = true
 	
 func _on_unhover():
-	$Content.visible = false
+	if not id_always_visible:
+		$Content.visible = false
+		$ID.visible = false
   
