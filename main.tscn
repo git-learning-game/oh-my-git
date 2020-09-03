@@ -28,18 +28,20 @@ margin_bottom = 1059.0
 [node name="CommitMessage" type="TextEdit" parent="."]
 visible = false
 margin_left = 1209.0
-margin_top = 6.0
+margin_top = 484.0
 margin_right = 1907.0
 margin_bottom = 1068.0
+custom_fonts/font = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SaveButton" type="Button" parent="CommitMessage"]
-margin_left = 537.443
-margin_top = 997.65
-margin_right = 686.443
-margin_bottom = 1046.65
+margin_left = 540.661
+margin_top = 528.031
+margin_right = 689.661
+margin_bottom = 577.031
+custom_fonts/font = ExtResource( 5 )
 text = "Save"
 __meta__ = {
 "_edit_use_anchors_": false
