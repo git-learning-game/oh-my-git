@@ -1,5 +1,6 @@
 extends Container
 
+export var label: String setget set_label
 export var path: String setget set_path, get_path
 var objects = {}
 
@@ -27,6 +28,10 @@ func set_path(new_path):
 	
 func get_path():
 	return path
+	
+func set_label(new_label):
+	label = new_label
+	$Label.text = new_label
 	
 func update_index():
 	$Index.text = git("ls-files")
@@ -100,7 +105,7 @@ func apply_forces():
 		var center_of_gravity = rect_size/2
 		var d = o.position.distance_to(center_of_gravity)
 		var dir = (o.position - center_of_gravity).normalized()
-		var f = (d+0.00001)*0.01
+		var f = (d+0.00001)*Vector2(0.03, 0.01)
 		o.position -= dir*f
 
 func git(args, splitlines = false):

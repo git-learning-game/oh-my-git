@@ -14,10 +14,15 @@ func _input(event):
 			history_position -= 1
 			history_position %= history.size()
 			input.text = history[history_position]
+			input.caret_position = input.text.length()
+			# This prevents the Input taking the arrow as a "skip to beginning" command.
+			get_tree().set_input_as_handled()
 		if event.is_action_pressed("ui_down"):
 			history_position += 1
 			history_position %= history.size()
 			input.text = history[history_position]
+			input.caret_position = input.text.length()
+			get_tree().set_input_as_handled()
 
 func send_command(command):
 	history.push_back(command)

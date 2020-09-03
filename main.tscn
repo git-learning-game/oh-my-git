@@ -45,6 +45,7 @@ __meta__ = {
 [node name="Output" type="TextEdit" parent="Terminal/Control"]
 margin_right = 700.0
 margin_bottom = 1038.0
+focus_mode = 0
 size_flags_vertical = 3
 custom_styles/read_only = SubResource( 1 )
 custom_fonts/font = ExtResource( 5 )
@@ -123,9 +124,10 @@ __meta__ = {
 
 [node name="Repositories" type="HBoxContainer" parent="."]
 margin_left = 5.0
-margin_top = 75.0
+margin_top = 5.0
 margin_right = 1203.0
 margin_bottom = 1079.0
+mouse_filter = 2
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -137,9 +139,10 @@ anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
 margin_right = 599.0
-margin_bottom = 1004.0
+margin_bottom = 1074.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+label = "Goal"
 
 [node name="ActiveRepository" parent="Repositories" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -147,8 +150,9 @@ anchor_bottom = 0.0
 margin_left = 599.0
 margin_top = 0.0
 margin_right = 1198.0
-margin_bottom = 1004.0
+margin_bottom = 1074.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+label = "Yours!"
 [connection signal="text_entered" from="Terminal/Control/Input" to="Terminal" method="send_command"]
 [connection signal="pressed" from="CommitMessage/SaveButton" to="." method="save_commit_message"]
