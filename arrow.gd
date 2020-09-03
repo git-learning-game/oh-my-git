@@ -2,13 +2,13 @@ extends Node2D
 
 var label = "label" setget label_set
 var target: String setget target_set
-var repository: Node2D
+var repository: Container
 
 func _ready():
 	pass
 
 func _process(delta):
-	if repository.objects.has(target):
+	if repository and repository.objects.has(target):
 		var t = repository.objects[target]
 		#print(t)
 		$Line.points[1] = t.global_position - global_position

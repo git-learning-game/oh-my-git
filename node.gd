@@ -3,7 +3,7 @@ extends Node2D
 var id setget id_set
 var content setget content_set
 var type setget type_set
-var repository: Node2D
+var repository: Container
 
 var children = {} setget children_set
 var id_always_visible = false

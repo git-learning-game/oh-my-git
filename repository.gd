@@ -1,8 +1,8 @@
-extends Node2D
+extends Container
 
 export var path: String setget set_path, get_path
-export var size: Vector2
 var objects = {}
+
 var node = preload("res://node.tscn")
 
 func _ready():
@@ -32,7 +32,7 @@ func update_index():
 	$Index.text = git("ls-files")
 
 func random_position():
-	return Vector2(rand_range(0, size.x), rand_range(0, size.y))
+	return Vector2(rand_range(0, rect_size.x), rand_range(0, rect_size.y))
 		
 func update_objects():
 	for o in all_objects():
@@ -97,8 +97,9 @@ func apply_forces():
 			var f = 3000/pow(d+0.00001,1.5)
 			o.position += dir*f
 			o2.position -= dir*f
-		var d = o.position.distance_to(Vector2(size.x/2, size.y/2))
-		var dir = (o.position - Vector2(size.x/2, size.y/2)).normalized()
+		var center_of_gravity = rect_size/2
+		var d = o.position.distance_to(center_of_gravity)
+		var dir = (o.position - center_of_gravity).normalized()
 		var f = (d+0.00001)*0.01
 		o.position -= dir*f
 

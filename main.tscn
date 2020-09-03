@@ -109,15 +109,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GoalRepository" parent="." instance=ExtResource( 3 )]
-visible = false
-position = Vector2( 21.5742, 19.4168 )
-size = Vector2( 500, 1000 )
-
-[node name="ActiveRepository" parent="." instance=ExtResource( 3 )]
-position = Vector2( 356.756, 44.1985 )
-size = Vector2( 500, 1000 )
-
 [node name="LevelSelect" type="MenuButton" parent="."]
 visible = false
 margin_left = 11.5584
@@ -129,5 +120,35 @@ flat = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Repositories" type="HBoxContainer" parent="."]
+margin_left = 5.0
+margin_top = 75.0
+margin_right = 1203.0
+margin_bottom = 1079.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoalRepository" parent="Repositories" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 599.0
+margin_bottom = 1004.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActiveRepository" parent="Repositories" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 599.0
+margin_top = 0.0
+margin_right = 1198.0
+margin_bottom = 1004.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 [connection signal="text_entered" from="Terminal/Control/Input" to="Terminal" method="send_command"]
 [connection signal="pressed" from="CommitMessage/SaveButton" to="." method="save_commit_message"]

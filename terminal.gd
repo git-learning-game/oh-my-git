@@ -32,4 +32,4 @@ func run_command_in_a_thread(command):
 	input.text = ""
 	output.text = output.text + "$ " + command + "\n" + o
 	output.scroll_vertical = 999999
-	$"../ActiveRepository".update_everything()
+	$"../Repositories/ActiveRepository".update_everything() # FIXME

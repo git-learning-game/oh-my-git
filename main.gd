@@ -7,6 +7,8 @@ var client_connection
 
 onready var input = $Terminal/Control/Input
 onready var output = $Terminal/Control/Output
+onready var goal_repository = $Repositories/GoalRepository
+onready var active_repository = $Repositories/ActiveRepository
 
 func _ready():
 	# Initialize level select.
@@ -57,8 +59,8 @@ func load_level(id):
 	construct_repo(goal_script, goal_repository_path)
 	construct_repo(active_script, active_repository_path)
 	
-	$GoalRepository.path = goal_repository_path
-	$ActiveRepository.path = active_repository_path
+	goal_repository.path = goal_repository_path
+	active_repository.path = active_repository_path
 	
 func construct_repo(script, path):
 	print(path)
@@ -99,11 +101,11 @@ func _process(delta):
 func read_commit_message():
 	$CommitMessage.show()
 	input.editable = false
-	$CommitMessage.text = game.read_file($ActiveRepository.path+"/.git/COMMIT_EDITMSG")
+	$CommitMessage.text = game.read_file(active_repository.path+"/.git/COMMIT_EDITMSG")
 	$CommitMessage.grab_focus()
 
 func save_commit_message():
-	game.write_file($ActiveRepository.path+"/.git/COMMIT_EDITMSG", $CommitMessage.text)
+	game.write_file(active_repository.path+"/.git/COMMIT_EDITMSG", $CommitMessage.text)
 	print("disconnect")
 	client_connection.disconnect_from_host()
 	input.editable = true
