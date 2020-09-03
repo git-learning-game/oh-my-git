@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Untitled Game"
+config/name="git-hydra"
 run/main_scene="res://main.tscn"
 
 [autoload]

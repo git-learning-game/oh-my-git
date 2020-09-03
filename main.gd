@@ -26,6 +26,7 @@ func _ready():
 	input.grab_focus()
 	
 func list_levels():
+	return ["01-blob", "02-tree", "03-commit", "04-parents"]
 	var levels = []
 	var dir = Directory.new()
 	dir.open("levels")
@@ -48,7 +49,7 @@ func load_level(id):
 	var level = levels[id]
 	var cwd = game.run("pwd")
 	var tmp_prefix = "/tmp/"
-	var level_prefix = cwd+"/levels/"
+	var level_prefix = "res://levels/"
 	
 	var goal_repository_path = tmp_prefix+"goal/"
 	var active_repository_path = tmp_prefix+"active/"

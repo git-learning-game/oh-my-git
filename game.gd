@@ -52,6 +52,7 @@ func sh(command, wd="/tmp/"):
 	return output[0]
 
 func read_file(path):
+	print("read "+path)
 	var file = File.new()
 	file.open(path, File.READ)
 	var content = file.get_as_text()
