@@ -1,16 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://terminal.gd" type="Script" id=1]
+[ext_resource path="res://terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
 [ext_resource path="res://repository.tscn" type="PackedScene" id=3]
-[ext_resource path="res://command_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -24,71 +17,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Terminal" type="Control" parent="."]
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="VBoxContainer" parent="Terminal"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1208.0
-margin_top = 6.0
-margin_right = 1908.0
-margin_bottom = 1070.0
-custom_constants/separation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Output" type="TextEdit" parent="Terminal/Control"]
-margin_right = 700.0
-margin_bottom = 1038.0
-focus_mode = 0
-size_flags_vertical = 3
-custom_styles/read_only = SubResource( 1 )
-custom_fonts/font = ExtResource( 5 )
-readonly = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" parent="Terminal/Control" instance=ExtResource( 4 )]
-visible = false
-margin_left = 0.0
-margin_top = 852.0
-margin_right = 700.0
-margin_bottom = 905.0
-align = 0
-
-[node name="Button2" parent="Terminal/Control" instance=ExtResource( 4 )]
-visible = false
-margin_left = 0.0
-margin_top = 905.0
-margin_right = 700.0
-margin_bottom = 958.0
-text = "git switch -c $RANDOM"
-align = 0
-
-[node name="Button3" parent="Terminal/Control" instance=ExtResource( 4 )]
-visible = false
-margin_left = 0.0
-margin_top = 958.0
-margin_right = 700.0
-margin_bottom = 1011.0
-text = "git checkout HEAD^"
-align = 0
-
-[node name="Input" type="LineEdit" parent="Terminal/Control"]
-margin_top = 1038.0
-margin_right = 700.0
-margin_bottom = 1064.0
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Terminal" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1223.0
+margin_top = 484.0
+margin_right = 1898.0
+margin_bottom = 1059.0
 
 [node name="CommitMessage" type="TextEdit" parent="."]
 visible = false
@@ -111,10 +46,10 @@ __meta__ = {
 }
 
 [node name="LevelSelect" type="MenuButton" parent="."]
-margin_left = 11.5584
-margin_top = 1036.1
-margin_right = 173.558
-margin_bottom = 1068.1
+margin_left = 1226.25
+margin_top = 16.2615
+margin_right = 1388.25
+margin_bottom = 48.2615
 custom_fonts/font = ExtResource( 5 )
 text = "Select level..."
 flat = false
@@ -153,6 +88,18 @@ margin_right = 1198.0
 margin_bottom = 1033.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-label = "Yours!"
-[connection signal="text_entered" from="Terminal/Control/Input" to="Terminal" method="send_command"]
+label = "Your repository"
+
+[node name="LevelDescription" type="RichTextLabel" parent="."]
+margin_left = 1224.0
+margin_top = 58.0
+margin_right = 1889.0
+margin_bottom = 472.0
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "Level description here!"
+text = "Level description here!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="CommitMessage/SaveButton" to="." method="save_commit_message"]

@@ -1,0 +1,7 @@
+touch empty_file
+git add .
+git write-tree
+git commit-tree 3185 -m 'Clever commit message'
+
+rm empty_file
+git update-index --remove empty_file

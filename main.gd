@@ -39,6 +39,7 @@ func list_levels():
 			levels.append(file)
 
 	dir.list_dir_end()
+	levels.sort()
 	return levels
 
 func load_level(id):
@@ -53,6 +54,9 @@ func load_level(id):
 	var active_repository_path = tmp_prefix+"active/"
 	var goal_script = level_prefix+level+"/goal"
 	var active_script = level_prefix+level+"/start"
+	
+	var description = game.read_file(level_prefix+level+"/description")
+	$LevelDescription.bbcode_text = description
 	
 	OS.execute("rm", ["-r", active_repository_path], true)
 	OS.execute("rm", ["-r", goal_repository_path], true)

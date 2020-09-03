@@ -1,5 +1,0 @@
-echo -e "bread\ntomato\nbread" > sandwich
-git add sandwich
-git commit -m "Initial sandwich"
-echo -e "bread\ntomato\ncucumber\nbread" > sandwich
-git commit -am "Add cucumber"

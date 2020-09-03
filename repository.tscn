@@ -17,11 +17,11 @@ __meta__ = {
 }
 
 [node name="Index" type="Label" parent="."]
-visible = false
-margin_left = 36.0787
-margin_top = 120.0
+margin_left = 32.0
+margin_top = 80.0
 margin_right = 375.079
 margin_bottom = 1044.0
+custom_fonts/font = ExtResource( 2 )
 text = "file1
 file2"
 __meta__ = {
@@ -29,9 +29,8 @@ __meta__ = {
 }
 
 [node name="IndexLabel" type="Label" parent="."]
-visible = false
-margin_left = 38.0
-margin_top = 69.0
+margin_left = 21.0
+margin_top = 65.0
 margin_right = 377.0
 margin_bottom = 108.0
 text = "Index:"

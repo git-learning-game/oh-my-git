@@ -1,0 +1,5 @@
+When using the commit-tree command, you can optionally specify a parent:
+
+    $ git commit-tree <tree> -m "Description" -p <parent commit>
+
+Can you make a string of three commits? We placed an empty tree in your repo to get you started.

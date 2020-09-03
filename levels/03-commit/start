@@ -1,0 +1,6 @@
+touch empty_file
+git add .
+git write-tree
+
+rm empty_file
+git update-index --remove empty_file
