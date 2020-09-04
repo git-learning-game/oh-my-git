@@ -7,6 +7,7 @@ var repository: Container
 
 var children = {} setget children_set
 var id_always_visible = false
+var held = false
 
 var arrow = preload("res://arrow.tscn")
 
@@ -14,6 +15,9 @@ func _ready():
 	pass
 
 func _process(delta):
+	if held:
+		global_position = get_global_mouse_position()
+		
 	for c in children.keys():
 		if get_node("..").objects.has(c):
 			var other = get_node("..").objects[c]
@@ -80,7 +84,11 @@ func _on_unhover():
 		$ID.visible = false
   
 func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed:
-		var input = get_tree().get_current_scene().find_node("Terminal").find_node("Control").find_node("Input")
-		input.text += $ID.text
-		input.caret_position = input.text.length()
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT:
+			held = event.pressed
+		if event.button_index == BUTTON_RIGHT:
+			if event.pressed:
+				var input = get_tree().get_current_scene().find_node("Terminal").find_node("Control").find_node("Input")
+				input.text += $ID.text
+				input.caret_position = input.text.length()
