@@ -32,6 +32,8 @@ margin_top = 484.0
 margin_right = 1907.0
 margin_bottom = 1068.0
 custom_fonts/font = ExtResource( 5 )
+custom_colors/background_color = Color( 0, 0, 0, 1 )
+syntax_highlighting = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

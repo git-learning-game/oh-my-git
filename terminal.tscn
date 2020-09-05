@@ -4,10 +4,18 @@
 [ext_resource path="res://terminal.gd" type="Script" id=2]
 [ext_resource path="res://command_button.tscn" type="PackedScene" id=4]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 5.0
 bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Terminal" type="Container"]
@@ -26,17 +34,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Output" type="TextEdit" parent="Control"]
+[node name="Output" type="RichTextLabel" parent="Control"]
 margin_right = 1920.0
-margin_bottom = 1054.0
-focus_mode = 0
+margin_bottom = 1039.0
 size_flags_vertical = 3
-custom_styles/read_only = SubResource( 1 )
-custom_fonts/font = ExtResource( 1 )
-readonly = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/normal = SubResource( 2 )
+custom_fonts/normal_font = ExtResource( 1 )
+scroll_following = true
 
 [node name="Button" parent="Control" instance=ExtResource( 4 )]
 visible = false
@@ -62,10 +66,10 @@ text = "git checkout HEAD^"
 align = 0
 
 [node name="Input" type="LineEdit" parent="Control"]
-margin_top = 1054.0
+margin_top = 1039.0
 margin_right = 1920.0
 margin_bottom = 1080.0
-custom_styles/normal = SubResource( 2 )
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 caret_blink = true
 __meta__ = {
