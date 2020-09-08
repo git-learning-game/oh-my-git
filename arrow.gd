@@ -7,7 +7,7 @@ var repository: Container
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if repository and repository.objects.has(target):
 		var t = repository.objects[target]
 		#print(t)

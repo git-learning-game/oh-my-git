@@ -11,7 +11,7 @@ var objects = {}
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if path:
 		apply_forces()
 		
@@ -184,9 +184,10 @@ func commit_parents(id):
 
 func all_refs():
 	var refs = []
-	for line in git("show-ref", true):
+	# If there are no refs, show-ref will have exit code 1. We don't care.
+	for line in git("show-ref || true", true):
 		line = line.split(" ")
-		var id = line[0]
+		var _id = line[0]
 		var name = line[1]
 		refs.push_back(name)
 	return refs

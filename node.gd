@@ -14,7 +14,7 @@ var arrow = preload("res://arrow.tscn")
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if held:
 		global_position = get_global_mouse_position()
 		
@@ -83,7 +83,7 @@ func _on_unhover():
 		$Content.visible = false
 		$ID.visible = false
   
-func _input_event(viewport, event, shape_idx):
+func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			held = event.pressed

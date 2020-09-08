@@ -46,8 +46,11 @@ func _exec(command, args=[]):
 		print("exec: %s [%s]" % [command, PoolStringArray(args).join(", ")])
 		
 	var output = []
-	OS.execute(command, args, true, output, true)
+	var exit_code = OS.execute(command, args, true, output, true)
 	output = output[0]
+	
+	if exit_code != 0:
+		push_error("OS.execute failed: %s [%s] Output: %s" % [command, PoolStringArray(args).join(", "), output])
 	
 	if debug:
 		print(output)
