@@ -4,6 +4,8 @@ class_name Shell
 var _cwd
 var _fake_editor
 
+signal output(text)
+
 func _init():
 	# Copy fake-editor to tmp directory (because the original might be in a .pck file).
 	_fake_editor = game.tmp_prefix + "fake-editor"
@@ -37,6 +39,29 @@ func run(command):
 		print(output)
 	
 	return output
+
+var _t	
+func run_async(command):
+	_t = Thread.new()
+	_t.start(self, "run_async_thread", command)
+
+func run_async_thread(command):
+	var port = 1000 + (randi() % 1000)
+	var s = TCP_Server.new()
+	s.listen(port)
+	OS.execute("ncat", ["127.0.0.1", str(port), "-c", command], false, [], true)
+	while not s.is_connection_available():
+		pass
+	var c = s.take_connection()
+	print("ok")
+	while c.get_status() == StreamPeerTCP.STATUS_CONNECTED:
+		var available = c.get_available_bytes()
+		if available > 0:
+			var data = c.get_utf8_string(available)
+			emit_signal("output", data)
+			print(data)
+	c.disconnect_from_host()
+	s.stop()
 
 # Run a simple command with arguments, blocking, using OS.execute.
 func _exec(command, args=[]):

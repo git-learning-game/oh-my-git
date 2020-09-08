@@ -1,8 +1,12 @@
 extends Button
 
+export var async = false
+
 func _ready():
 	pass
 
-
 func pressed():
-	$"../..".send_command(text)
+	if async:
+		$"../..".send_command_async(text)
+	else:
+		$"../..".send_command(text)

@@ -9,6 +9,9 @@ onready var input = $Control/Input
 onready var output = $Control/Output
 onready var repo = $"../Repositories/ActiveRepository"
 
+func _ready():
+	repo.shell.connect("output", self, "receive_output")
+
 func _input(event):
 	if history.size() > 0:
 		if event.is_action_pressed("ui_up"):
@@ -32,9 +35,16 @@ func send_command(command):
 	thread = Thread.new()
 	thread.start(self, "run_command_in_a_thread", command)
 
+func send_command_async(command):
+	repo.shell.run_async(command)
+	input.text = ""
+
 func run_command_in_a_thread(command):
 	var o = repo.shell.run(command)
 	
 	input.text = ""
 	output.text = output.text + "$ " + command + "\n" + o
 	repo.update_everything() # FIXME
+
+func receive_output(text):
+	output.text += text
