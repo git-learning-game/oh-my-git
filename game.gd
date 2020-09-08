@@ -1,12 +1,19 @@
 extends Node
 
+var tmp_prefix = "/tmp/"
 var cwd
+var global_shell
 
 func _ready():
-	cwd = exec("pwd", [], true)
+	global_shell = Shell.new()
+	global_shell.cd(tmp_prefix)
+	
+	cwd = global_shell.run("pwd")
+	# Remove trailing newline.
+	cwd = cwd.substr(0,len(cwd)-1)
 
 # Run a simple command with arguments, blocking, using OS.execute.
-func exec(command, args=[], remote_trailing_newline=false):
+func exec(command, args=[]):
 	var debug = true
 	if debug:
 		print("game.exec: %s [%s]" % [command, PoolStringArray(args).join(", ")])
@@ -17,9 +24,6 @@ func exec(command, args=[], remote_trailing_newline=false):
 	
 	if debug:
 		print(output)
-	
-	if remote_trailing_newline:
-		output = output.substr(0,len(output)-1)
 
 	return output
 

@@ -2,9 +2,14 @@ extends Node
 class_name Shell
 
 var _cwd
+var _fake_editor
 
 func _init():
-	pass
+	# Copy fake-editor to tmp directory (because the original might be in a .pck file).
+	_fake_editor = game.tmp_prefix + "fake-editor"
+	var content = game.read_file("res://scripts/fake-editor")
+	game.write_file(_fake_editor, content)
+	run("chmod u+x " + _fake_editor)
 	
 func cd(dir):
 	_cwd = dir
@@ -18,8 +23,7 @@ func run(command):
 		print("$ %s" % command)
 	
 	var env = {}
-	env["EDITOR"] = game.cwd+"/scripts/fake-editor"
-	env["TEST"] = "hi"
+	env["EDITOR"] = _fake_editor
 	
 	var hacky_command = ""
 	for variable in env:

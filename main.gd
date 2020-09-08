@@ -46,18 +46,17 @@ func load_level(id):
 	var levels = list_levels()
 	
 	var level = levels[id]
-	var tmp_prefix = "/tmp/"
 	var level_prefix = "res://levels/"
 	
-	var goal_repository_path = tmp_prefix+"goal/"
-	var active_repository_path = tmp_prefix+"active/"
+	var goal_repository_path = game.tmp_prefix+"goal/"
+	var active_repository_path = game.tmp_prefix+"active/"
 	var goal_script = level_prefix+level+"/goal"
 	var active_script = level_prefix+level+"/start"
 	
 	var description = game.read_file(level_prefix+level+"/description")
 	$LevelDescription.bbcode_text = description
 	
-	# Danger zone! We're actually destroying stuff here.
+	# We're actually destroying stuff here.
 	# Make sure that active_repository is in a temporary directory.
 	var expected_prefix = "/tmp"
 	if active_repository_path.substr(0,4) != expected_prefix:
@@ -67,6 +66,7 @@ func load_level(id):
 		push_error("Refusing to delete a directory that does not start with %s" % expected_prefix)
 		get_tree().quit()
 	
+	# Danger zone!
 	game.exec("rm", ["-rf", active_repository_path])
 	game.exec("rm", ["-rf", goal_repository_path])
 	
@@ -80,8 +80,7 @@ func construct_repo(script, path):
 	# Becase in an exported game, all assets are in a .pck file, we need to put
 	# the script somewhere in the filesystem.
 	var content = game.read_file(script)
-	var tmp_prefix = "/tmp"
-	var script_path = tmp_prefix+"/git-hydra-script"
+	var script_path = game.tmp_prefix+"/git-hydra-script"
 	game.write_file(script_path, content)
 	
 	var shell = Shell.new()
