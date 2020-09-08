@@ -9,7 +9,7 @@ func _init():
 	_fake_editor = game.tmp_prefix + "fake-editor"
 	var content = game.read_file("res://scripts/fake-editor")
 	game.write_file(_fake_editor, content)
-	run("chmod u+x " + _fake_editor)
+	_exec("chmod", ["u+x", _fake_editor])
 	
 func cd(dir):
 	_cwd = dir
@@ -17,7 +17,7 @@ func cd(dir):
 # Run a shell command given as a string. Run this if you're interested in the
 # output of the command.
 func run(command):
-	var debug = false
+	var debug = true
 	
 	if debug:
 		print("$ %s" % command)
@@ -31,9 +31,25 @@ func run(command):
 	hacky_command += "cd '%s';" % _cwd
 	hacky_command += command
 	
-	var output = game.exec("/bin/sh", ["-c",  hacky_command])
+	var output = _exec("/bin/sh", ["-c",  hacky_command])
 	
 	if debug:
 		print(output)
 	
+	return output
+
+# Run a simple command with arguments, blocking, using OS.execute.
+func _exec(command, args=[]):
+	var debug = false
+	
+	if debug:
+		print("exec: %s [%s]" % [command, PoolStringArray(args).join(", ")])
+		
+	var output = []
+	OS.execute(command, args, true, output, true)
+	output = output[0]
+	
+	if debug:
+		print(output)
+
 	return output

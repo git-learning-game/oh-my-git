@@ -67,8 +67,8 @@ func load_level(id):
 		get_tree().quit()
 	
 	# Danger zone!
-	game.exec("rm", ["-rf", active_repository_path])
-	game.exec("rm", ["-rf", goal_repository_path])
+	game.global_shell.run("rm -rf '%s'" % active_repository_path)
+	game.global_shell.run("rm -rf '%s'" % goal_repository_path)
 	
 	construct_repo(goal_script, goal_repository_path)
 	construct_repo(active_script, active_repository_path)
