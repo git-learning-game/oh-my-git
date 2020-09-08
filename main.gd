@@ -28,7 +28,7 @@ func _ready():
 func list_levels():
 	var levels = []
 	var dir = Directory.new()
-	dir.open("levels")
+	dir.open("res://levels")
 	dir.list_dir_begin()
 
 	while true:
@@ -47,7 +47,7 @@ func load_level(id):
 	
 	var level = levels[id]
 	var tmp_prefix = "/tmp/"
-	var level_prefix = game.cwd + "/levels/"
+	var level_prefix = "res://levels/"
 	
 	var goal_repository_path = tmp_prefix+"goal/"
 	var active_repository_path = tmp_prefix+"active/"
@@ -67,8 +67,8 @@ func load_level(id):
 		push_error("Refusing to delete a directory that does not start with %s" % expected_prefix)
 		get_tree().quit()
 	
-	game.exec("rm", ["-r", active_repository_path])
-	game.exec("rm", ["-r", goal_repository_path])
+	game.exec("rm", ["-rf", active_repository_path])
+	game.exec("rm", ["-rf", goal_repository_path])
 	
 	construct_repo(goal_script, goal_repository_path)
 	construct_repo(active_script, active_repository_path)
@@ -77,11 +77,18 @@ func load_level(id):
 	active_repository.path = active_repository_path
 	
 func construct_repo(script, path):
+	# Becase in an exported game, all assets are in a .pck file, we need to put
+	# the script somewhere in the filesystem.
+	var content = game.read_file(script)
+	var tmp_prefix = "/tmp"
+	var script_path = tmp_prefix+"/git-hydra-script"
+	game.write_file(script_path, content)
+	
 	var shell = Shell.new()
 	shell.run("mkdir " + path)
 	shell.cd(path)
 	shell.run("git init")
-	print(shell.run("source "+script))
+	print(shell.run("source "+script_path))
 	
 func _process(delta):
 	if server.is_connection_available():
