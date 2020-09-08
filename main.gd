@@ -46,9 +46,8 @@ func load_level(id):
 	var levels = list_levels()
 	
 	var level = levels[id]
-	var cwd = game.run("pwd")
 	var tmp_prefix = "/tmp/"
-	var level_prefix = cwd + "/levels/"
+	var level_prefix = game.cwd + "/levels/"
 	
 	var goal_repository_path = tmp_prefix+"goal/"
 	var active_repository_path = tmp_prefix+"active/"
@@ -58,8 +57,19 @@ func load_level(id):
 	var description = game.read_file(level_prefix+level+"/description")
 	$LevelDescription.bbcode_text = description
 	
-	OS.execute("rm", ["-r", active_repository_path], true)
-	OS.execute("rm", ["-r", goal_repository_path], true)
+	# Danger zone! We're actually destroying stuff here.
+	# Make sure that active_repository is in a temporary directory.
+	var expected_prefix = "/tmp"
+	if active_repository_path.substr(0,4) != expected_prefix:
+		push_error("Refusing to delete a directory that does not start with %s" % expected_prefix)
+		get_tree().quit()
+	if goal_repository_path.substr(0,4) != expected_prefix:
+		push_error("Refusing to delete a directory that does not start with %s" % expected_prefix)
+		get_tree().quit()
+	
+	game.exec("rm", ["-r", active_repository_path])
+	game.exec("rm", ["-r", goal_repository_path])
+	
 	construct_repo(goal_script, goal_repository_path)
 	construct_repo(active_script, active_repository_path)
 	
@@ -67,41 +77,16 @@ func load_level(id):
 	active_repository.path = active_repository_path
 	
 func construct_repo(script, path):
-	print(path)
-	game.sh("mkdir "+path)
-	game.sh("git init", path)
-	print(game.script(script, path))
-	#var commands = game.read_file(script).split("\n")
-	#print(commands)
-	#for command in commands:
-	#    print(command)
-	#    game.sh(command, path)
+	var shell = Shell.new()
+	shell.run("mkdir " + path)
+	shell.cd(path)
+	shell.run("git init")
+	print(shell.run("source "+script))
 	
 func _process(delta):
 	if server.is_connection_available():
 		client_connection = server.take_connection()
 		read_commit_message()
-#	if true or get_global_mouse_position().x < get_viewport_rect().size.x*0.7:
-#		if Input.is_action_just_pressed("click"):
-#			var mindist = 9999999
-#			for o in objects.values():
-#				var d = o.position.distance_to(get_global_mouse_position())
-#				if d < mindist:
-#					mindist = d
-#					dragged = o
-#		if Input.is_action_just_released("click"):
-#				dragged = null
-#		if dragged:
-#			dragged.position = get_global_mouse_position()
-
-#func run(command):
-#	var a = command.split(" ")
-#	var cmd = a[0]
-#	a.remove(0)
-#	var output = []
-#	OS.execute(cmd, a, true, output, true)
-#	print(command)
-#	print(output[0])
 	
 func read_commit_message():
 	$CommitMessage.show()

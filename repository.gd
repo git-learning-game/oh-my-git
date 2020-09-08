@@ -2,9 +2,11 @@ extends Container
 
 export var label: String setget set_label
 export var path: String setget set_path, get_path
-var objects = {}
 
 var node = preload("res://node.tscn")
+
+var shell = Shell.new()
+var objects = {}
 
 func _ready():
 	pass
@@ -21,6 +23,7 @@ func update_everything():
 
 func set_path(new_path):
 	path = new_path
+	shell.cd(new_path)
 	for o in objects.values():
 		o.queue_free()
 	objects = {}
@@ -109,13 +112,7 @@ func apply_forces():
 		o.position -= dir*f
 
 func git(args, splitlines = false):
-	var output = []
-	var a = args.split(" ")
-	#print ("Running: ", a)
-	a.insert(0, "-C")
-	a.insert(1, path)
-	OS.execute("git", a, true, output, true)
-	var o = output[0]
+	var o = shell.run("git " + args)
 	
 	if splitlines:
 		o = o.split("\n")
@@ -150,7 +147,7 @@ func update_head():
 		add_child(n2)
 
 func all_objects():
-	return git("cat-file --batch-check=%(objectname) --batch-all-objects", true)
+	return git("cat-file --batch-check='%(objectname)' --batch-all-objects", true)
 
 func object_type(id):
 	return git("cat-file -t "+id)

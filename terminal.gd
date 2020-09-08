@@ -7,6 +7,7 @@ var history_position = 0
 
 onready var input = $Control/Input
 onready var output = $Control/Output
+onready var repo = $"../Repositories/ActiveRepository"
 
 func _input(event):
 	if history.size() > 0:
@@ -32,9 +33,8 @@ func send_command(command):
 	thread.start(self, "run_command_in_a_thread", command)
 
 func run_command_in_a_thread(command):
-	var o = game.sh(command, "/tmp/active")
+	var o = repo.shell.run(command)
 	
 	input.text = ""
 	output.text = output.text + "$ " + command + "\n" + o
-	#output.scroll_vertical = 999999
-	$"../Repositories/ActiveRepository".update_everything() # FIXME
+	repo.update_everything() # FIXME
