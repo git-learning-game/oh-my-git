@@ -36,7 +36,7 @@ __meta__ = {
 
 [node name="Output" type="RichTextLabel" parent="Control"]
 margin_right = 1920.0
-margin_bottom = 1019.0
+margin_bottom = 1039.0
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 1 )
@@ -66,6 +66,7 @@ text = "git checkout HEAD^"
 align = 0
 
 [node name="Button4" parent="Control" instance=ExtResource( 4 )]
+visible = false
 margin_left = 0.0
 margin_top = 1019.0
 margin_right = 1920.0
@@ -84,4 +85,4 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="text_entered" from="Control/Input" to="." method="send_command_async"]
+[connection signal="text_entered" from="Control/Input" to="." method="send_command"]
