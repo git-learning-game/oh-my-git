@@ -81,7 +81,7 @@ func construct_repo(script, path):
 	# the script somewhere in the filesystem.
 	var content = game.read_file(script)
 	var script_path = game.tmp_prefix+"/git-hydra-script"
-	game.write_file(script_path, content)
+	game.write_file('C:\\Users\\1\\AppData\\Local\\Temp\\git-hydra-script', content)
 	
 	game.global_shell.run("mkdir " + path)
 	game.global_shell.cd(path)
@@ -93,6 +93,7 @@ func construct_repo(script, path):
 	
 func _process(_delta):
 	if server.is_connection_available():
+		print("Client connected")
 		client_connection = server.take_connection()
 		read_commit_message()
 	

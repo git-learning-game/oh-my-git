@@ -2,7 +2,6 @@ extends Node
 class_name Shell
 
 var _cwd
-var _fake_editor
 
 signal output(text)
 
@@ -21,7 +20,7 @@ func run(command):
 		print("$ %s" % command)
 	
 	var env = {}
-	env["EDITOR"] = _fake_editor
+	env["EDITOR"] = game.fake_editor
 	
 	var hacky_command = ""
 	for variable in env:
@@ -72,7 +71,7 @@ func run_async_thread(command):
 
 # Run a simple command with arguments, blocking, using OS.execute.
 func _exec(command, args=[]):
-	var debug = false
+	var debug = true
 	
 	if debug:
 		print("exec: %s [%s]" % [command, PoolStringArray(args).join(", ")])

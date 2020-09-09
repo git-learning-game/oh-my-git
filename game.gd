@@ -9,9 +9,9 @@ func _ready():
 	global_shell = Shell.new()
 	
 	# Copy fake-editor to tmp directory (because the original might be in a .pck file).
-	var fake_editor = tmp_prefix + "fake-editor"
+	fake_editor = tmp_prefix + "fake-editor"
 	var content = game.read_file("res://scripts/fake-editor")
-	write_file(fake_editor, content)
+	write_file('C:\\Users\\1\\AppData\\Local\\Temp\\fake-editor', content)
 	global_shell.run("chmod u+x " + fake_editor)
 
 func read_file(path):
@@ -34,11 +34,5 @@ func write_file(path, content):
 
 func _tmp_prefix():
 	var os = OS.get_name()
-	
-	if os == "X11":
-		return "/tmp/"
-	elif os == "Windows":
-		return "%temp%/"
-	else:
-		push_error("Unsupported OS")
-		get_tree().quit()
+	return "/tmp/"
+
