@@ -33,12 +33,23 @@ func run(command):
 	hacky_command += "cd '%s';" % _cwd
 	hacky_command += command
 	
-	var output = _exec("/bin/sh", ["-c",  hacky_command])
+	var output = _exec(_shell_binary(), ["-c",  hacky_command])
 	
 	if debug:
 		print(output)
 	
 	return output
+	
+func _shell_binary():
+	var os = OS.get_name()
+	
+	if os == "X11":
+		return "/bin/sh"
+	elif os == "Windows":
+		return "external/git_bash.exe"
+	else:
+		push_error("Unsupported OS")
+		get_tree().quit()
 
 var _t	
 func run_async(command):
