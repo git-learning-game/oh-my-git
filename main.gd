@@ -83,11 +83,11 @@ func construct_repo(script, path):
 	var script_path = game.tmp_prefix+"/git-hydra-script"
 	game.write_file(script_path, content)
 	
-	var shell = Shell.new()
-	shell.run("mkdir " + path)
-	shell.cd(path)
-	shell.run("git init")
-	var o = shell.run("source "+script_path)
+	game.global_shell.run("mkdir " + path)
+	game.global_shell.cd(path)
+	game.global_shell.run("git init")
+	var o = game.global_shell.run("source "+script_path)
+	
 	if game.debug:
 		print(o)
 	

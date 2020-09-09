@@ -7,11 +7,7 @@ var _fake_editor
 signal output(text)
 
 func _init():
-	# Copy fake-editor to tmp directory (because the original might be in a .pck file).
-	_fake_editor = game.tmp_prefix + "fake-editor"
-	var content = game.read_file("res://scripts/fake-editor")
-	game.write_file(_fake_editor, content)
-	_exec("chmod", ["u+x", _fake_editor])
+	_cwd = game.tmp_prefix
 	
 func cd(dir):
 	_cwd = dir
@@ -44,9 +40,9 @@ func _shell_binary():
 	var os = OS.get_name()
 	
 	if os == "X11":
-		return "/bin/sh"
+		return "sh"
 	elif os == "Windows":
-		return "external/git_bash.exe"
+		return "sh.exe"
 	else:
 		push_error("Unsupported OS")
 		get_tree().quit()
