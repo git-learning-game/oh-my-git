@@ -48,8 +48,8 @@ func load_level(id):
 	var level = levels[id]
 	var level_prefix = "res://levels/"
 	
-	var goal_repository_path = game.tmp_prefix+"goal/"
-	var active_repository_path = game.tmp_prefix+"active/"
+	var goal_repository_path = "/tmp/goal/"
+	var active_repository_path = "/tmp/active/"
 	var goal_script = level_prefix+level+"/goal"
 	var active_script = level_prefix+level+"/start"
 	
@@ -80,8 +80,9 @@ func construct_repo(script, path):
 	# Becase in an exported game, all assets are in a .pck file, we need to put
 	# the script somewhere in the filesystem.
 	var content = game.read_file(script)
-	var script_path = game.tmp_prefix+"/git-hydra-script"
-	game.write_file('C:\\Users\\1\\AppData\\Local\\Temp\\git-hydra-script', content)
+	var script_path_outside = game.tmp_prefix+"/git-hydra-script"
+	var script_path = "/tmp/git-hydra-script"
+	game.write_file(script_path_outside, content)
 	
 	game.global_shell.run("mkdir " + path)
 	game.global_shell.cd(path)

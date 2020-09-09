@@ -6,7 +6,7 @@ var _cwd
 signal output(text)
 
 func _init():
-	_cwd = game.tmp_prefix
+	_cwd = "/tmp"
 	
 func cd(dir):
 	_cwd = dir
@@ -28,7 +28,7 @@ func run(command):
 	hacky_command += "cd '%s';" % _cwd
 	hacky_command += command
 	
-	var output = _exec(_shell_binary(), ["-c",  hacky_command])
+	var output = game.exec(_shell_binary(), ["-c",  hacky_command])
 	
 	if debug:
 		print(output)
@@ -41,7 +41,7 @@ func _shell_binary():
 	if os == "X11":
 		return "sh"
 	elif os == "Windows":
-		return "sh.exe"
+		return "dependencies\\windows\\git\\bin\\sh.exe"
 	else:
 		push_error("Unsupported OS")
 		get_tree().quit()
@@ -69,21 +69,3 @@ func run_async_thread(command):
 	c.disconnect_from_host()
 	s.stop()
 
-# Run a simple command with arguments, blocking, using OS.execute.
-func _exec(command, args=[]):
-	var debug = true
-	
-	if debug:
-		print("exec: %s [%s]" % [command, PoolStringArray(args).join(", ")])
-		
-	var output = []
-	var exit_code = OS.execute(command, args, true, output, true)
-	output = output[0]
-	
-	if exit_code != 0:
-		push_error("OS.execute failed: %s [%s] Output: %s" % [command, PoolStringArray(args).join(", "), output])
-	
-	if debug:
-		print(output)
-
-	return output
