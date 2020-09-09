@@ -40,7 +40,7 @@ func _tmp_prefix():
 	elif os == "Windows":
 		# For some reason, this command outputs a space in the end? We remove it.
 		# Also, Godot's default is to use forward slashes for everything.
-		return exec("echo", ["%TEMP%"]).replacen("\\", "/").replace(" \n", "")
+		return exec("echo", ["%TEMP%"]).replacen("\\", "/").replace(" \n", "/")
 	else:
 		push_error("Unsupported OS")
 		get_tree().quit()

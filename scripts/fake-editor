@@ -1,3 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env perl
 
-nc localhost 1234
+use IO::Socket;
+
+$socket = IO::Socket::INET->new(PeerAddr => "127.0.0.1",
+                                PeerPort => 1234,
+                                Proto    => "tcp",
+                                Type     => SOCK_STREAM);
+
+my $reply;
+$socket->read($reply, 1000);

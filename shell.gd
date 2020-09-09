@@ -21,6 +21,10 @@ func run(command):
 	
 	var env = {}
 	env["EDITOR"] = game.fake_editor
+	env["GIT_AUTHOR_NAME"] = "You"
+	env["GIT_COMMITTER_NAME"] = "You"
+	env["GIT_AUTHOR_EMAIL"] = "you@example.com"
+	env["GIT_COMMITTER_EMAIL"] = "you@example.com"
 	
 	var hacky_command = ""
 	for variable in env:

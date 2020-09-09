@@ -101,11 +101,13 @@ func _process(_delta):
 func read_commit_message():
 	$CommitMessage.show()
 	input.editable = false
-	$CommitMessage.text = game.read_file(active_repository.path+"/.git/COMMIT_EDITMSG")
+	var fixme_path = game.tmp_prefix+"/active"
+	$CommitMessage.text = game.read_file(fixme_path+"/.git/COMMIT_EDITMSG")
 	$CommitMessage.grab_focus()
 
 func save_commit_message():
-	game.write_file(active_repository.path+"/.git/COMMIT_EDITMSG", $CommitMessage.text)
+	var fixme_path = game.tmp_prefix+"/active"
+	game.write_file(fixme_path+"/.git/COMMIT_EDITMSG", $CommitMessage.text)
 	print("disconnect")
 	client_connection.disconnect_from_host()
 	input.editable = true
