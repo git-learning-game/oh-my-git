@@ -4,6 +4,7 @@ var dragged = null
 
 var server
 var client_connection
+var current_level = 0
 
 onready var input = $Terminal/Control/Input
 onready var output = $Terminal/Control/Output
@@ -43,6 +44,8 @@ func list_levels():
 	return levels
 
 func load_level(id):
+	current_level = id
+	
 	var levels = list_levels()
 	
 	var level = levels[id]
@@ -80,6 +83,10 @@ func load_level(id):
 	var win_script_target = game.tmp_prefix+"/win"
 	var dir = Directory.new()
 	dir.copy(win_script, win_script_target)
+
+func load_next_level():
+	current_level += 1
+	load_level(current_level)
 	
 func construct_repo(script, path):
 	# Becase in an exported game, all assets are in a .pck file, we need to put

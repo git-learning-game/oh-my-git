@@ -36,7 +36,7 @@ __meta__ = {
 
 [node name="Output" type="RichTextLabel" parent="Control"]
 margin_right = 1920.0
-margin_bottom = 1019.0
+margin_bottom = 999.0
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 1 )
@@ -44,26 +44,35 @@ scroll_following = true
 
 [node name="Button" parent="Control" instance=ExtResource( 4 )]
 margin_left = 0.0
+margin_top = 999.0
+margin_right = 1920.0
+margin_bottom = 1019.0
+text = "git commit --allow-empty"
+align = 0
+
+[node name="Button5" parent="Control" instance=ExtResource( 4 )]
+margin_left = 0.0
 margin_top = 1019.0
 margin_right = 1920.0
 margin_bottom = 1039.0
-text = "git commit --allow-empty"
+text = "echo $RANDOM | git hash-object -w --stdin"
 align = 0
 
 [node name="Button2" parent="Control" instance=ExtResource( 4 )]
 visible = false
 margin_left = 0.0
-margin_top = 1019.0
+margin_top = 979.0
 margin_right = 1920.0
-margin_bottom = 1039.0
+margin_bottom = 999.0
 text = "git switch -c $RANDOM"
 align = 0
 
 [node name="Button3" parent="Control" instance=ExtResource( 4 )]
 visible = false
-margin_top = 958.0
-margin_right = 700.0
-margin_bottom = 1011.0
+margin_left = 0.0
+margin_top = 999.0
+margin_right = 1920.0
+margin_bottom = 1019.0
 text = "git checkout HEAD^"
 align = 0
 
@@ -75,7 +84,6 @@ margin_right = 1920.0
 margin_bottom = 1039.0
 text = "sleep 1;echo hey"
 align = 0
-async = true
 
 [node name="Input" type="LineEdit" parent="Control"]
 margin_top = 1039.0

@@ -8,6 +8,7 @@ var history_position = 0
 onready var input = $Control/Input
 onready var output = $Control/Output
 onready var repo = $"../Repositories/ActiveRepository"
+onready var main = get_parent()
 
 func _ready():
 	repo.shell.connect("output", self, "receive_output")
@@ -51,4 +52,6 @@ func receive_output(text):
 	output.text += text
 	
 func check_win_condition():
-	print( repo.shell.run("bash /tmp/win") )
+	if repo.shell.run("bash /tmp/win && echo yes || echo no") == "yes\n":
+		main.load_next_level()
+		print("you win!")
