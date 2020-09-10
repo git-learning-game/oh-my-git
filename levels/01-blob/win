@@ -1,0 +1,7 @@
+BLOB_COUNT=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep blob | wc -l)
+
+if [ "$BLOB_COUNT" -gt 2 ]; then
+    echo yes
+else
+    echo no
+fi

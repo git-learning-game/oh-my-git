@@ -76,6 +76,11 @@ func load_level(id):
 	goal_repository.path = goal_repository_path
 	active_repository.path = active_repository_path
 	
+	var win_script = level_prefix+level+"/win"
+	var win_script_target = game.tmp_prefix+"/win"
+	var dir = Directory.new()
+	dir.copy(win_script, win_script_target)
+	
 func construct_repo(script, path):
 	# Becase in an exported game, all assets are in a .pck file, we need to put
 	# the script somewhere in the filesystem.
@@ -87,7 +92,7 @@ func construct_repo(script, path):
 	game.global_shell.run("mkdir " + path)
 	game.global_shell.cd(path)
 	game.global_shell.run("git init")
-	var o = game.global_shell.run("source "+script_path)
+	var o = game.global_shell.run("sh "+script_path)
 	
 	if game.debug:
 		print(o)

@@ -41,10 +41,14 @@ func send_command_async(command):
 
 func run_command_in_a_thread(command):
 	var o = repo.shell.run(command)
+	check_win_condition()
 	
 	input.text = ""
 	output.text = output.text + "$ " + command + "\n" + o
-	repo.update_everything() # FIXME
+	repo.update_everything() 
 
 func receive_output(text):
 	output.text += text
+	
+func check_win_condition():
+	print( repo.shell.run("bash /tmp/win") )
