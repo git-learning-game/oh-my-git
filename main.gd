@@ -99,10 +99,7 @@ func construct_repo(script, path):
 	game.global_shell.run("mkdir " + path)
 	game.global_shell.cd(path)
 	game.global_shell.run("git init")
-	var o = game.global_shell.run("sh "+script_path)
-	
-	if game.debug:
-		print(o)
+	game.global_shell.run("sh "+script_path)
 	
 func _process(_delta):
 	if server.is_connection_available():

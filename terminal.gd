@@ -33,6 +33,10 @@ func send_command(command):
 	history.push_back(command)
 	history_position = history.size()
 	
+	input.editable = false
+	
+	if thread != null:
+		thread.wait_to_finish()
 	thread = Thread.new()
 	thread.start(self, "run_command_in_a_thread", command)
 
@@ -45,6 +49,7 @@ func run_command_in_a_thread(command):
 	check_win_condition()
 	
 	input.text = ""
+	input.editable = true	
 	output.text = output.text + "$ " + command + "\n" + o
 	repo.update_everything() 
 
@@ -54,4 +59,3 @@ func receive_output(text):
 func check_win_condition():
 	if repo.shell.run("bash /tmp/win && echo yes || echo no") == "yes\n":
 		main.load_next_level()
-		print("you win!")

@@ -2,7 +2,7 @@ extends Node
 
 var tmp_prefix = _tmp_prefix()
 var global_shell
-var debug = false
+var debug_file_io = false
 var fake_editor
 
 func _ready():
@@ -16,7 +16,7 @@ func _ready():
 	global_shell.run("chmod u+x " + fake_editor)
 
 func read_file(path):
-	if debug:
+	if debug_file_io:
 		print("reading " + path)
 	var file = File.new()
 	file.open(path, File.READ)
@@ -25,7 +25,7 @@ func read_file(path):
 	return content
 
 func write_file(path, content):
-	if debug:
+	if debug_file_io:
 		print("writing " + path)
 	var file = File.new()
 	file.open(path, File.WRITE)
@@ -47,7 +47,7 @@ func _tmp_prefix():
 
 # Run a simple command with arguments, blocking, using OS.execute.
 func exec(command, args=[]):
-	var debug = true
+	var debug = false
 	
 	if debug:
 		print("exec: %s [%s]" % [command, PoolStringArray(args).join(", ")])

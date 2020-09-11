@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://terminal.gd" type="Script" id=2]
@@ -10,6 +10,13 @@ content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
 bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 10.0
@@ -89,6 +96,7 @@ align = 0
 margin_top = 1039.0
 margin_right = 1920.0
 margin_bottom = 1080.0
+custom_styles/read_only = SubResource( 3 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 1 )
 caret_blink = true
