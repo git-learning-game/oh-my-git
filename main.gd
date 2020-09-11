@@ -85,7 +85,7 @@ func load_level(id):
 	dir.copy(win_script, win_script_target)
 
 func load_next_level():
-	current_level += 1
+	current_level = (current_level + 1) % list_levels().size()
 	load_level(current_level)
 	
 func construct_repo(script, path):

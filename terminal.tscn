@@ -11,14 +11,14 @@ content_margin_top = 10.0
 content_margin_bottom = 10.0
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 5.0
 bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -43,7 +43,7 @@ __meta__ = {
 
 [node name="Output" type="RichTextLabel" parent="Control"]
 margin_right = 1920.0
-margin_bottom = 999.0
+margin_bottom = 979.0
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 1 )
@@ -51,18 +51,26 @@ scroll_following = true
 
 [node name="Button" parent="Control" instance=ExtResource( 4 )]
 margin_left = 0.0
-margin_top = 999.0
+margin_top = 979.0
 margin_right = 1920.0
-margin_bottom = 1019.0
+margin_bottom = 999.0
 text = "git commit --allow-empty"
 align = 0
 
 [node name="Button5" parent="Control" instance=ExtResource( 4 )]
 margin_left = 0.0
+margin_top = 999.0
+margin_right = 1920.0
+margin_bottom = 1019.0
+text = "echo $RANDOM | git hash-object -w --stdin"
+align = 0
+
+[node name="Button6" parent="Control" instance=ExtResource( 4 )]
+margin_left = 0.0
 margin_top = 1019.0
 margin_right = 1920.0
 margin_bottom = 1039.0
-text = "echo $RANDOM | git hash-object -w --stdin"
+text = "git update-index --add noises; git write-tree"
 align = 0
 
 [node name="Button2" parent="Control" instance=ExtResource( 4 )]
@@ -96,8 +104,8 @@ align = 0
 margin_top = 1039.0
 margin_right = 1920.0
 margin_bottom = 1080.0
-custom_styles/read_only = SubResource( 3 )
-custom_styles/normal = SubResource( 2 )
+custom_styles/read_only = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 custom_fonts/font = ExtResource( 1 )
 caret_blink = true
 __meta__ = {

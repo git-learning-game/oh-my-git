@@ -32,6 +32,22 @@ func run(command):
 	hacky_command += "cd '%s';" % _cwd
 	hacky_command += command
 	
+	# Godot's OS.execute wraps each argument in double quotes before executing.
+	# Because we want to be in a single-quote context, where nothing is evaluated,
+	# we end those double quotes and start a single quoted string. For each single
+	# quote appearing in our string, we close the single quoted string, and add
+	# a double quoted string containing the single quote. Ooooof!
+	#
+	# Example: The string
+	# 
+	#     test 'fu' "bla" blubb
+	# 
+	# becomes
+	# 
+	#     "'test '"'"'fu'"'"' "bla" blubb
+	# 
+	hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
+	
 	var output = game.exec(_shell_binary(), ["-c",  hacky_command])
 	
 	if debug:

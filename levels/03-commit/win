@@ -1,0 +1,3 @@
+COMMIT_COUNT=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep commit | wc -l)
+
+test "$COMMIT_COUNT" -gt 0

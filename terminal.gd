@@ -49,7 +49,7 @@ func run_command_in_a_thread(command):
 	check_win_condition()
 	
 	input.text = ""
-	input.editable = true	
+	input.editable = true
 	output.text = output.text + "$ " + command + "\n" + o
 	repo.update_everything() 
 
@@ -57,5 +57,5 @@ func receive_output(text):
 	output.text += text
 	
 func check_win_condition():
-	if repo.shell.run("bash /tmp/win && echo yes || echo no") == "yes\n":
+	if repo.shell.run("bash /tmp/win &>/dev/null && echo yes || echo no") == "yes\n":
 		main.load_next_level()
