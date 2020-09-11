@@ -59,9 +59,9 @@ func _shell_binary():
 	var os = OS.get_name()
 	
 	if os == "X11":
-		return "sh"
+		return "bash"
 	elif os == "Windows":
-		return "dependencies\\windows\\git\\bin\\sh.exe"
+		return "dependencies\\windows\\git\\bin\\bash.exe"
 	else:
 		push_error("Unsupported OS")
 		get_tree().quit()

@@ -57,5 +57,5 @@ func receive_output(text):
 	output.text += text
 	
 func check_win_condition():
-	if repo.shell.run("bash /tmp/win &>/dev/null && echo yes || echo no") == "yes\n":
-		main.load_next_level()
+	if repo.shell.run("bash /tmp/win 2>&1 >/dev/null && echo yes || echo no") == "yes\n":
+		main.show_win_status()

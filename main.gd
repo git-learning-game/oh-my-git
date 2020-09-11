@@ -44,6 +44,7 @@ func list_levels():
 	return levels
 
 func load_level(id):
+	$NextLevelButton.hide()
 	current_level = id
 	
 	var levels = list_levels()
@@ -123,3 +124,7 @@ func save_commit_message():
 	$CommitMessage.text = ""
 	$CommitMessage.hide()
 	input.grab_focus()
+	
+func show_win_status():
+	$NextLevelButton.show()
+	$LevelDescription.text = "Yay, you solved the puzzle! Enjoy the view or continue to the next level!"
