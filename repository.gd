@@ -78,6 +78,9 @@ func update_objects():
 					for p in commit_parents(o):
 						c[p] = ""
 					n.children = c
+				"tag":
+					print("tag")
+					n.children = tag_target(o)
 		add_child(n)
 		objects[o] = n
 	 
@@ -93,7 +96,7 @@ func update_refs():
 			objects[r] = n
 			add_child(n)
 		var n = objects[r]
-		n.children = {ref_id(r): ""}
+		n.children = {ref_target(r): ""}
 	
 func apply_forces():
 	for o in objects.values():
@@ -134,10 +137,10 @@ func update_head():
 		objects["HEAD"] = n
 		add_child(n)
 	var n = objects["HEAD"]
-	n.children = {symref_target("HEAD"): ""}
-	if not objects.has(symref_target("HEAD")):
+	n.children = {ref_target("HEAD"): ""}
+	if not objects.has(ref_target("HEAD")):
 		var n2 = node.instance()
-		var r = symref_target("HEAD")
+		var r = ref_target("HEAD")
 		n2.id = r
 		n2.type = "ref"
 		n2.content = ""
@@ -182,6 +185,10 @@ func commit_parents(id):
 				parents.push_back(ccc[1])
 	return parents
 
+func tag_target(id):
+	var c = git("rev-parse %s^{}" % id)
+	return {c: ""}
+
 func all_refs():
 	var refs = []
 	# If there are no refs, show-ref will have exit code 1. We don't care.
@@ -192,11 +199,10 @@ func all_refs():
 		refs.push_back(name)
 	return refs
 	
-func ref_id(ref):
-	return git("show-ref "+ref).split(" ")[0]
-
-func symref_target(symref):
-	var ret = git("symbolic-ref -q "+symref)
-	if ret != "":
-		return ret
-	return git("show-ref --head "+symref).split(" ")[0]
+func ref_target(ref):
+	# Test whether this is a symbolic ref.
+	var ret = git("symbolic-ref -q "+ref+" || true")
+	# If it's not, it's probably a regular ref.
+	if ret == "":
+		ret = git("show-ref --head "+ref).split(" ")[0]
+	return ret

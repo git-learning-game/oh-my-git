@@ -118,11 +118,10 @@ __meta__ = {
 }
 
 [node name="NextLevelButton" type="Button" parent="."]
-visible = false
-margin_left = 1403.0
-margin_top = 16.0
-margin_right = 1621.0
-margin_bottom = 47.0
+margin_left = 1688.03
+margin_top = 16.2615
+margin_right = 1906.03
+margin_bottom = 47.2615
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = ExtResource( 4 )
 custom_fonts/font = ExtResource( 5 )
@@ -130,5 +129,17 @@ text = "Next Level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ReloadButton" type="Button" parent="."]
+margin_left = 1400.72
+margin_top = 16.2615
+margin_right = 1545.72
+margin_bottom = 47.2615
+custom_fonts/font = ExtResource( 5 )
+text = "Reload"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="TextEditor/SaveButton" to="." method="save_message"]
 [connection signal="pressed" from="NextLevelButton" to="." method="load_next_level"]
+[connection signal="pressed" from="ReloadButton" to="." method="reload_level"]

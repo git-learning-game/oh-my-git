@@ -85,6 +85,9 @@ func load_level(id):
 	var dir = Directory.new()
 	dir.copy(win_script, win_script_target)
 
+func reload_level():
+	load_level(current_level)
+
 func load_next_level():
 	current_level = (current_level + 1) % list_levels().size()
 	load_level(current_level)
@@ -93,8 +96,8 @@ func construct_repo(script, path):
 	# Becase in an exported game, all assets are in a .pck file, we need to put
 	# the script somewhere in the filesystem.
 	var content = ""
-	if ResourceLoader.exists(script):
-		content = game.read_file(script)
+	#if ResourceLoader.exists(script):
+	content = game.read_file(script)
 	var script_path_outside = game.tmp_prefix+"/git-hydra-script"
 	var script_path = "/tmp/git-hydra-script"
 	game.write_file(script_path_outside, content)

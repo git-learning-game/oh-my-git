@@ -39,9 +39,8 @@ func type_set(new_type):
 	type = new_type
 	if type != "ref":
 		$ID.text = $ID.text.substr(0,8)
-	elif type == "ref":
-		var parts = $ID.text.split("/")
-		$ID.text = parts[parts.size()-1]
+	#elif type == "ref":
+		#$ID.text = $ID.text.replace("refs/", "")
 	match new_type:
 		"blob":
 			$Rect.color = Color("#333333")
@@ -51,7 +50,6 @@ func type_set(new_type):
 			$Rect.color = Color.orange
 		"tag":
 			$Rect.color = Color.blue
-			id_always_visible = true
 		"ref":
 			$Rect.color = Color("#6680ff")
 			id_always_visible = true
