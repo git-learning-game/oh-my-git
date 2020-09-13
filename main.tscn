@@ -34,7 +34,7 @@ margin_top = 484.0
 margin_right = 1898.0
 margin_bottom = 1059.0
 
-[node name="CommitMessage" type="TextEdit" parent="."]
+[node name="TextEditor" type="TextEdit" parent="."]
 visible = false
 margin_left = 1209.0
 margin_top = 484.0
@@ -48,7 +48,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SaveButton" type="Button" parent="CommitMessage"]
+[node name="SaveButton" type="Button" parent="TextEditor"]
 margin_left = 540.661
 margin_top = 528.031
 margin_right = 689.661
@@ -130,5 +130,5 @@ text = "Next Level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="CommitMessage/SaveButton" to="." method="save_commit_message"]
+[connection signal="pressed" from="TextEditor/SaveButton" to="." method="save_message"]
 [connection signal="pressed" from="NextLevelButton" to="." method="load_next_level"]
