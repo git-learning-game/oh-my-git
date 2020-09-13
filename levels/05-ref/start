@@ -1,0 +1,5 @@
+echo hello > hello
+echo world > world
+git add .
+TREE=$(git write-tree)
+git commit-tree $TREE -m "Initial commit"

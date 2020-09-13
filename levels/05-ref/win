@@ -1,0 +1,3 @@
+OBJECTS=$(git cat-file --batch-check='%(objectname)' --batch-all-objects | sort)
+REF_TARGETS=$(git show-ref -s | sort | uniq)
+test "$OBJECTS" = "$REF_TARGETS"

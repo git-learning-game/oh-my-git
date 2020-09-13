@@ -1,0 +1,9 @@
+Instead of pointing directly to objects, refs can also point to other refs!
+
+When that happens, they are called "symbolic refs". You can create or update a symbolic ref using
+
+    git symbolic-ref <name> <ref>
+
+Usually, you will only encounter a special symbolic ref called "HEAD". This ref is special in that it doesn't start with "refs/"!
+
+Try pointing HEAD to the refs in this repository!
