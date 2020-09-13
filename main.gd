@@ -92,7 +92,9 @@ func load_next_level():
 func construct_repo(script, path):
 	# Becase in an exported game, all assets are in a .pck file, we need to put
 	# the script somewhere in the filesystem.
-	var content = game.read_file(script)
+	var content = ""
+	if ResourceLoader.exists(script):
+		content = game.read_file(script)
 	var script_path_outside = game.tmp_prefix+"/git-hydra-script"
 	var script_path = "/tmp/git-hydra-script"
 	game.write_file(script_path_outside, content)
@@ -106,19 +108,25 @@ func _process(_delta):
 	if server.is_connection_available():
 		print("Client connected")
 		client_connection = server.take_connection()
-		read_commit_message()
+		var length = client_connection.get_u8()
+		var filename = client_connection.get_string(length)
+		var regex = RegEx.new()
+		regex.compile("(\\.git\\/.*)")
+		filename = regex.search(filename).get_string()
+		print(filename)
+		read_commit_message(filename)
 	
-func read_commit_message():
+func read_commit_message(filename):
 	$CommitMessage.show()
 	input.editable = false
-	var fixme_path = game.tmp_prefix+"/active"
-	$CommitMessage.text = game.read_file(fixme_path+"/.git/COMMIT_EDITMSG")
+	var fixme_path = game.tmp_prefix+"/active/"
+	$CommitMessage.text = game.read_file(fixme_path+filename)
+	$CommitMessage.path = filename
 	$CommitMessage.grab_focus()
 
 func save_commit_message():
-	var fixme_path = game.tmp_prefix+"/active"
-	game.write_file(fixme_path+"/.git/COMMIT_EDITMSG", $CommitMessage.text)
-	print("disconnect")
+	var fixme_path = game.tmp_prefix+"/active/"
+	game.write_file(fixme_path+$CommitMessage.path, $CommitMessage.text)
 	client_connection.disconnect_from_host()
 	input.editable = true
 	$CommitMessage.text = ""

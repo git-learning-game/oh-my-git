@@ -7,5 +7,11 @@ $socket = IO::Socket::INET->new(PeerAddr => "127.0.0.1",
                                 Proto    => "tcp",
                                 Type     => SOCK_STREAM);
 
+# Send the length of the first argument as a byte.
+$socket->send(chr(length($ARGV[0])));
+# Send the first argument as a string.
+$socket->send($ARGV[0]);
+
+# This call is intended to block, we're waiting for Godot to close the connection.
 my $reply;
 $socket->read($reply, 1000);
