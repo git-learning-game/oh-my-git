@@ -8,13 +8,14 @@ func _ready():
 	pass
 
 func _process(_delta):
+	var end = global_position + Vector2(0, 50)
 	if repository and repository.objects.has(target):
 		var t = repository.objects[target]
-		#print(t)
-		$Line.points[1] = t.global_position - global_position
-		$Label.position = ($Line.points[0] + $Line.points[1])/2
-		$Tip.position = ($Line.points[0] + $Line.points[1])/2
-		$Tip.rotation = PI+$Line.points[0].angle_to($Line.points[1])
+		end = t.global_position
+	$Line.points[1] = end - global_position
+	$Label.position = ($Line.points[0] + $Line.points[1])/2
+	$Tip.position = ($Line.points[0] + $Line.points[1])/2
+	$Tip.rotation = PI+$Line.points[0].angle_to($Line.points[1])
 	
 func label_set(new_label):
 	label = new_label

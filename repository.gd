@@ -50,29 +50,16 @@ func update_objects():
 		n.id = o
 		n.type = object_type(o)
 		n.content = object_content(o)
-		n.position = random_position()
 		n.repository = self
 	
 		if true:
-			#print(" ")
-			#print(o)
 			var type = object_type(o)
-			#print(type)
-			#print(object_content(o))
 			match type:
 				"blob":
 					pass
 				"tree":
-					#print("Children:")
-					#print(tree_children(o))
 					n.children = tree_children(o)
 				"commit":
-					#print("Tree:")
-					#print(commit_tree(o))
-					
-					#print("Parents:")
-					#print(commit_parents(o))
-					
 					var c = {}
 					c[commit_tree(o)] = ""
 					for p in commit_parents(o):
@@ -81,6 +68,8 @@ func update_objects():
 				"tag":
 					print("tag")
 					n.children = tag_target(o)
+		
+		n.position = find_position(n)
 		add_child(n)
 		objects[o] = n
 	 
@@ -92,8 +81,9 @@ func update_refs():
 			n.type = "ref"
 			n.content = ""
 			n.repository = self
-			n.position = random_position()
 			objects[r] = n
+			n.children = {ref_target(r): ""}
+			n.position = find_position(n)
 			add_child(n)
 		var n = objects[r]
 		n.children = {ref_target(r): ""}
@@ -105,7 +95,7 @@ func apply_forces():
 				continue
 			var d = o.position.distance_to(o2.position)
 			var dir = (o.global_position - o2.global_position).normalized()
-			var f = 3000/pow(d+0.00001,1.5)
+			var f = 2000/pow(d+0.00001,1.5)
 			o.position += dir*f
 			o2.position -= dir*f
 		var center_of_gravity = rect_size/2
@@ -113,6 +103,21 @@ func apply_forces():
 		var dir = (o.position - center_of_gravity).normalized()
 		var f = (d+0.00001)*Vector2(0.03, 0.01)
 		o.position -= dir*f
+	
+func find_position(n):	
+	var position = Vector2.ZERO
+	var count = 0
+	for child in n.children:
+		if objects.has(child):
+			position += objects[child].position
+			count += 1
+	if count > 0:
+		print(count)
+		position /= count
+		n.position = position + Vector2(0, -150)
+	else:
+		n.position = random_position()
+	return n.position
 
 func git(args, splitlines = false):
 	var o = shell.run("git " + args)
@@ -133,21 +138,12 @@ func update_head():
 		n.type = "head"
 		n.content = ""
 		n.repository = self
-		n.position = random_position()   
+		n.position = find_position(n)
+		   
 		objects["HEAD"] = n
 		add_child(n)
 	var n = objects["HEAD"]
 	n.children = {ref_target("HEAD"): ""}
-	if not objects.has(ref_target("HEAD")):
-		var n2 = node.instance()
-		var r = ref_target("HEAD")
-		n2.id = r
-		n2.type = "ref"
-		n2.content = ""
-		n2.repository = self
-		n2.position = random_position()
-		objects[r] = n2
-		add_child(n2)
 
 func all_objects():
 	return git("cat-file --batch-check='%(objectname)' --batch-all-objects", true)
