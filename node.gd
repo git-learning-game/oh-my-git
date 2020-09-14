@@ -17,17 +17,22 @@ func _ready():
 func _process(_delta):
 	if held:
 		global_position = get_global_mouse_position()
-		
+
+	if visible:
+		apply_forces()
+
+func apply_forces():
 	var offset = Vector2(0, 80)
-		
+	
 	for c in children.keys():
 		if get_node("..").objects.has(c):
 			var other = get_node("..").objects[c]
-			var d = other.position.distance_to(position+offset)
-			var dir = (other.position - (position+offset)).normalized()
-			var f = (d*0.03)
-			position += dir*f
-			other.position -= dir*f
+			if other.visible:
+				var d = other.position.distance_to(position+offset)
+				var dir = (other.position - (position+offset)).normalized()
+				var f = (d*0.03)
+				position += dir*f
+				other.position -= dir*f
 	
 func id_set(new_id):
 	id = new_id

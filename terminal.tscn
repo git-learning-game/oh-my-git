@@ -44,10 +44,13 @@ __meta__ = {
 [node name="Output" type="RichTextLabel" parent="Control"]
 margin_right = 1920.0
 margin_bottom = 979.0
+focus_mode = 2
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/selection_color = Color( 0.14902, 0.368627, 0.168627, 0.690196 )
 scroll_following = true
+selection_enabled = true
 
 [node name="Button" parent="Control" instance=ExtResource( 4 )]
 margin_left = 0.0

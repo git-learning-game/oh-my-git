@@ -8,6 +8,8 @@ var node = preload("res://node.tscn")
 var shell = Shell.new()
 var objects = {}
 
+var _simplified_view = false
+
 func _ready():
 	pass
 
@@ -46,27 +48,31 @@ func update_objects():
 	for o in all_objects():
 		if objects.has(o):
 			continue
+			
+		var type = object_type(o)
+		if _simplified_view:
+			if type == "tree" or type == "blob":
+				continue
+		
 		var n = node.instance()
 		n.id = o
 		n.type = object_type(o)
 		n.content = object_content(o)
 		n.repository = self
 	
-		if true:
-			var type = object_type(o)
-			match type:
-				"blob":
-					pass
-				"tree":
-					n.children = tree_children(o)
-				"commit":
-					var c = {}
-					c[commit_tree(o)] = ""
-					for p in commit_parents(o):
-						c[p] = ""
-					n.children = c
-				"tag":
-					n.children = tag_target(o)
+		match type:
+			"blob":
+				pass
+			"tree":
+				n.children = tree_children(o)
+			"commit":
+				var c = {}
+				c[commit_tree(o)] = ""
+				for p in commit_parents(o):
+					c[p] = ""
+				n.children = c
+			"tag":
+				n.children = tag_target(o)
 		
 		n.position = find_position(n)
 		add_child(n)
@@ -89,8 +95,10 @@ func update_refs():
 	
 func apply_forces():
 	for o in objects.values():
+		if not o.visible:
+			continue
 		for o2 in objects.values():
-			if o == o2:
+			if o == o2 or not o2.visible:
 				continue
 			var d = o.position.distance_to(o2.position)
 			var dir = (o.global_position - o2.global_position).normalized()
@@ -203,3 +211,14 @@ func ref_target(ref):
 		else:
 			ret = git("show-ref "+ref).split(" ")[0]
 	return ret
+
+
+func simplify_view(pressed):
+	_simplified_view = pressed
+
+	for o in objects:
+		var obj = objects[o]
+		if obj.type == "tree" or obj.type == "blob":
+			obj.visible = not pressed
+	
+	update_objects()

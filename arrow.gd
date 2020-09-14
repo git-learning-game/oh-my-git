@@ -9,12 +9,14 @@ func _ready():
 
 func _process(_delta):
 	var end = global_position + Vector2(0, 50)
-	if repository and repository.objects.has(target):
+	if repository and repository.objects.has(target) and repository.objects[target].visible:
 		var t = repository.objects[target]
 		end = t.global_position
 		$Target.hide()
 	else:
 		$Target.text = target
+		if $Target.text.substr(0, 5) != "refs/":
+			$Target.text = ""#$Target.text.substr(0,8)
 		$Target.show()
 	$Line.points[1] = end - global_position
 	$Label.position = ($Line.points[0] + $Line.points[1])/2

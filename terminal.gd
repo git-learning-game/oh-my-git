@@ -14,6 +14,8 @@ func _ready():
 	repo.shell.connect("output", self, "receive_output")
 
 func _input(event):
+	if event is InputEventKey:
+		input.grab_focus()
 	if history.size() > 0:
 		if event.is_action_pressed("ui_up"):
 			if history_position > 0:
@@ -57,7 +59,6 @@ func receive_output(text):
 	output.text += text
 
 func clear():
-	input.text = ""
 	output.text = ""
 	
 func check_win_condition():
