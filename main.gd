@@ -60,6 +60,7 @@ func load_level(id):
 	
 	var description = game.read_file(level_prefix+level+"/description")
 	$LevelDescription.bbcode_text = description
+	$LevelName.text = level
 	
 	# We're actually destroying stuff here.
 	# Make sure that active_repository is in a temporary directory.
