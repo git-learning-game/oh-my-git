@@ -7,8 +7,8 @@ var client_connection
 var current_level = 0
 
 onready var terminal = $Terminal
-onready var input = $Terminal/Control/Input
-onready var output = $Terminal/Control/Output
+onready var input = terminal.input
+onready var output = terminal.output
 onready var goal_repository = $Repositories/GoalRepository
 onready var active_repository = $Repositories/ActiveRepository
 

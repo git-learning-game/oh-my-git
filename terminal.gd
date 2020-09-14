@@ -5,10 +5,10 @@ var thread
 var history = []
 var history_position = 0
 
-onready var input = $Control/Input
+onready var input = $Control/InputLine/Input
 onready var output = $Control/Output
 onready var repo = $"../Repositories/ActiveRepository"
-onready var command_dropdown = $Control/CommandDropdown
+onready var command_dropdown = $Control/InputLine/CommandDropdown
 onready var main = get_parent()
 
 var premade_commands = [
@@ -23,6 +23,8 @@ func _ready():
 	for command in premade_commands:
 		command_dropdown.get_popup().add_item(command)
 	command_dropdown.get_popup().connect("id_pressed", self, "load_command")
+	command_dropdown.theme = Theme.new()
+	command_dropdown.theme.default_font = load("res://fonts/default.tres")
 
 func _input(event):
 	if event is InputEventKey:

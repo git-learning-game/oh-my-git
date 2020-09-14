@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://terminal.gd" type="Script" id=2]
-[ext_resource path="res://command_button.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 10.0
@@ -43,7 +42,7 @@ __meta__ = {
 
 [node name="Output" type="RichTextLabel" parent="Control"]
 margin_right = 1920.0
-margin_bottom = 1007.0
+margin_bottom = 1039.0
 focus_mode = 2
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
@@ -52,73 +51,15 @@ custom_colors/selection_color = Color( 0.14902, 0.368627, 0.168627, 0.690196 )
 scroll_following = true
 selection_enabled = true
 
-[node name="Button" parent="Control" instance=ExtResource( 4 )]
-visible = false
-margin_left = 0.0
-margin_top = 887.0
-margin_right = 1920.0
-margin_bottom = 907.0
-text = "git commit --allow-empty"
-align = 0
-
-[node name="Button5" parent="Control" instance=ExtResource( 4 )]
-visible = false
-margin_left = 0.0
-margin_top = 907.0
-margin_right = 1920.0
-margin_bottom = 927.0
-text = "echo $RANDOM | git hash-object -w --stdin"
-align = 0
-
-[node name="Button6" parent="Control" instance=ExtResource( 4 )]
-visible = false
-margin_left = 0.0
-margin_top = 927.0
-margin_right = 1920.0
-margin_bottom = 947.0
-text = "git update-index --add noises; git write-tree"
-align = 0
-
-[node name="Button2" parent="Control" instance=ExtResource( 4 )]
-visible = false
-margin_left = 0.0
-margin_top = 947.0
-margin_right = 1920.0
-margin_bottom = 967.0
-text = "git switch -c $RANDOM"
-align = 0
-
-[node name="Button3" parent="Control" instance=ExtResource( 4 )]
-visible = false
-margin_left = 0.0
-margin_top = 967.0
-margin_right = 1920.0
-margin_bottom = 987.0
-text = "git checkout HEAD^"
-align = 0
-
-[node name="Button4" parent="Control" instance=ExtResource( 4 )]
-visible = false
-margin_left = 0.0
-margin_top = 987.0
-margin_right = 1920.0
-margin_bottom = 1007.0
-text = "sleep 1;echo hey"
-align = 0
-
-[node name="CommandDropdown" type="MenuButton" parent="Control"]
-margin_top = 1007.0
-margin_right = 1920.0
-margin_bottom = 1039.0
-custom_fonts/font = ExtResource( 1 )
-text = "Pick a command..."
-flat = false
-align = 0
-
-[node name="Input" type="LineEdit" parent="Control"]
+[node name="InputLine" type="HBoxContainer" parent="Control"]
 margin_top = 1039.0
 margin_right = 1920.0
 margin_bottom = 1080.0
+
+[node name="Input" type="LineEdit" parent="Control/InputLine"]
+margin_right = 1874.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
 custom_styles/read_only = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
 custom_fonts/font = ExtResource( 1 )
@@ -126,6 +67,15 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CommandDropdown" type="MenuButton" parent="Control/InputLine"]
+margin_left = 1878.0
+margin_right = 1920.0
+margin_bottom = 41.0
+custom_fonts/font = ExtResource( 1 )
+text = "..."
+flat = false
+align = 0
 
 [node name="ClearButton" type="Button" parent="."]
 anchor_left = 0.9
@@ -135,5 +85,5 @@ margin_top = 10.0
 margin_right = -10.0
 custom_fonts/font = ExtResource( 1 )
 text = "Clear"
-[connection signal="text_entered" from="Control/Input" to="." method="send_command"]
+[connection signal="text_entered" from="Control/InputLine/Input" to="." method="send_command"]
 [connection signal="pressed" from="ClearButton" to="." method="clear"]
