@@ -18,6 +18,8 @@ func _ready():
 	for level in list_levels():
 		options.add_item(level)
 	options.connect("id_pressed", self, "load_level")
+	$LevelSelect.theme = Theme.new()
+	$LevelSelect.theme.default_font = load("res://fonts/default.tres")
 	
 	# Initialize TCP server for fake editor.
 	server = TCP_Server.new()
