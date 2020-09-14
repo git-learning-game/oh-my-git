@@ -8,10 +8,21 @@ var history_position = 0
 onready var input = $Control/Input
 onready var output = $Control/Output
 onready var repo = $"../Repositories/ActiveRepository"
+onready var command_dropdown = $Control/CommandDropdown
 onready var main = get_parent()
+
+var premade_commands = [
+	'git commit --allow-empty -m "empty"',
+	'echo $RANDOM | git hash-object -w --stdin',
+	'git switch -c $RANDOM',
+]
 
 func _ready():
 	repo.shell.connect("output", self, "receive_output")
+
+	for command in premade_commands:
+		command_dropdown.get_popup().add_item(command)
+	command_dropdown.get_popup().connect("id_pressed", self, "load_command")
 
 func _input(event):
 	if event is InputEventKey:
@@ -30,6 +41,10 @@ func _input(event):
 				input.text = history[history_position]
 				input.caret_position = input.text.length()
 			get_tree().set_input_as_handled()
+
+func load_command(id):
+	input.text = premade_commands[id]
+	input.caret_position = input.text.length()
 
 func send_command(command):
 	history.push_back(command)

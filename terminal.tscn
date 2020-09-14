@@ -43,7 +43,7 @@ __meta__ = {
 
 [node name="Output" type="RichTextLabel" parent="Control"]
 margin_right = 1920.0
-margin_bottom = 979.0
+margin_bottom = 1007.0
 focus_mode = 2
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
@@ -53,54 +53,66 @@ scroll_following = true
 selection_enabled = true
 
 [node name="Button" parent="Control" instance=ExtResource( 4 )]
+visible = false
 margin_left = 0.0
-margin_top = 979.0
+margin_top = 887.0
 margin_right = 1920.0
-margin_bottom = 999.0
+margin_bottom = 907.0
 text = "git commit --allow-empty"
 align = 0
 
 [node name="Button5" parent="Control" instance=ExtResource( 4 )]
+visible = false
 margin_left = 0.0
-margin_top = 999.0
+margin_top = 907.0
 margin_right = 1920.0
-margin_bottom = 1019.0
+margin_bottom = 927.0
 text = "echo $RANDOM | git hash-object -w --stdin"
 align = 0
 
 [node name="Button6" parent="Control" instance=ExtResource( 4 )]
 visible = false
 margin_left = 0.0
-margin_top = 1019.0
+margin_top = 927.0
 margin_right = 1920.0
-margin_bottom = 1039.0
+margin_bottom = 947.0
 text = "git update-index --add noises; git write-tree"
 align = 0
 
 [node name="Button2" parent="Control" instance=ExtResource( 4 )]
+visible = false
 margin_left = 0.0
-margin_top = 1019.0
+margin_top = 947.0
 margin_right = 1920.0
-margin_bottom = 1039.0
+margin_bottom = 967.0
 text = "git switch -c $RANDOM"
 align = 0
 
 [node name="Button3" parent="Control" instance=ExtResource( 4 )]
 visible = false
 margin_left = 0.0
-margin_top = 999.0
+margin_top = 967.0
 margin_right = 1920.0
-margin_bottom = 1019.0
+margin_bottom = 987.0
 text = "git checkout HEAD^"
 align = 0
 
 [node name="Button4" parent="Control" instance=ExtResource( 4 )]
 visible = false
 margin_left = 0.0
-margin_top = 1019.0
+margin_top = 987.0
+margin_right = 1920.0
+margin_bottom = 1007.0
+text = "sleep 1;echo hey"
+align = 0
+
+[node name="CommandDropdown" type="MenuButton" parent="Control"]
+margin_top = 1007.0
 margin_right = 1920.0
 margin_bottom = 1039.0
-text = "sleep 1;echo hey"
+custom_fonts/font = ExtResource( 1 )
+text = "Pick a command..."
+flat = false
 align = 0
 
 [node name="Input" type="LineEdit" parent="Control"]
