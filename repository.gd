@@ -204,5 +204,5 @@ func ref_target(ref):
 	var ret = git("symbolic-ref -q "+ref+" || true")
 	# If it's not, it's probably a regular ref.
 	if ret == "":
-		ret = git("show-ref --head "+ref).split(" ")[0]
+		ret = git("show-ref "+ref).split(" ")[0]
 	return ret
