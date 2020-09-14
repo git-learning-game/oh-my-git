@@ -38,3 +38,16 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Target" type="Label" parent="."]
+margin_left = -229.024
+margin_top = 63.3118
+margin_right = 232.976
+margin_bottom = 89.3118
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
+text = "label"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

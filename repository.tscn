@@ -18,7 +18,7 @@ __meta__ = {
 }
 
 [node name="Index" type="Label" parent="."]
-margin_left = 32.0
+margin_left = 24.0
 margin_top = 80.0
 margin_right = 375.079
 margin_bottom = 1044.0
@@ -30,6 +30,7 @@ __meta__ = {
 }
 
 [node name="IndexLabel" type="Label" parent="."]
+visible = false
 margin_left = 21.0
 margin_top = 65.0
 margin_right = 377.0

@@ -6,6 +6,7 @@ var server
 var client_connection
 var current_level = 0
 
+onready var terminal = $Terminal
 onready var input = $Terminal/Control/Input
 onready var output = $Terminal/Control/Output
 onready var goal_repository = $Repositories/GoalRepository
@@ -84,6 +85,8 @@ func load_level(id):
 	var win_script_target = game.tmp_prefix+"/win"
 	var dir = Directory.new()
 	dir.copy(win_script, win_script_target)
+	
+	terminal.clear()
 
 func reload_level():
 	load_level(current_level)

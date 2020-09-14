@@ -12,6 +12,10 @@ func _process(_delta):
 	if repository and repository.objects.has(target):
 		var t = repository.objects[target]
 		end = t.global_position
+		$Target.hide()
+	else:
+		$Target.text = target
+		$Target.show()
 	$Line.points[1] = end - global_position
 	$Label.position = ($Line.points[0] + $Line.points[1])/2
 	$Tip.position = ($Line.points[0] + $Line.points[1])/2

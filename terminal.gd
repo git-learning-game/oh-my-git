@@ -55,6 +55,10 @@ func run_command_in_a_thread(command):
 
 func receive_output(text):
 	output.text += text
+
+func clear():
+	input.text = ""
+	output.text = ""
 	
 func check_win_condition():
 	if repo.shell.run("bash /tmp/win 2>&1 >/dev/null && echo yes || echo no") == "yes\n":

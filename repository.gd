@@ -37,7 +37,7 @@ func set_label(new_label):
 	$Label.text = new_label
 	
 func update_index():
-	$Index.text = git("ls-files")
+	$Index.text = git("ls-files -s --abbrev=8").replace("\t", " ")
 
 func random_position():
 	return Vector2(rand_range(0, rect_size.x), rand_range(0, rect_size.y))
@@ -66,7 +66,6 @@ func update_objects():
 						c[p] = ""
 					n.children = c
 				"tag":
-					print("tag")
 					n.children = tag_target(o)
 		
 		n.position = find_position(n)
@@ -112,7 +111,6 @@ func find_position(n):
 			position += objects[child].position
 			count += 1
 	if count > 0:
-		print(count)
 		position /= count
 		n.position = position + Vector2(0, -150)
 	else:
@@ -200,5 +198,8 @@ func ref_target(ref):
 	var ret = git("symbolic-ref -q "+ref+" || true")
 	# If it's not, it's probably a regular ref.
 	if ret == "":
-		ret = git("show-ref "+ref).split(" ")[0]
+		if ref == "HEAD":
+			ret = git("show-ref --head "+ref).split(" ")[0]
+		else:
+			ret = git("show-ref "+ref).split(" ")[0]
 	return ret

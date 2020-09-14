@@ -66,6 +66,7 @@ text = "echo $RANDOM | git hash-object -w --stdin"
 align = 0
 
 [node name="Button6" parent="Control" instance=ExtResource( 4 )]
+visible = false
 margin_left = 0.0
 margin_top = 1019.0
 margin_right = 1920.0
@@ -74,11 +75,10 @@ text = "git update-index --add noises; git write-tree"
 align = 0
 
 [node name="Button2" parent="Control" instance=ExtResource( 4 )]
-visible = false
 margin_left = 0.0
-margin_top = 979.0
+margin_top = 1019.0
 margin_right = 1920.0
-margin_bottom = 999.0
+margin_bottom = 1039.0
 text = "git switch -c $RANDOM"
 align = 0
 
@@ -111,4 +111,14 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ClearButton" type="Button" parent="."]
+anchor_left = 0.9
+anchor_right = 1.0
+margin_left = -10.0
+margin_top = 10.0
+margin_right = -10.0
+custom_fonts/font = ExtResource( 1 )
+text = "Clear"
 [connection signal="text_entered" from="Control/Input" to="." method="send_command"]
+[connection signal="pressed" from="ClearButton" to="." method="clear"]
