@@ -81,5 +81,5 @@ func clear():
 	output.text = ""
 	
 func check_win_condition():
-	if repo.shell.run("bash /tmp/win 2>&1 >/dev/null && echo yes || echo no") == "yes\n":
+	if repo.shell.run("bash /tmp/win 2>/dev/null >/dev/null && echo yes || echo no") == "yes\n":
 		main.show_win_status()

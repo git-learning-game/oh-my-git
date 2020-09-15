@@ -79,6 +79,7 @@ func update_objects():
 				pass
 			"tree":
 				n.children = tree_children(o)
+				n.content = n.content.replacen("\t", " ")
 			"commit":
 				var c = {}
 				c[commit_tree(o)] = ""

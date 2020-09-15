@@ -96,5 +96,5 @@ func _input_event(_viewport, event, _shape_idx):
 		if event.button_index == BUTTON_RIGHT:
 			if event.pressed:
 				var input = get_tree().get_current_scene().find_node("Terminal").find_node("Control").find_node("Input")
-				input.text += $ID.text
+				input.text += id
 				input.caret_position = input.text.length()
