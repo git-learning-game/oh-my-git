@@ -15,8 +15,7 @@ onready var active_repository = $Repositories/ActiveRepository
 func _ready():
 	# Initialize level select.
 	var options = $LevelSelect.get_popup()
-	for level in list_levels():
-		options.add_item(level)
+	repopulate_levels()
 	options.connect("id_pressed", self, "load_level")
 	$LevelSelect.theme = Theme.new()
 	$LevelSelect.theme.default_font = load("res://fonts/default.tres")
@@ -149,3 +148,10 @@ func save_message():
 func show_win_status():
 	$NextLevelButton.show()
 	$LevelDescription.text = "Yay, you solved the puzzle! Enjoy the view or continue to the next level!"
+
+
+func repopulate_levels():
+	var options = $LevelSelect.get_popup()
+	options.clear()
+	for level in list_levels():
+		options.add_item(level)

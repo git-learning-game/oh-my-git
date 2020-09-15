@@ -172,6 +172,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="TextEditor/SaveButton" to="." method="save_message"]
+[connection signal="button_down" from="LevelSelect" to="." method="repopulate_levels"]
 [connection signal="pressed" from="NextLevelButton" to="." method="load_next_level"]
 [connection signal="pressed" from="ReloadButton" to="." method="reload_level"]
 [connection signal="data_received" from="Test/TCPServer" to="Test" method="data"]
