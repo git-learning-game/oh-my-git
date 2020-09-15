@@ -22,6 +22,7 @@ func update_everything():
 	update_refs()
 	update_index()
 	update_objects()
+	remove_gone_stuff()
 
 func set_path(new_path):
 	path = new_path
@@ -45,7 +46,10 @@ func random_position():
 	return Vector2(rand_range(0, rect_size.x), rand_range(0, rect_size.y))
 		
 func update_objects():
-	for o in all_objects():
+	var all = all_objects()
+	
+	# Create new objects, if necessary.
+	for o in all:
 		if objects.has(o):
 			continue
 			
@@ -152,7 +156,11 @@ func update_head():
 	n.children = {ref_target("HEAD"): ""}
 
 func all_objects():
-	return git("cat-file --batch-check='%(objectname)' --batch-all-objects", true)
+	var objects = git("cat-file --batch-check='%(objectname)' --batch-all-objects", true)
+	var dict = {}
+	for o in objects:
+		dict[o] = ""
+	return dict
 
 func object_type(id):
 	return git("cat-file -t "+id)
@@ -192,13 +200,13 @@ func tag_target(id):
 	return {c: ""}
 
 func all_refs():
-	var refs = []
+	var refs = {}
 	# If there are no refs, show-ref will have exit code 1. We don't care.
 	for line in git("show-ref || true", true):
 		line = line.split(" ")
 		var _id = line[0]
 		var name = line[1]
-		refs.push_back(name)
+		refs[name] = ""
 	return refs
 	
 func ref_target(ref):
@@ -222,3 +230,17 @@ func simplify_view(pressed):
 			obj.visible = not pressed
 	
 	update_objects()
+
+func remove_gone_stuff():
+	# FIXME: Cache the result of all_objects.
+	var all = {}
+	for o in all_objects():
+		all[o] = ""
+	for o in all_refs():
+		all[o] = ""
+	all["HEAD"] = ""
+	# Delete objects, if they disappeared.
+	for o in objects:
+		if not all.has(o):
+			objects[o].queue_free()
+			objects.erase(o)
