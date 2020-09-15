@@ -1,0 +1,5 @@
+There's a simple command to remove all blobs that are not connected to anything:
+
+    $ git prune
+
+Remove all blobs in this repository.

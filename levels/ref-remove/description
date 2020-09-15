@@ -1,0 +1,5 @@
+To delete a ref, use
+
+    git update-ref -d refs/<refname>
+
+Delete all refs! :P

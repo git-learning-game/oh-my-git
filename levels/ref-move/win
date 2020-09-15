@@ -1,0 +1,1 @@
+test "$(git show-ref -s | uniq)" = "c7863f72467ed8dd44f4b8ffdb8b57ca7d91dc9e"

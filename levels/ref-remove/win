@@ -1,0 +1,1 @@
+test "$(git show-ref | wc -l)" -eq 0

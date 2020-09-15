@@ -4,6 +4,4 @@ When that happens, they are called "symbolic refs". You can create or update a s
 
     git symbolic-ref <name> <ref>
 
-Usually, you will only encounter a special symbolic ref called "HEAD". This ref is special in that it doesn't start with "refs/"! You might already have seen it in the other levels - it's the only thing that's always there!
-
-Try pointing HEAD to the refs in this repository!
+Create a symbolic ref called "refs/rainbow"!

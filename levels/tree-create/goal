@@ -1,5 +1,1 @@
-git update-index --add noises
 git write-tree
-
-rm noises
-git update-index --remove noises

@@ -1,0 +1,1 @@
+git update-ref --no-deref refs/fries "$BLOB2"

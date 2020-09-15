@@ -1,1 +1,3 @@
-git symbolic-ref HEAD refs/best_commit
+BLOB=$(git hash-object -w --stdin)
+git update-ref refs/double "$BLOB"
+git symbolic-ref refs/rainbow refs/double

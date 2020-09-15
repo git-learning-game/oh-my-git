@@ -1,21 +1,7 @@
-Blobs just have some content and an ID. It would be convenient to be able to give names to a blob, right?
+After carefully building the index we want, it would be nice to save a permanent snapshot of it, right?
 
-The second type of Git object is called a "tree" - a tree points a bunch of blobs, and gives each of them a name!
-
-How can we build our own trees? Introducing: the index!
-
-The index is like a "work in progress" version of a tree, where we can add and remove blobs. When we're happy with what we have built, we can make it into a real tree object!
-
-We can use
-
-    $ git update-index --add <file>
-
-to make the file's content into a blob, and to add that blob to the index using the file's name.
-
-When we're happy with out index, we can convert it into a tree using
+This is what the second type of objects is for: trees! You can convert the index into a tree using
 
     $ git write-tree
 
-That command will output the ID of the newly crated tree.
-
-Build a tree containing just the 'noises' file, which we conveniently placed in your current directory! :)
+Try it! :)

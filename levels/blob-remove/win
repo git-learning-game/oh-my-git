@@ -1,0 +1,3 @@
+OBJECT_COUNT=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | wc -l)
+
+test "$OBJECT_COUNT" -eq 0

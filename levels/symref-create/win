@@ -1,1 +1,1 @@
-git symbolic-ref HEAD | grep _commit
+git symbolic-ref refs/rainbow
