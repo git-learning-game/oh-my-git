@@ -240,7 +240,7 @@ func remove_gone_stuff():
 		all[o] = ""
 	all["HEAD"] = ""
 	# Delete objects, if they disappeared.
-	for o in objects:
+	for o in objects.keys():
 		if not all.has(o):
 			objects[o].queue_free()
 			objects.erase(o)
