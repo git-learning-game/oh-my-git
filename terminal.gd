@@ -10,6 +10,7 @@ onready var output = $Control/Output
 onready var repo = $"../Repositories/ActiveRepository"
 onready var command_dropdown = $Control/InputLine/CommandDropdown
 onready var main = get_parent()
+onready var text_editor = $"../TextEditor"
 
 var premade_commands = [
 	'git commit --allow-empty -m "empty"',
@@ -27,7 +28,7 @@ func _ready():
 	command_dropdown.theme.default_font = load("res://fonts/default.tres")
 
 func _input(event):
-	if event is InputEventKey:
+	if event is InputEventKey and not text_editor.visible:
 		input.grab_focus()
 	if history.size() > 0:
 		if event.is_action_pressed("ui_up"):
