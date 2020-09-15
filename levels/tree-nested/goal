@@ -1,0 +1,7 @@
+echo "I'm the left arm" > arm1
+echo "I'm the right arm" > arm2
+mkdir hip
+echo "I'm the left leg" > hip/leg1
+echo "I'm the right leg" > hip/leg2
+git add .
+git write-tree

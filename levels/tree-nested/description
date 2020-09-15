@@ -1,0 +1,5 @@
+Trees can also point to other trees! This way, they can basically describe nested directory structures.
+
+When you add a file inside of a directory to the index, and then call `git write-tree`, it will automatically do the correct thing.
+
+To solve this level, build a little stick figure, as shown on the left - a tree that points to two blobs, and to a tree that points to two blobs.
