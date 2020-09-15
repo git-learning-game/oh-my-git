@@ -7,15 +7,25 @@ var node = preload("res://node.tscn")
 
 var shell = Shell.new()
 var objects = {}
+var mouse_inside = false
 
 var _simplified_view = false
 
 func _ready():
+	$Nodes.rect_pivot_offset = $Nodes.rect_size / 2
+	print($Nodes.rect_pivot_offset)
 	pass
 
 func _process(_delta):
 	if path:
 		apply_forces()
+		
+func _input(event):
+	if mouse_inside:
+		if event.is_action_pressed("zoom_out") and $Nodes.rect_scale.x > 0.3:
+			$Nodes.rect_scale -= Vector2(0.05, 0.05)
+		if event.is_action_pressed("zoom_in") and $Nodes.rect_scale.x < 2:
+			$Nodes.rect_scale += Vector2(0.05, 0.05)
 		
 func update_everything():
 	update_head()
@@ -79,7 +89,7 @@ func update_objects():
 				n.children = tag_target(o)
 		
 		n.position = find_position(n)
-		add_child(n)
+		$Nodes.add_child(n)
 		objects[o] = n
 	 
 func update_refs():   
@@ -93,7 +103,7 @@ func update_refs():
 			objects[r] = n
 			n.children = {ref_target(r): ""}
 			n.position = find_position(n)
-			add_child(n)
+			$Nodes.add_child(n)
 		var n = objects[r]
 		n.children = {ref_target(r): ""}
 	
@@ -151,7 +161,7 @@ func update_head():
 		n.position = find_position(n)
 		   
 		objects["HEAD"] = n
-		add_child(n)
+		$Nodes.add_child(n)
 	var n = objects["HEAD"]
 	n.children = {ref_target("HEAD"): ""}
 
@@ -244,3 +254,9 @@ func remove_gone_stuff():
 		if not all.has(o):
 			objects[o].queue_free()
 			objects.erase(o)
+
+func _on_mouse_entered():
+	mouse_inside = true
+
+func _on_mouse_exited():
+	mouse_inside = false

@@ -64,5 +64,12 @@ margin_right = 24.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 2 )
 text = "Hide trees and blobs"
+
+[node name="Nodes" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="update_everything"]
 [connection signal="toggled" from="SimplifyCheckbox" to="." method="simplify_view"]

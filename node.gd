@@ -11,6 +11,7 @@ var held = false
 
 var arrow = preload("res://arrow.tscn")
 
+
 func _ready():
 	pass
 
@@ -25,8 +26,8 @@ func apply_forces():
 	var offset = Vector2(0, 80)
 	
 	for c in children.keys():
-		if get_node("..").objects.has(c):
-			var other = get_node("..").objects[c]
+		if repository.objects.has(c):
+			var other = repository.objects[c]
 			if other.visible:
 				var d = other.position.distance_to(position+offset)
 				var dir = (other.position - (position+offset)).normalized()
