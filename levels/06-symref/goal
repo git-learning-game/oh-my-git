@@ -1,5 +1,1 @@
-TREE=$(git write-tree)
-COMMIT=$(git commit-tree $TREE -m "Initial commit")
-git update-ref refs/best_commit $COMMIT
-git update-ref refs/worst_commit $COMMIT
 git symbolic-ref HEAD refs/best_commit

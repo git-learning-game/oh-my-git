@@ -19,7 +19,7 @@ var premade_commands = [
 ]
 
 func _ready():
-	repo.shell.connect("output", self, "receive_output")
+	#repo.shell.connect("output", self, "receive_output")
 
 	for command in premade_commands:
 		command_dropdown.get_popup().add_item(command)

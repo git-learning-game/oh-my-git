@@ -11,18 +11,23 @@ func _ready():
 	# Copy fake-editor to tmp directory (because the original might be in a .pck file).
 	var fake_editor_outside = tmp_prefix + "fake-editor"
 	fake_editor = "/tmp/fake-editor"
-	var content = game.read_file("res://scripts/fake-editor")
+	var content = game.read_file("res://scripts/fake-editor", "")
+	if content.empty():
+		push_error("fake-editor could not be read.")
 	write_file(fake_editor_outside, content)
 	global_shell.run("chmod u+x " + fake_editor)
 
-func read_file(path):
+func read_file(path, fallback_string):
 	if debug_file_io:
 		print("reading " + path)
 	var file = File.new()
-	file.open(path, File.READ)
-	var content = file.get_as_text()
-	file.close()
-	return content
+	var open_status = file.open(path, File.READ)
+	if open_status == OK:
+		var content = file.get_as_text()
+		file.close()
+		return content
+	else:
+		return fallback_string
 
 func write_file(path, content):
 	if debug_file_io:

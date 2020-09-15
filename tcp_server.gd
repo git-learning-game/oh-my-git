@@ -14,7 +14,7 @@ func _ready():
 func start():
 	_s.listen(port)
 
-func _process(delta):
+func _process(_delta):
 	if _s.is_connection_available():
 		if _connected:
 			push_error("Dropping active connection")

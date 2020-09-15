@@ -1,4 +1,3 @@
-echo 'meow' > noises
 git update-index --add noises
 git write-tree
 

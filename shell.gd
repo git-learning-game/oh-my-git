@@ -3,7 +3,7 @@ class_name Shell
 
 var _cwd
 
-signal output(text)
+#signal output(text)
 
 func _init():
 	_cwd = "/tmp"

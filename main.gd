@@ -60,7 +60,8 @@ func load_level(id):
 	var goal_script = level_prefix+level+"/goal"
 	var active_script = level_prefix+level+"/start"
 	
-	var description = game.read_file(level_prefix+level+"/description")
+	var description_file = level_prefix+level+"/description"
+	var description = game.read_file(description_file, "no description")
 	$LevelDescription.bbcode_text = description
 	$LevelName.text = level
 	
@@ -77,17 +78,19 @@ func load_level(id):
 	# Danger zone!
 	game.global_shell.run("rm -rf '%s'" % active_repository_path)
 	game.global_shell.run("rm -rf '%s'" % goal_repository_path)
-	
-	construct_repo(goal_script, goal_repository_path)
-	construct_repo(active_script, active_repository_path)
+		
+	var goal_script_content = game.read_file(goal_script, "")
+	var active_script_content = game.read_file(active_script, "")
+	construct_repo(active_script_content +"\n"+ goal_script_content, goal_repository_path)
+	construct_repo(active_script_content, active_repository_path)
 	
 	goal_repository.path = goal_repository_path
 	active_repository.path = active_repository_path
 	
 	var win_script = level_prefix+level+"/win"
 	var win_script_target = game.tmp_prefix+"/win"
-	var dir = Directory.new()
-	dir.copy(win_script, win_script_target)
+	var win_script_content = game.read_file(win_script, "exit 1\n")
+	game.write_file(win_script_target, win_script_content)
 	
 	terminal.clear()
 
@@ -98,19 +101,18 @@ func load_next_level():
 	current_level = (current_level + 1) % list_levels().size()
 	load_level(current_level)
 	
-func construct_repo(script, path):
+func construct_repo(script_content, path):
 	# Becase in an exported game, all assets are in a .pck file, we need to put
 	# the script somewhere in the filesystem.
-	var content = ""
-	#if ResourceLoader.exists(script):
-	content = game.read_file(script)
+	
 	var script_path_outside = game.tmp_prefix+"/git-hydra-script"
 	var script_path = "/tmp/git-hydra-script"
-	game.write_file(script_path_outside, content)
+	game.write_file(script_path_outside, script_content)
 	
 	game.global_shell.run("mkdir " + path)
 	game.global_shell.cd(path)
 	game.global_shell.run("git init")
+	game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
 	game.global_shell.run("sh "+script_path)
 	
 func _process(_delta):
@@ -127,7 +129,11 @@ func read_message(filename):
 	$TextEditor.show()
 	input.editable = false
 	var fixme_path = game.tmp_prefix+"/active/"
-	$TextEditor.text = game.read_file(fixme_path+filename)
+	var content = game.read_file(fixme_path+filename, "[ERROR_FAKE_EDITOR]")
+	if content == "[ERROR_FAKE_EDITOR]":
+		push_error("file specified by fake-editor could not be read.")
+		get_tree().quit()
+	$TextEditor.text = content
 	$TextEditor.path = filename
 	$TextEditor.grab_focus()
 
