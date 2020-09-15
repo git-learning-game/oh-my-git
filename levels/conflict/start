@@ -1,0 +1,12 @@
+echo ? > bikeshed_color
+git add .
+git commit -m "Initial commit"
+
+echo green > bikeshed_color
+git commit -a -m "My suggestion"
+
+git switch -c alternative HEAD^
+echo blue > bikeshed_color
+git commit -a -m "This is way better"
+
+git switch main
