@@ -60,8 +60,9 @@ func send_command(command):
 	thread.start(self, "run_command_in_a_thread", command)
 
 func send_command_async(command):
-	repo.shell.run_async(command)
+	output.text += "$ "+command+"\n"
 	input.text = ""
+	repo.shell.run_async(command)
 
 func run_command_in_a_thread(command):
 	var o = repo.shell.run(command)

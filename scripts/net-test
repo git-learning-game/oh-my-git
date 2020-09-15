@@ -1,0 +1,23 @@
+#!/usr/bin/env perl
+
+use IO::Socket;
+
+$socket = IO::Socket::INET->new(PeerAddr => "127.0.0.1",
+                                PeerPort => 6666,
+                                Proto    => "tcp",
+                                Type     => SOCK_STREAM);
+
+$s = "Hey äöü!";
+
+$socket->send(chr(length($s)));
+$socket->send($s);
+
+while(true) {
+    my $len;
+    $socket->recv($len, 4);
+    my $actual_len = unpack("L", $len);
+    my $s2;
+    $socket->recv($s2, ord($len));
+    print($s2);
+    STDOUT->flush();
+}

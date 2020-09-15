@@ -79,13 +79,20 @@ func run_async_thread(command):
 	while not s.is_connection_available():
 		pass
 	var c = s.take_connection()
-	print("ok")
 	while c.get_status() == StreamPeerTCP.STATUS_CONNECTED:
-		var available = c.get_available_bytes()
-		if available > 0:
-			var data = c.get_utf8_string(available)
-			emit_signal("output", data)
-			print(data)
+		read_from(c)
+		OS.delay_msec(1000/30)
+	read_from(c)
 	c.disconnect_from_host()
 	s.stop()
 
+func read_from(c):
+	var total_available = c.get_available_bytes()
+	print(str(total_available)+" bytes available")
+	while total_available > 0:
+		var available = min(1024, total_available)
+		total_available -= available
+		print("reading "+str(available))
+		var data = c.get_utf8_string(available)
+		#emit_signal("output", data)
+		print(data.size())
