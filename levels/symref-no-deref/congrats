@@ -1,0 +1,13 @@
+Whew, we've covered a lot of things: Blobs! The index! Trees! Commits! Refs!
+
+You now know about almost everything about how Git repositories look like on the inside! We think that's pretty cool! :)
+
+Everything else is just convention and high-level commands that make interacting with the objects more convenient.
+
+We haven't covered:
+
+- tag objects (they are the fourth object type - a bit like refs with a description and an author)
+- configuration (allows you to specify remote repositories, for example)
+- working with local files (which is, uh, arguably pretty important :P)
+
+Thanks for playing! You're welcome to check out the "puzzle" levels in the dropdown, some of them are more advanced!

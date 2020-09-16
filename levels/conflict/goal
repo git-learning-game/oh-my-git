@@ -1,0 +1,5 @@
+git merge alternative
+echo blue-green > bikeshed_color
+git add .
+git commit -m "Merge"
+git prune

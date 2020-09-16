@@ -1,0 +1,3 @@
+Nice!
+
+Can you make a different tree? Modify the index, then call `git write-tree` again!

@@ -1,10 +1,10 @@
 Blobs usually represent the content of a file. But on their own, they don't have any metadata, not even a name!
 
-Git has a very powerful concept to store metadata related to blobs: the index! It's a list that relates blobs to filenames and permissions.
+Git has a very powerful concept to store metadata related to blobs: the index! It's a list that relates blobs to filenames and access permissions.
 
-Even though it is possible to add an entry directly to the index, it's much more convenient to do it via an existing file:
+The most convenient option to add an entry to the index is via an existing file:
 
-    $ echo "my content" > file
-    $ git update-index --add file
+    echo "my content" > file
+    git update-index --add file
 
 Add three entries to the index! For a bonus challenge: can you add a file that is inside of a directory, like "directory/file"?

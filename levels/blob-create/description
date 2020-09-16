@@ -4,12 +4,8 @@ There are four types of objects: blobs, trees, commits, and tags. The simplest t
 
 Let's create some blobs! To do that, create a file with the desired content, and then use
 
-    $ git hash-object -w <file>
+    git hash-object -w <file>
 
 The flag -w means "write", and tells Git to actually write the new blob to the disk.
 
 Create three new blobs!
-
-Tip: you can also use a command like this to create a blob in a single line:
-
-    $ echo "awesome content" | git hash-object -w --stdin

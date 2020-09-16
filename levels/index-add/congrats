@@ -1,0 +1,7 @@
+There's another way to add an entry to the index directly:
+
+    git update-index --add --cacheinfo <mode>,<blobhash>,<name>
+
+The first three numbers of the mode describe the type of the entry, "100" is a regular file.
+
+The second three number describe the permissions. Only "644" (non-executable) and "755" (executable) are supported.

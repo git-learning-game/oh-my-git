@@ -1,5 +1,5 @@
 As soon as you have some tree objects, you can always read them and set the index exactly to their content! Unsurprisingly, the command is called
 
-    $ git read-tree <tree>
+    git read-tree <tree>
 
-Try switching between the trees in this repository!
+Try reading some of the trees in this repository into the index!

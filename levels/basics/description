@@ -1,0 +1,8 @@
+For this prototype, we assume you have some experience with the command line. Here are some commands that will be useful:
+
+- ls
+- echo content > file
+- cat file
+- mkdir dir
+
+Find the riddle in your current directory and put the answer into the file "answer"!

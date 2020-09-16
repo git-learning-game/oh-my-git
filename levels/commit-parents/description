@@ -1,7 +1,7 @@
 When using the commit-tree command, you can optionally specify a parent:
 
-    $ git commit-tree <tree> -m "Description" -p <parent commit>
+    git commit-tree <tree> -m "Description" -p <parent commit>
 
 Make a string of three commits!
 
-Hint: What would be the easiest way to get a tree object?
+Hint: You'll need a tree object. What could be the easiest way to obtain one?
