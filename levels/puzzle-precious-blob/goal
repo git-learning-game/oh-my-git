@@ -1,0 +1,7 @@
+BLOB=$(echo "I am precious" | git hash-object -w --stdin)
+git update-index --add --cacheinfo 100644,$BLOB,a
+git write-tree
+git update-index --force-remove a
+git update-index --add --cacheinfo 100644,$BLOB,b
+git write-tree
+git update-index --force-remove b

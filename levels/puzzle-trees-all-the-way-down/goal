@@ -1,0 +1,3 @@
+git mktree
+TREE=$(echo -e "040000 tree 4b825dc642cb6eb9a060e54bf8d69288fbee4904\tdir" | git mktree)
+echo -e "040000 tree $TREE\tdir" | git mktree

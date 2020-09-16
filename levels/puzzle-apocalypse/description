@@ -1,0 +1,9 @@
+Delete all objects in this repository using git commands only!
+
+Useful commands:
+
+    git prune
+    git fsck
+    git reflog expire
+
+Note: I'm not sure how to beat this level. :D

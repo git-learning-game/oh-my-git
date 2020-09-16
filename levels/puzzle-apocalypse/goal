@@ -1,0 +1,4 @@
+TREE=$(git mktree)
+git read-tree $TREE
+rm -rf .git/refs/*
+rm -rf .git/objects/*

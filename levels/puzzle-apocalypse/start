@@ -1,0 +1,9 @@
+echo foo > foo
+BLOB=$(git hash-object -w foo)
+echo bar > bar
+git add .
+git commit -m "Initial commit"
+echo blabber >> bar
+git commit -a -m "Second commit"
+git update-ref refs/important HEAD
+git update-ref refs/interesting "$BLOB"
