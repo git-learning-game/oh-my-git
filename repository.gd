@@ -13,8 +13,6 @@ var _simplified_view = false
 
 func _ready():
 	$Nodes.rect_pivot_offset = $Nodes.rect_size / 2
-	print($Nodes.rect_pivot_offset)
-	pass
 
 func _process(_delta):
 	if path:
@@ -28,11 +26,13 @@ func _input(event):
 			$Nodes.rect_scale += Vector2(0.05, 0.05)
 		
 func update_everything():
-	update_head()
-	update_refs()
-	update_index()
-	update_objects()
-	remove_gone_stuff()
+	$Index.text = ""
+	if shell.run("test -d .git && echo yes || echo no") == "yes\n":
+		update_head()
+		update_refs()
+		update_index()
+		update_objects()
+		remove_gone_stuff()
 
 func set_path(new_path):
 	path = new_path
@@ -167,9 +167,9 @@ func update_head():
 	n.children = {ref_target("HEAD"): ""}
 
 func all_objects():
-	var objects = git("cat-file --batch-check='%(objectname)' --batch-all-objects", true)
+	var obj = git("cat-file --batch-check='%(objectname)' --batch-all-objects", true)
 	var dict = {}
-	for o in objects:
+	for o in obj:
 		dict[o] = ""
 	return dict
 

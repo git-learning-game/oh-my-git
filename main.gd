@@ -43,10 +43,41 @@ func list_levels():
 
 	dir.list_dir_end()
 	levels.sort()
-	return levels
+	
+	var level_sequence = [
+		"welcome",
+		"basics",
+		"blob-create",
+		"blob-remove",
+		"index-add",
+		"index-remove",
+		"index-update",
+		"tree-create",
+		"tree-read",
+		"tree-nested",
+		"commit-create",
+		"commit-parents",
+		"commit-rhombus",
+		"ref-create",
+		"ref-move",
+		"ref-remove",
+		"symref-create",
+		"symref-no-deref",
+	]
+	
+	for level in level_sequence:
+		if not levels.has(level):
+			push_error("Level '%s' is specified in the sequence, but could not be found" % level)
+		levels.erase(level)
+	
+	level_sequence += levels
+	
+	return level_sequence
 
 func load_level(id):
 	$NextLevelButton.hide()
+	$LevelCongrats.hide()
+	$LevelDescription.show()
 	current_level = id
 	
 	var levels = list_levels()
@@ -62,6 +93,11 @@ func load_level(id):
 	var description_file = level_prefix+level+"/description"
 	var description = game.read_file(description_file, "no description")
 	$LevelDescription.bbcode_text = description
+	
+	var congrats_file = level_prefix+level+"/congrats"
+	var congrats = game.read_file(congrats_file, "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
+	$LevelCongrats.bbcode_text = congrats
+	
 	$LevelName.text = level
 	
 	# We're actually destroying stuff here.
@@ -147,7 +183,8 @@ func save_message():
 	
 func show_win_status():
 	$NextLevelButton.show()
-	$LevelDescription.text = "Yay, you solved the puzzle! Enjoy the view or continue to the next level!"
+	$LevelDescription.hide()
+	$LevelCongrats.show()
 
 
 func repopulate_levels():
