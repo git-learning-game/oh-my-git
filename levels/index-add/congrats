@@ -5,3 +5,5 @@ There's another way to add an entry to the index directly:
 The first three numbers of the mode describe the type of the entry, "100" is a regular file.
 
 The second three number describe the permissions. Only "644" (non-executable) and "755" (executable) are supported.
+
+You can insert the hash of an object into the terminal by right-clicking on it! :)

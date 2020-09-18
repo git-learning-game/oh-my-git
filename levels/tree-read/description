@@ -2,4 +2,6 @@ As soon as you have some tree objects, you can always read them and set the inde
 
     git read-tree <tree>
 
+For <tree>, you can provide the hash of any tree object - you can right-click one to insert its hash into the terminal!
+
 Try reading some of the trees in this repository into the index!

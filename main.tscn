@@ -140,7 +140,7 @@ margin_bottom = 605.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "Level description here!"
-text = "Level congrats here!"
+text = "Level description here!"
 __meta__ = {
 "_edit_use_anchors_": false
 }

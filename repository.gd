@@ -26,13 +26,14 @@ func _input(event):
 			$Nodes.rect_scale += Vector2(0.05, 0.05)
 		
 func update_everything():
-	$Index.text = ""
 	if shell.run("test -d .git && echo yes || echo no") == "yes\n":
 		update_head()
 		update_refs()
 		update_index()
 		update_objects()
 		remove_gone_stuff()
+	else:
+		$Index.text = ""
 
 func set_path(new_path):
 	path = new_path
