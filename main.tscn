@@ -73,8 +73,6 @@ __meta__ = {
 [node name="GoalRepository" parent="HBoxContainer/Repositories" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 0.0
 margin_right = 633.0
 margin_bottom = 1070.0
 size_flags_horizontal = 3
@@ -85,7 +83,6 @@ label = "Goal"
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 633.0
-margin_top = 0.0
 margin_right = 1267.0
 margin_bottom = 1070.0
 size_flags_horizontal = 3

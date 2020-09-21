@@ -2,7 +2,7 @@ extends Node2D
 
 var label = "label" setget label_set
 var target: String setget target_set
-var repository: Container
+var repository: Control
 
 func _ready():
 	pass

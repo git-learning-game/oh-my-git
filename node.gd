@@ -3,7 +3,7 @@ extends Node2D
 var id setget id_set
 var content setget content_set
 var type setget type_set
-var repository: Container
+var repository: Control
 
 var children = {} setget children_set
 var id_always_visible = false
@@ -106,16 +106,9 @@ func _input(event):
 	if hovered:
 		if event.is_action_pressed("click"):
 			held = true
+		elif event.is_action_pressed("right_click"):
+			var input = get_tree().get_current_scene().find_node("Terminal").find_node("Control").find_node("Input")
+			input.text += id
+			input.caret_position = input.text.length()
 	if event.is_action_released("click"):
 		held = false
-	
-
-func _input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT:
-			held = event.pressed
-		if event.button_index == BUTTON_RIGHT:
-			if event.pressed:
-				var input = get_tree().get_current_scene().find_node("Terminal").find_node("Control").find_node("Input")
-				input.text += id
-				input.caret_position = input.text.length()

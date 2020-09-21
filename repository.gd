@@ -1,4 +1,4 @@
-extends Container
+extends Control
 
 export var label: String setget set_label
 export var path: String setget set_path, get_path

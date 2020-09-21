@@ -27,21 +27,21 @@ func _ready():
 	
 	$TextEditor.connect("hide", self, "editor_closed")
 
-#func _input(event):
-#	if history.size() > 0:
-#		if event.is_action_pressed("ui_up"):
-#			if history_position > 0:
-#				history_position -= 1
-#				input.text = history[history_position]
-#				input.caret_position = input.text.length()
-#			# This prevents the Input taking the arrow as a "skip to beginning" command.
-#			get_tree().set_input_as_handled()
-#		if event.is_action_pressed("ui_down"):
-#			if history_position < history.size()-1:
-#				history_position += 1
-#				input.text = history[history_position]
-#				input.caret_position = input.text.length()
-#			get_tree().set_input_as_handled()
+func _input(event):
+	if history.size() > 0:
+		if event.is_action_pressed("ui_up"):
+			if history_position > 0:
+				history_position -= 1
+				input.text = history[history_position]
+				input.caret_position = input.text.length()
+			# This prevents the Input taking the arrow as a "skip to beginning" command.
+			get_tree().set_input_as_handled()
+		if event.is_action_pressed("ui_down"):
+			if history_position < history.size()-1:
+				history_position += 1
+				input.text = history[history_position]
+				input.caret_position = input.text.length()
+			get_tree().set_input_as_handled()
 
 func load_command(id):
 	input.text = premade_commands[id]

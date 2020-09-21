@@ -4,25 +4,29 @@
 [ext_resource path="res://styles/theme.tres" type="Theme" id=2]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=3]
 
-[node name="Repository" type="Container"]
+[node name="Repository" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_top = 3.0
-margin_right = -6.0
-margin_bottom = -4.0
 mouse_filter = 1
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 5.60091
+margin_top = -0.518692
+margin_right = 204.601
+margin_bottom = 48.4813
+custom_fonts/font = ExtResource( 3 )
+text = "Repo name"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Index" type="Label" parent="."]
-margin_left = 24.0
-margin_top = 80.0
-margin_right = 375.079
-margin_bottom = 1044.0
+margin_left = 8.64569
+margin_top = 63.8375
+margin_right = 359.725
+margin_bottom = 1027.84
 text = "entry1
 entry2"
 __meta__ = {
@@ -51,17 +55,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 20.0
-margin_top = 20.0
-custom_fonts/font = ExtResource( 3 )
-text = "Repo name"
-
 [node name="SimplifyCheckbox" type="CheckBox" parent="."]
-anchor_top = 0.968
-anchor_bottom = 0.968
-margin_right = 24.0
-margin_bottom = 24.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 2.87984
+margin_top = -23.2002
+margin_right = 195.88
+margin_bottom = 1.7998
 focus_mode = 0
 enabled_focus_mode = 0
 text = "Hide trees and blobs"
