@@ -5,7 +5,7 @@
 [ext_resource path="res://repository.tscn" type="PackedScene" id=3]
 [ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=4]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
-[ext_resource path="res://text_editor.gd" type="Script" id=6]
+[ext_resource path="res://text_editor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=7]
 [ext_resource path="res://tcp_server.gd" type="Script" id=8]
 [ext_resource path="res://test.gd" type="Script" id=9]
@@ -180,32 +180,8 @@ size_flags_vertical = 3
 [node name="Terminal" parent="HBoxContainer/RightSide/InputArea" instance=ExtResource( 1 )]
 repository_path = NodePath("../../../Repositories/ActiveRepository")
 
-[node name="TextEditor" type="TextEdit" parent="HBoxContainer/RightSide/InputArea"]
+[node name="TextEditor" parent="HBoxContainer/RightSide/InputArea" instance=ExtResource( 6 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 5 )
-custom_colors/background_color = Color( 0, 0, 0, 1 )
-syntax_highlighting = true
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveButton" type="Button" parent="HBoxContainer/RightSide/InputArea/TextEditor"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -117.279
-margin_top = -59.399
-margin_right = -17.2788
-margin_bottom = -14.399
-custom_fonts/font = ExtResource( 5 )
-text = "Save"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Test" type="Node2D" parent="."]
 visible = false
@@ -227,6 +203,5 @@ __meta__ = {
 [connection signal="button_down" from="HBoxContainer/RightSide/Menu/LevelSelect" to="." method="repopulate_levels"]
 [connection signal="pressed" from="HBoxContainer/RightSide/Menu/ReloadButton" to="." method="reload_level"]
 [connection signal="pressed" from="HBoxContainer/RightSide/Menu/NextLevelButton" to="." method="load_next_level"]
-[connection signal="pressed" from="HBoxContainer/RightSide/InputArea/TextEditor/SaveButton" to="." method="save_message"]
 [connection signal="data_received" from="Test/TCPServer" to="Test" method="data"]
 [connection signal="text_entered" from="Test/LineEdit" to="Test" method="send"]

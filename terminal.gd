@@ -27,8 +27,6 @@ func _ready():
 	command_dropdown.get_popup().connect("id_pressed", self, "load_command")
 	command_dropdown.theme = Theme.new()
 	command_dropdown.theme.default_font = load("res://fonts/default.tres")
-	
-	print(main)
 
 func _input(event):
 	if event is InputEventKey and not text_editor.visible:

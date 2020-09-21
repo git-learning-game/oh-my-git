@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://text_editor.gd" type="Script" id=2]
+
+[node name="TextEditor" type="TextEdit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/background_color = Color( 0, 0, 0, 1 )
+text = "Text here"
+syntax_highlighting = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -117.279
+margin_top = -59.399
+margin_right = -17.2788
+margin_bottom = -14.399
+custom_fonts/font = ExtResource( 1 )
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="SaveButton" to="." method="save"]

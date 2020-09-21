@@ -2,8 +2,6 @@ extends Control
 
 var dragged = null
 
-var server
-var client_connection
 var current_level = 0
 
 export(NodePath) var terminal_path
@@ -38,10 +36,6 @@ func _ready():
 	options.connect("id_pressed", self, "load_level")
 	level_select.theme = Theme.new()
 	level_select.theme.default_font = load("res://fonts/default.tres")
-	
-	# Initialize TCP server for fake editor.
-	server = TCP_Server.new()
-	server.listen(1234)
 	
 	# Load first level.
 	load_level(0)
@@ -168,37 +162,6 @@ func construct_repo(script_content, path):
 	game.global_shell.run("git init")
 	game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
 	game.global_shell.run("sh "+script_path)
-	
-func _process(_delta):
-	if server.is_connection_available():
-		client_connection = server.take_connection()
-		var length = client_connection.get_u8()
-		var filename = client_connection.get_string(length)
-		var regex = RegEx.new()
-		regex.compile("(\\.git\\/.*)")
-		filename = regex.search(filename).get_string()
-		read_message(filename)
-	
-func read_message(filename):
-	$TextEditor.show()
-	input.editable = false
-	var fixme_path = game.tmp_prefix+"/active/"
-	var content = game.read_file(fixme_path+filename, "[ERROR_FAKE_EDITOR]")
-	if content == "[ERROR_FAKE_EDITOR]":
-		push_error("file specified by fake-editor could not be read.")
-		get_tree().quit()
-	$TextEditor.text = content
-	$TextEditor.path = filename
-	$TextEditor.grab_focus()
-
-func save_message():
-	var fixme_path = game.tmp_prefix+"/active/"
-	game.write_file(fixme_path+$TextEditor.path, $TextEditor.text)
-	client_connection.disconnect_from_host()
-	input.editable = true
-	$TextEditor.text = ""
-	$TextEditor.hide()
-	input.grab_focus()
 	
 func show_win_status():
 	next_level_button.show()
