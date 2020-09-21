@@ -25,14 +25,13 @@ __meta__ = {
 [node name="Control" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Output" type="RichTextLabel" parent="Control"]
 margin_right = 1920.0
-margin_bottom = 1049.0
+margin_bottom = 1045.0
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 4 )
@@ -67,7 +66,9 @@ anchor_right = 1.0
 margin_left = -10.0
 margin_top = 10.0
 margin_right = -10.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
 text = "Clear"
 
 [node name="TextEditor" parent="." instance=ExtResource( 5 )]

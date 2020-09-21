@@ -62,6 +62,8 @@ anchor_top = 0.968
 anchor_bottom = 0.968
 margin_right = 24.0
 margin_bottom = 24.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Hide trees and blobs"
 
 [node name="Nodes" type="Control" parent="."]

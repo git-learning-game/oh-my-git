@@ -93,13 +93,13 @@ size_flags_vertical = 3
 label = "Your repository"
 
 [node name="RightSide" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 1274.0
+margin_left = 1275.0
 margin_right = 1910.0
 margin_bottom = 1070.0
 size_flags_horizontal = 3
 
 [node name="Menu" type="HBoxContainer" parent="HBoxContainer/RightSide"]
-margin_right = 636.0
+margin_right = 635.0
 margin_bottom = 35.0
 
 [node name="LevelSelect" type="MenuButton" parent="HBoxContainer/RightSide/Menu"]
@@ -112,33 +112,37 @@ __meta__ = {
 }
 
 [node name="ReloadButton" type="Button" parent="HBoxContainer/RightSide/Menu"]
-margin_left = 134.0
-margin_right = 213.0
+margin_left = 135.0
+margin_right = 214.0
 margin_bottom = 35.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Reload"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NextLevelButton" type="Button" parent="HBoxContainer/RightSide/Menu"]
-margin_left = 217.0
-margin_right = 327.0
+margin_left = 219.0
+margin_right = 329.0
 margin_bottom = 35.0
+focus_mode = 0
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = ExtResource( 4 )
+enabled_focus_mode = 0
 text = "Next Level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LevelPanel" type="VBoxContainer" parent="HBoxContainer/RightSide"]
-margin_top = 39.0
-margin_right = 636.0
+margin_top = 40.0
+margin_right = 635.0
 margin_bottom = 552.0
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="HBoxContainer/RightSide/LevelPanel"]
-margin_right = 636.0
+margin_right = 635.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/normal_font = ExtResource( 7 )
@@ -148,9 +152,9 @@ __meta__ = {
 }
 
 [node name="Text" type="Control" parent="HBoxContainer/RightSide/LevelPanel"]
-margin_top = 64.0
-margin_right = 636.0
-margin_bottom = 513.0
+margin_top = 65.0
+margin_right = 635.0
+margin_bottom = 512.0
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="HBoxContainer/RightSide/LevelPanel/Text"]
@@ -179,8 +183,8 @@ __meta__ = {
 [node name="Terminal" parent="HBoxContainer/RightSide" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 556.0
-margin_right = 636.0
+margin_top = 557.0
+margin_right = 635.0
 margin_bottom = 1070.0
 size_flags_vertical = 3
 repository_path = NodePath("../../Repositories/ActiveRepository")
