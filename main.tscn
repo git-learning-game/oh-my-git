@@ -23,6 +23,7 @@ corner_radius_bottom_left = 3
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 6 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -53,6 +54,7 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

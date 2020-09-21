@@ -17,7 +17,10 @@ func _ready():
 
 func _process(_delta):
 	if held:
-		global_position = get_global_mouse_position()
+		if not Input.is_action_pressed("click"):
+			held = false
+		else:
+			global_position = get_global_mouse_position()
 
 	if visible:
 		apply_forces()
