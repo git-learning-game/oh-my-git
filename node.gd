@@ -8,6 +8,7 @@ var repository: Container
 var children = {} setget children_set
 var id_always_visible = false
 var held = false
+var hovered = false
 
 var arrow = preload("res://arrow.tscn")
 
@@ -84,14 +85,24 @@ func children_set(new_children):
 	children = new_children
 
 func _on_hover():
+	hovered = true
 	$Content.visible = true
 	$ID.visible = true
 	
 func _on_unhover():
+	hovered = false
 	if not id_always_visible:
 		$Content.visible = false
 		$ID.visible = false
-  
+
+func _input(event):
+	if hovered:
+		if event.is_action_pressed("click"):
+			held = true
+	if event.is_action_released("click"):
+		held = false
+	
+
 func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:

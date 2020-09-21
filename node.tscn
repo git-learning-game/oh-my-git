@@ -15,7 +15,7 @@ margin_left = -29.0
 margin_top = -28.0
 margin_right = 29.0
 margin_bottom = 30.0
-mouse_filter = 2
+mouse_filter = 1
 color = Color( 0.984314, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -53,6 +53,8 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Arrows" type="Node2D" parent="."]
+[connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]
+[connection signal="mouse_exited" from="Rect" to="." method="_on_unhover"]
 [connection signal="input_event" from="Area" to="." method="_input_event"]
 [connection signal="mouse_entered" from="Area" to="." method="_on_hover"]
 [connection signal="mouse_exited" from="Area" to="." method="_on_unhover"]
