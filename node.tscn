@@ -2,6 +2,7 @@
 
 [ext_resource path="res://node.gd" type="Script" id=1]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
+[ext_resource path="res://nodes/blob.svg" type="Texture" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 5.0
@@ -14,9 +15,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 30.4838, 29.9015 )
-
 [node name="Node" type="Node2D"]
 z_index = 1
 script = ExtResource( 1 )
@@ -25,12 +23,16 @@ script = ExtResource( 1 )
 margin_left = -29.0
 margin_top = -28.0
 margin_right = 29.0
-margin_bottom = 30.0
+margin_bottom = 29.0
 mouse_filter = 1
-color = Color( 0.984314, 0, 0, 1 )
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
 
 [node name="ID" type="Label" parent="."]
 visible = false
@@ -47,10 +49,10 @@ __meta__ = {
 
 [node name="Content" type="Label" parent="."]
 visible = false
-margin_left = -30.0
-margin_top = 37.0
-margin_right = -20.0
-margin_bottom = 72.0
+margin_left = -22.2898
+margin_top = 30.1969
+margin_right = -12.2898
+margin_bottom = 65.1969
 custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -58,14 +60,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
-shape = SubResource( 2 )
-
 [node name="Arrows" type="Node2D" parent="."]
 [connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]
 [connection signal="mouse_exited" from="Rect" to="." method="_on_unhover"]
-[connection signal="input_event" from="Area" to="." method="_input_event"]
-[connection signal="mouse_entered" from="Area" to="." method="_on_hover"]
-[connection signal="mouse_exited" from="Area" to="." method="_on_unhover"]

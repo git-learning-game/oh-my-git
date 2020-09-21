@@ -20,7 +20,14 @@ z_index = 1
 position = Vector2( -9.66138, -2.89842 )
 z_index = -1
 color = Color( 0.2, 0.2, 0.2, 1 )
-polygon = PoolVector2Array( -19.8744, 17.0372, 47.7551, 11.8845, -10.5351, -21.2861 )
+polygon = PoolVector2Array( -8.50021, 20.4619, 36.1874, 8.44903, 0.869781, -21.8232 )
+
+[node name="Polygon2" type="Polygon2D" parent="Tip"]
+visible = false
+position = Vector2( -9.66138, -2.89842 )
+z_index = -1
+color = Color( 0.2, 0.2, 0.2, 1 )
+polygon = PoolVector2Array( -8.50021, 20.4619, 22.2526, 5.80623, 2.31131, -19.9012, -12.104, -23.7453, 4.95413, 1.72188, -21.9546, 16.1372 )
 
 [node name="Label" type="Node2D" parent="."]
 visible = false
@@ -40,6 +47,7 @@ __meta__ = {
 }
 
 [node name="Target" type="Label" parent="."]
+visible = false
 margin_left = -229.024
 margin_top = 63.3118
 margin_right = 232.976

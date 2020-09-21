@@ -19,8 +19,8 @@ func _process(_delta):
 			$Target.text = ""#$Target.text.substr(0,8)
 		$Target.show()
 	$Line.points[1] = end - global_position
-	$Label.position = ($Line.points[0] + $Line.points[1])/2
-	$Tip.position = ($Line.points[0] + $Line.points[1])/2
+	$Label.position = ($Line.points[0] + $Line.points[1])/1.3
+	$Tip.position = ($Line.points[0] + $Line.points[1])/1.3
 	$Tip.rotation = PI+$Line.points[0].angle_to($Line.points[1])
 	
 func label_set(new_label):

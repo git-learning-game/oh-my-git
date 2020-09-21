@@ -55,18 +55,24 @@ func type_set(new_type):
 		#$ID.text = $ID.text.replace("refs/", "")
 	match new_type:
 		"blob":
-			$Rect.color = Color("#333333")
+			$Sprite.texture = preload("res://nodes/blob.svg")
+			#$Rect.color = Color("#333333")
 		"tree":
-			$Rect.color = Color.darkgreen
+			$Sprite.texture = preload("res://nodes/tree.svg")
+			#$Rect.color = Color.darkgreen
 		"commit":
-			$Rect.color = Color.orange
+			$Sprite.texture = preload("res://nodes/commit.svg")
+			#$Rect.color = Color.orange
 		"tag":
-			$Rect.color = Color.blue
+			$Sprite.texture = preload("res://nodes/blob.svg")
+			#$Rect.color = Color.blue
 		"ref":
-			$Rect.color = Color("#6680ff")
+			$Sprite.texture = preload("res://nodes/ref.svg")
+			#$Rect.color = Color("#6680ff")
 			id_always_visible = true
 		"head":
-			$Rect.color = Color.red
+			$Sprite.texture = preload("res://nodes/ref.svg")
+			#$Rect.color = Color.red
 			id_always_visible = true
 	if id_always_visible:
 		$ID.show()
