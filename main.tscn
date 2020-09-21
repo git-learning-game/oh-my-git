@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
 [ext_resource path="res://repository.tscn" type="PackedScene" id=3]
 [ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=4]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
-[ext_resource path="res://text_editor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=7]
 [ext_resource path="res://tcp_server.gd" type="Script" id=8]
 [ext_resource path="res://test.gd" type="Script" id=9]
@@ -24,7 +23,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-terminal_path = NodePath("HBoxContainer/RightSide/InputArea/Terminal")
+terminal_path = NodePath("HBoxContainer/RightSide/Terminal")
 goal_repository_path = NodePath("HBoxContainer/Repositories/GoalRepository")
 active_repository_path = NodePath("HBoxContainer/Repositories/ActiveRepository")
 level_select_path = NodePath("HBoxContainer/RightSide/Menu/LevelSelect")
@@ -171,17 +170,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InputArea" type="Control" parent="HBoxContainer/RightSide"]
+[node name="Terminal" parent="HBoxContainer/RightSide" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 560.0
 margin_right = 639.0
 margin_bottom = 1080.0
 size_flags_vertical = 3
-
-[node name="Terminal" parent="HBoxContainer/RightSide/InputArea" instance=ExtResource( 1 )]
-repository_path = NodePath("../../../Repositories/ActiveRepository")
-
-[node name="TextEditor" parent="HBoxContainer/RightSide/InputArea" instance=ExtResource( 6 )]
-visible = false
+repository_path = NodePath("../../Repositories/ActiveRepository")
 
 [node name="Test" type="Node2D" parent="."]
 visible = false

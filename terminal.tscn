@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://terminal.gd" type="Script" id=2]
 [ext_resource path="res://styles/terminal_input.tres" type="StyleBox" id=3]
+[ext_resource path="res://text_editor.gd" type="Script" id=4]
+[ext_resource path="res://text_editor.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -77,5 +79,18 @@ margin_top = 10.0
 margin_right = -10.0
 custom_fonts/font = ExtResource( 1 )
 text = "Clear"
+
+[node name="TextEditor" type="TextEdit" parent="." instance=ExtResource( 5 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/background_color = Color( 0, 0, 0, 1 )
+text = "Text here"
+syntax_highlighting = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="text_entered" from="Control/InputLine/Input" to="." method="send_command"]
 [connection signal="pressed" from="ClearButton" to="." method="clear"]
