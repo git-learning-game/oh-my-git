@@ -5,7 +5,7 @@
 [ext_resource path="res://fonts/monospace.tres" type="DynamicFont" id=4]
 [ext_resource path="res://text_editor.tscn" type="PackedScene" id=5]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
@@ -34,7 +34,7 @@ __meta__ = {
 margin_right = 1920.0
 margin_bottom = 1049.0
 size_flags_vertical = 3
-custom_styles/normal = SubResource( 2 )
+custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 4 )
 scroll_following = true
 

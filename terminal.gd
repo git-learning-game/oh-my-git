@@ -24,8 +24,8 @@ func _ready():
 	for command in premade_commands:
 		command_dropdown.get_popup().add_item(command)
 	command_dropdown.get_popup().connect("id_pressed", self, "load_command")
-	command_dropdown.theme = Theme.new()
-	command_dropdown.theme.default_font = load("res://fonts/default.tres")
+	
+	$TextEditor.connect("hide", self, "editor_closed")
 
 #func _input(event):
 #	if history.size() > 0:
@@ -77,6 +77,9 @@ func receive_output(text):
 
 func clear():
 	output.text = ""
+	
+func editor_closed():
+	input.grab_focus()
 	
 func check_win_condition():
 	if repository.shell.run("bash /tmp/win 2>/dev/null >/dev/null && echo yes || echo no") == "yes\n":
