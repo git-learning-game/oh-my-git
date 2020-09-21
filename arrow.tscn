@@ -47,7 +47,6 @@ __meta__ = {
 }
 
 [node name="Target" type="Label" parent="."]
-visible = false
 margin_left = -229.024
 margin_top = 63.3118
 margin_right = 232.976
