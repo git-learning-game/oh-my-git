@@ -86,8 +86,9 @@ func children_set(new_children):
 
 func _on_hover():
 	hovered = true
-	$Content.visible = true
-	$ID.visible = true
+	if not id_always_visible:
+		$Content.visible = true
+		$ID.visible = true
 	
 func _on_unhover():
 	hovered = false

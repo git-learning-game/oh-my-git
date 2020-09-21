@@ -32,11 +32,11 @@ __meta__ = {
 terminal_path = NodePath("HBoxContainer/RightSide/Terminal")
 goal_repository_path = NodePath("HBoxContainer/Repositories/GoalRepository")
 active_repository_path = NodePath("HBoxContainer/Repositories/ActiveRepository")
-level_select_path = NodePath("HBoxContainer/RightSide/Menu/LevelSelect")
-next_level_button_path = NodePath("HBoxContainer/RightSide/Menu/NextLevelButton")
-level_name_path = NodePath("HBoxContainer/RightSide/LevelPanel/LevelName")
-level_description_path = NodePath("HBoxContainer/RightSide/LevelPanel/Text/LevelDescription")
-level_congrats_path = NodePath("HBoxContainer/RightSide/LevelPanel/Text/LevelCongrats")
+level_select_path = NodePath("HBoxContainer/RightSide/TopStuff/Menu/LevelSelect")
+next_level_button_path = NodePath("HBoxContainer/RightSide/TopStuff/Menu/NextLevelButton")
+level_name_path = NodePath("HBoxContainer/RightSide/TopStuff/LevelPanel/LevelName")
+level_description_path = NodePath("HBoxContainer/RightSide/TopStuff/LevelPanel/Text/LevelDescription")
+level_congrats_path = NodePath("HBoxContainer/RightSide/TopStuff/LevelPanel/Text/LevelCongrats")
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -47,7 +47,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -60,7 +60,7 @@ __meta__ = {
 }
 
 [node name="Repositories" type="HBoxContainer" parent="HBoxContainer"]
-margin_right = 1270.0
+margin_right = 1267.0
 margin_bottom = 1070.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -75,7 +75,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 635.0
+margin_right = 633.0
 margin_bottom = 1070.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -84,25 +84,30 @@ label = "Goal"
 [node name="ActiveRepository" parent="HBoxContainer/Repositories" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 635.0
+margin_left = 633.0
 margin_top = 0.0
-margin_right = 1270.0
+margin_right = 1267.0
 margin_bottom = 1070.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 label = "Your repository"
 
-[node name="RightSide" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 1275.0
+[node name="RightSide" type="VSplitContainer" parent="HBoxContainer"]
+margin_left = 1279.0
 margin_right = 1910.0
 margin_bottom = 1070.0
 size_flags_horizontal = 3
 
-[node name="Menu" type="HBoxContainer" parent="HBoxContainer/RightSide"]
-margin_right = 635.0
+[node name="TopStuff" type="VBoxContainer" parent="HBoxContainer/RightSide"]
+margin_right = 631.0
+margin_bottom = 529.0
+size_flags_vertical = 3
+
+[node name="Menu" type="HBoxContainer" parent="HBoxContainer/RightSide/TopStuff"]
+margin_right = 631.0
 margin_bottom = 35.0
 
-[node name="LevelSelect" type="MenuButton" parent="HBoxContainer/RightSide/Menu"]
+[node name="LevelSelect" type="MenuButton" parent="HBoxContainer/RightSide/TopStuff/Menu"]
 margin_right = 130.0
 margin_bottom = 35.0
 text = "Select level..."
@@ -111,7 +116,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ReloadButton" type="Button" parent="HBoxContainer/RightSide/Menu"]
+[node name="ReloadButton" type="Button" parent="HBoxContainer/RightSide/TopStuff/Menu"]
 margin_left = 135.0
 margin_right = 214.0
 margin_bottom = 35.0
@@ -122,7 +127,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextLevelButton" type="Button" parent="HBoxContainer/RightSide/Menu"]
+[node name="NextLevelButton" type="Button" parent="HBoxContainer/RightSide/TopStuff/Menu"]
 margin_left = 219.0
 margin_right = 329.0
 margin_bottom = 35.0
@@ -135,14 +140,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LevelPanel" type="VBoxContainer" parent="HBoxContainer/RightSide"]
+[node name="LevelPanel" type="VBoxContainer" parent="HBoxContainer/RightSide/TopStuff"]
 margin_top = 40.0
-margin_right = 635.0
-margin_bottom = 552.0
+margin_right = 631.0
+margin_bottom = 529.0
 size_flags_vertical = 3
 
-[node name="LevelName" type="RichTextLabel" parent="HBoxContainer/RightSide/LevelPanel"]
-margin_right = 635.0
+[node name="LevelName" type="RichTextLabel" parent="HBoxContainer/RightSide/TopStuff/LevelPanel"]
+margin_right = 631.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/normal_font = ExtResource( 7 )
@@ -151,13 +156,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text" type="Control" parent="HBoxContainer/RightSide/LevelPanel"]
+[node name="Text" type="Control" parent="HBoxContainer/RightSide/TopStuff/LevelPanel"]
 margin_top = 65.0
-margin_right = 635.0
-margin_bottom = 512.0
+margin_right = 631.0
+margin_bottom = 489.0
 size_flags_vertical = 3
 
-[node name="LevelDescription" type="RichTextLabel" parent="HBoxContainer/RightSide/LevelPanel/Text"]
+[node name="LevelDescription" type="RichTextLabel" parent="HBoxContainer/RightSide/TopStuff/LevelPanel/Text"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
@@ -168,7 +173,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LevelCongrats" type="RichTextLabel" parent="HBoxContainer/RightSide/LevelPanel/Text"]
+[node name="LevelCongrats" type="RichTextLabel" parent="HBoxContainer/RightSide/TopStuff/LevelPanel/Text"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -183,8 +188,8 @@ __meta__ = {
 [node name="Terminal" parent="HBoxContainer/RightSide" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 557.0
-margin_right = 635.0
+margin_top = 541.0
+margin_right = 631.0
 margin_bottom = 1070.0
 size_flags_vertical = 3
 repository_path = NodePath("../../Repositories/ActiveRepository")
@@ -206,8 +211,8 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="button_down" from="HBoxContainer/RightSide/Menu/LevelSelect" to="." method="repopulate_levels"]
-[connection signal="pressed" from="HBoxContainer/RightSide/Menu/ReloadButton" to="." method="reload_level"]
-[connection signal="pressed" from="HBoxContainer/RightSide/Menu/NextLevelButton" to="." method="load_next_level"]
+[connection signal="button_down" from="HBoxContainer/RightSide/TopStuff/Menu/LevelSelect" to="." method="repopulate_levels"]
+[connection signal="pressed" from="HBoxContainer/RightSide/TopStuff/Menu/ReloadButton" to="." method="reload_level"]
+[connection signal="pressed" from="HBoxContainer/RightSide/TopStuff/Menu/NextLevelButton" to="." method="load_next_level"]
 [connection signal="data_received" from="Test/TCPServer" to="Test" method="data"]
 [connection signal="text_entered" from="Test/LineEdit" to="Test" method="send"]

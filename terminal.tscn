@@ -12,6 +12,10 @@ content_margin_top = 5.0
 content_margin_bottom = 5.0
 bg_color = Color( 0, 0, 0, 1 )
 border_color = Color( 0.415686, 0.333333, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Terminal" type="Container"]
 anchor_right = 1.0

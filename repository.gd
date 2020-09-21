@@ -24,9 +24,12 @@ func _input(event):
 			$Nodes.rect_scale -= Vector2(0.05, 0.05)
 		if event.is_action_pressed("zoom_in") and $Nodes.rect_scale.x < 2:
 			$Nodes.rect_scale += Vector2(0.05, 0.05)
-		
+
+func there_is_a_git():
+	return shell.run("test -d .git && echo yes || echo no") == "yes\n"
+	
 func update_everything():
-	if shell.run("test -d .git && echo yes || echo no") == "yes\n":
+	if there_is_a_git():
 		update_head()
 		update_refs()
 		update_index()
@@ -241,7 +244,8 @@ func simplify_view(pressed):
 		if obj.type == "tree" or obj.type == "blob":
 			obj.visible = not pressed
 	
-	update_objects()
+	if there_is_a_git():
+		update_objects()
 
 func remove_gone_stuff():
 	# FIXME: Cache the result of all_objects.
