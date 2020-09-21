@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var dragged = null
 
@@ -6,19 +6,38 @@ var server
 var client_connection
 var current_level = 0
 
-onready var terminal = $Terminal
+export(NodePath) var terminal_path
+onready var terminal = get_node(terminal_path)
 onready var input = terminal.input
 onready var output = terminal.output
-onready var goal_repository = $Repositories/GoalRepository
-onready var active_repository = $Repositories/ActiveRepository
+
+export(NodePath) var goal_repository_path
+export(NodePath) var active_repository_path
+onready var goal_repository = get_node(goal_repository_path)
+onready var active_repository = get_node(active_repository_path)
+
+export(NodePath) var level_select_path
+onready var level_select = get_node(level_select_path)
+
+export(NodePath) var next_level_button_path
+onready var next_level_button = get_node(next_level_button_path)
+
+export(NodePath) var level_name_path
+onready var level_name = get_node(level_name_path)
+
+export(NodePath) var level_description_path
+onready var level_description = get_node(level_description_path)
+
+export(NodePath) var level_congrats_path
+onready var level_congrats = get_node(level_congrats_path)
 
 func _ready():
 	# Initialize level select.
-	var options = $LevelSelect.get_popup()
+	var options = level_select.get_popup()
 	repopulate_levels()
 	options.connect("id_pressed", self, "load_level")
-	$LevelSelect.theme = Theme.new()
-	$LevelSelect.theme.default_font = load("res://fonts/default.tres")
+	level_select.theme = Theme.new()
+	level_select.theme.default_font = load("res://fonts/default.tres")
 	
 	# Initialize TCP server for fake editor.
 	server = TCP_Server.new()
@@ -75,9 +94,9 @@ func list_levels():
 	return level_sequence
 
 func load_level(id):
-	$NextLevelButton.hide()
-	$LevelCongrats.hide()
-	$LevelDescription.show()
+	next_level_button.hide()
+	level_congrats.hide()
+	level_description.show()
 	current_level = id
 	
 	var levels = list_levels()
@@ -92,13 +111,13 @@ func load_level(id):
 	
 	var description_file = level_prefix+level+"/description"
 	var description = game.read_file(description_file, "no description")
-	$LevelDescription.bbcode_text = description
+	level_description.bbcode_text = description
 	
 	var congrats_file = level_prefix+level+"/congrats"
 	var congrats = game.read_file(congrats_file, "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
-	$LevelCongrats.bbcode_text = congrats
+	level_congrats.bbcode_text = congrats
 	
-	$LevelName.text = level
+	level_name.text = level
 	
 	# We're actually destroying stuff here.
 	# Make sure that active_repository is in a temporary directory.
@@ -182,13 +201,12 @@ func save_message():
 	input.grab_focus()
 	
 func show_win_status():
-	$NextLevelButton.show()
-	$LevelDescription.hide()
-	$LevelCongrats.show()
-
+	next_level_button.show()
+	level_description.hide()
+	level_congrats.show()
 
 func repopulate_levels():
-	var options = $LevelSelect.get_popup()
+	var options = level_select.get_popup()
 	options.clear()
 	for level in list_levels():
 		options.add_item(level)
