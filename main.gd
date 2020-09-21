@@ -34,8 +34,6 @@ func _ready():
 	var options = level_select.get_popup()
 	repopulate_levels()
 	options.connect("id_pressed", self, "load_level")
-	level_select.theme = Theme.new()
-	level_select.theme.default_font = load("res://fonts/default.tres")
 	
 	# Load first level.
 	load_level(0)

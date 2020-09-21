@@ -4,12 +4,16 @@
 [ext_resource path="res://main.gd" type="Script" id=2]
 [ext_resource path="res://repository.tscn" type="PackedScene" id=3]
 [ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=4]
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
+[ext_resource path="res://styles/theme.tres" type="Theme" id=6]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=7]
 [ext_resource path="res://tcp_server.gd" type="Script" id=8]
 [ext_resource path="res://test.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
 bg_color = Color( 0.847059, 0.0666667, 0.0666667, 1 )
 corner_radius_top_left = 3
 corner_radius_top_right = 3
@@ -19,6 +23,7 @@ corner_radius_bottom_left = 3
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 6 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,13 +49,17 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Repositories" type="HBoxContainer" parent="HBoxContainer"]
-margin_right = 1277.0
-margin_bottom = 1080.0
+margin_right = 1270.0
+margin_bottom = 1070.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -64,8 +73,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 638.0
-margin_bottom = 1080.0
+margin_right = 635.0
+margin_bottom = 1070.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 label = "Goal"
@@ -73,28 +82,27 @@ label = "Goal"
 [node name="ActiveRepository" parent="HBoxContainer/Repositories" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 638.0
+margin_left = 635.0
 margin_top = 0.0
-margin_right = 1277.0
-margin_bottom = 1080.0
+margin_right = 1270.0
+margin_bottom = 1070.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 label = "Your repository"
 
 [node name="RightSide" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 1281.0
-margin_right = 1920.0
-margin_bottom = 1080.0
+margin_left = 1274.0
+margin_right = 1910.0
+margin_bottom = 1070.0
 size_flags_horizontal = 3
 
 [node name="Menu" type="HBoxContainer" parent="HBoxContainer/RightSide"]
-margin_right = 639.0
-margin_bottom = 32.0
+margin_right = 636.0
+margin_bottom = 35.0
 
 [node name="LevelSelect" type="MenuButton" parent="HBoxContainer/RightSide/Menu"]
-margin_right = 162.0
-margin_bottom = 32.0
-custom_fonts/font = ExtResource( 5 )
+margin_right = 130.0
+margin_bottom = 35.0
 text = "Select level..."
 flat = false
 __meta__ = {
@@ -102,35 +110,33 @@ __meta__ = {
 }
 
 [node name="ReloadButton" type="Button" parent="HBoxContainer/RightSide/Menu"]
-margin_left = 166.0
-margin_right = 238.0
-margin_bottom = 32.0
-custom_fonts/font = ExtResource( 5 )
+margin_left = 134.0
+margin_right = 213.0
+margin_bottom = 35.0
 text = "Reload"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NextLevelButton" type="Button" parent="HBoxContainer/RightSide/Menu"]
-margin_left = 242.0
-margin_right = 342.0
-margin_bottom = 32.0
+margin_left = 217.0
+margin_right = 327.0
+margin_bottom = 35.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = ExtResource( 4 )
-custom_fonts/font = ExtResource( 5 )
 text = "Next Level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LevelPanel" type="VBoxContainer" parent="HBoxContainer/RightSide"]
-margin_top = 36.0
-margin_right = 639.0
-margin_bottom = 556.0
+margin_top = 39.0
+margin_right = 636.0
+margin_bottom = 552.0
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="HBoxContainer/RightSide/LevelPanel"]
-margin_right = 639.0
+margin_right = 636.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/normal_font = ExtResource( 7 )
@@ -141,15 +147,14 @@ __meta__ = {
 
 [node name="Text" type="Control" parent="HBoxContainer/RightSide/LevelPanel"]
 margin_top = 64.0
-margin_right = 639.0
-margin_bottom = 520.0
+margin_right = 636.0
+margin_bottom = 513.0
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="HBoxContainer/RightSide/LevelPanel/Text"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
-custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "Level description here!"
 text = "Level description here!"
@@ -162,7 +167,6 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
-custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "Level description here!"
 text = "Level description here!"
@@ -173,9 +177,9 @@ __meta__ = {
 [node name="Terminal" parent="HBoxContainer/RightSide" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 560.0
-margin_right = 639.0
-margin_bottom = 1080.0
+margin_top = 556.0
+margin_right = 636.0
+margin_bottom = 1070.0
 size_flags_vertical = 3
 repository_path = NodePath("../../Repositories/ActiveRepository")
 

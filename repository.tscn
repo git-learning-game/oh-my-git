@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://repository.gd" type="Script" id=1]
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
+[ext_resource path="res://styles/theme.tres" type="Theme" id=2]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=3]
 
 [node name="Repository" type="Container"]
@@ -12,6 +12,7 @@ margin_top = 3.0
 margin_right = -6.0
 margin_bottom = -4.0
 mouse_filter = 2
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -22,7 +23,8 @@ margin_left = 24.0
 margin_top = 80.0
 margin_right = 375.079
 margin_bottom = 1044.0
-custom_fonts/font = ExtResource( 2 )
+text = "entry1
+entry2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,7 +62,6 @@ anchor_top = 0.968
 anchor_bottom = 0.968
 margin_right = 24.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 2 )
 text = "Hide trees and blobs"
 
 [node name="Nodes" type="Control" parent="."]
