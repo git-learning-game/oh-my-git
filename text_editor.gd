@@ -35,6 +35,10 @@ func open(filename):
 func save():
 	var fixme_path = game.tmp_prefix+"/active/"
 	game.write_file(fixme_path+path, text)
-	_client_connection.disconnect_from_host()
+	close()
+
+func close():
+	if _client_connection.is_connected_to_host():
+		_client_connection.disconnect_from_host()
 	text = ""
 	hide()
