@@ -2,6 +2,8 @@ extends Control
 
 var dragged = null
 
+var level_set = "top-down"
+#var level_set = "bottom-up"
 var current_level = 0
 
 export(NodePath) var terminal_path
@@ -42,48 +44,34 @@ func _ready():
 func list_levels():
 	var levels = []
 	var dir = Directory.new()
-	dir.open("res://levels")
+	dir.open("res://levels/%s" % level_set)
 	dir.list_dir_begin()
 
 	while true:
 		var file = dir.get_next()
 		if file == "":
 			break
-		elif not file.begins_with("."):
+		elif not file.begins_with(".") and file != "sequence":
 			levels.append(file)
 
 	dir.list_dir_end()
 	levels.sort()
 	
-	var level_sequence = [
-		"welcome",
-		"basics",
-		"blob-create",
-		"blob-remove",
-		"index-add",
-		"index-remove",
-		"index-update",
-		"tree-create",
-		"tree-read",
-		"tree-nested",
-		"commit-create",
-		"commit-parents",
-		"commit-rhombus",
-		"ref-create",
-		"ref-move",
-		"ref-remove",
-		"symref-create",
-		"symref-no-deref",
-	]
+	var final_level_sequence = []
+	
+	var level_sequence = Array(game.read_file("res://levels/%s/sequence" % level_set, "").split("\n"))
 	
 	for level in level_sequence:
+		if level == "":
+			continue
 		if not levels.has(level):
 			push_error("Level '%s' is specified in the sequence, but could not be found" % level)
 		levels.erase(level)
+		final_level_sequence.push_back(level)
 	
-	level_sequence += levels
+	final_level_sequence += levels
 	
-	return level_sequence
+	return final_level_sequence
 
 func load_level(id):
 	next_level_button.hide()
@@ -94,7 +82,7 @@ func load_level(id):
 	var levels = list_levels()
 	
 	var level = levels[id]
-	var level_prefix = "res://levels/"
+	var level_prefix = "res://levels/%s/" % level_set
 	
 	var goal_repository_path = "/tmp/goal/"
 	var active_repository_path = "/tmp/active/"
