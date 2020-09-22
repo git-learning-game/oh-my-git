@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://terminal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://repository.tscn" type="PackedScene" id=2]
+[ext_resource path="res://styles/theme.tres" type="Theme" id=3]
+[ext_resource path="res://sandbox.gd" type="Script" id=4]
+
+[node name="Sandbox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -960.0
+margin_bottom = -540.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Repository" parent="HSplitContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 469.0
+margin_bottom = 530.0
+size_flags_horizontal = 3
+file_browser_active = false
+
+[node name="Terminal" parent="HSplitContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 481.0
+margin_right = 950.0
+margin_bottom = 530.0
+size_flags_horizontal = 3
+repository_path = NodePath("../Repository")

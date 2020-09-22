@@ -85,6 +85,7 @@ func children_set(new_children):
 		if not children.has(c):
 			var a = arrow.instance()
 			a.label = new_children[c]
+			a.source = id
 			a.target = c
 			a.repository = repository
 			$Arrows.add_child(a)  

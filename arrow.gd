@@ -1,24 +1,33 @@
 extends Node2D
 
 var label = "label" setget label_set
-var target: String setget target_set
+
+var source: String
+var target: String
+
 var repository: Control
 
 func _ready():
 	pass
 
 func _process(_delta):
-	var end = global_position + Vector2(0, 50)
+	#position = -repository.objects[source].position
+	position = Vector2(0,0)
+	
+	var start = repository.objects[source].position
+	var end = start + Vector2(0, 30)
+	
 	if repository and repository.objects.has(target) and repository.objects[target].visible:
 		var t = repository.objects[target]
-		end = t.global_position
+		end = t.position
 		$Target.hide()
 	else:
 		$Target.text = target
 		if $Target.text.substr(0, 5) != "refs/":
 			$Target.text = ""#$Target.text.substr(0,8)
 		$Target.show()
-	$Line.points[1] = (end - global_position)/repository.find_node("Nodes").rect_scale.x
+	
+	$Line.points[1] = end - repository.objects[source].position
 	$Label.position = ($Line.points[0] + $Line.points[1])/1.3
 	$Tip.position = ($Line.points[0] + $Line.points[1])/1.3
 	$Tip.rotation = PI+$Line.points[0].angle_to($Line.points[1])
@@ -26,6 +35,3 @@ func _process(_delta):
 func label_set(new_label):
 	label = new_label
 	$Label/ID.text = label
-
-func target_set(new_target):
-	target = new_target

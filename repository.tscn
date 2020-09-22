@@ -14,10 +14,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-index_path = NodePath("VSplitContainer/RepoVis/Index")
-nodes_path = NodePath("VSplitContainer/RepoVis/Nodes")
-file_browser_path = NodePath("VSplitContainer/FileBrowser")
-label_node_path = NodePath("VSplitContainer/RepoVis/Label")
 
 [node name="VSplitContainer" type="VSplitContainer" parent="."]
 anchor_right = 1.0

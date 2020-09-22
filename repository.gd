@@ -1,16 +1,9 @@
 extends Control
 
-export(NodePath) var index_path
-onready var index = get_node(index_path)
-
-export(NodePath) var nodes_path
-onready var nodes = get_node(nodes_path)
-
-export(NodePath) var file_browser_path
-onready var file_browser = get_node(file_browser_path)
-
-export(NodePath) var label_node_path
-onready var label_node = get_node(label_node_path)
+onready var index = $VSplitContainer/RepoVis/Index
+onready var nodes = $VSplitContainer/RepoVis/Nodes
+onready var file_browser = $VSplitContainer/FileBrowser
+onready var label_node = $VSplitContainer/RepoVis/Label
 
 export var label: String setget set_label
 export var path: String setget set_path, get_path
