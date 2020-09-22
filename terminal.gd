@@ -26,6 +26,7 @@ func _ready():
 	command_dropdown.get_popup().connect("id_pressed", self, "load_command")
 	
 	$TextEditor.connect("hide", self, "editor_closed")
+	input.grab_focus()
 
 func _input(event):
 	if history.size() > 0:

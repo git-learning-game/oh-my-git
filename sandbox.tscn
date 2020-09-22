@@ -8,9 +8,6 @@
 [node name="Sandbox" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -960.0
-margin_bottom = -540.0
-rect_scale = Vector2( 2, 2 )
 theme = ExtResource( 3 )
 script = ExtResource( 4 )
 __meta__ = {
@@ -40,16 +37,16 @@ __meta__ = {
 [node name="Repository" parent="HSplitContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 469.0
-margin_bottom = 530.0
+margin_right = 949.0
+margin_bottom = 1070.0
 size_flags_horizontal = 3
 file_browser_active = false
 
 [node name="Terminal" parent="HSplitContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 481.0
-margin_right = 950.0
-margin_bottom = 530.0
+margin_left = 961.0
+margin_right = 1910.0
+margin_bottom = 1070.0
 size_flags_horizontal = 3
 repository_path = NodePath("../Repository")

@@ -18,7 +18,6 @@ var mouse_inside = false
 var _simplified_view = false
 
 func _ready():
-	nodes.rect_pivot_offset = nodes.rect_size / 2
 	file_browser.shell = shell
 	
 	# Trigger these again because nodes were not ready before.
@@ -26,6 +25,7 @@ func _ready():
 	set_file_browser_active(file_browser_active)
 
 func _process(_delta):
+	nodes.rect_pivot_offset = nodes.rect_size / 2
 	if path:
 		apply_forces()
 		
@@ -48,7 +48,10 @@ func update_everything():
 		update_objects()
 		remove_gone_stuff()
 	else:
-		index.text = ""	
+		index.text = ""
+		for o in objects:
+			objects[o].queue_free()
+		objects = {}
 				
 
 func set_path(new_path):
@@ -159,7 +162,7 @@ func find_position(n):
 	return n.position
 
 func git(args, splitlines = false):
-	var o = shell.run("git " + args)
+	var o = shell.run("git --no-replace-objects " + args)
 	
 	if splitlines:
 		o = o.split("\n")

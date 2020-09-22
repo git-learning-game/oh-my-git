@@ -18,11 +18,12 @@ __meta__ = {
 [node name="VSplitContainer" type="VSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 
 [node name="RepoVis" type="Control" parent="VSplitContainer"]
 margin_right = 1920.0
 margin_bottom = 894.0
-rect_clip_content = true
+mouse_filter = 1
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
