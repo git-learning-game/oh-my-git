@@ -16,8 +16,7 @@ func _process(_delta):
 		var length = _client_connection.get_u8()
 		var filename = _client_connection.get_string(length)
 		var regex = RegEx.new()
-		regex.compile("(\\.git\\/.*)")
-		filename = regex.search(filename).get_string()
+		filename = filename.replace("/tmp/active/", "")
 		open(filename)
 	
 func open(filename):

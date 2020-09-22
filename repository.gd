@@ -1,7 +1,20 @@
 extends Control
 
+export(NodePath) var index_path
+onready var index = get_node(index_path)
+
+export(NodePath) var nodes_path
+onready var nodes = get_node(nodes_path)
+
+export(NodePath) var file_browser_path
+onready var file_browser = get_node(file_browser_path)
+
+export(NodePath) var label_node_path
+onready var label_node = get_node(label_node_path)
+
 export var label: String setget set_label
 export var path: String setget set_path, get_path
+export var file_browser_active = true setget set_file_browser_active
 
 var node = preload("res://node.tscn")
 
@@ -12,7 +25,12 @@ var mouse_inside = false
 var _simplified_view = false
 
 func _ready():
-	$Nodes.rect_pivot_offset = $Nodes.rect_size / 2
+	nodes.rect_pivot_offset = nodes.rect_size / 2
+	file_browser.shell = shell
+	
+	# Trigger these again because nodes were not ready before.
+	set_label(label)
+	set_file_browser_active(file_browser_active)
 
 func _process(_delta):
 	if path:
@@ -20,15 +38,16 @@ func _process(_delta):
 		
 func _input(event):
 	if mouse_inside:
-		if event.is_action_pressed("zoom_out") and $Nodes.rect_scale.x > 0.3:
-			$Nodes.rect_scale -= Vector2(0.05, 0.05)
-		if event.is_action_pressed("zoom_in") and $Nodes.rect_scale.x < 2:
-			$Nodes.rect_scale += Vector2(0.05, 0.05)
+		if event.is_action_pressed("zoom_out") and nodes.rect_scale.x > 0.3:
+			nodes.rect_scale -= Vector2(0.05, 0.05)
+		if event.is_action_pressed("zoom_in") and nodes.rect_scale.x < 2:
+			nodes.rect_scale += Vector2(0.05, 0.05)
 
 func there_is_a_git():
 	return shell.run("test -d .git && echo yes || echo no") == "yes\n"
 	
 func update_everything():
+	file_browser.update()
 	if there_is_a_git():
 		update_head()
 		update_refs()
@@ -36,7 +55,8 @@ func update_everything():
 		update_objects()
 		remove_gone_stuff()
 	else:
-		$Index.text = ""
+		index.text = ""	
+				
 
 func set_path(new_path):
 	path = new_path
@@ -51,10 +71,11 @@ func get_path():
 	
 func set_label(new_label):
 	label = new_label
-	$Label.text = new_label
+	if label_node:
+		label_node.text = new_label
 	
 func update_index():
-	$Index.text = git("ls-files -s --abbrev=8").replace("\t", " ")
+	index.text = git("ls-files -s --abbrev=8").replace("\t", " ")
 
 func random_position():
 	return Vector2(rand_range(0, rect_size.x), rand_range(0, rect_size.y))
@@ -94,7 +115,7 @@ func update_objects():
 				n.children = tag_target(o)
 		
 		n.position = find_position(n)
-		$Nodes.add_child(n)
+		nodes.add_child(n)
 		objects[o] = n
 	 
 func update_refs():   
@@ -108,7 +129,7 @@ func update_refs():
 			objects[r] = n
 			n.children = {ref_target(r): ""}
 			n.position = find_position(n)
-			$Nodes.add_child(n)
+			nodes.add_child(n)
 		var n = objects[r]
 		n.children = {ref_target(r): ""}
 	
@@ -166,7 +187,7 @@ func update_head():
 		n.position = find_position(n)
 		   
 		objects["HEAD"] = n
-		$Nodes.add_child(n)
+		nodes.add_child(n)
 	var n = objects["HEAD"]
 	n.children = {ref_target("HEAD"): ""}
 
@@ -266,3 +287,10 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	mouse_inside = false
+	
+func set_file_browser_active(active):
+	file_browser_active = active
+	if file_browser:
+		file_browser.visible = active
+		
+

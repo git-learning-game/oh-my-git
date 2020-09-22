@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://repository.gd" type="Script" id=1]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=2]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=3]
+[ext_resource path="res://file_browser.tscn" type="PackedScene" id=4]
 
 [node name="Repository" type="Control"]
 anchor_right = 1.0
@@ -10,8 +11,28 @@ anchor_bottom = 1.0
 mouse_filter = 1
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+index_path = NodePath("VSplitContainer/RepoVis/Index")
+nodes_path = NodePath("VSplitContainer/RepoVis/Nodes")
+file_browser_path = NodePath("VSplitContainer/FileBrowser")
+label_node_path = NodePath("VSplitContainer/RepoVis/Label")
 
-[node name="Label" type="Label" parent="."]
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RepoVis" type="Control" parent="VSplitContainer"]
+margin_right = 1920.0
+margin_bottom = 894.0
+rect_clip_content = true
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VSplitContainer/RepoVis"]
 margin_left = 5.60091
 margin_top = -0.518692
 margin_right = 204.601
@@ -22,7 +43,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Index" type="Label" parent="."]
+[node name="Index" type="Label" parent="VSplitContainer/RepoVis"]
 margin_left = 8.64569
 margin_top = 63.8375
 margin_right = 359.725
@@ -33,7 +54,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="IndexLabel" type="Label" parent="."]
+[node name="IndexLabel" type="Label" parent="VSplitContainer/RepoVis"]
 visible = false
 margin_left = 21.0
 margin_top = 65.0
@@ -44,33 +65,48 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="VSplitContainer/RepoVis"]
 visible = false
 margin_left = 36.5602
 margin_top = 67.9891
-margin_right = 94.5602
+margin_right = 119.56
 margin_bottom = 109.989
 text = "Update"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SimplifyCheckbox" type="CheckBox" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 2.87984
-margin_top = -23.2002
-margin_right = 195.88
-margin_bottom = 1.7998
+[node name="SimplifyCheckbox" type="CheckBox" parent="VSplitContainer/RepoVis"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -208.715
+margin_top = 17.9594
+margin_right = -15.7146
+margin_bottom = 42.9594
 focus_mode = 0
 enabled_focus_mode = 0
 text = "Hide trees and blobs"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Nodes" type="Control" parent="."]
+[node name="Nodes" type="Control" parent="VSplitContainer/RepoVis"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileBrowser" parent="VSplitContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 906.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="Button" to="." method="update_everything"]
-[connection signal="toggled" from="SimplifyCheckbox" to="." method="simplify_view"]
+[connection signal="pressed" from="VSplitContainer/RepoVis/Button" to="." method="update_everything"]
+[connection signal="toggled" from="VSplitContainer/RepoVis/SimplifyCheckbox" to="." method="simplify_view"]

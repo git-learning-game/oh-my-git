@@ -78,6 +78,7 @@ margin_bottom = 1070.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 label = "Goal"
+file_browser_active = false
 
 [node name="ActiveRepository" parent="HBoxContainer/Repositories" instance=ExtResource( 3 )]
 anchor_right = 0.0

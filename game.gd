@@ -7,15 +7,20 @@ var fake_editor
 
 func _ready():
 	global_shell = Shell.new()
+	fake_editor = copy_file_to_game_env("fake-editor")
+	copy_file_to_game_env("fake-editor-noblock")
+	
+func copy_file_to_game_env(filename):
 	
 	# Copy fake-editor to tmp directory (because the original might be in a .pck file).
-	var fake_editor_outside = tmp_prefix + "fake-editor"
-	fake_editor = "/tmp/fake-editor"
-	var content = game.read_file("res://scripts/fake-editor", "")
+	var file_outside = tmp_prefix + filename
+	var file_inside = "/tmp/"+filename
+	var content = game.read_file("res://scripts/"+filename, "")
 	if content.empty():
-		push_error("fake-editor could not be read.")
-	write_file(fake_editor_outside, content)
-	global_shell.run("chmod u+x " + fake_editor)
+		push_error(filename + " could not be read.")
+	write_file(file_outside, content)
+	global_shell.run("chmod u+x " + file_inside)
+	return file_inside
 
 func read_file(path, fallback_string):
 	if debug_file_io:
