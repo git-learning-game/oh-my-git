@@ -103,6 +103,11 @@ func load_level(id):
 	
 	var description_file = level_prefix+level+"/description"
 	var description = game.read_file(description_file, "no description")
+	
+	# Surround all lines indented with four spaces with [code] tags.
+	var monospace_regex = RegEx.new()
+	monospace_regex.compile("\n    (.*)\n")
+	description = monospace_regex.sub(description, "\n      [code]$1[/code]\n", true)
 	level_description.bbcode_text = description
 	
 	var congrats_file = level_prefix+level+"/congrats"
