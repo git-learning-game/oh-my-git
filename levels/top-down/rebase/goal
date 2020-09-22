@@ -1,0 +1,9 @@
+git switch side1
+git rebase main
+git switch side2
+git rebase side1
+git switch main
+git merge side2
+
+git reflog expire --expire=all --all
+git prune

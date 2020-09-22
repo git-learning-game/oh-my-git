@@ -193,6 +193,7 @@ size_flags_vertical = 3
 repository_path = NodePath("../../Repositories/ActiveRepository")
 
 [node name="Test" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 9 )
 
 [node name="TCPServer" type="Node" parent="Test"]

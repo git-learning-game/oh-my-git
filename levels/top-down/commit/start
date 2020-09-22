@@ -1,0 +1,4 @@
+mkdir recipes
+echo -e "blueberries\nflour" > recipes/blueberry_cake.txt
+echo -e "water\ncarrots" > recipes/carrot soup.txt
+echo "Very good recipes!" > README.md
