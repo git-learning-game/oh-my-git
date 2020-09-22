@@ -193,7 +193,6 @@ size_flags_vertical = 3
 repository_path = NodePath("../../Repositories/ActiveRepository")
 
 [node name="Test" type="Node2D" parent="."]
-visible = false
 script = ExtResource( 9 )
 
 [node name="TCPServer" type="Node" parent="Test"]
@@ -201,10 +200,10 @@ script = ExtResource( 8 )
 port = 6666
 
 [node name="LineEdit" type="LineEdit" parent="Test"]
-margin_left = 1362.49
-margin_top = 827.517
-margin_right = 1772.49
-margin_bottom = 914.517
+margin_left = 720.526
+margin_top = 691.052
+margin_right = 1130.53
+margin_bottom = 778.052
 caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false

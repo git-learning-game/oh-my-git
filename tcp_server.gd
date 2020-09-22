@@ -17,6 +17,7 @@ func start():
 func _process(_delta):
 	if _s.is_connection_available():
 		if _connected:
+			_c.disconnect_from_host()
 			push_error("Dropping active connection")
 		_c = _s.take_connection()
 		_connected = true
@@ -28,7 +29,7 @@ func _process(_delta):
 			print("disconnected")
 		var available = _c.get_available_bytes()
 		while available > 0:
-			var data = _c.get_utf8_string(available)
+			var data = _c.get_utf8_string(-1)
 			emit_signal("data_received", data)
 			available = _c.get_available_bytes()
 

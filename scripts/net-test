@@ -9,7 +9,8 @@ $socket = IO::Socket::INET->new(PeerAddr => "127.0.0.1",
 
 $s = "Hey äöü!";
 
-$socket->send(chr(length($s)));
+my $send_length = pack("L", length($s));
+$socket->send($send_length);
 $socket->send($s);
 
 while(true) {
