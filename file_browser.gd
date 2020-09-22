@@ -14,7 +14,9 @@ func update():
 	var file_string = shell.run("find -type f")
 	var files = file_string.split("\n")
 	files = Array(files)
-	files.sort()
+	# The last entry is an empty string, remove it.
+	files.pop_back()
+	files.sort_custom(self, "very_best_sort")
 	for file_path in files:
 		file_path = file_path.substr(2)
 		var child = $FileTree.create_item(root_item)
@@ -28,3 +30,11 @@ func _on_item_selected():
 
 	shell.run("/tmp/fake-editor-noblock "+file_path)
 	
+func very_best_sort(a,b):
+	# We're looking at the third character because all entries have the form
+	# "./.git/bla".
+	if a.substr(2, 1) == "." and b.substr(2, 1) != ".":
+		return false
+	if a.substr(2, 1) != "." and b.substr(2, 1) == ".":
+		return true
+	return a.casecmp_to(b) == -1
