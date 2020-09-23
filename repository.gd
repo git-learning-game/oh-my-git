@@ -4,10 +4,12 @@ onready var index = $VSplitContainer/RepoVis/Index
 onready var nodes = $VSplitContainer/RepoVis/Nodes
 onready var file_browser = $VSplitContainer/FileBrowser
 onready var label_node = $VSplitContainer/RepoVis/Label
+onready var simplify_checkbox = $VSplitContainer/RepoVis/SimplifyCheckbox
 
 export var label: String setget set_label
 export var path: String setget set_path, get_path
 export var file_browser_active = true setget set_file_browser_active
+export var simplified_view = false setget set_simplified_view
 
 var node = preload("res://node.tscn")
 
@@ -15,14 +17,13 @@ var shell = Shell.new()
 var objects = {}
 var mouse_inside = false
 
-var _simplified_view = false
-
 func _ready():
 	file_browser.shell = shell
 	
 	# Trigger these again because nodes were not ready before.
 	set_label(label)
 	set_file_browser_active(file_browser_active)
+	set_simplified_view(simplified_view)
 
 func _process(_delta):
 	nodes.rect_pivot_offset = nodes.rect_size / 2
@@ -85,7 +86,7 @@ func update_objects():
 			continue
 			
 		var type = object_type(o)
-		if _simplified_view:
+		if simplified_view:
 			if type == "tree" or type == "blob":
 				continue
 		
@@ -254,7 +255,7 @@ func ref_target(ref):
 
 
 func simplify_view(pressed):
-	_simplified_view = pressed
+	simplified_view = pressed
 
 	for o in objects:
 		var obj = objects[o]
@@ -263,6 +264,11 @@ func simplify_view(pressed):
 	
 	if there_is_a_git():
 		update_objects()
+
+func set_simplified_view(simplify):
+	simplified_view = simplify
+	if simplify_checkbox:
+		simplify_checkbox.pressed = simplify
 
 func remove_gone_stuff():
 	# FIXME: Cache the result of all_objects.
