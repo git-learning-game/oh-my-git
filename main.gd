@@ -152,7 +152,8 @@ func construct_repo(script_content, path):
 	game.global_shell.cd(path)
 	game.global_shell.run("git init")
 	game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
-	game.global_shell.run("sh "+script_path)
+	# Read stdin from /dev/null so that interactive commands don't block.
+	game.global_shell.run("bash "+script_path+" </dev/null")
 	
 func show_win_status():
 	next_level_button.show()

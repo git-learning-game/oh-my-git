@@ -13,11 +13,11 @@ points = PoolVector2Array( -0.480499, -0.11055, 158.301, 0.581757 )
 default_color = Color( 0.2, 0.2, 0.2, 1 )
 
 [node name="Tip" type="Node2D" parent="."]
-position = Vector2( 149.835, 0.290878 )
+position = Vector2( 158.06, 0.290878 )
 z_index = 1
 
 [node name="Polygon" type="Polygon2D" parent="Tip"]
-position = Vector2( -9.66138, -2.89842 )
+position = Vector2( -24.7164, -6.37881 )
 z_index = -1
 color = Color( 0.2, 0.2, 0.2, 1 )
 polygon = PoolVector2Array( -8.50021, 20.4619, 36.1874, 8.44903, 0.869781, -21.8232 )

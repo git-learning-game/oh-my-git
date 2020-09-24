@@ -28,8 +28,10 @@ func _process(_delta):
 		$Target.show()
 	
 	$Line.points[1] = end - repository.objects[source].position
-	$Label.position = ($Line.points[0] + $Line.points[1])/1.3
-	$Tip.position = ($Line.points[0] + $Line.points[1])/1.3
+	# Move the tip away from the object a bit.
+	$Line.points[1] -= $Line.points[1].normalized()*30
+	#$Label.position = ($Line.points[0] + $Line.points[1])/1.3
+	$Tip.position = $Line.points[1]
 	$Tip.rotation = PI+$Line.points[0].angle_to($Line.points[1])
 	
 func label_set(new_label):
