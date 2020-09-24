@@ -15,7 +15,6 @@ func _process(_delta):
 		_client_connection = _server.take_connection()
 		var length = _client_connection.get_u8()
 		var filename = _client_connection.get_string(length)
-		var regex = RegEx.new()
 		filename = filename.replace("/tmp/active/", "")
 		open(filename)
 	

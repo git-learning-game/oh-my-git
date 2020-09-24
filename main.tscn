@@ -30,8 +30,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 terminal_path = NodePath("HBoxContainer/RightSide/Terminal")
-goal_repository_path = NodePath("HBoxContainer/Repositories/GoalRepository")
-active_repository_path = NodePath("HBoxContainer/Repositories/ActiveRepository")
+goal_repository_path_2 = NodePath("HBoxContainer/Repositories/GoalRepository")
+active_repository_path_2 = NodePath("HBoxContainer/Repositories/ActiveRepository")
 level_select_path = NodePath("HBoxContainer/RightSide/TopStuff/Menu/LevelSelect")
 next_level_button_path = NodePath("HBoxContainer/RightSide/TopStuff/Menu/NextLevelButton")
 level_name_path = NodePath("HBoxContainer/RightSide/TopStuff/LevelPanel/LevelName")

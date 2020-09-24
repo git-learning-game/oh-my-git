@@ -11,10 +11,10 @@ onready var terminal = get_node(terminal_path)
 onready var input = terminal.input
 onready var output = terminal.output
 
-export(NodePath) var goal_repository_path
-export(NodePath) var active_repository_path
-onready var goal_repository = get_node(goal_repository_path)
-onready var active_repository = get_node(active_repository_path)
+export(NodePath) var goal_repository_path_2
+export(NodePath) var active_repository_path_2
+onready var goal_repository = get_node(goal_repository_path_2)
+onready var active_repository = get_node(active_repository_path_2)
 
 export(NodePath) var level_select_path
 onready var level_select = get_node(level_select_path)
