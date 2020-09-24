@@ -47,10 +47,10 @@ __meta__ = {
 }
 
 [node name="Target" type="Label" parent="."]
-margin_left = -229.024
-margin_top = 63.3118
-margin_right = 232.976
-margin_bottom = 89.3118
+margin_left = -230.84
+margin_top = 42.1225
+margin_right = 231.16
+margin_bottom = 68.1225
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
 text = "label"

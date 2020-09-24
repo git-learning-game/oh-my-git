@@ -15,7 +15,7 @@ func _process(_delta):
 	position = Vector2(0,0)
 	
 	var start = repository.objects[source].position
-	var end = start + Vector2(0, 30)
+	var end = start + Vector2(0, 60)
 	
 	if repository and repository.objects.has(target) and repository.objects[target].visible:
 		var t = repository.objects[target]
