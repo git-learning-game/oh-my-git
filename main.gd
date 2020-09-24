@@ -74,6 +74,8 @@ func list_levels():
 	return final_level_sequence
 
 func load_level(id):
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	
 	next_level_button.hide()
 	level_congrats.hide()
 	level_description.show()
@@ -132,6 +134,16 @@ func load_level(id):
 	game.write_file(win_script_target, win_script_content)
 	
 	terminal.clear()
+	
+	# Unmute the audio after a while, so that player can hear pop sounds for
+	# nodes they create.
+	var t = Timer.new()
+	t.wait_time = 3
+	add_child(t)
+	t.start()
+	yield(t, "timeout")
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+	# FIXME: Need to clean these up when switching levels somehow.
 
 func reload_level():
 	load_level(current_level)

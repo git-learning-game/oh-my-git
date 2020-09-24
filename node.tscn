@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://node.gd" type="Script" id=1]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
 [ext_resource path="res://nodes/blob.svg" type="Texture" id=3]
+[ext_resource path="res://nodes/pop.wav" type="AudioStream" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 5.0
@@ -61,5 +62,8 @@ __meta__ = {
 }
 
 [node name="Arrows" type="Node2D" parent="."]
+
+[node name="Pop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 [connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]
 [connection signal="mouse_exited" from="Rect" to="." method="_on_unhover"]

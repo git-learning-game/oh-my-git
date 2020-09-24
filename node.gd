@@ -12,9 +12,14 @@ var hovered = false
 
 var arrow = preload("res://arrow.tscn")
 
-
 func _ready():
-	pass
+#	var t = Timer.new()
+#	t.wait_time = rand_range(0.0, 0.1)
+#	add_child(t)
+#	t.start()
+#	yield(t, "timeout")
+	$Pop.pitch_scale = rand_range(0.8, 1.2)
+	$Pop.play()
 
 func _process(_delta):
 	if held:

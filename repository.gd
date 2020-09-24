@@ -143,7 +143,6 @@ func apply_forces():
 			o.position += dir*f
 			o2.position -= dir*f
 		var center_of_gravity = nodes.rect_size/2
-		print(center_of_gravity)
 		var d = o.position.distance_to(center_of_gravity)
 		var dir = (o.position - center_of_gravity).normalized()
 		var f = (d+0.00001)*Vector2(0.03, 0.01)
