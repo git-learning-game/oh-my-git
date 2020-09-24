@@ -4,9 +4,9 @@
 [ext_resource path="res://main.gd" type="Script" id=2]
 [ext_resource path="res://repository.tscn" type="PackedScene" id=3]
 [ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=4]
+[ext_resource path="res://tcp_server.tscn" type="PackedScene" id=5]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=6]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=7]
-[ext_resource path="res://tcp_server.gd" type="Script" id=8]
 [ext_resource path="res://test.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -196,9 +196,7 @@ repository_path = NodePath("../../Repositories/ActiveRepository")
 visible = false
 script = ExtResource( 9 )
 
-[node name="TCPServer" type="Node" parent="Test"]
-script = ExtResource( 8 )
-port = 6666
+[node name="TCPServer" parent="Test" instance=ExtResource( 5 )]
 
 [node name="LineEdit" type="LineEdit" parent="Test"]
 margin_left = 720.526
@@ -212,5 +210,4 @@ __meta__ = {
 [connection signal="button_down" from="HBoxContainer/RightSide/TopStuff/Menu/LevelSelect" to="." method="repopulate_levels"]
 [connection signal="pressed" from="HBoxContainer/RightSide/TopStuff/Menu/ReloadButton" to="." method="reload_level"]
 [connection signal="pressed" from="HBoxContainer/RightSide/TopStuff/Menu/NextLevelButton" to="." method="load_next_level"]
-[connection signal="data_received" from="Test/TCPServer" to="Test" method="data"]
 [connection signal="text_entered" from="Test/LineEdit" to="Test" method="send"]

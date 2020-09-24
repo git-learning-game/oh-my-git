@@ -2,8 +2,8 @@ extends Control
 
 var dragged = null
 
-var level_set = "top-down"
-#var level_set = "bottom-up"
+#var level_set = "top-down"
+var level_set = "bottom-up"
 var current_level = 0
 
 export(NodePath) var terminal_path

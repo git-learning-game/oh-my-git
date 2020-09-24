@@ -60,9 +60,10 @@ func send_command(command):
 	thread.start(self, "run_command_in_a_thread", command)
 
 func send_command_async(command):
-	output.text += "$ "+command+"\n"
+	#output.text += "$ "+command+"\n"
 	input.text = ""
-	repository.shell.run_async(command)
+	#repository.shell.run_async(command)
+	$TCPServer.send(command+"\n")
 
 func run_command_in_a_thread(command):
 	var o = repository.shell.run(command)
@@ -75,6 +76,7 @@ func run_command_in_a_thread(command):
 
 func receive_output(text):
 	output.text += text
+	repository.update_everything()
 
 func clear():
 	output.text = ""
