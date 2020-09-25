@@ -29,14 +29,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-terminal_path = NodePath("HBoxContainer/RightSide/Terminal")
-goal_repository_path_2 = NodePath("HBoxContainer/Repositories/GoalRepository")
-active_repository_path_2 = NodePath("HBoxContainer/Repositories/ActiveRepository")
-level_select_path = NodePath("HBoxContainer/RightSide/TopStuff/Menu/LevelSelect")
-next_level_button_path = NodePath("HBoxContainer/RightSide/TopStuff/Menu/NextLevelButton")
-level_name_path = NodePath("HBoxContainer/RightSide/TopStuff/LevelPanel/LevelName")
-level_description_path = NodePath("HBoxContainer/RightSide/TopStuff/LevelPanel/Text/LevelDescription")
-level_congrats_path = NodePath("HBoxContainer/RightSide/TopStuff/LevelPanel/Text/LevelCongrats")
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0

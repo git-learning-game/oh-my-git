@@ -6,30 +6,16 @@ var dragged = null
 var level_set = "bottom-up"
 var current_level = 0
 
-export(NodePath) var terminal_path
-onready var terminal = get_node(terminal_path)
+onready var terminal = $HBoxContainer/RightSide/Terminal
 onready var input = terminal.input
 onready var output = terminal.output
-
-export(NodePath) var goal_repository_path_2
-export(NodePath) var active_repository_path_2
-onready var goal_repository = get_node(goal_repository_path_2)
-onready var active_repository = get_node(active_repository_path_2)
-
-export(NodePath) var level_select_path
-onready var level_select = get_node(level_select_path)
-
-export(NodePath) var next_level_button_path
-onready var next_level_button = get_node(next_level_button_path)
-
-export(NodePath) var level_name_path
-onready var level_name = get_node(level_name_path)
-
-export(NodePath) var level_description_path
-onready var level_description = get_node(level_description_path)
-
-export(NodePath) var level_congrats_path
-onready var level_congrats = get_node(level_congrats_path)
+onready var goal_repository = $HBoxContainer/Repositories/GoalRepository
+onready var active_repository = $HBoxContainer/Repositories/ActiveRepository
+onready var level_select = $HBoxContainer/RightSide/TopStuff/Menu/LevelSelect
+onready var next_level_button = $HBoxContainer/RightSide/TopStuff/Menu/NextLevelButton
+onready var level_name = $HBoxContainer/RightSide/TopStuff/LevelPanel/LevelName
+onready var level_description = $HBoxContainer/RightSide/TopStuff/LevelPanel/Text/LevelDescription
+onready var level_congrats = $HBoxContainer/RightSide/TopStuff/LevelPanel/Text/LevelCongrats
 
 func _ready():
 	# Initialize level select.
