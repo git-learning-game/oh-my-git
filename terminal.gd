@@ -4,6 +4,7 @@ var thread
 
 var history = []
 var history_position = 0
+var git_commands = []
 
 onready var input = $VBoxContainer/InputLine/Input
 onready var output = $VBoxContainer/TopHalf/Output
@@ -30,6 +31,11 @@ func _ready():
 	if error != OK:
 		push_error("Could not connect TextEditor's hide signal")
 	input.grab_focus()
+	
+	var all_git_commands = repository.shell.run("git help -a | grep \"^ \\+[a-z-]\\+ \" -o | sed -e 's/^[ \t]*//'")
+	git_commands = Array(all_git_commands.split("\n"))
+	git_commands.pop_back()
+	print(git_commands)
 
 func _input(event):
 	if history.size() > 0:
@@ -114,11 +120,7 @@ func regenerate_completions_menu(new_text):
 func generate_completions(command):
 	if command.substr(0, 4) == "git ":
 		var rest = command.substr(4)
-		var subcommands = [
-			"commit",
-			"status",
-			"diff",
-		]
+		var subcommands = git_commands
 		
 		var results = []
 		for sc in subcommands:
