@@ -40,9 +40,8 @@ margin_bottom = 1045.0
 size_flags_vertical = 3
 
 [node name="Output" type="RichTextLabel" parent="VBoxContainer/TopHalf"]
-margin_top = 4.0
-margin_right = 1920.0
-margin_bottom = 1045.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 4 )

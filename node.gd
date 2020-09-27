@@ -113,7 +113,7 @@ func _input(event):
 		if event.is_action_pressed("click"):
 			held = true
 		elif event.is_action_pressed("right_click"):
-			var input = get_tree().get_current_scene().find_node("Terminal").find_node("Control").find_node("Input")
+			var input = get_tree().get_current_scene().find_node("Input")
 			input.text += id
 			input.caret_position = input.text.length()
 	if event.is_action_released("click"):

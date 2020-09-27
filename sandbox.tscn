@@ -40,7 +40,6 @@ anchor_bottom = 0.0
 margin_right = 949.0
 margin_bottom = 1070.0
 size_flags_horizontal = 3
-file_browser_active = false
 
 [node name="Terminal" parent="HSplitContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0

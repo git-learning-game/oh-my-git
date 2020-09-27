@@ -35,7 +35,8 @@ func _ready():
 	var all_git_commands = repository.shell.run("git help -a | grep \"^ \\+[a-z-]\\+ \" -o | sed -e 's/^[ \t]*//'")
 	git_commands = Array(all_git_commands.split("\n"))
 	git_commands.pop_back()
-	print(git_commands)
+	
+	completions.hide()
 
 func _input(event):
 	if history.size() > 0:
@@ -62,6 +63,7 @@ func send_command(command):
 	history_position = history.size()
 	
 	input.editable = false
+	completions.hide()
 	
 	if thread != null:
 		thread.wait_to_finish()
@@ -81,7 +83,7 @@ func run_command_in_a_thread(command):
 	input.text = ""
 	input.editable = true
 	output.text = output.text + "$ " + command + "\n" + o
-	repository.update_everything() 
+	repository.update_everything()
 
 func receive_output(text):
 	output.text += text
