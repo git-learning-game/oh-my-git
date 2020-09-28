@@ -150,17 +150,32 @@ func sort_by_frequency_desc(a, b):
 	return a[1] > b[1]
 	
 func generate_completions(command):
+	var results = []
+	
+	# Collect git commands.
 	if command.substr(0, 4) == "git ":
 		var rest = command.substr(4)
 		var subcommands = relevant_subcommands()
 		
-		var results = []
 		for sc in subcommands:
 			if sc.substr(0, rest.length()) == rest:
 				results.push_back("git "+sc)
-				
-		return results
-	return []
+	
+	# Part 1: Only autocomplete after git subcommand.
+	# Part2: Prevent autocompletion to only show filename at the beginning of a command.
+	if !(command.substr(0,4) == "git " and command.split(" ").size() <= 2) and command.split(" ").size() > 1:
+		var last_word = Array(command.split(" ")).pop_back()
+		var file_string = repository.shell.run("find -type f")
+		var files = file_string.split("\n")
+		files = Array(files)
+		# The last entry is an empty string, remove it.
+		files.pop_back()
+		for file_path in files:
+			file_path = file_path.substr(2)
+			if file_path.substr(0,4) != ".git" and file_path.substr(0,last_word.length()) == last_word:
+				results.push_back(command+file_path.substr(last_word.length()))
+	
+	return results
 
 func _input_changed(new_text):
 	call_deferred("regenerate_completions_menu", new_text)
