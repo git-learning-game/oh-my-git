@@ -36,7 +36,7 @@ __meta__ = {
 
 [node name="TopHalf" type="Control" parent="VBoxContainer"]
 margin_right = 1920.0
-margin_bottom = 1045.0
+margin_bottom = 1052.0
 size_flags_vertical = 3
 
 [node name="Output" type="RichTextLabel" parent="VBoxContainer/TopHalf"]
@@ -62,13 +62,13 @@ __meta__ = {
 }
 
 [node name="InputLine" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 1049.0
+margin_top = 1056.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 
 [node name="Input" type="LineEdit" parent="VBoxContainer/InputLine"]
-margin_right = 1892.0
-margin_bottom = 31.0
+margin_right = 1920.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
 caret_blink = true
 __meta__ = {
@@ -76,6 +76,7 @@ __meta__ = {
 }
 
 [node name="CommandDropdown" type="MenuButton" parent="VBoxContainer/InputLine"]
+visible = false
 margin_left = 1896.0
 margin_right = 1920.0
 margin_bottom = 31.0
