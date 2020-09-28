@@ -23,6 +23,10 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
 bg_color = Color( 0.278431, 0.278431, 0.278431, 1 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -41,6 +45,10 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
 bg_color = Color( 0.333333, 0.333333, 0.333333, 1 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5

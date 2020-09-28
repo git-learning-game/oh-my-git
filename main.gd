@@ -19,12 +19,14 @@ onready var level_congrats = $HBoxContainer/RightSide/TopStuff/LevelPanel/Text/L
 
 func _ready():
 	# Initialize level select.
-	var options = level_select.get_popup()
-	options.connect("id_pressed", self, "load_level")
+	level_select.connect("item_selected", self, "load_level")
+	repopulate_levels()
+	level_select.select(0)
 	
 	# Initialize chapter select.
-	options = chapter_select.get_popup()
-	options.connect("id_pressed", self, "load_chapter")
+	chapter_select.connect("item_selected", self, "load_chapter")
+	repopulate_chapters()
+	chapter_select.select(0)
 	
 	# Load first level.
 	load_level(0)
@@ -82,7 +84,7 @@ func list_levels():
 func load_chapter(id):
 	var chapters = list_chapters()
 	chapter = chapters[id]
-	chapter_select.text = chapter
+	load_level(0)
 
 func load_level(id):
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
@@ -184,13 +186,11 @@ func show_win_status():
 	level_congrats.show()
 
 func repopulate_levels():
-	var options = level_select.get_popup()
-	options.clear()
+	level_select.clear()
 	for level in list_levels():
-		options.add_item(level)
+		level_select.add_item(level)
 
 func repopulate_chapters():
-	var options = chapter_select.get_popup()
-	options.clear()
+	chapter_select.clear()
 	for chapter in list_chapters():
-		options.add_item(chapter)
+		chapter_select.add_item(chapter)
