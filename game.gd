@@ -5,10 +5,40 @@ var global_shell
 var debug_file_io = false
 var fake_editor
 
+var _file = "user://savegame.json"
+var state = {}
+
 func _ready():
 	global_shell = Shell.new()
 	fake_editor = copy_file_to_game_env("fake-editor")
 	copy_file_to_game_env("fake-editor-noblock")
+	load_state()
+	
+func _initial_state():
+	return {"history": []}
+	
+func save_state() -> bool:
+	var savegame = File.new()
+	
+	savegame.open(_file, File.WRITE)
+	savegame.store_line(to_json(state))
+	savegame.close()
+	return true
+	
+func load_state() -> bool:
+	var savegame = File.new()
+	if not savegame.file_exists(_file):
+		save_state()
+	
+	savegame.open(_file, File.READ)
+	
+	state = _initial_state()
+	var new_state = parse_json(savegame.get_line())
+	for key in new_state:
+		state[key] = new_state[key]
+	savegame.close()
+	return true
+
 	
 func copy_file_to_game_env(filename):
 	

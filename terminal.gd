@@ -2,7 +2,6 @@ extends Control
 
 var thread
 
-var history = []
 var history_position = 0
 var git_commands = []
 
@@ -39,20 +38,22 @@ func _ready():
 	git_commands.pop_back()
 	
 	completions.hide()
+	history_position = game.state["history"].size()
 
 func _input(event):
-	if history.size() > 0:
+	#print(game.state)
+	if game.state["history"].size() > 0:
 		if event.is_action_pressed("ui_up"):
 			if history_position > 0:
 				history_position -= 1
-				input.text = history[history_position]
+				input.text = game.state["history"][history_position]
 				input.caret_position = input.text.length()
 			# This prevents the Input taking the arrow as a "skip to beginning" command.
 			get_tree().set_input_as_handled()
 		if event.is_action_pressed("ui_down"):
-			if history_position < history.size()-1:
+			if history_position < game.state["history"].size()-1:
 				history_position += 1
-				input.text = history[history_position]
+				input.text = game.state["history"][history_position]
 				input.caret_position = input.text.length()
 			get_tree().set_input_as_handled()
 
@@ -61,8 +62,9 @@ func load_command(id):
 	input.caret_position = input.text.length()
 
 func send_command(command):
-	history.push_back(command)
-	history_position = history.size()
+	game.state["history"].push_back(command)
+	game.save_state()
+	history_position = game.state["history"].size()
 	
 	input.editable = false
 	completions.hide()
@@ -123,7 +125,7 @@ func regenerate_completions_menu(new_text):
 
 func relevant_subcommands():
 	var result = {}
-	for h in history:
+	for h in game.state["history"]:
 		var parts = Array(h.split(" "))
 		if parts[0] == "git":
 			var subcommand = parts[1]
