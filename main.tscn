@@ -97,18 +97,30 @@ size_flags_vertical = 3
 margin_right = 631.0
 margin_bottom = 35.0
 
+[node name="ChapterSelect" type="MenuButton" parent="HBoxContainer/RightSide/TopStuff/Menu"]
+margin_right = 154.0
+margin_bottom = 35.0
+text = "Select chapter..."
+flat = false
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LevelSelect" type="MenuButton" parent="HBoxContainer/RightSide/TopStuff/Menu"]
-margin_right = 130.0
+margin_left = 159.0
+margin_right = 289.0
 margin_bottom = 35.0
 text = "Select level..."
 flat = false
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ReloadButton" type="Button" parent="HBoxContainer/RightSide/TopStuff/Menu"]
-margin_left = 135.0
-margin_right = 214.0
+margin_left = 294.0
+margin_right = 373.0
 margin_bottom = 35.0
 focus_mode = 0
 enabled_focus_mode = 0
@@ -118,8 +130,8 @@ __meta__ = {
 }
 
 [node name="NextLevelButton" type="Button" parent="HBoxContainer/RightSide/TopStuff/Menu"]
-margin_left = 219.0
-margin_right = 329.0
+margin_left = 378.0
+margin_right = 488.0
 margin_bottom = 35.0
 focus_mode = 0
 custom_styles/hover = SubResource( 1 )
@@ -199,6 +211,7 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="button_down" from="HBoxContainer/RightSide/TopStuff/Menu/ChapterSelect" to="." method="repopulate_chapters"]
 [connection signal="button_down" from="HBoxContainer/RightSide/TopStuff/Menu/LevelSelect" to="." method="repopulate_levels"]
 [connection signal="pressed" from="HBoxContainer/RightSide/TopStuff/Menu/ReloadButton" to="." method="reload_level"]
 [connection signal="pressed" from="HBoxContainer/RightSide/TopStuff/Menu/NextLevelButton" to="." method="load_next_level"]

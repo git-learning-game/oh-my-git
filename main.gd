@@ -2,8 +2,7 @@ extends Control
 
 var dragged = null
 
-#var level_set = "top-down"
-var level_set = "bottom-up"
+var chapter = "bottom-up"
 var current_level = 0
 
 onready var terminal = $HBoxContainer/RightSide/Terminal
@@ -12,6 +11,7 @@ onready var output = terminal.output
 onready var goal_repository = $HBoxContainer/Repositories/GoalRepository
 onready var active_repository = $HBoxContainer/Repositories/ActiveRepository
 onready var level_select = $HBoxContainer/RightSide/TopStuff/Menu/LevelSelect
+onready var chapter_select = $HBoxContainer/RightSide/TopStuff/Menu/ChapterSelect
 onready var next_level_button = $HBoxContainer/RightSide/TopStuff/Menu/NextLevelButton
 onready var level_name = $HBoxContainer/RightSide/TopStuff/LevelPanel/LevelName
 onready var level_description = $HBoxContainer/RightSide/TopStuff/LevelPanel/Text/LevelDescription
@@ -20,17 +20,37 @@ onready var level_congrats = $HBoxContainer/RightSide/TopStuff/LevelPanel/Text/L
 func _ready():
 	# Initialize level select.
 	var options = level_select.get_popup()
-	repopulate_levels()
 	options.connect("id_pressed", self, "load_level")
+	
+	# Initialize chapter select.
+	options = chapter_select.get_popup()
+	options.connect("id_pressed", self, "load_chapter")
 	
 	# Load first level.
 	load_level(0)
 	input.grab_focus()
 	
+func list_chapters():
+	var chapters = []
+	var dir = Directory.new()
+	dir.open("res://levels/")
+	dir.list_dir_begin()
+
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with("."):
+			chapters.append(file)
+
+	dir.list_dir_end()
+	chapters.sort()
+	return chapters
+	
 func list_levels():
 	var levels = []
 	var dir = Directory.new()
-	dir.open("res://levels/%s" % level_set)
+	dir.open("res://levels/%s" % chapter)
 	dir.list_dir_begin()
 
 	while true:
@@ -45,7 +65,7 @@ func list_levels():
 	
 	var final_level_sequence = []
 	
-	var level_sequence = Array(game.read_file("res://levels/%s/sequence" % level_set, "").split("\n"))
+	var level_sequence = Array(game.read_file("res://levels/%s/sequence" % chapter, "").split("\n"))
 	
 	for level in level_sequence:
 		if level == "":
@@ -59,6 +79,11 @@ func list_levels():
 	
 	return final_level_sequence
 
+func load_chapter(id):
+	var chapters = list_chapters()
+	chapter = chapters[id]
+	chapter_select.text = chapter
+
 func load_level(id):
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	
@@ -70,7 +95,7 @@ func load_level(id):
 	var levels = list_levels()
 	
 	var level = levels[id]
-	var level_prefix = "res://levels/%s/" % level_set
+	var level_prefix = "res://levels/%s/" % chapter
 	
 	var goal_repository_path = "/tmp/goal/"
 	var active_repository_path = "/tmp/active/"
@@ -163,3 +188,9 @@ func repopulate_levels():
 	options.clear()
 	for level in list_levels():
 		options.add_item(level)
+
+func repopulate_chapters():
+	var options = chapter_select.get_popup()
+	options.clear()
+	for chapter in list_chapters():
+		options.add_item(chapter)
