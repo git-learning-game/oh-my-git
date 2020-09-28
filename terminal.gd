@@ -56,7 +56,12 @@ func _input(event):
 				input.text = game.state["history"][history_position]
 				input.caret_position = input.text.length()
 			get_tree().set_input_as_handled()
-
+			
+	if event.is_action_pressed("tab_complete"):
+		if completions.visible:
+			completions.get_root().get_children().select(0)
+		get_tree().set_input_as_handled()
+		
 func load_command(id):
 	input.text = premade_commands[id]
 	input.caret_position = input.text.length()
