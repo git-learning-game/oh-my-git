@@ -4,6 +4,7 @@ var thread
 
 var history_position = 0
 var git_commands = []
+var git_commands_help = []
 
 onready var input = $VBoxContainer/InputLine/Input
 onready var output = $VBoxContainer/TopHalf/Output
@@ -36,6 +37,12 @@ func _ready():
 	for i in range(git_commands.size()):
 		git_commands[i] = git_commands[i].strip_edges(true, true)
 	git_commands.pop_back()
+	
+	var all_git_commands_help = repository.shell.run("git help -a | grep \"  [A-Z].\\+$\" -o")
+	git_commands_help = Array(all_git_commands_help.split("\n"))
+	for i in range(git_commands_help.size()):
+		git_commands_help[i] = git_commands_help[i].strip_edges(true, true)
+	git_commands_help.pop_back()
 	
 	completions.hide()
 	history_position = game.state["history"].size()
@@ -127,6 +134,11 @@ func regenerate_completions_menu(new_text):
 		for c in filtered_comp:
 			var child = completions.create_item()
 			child.set_text(0, c)
+			if c.split(" ").size() >= 2:
+				var subcommand = c.split(" ")[1]
+				var idx = git_commands.find(subcommand)
+				if idx >= 0:
+					child.set_text(1, git_commands_help[idx])
 
 func relevant_subcommands():
 	var result = {}

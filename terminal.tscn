@@ -55,6 +55,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -223.0
+columns = 2
 hide_root = true
 __meta__ = {
 "_edit_use_anchors_": false
