@@ -32,8 +32,10 @@ func _ready():
 		push_error("Could not connect TextEditor's hide signal")
 	input.grab_focus()
 	
-	var all_git_commands = repository.shell.run("git help -a | grep \"^ \\+[a-z-]\\+ \" -o | sed -e 's/^[ \t]*//'")
+	var all_git_commands = repository.shell.run("git help -a | grep \"^ \\+[a-z-]\\+ \" -o")
 	git_commands = Array(all_git_commands.split("\n"))
+	for i in range(git_commands.size()):
+		git_commands[i] = git_commands[i].strip_edges(true, true)
 	git_commands.pop_back()
 	
 	completions.hide()
@@ -119,10 +121,36 @@ func regenerate_completions_menu(new_text):
 			var child = completions.create_item()
 			child.set_text(0, c)
 
+func relevant_subcommands():
+	var result = {}
+	for h in history:
+		var parts = Array(h.split(" "))
+		if parts[0] == "git":
+			var subcommand = parts[1]
+			if git_commands.has(subcommand):
+				if not result.has(subcommand):
+					result[subcommand] = 0
+				result[subcommand] += 1
+	
+	# Convert to format [["add", 3], ["pull", 5]].
+	var result_array = []
+	for r in result:
+		result_array.push_back([r, result[r]])
+	
+	result_array.sort_custom(self, "sort_by_frequency_desc")
+	
+	var plain_result = []
+	for r in result_array:
+		plain_result.push_back(r[0])
+	return plain_result
+
+func sort_by_frequency_desc(a, b):
+	return a[1] > b[1]
+	
 func generate_completions(command):
 	if command.substr(0, 4) == "git ":
 		var rest = command.substr(4)
-		var subcommands = git_commands
+		var subcommands = relevant_subcommands()
 		
 		var results = []
 		for sc in subcommands:
