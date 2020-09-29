@@ -129,8 +129,8 @@ func load_level(id):
 	
 	# We're actually destroying stuff here.
 	# Make sure that active_repository is in a temporary directory.
-	_careful_delete(active_repository_path)
-	_careful_delete(goal_repository_path)
+	helpers.careful_delete(active_repository_path)
+	helpers.careful_delete(goal_repository_path)
 		
 	var goal_script_content = helpers.read_file(goal_script, "")
 	var active_script_content = helpers.read_file(active_script, "")
@@ -156,23 +156,6 @@ func load_level(id):
 	yield(t, "timeout")
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 	# FIXME: Need to clean these up when switching levels somehow.
-	
-func _careful_delete(path_inside):
-	var expected_prefix
-	
-	var os = OS.get_name()
-	
-	if os == "X11":
-		expected_prefix = "/home/%s/.local/share/git-hydra/tmp/" % OS.get_environment("USER")
-	elif os == "Windows":
-		helpers.crash("Need to figure out delete_prefix on Windows")
-	else:
-		helpers.crash("Unsupported OS: %s" % os)
-	
-	if path_inside.substr(0,expected_prefix.length()) != expected_prefix:
-		helpers.crash("Refusing to delete directory %s that does not start with %s" % [path_inside, expected_prefix])
-	else:
-		game.global_shell.run("rm -rf '%s'" % path_inside)
 
 func reload_level():
 	load_level(current_level)

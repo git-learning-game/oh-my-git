@@ -66,3 +66,20 @@ func parse_args():
 			else:
 				arguments[argument.lstrip("--")] = true
 	return arguments
+	
+func careful_delete(path_inside):
+	var expected_prefix
+	
+	var os = OS.get_name()
+	
+	if os == "X11":
+		expected_prefix = "/home/%s/.local/share/git-hydra/tmp/" % OS.get_environment("USER")
+	elif os == "Windows":
+		helpers.crash("Need to figure out delete_prefix on Windows")
+	else:
+		helpers.crash("Unsupported OS: %s" % os)
+	
+	if path_inside.substr(0,expected_prefix.length()) != expected_prefix:
+		helpers.crash("Refusing to delete directory %s that does not start with %s" % [path_inside, expected_prefix])
+	else:
+		game.global_shell.run("rm -rf '%s'" % path_inside)

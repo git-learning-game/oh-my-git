@@ -1,15 +1,27 @@
 extends Control
 
 func _ready():
+	var path = null
+	
 	var args = helpers.parse_args()
-	var path = game.tmp_prefix_inside
 	if args.has("sandbox"):
 		if args["sandbox"] is String:
+			if args["sandbox"] == ".":
+				args["sandbox"] = OS.get_environment("PWD")
 			var dir = Directory.new()
 			if dir.dir_exists(args["sandbox"]):
 				path = args["sandbox"]
 			else:
 				helpers.crash("Directory %s does not exist" % args["sandbox"])
+	
+	if path == null:
+		path = game.tmp_prefix_inside+"/repos/sandbox/"
+		helpers.careful_delete(path)
+		
+		game.global_shell.run("mkdir " + path)
+		game.global_shell.cd(path)
+		game.global_shell.run("git init")
+		game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
 	
 	$HSplitContainer/Repository.path = path
 
