@@ -45,15 +45,16 @@ func _ready():
 
 func load_chapter(id):
 	current_chapter = id
+	repopulate_levels()
 	load_level(0)
 
 func load_level(level_id):
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
-	
 	next_level_button.hide()
 	level_congrats.hide()
 	level_description.show()
 	current_level = level_id
+	
+	levels.chapters[current_chapter].levels[current_level].construct()
 	
 	var goal_repository_path = game.tmp_prefix_inside+"/repos/goal/"
 	var active_repository_path = game.tmp_prefix_inside+"/repos/active/"
@@ -63,54 +64,16 @@ func load_level(level_id):
 	level_congrats.bbcode_text = level.congrats
 	level_name.text = level.slug
 	
-	# We're actually destroying stuff here.
-	# Make sure that active_repository is in a temporary directory.
-	helpers.careful_delete(active_repository_path)
-	helpers.careful_delete(goal_repository_path)
-		
-	
-	construct_repo(level.start_commands +"\n"+ level.goal_commands, goal_repository_path)
-	construct_repo(level.start_commands, active_repository_path)
-	
 	goal_repository.path = goal_repository_path
-	active_repository.path = active_repository_path
-	
-	var win_script_target = game.tmp_prefix_outside+"/win"
-	helpers.write_file(win_script_target, level.win_commands)
-	
+	active_repository.path = active_repository_path	
 	terminal.clear()
-	
-	# Unmute the audio after a while, so that player can hear pop sounds for
-	# nodes they create.
-	var t = Timer.new()
-	t.wait_time = 3
-	add_child(t)
-	t.start()
-	yield(t, "timeout")
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
-	# FIXME: Need to clean these up when switching levels somehow.
 
 func reload_level():
 	load_level(current_level)
 
 func load_next_level():
-	current_level = (current_level + 1) % levels.chapters[current_chapter].size()
+	current_level = (current_level + 1) % levels.chapters[current_chapter].levels.size()
 	load_level(current_level)
-	
-func construct_repo(script_content, path):
-	# Becase in an exported game, all assets are in a .pck file, we need to put
-	# the script somewhere in the filesystem.
-	
-	var script_path_outside = game.tmp_prefix_outside+"/git-hydra-script"
-	var script_path_inside = game.tmp_prefix_inside+"/git-hydra-script"
-	helpers.write_file(script_path_outside, script_content)
-	
-	game.global_shell.run("mkdir " + path)
-	game.global_shell.cd(path)
-	game.global_shell.run("git init")
-	game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
-	# Read stdin from /dev/null so that interactive commands don't block.
-	game.global_shell.run("bash "+script_path_inside+" </dev/null")
 	
 func show_win_status():
 	next_level_button.show()
