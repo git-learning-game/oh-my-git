@@ -4,12 +4,14 @@ onready var index = $Rows/RepoVis/Index
 onready var nodes = $Rows/RepoVis/Nodes
 onready var file_browser = $Rows/FileBrowser
 onready var label_node = $Rows/RepoVis/Label
+onready var path_node = $Rows/RepoVis/Path
 onready var simplify_checkbox = $Rows/RepoVis/SimplifyCheckbox
 
 export var label: String setget set_label
 export var path: String setget set_path, get_path
 export var file_browser_active = true setget set_file_browser_active
 export var simplified_view = false setget set_simplified_view
+export var editable_path = false setget set_editable_path
 
 var node = preload("res://node.tscn")
 
@@ -24,6 +26,7 @@ func _ready():
 	set_label(label)
 	set_file_browser_active(file_browser_active)
 	set_simplified_view(simplified_view)
+	set_editable_path(editable_path)
 
 func _process(_delta):
 	nodes.rect_pivot_offset = nodes.rect_size / 2
@@ -52,11 +55,11 @@ func update_everything():
 		index.text = ""
 		for o in objects:
 			objects[o].queue_free()
-		objects = {}
-				
+		objects = {}	
 
 func set_path(new_path):
 	path = new_path
+	path_node.text = path
 	shell.cd(new_path)
 	for o in objects.values():
 		o.queue_free()
@@ -269,6 +272,13 @@ func set_simplified_view(simplify):
 	simplified_view = simplify
 	if simplify_checkbox:
 		simplify_checkbox.pressed = simplify
+
+func set_editable_path(editable):
+	editable_path = editable
+	if label_node:
+		label_node.visible = not editable
+	if path_node:
+		path_node.visible = editable
 
 func remove_gone_stuff():
 	# FIXME: Cache the result of all_objects.
