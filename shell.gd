@@ -13,7 +13,7 @@ func cd(dir):
 
 # Run a shell command given as a string. Run this if you're interested in the
 # output of the command.
-func run(command):
+func run(command, crash_on_fail=true):
 	var debug = false
 	
 	if debug:
@@ -49,7 +49,7 @@ func run(command):
 	# 
 	hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
 	
-	var output = helpers.exec(_shell_binary(), ["-c",  hacky_command], false)
+	var output = helpers.exec(_shell_binary(), ["-c",  hacky_command], crash_on_fail)
 	
 	if debug:
 		print(output)

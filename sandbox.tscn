@@ -23,7 +23,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSplitContainer" type="HSplitContainer" parent="."]
+[node name="Columns" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -34,7 +34,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Repository" parent="HSplitContainer" instance=ExtResource( 2 )]
+[node name="Repository" parent="Columns" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 949.0
@@ -42,11 +42,11 @@ margin_bottom = 1070.0
 size_flags_horizontal = 3
 editable_path = true
 
-[node name="Terminal" parent="HSplitContainer" instance=ExtResource( 1 )]
+[node name="Terminal" parent="Columns" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 961.0
 margin_right = 1910.0
 margin_bottom = 1070.0
 size_flags_horizontal = 3
-repository_path = NodePath("../Repository")
+repository_path = NodePath("../../Columns/Repository")

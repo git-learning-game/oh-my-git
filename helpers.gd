@@ -82,4 +82,5 @@ func careful_delete(path_inside):
 	if path_inside.substr(0,expected_prefix.length()) != expected_prefix:
 		helpers.crash("Refusing to delete directory %s that does not start with %s" % [path_inside, expected_prefix])
 	else:
+		game.global_shell.cd(game.tmp_prefix_inside)
 		game.global_shell.run("rm -rf '%s'" % path_inside)

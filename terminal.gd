@@ -93,7 +93,7 @@ func send_command_async(command):
 	$TCPServer.send(command+"\n")
 
 func run_command_in_a_thread(command):
-	var o = repository.shell.run(command)
+	var o = repository.shell.run(command, false)
 	check_win_condition()
 	
 	input.text = ""

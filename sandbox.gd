@@ -23,6 +23,6 @@ func _ready():
 		game.global_shell.run("git init")
 		game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
 	
-	$HSplitContainer/Repository.path = path
+	$Columns/Repository.path = path
 
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_KEEP, Vector2(1920, 1080), 1.5)
