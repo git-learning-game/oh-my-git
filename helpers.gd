@@ -54,3 +54,15 @@ func write_file(path, content):
 	file.store_string(content)
 	file.close()
 	return true
+
+func parse_args():
+	var arguments = {}
+	for argument in OS.get_cmdline_args():
+		if argument.substr(0, 2) == "--":
+			# Parse valid command-line arguments into a dictionary
+			if argument.find("=") > -1:
+				var key_value = argument.split("=")
+				arguments[key_value[0].lstrip("--")] = key_value[1]
+			else:
+				arguments[argument.lstrip("--")] = true
+	return arguments

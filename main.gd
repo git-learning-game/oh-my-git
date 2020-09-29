@@ -18,6 +18,14 @@ onready var level_description = $Columns/RightSide/TopStuff/LevelPanel/Text/Leve
 onready var level_congrats = $Columns/RightSide/TopStuff/LevelPanel/Text/LevelCongrats
 
 func _ready():
+	var args = helpers.parse_args()
+	
+	if args.has("sandbox"):
+		var err = get_tree().change_scene("res://sandbox.tscn")
+		if err != OK:
+			helpers.crash("Could not change to sandbox scene")
+		return
+	
 	# Initialize level select.
 	level_select.connect("item_selected", self, "load_level")
 	repopulate_levels()
@@ -200,5 +208,5 @@ func repopulate_levels():
 
 func repopulate_chapters():
 	chapter_select.clear()
-	for chapter in list_chapters():
-		chapter_select.add_item(chapter)
+	for c in list_chapters():
+		chapter_select.add_item(c)

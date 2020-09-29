@@ -20,7 +20,6 @@ corner_radius_bottom_left = 5
 script = ExtResource( 1 )
 
 [node name="Arrows" type="Node2D" parent="."]
-z_index = -1
 
 [node name="Rect" type="ColorRect" parent="."]
 margin_left = -29.0

@@ -99,10 +99,10 @@ __meta__ = {
 }
 
 [node name="Path" type="LineEdit" parent="Rows/RepoVis"]
-margin_left = 23.3361
-margin_top = 12.3197
-margin_right = 574.336
-margin_bottom = 61.3197
+margin_left = 23.0
+margin_top = 12.0
+margin_right = 374.0
+margin_bottom = 61.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -27,15 +27,14 @@ func _ready():
 func _initial_state():
 	return {"history": []}
 	
-func save_state() -> bool:
+func save_state():
 	var savegame = File.new()
 	
 	savegame.open(_file, File.WRITE)
 	savegame.store_line(to_json(state))
 	savegame.close()
-	return true
 	
-func load_state() -> bool:
+func load_state():
 	var savegame = File.new()
 	if not savegame.file_exists(_file):
 		save_state()
@@ -47,7 +46,6 @@ func load_state() -> bool:
 	for key in new_state:
 		state[key] = new_state[key]
 	savegame.close()
-	return true
 	
 func copy_file_to_game_env(filename):
 	# Copy fake-editor to tmp directory (because the original might be in a .pck file).
