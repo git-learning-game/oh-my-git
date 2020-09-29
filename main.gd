@@ -2,8 +2,8 @@ extends Control
 
 var dragged = null
 
-var chapter = "bottom-up"
-var current_level = 0
+var current_chapter
+var current_level
 
 onready var terminal = $Columns/RightSide/Terminal
 onready var input = terminal.input
@@ -25,6 +25,9 @@ func _ready():
 		if err != OK:
 			helpers.crash("Could not change to sandbox scene")
 		return
+		
+	current_chapter = 0
+	current_level = 0
 	
 	# Initialize level select.
 	level_select.connect("item_selected", self, "load_level")
@@ -36,114 +39,44 @@ func _ready():
 	repopulate_chapters()
 	chapter_select.select(0)
 	
-	# Load first level.
-	load_level(0)
+	# Load first chapter.
+	load_chapter(0)
 	input.grab_focus()
-	
-func list_chapters():
-	var chapters = []
-	var dir = Directory.new()
-	dir.open("res://levels/")
-	dir.list_dir_begin()
-
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		elif not file.begins_with("."):
-			chapters.append(file)
-
-	dir.list_dir_end()
-	chapters.sort()
-	return chapters
-	
-func list_levels():
-	var levels = []
-	var dir = Directory.new()
-	dir.open("res://levels/%s" % chapter)
-	dir.list_dir_begin()
-
-	while true:
-		var file = dir.get_next()
-		if file == "":
-			break
-		elif not file.begins_with(".") and file != "sequence":
-			levels.append(file)
-
-	dir.list_dir_end()
-	levels.sort()
-	
-	var final_level_sequence = []
-	
-	var level_sequence = Array(helpers.read_file("res://levels/%s/sequence" % chapter, "").split("\n"))
-	
-	for level in level_sequence:
-		if level == "":
-			continue
-		if not levels.has(level):
-			helpers.crash("Level '%s' is specified in the sequence, but could not be found" % level)
-		levels.erase(level)
-		final_level_sequence.push_back(level)
-	
-	final_level_sequence += levels
-	
-	return final_level_sequence
 
 func load_chapter(id):
-	var chapters = list_chapters()
-	chapter = chapters[id]
+	current_chapter = id
 	load_level(0)
 
-func load_level(id):
+func load_level(level_id):
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	
 	next_level_button.hide()
 	level_congrats.hide()
 	level_description.show()
-	current_level = id
-	
-	var levels = list_levels()
-	
-	var level = levels[id]
-	var level_prefix = "res://levels/%s/" % chapter
+	current_level = level_id
 	
 	var goal_repository_path = game.tmp_prefix_inside+"/repos/goal/"
 	var active_repository_path = game.tmp_prefix_inside+"/repos/active/"
-	var goal_script = level_prefix+level+"/goal"
-	var active_script = level_prefix+level+"/start"
-	
-	var description_file = level_prefix+level+"/description"
-	var description = helpers.read_file(description_file, "(no description)")
-	
-	# Surround all lines indented with four spaces with [code] tags.
-	var monospace_regex = RegEx.new()
-	monospace_regex.compile("\n    (.*)\n")
-	description = monospace_regex.sub(description, "\n      [code]$1[/code]\n", true)
-	level_description.bbcode_text = description
-	
-	var congrats_file = level_prefix+level+"/congrats"
-	var congrats = helpers.read_file(congrats_file, "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
-	level_congrats.bbcode_text = congrats
-	
-	level_name.text = level
+
+	var level = levels.chapters[current_chapter].levels[current_level]
+	level_description.bbcode_text = level.description
+	level_congrats.bbcode_text = level.congrats
+	level_name.text = level.slug
 	
 	# We're actually destroying stuff here.
 	# Make sure that active_repository is in a temporary directory.
 	helpers.careful_delete(active_repository_path)
 	helpers.careful_delete(goal_repository_path)
 		
-	var goal_script_content = helpers.read_file(goal_script, "")
-	var active_script_content = helpers.read_file(active_script, "")
-	construct_repo(active_script_content +"\n"+ goal_script_content, goal_repository_path)
-	construct_repo(active_script_content, active_repository_path)
+	
+	construct_repo(level.start_commands +"\n"+ level.goal_commands, goal_repository_path)
+	construct_repo(level.start_commands, active_repository_path)
 	
 	goal_repository.path = goal_repository_path
 	active_repository.path = active_repository_path
 	
-	var win_script = level_prefix+level+"/win"
 	var win_script_target = game.tmp_prefix_outside+"/win"
-	var win_script_content = helpers.read_file(win_script, "exit 1\n")
-	helpers.write_file(win_script_target, win_script_content)
+	helpers.write_file(win_script_target, level.win_commands)
 	
 	terminal.clear()
 	
@@ -161,7 +94,7 @@ func reload_level():
 	load_level(current_level)
 
 func load_next_level():
-	current_level = (current_level + 1) % list_levels().size()
+	current_level = (current_level + 1) % levels.chapters[current_chapter].size()
 	load_level(current_level)
 	
 func construct_repo(script_content, path):
@@ -185,11 +118,13 @@ func show_win_status():
 	level_congrats.show()
 
 func repopulate_levels():
+	levels.reload()
 	level_select.clear()
-	for level in list_levels():
-		level_select.add_item(level)
+	for level in levels.chapters[current_chapter].levels:
+		level_select.add_item(level.slug)
 
 func repopulate_chapters():
+	levels.reload()
 	chapter_select.clear()
-	for c in list_chapters():
-		chapter_select.add_item(c)
+	for c in levels.chapters:
+		chapter_select.add_item(c.slug)
