@@ -5,17 +5,17 @@ var dragged = null
 var chapter = "bottom-up"
 var current_level = 0
 
-onready var terminal = $HBoxContainer/RightSide/Terminal
+onready var terminal = $Columns/RightSide/Terminal
 onready var input = terminal.input
 onready var output = terminal.output
-onready var goal_repository = $HBoxContainer/Repositories/GoalRepository
-onready var active_repository = $HBoxContainer/Repositories/ActiveRepository
-onready var level_select = $HBoxContainer/RightSide/TopStuff/Menu/LevelSelect
-onready var chapter_select = $HBoxContainer/RightSide/TopStuff/Menu/ChapterSelect
-onready var next_level_button = $HBoxContainer/RightSide/TopStuff/Menu/NextLevelButton
-onready var level_name = $HBoxContainer/RightSide/TopStuff/LevelPanel/LevelName
-onready var level_description = $HBoxContainer/RightSide/TopStuff/LevelPanel/Text/LevelDescription
-onready var level_congrats = $HBoxContainer/RightSide/TopStuff/LevelPanel/Text/LevelCongrats
+onready var goal_repository = $Columns/Repositories/GoalRepository
+onready var active_repository = $Columns/Repositories/ActiveRepository
+onready var level_select = $Columns/RightSide/TopStuff/Menu/LevelSelect
+onready var chapter_select = $Columns/RightSide/TopStuff/Menu/ChapterSelect
+onready var next_level_button = $Columns/RightSide/TopStuff/Menu/NextLevelButton
+onready var level_name = $Columns/RightSide/TopStuff/LevelPanel/LevelName
+onready var level_description = $Columns/RightSide/TopStuff/LevelPanel/Text/LevelDescription
+onready var level_congrats = $Columns/RightSide/TopStuff/LevelPanel/Text/LevelCongrats
 
 func _ready():
 	# Initialize level select.

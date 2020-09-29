@@ -1,10 +1,10 @@
 extends Control
 
-onready var index = $VSplitContainer/RepoVis/Index
-onready var nodes = $VSplitContainer/RepoVis/Nodes
-onready var file_browser = $VSplitContainer/FileBrowser
-onready var label_node = $VSplitContainer/RepoVis/Label
-onready var simplify_checkbox = $VSplitContainer/RepoVis/SimplifyCheckbox
+onready var index = $Rows/RepoVis/Index
+onready var nodes = $Rows/RepoVis/Nodes
+onready var file_browser = $Rows/FileBrowser
+onready var label_node = $Rows/RepoVis/Label
+onready var simplify_checkbox = $Rows/RepoVis/SimplifyCheckbox
 
 export var label: String setget set_label
 export var path: String setget set_path, get_path

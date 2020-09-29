@@ -15,12 +15,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VSplitContainer" type="VSplitContainer" parent="."]
+[node name="Rows" type="VSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="RepoVis" type="Control" parent="VSplitContainer"]
+[node name="RepoVis" type="Control" parent="Rows"]
 margin_right = 1920.0
 margin_bottom = 994.0
 mouse_filter = 1
@@ -29,7 +32,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VSplitContainer/RepoVis"]
+[node name="Label" type="Label" parent="Rows/RepoVis"]
 margin_left = 5.60091
 margin_top = -0.518692
 margin_right = 204.601
@@ -40,7 +43,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Index" type="Label" parent="VSplitContainer/RepoVis"]
+[node name="Index" type="Label" parent="Rows/RepoVis"]
 margin_left = 8.64569
 margin_top = 63.8375
 margin_right = 359.725
@@ -51,7 +54,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="IndexLabel" type="Label" parent="VSplitContainer/RepoVis"]
+[node name="IndexLabel" type="Label" parent="Rows/RepoVis"]
 visible = false
 margin_left = 21.0
 margin_top = 65.0
@@ -62,7 +65,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="VSplitContainer/RepoVis"]
+[node name="Button" type="Button" parent="Rows/RepoVis"]
 visible = false
 margin_left = 36.5602
 margin_top = 67.9891
@@ -73,7 +76,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SimplifyCheckbox" type="CheckBox" parent="VSplitContainer/RepoVis"]
+[node name="SimplifyCheckbox" type="CheckBox" parent="Rows/RepoVis"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -208.715
@@ -87,7 +90,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Nodes" type="Control" parent="VSplitContainer/RepoVis"]
+[node name="Nodes" type="Control" parent="Rows/RepoVis"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -95,7 +98,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FileBrowser" parent="VSplitContainer" instance=ExtResource( 4 )]
+[node name="FileBrowser" parent="Rows" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 1006.0
@@ -105,5 +108,5 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.08
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="VSplitContainer/RepoVis/Button" to="." method="update_everything"]
-[connection signal="toggled" from="VSplitContainer/RepoVis/SimplifyCheckbox" to="." method="simplify_view"]
+[connection signal="pressed" from="Rows/RepoVis/Button" to="." method="update_everything"]
+[connection signal="toggled" from="Rows/RepoVis/SimplifyCheckbox" to="." method="simplify_view"]

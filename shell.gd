@@ -45,7 +45,7 @@ func run(command):
 	# 
 	# becomes
 	# 
-	#     "'test '"'"'fu'"'"' "bla" blubb
+	#     "'test '"'"'fu'"'"' "bla" blubb"
 	# 
 	hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
 	

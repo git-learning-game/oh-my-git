@@ -27,19 +27,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Rows" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TopHalf" type="Control" parent="VBoxContainer"]
+[node name="TopHalf" type="Control" parent="Rows"]
 margin_right = 1920.0
 margin_bottom = 1052.0
 size_flags_vertical = 3
 
-[node name="Output" type="RichTextLabel" parent="VBoxContainer/TopHalf"]
+[node name="Output" type="RichTextLabel" parent="Rows/TopHalf"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
@@ -50,7 +50,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Completions" type="Tree" parent="VBoxContainer/TopHalf"]
+[node name="Completions" type="Tree" parent="Rows/TopHalf"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -61,12 +61,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InputLine" type="HBoxContainer" parent="VBoxContainer"]
+[node name="InputLine" type="HBoxContainer" parent="Rows"]
 margin_top = 1056.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 
-[node name="Input" type="LineEdit" parent="VBoxContainer/InputLine"]
+[node name="Input" type="LineEdit" parent="Rows/InputLine"]
 margin_right = 1920.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
@@ -75,7 +75,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CommandDropdown" type="MenuButton" parent="VBoxContainer/InputLine"]
+[node name="CommandDropdown" type="MenuButton" parent="Rows/InputLine"]
 visible = false
 margin_left = 1896.0
 margin_right = 1920.0
@@ -106,8 +106,8 @@ mouse_filter = 1
 syntax_highlighting = false
 
 [node name="TCPServer" parent="." instance=ExtResource( 3 )]
-[connection signal="item_selected" from="VBoxContainer/TopHalf/Completions" to="." method="_completion_selected"]
-[connection signal="text_changed" from="VBoxContainer/InputLine/Input" to="." method="_input_changed"]
-[connection signal="text_entered" from="VBoxContainer/InputLine/Input" to="." method="send_command"]
+[connection signal="item_selected" from="Rows/TopHalf/Completions" to="." method="_completion_selected"]
+[connection signal="text_changed" from="Rows/InputLine/Input" to="." method="_input_changed"]
+[connection signal="text_entered" from="Rows/InputLine/Input" to="." method="send_command"]
 [connection signal="pressed" from="ClearButton" to="." method="clear"]
 [connection signal="data_received" from="TCPServer" to="." method="receive_output"]

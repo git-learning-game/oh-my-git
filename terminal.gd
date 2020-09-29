@@ -6,12 +6,12 @@ var history_position = 0
 var git_commands = []
 var git_commands_help = []
 
-onready var input = $VBoxContainer/InputLine/Input
-onready var output = $VBoxContainer/TopHalf/Output
-onready var completions = $VBoxContainer/TopHalf/Completions
+onready var input = $Rows/InputLine/Input
+onready var output = $Rows/TopHalf/Output
+onready var completions = $Rows/TopHalf/Completions
 export(NodePath) var repository_path
 onready var repository = get_node(repository_path)
-onready var command_dropdown = $VBoxContainer/InputLine/CommandDropdown
+onready var command_dropdown = $Rows/InputLine/CommandDropdown
 onready var main = get_tree().get_root().get_node("Main")
 
 var premade_commands = [
