@@ -49,7 +49,7 @@ func run(command):
 	# 
 	hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
 	
-	var output = game.exec(_shell_binary(), ["-c",  hacky_command])
+	var output = helpers.exec(_shell_binary(), ["-c",  hacky_command], false)
 	
 	if debug:
 		print(output)
@@ -64,8 +64,7 @@ func _shell_binary():
 	elif os == "Windows":
 		return "dependencies\\windows\\git\\bin\\bash.exe"
 	else:
-		push_error("Unsupported OS")
-		get_tree().quit()
+		helpers.crash("Unsupported OS: %s" % os)
 
 var _t	
 func run_async(command):

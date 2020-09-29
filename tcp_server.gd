@@ -18,7 +18,7 @@ func _process(_delta):
 	if _s.is_connection_available():
 		if _connected:
 			_c.disconnect_from_host()
-			push_error("Dropping active connection")
+			helpers.crash("Dropping active connection")
 		_c = _s.take_connection()
 		_connected = true
 		print("connected!")
@@ -38,4 +38,4 @@ func send(text):
 		text += "\n"
 		_c.put_data(text.to_utf8())
 	else:
-		push_error("Trying to send data on closed connection")
+		helpers.crash("Trying to send data on closed connection")

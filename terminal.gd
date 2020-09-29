@@ -29,7 +29,7 @@ func _ready():
 	
 	var error = $TextEditor.connect("hide", self, "editor_closed")
 	if error != OK:
-		push_error("Could not connect TextEditor's hide signal")
+		helpers.crash("Could not connect TextEditor's hide signal")
 	input.grab_focus()
 	
 	var all_git_commands = repository.shell.run("git help -a | grep \"^ \\+[a-z-]\\+ \" -o")

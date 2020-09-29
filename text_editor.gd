@@ -22,10 +22,7 @@ func open(filename):
 	path = filename
 	
 	var fixme_path = game.tmp_prefix+"/active/"
-	var content = game.read_file(fixme_path+filename, "[ERROR_FAKE_EDITOR]")
-	if content == "[ERROR_FAKE_EDITOR]":
-		push_error("Specified file could not be read.")
-		get_tree().quit()
+	var content = helpers.read_file(fixme_path+filename)
 	text = content
 	
 	show()
@@ -33,7 +30,7 @@ func open(filename):
 
 func save():
 	var fixme_path = game.tmp_prefix+"/active/"
-	game.write_file(fixme_path+path, text)
+	helpers.write_file(fixme_path+path, text)
 	close()
 
 func close():

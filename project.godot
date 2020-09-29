@@ -26,6 +26,7 @@ run/main_scene="res://main.tscn"
 [autoload]
 
 game="*res://game.gd"
+helpers="*res://helpers.gd"
 
 [display]
 

@@ -67,13 +67,13 @@ func list_levels():
 	
 	var final_level_sequence = []
 	
-	var level_sequence = Array(game.read_file("res://levels/%s/sequence" % chapter, "").split("\n"))
+	var level_sequence = Array(helpers.read_file("res://levels/%s/sequence" % chapter, "").split("\n"))
 	
 	for level in level_sequence:
 		if level == "":
 			continue
 		if not levels.has(level):
-			push_error("Level '%s' is specified in the sequence, but could not be found" % level)
+			helpers.crash("Level '%s' is specified in the sequence, but could not be found" % level)
 		levels.erase(level)
 		final_level_sequence.push_back(level)
 	
@@ -105,7 +105,7 @@ func load_level(id):
 	var active_script = level_prefix+level+"/start"
 	
 	var description_file = level_prefix+level+"/description"
-	var description = game.read_file(description_file, "no description")
+	var description = helpers.read_file(description_file, "(no description)")
 	
 	# Surround all lines indented with four spaces with [code] tags.
 	var monospace_regex = RegEx.new()
@@ -114,7 +114,7 @@ func load_level(id):
 	level_description.bbcode_text = description
 	
 	var congrats_file = level_prefix+level+"/congrats"
-	var congrats = game.read_file(congrats_file, "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
+	var congrats = helpers.read_file(congrats_file, "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
 	level_congrats.bbcode_text = congrats
 	
 	level_name.text = level
@@ -123,18 +123,16 @@ func load_level(id):
 	# Make sure that active_repository is in a temporary directory.
 	var expected_prefix = "/tmp"
 	if active_repository_path.substr(0,4) != expected_prefix:
-		push_error("Refusing to delete a directory that does not start with %s" % expected_prefix)
-		get_tree().quit()
+		helpers.crash("Refusing to delete directory %s that does not start with %s" % [active_repository_path, expected_prefix])
 	if goal_repository_path.substr(0,4) != expected_prefix:
-		push_error("Refusing to delete a directory that does not start with %s" % expected_prefix)
-		get_tree().quit()
+		helpers.crash("Refusing to delete directory %s that does not start with %s" % [goal_repository_path, expected_prefix])
 	
 	# Danger zone!
 	game.global_shell.run("rm -rf '%s'" % active_repository_path)
 	game.global_shell.run("rm -rf '%s'" % goal_repository_path)
 		
-	var goal_script_content = game.read_file(goal_script, "")
-	var active_script_content = game.read_file(active_script, "")
+	var goal_script_content = helpers.read_file(goal_script, "")
+	var active_script_content = helpers.read_file(active_script, "")
 	construct_repo(active_script_content +"\n"+ goal_script_content, goal_repository_path)
 	construct_repo(active_script_content, active_repository_path)
 	
@@ -143,8 +141,8 @@ func load_level(id):
 	
 	var win_script = level_prefix+level+"/win"
 	var win_script_target = game.tmp_prefix+"/win"
-	var win_script_content = game.read_file(win_script, "exit 1\n")
-	game.write_file(win_script_target, win_script_content)
+	var win_script_content = helpers.read_file(win_script, "exit 1\n")
+	helpers.write_file(win_script_target, win_script_content)
 	
 	terminal.clear()
 	
@@ -171,7 +169,7 @@ func construct_repo(script_content, path):
 	
 	var script_path_outside = game.tmp_prefix+"/git-hydra-script"
 	var script_path = "/tmp/git-hydra-script"
-	game.write_file(script_path_outside, script_content)
+	helpers.write_file(script_path_outside, script_content)
 	
 	game.global_shell.run("mkdir " + path)
 	game.global_shell.cd(path)
