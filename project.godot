@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="git-hydra"
 run/main_scene="res://main.tscn"
+config/use_custom_user_dir=true
 
 [autoload]
 

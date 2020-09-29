@@ -15,13 +15,13 @@ func _process(_delta):
 		_client_connection = _server.take_connection()
 		var length = _client_connection.get_u8()
 		var filename = _client_connection.get_string(length)
-		filename = filename.replace("/tmp/active/", "")
+		filename = filename.replace("%s/active/" % game.tmp_prefix_inside, "")
 		open(filename)
 	
 func open(filename):
 	path = filename
 	
-	var fixme_path = game.tmp_prefix+"/active/"
+	var fixme_path = game.tmp_prefix_outside+"/active/"
 	var content = helpers.read_file(fixme_path+filename)
 	text = content
 	
@@ -29,7 +29,7 @@ func open(filename):
 	grab_focus()
 
 func save():
-	var fixme_path = game.tmp_prefix+"/active/"
+	var fixme_path = game.tmp_prefix_outside+"/active/"
 	helpers.write_file(fixme_path+path, text)
 	close()
 

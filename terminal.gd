@@ -112,7 +112,7 @@ func editor_closed():
 	input.grab_focus()
 	
 func check_win_condition():
-	if repository.shell.run("bash /tmp/win 2>/dev/null >/dev/null && echo yes || echo no") == "yes\n":
+	if repository.shell.run("bash %s/win 2>/dev/null >/dev/null && echo yes || echo no" % game.tmp_prefix_inside) == "yes\n":
 		main.show_win_status()
 		
 func regenerate_completions_menu(new_text):

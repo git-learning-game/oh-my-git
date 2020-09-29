@@ -5,8 +5,10 @@ var debug_file_io = false
 # Crash the game and display the error message.
 func crash(message):
 	push_error(message)
-	print("Fatal error: " + message)
+	print("FATAL ERROR: " + message)
 	get_tree().quit()
+	# Oh, still here? Let's crash more violently, by calling a non-existing method.
+	get_tree().fatal_error()
 
 # Run a simple command with arguments, blocking, using OS.execute.
 func exec(command, args=[], crash_on_fail=true):

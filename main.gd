@@ -99,8 +99,8 @@ func load_level(id):
 	var level = levels[id]
 	var level_prefix = "res://levels/%s/" % chapter
 	
-	var goal_repository_path = "/tmp/goal/"
-	var active_repository_path = "/tmp/active/"
+	var goal_repository_path = game.tmp_prefix_inside+"/repos/goal/"
+	var active_repository_path = game.tmp_prefix_inside+"/repos/active/"
 	var goal_script = level_prefix+level+"/goal"
 	var active_script = level_prefix+level+"/start"
 	
@@ -121,15 +121,8 @@ func load_level(id):
 	
 	# We're actually destroying stuff here.
 	# Make sure that active_repository is in a temporary directory.
-	var expected_prefix = "/tmp"
-	if active_repository_path.substr(0,4) != expected_prefix:
-		helpers.crash("Refusing to delete directory %s that does not start with %s" % [active_repository_path, expected_prefix])
-	if goal_repository_path.substr(0,4) != expected_prefix:
-		helpers.crash("Refusing to delete directory %s that does not start with %s" % [goal_repository_path, expected_prefix])
-	
-	# Danger zone!
-	game.global_shell.run("rm -rf '%s'" % active_repository_path)
-	game.global_shell.run("rm -rf '%s'" % goal_repository_path)
+	_careful_delete(active_repository_path)
+	_careful_delete(goal_repository_path)
 		
 	var goal_script_content = helpers.read_file(goal_script, "")
 	var active_script_content = helpers.read_file(active_script, "")
@@ -140,7 +133,7 @@ func load_level(id):
 	active_repository.path = active_repository_path
 	
 	var win_script = level_prefix+level+"/win"
-	var win_script_target = game.tmp_prefix+"/win"
+	var win_script_target = game.tmp_prefix_outside+"/win"
 	var win_script_content = helpers.read_file(win_script, "exit 1\n")
 	helpers.write_file(win_script_target, win_script_content)
 	
@@ -155,6 +148,23 @@ func load_level(id):
 	yield(t, "timeout")
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 	# FIXME: Need to clean these up when switching levels somehow.
+	
+func _careful_delete(path_inside):
+	var expected_prefix
+	
+	var os = OS.get_name()
+	
+	if os == "X11":
+		expected_prefix = "/home/%s/.local/share/git-hydra/tmp/" % OS.get_environment("USER")
+	elif os == "Windows":
+		helpers.crash("Need to figure out delete_prefix on Windows")
+	else:
+		helpers.crash("Unsupported OS: %s" % os)
+	
+	if path_inside.substr(0,expected_prefix.length()) != expected_prefix:
+		helpers.crash("Refusing to delete directory %s that does not start with %s" % [path_inside, expected_prefix])
+	else:
+		game.global_shell.run("rm -rf '%s'" % path_inside)
 
 func reload_level():
 	load_level(current_level)
@@ -167,8 +177,8 @@ func construct_repo(script_content, path):
 	# Becase in an exported game, all assets are in a .pck file, we need to put
 	# the script somewhere in the filesystem.
 	
-	var script_path_outside = game.tmp_prefix+"/git-hydra-script"
-	var script_path = "/tmp/git-hydra-script"
+	var script_path_outside = game.tmp_prefix_outside+"/git-hydra-script"
+	var script_path_inside = game.tmp_prefix_inside+"/git-hydra-script"
 	helpers.write_file(script_path_outside, script_content)
 	
 	game.global_shell.run("mkdir " + path)
@@ -176,7 +186,7 @@ func construct_repo(script_content, path):
 	game.global_shell.run("git init")
 	game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
 	# Read stdin from /dev/null so that interactive commands don't block.
-	game.global_shell.run("bash "+script_path+" </dev/null")
+	game.global_shell.run("bash "+script_path_inside+" </dev/null")
 	
 func show_win_status():
 	next_level_button.show()

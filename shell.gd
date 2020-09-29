@@ -6,7 +6,7 @@ var _cwd
 #signal output(text)
 
 func _init():
-	_cwd = "/tmp"
+	_cwd = game.tmp_prefix_inside
 	
 func cd(dir):
 	_cwd = dir
@@ -30,7 +30,7 @@ func run(command):
 	var hacky_command = ""
 	for variable in env:
 		hacky_command += "export %s='%s';" % [variable, env[variable]]
-	hacky_command += "cd '%s';" % _cwd
+	hacky_command += "cd '%s' || exit 1;" % _cwd
 	hacky_command += command
 	
 	# Godot's OS.execute wraps each argument in double quotes before executing.
