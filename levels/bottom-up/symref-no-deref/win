@@ -1,2 +1,2 @@
-git symbolic-ref refs/fries && exit 1
+git symbolic-ref refs/fries && return 1
 test "$(git show-ref -s refs/fries)" = "035e2968dafeea08e46e8fe6743cb8123e8b9aa6"

@@ -8,11 +8,11 @@ for TREE in $TREES; do
             if [ "$(git cat-file -p $TREE2 | wc -l)" -eq 1 ]; then
                 if [ "$(git cat-file -p $TREE2 | cut -f1 | grep tree | wc -l)" -eq 1 ]; then
                     # Same for its child! \o/
-                    exit 0
+                    return 0
                 fi
             fi
         fi
     fi
 done
 
-exit 1
+return 1

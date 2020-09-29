@@ -3,8 +3,8 @@ COMMITS=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-o
 for COMMIT in $COMMITS; do
     echo a commit named $COMMIT
     if [ $(git rev-list $COMMIT | wc -l) -ge 3 ]; then
-        exit 0
+        return 0
     fi
 done
 
-exit 1
+return 1

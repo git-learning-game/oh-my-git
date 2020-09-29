@@ -3,8 +3,8 @@ COMMITS=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-o
 for COMMIT in $COMMITS; do
     # My first parent's parents has to be the same as my second parent's parent.
     if [ "$(git rev-parse --verify -q $COMMIT^1^)" = "$(git rev-parse --verify -q $COMMIT^2^)" ]; then
-        exit 0
+        return 0
     fi
 done
 
-exit 1
+return 1

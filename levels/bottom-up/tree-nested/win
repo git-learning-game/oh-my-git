@@ -8,9 +8,9 @@ for OUTER_TREE in $TREES; do
         TREE_CHILD=$(git cat-file -p $OUTER_TREE | cut -f1 | grep tree | cut -d" " -f3)
         NUMBER_OF_BLOB_CHILDREN_OF_TREE_CHILD=$(git cat-file -p $TREE_CHILD | cut -f2 -d" " | grep blob | wc -l)
         if [ $NUMBER_OF_BLOB_CHILDREN_OF_TREE_CHILD -eq 2 ]; then
-            exit 0
+            return 0
         fi
     fi
 done
 
-exit 1
+return 1
