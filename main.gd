@@ -54,6 +54,8 @@ func load_level(level_id):
 	level_description.show()
 	current_level = level_id
 	
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	
 	levels.chapters[current_chapter].levels[current_level].construct()
 	
 	var goal_repository_path = game.tmp_prefix_inside+"/repos/goal/"
@@ -67,6 +69,16 @@ func load_level(level_id):
 	goal_repository.path = goal_repository_path
 	active_repository.path = active_repository_path	
 	terminal.clear()
+	
+	# Unmute the audio after a while, so that player can hear pop sounds for
+	# nodes they create.
+	var t = Timer.new()
+	t.wait_time = 3
+	add_child(t)
+	t.start()
+	yield(t, "timeout")
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+	# FIXME: Need to clean these up when switching levels somehow.
 
 func reload_level():
 	load_level(current_level)
@@ -91,3 +103,7 @@ func repopulate_chapters():
 	chapter_select.clear()
 	for c in levels.chapters:
 		chapter_select.add_item(c.slug)
+
+func check_win_condition():
+	if levels.chapters[current_chapter].levels[current_level].check_win():
+		show_win_status()

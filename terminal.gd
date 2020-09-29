@@ -94,7 +94,9 @@ func send_command_async(command):
 
 func run_command_in_a_thread(command):
 	var o = repository.shell.run(command, false)
-	check_win_condition()
+	
+	if main:
+		main.check_win_condition()
 	
 	input.text = ""
 	input.editable = true
@@ -115,10 +117,6 @@ func clear():
 	
 func editor_closed():
 	input.grab_focus()
-	
-func check_win_condition():
-	if repository.shell.run("bash %s/win 2>/dev/null >/dev/null && echo yes || echo no" % game.tmp_prefix_inside) == "yes\n":
-		main.show_win_status()
 		
 func regenerate_completions_menu(new_text):
 	var comp = generate_completions(new_text)

@@ -8,6 +8,9 @@ var start_commands
 var goal_commands
 var win_commands
 
+var _goal_repository_path = game.tmp_prefix_inside+"/repos/goal/"
+var _active_repository_path = game.tmp_prefix_inside+"/repos/active/"
+
 # The path is an outer path.
 func load(path):
 	var parts = path.split("/")
@@ -25,31 +28,16 @@ func load(path):
 	win_commands = helpers.read_file(path+"/win", "exit 1\n")
 
 func construct():
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
-	
-	var goal_repository_path = game.tmp_prefix_inside+"/repos/goal/"
-	var active_repository_path = game.tmp_prefix_inside+"/repos/active/"
-	
 	# We're actually destroying stuff here.
 	# Make sure that active_repository is in a temporary directory.
-	helpers.careful_delete(active_repository_path)
-	helpers.careful_delete(goal_repository_path)
+	helpers.careful_delete(_active_repository_path)
+	helpers.careful_delete(_goal_repository_path)
 	
-	_construct_repo(start_commands +"\n"+ goal_commands, goal_repository_path)
-	_construct_repo(start_commands, active_repository_path)
+	_construct_repo(start_commands +"\n"+ goal_commands, _goal_repository_path)
+	_construct_repo(start_commands, _active_repository_path)
 	
 	var win_script_target = game.tmp_prefix_outside+"/win"
 	helpers.write_file(win_script_target, win_commands)
-	
-	# Unmute the audio after a while, so that player can hear pop sounds for
-	# nodes they create.
-	var t = Timer.new()
-	t.wait_time = 3
-	add_child(t)
-	t.start()
-	yield(t, "timeout")
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
-	# FIXME: Need to clean these up when switching levels somehow.
 	
 func _construct_repo(script_content, path):
 	# Becase in an exported game, all assets are in a .pck file, we need to put
@@ -65,3 +53,7 @@ func _construct_repo(script_content, path):
 	game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
 	# Read stdin from /dev/null so that interactive commands don't block.
 	game.global_shell.run("bash "+script_path_inside+" </dev/null")
+
+func check_win():
+	game.global_shell.cd(_active_repository_path)
+	return game.global_shell.run("bash %s/win 2>/dev/null >/dev/null && echo yes || echo no" % game.tmp_prefix_inside) == "yes\n"
