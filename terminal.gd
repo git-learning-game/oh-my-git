@@ -98,7 +98,12 @@ func run_command_in_a_thread(command):
 	
 	input.text = ""
 	input.editable = true
-	output.text = output.text + "$ " + command + "\n" + o
+	
+	if o.length() <= 200:
+		output.text = output.text + "$ " + command + "\n" + o
+	else:
+		$Pager/Text.text = o
+		$Pager.popup()
 	repository.update_everything()
 
 func receive_output(text):

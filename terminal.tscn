@@ -42,6 +42,8 @@ size_flags_vertical = 3
 [node name="Output" type="RichTextLabel" parent="Rows/TopHalf"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.92206
+margin_bottom = -1.92212
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 4 )
@@ -106,6 +108,23 @@ mouse_filter = 1
 syntax_highlighting = false
 
 [node name="TCPServer" parent="." instance=ExtResource( 3 )]
+
+[node name="Pager" type="WindowDialog" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 18.0
+margin_top = 39.0
+margin_right = -687.0
+margin_bottom = -48.0
+
+[node name="Text" type="RichTextLabel" parent="Pager"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/normal_font = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="item_selected" from="Rows/TopHalf/Completions" to="." method="_completion_selected"]
 [connection signal="text_changed" from="Rows/InputLine/Input" to="." method="_input_changed"]
 [connection signal="text_entered" from="Rows/InputLine/Input" to="." method="send_command"]
