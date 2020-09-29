@@ -100,12 +100,16 @@ margin_bottom = 35.0
 [node name="ChapterSelect" type="OptionButton" parent="Columns/RightSide/TopStuff/Menu"]
 margin_right = 168.0
 margin_bottom = 35.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Select chapter..."
 
 [node name="LevelSelect" type="OptionButton" parent="Columns/RightSide/TopStuff/Menu"]
 margin_left = 173.0
 margin_right = 317.0
 margin_bottom = 35.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Select level..."
 expand_icon = true
 
