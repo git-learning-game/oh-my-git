@@ -155,7 +155,7 @@ func apply_forces():
 		var center_of_gravity = nodes.rect_size/2
 		var d = o.position.distance_to(center_of_gravity)
 		var dir = (o.position - center_of_gravity).normalized()
-		var f = (d+0.00001)*Vector2(0.03, 0.01)
+		var f = (d+0.00001)*(Vector2(nodes.rect_size.y, nodes.rect_size.x).normalized()/30)
 		o.position -= dir*f
 	
 func find_position(n):	

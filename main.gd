@@ -40,7 +40,7 @@ func _ready():
 	chapter_select.select(0)
 	
 	# Load first chapter.
-	load_chapter(0)
+	load_chapter(1)
 	input.grab_focus()
 
 func load_chapter(id):

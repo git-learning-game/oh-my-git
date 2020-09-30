@@ -1,1 +1,0 @@
-Rebase all branches on top of the main branch, so that the commits are in alphabetical order, and then point the main branch to the top commit.

@@ -1,1 +1,0 @@
-diff <(git log --pretty=%s main) <(echo -e "F\nE\nD\nC\nB\nA")

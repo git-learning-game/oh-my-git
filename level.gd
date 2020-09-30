@@ -97,10 +97,12 @@ func construct():
 
 func check_win():
 	var won = true
+	var any_checked = false
 	for r in repos:
 		var repo = repos[r]
 		if repo.win_commands != "":
+			any_checked = true
 			game.global_shell.cd(repo.path)
 			if not game.global_shell.run("function win { %s\n}; win 2>/dev/null >/dev/null && echo yes || echo no" % repo.win_commands) == "yes\n":
 				won = false
-	return won
+	return won and any_checked
