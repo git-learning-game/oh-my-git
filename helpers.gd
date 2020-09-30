@@ -84,3 +84,43 @@ func careful_delete(path_inside):
 	else:
 		game.global_shell.cd(game.tmp_prefix_inside)
 		game.global_shell.run("rm -rf '%s'" % path_inside)
+
+func parse(file):
+	var text = read_file(file)
+	var result = {}
+	var current_section
+	
+	var section_regex = RegEx.new()
+	section_regex.compile("^\\[(.*)\\]$")
+	
+	var assignment_regex = RegEx.new()
+	assignment_regex.compile("^([a-z ]+)=(.*)$")
+	
+	for line in text.split("\n"):
+		# Skip comments.
+		if line.substr(0, 1) == ";":
+			continue
+		
+		# Parse a [section name].
+		var m = section_regex.search(line)
+		if m:
+			current_section = m.get_string(1)
+			result[current_section] = ""
+			continue
+		
+		# Parse a direct=assignment.
+		m = assignment_regex.search(line)
+		if m:
+			var key = m.get_string(1).strip_edges()
+			var value = m.get_string(2).strip_edges()
+			result[key] = value
+			continue
+			
+		# At this point, the line is just content belonging to the current section.
+		if current_section:
+			result[current_section] += line + "\n"
+	
+	for key in result:
+		result[key] = result[key].strip_edges()
+	
+	return result
