@@ -15,7 +15,7 @@ func _process(_delta):
 		_client_connection = _server.take_connection()
 		var length = _client_connection.get_u8()
 		var filename = _client_connection.get_string(length)
-		filename = filename.replace("%s/active/" % game.tmp_prefix_inside, "")
+		filename = filename.replace("%srepos/active/" % game.tmp_prefix_inside, "")
 		open(filename)
 	
 func open(filename):
