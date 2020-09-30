@@ -110,7 +110,6 @@ syntax_highlighting = false
 [node name="TCPServer" parent="." instance=ExtResource( 3 )]
 
 [node name="Pager" type="WindowDialog" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 18.0

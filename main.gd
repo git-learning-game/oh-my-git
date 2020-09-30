@@ -8,8 +8,8 @@ var current_level
 onready var terminal = $Columns/RightSide/Terminal
 onready var input = terminal.input
 onready var output = terminal.output
-onready var goal_repository = $Columns/Repositories/GoalRepository
-onready var active_repository = $Columns/Repositories/ActiveRepository
+onready var repositories_node = $Columns/Repositories
+var repositories = {}
 onready var level_select = $Columns/RightSide/TopStuff/Menu/LevelSelect
 onready var chapter_select = $Columns/RightSide/TopStuff/Menu/ChapterSelect
 onready var next_level_button = $Columns/RightSide/TopStuff/Menu/NextLevelButton
@@ -57,17 +57,26 @@ func load_level(level_id):
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	
 	levels.chapters[current_chapter].levels[current_level].construct()
-	
-	var goal_repository_path = game.tmp_prefix_inside+"/repos/goal/"
-	var active_repository_path = game.tmp_prefix_inside+"/repos/active/"
 
 	var level = levels.chapters[current_chapter].levels[current_level]
 	level_description.bbcode_text = level.description
 	level_congrats.bbcode_text = level.congrats
 	level_name.text = level.slug
 	
-	goal_repository.path = goal_repository_path
-	active_repository.path = active_repository_path	
+	for r in repositories_node.get_children():
+		r.queue_free()
+	repositories = {}
+	
+	for r in level.repos:
+		var repo = level.repos[r]
+		var new_repo = preload("res://repository.tscn").instance()
+		new_repo.path = repo.path
+		new_repo.label = repo.slug
+		new_repo.size_flags_horizontal = SIZE_EXPAND_FILL
+		repositories_node.add_child(new_repo)		
+		repositories[r] = new_repo
+	
+	terminal.repository = repositories[repositories.keys()[0]]
 	terminal.clear()
 	
 	# Unmute the audio after a while, so that player can hear pop sounds for
@@ -81,6 +90,7 @@ func load_level(level_id):
 	# FIXME: Need to clean these up when switching levels somehow.
 
 func reload_level():
+	levels.reload()
 	load_level(current_level)
 
 func load_next_level():
@@ -104,6 +114,10 @@ func repopulate_chapters():
 	for c in levels.chapters:
 		chapter_select.add_item(c.slug)
 
-func check_win_condition():
+func update_repos():
+	for r in repositories:
+		var repo = repositories[r]
+		repo.update_everything()
+	
 	if levels.chapters[current_chapter].levels[current_level].check_win():
 		show_win_status()

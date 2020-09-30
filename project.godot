@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://level.gd"
 }, {
 "base": "Node",
+"class": "LevelRepo",
+"language": "GDScript",
+"path": "res://level_repo.gd"
+}, {
+"base": "Node",
 "class": "Shell",
 "language": "GDScript",
 "path": "res://shell.gd"
@@ -27,6 +32,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Chapter": "",
 "Level": "",
+"LevelRepo": "",
 "Shell": ""
 }
 

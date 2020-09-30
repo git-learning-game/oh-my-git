@@ -49,4 +49,3 @@ margin_left = 961.0
 margin_right = 1910.0
 margin_bottom = 1070.0
 size_flags_horizontal = 3
-repository_path = NodePath("../../Columns/Repository")

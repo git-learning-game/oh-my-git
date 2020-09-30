@@ -4,12 +4,7 @@ class_name Level
 var slug
 var description
 var congrats
-var start_commands
-var goal_commands
-var win_commands
-
-var _goal_repository_path = game.tmp_prefix_inside+"/repos/goal/"
-var _active_repository_path = game.tmp_prefix_inside+"/repos/active/"
+var repos = {}
 
 # The path is an outer path.
 func load(path):
@@ -21,20 +16,53 @@ func load(path):
 		# This is an old-style level.
 		description = helpers.read_file(path+"/description", "(no description)")
 		congrats = helpers.read_file(path+"/congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
-		start_commands = helpers.read_file(path+"/start", "")
-		goal_commands = helpers.read_file(path+"/goal", "")
-		win_commands = helpers.read_file(path+"/win", "exit 1\n")
+		
+		var yours = LevelRepo.new()
+		yours.setup_commands = helpers.read_file(path+"/start", "")
+		#goal_commands = helpers.read_file(path+"/goal", "")
+		yours.win_commands = helpers.read_file(path+"/win", "")
+		
+		repos["yours"] = yours
 	elif dir.file_exists(path):
 		# This is a new-style level.
 		var config = helpers.parse(path)
 		
 		description = config.get("description", "(no description)")
 		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
-		start_commands = config.get("setup", "")
-		goal_commands = ""
-		win_commands = config.get("win", "exit 1\n")
+		
+		var keys = config.keys()
+		var repo_setups = []
+		for k in keys:
+			if k.begins_with("setup"):
+				repo_setups.push_back(k)
+		var repo_wins = []
+		for k in keys:
+			if k.begins_with("win"):
+				repo_wins.push_back(k)
+				
+		for k in repo_setups:
+			var repo
+			if " " in k:
+				repo = Array(k.split(" "))[1]
+			else:
+				repo = "yours"
+			if not repos.has(repo):
+				repos[repo] = LevelRepo.new()
+			repos[repo].setup_commands = config[k]
+		
+		for k in repo_wins:
+			var repo
+			if " " in k:
+				repo = Array(k.split(" "))[1]
+			else:
+				repo = "yours"
+			repos[repo].win_commands = config[k]
 	else:
 		helpers.crash("Level %s does not exist." % path)
+	
+	for repo in repos:
+		repos[repo].path = game.tmp_prefix_inside+"repos/%s/" % repo
+		repos[repo].slug = repo
 	
 	# Surround all lines indented with four spaces with [code] tags.
 	var monospace_regex = RegEx.new()
@@ -42,20 +70,37 @@ func load(path):
 	description = monospace_regex.sub(description, "\n      [code]$1[/code]\n", true)
 
 func construct():
-	_construct_repo(start_commands +"\n"+ goal_commands, _goal_repository_path)
-	_construct_repo(start_commands, _active_repository_path)
-	
-func _construct_repo(script_content, path):
-	# We're actually destroying stuff here.
-	# Make sure that active_repository is in a temporary directory.
-	helpers.careful_delete(path)
-	
-	game.global_shell.run("mkdir " + path)
-	game.global_shell.cd(path)
-	game.global_shell.run("git init")
-	game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
-	game.global_shell.run(script_content)
+	for r in repos:
+		var repo = repos[r]
+		# We're actually destroying stuff here.
+		# Make sure that active_repository is in a temporary directory.
+		helpers.careful_delete(repo.path)
+		
+		game.global_shell.run("mkdir " + repo.path)
+		game.global_shell.cd(repo.path)
+		game.global_shell.run("git init")
+		game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
+		
+		# Add other repos as remotes.
+		for r2 in repos:
+			if r == r2:
+				continue
+			game.global_shell.run("git remote add %s %s" % [r2, repos[r2].path])
+		
+		# Allow receiving a push of the checked-out branch.
+		game.global_shell.run("git config receive.denyCurrentBranch ignore")
+		
+	for r in repos:
+		var repo = repos[r]
+		game.global_shell.cd(repo.path)
+		game.global_shell.run(repo.setup_commands)
 
 func check_win():
-	game.global_shell.cd(_active_repository_path)
-	return game.global_shell.run("function win { %s; }; win 2>/dev/null >/dev/null && echo yes || echo no" % win_commands) == "yes\n"
+	var won = true
+	for r in repos:
+		var repo = repos[r]
+		if repo.win_commands != "":
+			game.global_shell.cd(repo.path)
+			if not game.global_shell.run("function win { %s\n}; win 2>/dev/null >/dev/null && echo yes || echo no" % repo.win_commands) == "yes\n":
+				won = false
+	return won

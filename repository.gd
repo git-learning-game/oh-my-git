@@ -27,6 +27,9 @@ func _ready():
 	set_file_browser_active(file_browser_active)
 	set_simplified_view(simplified_view)
 	set_editable_path(editable_path)
+	set_path(path)
+	
+	update_everything()
 
 func _process(_delta):
 	nodes.rect_pivot_offset = nodes.rect_size / 2
@@ -44,7 +47,8 @@ func there_is_a_git():
 	return shell.run("test -d .git && echo yes || echo no") == "yes\n"
 	
 func update_everything():
-	file_browser.update()
+	if file_browser:
+		file_browser.update()
 	if there_is_a_git():
 		update_head()
 		update_refs()
@@ -52,19 +56,22 @@ func update_everything():
 		update_objects()
 		remove_gone_stuff()
 	else:
-		index.text = ""
+		if index:
+			index.text = ""
 		for o in objects:
 			objects[o].queue_free()
 		objects = {}	
 
 func set_path(new_path):
 	path = new_path
-	path_node.text = path
+	if path_node:
+		path_node.text = path
 	shell.cd(new_path)
 	for o in objects.values():
 		o.queue_free()
 	objects = {}
-	update_everything()
+	if is_inside_tree():
+		update_everything()
 	
 func get_path():
 	return path

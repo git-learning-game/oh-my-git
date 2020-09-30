@@ -1,5 +1,7 @@
 extends Control
 
+signal command_done
+
 var thread
 
 var history_position = 0
@@ -9,8 +11,8 @@ var git_commands_help = []
 onready var input = $Rows/InputLine/Input
 onready var output = $Rows/TopHalf/Output
 onready var completions = $Rows/TopHalf/Completions
-export(NodePath) var repository_path
-onready var repository = get_node(repository_path)
+#export(NodePath) var repository_path
+var repository
 onready var command_dropdown = $Rows/InputLine/CommandDropdown
 onready var main = get_tree().get_root().get_node("Main")
 
@@ -32,13 +34,13 @@ func _ready():
 		helpers.crash("Could not connect TextEditor's hide signal")
 	input.grab_focus()
 	
-	var all_git_commands = repository.shell.run("git help -a | grep \"^ \\+[a-z-]\\+ \" -o")
+	var all_git_commands = game.global_shell.run("git help -a | grep \"^ \\+[a-z-]\\+ \" -o")
 	git_commands = Array(all_git_commands.split("\n"))
 	for i in range(git_commands.size()):
 		git_commands[i] = git_commands[i].strip_edges(true, true)
 	git_commands.pop_back()
 	
-	var all_git_commands_help = repository.shell.run("git help -a | grep \"  [A-Z].\\+$\" -o")
+	var all_git_commands_help = game.global_shell.run("git help -a | grep \"  [A-Z].\\+$\" -o")
 	git_commands_help = Array(all_git_commands_help.split("\n"))
 	for i in range(git_commands_help.size()):
 		git_commands_help[i] = git_commands_help[i].strip_edges(true, true)
@@ -95,18 +97,17 @@ func send_command_async(command):
 func run_command_in_a_thread(command):
 	var o = repository.shell.run(command, false)
 	
-	if main:
-		main.check_win_condition()
-	
 	input.text = ""
 	input.editable = true
 	
-	if o.length() <= 200:
+	if o.length() <= 1000:
 		output.text = output.text + "$ " + command + "\n" + o
 	else:
 		$Pager/Text.text = o
 		$Pager.popup()
-	repository.update_everything()
+	
+	emit_signal("command_done")
+	#repository.update_everything()
 
 func receive_output(text):
 	output.text += text
