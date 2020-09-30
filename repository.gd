@@ -19,6 +19,9 @@ var shell = Shell.new()
 var objects = {}
 var mouse_inside = false
 
+# We use this for a heuristic of when to hide trees and blobs.
+var _commit_count = 0
+
 func _ready():
 	file_browser.shell = shell
 	
@@ -118,6 +121,10 @@ func update_objects():
 				for p in commit_parents(o):
 					c[p] = ""
 				n.children = c
+				
+				_commit_count += 1
+				if _commit_count >= 3 and not simplified_view:
+					simplified_view = true
 			"tag":
 				n.children = tag_target(o)
 		
@@ -263,22 +270,18 @@ func ref_target(ref):
 			ret = git("show-ref "+ref).split(" ")[0]
 	return ret
 
-
-func simplify_view(pressed):
-	simplified_view = pressed
-
-	for o in objects:
-		var obj = objects[o]
-		if obj.type == "tree" or obj.type == "blob":
-			obj.visible = not pressed
-	
-	if there_is_a_git():
-		update_objects()
-
 func set_simplified_view(simplify):
 	simplified_view = simplify
 	if simplify_checkbox:
 		simplify_checkbox.pressed = simplify
+		
+	for o in objects:
+		var obj = objects[o]
+		if obj.type == "tree" or obj.type == "blob":
+			obj.visible = not simplify
+	
+	if there_is_a_git():
+		update_objects()
 
 func set_editable_path(editable):
 	editable_path = editable
