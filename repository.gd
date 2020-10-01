@@ -157,8 +157,9 @@ func update_node_positions():
 			objects[ref].position = Vector2(target.position.x ,target.position.y - 100)
 			
 		var target_reference = objects["HEAD"].children.keys()[0]
-		var target = objects[target_reference]
-		objects["HEAD"].position = Vector2(target.position.x ,target.position.y - 100)
+		if objects.has(target_reference):
+			var target = objects[target_reference]
+			objects["HEAD"].position = Vector2(target.position.x ,target.position.y - 100)
 		
 			
 		

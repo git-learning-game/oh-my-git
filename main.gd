@@ -107,12 +107,14 @@ func repopulate_levels():
 	level_select.clear()
 	for level in levels.chapters[current_chapter].levels:
 		level_select.add_item(level.slug)
+	level_select.select(current_level)
 
 func repopulate_chapters():
 	levels.reload()
 	chapter_select.clear()
 	for c in levels.chapters:
 		chapter_select.add_item(c.slug)
+	chapter_select.select(current_chapter)
 
 func update_repos():
 	for r in repositories:
