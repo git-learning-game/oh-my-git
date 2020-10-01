@@ -8,6 +8,7 @@ func crash(message):
 	print("FATAL ERROR: " + message)
 	get_tree().quit()
 	# Oh, still here? Let's crash more violently, by calling a non-existing method.
+	# Violent delights have violent ends.
 	get_tree().fatal_error()
 
 # Run a simple command with arguments, blocking, using OS.execute.

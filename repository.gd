@@ -33,6 +33,7 @@ func _ready():
 	set_path(path)
 	
 	update_everything()
+	update_node_positions()
 
 func _process(_delta):
 	nodes.rect_pivot_offset = nodes.rect_size / 2
@@ -132,6 +133,35 @@ func update_objects():
 		n.position = find_position(n)
 		nodes.add_child(n)
 		objects[o] = n
+		
+func update_node_positions():
+	if there_is_a_git():
+		var graph_text = shell.run("git log --graph --oneline --all --no-abbrev")
+		var graph_lines = Array(graph_text.split("\n"))
+		graph_lines.pop_back()
+		
+		for line_count in range(graph_lines.size()):
+			var line = graph_lines[line_count]
+			if "*" in line:
+				var star_idx = line.find("*")
+				var hash_regex = RegEx.new()
+				hash_regex.compile("[a-f0-9]+")
+				var regex_match = hash_regex.search(line)
+				print(regex_match.get_string())
+				print(star_idx)
+				objects[regex_match.get_string()].position = Vector2(star_idx * 100 + 500, line_count * 100 + 500)
+				
+		for ref in all_refs():
+			var target_reference = objects[ref].children.keys()[0]
+			var target = objects[target_reference]
+			objects[ref].position = Vector2(target.position.x ,target.position.y - 100)
+			
+		var target_reference = objects["HEAD"].children.keys()[0]
+		var target = objects[target_reference]
+		objects["HEAD"].position = Vector2(target.position.x ,target.position.y - 100)
+		
+			
+		
 	 
 func update_refs():   
 	for r in all_refs():
@@ -163,7 +193,7 @@ func apply_forces():
 		var center_of_gravity = nodes.rect_size/2
 		var d = o.position.distance_to(center_of_gravity)
 		var dir = (o.position - center_of_gravity).normalized()
-		var f = (d+0.00001)*(Vector2(nodes.rect_size.y, nodes.rect_size.x).normalized()/30)
+		var f = (d+0.00001)*(Vector2(nodes.rect_size.y, nodes.rect_size.x/3).normalized()/30)
 		o.position -= dir*f
 	
 func find_position(n):	
