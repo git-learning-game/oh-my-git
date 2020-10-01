@@ -26,3 +26,8 @@ func _ready():
 	$Columns/Repository.path = path
 
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_KEEP, Vector2(1920, 1080), 1.5)
+
+	$Columns/Terminal.repository = $Columns/Repository
+
+func update_repo():
+	$Columns/Repository.update_everything()
