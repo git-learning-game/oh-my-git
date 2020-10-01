@@ -1,0 +1,32 @@
+[setup]
+
+git commit --allow-empty -m "fu"
+git commit --allow-empty -m "fu"
+git commit --allow-empty -m "fu"
+git commit --allow-empty -m "fu"
+git commit --allow-empty -m "fu"
+git commit --allow-empty -m "fu"
+
+git branch branch1
+git checkout HEAD~4
+
+git commit --allow-empty -m "fa"
+git commit --allow-empty -m "fa"
+
+git branch branch2
+git checkout HEAD~2
+
+git commit --allow-empty -m "fi"
+git commit --allow-empty -m "fi"
+git commit --allow-empty -m "fi"
+git commit --allow-empty -m "fi"
+git commit --allow-empty -m "fi"
+git commit --allow-empty -m "fi"
+git commit --allow-empty -m "fi"
+
+git branch branch3
+
+git checkout main
+git merge branch1
+git merge branch2
+git merge branch3
