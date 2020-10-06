@@ -70,6 +70,16 @@ func _input(event):
 		if completions.visible:
 			completions.get_root().get_children().select(0)
 		get_tree().set_input_as_handled()
+	if event.is_action_pressed("delete_word"):
+		var first_half = input.text.substr(0,input.caret_position)
+		var second_half = input.text.substr(input.caret_position)
+		
+		var idx = first_half.strip_edges(false, true).find_last(" ")
+		if idx > 0:
+			input.text = first_half.substr(0,idx+1) + second_half
+			input.caret_position = idx+1
+		else:
+			input.text = "" + second_half
 		
 func load_command(id):
 	input.text = premade_commands[id]
