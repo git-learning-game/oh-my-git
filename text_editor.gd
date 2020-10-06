@@ -19,6 +19,10 @@ func _process(_delta):
 		var filename = _client_connection.get_string(length)
 		filename = filename.replace("%srepos/" % game.tmp_prefix_inside, "")
 		open(filename)
+		
+func _input(event):
+	if event.is_action_pressed("save"):
+		save()
 	
 func open(filename):
 	path = filename
