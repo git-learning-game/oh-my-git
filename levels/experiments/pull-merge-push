@@ -16,7 +16,7 @@ Good job! Here's some additional info: banana!
 echo fu > file
 git add .
 git commit -m "Initial commit"
-git push
+git push -u origin main
 
 echo fi > file
 git commit -a -m "Fi is good"
