@@ -5,7 +5,8 @@ signal command_done
 var thread
 
 var history_position = 0
-var git_commands = []
+var git_commands = ["add", "am", "archive", "bisect", "branch", "bundle", "checkout", "cherry-pick", "citool", "clean", "clone", "commit", "describe", "diff", "fetch", "format-patch", "gc", "gitk", "grep", "gui", "init", "log", "merge", "mv", "notes", "pull", "push", "range-diff", "rebase", "reset", "restore", "revert", "rm", "shortlog", "show", "sparse-checkout", "stash", "status", "submodule", "switch", "tag", "worktree", "config", "fast-export", "fast-import", "filter-branch", "mergetool", "pack-refs", "prune", "reflog", "remote", "repack", "replace", "annotate", "blame", "bugreport", "count-objects", "difftool", "fsck", "gitweb", "help", "instaweb", "merge-tree", "rerere", "show-branch", "verify-commit", "verify-tag", "whatchanged", "archimport", "cvsexportcommit", "cvsimport", "cvsserver", "imap-send", "p", "quiltimport", "request-pull", "send-email", "svn", "apply", "checkout-index", "commit-graph", "commit-tree", "hash-object", "index-pack", "merge-file", "merge-index", "mktag", "mktree", "multi-pack-index", "pack-objects", "prune-packed", "read-tree", "symbolic-ref", "unpack-objects", "update-index", "update-ref", "write-tree", "cat-file", "cherry", "diff-files", "diff-index", "diff-tree", "for-each-ref", "get-tar-commit-id", "ls-files", "ls-remote", "ls-tree", "merge-base", "name-rev", "pack-redundant", "rev-list", "rev-parse", "show-index", "show-ref", "unpack-file", "var", "verify-pack", "daemon", "fetch-pack", "http-backend", "send-pack", "update-server-info", "check-attr", "check-ignore", "check-mailmap", "check-ref-format", "column", "credential", "credential-cache", "credential-store", "fmt-merge-msg", "interpret-trailers", "mailinfo", "mailsplit", "merge-one-file", "patch-id", "sh-i", "sh-setup"]
+
 var git_commands_help = []
 
 onready var input = $Rows/InputLine/Input
@@ -34,17 +35,20 @@ func _ready():
 		helpers.crash("Could not connect TextEditor's hide signal")
 	input.grab_focus()
 	
-	var all_git_commands = game.global_shell.run("git help -a | grep \"^ \\+[a-z-]\\+ \" -o")
-	git_commands = Array(all_git_commands.split("\n"))
-	for i in range(git_commands.size()):
-		git_commands[i] = git_commands[i].strip_edges(true, true)
-	git_commands.pop_back()
+#	var all_git_commands = game.global_shell.run("git help -a | grep \"^ \\+[a-z-]\\+ \" -o")
+#	git_commands = Array(all_git_commands.split("\n"))
+#	for i in range(git_commands.size()):
+#		git_commands[i] = git_commands[i].strip_edges(true, true)
+#	git_commands.pop_back()
 	
-	var all_git_commands_help = game.global_shell.run("git help -a | grep \"  [A-Z].\\+$\" -o")
-	git_commands_help = Array(all_git_commands_help.split("\n"))
-	for i in range(git_commands_help.size()):
-		git_commands_help[i] = git_commands_help[i].strip_edges(true, true)
-	git_commands_help.pop_back()
+#	var all_git_commands_help = game.global_shell.run("git help -a | grep \"  [A-Z].\\+$\" -o")
+#	git_commands_help = Array(all_git_commands_help.split("\n"))
+#	for i in range(git_commands_help.size()):
+#		git_commands_help[i] = git_commands_help[i].strip_edges(true, true)
+#	git_commands_help.pop_back()
+
+	for subcommand in git_commands:
+		git_commands_help.push_back("")
 	
 	completions.hide()
 	history_position = game.state["history"].size()
@@ -80,6 +84,16 @@ func _input(event):
 			input.caret_position = idx+1
 		else:
 			input.text = "" + second_half
+
+# Not currently used. :)
+func description_for_subcommand(subcommand):
+	var manpage = game.global_shell.run("git help %s || true" % subcommand)
+	var description_regex = RegEx.new()
+	description_regex.compile("NAME\\n\\s+[^ ]+ - (.*)\\n")
+	var regex_match = description_regex.search(manpage)
+	if regex_match == null:
+		return "(No description available.)"
+	return regex_match.get_string(1)
 		
 func load_command(id):
 	input.text = premade_commands[id]
