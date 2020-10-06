@@ -1,0 +1,28 @@
+title = "fu"
+
+[description]
+
+So you've been working on a project for a while, and decide you want to put it in a Git repository.
+
+Here's how to do it! First, you initialize a new Git repository in your current directory:
+
+    git init
+
+Then say that you want to record the current state of all files:
+
+    git add .
+
+And then you make a commit, which gives the current state a description, a date, and your name:
+
+    git commit
+
+[setup]
+
+mkdir recipes
+echo -e "blueberries\nflour" > recipes/blueberry_cake.txt
+echo -e "water\ncarrots" > recipes/carrot soup.txt
+echo "Very good recipes!" > README.md
+
+[win]
+
+test "$(git rev-parse HEAD^{tree})" = 1e02e3151284d0e22cd9b07ca5c5dbae2f3cb521

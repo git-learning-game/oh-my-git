@@ -1,0 +1,20 @@
+description = Rebase all branches on top of the main branch, so that the commits are in alphabetical order, and then point the main branch to the top commit.
+
+[setup]
+
+git commit --allow-empty -m A
+git commit --allow-empty -m B
+git commit --allow-empty -m C
+
+git switch -c side1 main~1
+git commit --allow-empty -m D
+git commit --allow-empty -m E
+
+git switch -c side2 main~2
+git commit --allow-empty -m F
+
+git checkout main
+
+[win]
+
+diff <(git log --pretty=%s main) <(echo -e "F\nE\nD\nC\nB\nA")
