@@ -54,7 +54,6 @@ func _ready():
 	history_position = game.state["history"].size()
 
 func _input(event):
-	#print(game.state)
 	if game.state["history"].size() > 0:
 		if event.is_action_pressed("ui_up"):
 			if history_position > 0:

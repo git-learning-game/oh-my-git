@@ -68,7 +68,6 @@ func load(path):
 	var monospace_regex = RegEx.new()
 	monospace_regex.compile("\\n    ([^\\n]*)")
 	description = monospace_regex.sub(description, "\n      [code]$1[/code]", true)
-	print(description)
 
 func construct():
 	for r in repos:
