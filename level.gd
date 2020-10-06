@@ -12,18 +12,7 @@ func load(path):
 	slug = parts[parts.size()-1]
 	
 	var dir = Directory.new()
-	if dir.dir_exists(path):
-		# This is an old-style level.
-		description = helpers.read_file(path+"/description", "(no description)")
-		congrats = helpers.read_file(path+"/congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
-		
-		var yours = LevelRepo.new()
-		yours.setup_commands = helpers.read_file(path+"/start", "")
-		#goal_commands = helpers.read_file(path+"/goal", "")
-		yours.win_commands = helpers.read_file(path+"/win", "")
-		
-		repos["yours"] = yours
-	elif dir.file_exists(path):
+	if dir.file_exists(path):
 		# This is a new-style level.
 		var config = helpers.parse(path)
 		
@@ -57,6 +46,17 @@ func load(path):
 			else:
 				repo = "yours"
 			repos[repo].win_commands = config[k]
+	elif dir.file_exists(path+"/description"):
+		# This is an old-style level.
+		description = helpers.read_file(path+"/description", "(no description)")
+		congrats = helpers.read_file(path+"/congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
+		
+		var yours = LevelRepo.new()
+		yours.setup_commands = helpers.read_file(path+"/start", "")
+		#goal_commands = helpers.read_file(path+"/goal", "")
+		yours.win_commands = helpers.read_file(path+"/win", "")
+		
+		repos["yours"] = yours
 	else:
 		helpers.crash("Level %s does not exist." % path)
 	
