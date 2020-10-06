@@ -1,5 +1,7 @@
 extends TextEdit
 
+signal saved
+
 var path
 
 var _server
@@ -30,7 +32,13 @@ func open(filename):
 
 func save():
 	var fixme_path = game.tmp_prefix_outside+"repos/"
+	
+	# Add a newline to the end of the file if there is none.
+	if text.length() > 0 and text.substr(text.length()-1, 1) != "\n":
+		text += "\n"
+	
 	helpers.write_file(fixme_path+path, text)
+	emit_signal("saved")
 	close()
 
 func close():

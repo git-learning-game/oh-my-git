@@ -208,3 +208,6 @@ func _completion_selected():
 	#completions.hide()
 	input.grab_focus()
 	input.caret_position = input.text.length()
+
+func editor_saved():
+	emit_signal("command_done")

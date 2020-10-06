@@ -26,21 +26,21 @@ func _ready():
 			helpers.crash("Could not change to sandbox scene")
 		return
 		
-	current_chapter = 0
+	current_chapter = 2
 	current_level = 0
 	
 	# Initialize level select.
 	level_select.connect("item_selected", self, "load_level")
 	repopulate_levels()
-	level_select.select(0)
+	level_select.select(current_level)
 	
 	# Initialize chapter select.
 	chapter_select.connect("item_selected", self, "load_chapter")
 	repopulate_chapters()
-	chapter_select.select(0)
+	chapter_select.select(current_chapter)
 	
 	# Load first chapter.
-	load_chapter(0)
+	load_chapter(current_chapter)
 	input.grab_focus()
 
 func load_chapter(id):

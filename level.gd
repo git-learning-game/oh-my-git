@@ -66,8 +66,9 @@ func load(path):
 	
 	# Surround all lines indented with four spaces with [code] tags.
 	var monospace_regex = RegEx.new()
-	monospace_regex.compile("\n    (.*)\n")
-	description = monospace_regex.sub(description, "\n      [code]$1[/code]\n", true)
+	monospace_regex.compile("\\n    ([^\\n]*)")
+	description = monospace_regex.sub(description, "\n      [code]$1[/code]", true)
+	print(description)
 
 func construct():
 	for r in repos:

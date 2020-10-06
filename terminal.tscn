@@ -131,4 +131,5 @@ __meta__ = {
 [connection signal="text_changed" from="Rows/InputLine/Input" to="." method="_input_changed"]
 [connection signal="text_entered" from="Rows/InputLine/Input" to="." method="send_command"]
 [connection signal="pressed" from="ClearButton" to="." method="clear"]
+[connection signal="saved" from="TextEditor" to="." method="editor_saved"]
 [connection signal="data_received" from="TCPServer" to="." method="receive_output"]
