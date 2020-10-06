@@ -134,6 +134,7 @@ func regenerate_completions_menu(new_text):
 	
 	completions.clear()
 	
+	
 	var filtered_comp = []
 	for c in comp:
 		if c != new_text:
@@ -153,6 +154,11 @@ func regenerate_completions_menu(new_text):
 				var idx = git_commands.find(subcommand)
 				if idx >= 0:
 					child.set_text(1, git_commands_help[idx])
+					
+		completions.margin_top = -min(filtered_comp.size() * 35 + 10, 210) 
+		
+					
+	
 
 func relevant_subcommands():
 	var result = {}
