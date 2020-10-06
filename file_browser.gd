@@ -11,7 +11,7 @@ func update():
 	var root_item = $FileTree.create_item()
 	root_item.set_text(0, "FILES")
 	
-	var file_string = shell.run("find -type f")
+	var file_string = shell.run("find . -type f")
 	var files = file_string.split("\n")
 	files = Array(files)
 	# The last entry is an empty string, remove it.
@@ -28,7 +28,7 @@ func _on_item_selected():
 	var item = $FileTree.get_selected()
 	var file_path = item.get_text(0)
 	
-	shell.run("%s/fake-editor-noblock %s" % [game.tmp_prefix_inside, file_path])
+	shell.run("'%s'/fake-editor-noblock '%s'" % [game.tmp_prefix_inside, file_path])
 	
 func very_best_sort(a,b):
 	# We're looking at the third character because all entries have the form

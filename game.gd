@@ -53,13 +53,13 @@ func copy_file_to_game_env(filename):
 	var file_inside = tmp_prefix_inside + filename
 	var content = helpers.read_file("res://scripts/"+filename)
 	helpers.write_file(file_outside, content)
-	global_shell.run("chmod u+x " + file_inside)
+	global_shell.run("chmod u+x " + '"'+file_inside+'"')
 	return file_inside
 
 func _tmp_prefix_inside():
 	var os = OS.get_name()
 	var path
-	if os == "X11":
+	if os == "X11" or os == "OSX":
 		path = OS.get_user_data_dir()
 	elif os == "Windows":
 		helpers.crash("Need to figure out Windows tmp_prefix_inside...")

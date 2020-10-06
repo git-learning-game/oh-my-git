@@ -20,7 +20,8 @@ func run(command, crash_on_fail=true):
 		print("$ %s" % command)
 	
 	var env = {}
-	env["GIT_EDITOR"] = game.fake_editor
+	if game.fake_editor:
+		env["GIT_EDITOR"] = game.fake_editor.replace(" ", "\\ ")
 	env["GIT_AUTHOR_NAME"] = "You"
 	env["GIT_COMMITTER_NAME"] = "You"
 	env["GIT_AUTHOR_EMAIL"] = "you@example.com"
@@ -59,7 +60,7 @@ func run(command, crash_on_fail=true):
 func _shell_binary():
 	var os = OS.get_name()
 	
-	if os == "X11":
+	if os == "X11" or os == "OSX":
 		return "bash"
 	elif os == "Windows":
 		return "dependencies\\windows\\git\\bin\\bash.exe"

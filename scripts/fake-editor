@@ -1,16 +1,19 @@
 #!/usr/bin/env perl
 
 use IO::Socket;
+use File::Spec;
 
 $socket = IO::Socket::INET->new(PeerAddr => "127.0.0.1",
                                 PeerPort => 1234,
                                 Proto    => "tcp",
                                 Type     => SOCK_STREAM);
 
+my $absolute_path = File::Spec->rel2abs($ARGV[0]);
+
 # Send the length of the first argument as a byte.
-$socket->send(chr(length($ARGV[0])));
+$socket->send(chr(length($absolute_path)));
 # Send the first argument as a string.
-$socket->send($ARGV[0]);
+$socket->send($absolute_path);
 
 # This call is intended to block, we're waiting for Godot to close the connection.
 my $reply;

@@ -75,6 +75,8 @@ func careful_delete(path_inside):
 	
 	if os == "X11":
 		expected_prefix = "/home/%s/.local/share/git-hydra/tmp/" % OS.get_environment("USER")
+	elif os == "OSX":
+		expected_prefix = "/Users/%s/Library/Application Support/git-hydra/tmp/" % OS.get_environment("USER")
 	elif os == "Windows":
 		helpers.crash("Need to figure out delete_prefix on Windows")
 	else:

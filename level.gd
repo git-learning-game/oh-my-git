@@ -77,7 +77,7 @@ func construct():
 		# Make sure that active_repository is in a temporary directory.
 		helpers.careful_delete(repo.path)
 		
-		game.global_shell.run("mkdir " + repo.path)
+		game.global_shell.run("mkdir '%s'" % repo.path)
 		game.global_shell.cd(repo.path)
 		game.global_shell.run("git init")
 		game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
