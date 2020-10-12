@@ -67,7 +67,10 @@ func load_level(level_id):
 		r.queue_free()
 	repositories = {}
 	
-	for r in level.repos:
+	var repo_names = level.repos.keys()
+	repo_names.invert()
+	
+	for r in repo_names:
 		var repo = level.repos[r]
 		var new_repo = preload("res://repository.tscn").instance()
 		new_repo.path = repo.path
