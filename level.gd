@@ -2,6 +2,7 @@ extends Node
 class_name Level
 
 var slug
+var title
 var description
 var congrats
 var repos = {}
@@ -16,6 +17,7 @@ func load(path):
 		# This is a new-style level.
 		var config = helpers.parse(path)
 		
+		title = config.get("title", slug)
 		description = config.get("description", "(no description)")
 		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
 		

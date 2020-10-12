@@ -61,7 +61,7 @@ func load_level(level_id):
 	var level = levels.chapters[current_chapter].levels[current_level]
 	level_description.bbcode_text = level.description
 	level_congrats.bbcode_text = level.congrats
-	level_name.text = level.slug
+	level_name.text = level.title
 	
 	for r in repositories_node.get_children():
 		r.queue_free()

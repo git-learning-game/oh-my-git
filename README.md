@@ -35,6 +35,8 @@ Wanna build your own level? Great! Here's how to do it:
 ### Level format
 
 ```
+title = This is the level's title
+
 [description]
 
 This text will be shown when the level starts.
