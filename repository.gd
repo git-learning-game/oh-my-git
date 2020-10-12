@@ -101,9 +101,6 @@ func update_objects():
 			continue
 			
 		var type = object_type(o)
-		if simplified_view:
-			if type == "tree" or type == "blob":
-				continue
 		
 		var n = node.instance()
 		n.id = o
@@ -126,13 +123,17 @@ func update_objects():
 				
 				_commit_count += 1
 				if _commit_count >= 3 and not simplified_view:
-					simplified_view = true
+					set_simplified_view(true)
 			"tag":
 				n.children = tag_target(o)
 		
 		n.position = find_position(n)
 		nodes.add_child(n)
 		objects[o] = n
+		
+		if simplified_view:
+			if type == "tree" or type == "blob":
+				n.hide()
 		
 func update_node_positions():
 	if there_is_a_git():
@@ -309,9 +310,6 @@ func set_simplified_view(simplify):
 		var obj = objects[o]
 		if obj.type == "tree" or obj.type == "blob":
 			obj.visible = not simplify
-	
-	if there_is_a_git():
-		update_objects()
 
 func set_editable_path(editable):
 	editable_path = editable
