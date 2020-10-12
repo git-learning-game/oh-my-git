@@ -79,7 +79,7 @@ func load_level(level_id):
 		repositories_node.add_child(new_repo)		
 		repositories[r] = new_repo
 	
-	terminal.repository = repositories[repositories.keys()[0]]
+	terminal.repository = repositories[repo_names[repo_names.size()-1]]
 	terminal.clear()
 	
 	# Unmute the audio after a while, so that player can hear pop sounds for
