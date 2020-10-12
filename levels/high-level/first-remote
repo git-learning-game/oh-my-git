@@ -1,0 +1,31 @@
+[description]
+
+A friend has asked you to help with an essay about hobbies! She has already started to write a list, started tracking it in a Git repository. You can get a copy by typing
+
+    git pull friend main
+
+Help her by adding at least two more items to the list! When you're done, commit your result and use
+
+    git push friend main
+
+to send it to her copy of the repository!
+
+[congrats]
+
+"Thanks, these are some really nice hobbies! Hope we can do that together soon!"
+
+[setup]
+
+[setup friend]
+
+echo "~ Best hobbies ~
+
+- Collecting stamps
+- Looking at clouds" >> hobbies.txt
+
+git add .
+git commit -m "Initial list (I definitely need more)"
+
+[win friend]
+
+test "$(git show HEAD:hobbies.txt |wc -l)" -ge 6
