@@ -1,4 +1,0 @@
-git write-tree
-FIRST_COMMIT=$(git commit-tree 4b82 -m 'First commit :O')
-SECOND_COMMIT=$(git commit-tree 4b82 -p $FIRST_COMMIT -m 'Second commit :D')
-THIRD_COMMIT=$(git commit-tree 4b82 -p $SECOND_COMMIT -m 'Third commit \o/')

@@ -1,1 +1,0 @@
-test "$(git cat-file --batch-check --batch-all-objects | wc -l)" -eq 0

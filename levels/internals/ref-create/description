@@ -1,9 +1,0 @@
-Let's take a look at "refs" (short for "references")! Refs are not objects, but rather very simple *pointers* to objects! They can help you keep track of what's where.
-
-You can create or update a ref with
-
-    git update-ref refs/<refname> <newvalue>
-
-Make sure to always start a ref's name with "refs/"! That's a convention that helps Git find all refs you create. If you forget the "refs/", you will not see the ref.
-
-Create refs that point to all objects in this repository!

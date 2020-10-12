@@ -1,4 +1,0 @@
-git update-ref refs/a $BLOB1
-git update-ref refs/b $BLOB2
-git update-ref refs/c $TREE
-git update-ref refs/d $COMMIT

@@ -1,0 +1,41 @@
+[description]
+
+You can point refs to a new location using the same command you use to create them:
+
+    git update-ref refs/<refname> <object>
+
+As an exercise, make all refs in this repository point to the tree object!
+
+[setup]
+
+echo hello > hello
+echo world > world
+BLOB1=$(git hash-object -w hello)
+BLOB2=$(git hash-object -w world)
+git add .
+TREE=$(git write-tree)
+COMMIT=$(git commit-tree $TREE -m "Initial commit")
+
+git update-ref refs/a "$BLOB1"
+git update-ref refs/b "$COMMIT"
+
+[setup goal]
+
+echo hello > hello
+echo world > world
+BLOB1=$(git hash-object -w hello)
+BLOB2=$(git hash-object -w world)
+git add .
+TREE=$(git write-tree)
+COMMIT=$(git commit-tree $TREE -m "Initial commit")
+
+git update-ref refs/a "$BLOB1"
+git update-ref refs/b "$COMMIT"
+
+for REF in $(git for-each-ref --format='%(refname)'); do
+    git update-ref "$REF" "$TREE"
+done
+
+[win]
+
+test "$(git show-ref -s | sort -u)" = "c7863f72467ed8dd44f4b8ffdb8b57ca7d91dc9e"

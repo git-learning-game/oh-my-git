@@ -1,0 +1,43 @@
+[description]
+
+(This is not a real puzzle yet.)
+
+Try merging the two branches together!
+
+    git merge <otherbranch>
+
+[setup]
+
+echo ? > bikeshed_color
+git add .
+git commit -m "Initial commit"
+
+echo green > bikeshed_color
+git commit -a -m "My suggestion"
+
+git switch -c alternative HEAD^
+echo blue > bikeshed_color
+git commit -a -m "This is way better"
+
+git switch main
+
+[setup goal]
+
+echo ? > bikeshed_color
+git add .
+git commit -m "Initial commit"
+
+echo green > bikeshed_color
+git commit -a -m "My suggestion"
+
+git switch -c alternative HEAD^
+echo blue > bikeshed_color
+git commit -a -m "This is way better"
+
+git switch main
+
+git merge alternative
+echo blue-green > bikeshed_color
+git add .
+git commit -m "Merge"
+git prune

@@ -1,6 +1,0 @@
-echo "Hi" > file1
-echo "Ho" > file2
-echo "Hu" > file3
-git hash-object -w file1
-git hash-object -w file2
-git hash-object -w file3

@@ -1,3 +1,0 @@
-git update-index --force-remove file1
-git update-index --force-remove file2
-git update-index --force-remove file3

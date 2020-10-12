@@ -1,5 +1,0 @@
-Tip: You can also use a command like this to create a blob in a single line:
-
-    echo "awesome content" | git hash-object -w --stdin
-
-Did you already notice that you can drag and drop all objects? :)

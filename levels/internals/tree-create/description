@@ -1,7 +1,0 @@
-After carefully building the index we want, it would be nice to save a permanent snapshot of it, right?
-
-This is what the second type of objects is for: trees! You can convert the index into a tree using
-
-    git write-tree
-
-Try it! :)

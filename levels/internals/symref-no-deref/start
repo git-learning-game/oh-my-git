@@ -1,4 +1,0 @@
-BLOB1=$(echo delicious | git hash-object -w --stdin)
-BLOB2=$(echo very | git hash-object -w --stdin)
-git update-ref refs/curly "$BLOB1"
-git symbolic-ref refs/fries refs/curly

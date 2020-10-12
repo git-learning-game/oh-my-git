@@ -1,3 +1,0 @@
-for REF in $(git for-each-ref --format='%(refname)'); do
-    git update-ref -d "$REF"
-done

@@ -1,2 +1,0 @@
-echo "new content" > file1
-git update-index file1

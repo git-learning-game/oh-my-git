@@ -1,3 +1,0 @@
-mkdir riddle
-echo "ppl p" > riddle/consonants
-echo "ae ie" > riddle/vowels

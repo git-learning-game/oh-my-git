@@ -1,1 +1,0 @@
-git read-tree "$TRIPLE_TREE"

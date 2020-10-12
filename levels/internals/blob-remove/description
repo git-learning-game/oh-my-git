@@ -1,5 +1,0 @@
-There's a simple command to remove all objects that are not referenced by anything:
-
-    git prune
-
-Remove all blobs in this repository.
