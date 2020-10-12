@@ -1,6 +1,3 @@
-title = A pull and a conflict
-author = blinry
-
 [description]
 
 You want to push your new commits to the server, but someone has already pushed their own changes.
