@@ -4,11 +4,11 @@ You've been working on your essay for a while. But - ughh! Now your cat walks ov
 
 To restore your essay from the last backup, type:
 
-    git restore essay.txt
+    git checkout essay.txt
 
 To restore an older version, for example, from two backups before the latest one, type:
 
-    git restore -s HEAD~2 essay.txt
+    git checkout HEAD~2 essay.txt
 
 For nostalgic reasons, restore the very first backup you made!
 
