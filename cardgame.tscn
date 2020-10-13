@@ -8,10 +8,18 @@
 [node name="Cardgame" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1922.0
+margin_bottom = 1083.0
+mouse_filter = 2
+color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Repository" parent="." instance=ExtResource( 3 )]
 margin_right = 1481.0
 margin_bottom = 592.0
-file_browser_active = false
 simplified_view = true
 
 [node name="DropArea" parent="." instance=ExtResource( 2 )]

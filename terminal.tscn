@@ -37,7 +37,7 @@ __meta__ = {
 
 [node name="TopHalf" type="Control" parent="Rows"]
 margin_right = 1920.0
-margin_bottom = 980.0
+margin_bottom = 1052.0
 size_flags_vertical = 3
 
 [node name="Output" type="RichTextLabel" parent="Rows/TopHalf"]
@@ -65,6 +65,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Rows"]
+visible = false
 margin_top = 984.0
 margin_right = 1920.0
 margin_bottom = 1052.0

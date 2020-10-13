@@ -11,7 +11,7 @@ var _home_position = null
 
 func _ready():
 	set_process_unhandled_input(true)
-	_home_position = position
+	position = get_viewport_rect().size
 	
 func _process(delta):
 	if dragged:
@@ -39,7 +39,7 @@ func _unhandled_input(event):
 				else:
 					move_back()
 			else:
-				_home_position = get_viewport().get_mouse_position() + drag_offset
+				move_back()
 
 func _mouse_entered():
 	hovered = true
@@ -56,10 +56,10 @@ func move_back():
 	
 func buuurn():
 	queue_free()
-	$"..".draw_rand_card()
+	#$"..".draw_rand_card()
+	$"..".arrange_cards()
 
 func dropped_on(other):
-	#print("I have been dropped on "+str(other.id))
 	var full_command = ""
 	match arg_number:
 		1:	
