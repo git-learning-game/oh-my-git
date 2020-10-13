@@ -5,6 +5,8 @@ var tmp_prefix_inside = _tmp_prefix_inside()
 var global_shell
 var fake_editor
 
+var dragged_object
+
 var _file = "user://savegame.json"
 var state = {}
 

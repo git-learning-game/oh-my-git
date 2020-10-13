@@ -8,7 +8,7 @@
 [node name="Repository" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
+mouse_filter = 2
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -18,7 +18,7 @@ __meta__ = {
 [node name="Rows" type="VSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -26,7 +26,7 @@ __meta__ = {
 [node name="RepoVis" type="Control" parent="Rows"]
 margin_right = 1920.0
 margin_bottom = 925.0
-mouse_filter = 1
+mouse_filter = 2
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false

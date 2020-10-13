@@ -40,12 +40,12 @@ func _process(_delta):
 	if path:
 		apply_forces()
 		
-func _input(event):
-	if mouse_inside:
-		if event.is_action_pressed("zoom_out") and nodes.rect_scale.x > 0.3:
-			nodes.rect_scale -= Vector2(0.05, 0.05)
-		if event.is_action_pressed("zoom_in") and nodes.rect_scale.x < 2:
-			nodes.rect_scale += Vector2(0.05, 0.05)
+#func _input(event):
+#	if mouse_inside:
+#		if event.is_action_pressed("zoom_out") and nodes.rect_scale.x > 0.3:
+#			nodes.rect_scale -= Vector2(0.05, 0.05)
+#		if event.is_action_pressed("zoom_in") and nodes.rect_scale.x < 2:
+#			nodes.rect_scale += Vector2(0.05, 0.05)
 
 func there_is_a_git():
 	return shell.run("test -d .git && echo yes || echo no") == "yes\n"
