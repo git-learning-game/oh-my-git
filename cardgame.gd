@@ -24,14 +24,17 @@ func _ready():
 
 	$Terminal.repository = $Repository
 	
-	var pos_x = 100
-	for card in cards:
-		var new_card = preload("res://card.tscn").instance()
-		new_card.command = card.command
-		new_card.arg_number = card.arg_number
-		new_card.position = Vector2(pos_x, get_viewport().size.y*3/4)
-		pos_x += 250
-		add_child(new_card)
+	for i in range(4):
+		draw_rand_card()
 
 func _update_repo():
 	$Repository.update_everything()
+	
+func draw_rand_card():
+	var new_card = preload("res://card.tscn").instance()
+	var card = cards[randi() % cards.size()]
+	new_card.command = card.command
+	new_card.arg_number = card.arg_number
+	new_card.position = Vector2(rand_range(200, get_viewport().size.x - 200), get_viewport().size.y*3/4 + rand_range(-200,200))
+	add_child(new_card)
+	

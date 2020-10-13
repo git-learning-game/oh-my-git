@@ -30,10 +30,16 @@ func _unhandled_input(event):
 			dragged = false
 			game.dragged_object = null
 			modulate.a = 1
-			move_back()
-	
-			if arg_number == 0 and get_viewport().get_mouse_position().y < get_viewport().size.y/2 :
-				$"../Terminal".send_command($Label.text)
+			
+			
+			if get_viewport().get_mouse_position().y < get_viewport().size.y/2:
+				if arg_number == 0 :
+					$"../Terminal".send_command($Label.text)
+					buuurn()
+				else:
+					move_back()
+			else:
+				_home_position = get_viewport().get_mouse_position() + drag_offset
 
 func _mouse_entered():
 	hovered = true
@@ -47,6 +53,10 @@ func set_command(new_command):
 	
 func move_back():
 	position = _home_position
+	
+func buuurn():
+	queue_free()
+	$"..".draw_rand_card()
 
 func dropped_on(other):
 	#print("I have been dropped on "+str(other.id))
@@ -55,10 +65,12 @@ func dropped_on(other):
 		1:
 			full_command = $Label.text + " " + other.id
 			$"../Terminal".send_command(full_command)
+			buuurn()
 		2:
 			if _first_argument:
 				full_command = $Label.text + " " + _first_argument + " " + other.id
 				$"../Terminal".send_command(full_command)
+				buuurn()
 			else:
 				_first_argument = other.id
 				
