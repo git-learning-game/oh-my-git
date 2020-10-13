@@ -16,13 +16,25 @@ margin_bottom = 592.0
 [node name="DropArea" parent="." instance=ExtResource( 2 )]
 
 [node name="Card2" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 948.833, 814.382 )
+command = "git commit --allow-empty -m \"$RANDOM\""
+
+[node name="Card4" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 1651.83, 834.382 )
+command = "touch \"file$RANDOM\""
 
 [node name="Card3" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 1348, 830.017 )
+command = "git add ."
 
 [node name="Card" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 558.857, 824.539 )
+arg_number = 1
+command = "git checkout"
 
 [node name="Terminal" parent="." instance=ExtResource( 5 )]
 margin_left = 1488.0
