@@ -62,8 +62,11 @@ func dropped_on(other):
 	#print("I have been dropped on "+str(other.id))
 	var full_command = ""
 	match arg_number:
-		1:
-			full_command = $Label.text + " " + other.id
+		1:	
+			var argument = other.id
+			if ($Label.text.begins_with("git checkout") or $Label.text.begins_with("git rebase")) and other.id.begins_with("refs/heads"):
+				argument = Array(other.id.split("/")).pop_back()
+			full_command = $Label.text + " " + argument
 			$"../Terminal".send_command(full_command)
 			buuurn()
 		2:

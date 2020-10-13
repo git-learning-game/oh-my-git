@@ -41,4 +41,15 @@ margin_left = 1488.0
 margin_top = 5.0
 margin_right = 1914.0
 margin_bottom = 586.0
+
+[node name="Button" type="Button" parent="."]
+margin_left = 1726.67
+margin_top = 1021.41
+margin_right = 1899.67
+margin_bottom = 1063.41
+text = "redraw cards"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="command_done" from="Terminal" to="." method="_update_repo"]
+[connection signal="pressed" from="Button" to="." method="redraw_all_cards"]
