@@ -1,16 +1,15 @@
 extends Node2D
 
 var cards = [
-	{"command": 'git add .', "arg_number": 0},
-	{"command": 'git checkout', "arg_number": 1},
-	{"command": 'touch "file$RANDOM"', "arg_number": 0},
-	{"command": 'git commit --allow-empty -m "$RANDOM"', "arg_number": 0},
-	{"command": 'git checkout -b "$RANDOM"', "arg_number": 0},
-	{"command": 'git merge', "arg_number": 1},
-	{"command": 'git symbolic-ref HEAD', "arg_number": 1},
-	{"command": 'git update-ref -d', "arg_number": 1},
-	{"command": 'git reflog expire --expire=now --all; git prune', "arg_number": 0},
-	{"command": 'git rebase', "arg_number": 1}
+	{"command": 'git add .', "arg_number": 0, "description": "Add all files in the working directory to the index."},
+	{"command": 'git checkout', "arg_number": 1, "description": "Point HEAD to a branch or commit, and update the index and the working directory."},
+	{"command": 'touch "file$RANDOM"', "arg_number": 0, "description": "Create a new file."},
+	{"command": 'git commit --allow-empty -m "$RANDOM"', "arg_number": 0, "description": "Add a new commit under HEAD."},
+	{"command": 'git checkout -b "$RANDOM"', "arg_number": 0, "description": "Create a new branch and switch to it."},
+	{"command": 'git merge', "arg_number": 1, "description": "Merge specified commit into HEAD."},
+	{"command": 'git update-ref -d', "arg_number": 1, "description": "Delete a ref."},
+	{"command": 'git reflog expire --expire=now --all; git prune', "arg_number": 0, "description": "Delete all unreferenced objects."},
+	{"command": 'git rebase', "arg_number": 1, "description": "Rebase current branch on top of specified commit."}
 ]
 
 func _ready():
@@ -40,6 +39,7 @@ func draw_rand_card():
 	var card = cards[randi() % cards.size()]
 	new_card.command = card.command
 	new_card.arg_number = card.arg_number
+	new_card.description = card.description
 	add_child(new_card)
 	arrange_cards()
 	

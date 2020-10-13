@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://drop_area.tscn" type="PackedScene" id=2]
 [ext_resource path="res://repository.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cardgame.gd" type="Script" id=4]
@@ -31,10 +32,11 @@ margin_right = 1914.0
 margin_bottom = 586.0
 
 [node name="Button" type="Button" parent="."]
-margin_left = 1726.67
-margin_top = 1021.41
-margin_right = 1899.67
-margin_bottom = 1063.41
+margin_left = 1719.41
+margin_top = 814.594
+margin_right = 1892.41
+margin_bottom = 856.594
+custom_fonts/font = ExtResource( 1 )
 text = "redraw cards"
 __meta__ = {
 "_edit_use_anchors_": false

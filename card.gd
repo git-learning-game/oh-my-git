@@ -3,11 +3,13 @@ extends Node2D
 var hovered = false
 var dragged = false
 var drag_offset
+
 export var arg_number = 0
 export var command = "" setget set_command
+export var description = "" setget set_description
+
 var _first_argument = null
 var _home_position = null
-
 
 func _ready():
 	set_process_unhandled_input(true)
@@ -49,7 +51,11 @@ func _mouse_exited():
 	
 func set_command(new_command):
 	command = new_command
-	$Label.text = self.command
+	$Label.text = command
+
+func set_description(new_description):
+	description = new_description
+	$Description.text = description
 	
 func move_back():
 	position = _home_position

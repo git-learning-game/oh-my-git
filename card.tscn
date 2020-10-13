@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://card.gd" type="Script" id=1]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.145098, 0.529412, 0.682353, 1 )
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.45098, 0.584314, 0.843137, 1 )
 border_color = Color( 0.0627451, 0.141176, 0.176471, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -14,8 +14,15 @@ shadow_color = Color( 0, 0, 0, 0.392157 )
 shadow_size = 4
 shadow_offset = Vector2( -2, 2 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 105.74, 143.46 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 0.243137 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Card" type="Node2D" groups=[
 "cards",
@@ -28,7 +35,7 @@ margin_top = -291.0
 margin_right = 104.0
 margin_bottom = -2.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,16 +57,38 @@ position = Vector2( 0, -145.336 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -6.10352e-05, 0.00012207 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -89.0
-margin_top = -276.336
+margin_top = -276.0
 margin_right = 85.0
-margin_bottom = -174.336
+margin_bottom = -185.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "git checkout"
+text = "Name"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="Panel" parent="."]
+margin_left = -97.0
+margin_top = -169.0
+margin_right = 94.0
+margin_bottom = -10.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+
+[node name="Description" type="Label" parent="."]
+margin_left = -92.0
+margin_top = -164.0
+margin_right = 133.0
+margin_bottom = 23.0
+rect_scale = Vector2( 0.75, 0.75 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Description"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
