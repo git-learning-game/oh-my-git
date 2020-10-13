@@ -9,30 +9,36 @@ var cards = [
 	{"command": 'git merge', "arg_number": 1, "description": "Merge specified commit into HEAD."},
 	{"command": 'git update-ref -d', "arg_number": 1, "description": "Delete a ref."},
 	{"command": 'git reflog expire --expire=now --all; git prune', "arg_number": 0, "description": "Delete all unreferenced objects."},
-	{"command": 'git rebase', "arg_number": 1, "description": "Rebase current branch on top of specified commit."}
+	{"command": 'git rebase', "arg_number": 1, "description": "Rebase current branch on top of specified commit."},
+	{"command": 'git push -f', "arg_number": 0, "description": "Push current branch to the remote. Will make everyone angry."},
 ]
 
 func _ready():
-	
 	var path = game.tmp_prefix_inside+"/repos/sandbox/"
 	helpers.careful_delete(path)
 	
 	game.global_shell.run("mkdir " + path)
 	game.global_shell.cd(path)
 	game.global_shell.run("git init")
-	game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
-	game.global_shell.run("git commit --allow-empty -m 'Initial commit'")
-	
+	game.global_shell.run("git remote add origin ../remote")
 	$Repository.path = path
-	
-
 	$Terminal.repository = $Repository
+	
+	var path2 = game.tmp_prefix_inside+"/repos/remote/"
+	helpers.careful_delete(path2)
+
+	game.global_shell.run("mkdir " + path2)
+	game.global_shell.cd(path2)
+	game.global_shell.run("git init")
+	game.global_shell.run("git config receive.denyCurrentBranch ignore")
+	$RepositoryRemote.path = path2
 	
 	redraw_all_cards()
 	arrange_cards()
 
 func _update_repo():
 	$Repository.update_everything()
+	$RepositoryRemote.update_everything()
 	
 func draw_rand_card():
 	var new_card = preload("res://card.tscn").instance()
@@ -51,7 +57,7 @@ func arrange_cards():
 	yield(t, "timeout")
 	
 	var amount_cards = get_tree().get_nodes_in_group("cards").size()
-	var total_angle = 45.0/7*amount_cards
+	var total_angle = min(50, 45.0/7*amount_cards)
 	var angle_between_cards = 0
 	if amount_cards > 1:
 		angle_between_cards = total_angle / (amount_cards-1)

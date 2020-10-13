@@ -79,6 +79,9 @@ margin_right = 94.0
 margin_bottom = -10.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Description" type="Label" parent="."]
 margin_left = -92.0

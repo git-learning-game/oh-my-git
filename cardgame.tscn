@@ -18,9 +18,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RepositoryRemote" parent="." instance=ExtResource( 3 )]
+margin_right = 748.0
+margin_bottom = 746.0
+label = "remote"
+simplified_view = true
+
 [node name="Repository" parent="." instance=ExtResource( 3 )]
+margin_left = 762.0
 margin_right = 1481.0
-margin_bottom = 592.0
+margin_bottom = 744.0
+label = "yours"
 simplified_view = true
 
 [node name="DropArea" parent="." instance=ExtResource( 2 )]
@@ -29,7 +37,7 @@ simplified_view = true
 margin_left = 1488.0
 margin_top = 5.0
 margin_right = 1914.0
-margin_bottom = 586.0
+margin_bottom = 745.0
 
 [node name="Button" type="Button" parent="."]
 margin_left = 1719.41
@@ -37,7 +45,7 @@ margin_top = 814.594
 margin_right = 1892.41
 margin_bottom = 856.594
 custom_fonts/font = ExtResource( 1 )
-text = "redraw cards"
+text = "Draw new cards"
 __meta__ = {
 "_edit_use_anchors_": false
 }
