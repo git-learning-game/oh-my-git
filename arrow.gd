@@ -14,6 +14,9 @@ func _process(_delta):
 	#position = -repository.objects[source].position
 	position = Vector2(0,0)
 	
+	if not (repository and repository.objects.has(source)):
+		return
+	
 	var start = repository.objects[source].position
 	var end = start + Vector2(0, 60)
 	
