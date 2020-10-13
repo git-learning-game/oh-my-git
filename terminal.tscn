@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://terminal.gd" type="Script" id=2]
 [ext_resource path="res://tcp_server.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/monospace.tres" type="DynamicFont" id=4]
 [ext_resource path="res://text_editor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://button.gd" type="Script" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 5.0
@@ -36,7 +37,7 @@ __meta__ = {
 
 [node name="TopHalf" type="Control" parent="Rows"]
 margin_right = 1920.0
-margin_bottom = 1052.0
+margin_bottom = 980.0
 size_flags_vertical = 3
 
 [node name="Output" type="RichTextLabel" parent="Rows/TopHalf"]
@@ -62,6 +63,31 @@ hide_root = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Rows"]
+margin_top = 984.0
+margin_right = 1920.0
+margin_bottom = 1052.0
+
+[node name="Button" type="Button" parent="Rows/VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 20.0
+text = "git commit --allow-empty -m \"$RANDOM\""
+script = ExtResource( 6 )
+
+[node name="Button2" type="Button" parent="Rows/VBoxContainer"]
+margin_top = 24.0
+margin_right = 1920.0
+margin_bottom = 44.0
+text = "git checkout HEAD^"
+script = ExtResource( 6 )
+
+[node name="Button3" type="Button" parent="Rows/VBoxContainer"]
+margin_top = 48.0
+margin_right = 1920.0
+margin_bottom = 68.0
+text = "git checkout -b \"$RANDOM\""
+script = ExtResource( 6 )
 
 [node name="InputLine" type="HBoxContainer" parent="Rows"]
 margin_top = 1056.0
@@ -128,6 +154,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="item_selected" from="Rows/TopHalf/Completions" to="." method="_completion_selected"]
+[connection signal="pressed" from="Rows/VBoxContainer/Button" to="Rows/VBoxContainer/Button" method="pressed"]
+[connection signal="pressed" from="Rows/VBoxContainer/Button2" to="Rows/VBoxContainer/Button2" method="pressed"]
+[connection signal="pressed" from="Rows/VBoxContainer/Button3" to="Rows/VBoxContainer/Button3" method="pressed"]
 [connection signal="text_changed" from="Rows/InputLine/Input" to="." method="_input_changed"]
 [connection signal="text_entered" from="Rows/InputLine/Input" to="." method="send_command"]
 [connection signal="pressed" from="ClearButton" to="." method="clear"]
