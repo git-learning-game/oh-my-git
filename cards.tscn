@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://cardgame.gd" type="Script" id=3]
+
+[node name="Cards" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 1719.41
+margin_top = 814.594
+margin_right = 1892.41
+margin_bottom = 856.594
+custom_fonts/font = ExtResource( 1 )
+text = "Draw new cards"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="redraw_all_cards"]

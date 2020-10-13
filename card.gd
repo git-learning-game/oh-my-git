@@ -36,7 +36,7 @@ func _unhandled_input(event):
 			
 			if get_viewport().get_mouse_position().y < get_viewport().size.y/2:
 				if arg_number == 0 :
-					$"../Terminal".send_command($Label.text)
+					$"../..".terminal.send_command($Label.text)
 					buuurn()
 				else:
 					move_back()
@@ -73,15 +73,15 @@ func dropped_on(other):
 			if ($Label.text.begins_with("git checkout") or $Label.text.begins_with("git rebase")) and other.id.begins_with("refs/heads"):
 				argument = Array(other.id.split("/")).pop_back()
 			full_command = $Label.text + " " + argument
-			$"../Terminal".send_command(full_command)
+			$"../..".terminal.send_command(full_command)
 			buuurn()
-		2:
-			if _first_argument:
-				full_command = $Label.text + " " + _first_argument + " " + other.id
-				$"../Terminal".send_command(full_command)
-				buuurn()
-			else:
-				_first_argument = other.id
+#		2:
+#			if _first_argument:
+#				full_command = $Label.text + " " + _first_argument + " " + other.id
+#				$"../Terminal".send_command(full_command)
+#				buuurn()
+#			else:
+#				_first_argument = other.id
 				
 				
 				

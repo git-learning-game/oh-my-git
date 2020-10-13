@@ -14,31 +14,31 @@ var cards = [
 ]
 
 func _ready():
-	var path = game.tmp_prefix_inside+"/repos/sandbox/"
-	helpers.careful_delete(path)
-	
-	game.global_shell.run("mkdir " + path)
-	game.global_shell.cd(path)
-	game.global_shell.run("git init")
-	game.global_shell.run("git remote add origin ../remote")
-	$Repository.path = path
-	$Terminal.repository = $Repository
-	
-	var path2 = game.tmp_prefix_inside+"/repos/remote/"
-	helpers.careful_delete(path2)
-
-	game.global_shell.run("mkdir " + path2)
-	game.global_shell.cd(path2)
-	game.global_shell.run("git init")
-	game.global_shell.run("git config receive.denyCurrentBranch ignore")
-	$RepositoryRemote.path = path2
+#	var path = game.tmp_prefix_inside+"/repos/sandbox/"
+#	helpers.careful_delete(path)
+#
+#	game.global_shell.run("mkdir " + path)
+#	game.global_shell.cd(path)
+#	game.global_shell.run("git init")
+#	game.global_shell.run("git remote add origin ../remote")
+#	$Repository.path = path
+#	$Terminal.repository = $Repository
+#
+#	var path2 = game.tmp_prefix_inside+"/repos/remote/"
+#	helpers.careful_delete(path2)
+#
+#	game.global_shell.run("mkdir " + path2)
+#	game.global_shell.cd(path2)
+#	game.global_shell.run("git init")
+#	game.global_shell.run("git config receive.denyCurrentBranch ignore")
+#	$RepositoryRemote.path = path2
 	
 	redraw_all_cards()
 	arrange_cards()
 
-func _update_repo():
-	$Repository.update_everything()
-	$RepositoryRemote.update_everything()
+#func _update_repo():
+#	$Repository.update_everything()
+#	$RepositoryRemote.update_everything()
 	
 func draw_rand_card():
 	var new_card = preload("res://card.tscn").instance()

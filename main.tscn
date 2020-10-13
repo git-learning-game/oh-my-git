@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
+[ext_resource path="res://cards.tscn" type="PackedScene" id=3]
 [ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=4]
 [ext_resource path="res://tcp_server.tscn" type="PackedScene" id=5]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=6]
@@ -22,6 +23,7 @@ corner_radius_bottom_left = 3
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -285.0
 mouse_filter = 2
 theme = ExtResource( 6 )
 script = ExtResource( 2 )
@@ -55,7 +57,7 @@ __meta__ = {
 
 [node name="Repositories" type="HBoxContainer" parent="Columns"]
 margin_right = 1267.0
-margin_bottom = 1070.0
+margin_bottom = 785.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -67,12 +69,12 @@ __meta__ = {
 [node name="RightSide" type="VSplitContainer" parent="Columns"]
 margin_left = 1279.0
 margin_right = 1910.0
-margin_bottom = 1070.0
+margin_bottom = 785.0
 size_flags_horizontal = 3
 
 [node name="TopStuff" type="VBoxContainer" parent="Columns/RightSide"]
 margin_right = 631.0
-margin_bottom = 529.0
+margin_bottom = 386.0
 size_flags_vertical = 3
 
 [node name="Menu" type="HBoxContainer" parent="Columns/RightSide/TopStuff"]
@@ -122,7 +124,7 @@ __meta__ = {
 [node name="LevelPanel" type="VBoxContainer" parent="Columns/RightSide/TopStuff"]
 margin_top = 40.0
 margin_right = 631.0
-margin_bottom = 529.0
+margin_bottom = 386.0
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="Columns/RightSide/TopStuff/LevelPanel"]
@@ -138,7 +140,7 @@ __meta__ = {
 [node name="Text" type="Control" parent="Columns/RightSide/TopStuff/LevelPanel"]
 margin_top = 65.0
 margin_right = 631.0
-margin_bottom = 489.0
+margin_bottom = 346.0
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="Columns/RightSide/TopStuff/LevelPanel/Text"]
@@ -167,9 +169,9 @@ __meta__ = {
 [node name="Terminal" parent="Columns/RightSide" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 541.0
+margin_top = 398.0
 margin_right = 631.0
-margin_bottom = 1070.0
+margin_bottom = 785.0
 size_flags_vertical = 3
 
 [node name="Test" type="Node2D" parent="."]
@@ -187,6 +189,8 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Cards" parent="." instance=ExtResource( 3 )]
 [connection signal="button_down" from="Columns/RightSide/TopStuff/Menu/ChapterSelect" to="." method="repopulate_chapters"]
 [connection signal="button_down" from="Columns/RightSide/TopStuff/Menu/LevelSelect" to="." method="repopulate_levels"]
 [connection signal="pressed" from="Columns/RightSide/TopStuff/Menu/ReloadButton" to="." method="reload_level"]
