@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="git-hydra"
-run/main_scene="res://main.tscn"
+run/main_scene="res://cardgame.tscn"
 config/use_custom_user_dir=true
 
 [autoload]
