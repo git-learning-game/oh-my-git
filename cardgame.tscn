@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://card.tscn" type="PackedScene" id=1]
 [ext_resource path="res://drop_area.tscn" type="PackedScene" id=2]
 [ext_resource path="res://repository.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cardgame.gd" type="Script" id=4]
@@ -12,29 +11,10 @@ script = ExtResource( 4 )
 [node name="Repository" parent="." instance=ExtResource( 3 )]
 margin_right = 1481.0
 margin_bottom = 592.0
+file_browser_active = false
+simplified_view = true
 
 [node name="DropArea" parent="." instance=ExtResource( 2 )]
-
-[node name="Card2" parent="." instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 948.833, 814.382 )
-command = "git commit --allow-empty -m \"$RANDOM\""
-
-[node name="Card4" parent="." instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 1651.83, 834.382 )
-command = "touch \"file$RANDOM\""
-
-[node name="Card3" parent="." instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 1348, 830.017 )
-command = "git add ."
-
-[node name="Card" parent="." instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 558.857, 824.539 )
-arg_number = 1
-command = "git checkout"
 
 [node name="Terminal" parent="." instance=ExtResource( 5 )]
 margin_left = 1488.0

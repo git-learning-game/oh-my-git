@@ -13,9 +13,9 @@ script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -103.0
-margin_top = -145.0
+margin_top = -290.336
 margin_right = 103.0
-margin_bottom = 144.0
+margin_bottom = -1.33582
 mouse_filter = 2
 color = Color( 0.105882, 0.67451, 0.847059, 1 )
 __meta__ = {
@@ -23,7 +23,7 @@ __meta__ = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 0, 6.10352e-05 )
+position = Vector2( 0, -145.336 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -6.10352e-05, 0.00012207 )
@@ -31,9 +31,9 @@ shape = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -89.0
-margin_top = -131.0
+margin_top = -276.336
 margin_right = 85.0
-margin_bottom = -29.0
+margin_bottom = -174.336
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "git checkout"
