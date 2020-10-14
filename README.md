@@ -70,7 +70,7 @@ git commit -m "Initial commit"
 test "$(git show HEAD:people_who_are_awesome | wc -l)" -ge 2
 ```
 
-A level can consist of multiple repositories. To have more than one, you can use sections like `[setup <name>]` and `[win <name>]`, where `<name>` is the name of the remote. The default name is "yours". All repositories will add each other as remotes. Refer to the *experiments/pull-merge-push* level for an example.
+A level can consist of multiple repositories. To have more than one, you can use sections like `[setup <name>]` and `[win <name>]`, where `<name>` is the name of the remote. The default name is "yours". All repositories will add each other as remotes. Refer to the [experiments/pull-merge-push](levels/experiments/pull-merge-push) level for an example.
 
 ### Level guidelines
 
