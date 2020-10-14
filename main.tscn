@@ -53,7 +53,7 @@ __meta__ = {
 
 [node name="Columns" type="HSplitContainer" parent="Rows"]
 margin_right = 1920.0
-margin_bottom = 796.0
+margin_bottom = 1080.0
 mouse_filter = 2
 size_flags_vertical = 3
 __meta__ = {
@@ -62,7 +62,7 @@ __meta__ = {
 
 [node name="Repositories" type="HBoxContainer" parent="Rows/Columns"]
 margin_right = 1274.0
-margin_bottom = 796.0
+margin_bottom = 1080.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -74,12 +74,12 @@ __meta__ = {
 [node name="RightSide" type="VSplitContainer" parent="Rows/Columns"]
 margin_left = 1286.0
 margin_right = 1920.0
-margin_bottom = 796.0
+margin_bottom = 1080.0
 size_flags_horizontal = 3
 
 [node name="TopStuff" type="VBoxContainer" parent="Rows/Columns/RightSide"]
 margin_right = 634.0
-margin_bottom = 392.0
+margin_bottom = 534.0
 size_flags_vertical = 3
 
 [node name="Menu" type="HBoxContainer" parent="Rows/Columns/RightSide/TopStuff"]
@@ -113,9 +113,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextLevelButton" type="Button" parent="Rows/Columns/RightSide/TopStuff/Menu"]
+[node name="CardsButton" type="Button" parent="Rows/Columns/RightSide/TopStuff/Menu"]
 margin_left = 406.0
-margin_right = 516.0
+margin_right = 478.0
+margin_bottom = 35.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Cards!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevelButton" type="Button" parent="Rows/Columns/RightSide/TopStuff/Menu"]
+margin_left = 483.0
+margin_right = 593.0
 margin_bottom = 35.0
 focus_mode = 0
 custom_styles/hover = SubResource( 1 )
@@ -129,7 +140,7 @@ __meta__ = {
 [node name="LevelPanel" type="VBoxContainer" parent="Rows/Columns/RightSide/TopStuff"]
 margin_top = 40.0
 margin_right = 634.0
-margin_bottom = 392.0
+margin_bottom = 534.0
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="Rows/Columns/RightSide/TopStuff/LevelPanel"]
@@ -145,7 +156,7 @@ __meta__ = {
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/TopStuff/LevelPanel"]
 margin_top = 65.0
 margin_right = 634.0
-margin_bottom = 352.0
+margin_bottom = 494.0
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="Rows/Columns/RightSide/TopStuff/LevelPanel/Text"]
@@ -174,12 +185,13 @@ __meta__ = {
 [node name="Terminal" parent="Rows/Columns/RightSide" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 404.0
+margin_top = 546.0
 margin_right = 634.0
-margin_bottom = 796.0
+margin_bottom = 1080.0
 size_flags_vertical = 3
 
 [node name="Cards" parent="Rows" instance=ExtResource( 3 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 801.0
@@ -206,6 +218,7 @@ __meta__ = {
 [connection signal="button_down" from="Rows/Columns/RightSide/TopStuff/Menu/ChapterSelect" to="." method="repopulate_chapters"]
 [connection signal="button_down" from="Rows/Columns/RightSide/TopStuff/Menu/LevelSelect" to="." method="repopulate_levels"]
 [connection signal="pressed" from="Rows/Columns/RightSide/TopStuff/Menu/ReloadButton" to="." method="reload_level"]
+[connection signal="pressed" from="Rows/Columns/RightSide/TopStuff/Menu/CardsButton" to="." method="toggle_cards"]
 [connection signal="pressed" from="Rows/Columns/RightSide/TopStuff/Menu/NextLevelButton" to="." method="load_next_level"]
 [connection signal="command_done" from="Rows/Columns/RightSide/Terminal" to="." method="update_repos"]
 [connection signal="text_entered" from="Test/LineEdit" to="Test" method="send"]

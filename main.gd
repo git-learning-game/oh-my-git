@@ -16,6 +16,7 @@ onready var next_level_button = $Rows/Columns/RightSide/TopStuff/Menu/NextLevelB
 onready var level_name = $Rows/Columns/RightSide/TopStuff/LevelPanel/LevelName
 onready var level_description = $Rows/Columns/RightSide/TopStuff/LevelPanel/Text/LevelDescription
 onready var level_congrats = $Rows/Columns/RightSide/TopStuff/LevelPanel/Text/LevelCongrats
+onready var cards = $Rows/Cards
 
 func _ready():
 	var args = helpers.parse_args()
@@ -126,3 +127,7 @@ func update_repos():
 	
 	if levels.chapters[current_chapter].levels[current_level].check_win():
 		show_win_status()
+
+
+func toggle_cards():
+	cards.visible = not cards.visible
