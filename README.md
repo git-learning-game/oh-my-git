@@ -90,4 +90,4 @@ We have a [Code of Conduct](CODE_OF_CONDUCT.md) in place that applies to all pro
 
 ## License
 
-TBD
+[Blue Oak Model License 1.0.0](LICENSE.md) – a [modern alternative](https://writing.kemitchell.com/2019/03/09/Deprecation-Notice.html) to the MIT license. It's a a pleasant read! :)
