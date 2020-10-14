@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var cards = [
 	{"command": 'git add .', "arg_number": 0, "description": "Add all files in the working directory to the index."},
@@ -46,6 +46,7 @@ func draw_rand_card():
 	new_card.command = card.command
 	new_card.arg_number = card.arg_number
 	new_card.description = card.description
+	new_card.position = Vector2(rect_size.x, rect_size.y*2)
 	add_child(new_card)
 	arrange_cards()
 	
@@ -64,7 +65,7 @@ func arrange_cards():
 		
 	var current_angle = -total_angle/2
 	for card in get_tree().get_nodes_in_group("cards"):
-		var target_position = Vector2(get_viewport_rect().size.x/2, get_viewport_rect().size.y + 1500)
+		var target_position = Vector2(rect_size.x/2, rect_size.y + 1500)
 		var target_rotation = current_angle
 		var translation_vec = Vector2(0,-1500).rotated(current_angle/180.0*PI)
 		target_position += translation_vec

@@ -13,12 +13,11 @@ var _home_position = null
 
 func _ready():
 	set_process_unhandled_input(true)
-	position = get_viewport_rect().size
 	
 func _process(delta):
 	if dragged:
 		var mousepos = get_viewport().get_mouse_position()
-		position = mousepos - drag_offset
+		global_position = mousepos - drag_offset
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -34,9 +33,9 @@ func _unhandled_input(event):
 			modulate.a = 1
 			
 			
-			if get_viewport().get_mouse_position().y < get_viewport().size.y/2:
+			if get_viewport().get_mouse_position().y < get_viewport().size.y/3*2:
 				if arg_number == 0 :
-					$"../..".terminal.send_command($Label.text)
+					$"../../..".terminal.send_command($Label.text)
 					buuurn()
 				else:
 					move_back()
@@ -62,8 +61,8 @@ func move_back():
 	
 func buuurn():
 	queue_free()
-	#$"..".draw_rand_card()
-	$"..".arrange_cards()
+	$"..".draw_rand_card()
+	#$"..".arrange_cards()
 
 func dropped_on(other):
 	var full_command = ""
@@ -73,7 +72,7 @@ func dropped_on(other):
 			if ($Label.text.begins_with("git checkout") or $Label.text.begins_with("git rebase")) and other.id.begins_with("refs/heads"):
 				argument = Array(other.id.split("/")).pop_back()
 			full_command = $Label.text + " " + argument
-			$"../..".terminal.send_command(full_command)
+			$"../../..".terminal.send_command(full_command)
 			buuurn()
 #		2:
 #			if _first_argument:

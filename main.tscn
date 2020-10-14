@@ -23,7 +23,6 @@ corner_radius_bottom_left = 3
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -285.0
 mouse_filter = 2
 theme = ExtResource( 6 )
 script = ExtResource( 2 )
@@ -43,21 +42,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Columns" type="HSplitContainer" parent="."]
+[node name="Rows" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 5.0
-margin_right = -5.0
-margin_bottom = -5.0
 mouse_filter = 2
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Repositories" type="HBoxContainer" parent="Columns"]
-margin_right = 1267.0
-margin_bottom = 785.0
+[node name="Columns" type="HSplitContainer" parent="Rows"]
+margin_right = 1920.0
+margin_bottom = 796.0
+mouse_filter = 2
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Repositories" type="HBoxContainer" parent="Rows/Columns"]
+margin_right = 1274.0
+margin_bottom = 796.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -66,29 +71,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RightSide" type="VSplitContainer" parent="Columns"]
-margin_left = 1279.0
-margin_right = 1910.0
-margin_bottom = 785.0
+[node name="RightSide" type="VSplitContainer" parent="Rows/Columns"]
+margin_left = 1286.0
+margin_right = 1920.0
+margin_bottom = 796.0
 size_flags_horizontal = 3
 
-[node name="TopStuff" type="VBoxContainer" parent="Columns/RightSide"]
-margin_right = 631.0
-margin_bottom = 386.0
+[node name="TopStuff" type="VBoxContainer" parent="Rows/Columns/RightSide"]
+margin_right = 634.0
+margin_bottom = 392.0
 size_flags_vertical = 3
 
-[node name="Menu" type="HBoxContainer" parent="Columns/RightSide/TopStuff"]
-margin_right = 631.0
+[node name="Menu" type="HBoxContainer" parent="Rows/Columns/RightSide/TopStuff"]
+margin_right = 634.0
 margin_bottom = 35.0
 
-[node name="ChapterSelect" type="OptionButton" parent="Columns/RightSide/TopStuff/Menu"]
+[node name="ChapterSelect" type="OptionButton" parent="Rows/Columns/RightSide/TopStuff/Menu"]
 margin_right = 168.0
 margin_bottom = 35.0
 focus_mode = 0
 enabled_focus_mode = 0
 text = "Select chapter..."
 
-[node name="LevelSelect" type="OptionButton" parent="Columns/RightSide/TopStuff/Menu"]
+[node name="LevelSelect" type="OptionButton" parent="Rows/Columns/RightSide/TopStuff/Menu"]
 margin_left = 173.0
 margin_right = 317.0
 margin_bottom = 35.0
@@ -97,7 +102,7 @@ enabled_focus_mode = 0
 text = "Select level..."
 expand_icon = true
 
-[node name="ReloadButton" type="Button" parent="Columns/RightSide/TopStuff/Menu"]
+[node name="ReloadButton" type="Button" parent="Rows/Columns/RightSide/TopStuff/Menu"]
 margin_left = 322.0
 margin_right = 401.0
 margin_bottom = 35.0
@@ -108,7 +113,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextLevelButton" type="Button" parent="Columns/RightSide/TopStuff/Menu"]
+[node name="NextLevelButton" type="Button" parent="Rows/Columns/RightSide/TopStuff/Menu"]
 margin_left = 406.0
 margin_right = 516.0
 margin_bottom = 35.0
@@ -121,14 +126,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LevelPanel" type="VBoxContainer" parent="Columns/RightSide/TopStuff"]
+[node name="LevelPanel" type="VBoxContainer" parent="Rows/Columns/RightSide/TopStuff"]
 margin_top = 40.0
-margin_right = 631.0
-margin_bottom = 386.0
+margin_right = 634.0
+margin_bottom = 392.0
 size_flags_vertical = 3
 
-[node name="LevelName" type="RichTextLabel" parent="Columns/RightSide/TopStuff/LevelPanel"]
-margin_right = 631.0
+[node name="LevelName" type="RichTextLabel" parent="Rows/Columns/RightSide/TopStuff/LevelPanel"]
+margin_right = 634.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/normal_font = ExtResource( 7 )
@@ -137,13 +142,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text" type="Control" parent="Columns/RightSide/TopStuff/LevelPanel"]
+[node name="Text" type="Control" parent="Rows/Columns/RightSide/TopStuff/LevelPanel"]
 margin_top = 65.0
-margin_right = 631.0
-margin_bottom = 346.0
+margin_right = 634.0
+margin_bottom = 352.0
 size_flags_vertical = 3
 
-[node name="LevelDescription" type="RichTextLabel" parent="Columns/RightSide/TopStuff/LevelPanel/Text"]
+[node name="LevelDescription" type="RichTextLabel" parent="Rows/Columns/RightSide/TopStuff/LevelPanel/Text"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
@@ -154,7 +159,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LevelCongrats" type="RichTextLabel" parent="Columns/RightSide/TopStuff/LevelPanel/Text"]
+[node name="LevelCongrats" type="RichTextLabel" parent="Rows/Columns/RightSide/TopStuff/LevelPanel/Text"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -166,13 +171,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Terminal" parent="Columns/RightSide" instance=ExtResource( 1 )]
+[node name="Terminal" parent="Rows/Columns/RightSide" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 398.0
-margin_right = 631.0
-margin_bottom = 785.0
+margin_top = 404.0
+margin_right = 634.0
+margin_bottom = 796.0
 size_flags_vertical = 3
+
+[node name="Cards" parent="Rows" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 801.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
 
 [node name="Test" type="Node2D" parent="."]
 visible = false
@@ -189,11 +203,9 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Cards" parent="." instance=ExtResource( 3 )]
-[connection signal="button_down" from="Columns/RightSide/TopStuff/Menu/ChapterSelect" to="." method="repopulate_chapters"]
-[connection signal="button_down" from="Columns/RightSide/TopStuff/Menu/LevelSelect" to="." method="repopulate_levels"]
-[connection signal="pressed" from="Columns/RightSide/TopStuff/Menu/ReloadButton" to="." method="reload_level"]
-[connection signal="pressed" from="Columns/RightSide/TopStuff/Menu/NextLevelButton" to="." method="load_next_level"]
-[connection signal="command_done" from="Columns/RightSide/Terminal" to="." method="update_repos"]
+[connection signal="button_down" from="Rows/Columns/RightSide/TopStuff/Menu/ChapterSelect" to="." method="repopulate_chapters"]
+[connection signal="button_down" from="Rows/Columns/RightSide/TopStuff/Menu/LevelSelect" to="." method="repopulate_levels"]
+[connection signal="pressed" from="Rows/Columns/RightSide/TopStuff/Menu/ReloadButton" to="." method="reload_level"]
+[connection signal="pressed" from="Rows/Columns/RightSide/TopStuff/Menu/NextLevelButton" to="." method="load_next_level"]
+[connection signal="command_done" from="Rows/Columns/RightSide/Terminal" to="." method="update_repos"]
 [connection signal="text_entered" from="Test/LineEdit" to="Test" method="send"]
