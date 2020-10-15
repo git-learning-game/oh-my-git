@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://card.gd" type="Script" id=1]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
+[ext_resource path="res://nodes/blob.svg" type="Texture" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.45098, 0.584314, 0.843137, 1 )
@@ -93,6 +94,25 @@ custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Description"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -103.288, -287.778 )
+scale = Vector2( 0.542341, 0.542341 )
+texture = ExtResource( 3 )
+
+[node name="Energy" type="Label" parent="Sprite"]
+margin_left = -51.1637
+margin_top = -47.4558
+margin_right = -17.1637
+margin_bottom = -16.4558
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

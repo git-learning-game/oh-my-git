@@ -7,15 +7,25 @@ var drag_offset
 export var arg_number = 0
 export var command = "" setget set_command
 export var description = "" setget set_description
+export var energy = 0 setget set_energy
 
 var _first_argument = null
 var _home_position = null
 var _home_rotation = null
 
+onready var energy_label = $Sprite/Energy
+
 func _ready():
 	set_process_unhandled_input(true)
+	set_energy(energy)
 	
 func _process(delta):
+	if game.energy >= energy:
+		energy_label.modulate = Color(0.5, 1, 0.5)
+	else:
+		energy_label.modulate = Color(1, 1, 1)
+		modulate = Color(1, 0.5, 0.5)
+	
 	if dragged:
 		var mousepos = get_viewport().get_mouse_position()
 		global_position = mousepos - drag_offset
@@ -78,6 +88,11 @@ func set_description(new_description):
 	description = new_description
 	$Description.text = description
 	
+func set_energy(new_energy):
+	energy = new_energy
+	if energy_label:
+		energy_label.text = str(energy)
+	
 func move_back():
 	position = _home_position
 	rotation_degrees = _home_rotation
@@ -104,9 +119,3 @@ func dropped_on(other):
 #				buuurn()
 #			else:
 #				_first_argument = other.id
-				
-				
-				
-		
-			
-	
