@@ -1,0 +1,40 @@
+name: "Build"
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PROJECT_NAME: ${{ github.event.repository.name }}
+  GODOT_VERSION: 3.2.3
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    container:
+      image: barichello/godot-ci:3.2.3
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup
+        run: |
+          mkdir -p ~/.local/share/godot/templates
+          mv /root/.local/share/godot/templates/$GODOT_VERSION.stable ~/.local/share/godot/templates/$GODOT_VERSION.stable
+      - name: Linux Build
+        run: |
+          mkdir -p build/$PROJECT_NAME-linux
+          godot --export "Linux" build/$PROJECT_NAME-linux/$PROJECT_NAME
+          cd build/$PROJECT_NAME-linux
+          zip -r ../$PROJECT_NAME-linux.zip .
+      - name: MacOS Build
+        run: |
+          godot --export "Mac OS" build/$PROJECT_NAME-macos.zip
+      - name: Install rsync
+        run: apt-get update && apt-get install -y rsync
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
+          CLEAN: true

@@ -8,8 +8,8 @@ The current form is an early prototype, and will change significantly until the 
 
 You can download binaries of the game here:
 
-- [Linux](https://git-learning-game.github.io/git-hydra/linux/git-hydra.zip)
-- [macOS](https://git-learning-game.github.io/git-hydra/mac/git-hydra.zip)
+- [Linux](https://git-learning-game.github.io/git-hydra/git-hydra-linux.zip)
+- [macOS](https://git-learning-game.github.io/git-hydra/git-hydra-macos.zip)
 
 We'll also have a Windows version soon – stay tuned! :)
 
