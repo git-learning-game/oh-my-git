@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://drop_area.tscn" type="PackedScene" id=2]
 [ext_resource path="res://repository.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cardgame.gd" type="Script" id=4]
 [ext_resource path="res://terminal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fonts/big.tres" type="DynamicFont" id=6]
 
 [node name="Cardgame" type="Node2D"]
 script = ExtResource( 4 )
@@ -46,6 +47,19 @@ margin_right = 1892.41
 margin_bottom = 856.594
 custom_fonts/font = ExtResource( 1 )
 text = "Draw new cards"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Energy" type="Label" parent="."]
+modulate = Color( 0.431373, 0.792157, 0.423529, 1 )
+margin_left = 35.3364
+margin_top = 796.429
+margin_right = 75.3364
+margin_bottom = 845.429
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 6 )
+text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }

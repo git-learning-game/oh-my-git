@@ -2,9 +2,9 @@ extends Control
 
 var cards = [
 	{
-		"command": 'git add .',
+		"command": 'git commit --allow-empty -m "$RANDOM"',
 		"arg_number": 0,
-		"description": "Add all files in the working directory to the index.",
+		"description": "Add a new commit under HEAD.",
 		"energy": 1
 	},
 	{
@@ -14,16 +14,17 @@ var cards = [
 		"energy": 1
 	},
 	{
+		"command": 'git add .',
+		"arg_number": 0,
+		"description": "Add all files in the working directory to the index.",
+		"energy": 1
+	},
+	
+	{
 		"command": 'touch "file$RANDOM"',
 		"arg_number": 0,
 		"description": "Create a new file.",
 		"energy": 2
-	},
-	{
-		"command": 'git commit --allow-empty -m "$RANDOM"',
-		"arg_number": 0,
-		"description": "Add a new commit under HEAD.",
-		"energy": 1
 	},
 	{
 		"command": 'git checkout -b "$RANDOM"',
@@ -92,13 +93,27 @@ func _ready():
 	redraw_all_cards()
 	arrange_cards()
 
+func _process(delta):
+	if $Energy:
+		$Energy.text = str(game.energy)
+
 #func _update_repo():
 #	$Repository.update_everything()
 #	$RepositoryRemote.update_everything()
 	
 func draw_rand_card():
+	var deck = []
+	
+	for card in cards:
+		deck.push_back(card)
+	
+	# We want a lot of commit and checkout cards!
+	for i in range(5):
+		deck.push_back(cards[0])
+		deck.push_back(cards[1])
+	
 	var new_card = preload("res://card.tscn").instance()
-	var card = cards[randi() % cards.size()]
+	var card = deck[randi() % deck.size()]
 	new_card.command = card.command
 	new_card.arg_number = card.arg_number
 	new_card.description = card.description
@@ -137,6 +152,7 @@ func arrange_cards():
 		tween.start()
 		
 func redraw_all_cards():
+	game.energy = 5
 	for card in get_tree().get_nodes_in_group("cards"):
 		card.queue_free()
 	for i in range(7):

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/big.tres" type="DynamicFont" id=2]
 [ext_resource path="res://cardgame.gd" type="Script" id=3]
 
 [node name="Cards" type="Control"]
@@ -21,6 +22,19 @@ margin_right = -16.0
 margin_bottom = 47.0
 custom_fonts/font = ExtResource( 1 )
 text = "Draw new cards"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Energy" type="Label" parent="."]
+modulate = Color( 0.431373, 0.792157, 0.423529, 1 )
+margin_left = 28.2219
+margin_top = 16.6766
+margin_right = 68.2219
+margin_bottom = 65.6766
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 2 )
+text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
