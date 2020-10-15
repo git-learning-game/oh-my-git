@@ -71,6 +71,7 @@ func arrange_cards():
 		target_position += translation_vec
 		current_angle += angle_between_cards
 		card._home_position = target_position
+		card._home_rotation = target_rotation
 		
 		var tween = Tween.new()
 		tween.interpolate_property(card, "position", card.position, target_position, 0.5, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)

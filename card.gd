@@ -10,6 +10,7 @@ export var description = "" setget set_description
 
 var _first_argument = null
 var _home_position = null
+var _home_rotation = null
 
 func _ready():
 	set_process_unhandled_input(true)
@@ -18,6 +19,25 @@ func _process(delta):
 	if dragged:
 		var mousepos = get_viewport().get_mouse_position()
 		global_position = mousepos - drag_offset
+	
+	var target_scale = 1
+	
+	if hovered and not dragged:
+		target_scale = 1.5
+	
+#	if hovered:
+#		rotation = 0
+#	else:
+#		if _home_rotation:
+#			rotation_degrees = _home_rotation
+	
+	var speed = 5
+	
+	scale = lerp(scale, Vector2(target_scale, target_scale), 10*delta)
+#	if scale.x < target_scale:
+#		scale += speed*delta*Vector2(1, 1)
+#	elif scale.x > target_scale:
+#		scale -= speed*delta*Vector2(1, 1)
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -44,9 +64,11 @@ func _unhandled_input(event):
 
 func _mouse_entered():
 	hovered = true
+	z_index = 1
 
 func _mouse_exited():
 	hovered = false
+	z_index = 0
 	
 func set_command(new_command):
 	command = new_command
@@ -58,6 +80,7 @@ func set_description(new_description):
 	
 func move_back():
 	position = _home_position
+	rotation_degrees = _home_rotation
 	
 func buuurn():
 	queue_free()
