@@ -92,6 +92,7 @@ func _ready():
 	
 	redraw_all_cards()
 	arrange_cards()
+	pass
 
 func _process(delta):
 	if $Energy:
@@ -165,3 +166,6 @@ func redraw_all_cards():
 #		draw_rand_card()
 	for card in cards:
 		draw_card(card)
+
+func add_card(command):
+	draw_card({"command": command, "description": "", "arg_number": 0, "energy": 0})

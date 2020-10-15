@@ -64,6 +64,12 @@ func load_level(level_id):
 	level_congrats.bbcode_text = level.congrats
 	level_name.text = level.title
 	
+#	var code_regex = RegEx.new()
+#	code_regex.compile("\\[code\\]([^\\[]*)\\[/code\\]")
+#	var matches = code_regex.search_all(level.description)
+#	for m in matches:
+#		cards.add_card(m.get_string(1))
+	
 	for r in repositories_node.get_children():
 		r.queue_free()
 	repositories = {}
