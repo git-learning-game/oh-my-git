@@ -96,9 +96,10 @@ func move_back():
 	rotation_degrees = _home_rotation
 	
 func buuurn():
-	queue_free()
+	move_back()
+	#queue_free()
 	#$"..".draw_rand_card()
-	$"..".arrange_cards()
+	#$"..".arrange_cards()
 
 func dropped_on(other):
 	var full_command = ""

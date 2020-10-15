@@ -2,18 +2,6 @@ extends Control
 
 var cards = [
 	{
-		"command": 'git commit --allow-empty -m "$RANDOM"',
-		"arg_number": 0,
-		"description": "Add a new commit under HEAD.",
-		"energy": 1
-	},
-	{
-		"command": 'git checkout',
-		"arg_number": 1,
-		"description": "Point HEAD to a branch or commit, and update the index and the working directory.",
-		"energy": 1
-	},
-	{
 		"command": 'git add .',
 		"arg_number": 0,
 		"description": "Add all files in the working directory to the index.",
@@ -36,6 +24,18 @@ var cards = [
 		"command": 'git merge',
 		"arg_number": 1,
 		"description": "Merge specified commit into HEAD.",
+		"energy": 1
+	},
+	{
+		"command": 'git commit --allow-empty -m "$RANDOM"',
+		"arg_number": 0,
+		"description": "Add a new commit under HEAD.",
+		"energy": 1
+	},
+	{
+		"command": 'git checkout',
+		"arg_number": 1,
+		"description": "Point HEAD to a branch or commit, and update the index and the working directory.",
 		"energy": 1
 	},
 	{
@@ -112,12 +112,16 @@ func draw_rand_card():
 		deck.push_back(cards[0])
 		deck.push_back(cards[1])
 	
-	var new_card = preload("res://card.tscn").instance()
 	var card = deck[randi() % deck.size()]
+	draw_card(card)
+
+func draw_card(card):
+	var new_card = preload("res://card.tscn").instance()
+	
 	new_card.command = card.command
 	new_card.arg_number = card.arg_number
 	new_card.description = card.description
-	new_card.energy = card.energy
+	new_card.energy = 0 #card.energy
 	new_card.position = Vector2(rect_size.x, rect_size.y*2)
 	add_child(new_card)
 	arrange_cards()
@@ -153,8 +157,11 @@ func arrange_cards():
 		
 func redraw_all_cards():
 	game.energy = 5
+	
 	for card in get_tree().get_nodes_in_group("cards"):
 		card.queue_free()
-	for i in range(7):
-		draw_rand_card()
-	
+		
+#	for i in range(7):
+#		draw_rand_card()
+	for card in cards:
+		draw_card(card)

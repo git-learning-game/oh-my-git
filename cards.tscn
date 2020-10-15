@@ -27,6 +27,7 @@ __meta__ = {
 }
 
 [node name="Energy" type="Label" parent="."]
+visible = false
 modulate = Color( 0.431373, 0.792157, 0.423529, 1 )
 margin_left = 28.2219
 margin_top = 16.6766
