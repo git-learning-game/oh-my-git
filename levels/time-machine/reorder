@@ -1,0 +1,26 @@
+[description]
+
+Oops, looks like one of our time agents messed up here. Can you put the events back into their correct order?
+
+[setup]
+
+mkdir bakery
+
+echo has baguette > bakery/bob
+echo has money > alice
+git add .
+git commit -m "Alice is hungry"
+
+echo has money > bakery/bob
+echo has baguette > alice
+git commit -a -m "Alice leaves the bakery"
+
+echo has baguette > bakery/bob
+echo has money > bakery/alice
+git rm alice
+git add .
+git commit -a -m "Alice enters the bakery"
+
+echo has money > bakery/bob
+echo has baguette > bakery/alice
+git commit -a -m "Alice buys a baguette"
