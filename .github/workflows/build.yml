@@ -26,8 +26,6 @@ jobs:
         run: make linux
       - name: MacOS Build
         run: make macos
-      - name: Windows Build
-        run: make windows
       - name: Clean up
         run: make clean-unzipped
       - name: Deploy
