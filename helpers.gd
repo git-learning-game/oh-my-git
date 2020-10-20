@@ -21,12 +21,11 @@ func exec(command, args=[], crash_on_fail=true):
 	var output = []
 	var exit_code = OS.execute(command, args, true, output, true)
 	output = output[0]
-	
+		
 	if exit_code != 0 and crash_on_fail:
-		helpers.crash("OS.execute failed: %s [%s] Output: %s" % [command, PoolStringArray(args).join(", "), output])
-	
-	if debug:
-		print(output)
+		helpers.crash("OS.execute failed: %s [%s] Output: %s \nExit Code %d" % [command, PoolStringArray(args).join(", "), output, exit_code])
+	elif debug:
+		print("Output: %s" %output)
 
 	return output
 
@@ -78,7 +77,7 @@ func careful_delete(path_inside):
 	elif os == "OSX":
 		expected_prefix = "/Users/%s/Library/Application Support/git-hydra/tmp/" % OS.get_environment("USER")
 	elif os == "Windows":
-		helpers.crash("Need to figure out delete_prefix on Windows")
+		expected_prefix = "C:/Users/%s/AppData/Roaming/git-hydra/tmp/" % OS.get_environment("USERNAME")
 	else:
 		helpers.crash("Unsupported OS: %s" % os)
 	

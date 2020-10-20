@@ -13,14 +13,15 @@ var state = {}
 
 func _ready():
 	var dir = Directory.new()
+	var repo_dir = tmp_prefix_outside+"repos/"
 	if not dir.dir_exists(tmp_prefix_outside):
 		var err = dir.make_dir(tmp_prefix_outside)
 		if err != OK:
 			helpers.crash("Could not create temporary directory %s." % tmp_prefix_outside)
-	if not dir.dir_exists(tmp_prefix_outside+"/repos/"):
-		var err = dir.make_dir(tmp_prefix_outside+"/repos/")
+	if not dir.dir_exists(repo_dir):
+		var err = dir.make_dir(repo_dir)
 		if err != OK:
-			helpers.crash("Could not create temporary directory %s." % (tmp_prefix_outside+"/repos/"))
+			helpers.crash("Could not create temporary directory %s." % repo_dir)
 	
 	global_shell = Shell.new()
 	fake_editor = copy_file_to_game_env("fake-editor")
@@ -60,16 +61,7 @@ func copy_file_to_game_env(filename):
 	return file_inside
 
 func _tmp_prefix_inside():
-	var os = OS.get_name()
-	var path
-	if os == "X11" or os == "OSX":
-		path = OS.get_user_data_dir()
-	elif os == "Windows":
-		helpers.crash("Need to figure out Windows tmp_prefix_inside...")
-	else:
-		helpers.crash("Unsupported OS: %s" % os)
-	
-	return path + "/tmp/"
+	return OS.get_user_data_dir() + "/tmp/"
 	
 func _tmp_prefix_outside():
 	return "user://tmp/"

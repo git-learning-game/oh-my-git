@@ -2,6 +2,7 @@ extends Node
 class_name Shell
 
 var _cwd
+var os = OS.get_name()
 
 #signal output(text)
 
@@ -47,8 +48,10 @@ func run(command, crash_on_fail=true):
 	# becomes
 	# 
 	#     "'test '"'"'fu'"'"' "bla" blubb"
-	# 
-	hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
+	#
+	# Quoting Magic is not needed for Windows!
+	if os == "X11" or os == "OSX": 
+		hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
 	
 	var output = helpers.exec(_shell_binary(), ["-c",  hacky_command], crash_on_fail)
 	
@@ -58,7 +61,7 @@ func run(command, crash_on_fail=true):
 	return output
 	
 func _shell_binary():
-	var os = OS.get_name()
+	
 	
 	if os == "X11" or os == "OSX":
 		return "bash"
