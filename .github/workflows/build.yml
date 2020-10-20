@@ -15,22 +15,21 @@ jobs:
     container:
       image: barichello/godot-ci:3.2.3
     steps:
+      - name: Install dependencies
+        run: apt-get update && apt-get install -y rsync p7zip make
       - uses: actions/checkout@v2
       - name: Setup
         run: |
           mkdir -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/$GODOT_VERSION.stable ~/.local/share/godot/templates/$GODOT_VERSION.stable
       - name: Linux Build
-        run: |
-          mkdir -p build/$PROJECT_NAME-linux
-          godot --export "Linux" build/$PROJECT_NAME-linux/$PROJECT_NAME
-          cd build/$PROJECT_NAME-linux
-          zip -r ../$PROJECT_NAME-linux.zip .
+        run: make linux
       - name: MacOS Build
-        run: |
-          godot --export "Mac OS" build/$PROJECT_NAME-macos.zip
-      - name: Install rsync
-        run: apt-get update && apt-get install -y rsync
+        run: make macos
+      - name: Windows Build
+        run: make windows
+      - name: Clean up
+        run: make clean-unzipped
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:

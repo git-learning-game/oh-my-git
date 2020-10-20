@@ -1,31 +1,33 @@
 name = "git-hydra"
 
-all: linux macos windows web
+all: linux macos windows
 
 linux:
-	mkdir -p /tmp/$(name)-linux
-	/usr/bin/godot --export "Linux" "/tmp/$(name)-linux/$(name)"
-	cd /tmp && zip -r $(name)-linux.zip $(name)-linux
+	mkdir -p build/$(name)-linux
+	\godot --export "Linux" "build/$(name)-linux/$(name)"
+	cd build/$(name)-linux && zip -r ../$(name)-linux.zip .
 
 macos:
-	/usr/bin/godot --export "Mac OS" "/tmp/$(name)-macos.app"
-	mv "/tmp/$(name)-macos.app" "/tmp/$(name)-macos.zip"
+	mkdir -p build
+	\godot --export "Mac OS" "build/$(name)-macos.zip"
 
 windows: dependencies/windows/git/
-	mkdir -p /tmp/$(name)-windows
-	/usr/bin/godot --export "Windows" "/tmp/$(name)-windows/$(name).exe"
-	cp -r --parents dependencies/windows/git/ /tmp/$(name)-windows/
-	cd /tmp && zip -r $(name)-windows.zip $(name)-windows
+	mkdir -p build/$(name)-windows
+	\godot --export "Windows" "build/$(name)-windows/$(name).exe"
+	cp -r --parents dependencies/windows/git/ build/$(name)-windows/
+	cd build/$(name)-windows && zip -r ../$(name)-windows.zip .
 
-web:
-	mkdir -p /tmp/$(name)-web
-	/usr/bin/godot --export "HTML5" "/tmp/$(name)-web/index.html"
-	cd /tmp && zip -r $(name)-web.zip $(name)-web
+clean-unzipped:
+	cd build && ls | grep -v '\.zip$$' | xargs rm -r
+
+clean:
+	rm -rf build dependencies cache
 
 # Dependencies:
 
 cache/portablegit.7z.exe:
+	mkdir -p cache
 	wget https://github.com/git-for-windows/git/releases/download/v2.28.0.windows.1/PortableGit-2.28.0-64-bit.7z.exe -O cache/portablegit.7z.exe
 
 dependencies/windows/git/: cache/portablegit.7z.exe
-	wine cache/portablegit.7z.exe -o dependencies/windows/git/ -y
+	7zr x cache/portablegit.7z.exe -odependencies/windows/git/ -y
