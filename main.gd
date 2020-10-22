@@ -93,7 +93,7 @@ func load_level(level_id):
 	# Unmute the audio after a while, so that player can hear pop sounds for
 	# nodes they create.
 	var t = Timer.new()
-	t.wait_time = 3
+	t.wait_time = 1
 	add_child(t)
 	t.start()
 	yield(t, "timeout")
