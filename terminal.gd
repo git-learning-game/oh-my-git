@@ -121,6 +121,7 @@ func run_command_in_a_thread(command):
 	var o = repository.shell.run(command, false)
 	
 	if repository.shell.exit_code == 0:
+		$OkSound.pitch_scale = rand_range(0.8, 1.2)
 		$OkSound.play()
 	else:
 		$ErrorSound.play()

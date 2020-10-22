@@ -1,10 +1,12 @@
-title = No parallels allowed
+title = Rebasing
 
 [description]
 
 Okay - turns out that saving time in the morning by utilizing parallel universes is against the regulations of the International Time Travel Association. You'll have to do your tasks in sequence after all.
 
-See the "rebase" card? It takes a specified commit, and puts the events in your current timeline on top of the specified one! This way, make a clean, linear timeline where you visit all three shops.
+See the "rebase" card? When you drag it to a commit, it will put the events in your current timeline on top of the specified one! This way, make a clean, linear timeline where you visit all three shops.
+
+Again, we want to make that our base reality - the "main" tag should point to that timeline!
 
 [setup]
 
@@ -72,3 +74,7 @@ git checkout baguette
 [win]
 
 { git show main:you | grep "You have a baguette"; } && { git show main:you | grep "You have coffee"; } && { git show main:you | grep "You have a donut"; } && { test "$(git log main --oneline | wc -l)" -eq 7; }
+
+[congrats]
+
+Notice how the other timelines and commits are still there - if anything goes wrong, you can also travel back to them.

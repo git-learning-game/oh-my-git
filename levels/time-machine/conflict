@@ -2,7 +2,7 @@ title = Contradictions
 
 [description]
 
-Sometimes, merging timelines will not be as simple, because they contradict each other.
+Sometimes, timelines will contradict each other.
 
 For example, in this case, one of our clients wants these timelines merged, but they ate different things for breakfast in both timelines.
 
@@ -21,14 +21,26 @@ echo "Had blueberry pancakes with maple syrup for breakfast." > tom
 git add .
 git commit -m "Pancakes!"
 
+echo "
+Is at work." >> tom
+git commit -am "Go to work"
+
 git checkout -b muesli main
 echo "Had muesli with oats and strawberries for breakfast." > tom
 git add .
 git commit -m "Muesli!"
 
+echo "
+Is at work." >> tom
+git commit -am "Go to work"
+
 git checkout main
 
 [win]
 
-# main has a parent, and the parent of both its first and child parents are the same commit:
-git rev-parse main^ && test "$(git rev-parse main^1~)" = "$(git rev-parse main^2~)"
+# main has a parent, and the grandparent of both its first and child parents are the same commit:
+git rev-parse main^ && test "$(git rev-parse main^1^^)" = "$(git rev-parse main^2^^)"
+
+[congrats]
+
+Yum, that sounds like a good breakfast!

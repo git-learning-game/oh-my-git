@@ -112,7 +112,7 @@ __meta__ = {
 [node name="FileBrowser" parent="Rows" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 937.0
+margin_top = 800.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_vertical = 3

@@ -1,10 +1,16 @@
-title = Parallel timelines
+title = Parallelism
 
 [description]
 
-In this zoo, we found a few parallel timelines. Feel free to travel between the commits to see what's going on! The ends of the timelines have little tags attached.
+In this zoo, we found a some parallel timelines. What's going on here? The ends of the timelines have little tags attached.
 
-But especially the `bad_ending` one needs our attention! Can you travel to the `good_ending` one, and make a new commit that makes everyone happy?
+Especially the `bad_ending` one needs our attention! Can you travel to the `good_ending` timeline, and make a new commit where everyone involved is happy?
+
+[congrats]
+
+Whew, good job! This seems like a *much* better outcome.
+
+But our next mission is already waiting...
 
 [setup]
 
@@ -27,6 +33,7 @@ git branch good_ending
 
 git rm cage/child
 echo "Looks happy. :)" > cage/lion
+git add .
 git commit -m "Oh no"
 
 git checkout HEAD~2

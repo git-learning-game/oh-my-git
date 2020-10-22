@@ -46,6 +46,12 @@ var cards = [
 		"energy": 1
 	},
 	{
+		"command": 'git branch new',
+		"arg_number": 1,
+		"description": "Create a new timeline.",
+		"energy": 1
+	},
+	{
 		"command": 'git merge',
 		"arg_number": 1,
 		"description": "Merge the specified timeline into yours.",

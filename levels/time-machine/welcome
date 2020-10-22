@@ -4,11 +4,11 @@ title = Welcome!
 
 Welcome, time agent! Good to see you - we could really use your help with fixing some temporal paradoxes!
 
-First, let's make you familiar with the time machine you'll be using: each yellow box you see is a frozen point in time, we call them "commits"! You can travel to one by dragging the "checkout" card to it, and you can go back to the present by dragging it on the blue "main" node!
+Each yellow box is a frozen point in time, we call them "commits"! You can travel to one by dragging the "checkout" card to it, and you can go back to the present by dragging it on the blue "main" tag!
 
-The grey panel to the left shows your current environment - click on an object to inspect or modify it!
+The grey panel shows your current environment - click on an object to inspect or modify it!
 
-Can you find out what happened here? Then, come back to the present, fix the problem, and make a new commit!
+Can you find out what happened here? Then, come back to the present, fix the problem, and make a new commit, using the "commit" card!
 
 [setup]
 
@@ -40,3 +40,5 @@ git commit -m "Little sister walks back"
 [congrats]
 
 Wonderful! Now that you're familiar with the time machine, let's look at some more complicated situations...
+
+Click on "Next Level", as soon as you're ready!

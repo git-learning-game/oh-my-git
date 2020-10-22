@@ -66,29 +66,29 @@ __meta__ = {
 }
 
 [node name="Repositories" type="HBoxContainer" parent="Rows/Columns"]
-margin_right = 1263.0
+margin_right = 1136.0
 margin_bottom = 784.0
 mouse_filter = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
+size_flags_stretch_ratio = 1.5
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RightSide" type="VSplitContainer" parent="Rows/Columns"]
-margin_left = 1275.0
+margin_left = 1148.0
 margin_right = 1904.0
 margin_bottom = 784.0
 size_flags_horizontal = 3
 
 [node name="TopStuff" type="VBoxContainer" parent="Rows/Columns/RightSide"]
-margin_right = 629.0
+margin_right = 756.0
 margin_bottom = 386.0
 size_flags_vertical = 3
 
 [node name="Menu" type="HBoxContainer" parent="Rows/Columns/RightSide/TopStuff"]
-margin_right = 629.0
+margin_right = 756.0
 margin_bottom = 35.0
 
 [node name="ChapterSelect" type="OptionButton" parent="Rows/Columns/RightSide/TopStuff/Menu"]
@@ -144,12 +144,12 @@ __meta__ = {
 
 [node name="LevelPanel" type="VBoxContainer" parent="Rows/Columns/RightSide/TopStuff"]
 margin_top = 40.0
-margin_right = 629.0
+margin_right = 756.0
 margin_bottom = 386.0
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="Rows/Columns/RightSide/TopStuff/LevelPanel"]
-margin_right = 629.0
+margin_right = 756.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/normal_font = ExtResource( 7 )
@@ -160,7 +160,7 @@ __meta__ = {
 
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/TopStuff/LevelPanel"]
 margin_top = 65.0
-margin_right = 629.0
+margin_right = 756.0
 margin_bottom = 346.0
 size_flags_vertical = 3
 
@@ -191,7 +191,7 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 398.0
-margin_right = 629.0
+margin_right = 756.0
 margin_bottom = 784.0
 size_flags_vertical = 3
 
