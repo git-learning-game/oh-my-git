@@ -19,6 +19,8 @@ func update():
 	files.sort_custom(self, "very_best_sort")
 	for file_path in files:
 		file_path = file_path.substr(2)
+		if file_path.substr(0, 5) == ".git/":
+			continue
 		var child = $FileTree.create_item(root_item)
 		child.set_text(0, file_path)
 		#child.set_editable(0, true)
