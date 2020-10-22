@@ -45,12 +45,12 @@ var cards = [
 		"description": "Make a new commit!",
 		"energy": 1
 	},
-	{
-		"command": 'git branch new',
-		"arg_number": 1,
-		"description": "Create a new timeline.",
-		"energy": 1
-	},
+#	{
+#		"command": 'git branch new',
+#		"arg_number": 1,
+#		"description": "Create a new timeline.",
+#		"energy": 1
+#	},
 	{
 		"command": 'git merge',
 		"arg_number": 1,
@@ -73,6 +73,24 @@ var cards = [
 		"command": 'git push',
 		"arg_number": 0,
 		"description": "Give timelines to a colleague.",
+		"energy": 1
+	},
+	{
+		"command": 'git rebase -i',
+		"arg_number": 1,
+		"description": "Make changes to the events in your current timeline, back to the commit you drag this to.",
+		"energy": 1
+	},
+	{
+		"command": 'git reset --hard',
+		"arg_number": 1,
+		"description": "Reset current label to the specified commit.",
+		"energy": 1
+	},
+	{
+		"command": 'git cherry-pick',
+		"arg_number": 1,
+		"description": "Repeat the specified action on top of your current timeline.",
 		"energy": 1
 	},
 #	{

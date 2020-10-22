@@ -2,27 +2,75 @@ title = Reodering events
 
 [description]
 
-Oops, looks like one of our time agents messed up here. Can you put the events back into their correct order?
+Oops, looks like there's something messed up here. Can you put the events back into their correct order?
+
+There are two ways to do this: You can drag the "interactive rebase" card to the commit before the one you want to change, and then reorder the lines in the file that opens.
+
+Or you can reset the main tag to the very first commit, and then cherry-pick single commits in the order you want. You have cards for both approaches!
 
 [setup]
 
-mkdir bakery
+echo "You just woke up.
 
-echo has baguette > bakery/bob
-echo has money > alice
+You are NOT wearing underwear.
+
+You are NOT wearing pants.
+
+You are NOT wearing a shirt.
+
+You are NOT wearing shoes." > you
 git add .
-git commit -m "Alice is hungry"
 
-echo has money > bakery/bob
-echo has baguette > alice
-git commit -a -m "Alice leaves the bakery"
+git commit -m "The Beginning"
 
-echo has baguette > bakery/bob
-echo has money > bakery/alice
-git rm alice
-git add .
-git commit -a -m "Alice enters the bakery"
+echo "You just woke up.
 
-echo has money > bakery/bob
-echo has baguette > bakery/alice
-git commit -a -m "Alice buys a baguette"
+You are NOT wearing underwear.
+
+You are NOT wearing pants.
+
+You are NOT wearing a shirt.
+
+You are wearing shoes." > you
+git commit -am "Put on shoes"
+
+echo "You just woke up.
+
+You are NOT wearing underwear.
+
+You are wearing pants.
+
+You are NOT wearing a shirt.
+
+You are wearing shoes." > you
+git commit -am "Put on pants"
+
+echo "You just woke up.
+
+You are wearing underwear.
+
+You are wearing pants.
+
+You are NOT wearing a shirt.
+
+You are wearing shoes." > you
+git commit -am "Put on underwear"
+
+echo "You just woke up.
+
+You are wearing underwear.
+
+You are wearing pants.
+
+You are wearing a shirt.
+
+You are wearing shoes." > you
+git commit -am "Put on shirt"
+
+[win]
+
+{ git log main --oneline | grep -Pz "shoes[\s\S]*pants[\s\S]*underwear"; } && { test "$(git log main --oneline | wc -l)" -eq 5; }
+
+[congrats]
+
+Feel free to reset the level and try the other strategy! Which one do you like better?

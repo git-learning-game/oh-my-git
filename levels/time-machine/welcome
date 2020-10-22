@@ -4,7 +4,7 @@ title = Welcome!
 
 Welcome, time agent! Good to see you - we could really use your help with fixing some temporal paradoxes!
 
-Each yellow box is a frozen point in time, we call them "commits"! You can travel to one by dragging the "checkout" card to it, and you can go back to the present by dragging it on the blue "main" tag!
+Each yellow box is a frozen point in time, we call them "commits"! You can travel to one by dragging the "checkout" card to it, and you can go back to the present by dragging it on the blue "main" tag! (Try it!)
 
 The grey panel shows your current environment - click on an object to inspect or modify it!
 
