@@ -6,19 +6,19 @@
 [ext_resource path="res://nodes/pop.wav" type="AudioStream" id=4]
 [ext_resource path="res://drop_area.tscn" type="PackedScene" id=5]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="CircleShape2D" id=1]
+radius = 23.6295
+
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
-bg_color = Color( 1, 1, 1, 0.0745098 )
+bg_color = Color( 0, 0, 0, 0.878431 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 23.6295
 
 [node name="Node" type="Node2D"]
 script = ExtResource( 1 )
@@ -57,25 +57,27 @@ __meta__ = {
 [node name="Pop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 
-[node name="Content" type="Label" parent="."]
-visible = false
-margin_left = -22.2898
-margin_top = 30.1969
-margin_right = -12.2898
-margin_bottom = 65.1969
-custom_styles/normal = SubResource( 1 )
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="DropArea" parent="." instance=ExtResource( 5 )]
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
+
+[node name="Content" type="Node2D" parent="."]
+z_index = 1
+
+[node name="ContentLabel" type="Label" parent="Content"]
+margin_left = -22.2898
+margin_top = 30.1969
+margin_right = -12.2898
+margin_bottom = 65.1969
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]
 [connection signal="mouse_exited" from="Rect" to="." method="_on_unhover"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_hover"]

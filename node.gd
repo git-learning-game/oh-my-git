@@ -5,6 +5,8 @@ var content setget content_set
 var type setget type_set
 var repository: Control
 
+onready var content_label = $Content/ContentLabel
+
 var children = {} setget children_set
 var id_always_visible = false
 var held = false
@@ -13,11 +15,7 @@ var hovered = false
 var arrow = preload("res://arrow.tscn")
 
 func _ready():
-#	var t = Timer.new()
-#	t.wait_time = rand_range(0.0, 0.1)
-#	add_child(t)
-#	t.start()
-#	yield(t, "timeout")
+	content_set(content)
 	$Pop.pitch_scale = rand_range(0.8, 1.2)
 	$Pop.play()
 
@@ -50,7 +48,8 @@ func id_set(new_id):
 	
 func content_set(new_content):
 	content = new_content
-	$Content.text = content
+	if content_label:
+		content_label.text = content
 
 func type_set(new_type):
 	type = new_type
@@ -99,13 +98,13 @@ func children_set(new_children):
 func _on_hover():
 	hovered = true
 	if not id_always_visible:
-		$Content.visible = true
+		content_label.visible = true
 		$ID.visible = true
 	
 func _on_unhover():
 	hovered = false
 	if not id_always_visible:
-		$Content.visible = false
+		content_label.visible = false
 		$ID.visible = false
 
 func _input(event):
