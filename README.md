@@ -88,6 +88,10 @@ We have a [Code of Conduct](CODE_OF_CONDUCT.md) in place that applies to all pro
 
 <a href="https://www.bmbf.de/en/"><img src="https://timelens.io/assets/images/bmbf.svg" alt="Logo of the German Ministry for Education and Research" height="100px"></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://prototypefund.de/en/"><img src="https://timelens.io/assets/images/prototypefund.svg" alt="Logo of the Prototype Fund" height="100px"></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://okfn.de/en/"><img src="https://timelens.io/assets/images/okfde.svg" alt="Logo of the Open Knowledge Foundation Germany" height="100px"></a>
 
+## Thanks
+
+- "success" sound by [Leszek_Szarzy, CC0](https://freesound.org/people/Leszek_Szary/sounds/171670/)
+
 ## License
 
 [Blue Oak Model License 1.0.0](LICENSE.md) – a [modern alternative](https://writing.kemitchell.com/2019/03/09/Deprecation-Notice.html) to the MIT license. It's a a pleasant read! :)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://tcp_server.tscn" type="PackedScene" id=5]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=6]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=7]
+[ext_resource path="res://sounds/success.wav" type="AudioStream" id=8]
 [ext_resource path="res://test.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -218,6 +219,9 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 [connection signal="button_down" from="Rows/Columns/RightSide/TopStuff/Menu/ChapterSelect" to="." method="repopulate_chapters"]
 [connection signal="button_down" from="Rows/Columns/RightSide/TopStuff/Menu/LevelSelect" to="." method="repopulate_levels"]
 [connection signal="pressed" from="Rows/Columns/RightSide/TopStuff/Menu/ReloadButton" to="." method="reload_level"]

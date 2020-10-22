@@ -111,6 +111,7 @@ func show_win_status():
 	next_level_button.show()
 	level_description.hide()
 	level_congrats.show()
+	$SuccessSound.play()
 
 func repopulate_levels():
 	levels.reload()
