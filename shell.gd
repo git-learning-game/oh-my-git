@@ -1,8 +1,10 @@
 extends Node
 class_name Shell
 
+var exit_code
+
 var _cwd
-var os = OS.get_name()
+var _os = OS.get_name()
 
 #signal output(text)
 
@@ -50,25 +52,26 @@ func run(command, crash_on_fail=true):
 	#     "'test '"'"'fu'"'"' "bla" blubb"
 	#
 	# Quoting Magic is not needed for Windows!
-	if os == "X11" or os == "OSX": 
+	if _os == "X11" or _os == "OSX": 
 		hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
 	
-	var output = helpers.exec(_shell_binary(), ["-c",  hacky_command], crash_on_fail)
+	var result = helpers.exec(_shell_binary(), ["-c",  hacky_command], crash_on_fail)
+	exit_code = result["exit_code"]
 	
 	if debug:
-		print(output)
+		print(result["output"])
 	
-	return output
+	return result["output"]
 	
 func _shell_binary():
 	
 	
-	if os == "X11" or os == "OSX":
+	if _os == "X11" or _os == "OSX":
 		return "bash"
-	elif os == "Windows":
+	elif _os == "Windows":
 		return "dependencies\\windows\\git\\bin\\bash.exe"
 	else:
-		helpers.crash("Unsupported OS: %s" % os)
+		helpers.crash("Unsupported OS: %s" % _os)
 
 var _t	
 func run_async(command):

@@ -68,6 +68,7 @@ shape = SubResource( 1 )
 z_index = 1
 
 [node name="ContentLabel" type="Label" parent="Content"]
+visible = false
 margin_left = -22.2898
 margin_top = 30.1969
 margin_right = -12.2898

@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.75937, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 100, 150, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 232.55
+initial_velocity_random = 0.52
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 14.95
+scale_curve = SubResource( 2 )
+color = Color( 0.223529, 0.592157, 0.772549, 1 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "play"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Particles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="CardParticles" type="Node2D"]
+
+[node name="Particles" type="Particles2D" parent="."]
+position = Vector2( -0.539337, -145.087 )
+emitting = false
+amount = 32
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.91
+local_coords = false
+process_material = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "play"
+anims/play = SubResource( 4 )

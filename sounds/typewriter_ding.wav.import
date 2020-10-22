@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/typewriter_ding.wav-261baf709f530d1d0a04e5c5a6efc553.sample"
+
+[deps]
+
+source_file="res://sounds/typewriter_ding.wav"
+dest_files=[ "res://.import/typewriter_ding.wav-261baf709f530d1d0a04e5c5a6efc553.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

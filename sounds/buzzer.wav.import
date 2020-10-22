@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/buzzer.wav-2dd9ed8c0fc10c99ff5279a9bd90ea75.sample"
+
+[deps]
+
+source_file="res://sounds/buzzer.wav"
+dest_files=[ "res://.import/buzzer.wav-2dd9ed8c0fc10c99ff5279a9bd90ea75.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

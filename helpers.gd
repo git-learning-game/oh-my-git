@@ -27,7 +27,7 @@ func exec(command, args=[], crash_on_fail=true):
 	elif debug:
 		print("Output: %s" %output)
 
-	return output
+	return {"output": output, "exit_code": exit_code}
 
 # Return the contents of a file. If no fallback_string is provided, crash when
 # the file doesn't exist.

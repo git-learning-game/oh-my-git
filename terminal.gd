@@ -120,6 +120,11 @@ func send_command_async(command):
 func run_command_in_a_thread(command):
 	var o = repository.shell.run(command, false)
 	
+	if repository.shell.exit_code == 0:
+		$OkSound.play()
+	else:
+		$ErrorSound.play()
+	
 	input.text = ""
 	input.editable = true
 	

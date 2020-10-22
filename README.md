@@ -91,6 +91,11 @@ We have a [Code of Conduct](CODE_OF_CONDUCT.md) in place that applies to all pro
 ## Thanks
 
 - "success" sound by [Leszek_Szarzy, CC0](https://freesound.org/people/Leszek_Szary/sounds/171670/)
+- "swish" sound by [jawbutch, CC0](https://freesound.org/people/jawbutch/sounds/344408/)
+- "swoosh" sound by [WizardOZ, CC0](https://freesound.org/people/WizardOZ/sounds/419341/)
+- "poof" sound by [Saviraz, CC0](https://freesound.org/people/Saviraz/sounds/512217/)
+- "buzzer" sound by [Loyalty_Freak_Music, CC0](https://freesound.org/people/Loyalty_Freak_Music/sounds/407466/)
+- "typewriter_ding" sound by [_stubb, CC0](https://freesound.org/people/_stubb/sounds/406243/)
 
 ## License
 

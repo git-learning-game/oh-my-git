@@ -54,6 +54,7 @@ func _unhandled_input(event):
 		if event.button_index == BUTTON_LEFT and event.pressed and hovered:
 			dragged = true
 			game.dragged_object = self
+			$PickupSound.play()
 			drag_offset = get_viewport().get_mouse_position() - global_position
 			get_tree().set_input_as_handled()
 			modulate.a = 0.5
@@ -94,6 +95,7 @@ func set_energy(new_energy):
 func move_back():
 	position = _home_position
 	rotation_degrees = _home_rotation
+	$ReturnSound.play()
 	
 func buuurn():
 	move_back()
@@ -120,6 +122,10 @@ func dropped_on(other):
 
 func try_play(command):
 	if game.energy >= energy:
+		$PlaySound.play()
+		var particles = preload("res://card_particles.tscn").instance()
+		particles.position = position
+		get_parent().add_child(particles)
 		$"../../..".terminal.send_command(command)
 		buuurn()
 		game.energy -= energy

@@ -88,6 +88,7 @@ func load_level(level_id):
 	
 	terminal.repository = repositories[repo_names[repo_names.size()-1]]
 	terminal.clear()
+	terminal.find_node("TextEditor").close()
 	
 	# Unmute the audio after a while, so that player can hear pop sounds for
 	# nodes they create.
@@ -108,10 +109,11 @@ func load_next_level():
 	load_level(current_level)
 	
 func show_win_status():
-	next_level_button.show()
-	level_description.hide()
-	level_congrats.show()
-	$SuccessSound.play()
+	if not level_congrats.visible:
+		next_level_button.show()
+		level_description.hide()
+		level_congrats.show()
+		$SuccessSound.play()
 
 func repopulate_levels():
 	levels.reload()
