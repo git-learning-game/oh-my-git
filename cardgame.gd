@@ -57,6 +57,18 @@ var cards = [
 		"description": "Put the events in your current timeline on top of the specified one.",
 		"energy": 1
 	},
+	{
+		"command": 'git pull',
+		"arg_number": 0,
+		"description": "Get timelines from a colleague.",
+		"energy": 1
+	},
+	{
+		"command": 'git push',
+		"arg_number": 0,
+		"description": "Give timelines to a colleague.",
+		"energy": 1
+	},
 #	{
 #		"command": 'git update-ref -d',
 #		"arg_number": 1,

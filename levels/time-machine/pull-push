@@ -1,0 +1,42 @@
+[description]
+
+The events and timelines you see are always only what your own time machine knows about!
+
+Of course, time agents don't have to work alone! Here, your sidekick has already prepared a merge for you! You can use the "pull" card to transfer it to your own machine.
+
+Then, add another event on top, and "push" the result, to transfer it back to your sidekick!
+
+[setup yours]
+
+echo "Just woke up. Is hungry." > tom
+git add .
+git commit -m "The beginning"
+
+git checkout -b pancakes
+echo "Had blueberry pancakes with maple syrup for breakfast." > tom
+git add .
+git commit -m "Pancakes!"
+
+git checkout -b muesli main
+echo "Had muesli with oats and strawberries for breakfast." > tom
+git add .
+git commit -m "Muesli!"
+
+git checkout main
+
+git push -u sidekick main pancakes muesli
+
+[setup sidekick]
+
+git checkout main
+git merge pancakes
+git merge muesli
+
+echo "Had pancakes with strawberries for breakfast." > tom
+git add .
+git commit -m "Let's make this breakfast compromise" --author="Sidekick <sidekick@example.com>"
+
+[win sidekick]
+
+# Below main's parent, there is a rhombus:
+git rev-parse main^^ && test "$(git rev-parse main^^1^)" = "$(git rev-parse main^^2^)"
