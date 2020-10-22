@@ -1,0 +1,40 @@
+[description]
+
+Welcome, time agent! Good to see you - we could really use your help with fixing some temporal paradoxes!
+
+First, let's make you familiar with the time machine you'll be using: each yellow box you see is a frozen point in time, we call them "commits"! You can travel to one by dragging the "checkout" card to it, and you can go back to the present by dragging it on the blue "main" node!
+
+The grey panel to the left shows your current environment - click on an object to inspect or modify it!
+
+Can you find out what happened here? Then, come back to the present, fix the problem, and make a new commit!
+
+[setup]
+
+mkdir room1 room2
+echo "A young girl with brown, curly hair." > room1/little_sister
+echo "This piggy bank belongs to the big sister.
+It contains 10 coins." > room2/piggy_bank
+git add .
+git commit -m "The beginning"
+
+mv room1/little_sister room2
+git add .
+git commit -m "Little sister walks over"
+
+echo "Has 10 coins." >> room2/little_sister
+echo "This piggy bank belongs to the big sister.
+It is empty." > room2/piggy_bank
+git add .
+git commit -m "Little sister does something"
+
+mv room2/little_sister room1
+git add .
+git commit -m "Little sister walks back"
+
+[win]
+
+{ git show refs/heads/main:room2/piggy_bank | grep "10 coins"; } && { git show refs/heads/main:room1/little_sister | grep -v "10 coins"; }
+
+[congrats]
+
+Wonderful! Now that you're familiar with the time machine, let's look at some more complicated situations...

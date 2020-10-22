@@ -1,0 +1,32 @@
+[description]
+
+Sometimes, merging timelines will not be as simple, because they contradict each other.
+
+For example, in this case, one of our clients wants these timelines merged, but they ate different things for breakfast in both timelines.
+
+Try to merge them together! You'll notice that there will be a conflict! The time machine will leave it up to you how to proceed: you can edit the problematic item, it will show you the conflicting sections. You can keep either of the two versions - or create a combination of them! Remove the >>>, <<<, and === markers, and make a new commit to finalize the merge!
+
+Again, let your finalized timeline be the "main" one.
+
+[setup]
+
+echo "Just woke up. Is hungry." > tom
+git add .
+git commit -m "The beginning"
+
+git checkout -b pancakes
+echo "Had blueberry pancakes with maple syrup for breakfast." > tom
+git add .
+git commit -m "Pancakes!"
+
+git checkout -b muesli main
+echo "Had muesli with oats and strawberries for breakfast." > tom
+git add .
+git commit -m "Muesli!"
+
+git checkout main
+
+[win]
+
+# main has a parent, and the parent of both its first and child parents are the same commit:
+git rev-parse main^ && test "$(git rev-parse main^1~)" = "$(git rev-parse main^2~)"

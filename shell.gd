@@ -15,7 +15,7 @@ func cd(dir):
 # Run a shell command given as a string. Run this if you're interested in the
 # output of the command.
 func run(command, crash_on_fail=true):
-	var debug = false
+	var debug = true
 	
 	if debug:
 		print("$ %s" % command)

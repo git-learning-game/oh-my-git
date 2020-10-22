@@ -1,0 +1,61 @@
+[description]
+
+Didn't get enouth sleep last night? Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!
+
+There are already timelines where you get a baguette and coffee. Can you make a third one where you get a donut? Drag the "branch" card to a commit to make a new branch there.
+
+And then, use the "merge" card to join the specified timeline together with your current one. If you merge everything into "main" in the end, into a reality where you have a baguette, a coffee, and a dount, and are outside of all shops, you can still make it to work on time!
+
+[setup]
+
+mkdir bakery coffee_shop donut_shop
+
+echo "A friendly old lady.
+Sells delicious baguettes for 5 coins each." > bakery/mary
+
+echo "A rebellious teenager.
+Sells good coffee for 2 coins each." > coffee_shop/larry
+
+echo "A snail. Literally a snail.
+Sells donuts with an unspecified, slimy filling - for 3 coins each." > donut_shop/gary
+
+echo "You do not have a baguette.
+
+You do not have coffee.
+
+You do not have a donut." > you
+
+git add .
+git commit -m "The Beginning"
+
+git checkout -b baguette
+echo "You have a baguette.
+
+You do not have coffee.
+
+You do not have a donut." > you
+git mv you bakery
+git add .
+git commit -m "You get a baguette"
+git mv bakery/you .
+git add .
+git commit -m "You leave the bakery"
+
+git checkout -b coffee main
+echo "You do not have a baguette.
+
+You have coffee.
+
+You do not have a donut." > you
+git mv you coffee_shop
+git add .
+git commit -m "You get some coffee"
+git mv coffee_shop/you .
+git add .
+git commit -m "You leave the coffee_shop"
+
+git checkout main
+
+[win]
+
+{ git show main:you | grep "You have a baguette"; } && { git show main:you | grep "You have coffee"; } && { git show main:you | grep "You have a donut"; }

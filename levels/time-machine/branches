@@ -1,0 +1,41 @@
+[description]
+
+In this zoo, we found a few parallel timelines. Feel free to travel between the commits to see what's going on! The ends of the timelines have little tags attached.
+
+But especially the `bad_ending` one needs our attention! Can you travel to the `good_ending` one, and make a new commit that makes everyone happy?
+
+[setup]
+
+git checkout -b bad_ending
+
+mkdir cage
+mkdir toy_shop
+echo "Looks very hungry." > cage/lion
+
+echo "A small child.
+It really loves cats!
+It's holding a lollipop." > child
+git add .
+git commit -m "The beginning"
+
+mv child cage
+git add .
+git commit -m "The child is curious"
+git branch good_ending
+
+git rm cage/child
+echo "Looks happy. :)" > cage/lion
+git commit -m "Oh no"
+
+git checkout HEAD~2
+git checkout -b boring_ending
+mv child toy_shop
+git add .
+git commit -m "The child is distracted"
+
+git checkout bad_ending
+
+[win]
+
+# Is the child still there, and do we have a commit that's not in bad_ending?
+{ git ls-tree --name-only -r good_ending | grep child; } && { test "$(git log good_ending ^bad_ending --oneline | wc -l)" -gt 0; }

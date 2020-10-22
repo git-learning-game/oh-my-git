@@ -27,7 +27,7 @@ func _ready():
 			helpers.crash("Could not change to sandbox scene")
 		return
 		
-	current_chapter = 1
+	current_chapter = 0
 	current_level = 0
 	
 	# Initialize level select.

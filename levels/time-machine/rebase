@@ -1,0 +1,72 @@
+[description]
+
+Okay - turns out that saving time in the morning by utilizing parallel universes is against the regulations of the International Time Travel Association. You'll have to do your tasks in sequence after all.
+
+See the "rebase" card? It takes a specified commit, and puts the events in your current timeline on top of the specified one! This way, make a clean, linear timeline where you visit all three shops.
+
+[setup]
+
+mkdir bakery coffee_shop donut_shop
+
+echo "A friendly old lady.
+Sells delicious baguettes for 5 coins each." > bakery/mary
+
+echo "A rebellious teenager.
+Sells good coffee for 2 coins each." > coffee_shop/larry
+
+echo "A snail. Literally a snail.
+Sells donuts with an unspecified, slimy filling - for 3 coins each." > donut_shop/gary
+
+echo "You do not have a baguette.
+
+You do not have coffee.
+
+You do not have a donut." > you
+
+git add .
+git commit -m "The Beginning"
+
+git checkout -b baguette
+echo "You have a baguette.
+
+You do not have coffee.
+
+You do not have a donut." > you
+git mv you bakery
+git add .
+git commit -m "You get a baguette"
+git mv bakery/you .
+git add .
+git commit -m "You leave the bakery"
+
+git checkout -b coffee main
+echo "You do not have a baguette.
+
+You have coffee.
+
+You do not have a donut." > you
+git mv you coffee_shop
+git add .
+git commit -m "You get some coffee"
+git mv coffee_shop/you .
+git add .
+git commit -m "You leave the coffee shop"
+
+git checkout -b donut main
+echo "You do not have a baguette.
+
+You do not have coffee.
+
+You have a donut." > you
+git mv you donut_shop
+git add .
+git commit -m "You get a donut"
+git mv donut_shop/you .
+git add .
+git commit -m "You leave the donut shop"
+
+git checkout baguette
+
+[win]
+
+{ git show main:you | grep "You have a baguette"; } && { git show main:you | grep "You have coffee"; } && { git show main:you | grep "You have a donut"; } && { test "$(git log main --oneline | wc -l)" -eq 7; }

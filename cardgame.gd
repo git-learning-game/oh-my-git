@@ -1,73 +1,92 @@
 extends Control
 
 var cards = [
+#	{
+#		"command": 'git add .',
+#		"arg_number": 0,
+#		"description": "Add all files in the working directory to the index.",
+#		"energy": 1
+#	},
+#
+#	{
+#		"command": 'touch "file$RANDOM"',
+#		"arg_number": 0,
+#		"description": "Create a new file.",
+#		"energy": 2
+#	},
+#	{
+#		"command": 'git checkout -b "$RANDOM"',
+#		"arg_number": 0,
+#		"description": "Create a new branch and switch to it.",
+#		"energy": 2
+#	},
+#	{
+#		"command": 'git merge',
+#		"arg_number": 1,
+#		"description": "Merge specified commit into HEAD.",
+#		"energy": 1
+#	},
+#	{
+#		"command": 'git commit --allow-empty -m "$RANDOM"',
+#		"arg_number": 0,
+#		"description": "Add a new commit under HEAD.",
+#		"energy": 1
+#	},
 	{
-		"command": 'git add .',
-		"arg_number": 0,
-		"description": "Add all files in the working directory to the index.",
+		"command": 'git checkout',
+		"arg_number": 1,
+		"description": "Travel to a commit!",
+		#"description": "Point HEAD to a branch or commit, and update the index and the working directory.",
 		"energy": 1
 	},
-	
 	{
-		"command": 'touch "file$RANDOM"',
+		"command": 'git add .; git commit',
 		"arg_number": 0,
-		"description": "Create a new file.",
-		"energy": 2
-	},
-	{
-		"command": 'git checkout -b "$RANDOM"',
-		"arg_number": 0,
-		"description": "Create a new branch and switch to it.",
-		"energy": 2
+		"description": "Make a new commit!",
+		"energy": 1
 	},
 	{
 		"command": 'git merge',
 		"arg_number": 1,
-		"description": "Merge specified commit into HEAD.",
-		"energy": 1
-	},
-	{
-		"command": 'git commit --allow-empty -m "$RANDOM"',
-		"arg_number": 0,
-		"description": "Add a new commit under HEAD.",
-		"energy": 1
-	},
-	{
-		"command": 'git checkout',
-		"arg_number": 1,
-		"description": "Point HEAD to a branch or commit, and update the index and the working directory.",
-		"energy": 1
-	},
-	{
-		"command": 'git update-ref -d',
-		"arg_number": 1,
-		"description": "Delete a ref.",
-		"energy": 1
-	},
-	{
-		"command": 'git reflog expire --expire=now --all; git prune',
-		"arg_number": 0,
-		"description": "Delete all unreferenced objects.",
+		"description": "Merge the specified timeline into yours.",
 		"energy": 1
 	},
 	{
 		"command": 'git rebase',
 		"arg_number": 1,
-		"description": "Rebase current branch on top of specified commit.",
+		"description": "Put the events in your current timeline on top of the specified one.",
 		"energy": 1
 	},
-	{
-		"command": 'git push -f',
-		"arg_number": 0,
-		"description": "Push current branch to the remote, overwriting existing commits. Will make everyone angry.",
-		"energy": 3
-	},
-	{
-		"command": 'git pull',
-		"arg_number": 0,
-		"description": "Pull current branch from the remote.",
-		"energy": 2
-	},
+#	{
+#		"command": 'git update-ref -d',
+#		"arg_number": 1,
+#		"description": "Delete a ref.",
+#		"energy": 1
+#	},
+#	{
+#		"command": 'git reflog expire --expire=now --all; git prune',
+#		"arg_number": 0,
+#		"description": "Delete all unreferenced objects.",
+#		"energy": 1
+#	},
+#	{
+#		"command": 'git rebase',
+#		"arg_number": 1,
+#		"description": "Rebase current branch on top of specified commit.",
+#		"energy": 1
+#	},
+#	{
+#		"command": 'git push -f',
+#		"arg_number": 0,
+#		"description": "Push current branch to the remote, overwriting existing commits. Will make everyone angry.",
+#		"energy": 3
+#	},
+#	{
+#		"command": 'git pull',
+#		"arg_number": 0,
+#		"description": "Pull current branch from the remote.",
+#		"energy": 2
+#	},
 ]
 
 func _ready():
