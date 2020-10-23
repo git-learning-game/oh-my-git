@@ -1,21 +1,77 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://file_browser.gd" type="Script" id=1]
+[ext_resource path="res://styles/theme.tres" type="Theme" id=3]
 
 [node name="FileBrowser" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FileTree" type="Tree" parent="."]
+[node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-allow_reselect = true
-hide_root = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="item_selected" from="FileTree" to="." method="_on_item_selected"]
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rows" type="VBoxContainer" parent="Panel/Margin"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 1912.0
+margin_bottom = 1072.0
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Breadcrumbs" type="HBoxContainer" parent="Panel/Margin/Rows"]
+visible = false
+margin_right = 1856.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+custom_constants/separation = 8
+
+[node name="Button" type="Button" parent="Panel/Margin/Rows/Breadcrumbs"]
+margin_right = 55.0
+margin_bottom = 50.0
+text = "root"
+
+[node name="Button2" type="Button" parent="Panel/Margin/Rows/Breadcrumbs"]
+margin_left = 63.0
+margin_right = 104.0
+margin_bottom = 50.0
+text = "dir"
+
+[node name="Scroll" type="ScrollContainer" parent="Panel/Margin/Rows"]
+margin_right = 1904.0
+margin_bottom = 1064.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Grid" type="GridContainer" parent="Panel/Margin/Rows/Scroll"]
+margin_right = 1904.0
+margin_bottom = 1064.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 16
+custom_constants/hseparation = 16
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}

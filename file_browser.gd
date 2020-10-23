@@ -3,13 +3,11 @@ extends Control
 var shell
 var thread
 
-func _ready():
-	pass
+onready var grid = $Panel/Margin/Rows/Scroll/Grid
 
 func update():
-	$FileTree.clear()
-	var root_item = $FileTree.create_item()
-	root_item.set_text(0, "FILES")
+	for item in grid.get_children():
+		item.queue_free()
 	
 	var file_string = shell.run("find . -type f")
 	var files = file_string.split("\n")
@@ -21,17 +19,16 @@ func update():
 		file_path = file_path.substr(2)
 		if file_path.substr(0, 5) == ".git/":
 			continue
-		var child = $FileTree.create_item(root_item)
-		child.set_text(0, file_path)
+		var item = preload("res://file_browser_item.tscn").instance()
+		item.label = file_path
+		item.connect("clicked", self, "item_clicked")
+		grid.add_child(item)
 		#child.set_editable(0, true)
 
-
-func _on_item_selected():
-	var item = $FileTree.get_selected()
-	var file_path = item.get_text(0)
-	
+func item_clicked(item):
+	var file_path = item.label
 	shell.run("'%s'/fake-editor-noblock '%s'" % [game.tmp_prefix_inside, file_path])
-	
+
 func very_best_sort(a,b):
 	# We're looking at the third character because all entries have the form
 	# "./.git/bla".

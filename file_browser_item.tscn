@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://file_browser_item.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 0.052
+anchor_bottom = 0.093
+margin_right = 100.16
+margin_bottom = -0.439995
+rect_min_size = Vector2( 200, 100 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 71.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -25.0
+margin_right = 25.0
+margin_bottom = 25.0
+mouse_filter = 2
+color = Color( 0.203922, 0.721569, 0.501961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 75.0
+margin_right = 200.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+text = "filename"
+align = 1

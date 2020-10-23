@@ -71,7 +71,7 @@ margin_bottom = 784.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
-custom_constants/separation = 0
+custom_constants/separation = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }

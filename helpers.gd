@@ -126,3 +126,9 @@ func parse(file):
 		result[key] = result[key].strip_edges()
 	
 	return result
+
+func abbreviate(text, max_length):
+	if text.length() > max_length-3:
+		text = text.substr(0, max_length-3) + "..."
+	
+	return text

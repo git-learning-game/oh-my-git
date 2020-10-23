@@ -25,7 +25,7 @@ __meta__ = {
 
 [node name="RepoVis" type="Control" parent="Rows"]
 margin_right = 1920.0
-margin_bottom = 925.0
+margin_bottom = 901.0
 mouse_filter = 2
 size_flags_vertical = 3
 __meta__ = {
@@ -112,11 +112,11 @@ __meta__ = {
 [node name="FileBrowser" parent="Rows" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 800.0
+margin_top = 913.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.16
+size_flags_stretch_ratio = 0.19
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="Rows/RepoVis/Button" to="." method="update_everything"]
