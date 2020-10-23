@@ -31,6 +31,7 @@ func _ready():
 	set_simplified_view(simplified_view)
 	set_editable_path(editable_path)
 	set_path(path)
+	index.repository = self
 	
 	update_everything()
 	update_node_positions()
@@ -60,7 +61,7 @@ func update_everything():
 		remove_gone_stuff()
 	else:
 		if index:
-			index.text = ""
+			index.clear()
 		for o in objects:
 			objects[o].queue_free()
 		objects = {}	
@@ -86,7 +87,7 @@ func set_label(new_label):
 		label_node.text = new_label
 	
 func update_index():
-	index.text = git("ls-files -s --abbrev=8").replace("\t", " ")
+	index.update()
 
 func random_position():
 	return Vector2(rand_range(0, rect_size.x), rand_range(0, rect_size.y))

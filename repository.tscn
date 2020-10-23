@@ -43,16 +43,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Index" type="Label" parent="Rows/RepoVis"]
-margin_left = 8.64569
-margin_top = 63.8375
-margin_right = 359.725
-margin_bottom = 1027.84
-text = "entry1
-entry2"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Index" parent="Rows/RepoVis" instance=ExtResource( 4 )]
+anchor_bottom = 0.0
+margin_left = 22.0
+margin_top = 65.0
+margin_right = -17.0
+margin_bottom = 188.0
+mode = 2
 
 [node name="IndexLabel" type="Label" parent="Rows/RepoVis"]
 visible = false
@@ -93,14 +90,14 @@ __meta__ = {
 [node name="Nodes" type="Control" parent="Rows/RepoVis"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -1.43991
-margin_bottom = -1.43994
+margin_bottom = -6.10352e-05
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Path" type="LineEdit" parent="Rows/RepoVis"]
+visible = false
 margin_left = 23.0
 margin_top = 12.0
 margin_right = 374.0

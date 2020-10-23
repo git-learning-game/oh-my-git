@@ -10,17 +10,20 @@ export(FileBrowserMode) var mode = FileBrowserMode.WORKING_DIRECTORY
 
 var shell
 var commit setget _set_commit
+var repository
 
 onready var grid = $Panel/Margin/Rows/Scroll/Grid
 
 func _ready():
 	update()
-
+	
+func clear():
+	for item in grid.get_children():
+		item.queue_free()
+		
 func update():
 	if grid:
-		for item in grid.get_children():
-			item.queue_free()
-		
+		clear()
 		match mode:
 			FileBrowserMode.WORKING_DIRECTORY:
 				if shell:
@@ -46,7 +49,17 @@ func update():
 					for file_path in files:
 						var item = preload("res://file_browser_item.tscn").instance()
 						item.label = file_path
-						item.connect("clicked", self, "item_clicked")
+						#item.connect("clicked", self, "item_clicked")
+						grid.add_child(item)
+			FileBrowserMode.INDEX:
+				if repository:
+					var files = Array(repository.shell.run("git ls-files -s | cut -f2").split("\n"))
+					# The last entry is an empty string, remove it.
+					files.pop_back()
+					for file_path in files:
+						var item = preload("res://file_browser_item.tscn").instance()
+						item.label = file_path
+						#item.connect("clicked", self, "item_clicked")
 						grid.add_child(item)
 
 func item_clicked(item):
