@@ -53,6 +53,8 @@ func content_set(new_content):
 
 func type_set(new_type):
 	type = new_type
+	if type == "commit":
+		$FileBrowser.commit = self
 	if type != "ref":
 		$ID.text = $ID.text.substr(0,8)
 	#elif type == "ref":
@@ -111,6 +113,7 @@ func _input(event):
 	if hovered:
 		if event.is_action_pressed("click"):
 			held = true
+			$FileBrowser.visible = not $FileBrowser.visible
 		elif event.is_action_pressed("right_click"):
 			var input = get_tree().get_current_scene().find_node("Input")
 			input.text += id
