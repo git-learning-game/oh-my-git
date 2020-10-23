@@ -70,10 +70,10 @@ z_index = 1
 
 [node name="ContentLabel" type="Label" parent="Content"]
 visible = false
-margin_left = -22.2898
-margin_top = 30.1969
-margin_right = -12.2898
-margin_bottom = 65.1969
+margin_left = 31.3944
+margin_top = -22.8078
+margin_right = 41.3944
+margin_bottom = 12.1922
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -81,14 +81,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FileBrowser" parent="." instance=ExtResource( 6 )]
+[node name="OnTop" type="Node2D" parent="."]
+z_index = 2
+
+[node name="FileBrowser" parent="OnTop" instance=ExtResource( 6 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -460.672
 margin_top = -23.6409
 margin_right = -32.6716
-margin_bottom = 94.3591
+margin_bottom = 118.359
 mouse_filter = 1
 mode = 1
 [connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]

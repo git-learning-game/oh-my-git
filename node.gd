@@ -6,6 +6,7 @@ var type setget type_set
 var repository: Control
 
 onready var content_label = $Content/ContentLabel
+onready var file_browser = $OnTop/FileBrowser
 
 var children = {} setget children_set
 var id_always_visible = false
@@ -16,6 +17,7 @@ var arrow = preload("res://arrow.tscn")
 
 func _ready():
 	content_set(content)
+	type_set(type)
 	$Pop.pitch_scale = rand_range(0.8, 1.2)
 	$Pop.play()
 
@@ -53,9 +55,9 @@ func content_set(new_content):
 
 func type_set(new_type):
 	type = new_type
-	if type == "commit":
-		$FileBrowser.commit = self
-		$FileBrowser.title = "Commit"
+	if type == "commit" and file_browser:
+		file_browser.commit = self
+		file_browser.title = "Commit"
 	if type != "ref":
 		$ID.text = $ID.text.substr(0,8)
 	#elif type == "ref":
@@ -115,7 +117,7 @@ func _input(event):
 		if event.is_action_pressed("click"):
 			held = true
 			if type == "commit":
-				$FileBrowser.visible = not $FileBrowser.visible
+				file_browser.visible = not file_browser.visible
 		elif event.is_action_pressed("right_click"):
 			var input = get_tree().get_current_scene().find_node("Input")
 			input.text += id

@@ -29,6 +29,8 @@ func _process(_delta):
 		if $Target.text.substr(0, 5) != "refs/":
 			$Target.text = ""#$Target.text.substr(0,8)
 		$Target.show()
+		$Line.hide()
+		$Tip.hide()
 	
 	$Line.points[1] = end - repository.objects[source].position
 	# Move the tip away from the object a bit.
