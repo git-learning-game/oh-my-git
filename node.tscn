@@ -85,10 +85,11 @@ __meta__ = {
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 32.0
-margin_top = -25.0
-margin_right = 460.0
-margin_bottom = 93.0
+margin_left = -460.672
+margin_top = -23.6409
+margin_right = -32.6716
+margin_bottom = 94.3591
+mouse_filter = 1
 mode = 1
 [connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]
 [connection signal="mouse_exited" from="Rect" to="." method="_on_unhover"]

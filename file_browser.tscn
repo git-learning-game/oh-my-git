@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://file_browser.gd" type="Script" id=1]
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=3]
 
 [node name="FileBrowser" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 142 )
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -35,10 +37,16 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 1912.0
 margin_bottom = 1072.0
-custom_constants/separation = 32
+custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Title" type="Label" parent="Panel/Margin/Rows"]
+margin_right = 1904.0
+margin_bottom = 25.0
+text = "title"
+align = 1
 
 [node name="Breadcrumbs" type="HBoxContainer" parent="Panel/Margin/Rows"]
 visible = false
@@ -59,6 +67,7 @@ margin_bottom = 50.0
 text = "dir"
 
 [node name="Scroll" type="ScrollContainer" parent="Panel/Margin/Rows"]
+margin_top = 25.0
 margin_right = 1904.0
 margin_bottom = 1064.0
 size_flags_horizontal = 3
@@ -66,7 +75,7 @@ size_flags_vertical = 3
 
 [node name="Grid" type="GridContainer" parent="Panel/Margin/Rows/Scroll"]
 margin_right = 1904.0
-margin_bottom = 1064.0
+margin_bottom = 1039.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 16
@@ -75,3 +84,45 @@ columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextEdit" type="TextEdit" parent="Panel"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="Panel/TextEdit"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -114.396
+margin_top = -59.399
+margin_right = -14.3955
+margin_bottom = -14.399
+focus_mode = 0
+custom_fonts/font = ExtResource( 2 )
+enabled_focus_mode = 0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="Button" parent="Panel/TextEdit"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -54.3247
+margin_top = 12.0
+margin_right = -14.3247
+margin_bottom = 52.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 2 )
+enabled_focus_mode = 0
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/TextEdit/SaveButton" to="." method="save"]
+[connection signal="pressed" from="Panel/TextEdit/CloseButton" to="." method="close"]
