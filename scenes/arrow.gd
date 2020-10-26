@@ -21,6 +21,8 @@ func _process(_delta):
 		var t = repository.objects[target]
 		end = t.position
 		$Target.hide()
+		$Line.show()
+		$Tip.show()
 	else:
 		$Target.text = target
 		if $Target.text.substr(0, 5) != "refs/":

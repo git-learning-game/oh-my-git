@@ -3,7 +3,6 @@
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/arrow.gd" type="Script" id=2]
 
-
 [node name="Arrow" type="Node2D"]
 show_behind_parent = true
 script = ExtResource( 2 )
