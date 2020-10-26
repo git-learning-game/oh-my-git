@@ -6,8 +6,6 @@ var exit_code
 var _cwd
 var _os = OS.get_name()
 
-#signal output(text)
-
 func _init():
 	_cwd = game.tmp_prefix_inside
 	

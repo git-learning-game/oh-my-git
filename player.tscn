@@ -1,15 +1,27 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://player.gd" type="Script" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
 
-[sub_resource type="RectangleShape2D" id=1]
+export var speed = 800
+
+func _ready():
+	pass
+
+func _process(delta):
+	var right = Input.get_action_strength(\"right\") - Input.get_action_strength(\"left\")
+	var down = Input.get_action_strength(\"down\") - Input.get_action_strength(\"up\")
+	move_and_slide(Vector2(right, down).normalized()*speed)
+"
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 50, 50 )
 
 [node name="Player" type="KinematicBody2D"]
-script = ExtResource( 1 )
+script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Rect" type="ColorRect" parent="."]
 margin_left = -50.0

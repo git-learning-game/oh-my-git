@@ -60,28 +60,20 @@ func type_set(new_type):
 		file_browser.title = "Commit"
 	if type != "ref":
 		$ID.text = $ID.text.substr(0,8)
-	#elif type == "ref":
-		#$ID.text = $ID.text.replace("refs/", "")
 	match new_type:
 		"blob":
 			$Sprite.texture = preload("res://nodes/blob.svg")
-			#$Rect.color = Color("#333333")
 		"tree":
 			$Sprite.texture = preload("res://nodes/tree.svg")
-			#$Rect.color = Color.darkgreen
 		"commit":
 			$Sprite.texture = preload("res://nodes/commit.svg")
-			#$Rect.color = Color.orange
 		"tag":
 			$Sprite.texture = preload("res://nodes/blob.svg")
-			#$Rect.color = Color.blue
 		"ref":
 			$Sprite.texture = preload("res://nodes/ref.svg")
-			#$Rect.color = Color("#6680ff")
 			id_always_visible = true
 		"head":
 			$Sprite.texture = preload("res://nodes/ref.svg")
-			#$Rect.color = Color.red
 			id_always_visible = true
 	if id_always_visible:
 		$ID.show()
@@ -93,7 +85,6 @@ func children_set(new_children):
 	for c in new_children:
 		if not children.has(c):
 			var a = arrow.instance()
-			a.label = new_children[c]
 			a.source = id
 			a.target = c
 			a.repository = repository

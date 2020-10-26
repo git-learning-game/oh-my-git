@@ -35,19 +35,9 @@ func _process(delta):
 	if hovered and not dragged:
 		target_scale = 1.5
 	
-#	if hovered:
-#		rotation = 0
-#	else:
-#		if _home_rotation:
-#			rotation_degrees = _home_rotation
-	
 	var speed = 5
 	
 	scale = lerp(scale, Vector2(target_scale, target_scale), 10*delta)
-#	if scale.x < target_scale:
-#		scale += speed*delta*Vector2(1, 1)
-#	elif scale.x > target_scale:
-#		scale -= speed*delta*Vector2(1, 1)
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -99,9 +89,6 @@ func move_back():
 	
 func buuurn():
 	move_back()
-	#queue_free()
-	#$"..".draw_rand_card()
-	#$"..".arrange_cards()
 
 func dropped_on(other):
 	var full_command = ""

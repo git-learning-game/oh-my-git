@@ -342,5 +342,3 @@ func set_file_browser_active(active):
 	file_browser_active = active
 	if file_browser:
 		file_browser.visible = active
-		
-

@@ -5,7 +5,6 @@
 [ext_resource path="res://tcp_server.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/monospace.tres" type="DynamicFont" id=4]
 [ext_resource path="res://text_editor.tscn" type="PackedScene" id=5]
-[ext_resource path="res://button.gd" type="Script" id=6]
 [ext_resource path="res://sounds/buzzer.wav" type="AudioStream" id=7]
 [ext_resource path="res://sounds/typewriter_ding.wav" type="AudioStream" id=8]
 
@@ -20,6 +19,16 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Button
+
+func _ready():
+	pass
+
+func pressed():
+	$\"../../..\".send_command(text)
+"
 
 [node name="Terminal" type="Control"]
 anchor_right = 1.0
@@ -76,21 +85,21 @@ margin_bottom = 1052.0
 margin_right = 1920.0
 margin_bottom = 20.0
 text = "git commit --allow-empty -m \"$RANDOM\""
-script = ExtResource( 6 )
+script = SubResource( 2 )
 
 [node name="Button2" type="Button" parent="Rows/VBoxContainer"]
 margin_top = 24.0
 margin_right = 1920.0
 margin_bottom = 44.0
 text = "git checkout HEAD^"
-script = ExtResource( 6 )
+script = SubResource( 2 )
 
 [node name="Button3" type="Button" parent="Rows/VBoxContainer"]
 margin_top = 48.0
 margin_right = 1920.0
 margin_bottom = 68.0
 text = "git checkout -b \"$RANDOM\""
-script = ExtResource( 6 )
+script = SubResource( 2 )
 
 [node name="InputLine" type="HBoxContainer" parent="Rows"]
 margin_top = 1056.0
@@ -105,16 +114,6 @@ caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="CommandDropdown" type="MenuButton" parent="Rows/InputLine"]
-visible = false
-margin_left = 1896.0
-margin_right = 1920.0
-margin_bottom = 31.0
-custom_fonts/font = ExtResource( 1 )
-text = "..."
-flat = false
-align = 0
 
 [node name="ClearButton" type="Button" parent="."]
 anchor_left = 1.0

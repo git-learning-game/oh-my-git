@@ -216,9 +216,7 @@ func redraw_all_cards():
 	
 	for card in get_tree().get_nodes_in_group("cards"):
 		card.queue_free()
-		
-#	for i in range(7):
-#		draw_rand_card()
+
 	for card in cards:
 		draw_card(card)
 

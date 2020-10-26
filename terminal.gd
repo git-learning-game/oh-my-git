@@ -12,9 +12,7 @@ var git_commands_help = []
 onready var input = $Rows/InputLine/Input
 onready var output = $Rows/TopHalf/Output
 onready var completions = $Rows/TopHalf/Completions
-#export(NodePath) var repository_path
 var repository
-onready var command_dropdown = $Rows/InputLine/CommandDropdown
 onready var main = get_tree().get_root().get_node("Main")
 
 var premade_commands = [
@@ -24,28 +22,10 @@ var premade_commands = [
 ]
 
 func _ready():
-	#repository.shell.connect("output", self, "receive_output")
-
-	for command in premade_commands:
-		command_dropdown.get_popup().add_item(command)
-	command_dropdown.get_popup().connect("id_pressed", self, "load_command")
-	
 	var error = $TextEditor.connect("hide", self, "editor_closed")
 	if error != OK:
 		helpers.crash("Could not connect TextEditor's hide signal")
 	input.grab_focus()
-	
-#	var all_git_commands = game.global_shell.run("git help -a | grep \"^ \\+[a-z-]\\+ \" -o")
-#	git_commands = Array(all_git_commands.split("\n"))
-#	for i in range(git_commands.size()):
-#		git_commands[i] = git_commands[i].strip_edges(true, true)
-#	git_commands.pop_back()
-	
-#	var all_git_commands_help = game.global_shell.run("git help -a | grep \"  [A-Z].\\+$\" -o")
-#	git_commands_help = Array(all_git_commands_help.split("\n"))
-#	for i in range(git_commands_help.size()):
-#		git_commands_help[i] = git_commands_help[i].strip_edges(true, true)
-#	git_commands_help.pop_back()
 
 	for subcommand in git_commands:
 		git_commands_help.push_back("")
@@ -83,16 +63,6 @@ func _input(event):
 			input.caret_position = idx+1
 		else:
 			input.text = "" + second_half
-
-# Not currently used. :)
-func description_for_subcommand(subcommand):
-	var manpage = game.global_shell.run("git help %s || true" % subcommand)
-	var description_regex = RegEx.new()
-	description_regex.compile("NAME\\n\\s+[^ ]+ - (.*)\\n")
-	var regex_match = description_regex.search(manpage)
-	if regex_match == null:
-		return "(No description available.)"
-	return regex_match.get_string(1)
 		
 func load_command(id):
 	input.text = premade_commands[id]
@@ -112,9 +82,7 @@ func send_command(command):
 	thread.start(self, "run_command_in_a_thread", command)
 
 func send_command_async(command):
-	#output.text += "$ "+command+"\n"
 	input.text = ""
-	#repository.shell.run_async(command)
 	$TCPServer.send(command+"\n")
 
 func run_command_in_a_thread(command):
@@ -136,7 +104,6 @@ func run_command_in_a_thread(command):
 		$Pager.popup()
 	
 	emit_signal("command_done")
-	#repository.update_everything()
 
 func receive_output(text):
 	output.text += text
@@ -175,9 +142,6 @@ func regenerate_completions_menu(new_text):
 					child.set_text(1, git_commands_help[idx])
 					
 		completions.margin_top = -min(filtered_comp.size() * 35 + 10, 210) 
-		
-					
-	
 
 func relevant_subcommands():
 	var result = {}

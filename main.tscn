@@ -1,14 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main.gd" type="Script" id=2]
 [ext_resource path="res://cards.tscn" type="PackedScene" id=3]
 [ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=4]
-[ext_resource path="res://tcp_server.tscn" type="PackedScene" id=5]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=6]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=7]
 [ext_resource path="res://sounds/success.wav" type="AudioStream" id=8]
-[ext_resource path="res://test.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 10.0
@@ -204,22 +202,6 @@ margin_bottom = 1064.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="Test" type="Node2D" parent="."]
-visible = false
-script = ExtResource( 9 )
-
-[node name="TCPServer" parent="Test" instance=ExtResource( 5 )]
-
-[node name="LineEdit" type="LineEdit" parent="Test"]
-margin_left = 720.526
-margin_top = 691.052
-margin_right = 1130.53
-margin_bottom = 778.052
-caret_blink = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="SuccessSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 [connection signal="button_down" from="Rows/Columns/RightSide/TopStuff/Menu/ChapterSelect" to="." method="repopulate_chapters"]
@@ -228,4 +210,3 @@ stream = ExtResource( 8 )
 [connection signal="pressed" from="Rows/Columns/RightSide/TopStuff/Menu/CardsButton" to="." method="toggle_cards"]
 [connection signal="pressed" from="Rows/Columns/RightSide/TopStuff/Menu/NextLevelButton" to="." method="load_next_level"]
 [connection signal="command_done" from="Rows/Columns/RightSide/Terminal" to="." method="update_repos"]
-[connection signal="text_entered" from="Test/LineEdit" to="Test" method="send"]
