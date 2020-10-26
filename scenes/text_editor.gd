@@ -17,7 +17,7 @@ func _process(_delta):
 		_client_connection = _server.take_connection()
 		var length = _client_connection.get_u8()
 		var filename = _client_connection.get_string(length)
-		filename = filename.replace("%srepos/" % game.tmp_prefix_inside, "")
+		filename = filename.replace("%srepos/" % game.tmp_prefix, "")
 		open(filename)
 		
 func _input(event):
@@ -27,7 +27,7 @@ func _input(event):
 func open(filename):
 	path = filename
 	
-	var fixme_path = game.tmp_prefix_outside+"repos/"
+	var fixme_path = game.tmp_prefix+"repos/"
 	var content = helpers.read_file(fixme_path+filename)
 	text = content
 	
@@ -36,7 +36,7 @@ func open(filename):
 
 func save():
 	if visible:
-		var fixme_path = game.tmp_prefix_outside+"repos/"
+		var fixme_path = game.tmp_prefix+"repos/"
 		
 		# Add a newline to the end of the file if there is none.
 		if text.length() > 0 and text.substr(text.length()-1, 1) != "\n":

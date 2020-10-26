@@ -63,7 +63,7 @@ func load(path):
 		helpers.crash("Level %s does not exist." % path)
 	
 	for repo in repos:
-		repos[repo].path = game.tmp_prefix_inside+"repos/%s/" % repo
+		repos[repo].path = game.tmp_prefix+"repos/%s/" % repo
 		repos[repo].slug = repo
 	
 	# Surround all lines indented with four spaces with [code] tags.

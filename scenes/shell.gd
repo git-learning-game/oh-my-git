@@ -7,7 +7,7 @@ var _cwd
 var _os = OS.get_name()
 
 func _init():
-	_cwd = game.tmp_prefix_inside
+	_cwd = game.tmp_prefix
 	
 func cd(dir):
 	_cwd = dir
@@ -58,7 +58,7 @@ func run(command, crash_on_fail=true):
 		# On Windows, if the command contains a newline (even if inside a string),
 		# execution will end. To avoid that, we first write the command to a file,
 		# and run that file with bash.
-		var script_path = game.tmp_prefix_inside + "command" + str(randi())
+		var script_path = game.tmp_prefix + "command" + str(randi())
 		helpers.write_file(script_path, hacky_command)
 		result = helpers.exec(_shell_binary(), [script_path], crash_on_fail)
 	else:

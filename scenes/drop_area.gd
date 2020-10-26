@@ -15,5 +15,4 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and !event.pressed and hovered:
 			if game.dragged_object:
-				print(game.dragged_object)
 				game.dragged_object.dropped_on($"..")

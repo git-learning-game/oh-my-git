@@ -35,8 +35,6 @@ func _process(delta):
 	if hovered and not dragged:
 		target_scale = 1.5
 	
-	var speed = 5
-	
 	scale = lerp(scale, Vector2(target_scale, target_scale), 10*delta)
 
 func _unhandled_input(event):
@@ -107,13 +105,13 @@ func dropped_on(other):
 #			else:
 #				_first_argument = other.id
 
-func try_play(command):
+func try_play(full_command):
 	if game.energy >= energy:
 		$PlaySound.play()
 		var particles = preload("res://scenes/card_particles.tscn").instance()
 		particles.position = position
 		get_parent().add_child(particles)
-		$"../../..".terminal.send_command(command)
+		$"../../..".terminal.send_command(full_command)
 		buuurn()
 		game.energy -= energy
 	else:

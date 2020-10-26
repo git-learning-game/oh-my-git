@@ -15,7 +15,7 @@ func _ready():
 				helpers.crash("Directory %s does not exist" % args["sandbox"])
 	
 	if path == null:
-		path = game.tmp_prefix_inside+"/repos/sandbox/"
+		path = game.tmp_prefix+"/repos/sandbox/"
 		helpers.careful_delete(path)
 		
 		game.global_shell.run("mkdir " + path)

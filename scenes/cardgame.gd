@@ -126,36 +126,13 @@ var cards = [
 ]
 
 func _ready():
-#	var path = game.tmp_prefix_inside+"/repos/sandbox/"
-#	helpers.careful_delete(path)
-#
-#	game.global_shell.run("mkdir " + path)
-#	game.global_shell.cd(path)
-#	game.global_shell.run("git init")
-#	game.global_shell.run("git remote add origin ../remote")
-#	$Repository.path = path
-#	$Terminal.repository = $Repository
-#
-#	var path2 = game.tmp_prefix_inside+"/repos/remote/"
-#	helpers.careful_delete(path2)
-#
-#	game.global_shell.run("mkdir " + path2)
-#	game.global_shell.cd(path2)
-#	game.global_shell.run("git init")
-#	game.global_shell.run("git config receive.denyCurrentBranch ignore")
-#	$RepositoryRemote.path = path2
-	
 	redraw_all_cards()
 	arrange_cards()
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if $Energy:
 		$Energy.text = str(game.energy)
-
-#func _update_repo():
-#	$Repository.update_everything()
-#	$RepositoryRemote.update_everything()
 	
 func draw_rand_card():
 	var deck = []
@@ -164,7 +141,7 @@ func draw_rand_card():
 		deck.push_back(card)
 	
 	# We want a lot of commit and checkout cards!
-	for i in range(5):
+	for _i in range(5):
 		deck.push_back(cards[0])
 		deck.push_back(cards[1])
 	

@@ -1,7 +1,6 @@
 extends Node
 
-var tmp_prefix_outside = _tmp_prefix_outside()
-var tmp_prefix_inside = _tmp_prefix_inside()
+var tmp_prefix = OS.get_user_data_dir() + "/tmp/"
 var global_shell
 var fake_editor
 
@@ -13,11 +12,11 @@ var state = {}
 
 func _ready():
 	var dir = Directory.new()
-	var repo_dir = tmp_prefix_outside+"repos/"
-	if not dir.dir_exists(tmp_prefix_outside):
-		var err = dir.make_dir(tmp_prefix_outside)
+	var repo_dir = tmp_prefix+"repos/"
+	if not dir.dir_exists(tmp_prefix):
+		var err = dir.make_dir(tmp_prefix)
 		if err != OK:
-			helpers.crash("Could not create temporary directory %s." % tmp_prefix_outside)
+			helpers.crash("Could not create temporary directory %s." % tmp_prefix)
 	if not dir.dir_exists(repo_dir):
 		var err = dir.make_dir(repo_dir)
 		if err != OK:
@@ -53,15 +52,9 @@ func load_state():
 	
 func copy_file_to_game_env(filename):
 	# Copy fake-editor to tmp directory (because the original might be in a .pck file).
-	var file_outside = tmp_prefix_outside + filename
-	var file_inside = tmp_prefix_inside + filename
+	var file_outside = tmp_prefix + filename
+	var file_inside = tmp_prefix + filename
 	var content = helpers.read_file("res://scripts/"+filename)
 	helpers.write_file(file_outside, content)
 	global_shell.run("chmod u+x " + '"'+file_inside+'"')
 	return file_inside
-
-func _tmp_prefix_inside():
-	return OS.get_user_data_dir() + "/tmp/"
-	
-func _tmp_prefix_outside():
-	return "user://tmp/"
