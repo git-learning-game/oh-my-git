@@ -43,8 +43,8 @@ func save():
 			text += "\n"
 		
 		helpers.write_file(fixme_path+path, text)
-		emit_signal("saved")
 		close()
+		emit_signal("saved")
 
 func close():
 	if _client_connection and _client_connection.is_connected_to_host():

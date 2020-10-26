@@ -27,7 +27,8 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("save"):
-		save()
+		if text_edit.visible:
+			save()
 	
 func clear():
 	for item in grid.get_children():
