@@ -13,7 +13,7 @@ var id_always_visible = false
 var held = false
 var hovered = false
 
-var arrow = preload("res://arrow.tscn")
+var arrow = preload("res://scenes/arrow.tscn")
 
 func _ready():
 	content_set(content)

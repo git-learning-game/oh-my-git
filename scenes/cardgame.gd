@@ -172,7 +172,7 @@ func draw_rand_card():
 	draw_card(card)
 
 func draw_card(card):
-	var new_card = preload("res://card.tscn").instance()
+	var new_card = preload("res://scenes/card.tscn").instance()
 	
 	new_card.command = card.command
 	new_card.arg_number = card.arg_number

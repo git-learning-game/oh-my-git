@@ -1,11 +1,12 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://node.gd" type="Script" id=1]
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/node.gd" type="Script" id=2]
 [ext_resource path="res://nodes/blob.svg" type="Texture" id=3]
-[ext_resource path="res://nodes/pop.wav" type="AudioStream" id=4]
-[ext_resource path="res://drop_area.tscn" type="PackedScene" id=5]
-[ext_resource path="res://file_browser.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/file_browser.tscn" type="PackedScene" id=4]
+[ext_resource path="res://nodes/pop.wav" type="AudioStream" id=5]
+[ext_resource path="res://scenes/drop_area.tscn" type="PackedScene" id=6]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.6295
@@ -22,7 +23,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="Node" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Arrows" type="Node2D" parent="."]
 
@@ -48,7 +49,7 @@ margin_left = -19.9265
 margin_top = -12.0097
 margin_right = 129.073
 margin_bottom = 40.9903
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "object_id"
 __meta__ = {
@@ -56,9 +57,9 @@ __meta__ = {
 }
 
 [node name="Pop" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 
-[node name="DropArea" parent="." instance=ExtResource( 5 )]
+[node name="DropArea" parent="." instance=ExtResource( 6 )]
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -75,7 +76,7 @@ margin_top = -22.8078
 margin_right = 41.3944
 margin_bottom = 12.1922
 custom_styles/normal = SubResource( 2 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -84,7 +85,7 @@ __meta__ = {
 [node name="OnTop" type="Node2D" parent="."]
 z_index = 2
 
-[node name="FileBrowser" parent="OnTop" instance=ExtResource( 6 )]
+[node name="FileBrowser" parent="OnTop" instance=ExtResource( 4 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0

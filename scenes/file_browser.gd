@@ -50,7 +50,7 @@ func update():
 						file_path = file_path.substr(2)
 						if file_path.substr(0, 5) == ".git/":
 							continue
-						var item = preload("res://file_browser_item.tscn").instance()
+						var item = preload("res://scenes/file_browser_item.tscn").instance()
 						item.label = file_path
 						item.connect("clicked", self, "item_clicked")
 						grid.add_child(item)
@@ -60,7 +60,7 @@ func update():
 					# The last entry is an empty string, remove it.
 					files.pop_back()
 					for file_path in files:
-						var item = preload("res://file_browser_item.tscn").instance()
+						var item = preload("res://scenes/file_browser_item.tscn").instance()
 						item.label = file_path
 						item.connect("clicked", self, "item_clicked")
 						grid.add_child(item)
@@ -70,7 +70,7 @@ func update():
 					# The last entry is an empty string, remove it.
 					files.pop_back()
 					for file_path in files:
-						var item = preload("res://file_browser_item.tscn").instance()
+						var item = preload("res://scenes/file_browser_item.tscn").instance()
 						item.label = file_path
 						item.connect("clicked", self, "item_clicked")
 						grid.add_child(item)

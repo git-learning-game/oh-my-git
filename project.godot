@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Chapter",
 "language": "GDScript",
-"path": "res://chapter.gd"
+"path": "res://scenes/chapter.gd"
 }, {
 "base": "Node",
 "class": "Level",
 "language": "GDScript",
-"path": "res://level.gd"
+"path": "res://scenes/level.gd"
 }, {
 "base": "Node",
 "class": "LevelRepo",
 "language": "GDScript",
-"path": "res://level_repo.gd"
+"path": "res://scenes/level_repo.gd"
 }, {
 "base": "Node",
 "class": "Shell",
 "language": "GDScript",
-"path": "res://shell.gd"
+"path": "res://scenes/shell.gd"
 } ]
 _global_script_class_icons={
 "Chapter": "",
@@ -39,14 +39,14 @@ _global_script_class_icons={
 [application]
 
 config/name="git-hydra"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/use_custom_user_dir=true
 
 [autoload]
 
-game="*res://game.gd"
-helpers="*res://helpers.gd"
-levels="*res://levels.gd"
+game="*res://scenes/game.gd"
+helpers="*res://scenes/helpers.gd"
+levels="*res://scenes/levels.gd"
 
 [display]
 

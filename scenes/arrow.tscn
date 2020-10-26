@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://arrow.gd" type="Script" id=1]
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/arrow.gd" type="Script" id=2]
+
 
 [node name="Arrow" type="Node2D"]
 show_behind_parent = true
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Line" type="Line2D" parent="."]
 points = PoolVector2Array( -0.480499, -0.11055, 158.301, 0.581757 )
@@ -37,7 +38,7 @@ margin_left = -19.374
 margin_top = -5.93085
 margin_right = 20.626
 margin_bottom = 8.06915
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "label"
 align = 1
@@ -50,7 +51,7 @@ margin_left = -230.84
 margin_top = 42.1225
 margin_right = 231.16
 margin_bottom = 68.1225
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
 text = "label"
 align = 1

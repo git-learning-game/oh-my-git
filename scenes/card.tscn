@@ -1,11 +1,12 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://card.gd" type="Script" id=1]
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
-[ext_resource path="res://nodes/blob.svg" type="Texture" id=3]
-[ext_resource path="res://sounds/poof.wav" type="AudioStream" id=4]
-[ext_resource path="res://sounds/swish.wav" type="AudioStream" id=5]
-[ext_resource path="res://sounds/swoosh.wav" type="AudioStream" id=6]
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://nodes/blob.svg" type="Texture" id=2]
+[ext_resource path="res://scenes/card.gd" type="Script" id=3]
+[ext_resource path="res://sounds/swish.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/swoosh.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/poof.wav" type="AudioStream" id=6]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.45098, 0.584314, 0.843137, 1 )
@@ -31,7 +32,7 @@ corner_radius_bottom_left = 10
 [node name="Card" type="Node2D" groups=[
 "cards",
 ]]
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="."]
 margin_left = -105.0
@@ -68,7 +69,7 @@ margin_left = -89.0
 margin_top = -276.0
 margin_right = 85.0
 margin_bottom = -185.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Name"
 autowrap = true
@@ -93,7 +94,7 @@ margin_top = -164.0
 margin_right = 133.0
 margin_bottom = 23.0
 rect_scale = Vector2( 0.75, 0.75 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Description"
 autowrap = true
@@ -105,7 +106,7 @@ __meta__ = {
 visible = false
 position = Vector2( -103.288, -287.778 )
 scale = Vector2( 0.542341, 0.542341 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="Energy" type="Label" parent="Sprite"]
 margin_left = -51.1637
@@ -113,7 +114,7 @@ margin_top = -47.4558
 margin_right = -17.1637
 margin_bottom = -16.4558
 rect_scale = Vector2( 3, 3 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
 text = "0"
 align = 1
 valign = 1
@@ -122,14 +123,14 @@ __meta__ = {
 }
 
 [node name="PickupSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 4 )
 
 [node name="PlaySound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 6 )
 volume_db = -6.848
 
 [node name="ReturnSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 5 )
 volume_db = -6.848
 [connection signal="mouse_entered" from="Area2D" to="." method="_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_mouse_exited"]

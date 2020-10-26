@@ -1,12 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
-[ext_resource path="res://terminal.gd" type="Script" id=2]
-[ext_resource path="res://tcp_server.tscn" type="PackedScene" id=3]
-[ext_resource path="res://fonts/monospace.tres" type="DynamicFont" id=4]
-[ext_resource path="res://text_editor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sounds/typewriter_ding.wav" type="AudioStream" id=2]
+[ext_resource path="res://fonts/monospace.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/terminal.gd" type="Script" id=4]
+[ext_resource path="res://scenes/text_editor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/tcp_server.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sounds/buzzer.wav" type="AudioStream" id=7]
-[ext_resource path="res://sounds/typewriter_ding.wav" type="AudioStream" id=8]
+
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 5.0
@@ -34,7 +35,7 @@ func pressed():
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,7 +59,7 @@ margin_top = -1.92206
 margin_bottom = -1.92212
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 1 )
-custom_fonts/normal_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 3 )
 scroll_following = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -135,7 +136,7 @@ visible = false
 mouse_filter = 1
 syntax_highlighting = false
 
-[node name="TCPServer" parent="." instance=ExtResource( 3 )]
+[node name="TCPServer" parent="." instance=ExtResource( 6 )]
 
 [node name="Pager" type="WindowDialog" parent="."]
 anchor_right = 1.0
@@ -151,7 +152,7 @@ __meta__ = {
 [node name="Text" type="RichTextLabel" parent="Pager"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/normal_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -160,7 +161,7 @@ __meta__ = {
 stream = ExtResource( 7 )
 
 [node name="OkSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource( 2 )
 [connection signal="item_selected" from="Rows/TopHalf/Completions" to="." method="_completion_selected"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button" to="Rows/VBoxContainer/Button" method="pressed"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button2" to="Rows/VBoxContainer/Button2" method="pressed"]

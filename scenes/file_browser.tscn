@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://file_browser.gd" type="Script" id=1]
+[ext_resource path="res://scenes/file_browser.gd" type="Script" id=1]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=3]
+
 
 [node name="FileBrowser" type="Control"]
 anchor_right = 1.0

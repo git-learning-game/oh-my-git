@@ -13,7 +13,7 @@ export var file_browser_active = true setget set_file_browser_active
 export var simplified_view = false setget set_simplified_view
 export var editable_path = false setget set_editable_path
 
-var node = preload("res://node.tscn")
+var node = preload("res://scenes/node.tscn")
 
 var shell = Shell.new()
 var objects = {}

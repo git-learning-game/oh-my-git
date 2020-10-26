@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
-[ext_resource path="res://file_browser_item.gd" type="Script" id=2]
+[ext_resource path="res://scenes/file_browser_item.gd" type="Script" id=1]
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
+
 
 [node name="Control" type="Control"]
 anchor_right = 0.052
@@ -9,7 +10,7 @@ anchor_bottom = 0.093
 margin_right = 100.16
 margin_bottom = -0.439995
 rect_min_size = Vector2( 150, 100 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,6 +48,6 @@ __meta__ = {
 margin_top = 75.0
 margin_right = 200.0
 margin_bottom = 100.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "filename"
 align = 1

@@ -22,7 +22,7 @@ func _ready():
 	var args = helpers.parse_args()
 	
 	if args.has("sandbox"):
-		var err = get_tree().change_scene("res://sandbox.tscn")
+		var err = get_tree().change_scene("res://scenes/sandbox.tscn")
 		if err != OK:
 			helpers.crash("Could not change to sandbox scene")
 		return
@@ -73,7 +73,7 @@ func load_level(level_id):
 	
 	for r in repo_names:
 		var repo = level.repos[r]
-		var new_repo = preload("res://repository.tscn").instance()
+		var new_repo = preload("res://scenes/repository.tscn").instance()
 		new_repo.path = repo.path
 		new_repo.label = repo.slug
 		new_repo.size_flags_horizontal = SIZE_EXPAND_FILL
