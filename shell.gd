@@ -36,36 +36,43 @@ func run(command, crash_on_fail=true):
 		hacky_command += "export %s='%s';" % [variable, env[variable]]
 	hacky_command += "cd '%s' || exit 1;" % _cwd
 	hacky_command += command
-	
-	# Godot's OS.execute wraps each argument in double quotes before executing.
-	# Because we want to be in a single-quote context, where nothing is evaluated,
-	# we end those double quotes and start a single quoted string. For each single
-	# quote appearing in our string, we close the single quoted string, and add
-	# a double quoted string containing the single quote. Ooooof!
-	#
-	# Example: The string
-	# 
-	#     test 'fu' "bla" blubb
-	# 
-	# becomes
-	# 
-	#     "'test '"'"'fu'"'"' "bla" blubb"
-	#
-	# Quoting Magic is not needed for Windows!
-	if _os == "X11" or _os == "OSX": 
+
+	var result
+	if _os == "X11" or _os == "OSX":
+		# Godot's OS.execute wraps each argument in double quotes before executing
+		# on Linux and macOS.
+		# Because we want to be in a single-quote context, where nothing is evaluated,
+		# we end those double quotes and start a single quoted string. For each single
+		# quote appearing in our string, we close the single quoted string, and add
+		# a double quoted string containing the single quote. Ooooof!
+		#
+		# Example: The string
+		# 
+		#     test 'fu' "bla" blubb
+		# 
+		# becomes
+		# 
+		#     "'test '"'"'fu'"'"' "bla" blubb"
+		
 		hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
-	
-	var result = helpers.exec(_shell_binary(), ["-c",  hacky_command], crash_on_fail)
-	exit_code = result["exit_code"]
+		result = helpers.exec(_shell_binary(), ["-c",  hacky_command], crash_on_fail)
+	elif _os == "Windows":
+		# On Windows, if the command contains a newline (even if inside a string),
+		# execution will end. To avoid that, we first write the command to a file,
+		# and run that file with bash.
+		var script_path = game.tmp_prefix_inside + "command"
+		helpers.write_file(script_path, hacky_command)
+		result = helpers.exec(_shell_binary(), [script_path], crash_on_fail)
+	else:
+		helpers.crash("Unimplemented OS: %s" % _os)
 	
 	if debug:
 		print(result["output"])
 	
+	exit_code = result["exit_code"]
 	return result["output"]
 	
 func _shell_binary():
-	
-	
 	if _os == "X11" or _os == "OSX":
 		return "bash"
 	elif _os == "Windows":
