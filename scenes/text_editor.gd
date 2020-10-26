@@ -15,34 +15,31 @@ func _ready():
 func _process(_delta):
 	if _server.is_connection_available():
 		_client_connection = _server.take_connection()
-		var length = _client_connection.get_u8()
+		var length = _client_connection.get_u32()
 		var filename = _client_connection.get_string(length)
-		filename = filename.replace("%srepos/" % game.tmp_prefix, "")
-		open(filename)
+		
+		length = _client_connection.get_u32()
+		var content = _client_connection.get_string(length)
+		
+		open(content)
 		
 func _input(event):
 	if event.is_action_pressed("save"):
 		save()
 	
-func open(filename):
-	path = filename
-	
-	var fixme_path = game.tmp_prefix+"repos/"
-	var content = helpers.read_file(fixme_path+filename)
+func open(content):
 	text = content
-	
 	show()
 	grab_focus()
 
 func save():
 	if visible:
-		var fixme_path = game.tmp_prefix+"repos/"
-		
 		# Add a newline to the end of the file if there is none.
 		if text.length() > 0 and text.substr(text.length()-1, 1) != "\n":
 			text += "\n"
 		
-		helpers.write_file(fixme_path+path, text)
+		_client_connection.put_string(text)
+		
 		close()
 		emit_signal("saved")
 

@@ -7,6 +7,9 @@ var _cwd
 var _os = OS.get_name()
 
 func _init():
+	# Create required directories and move into the tmp directory.
+	_cwd = "/tmp"
+	run("mkdir -p '%s/repos'" % game.tmp_prefix)
 	_cwd = game.tmp_prefix
 	
 func cd(dir):
