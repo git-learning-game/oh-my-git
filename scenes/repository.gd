@@ -148,7 +148,7 @@ func update_node_positions():
 				var hash_regex = RegEx.new()
 				hash_regex.compile("[a-f0-9]+")
 				var regex_match = hash_regex.search(line)
-				objects[regex_match.get_string()].position = Vector2(star_idx * 100 + 500, line_count * 100 + 500)
+				objects[regex_match.get_string()].position = Vector2((graph_lines.size()-line_count) * 100 + 500, star_idx * 100 + 500)
 				
 		for ref in all_refs():
 			var target_reference = objects[ref].children.keys()[0]
@@ -159,9 +159,6 @@ func update_node_positions():
 		if objects.has(target_reference):
 			var target = objects[target_reference]
 			objects["HEAD"].position = Vector2(target.position.x ,target.position.y - 100)
-		
-			
-		
 	 
 func update_refs():   
 	for r in all_refs():
@@ -193,7 +190,7 @@ func apply_forces():
 		var center_of_gravity = nodes.rect_size/2
 		var d = o.position.distance_to(center_of_gravity)
 		var dir = (o.position - center_of_gravity).normalized()
-		var f = (d+0.00001)*(Vector2(nodes.rect_size.y, nodes.rect_size.x/3).normalized()/30)
+		var f = (d+0.00001)*(Vector2(nodes.rect_size.y/10, nodes.rect_size.x/3).normalized()/30)
 		o.position -= dir*f
 	
 func find_position(n):	
