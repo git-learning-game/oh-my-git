@@ -63,6 +63,8 @@ func _input(event):
 			input.caret_position = idx+1
 		else:
 			input.text = "" + second_half
+	if event.is_action_pressed("clear"):
+		clear()
 		
 func load_command(id):
 	input.text = premade_commands[id]

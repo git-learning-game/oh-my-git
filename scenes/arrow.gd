@@ -14,6 +14,10 @@ func _process(_delta):
 	if not (repository and repository.objects.has(source)):
 		return
 	
+	if repository.objects[source].type == "head":
+		hide()
+		set_process(false)
+	
 	var start = repository.objects[source].position
 	var end = start + Vector2(0, 60)
 	

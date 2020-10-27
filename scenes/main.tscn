@@ -116,6 +116,7 @@ __meta__ = {
 }
 
 [node name="CardsButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
+visible = false
 margin_left = 406.0
 margin_right = 478.0
 margin_bottom = 35.0
@@ -127,8 +128,8 @@ __meta__ = {
 }
 
 [node name="NextLevelButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-margin_left = 483.0
-margin_right = 593.0
+margin_left = 406.0
+margin_right = 516.0
 margin_bottom = 35.0
 focus_mode = 0
 custom_styles/hover = SubResource( 1 )
@@ -222,6 +223,7 @@ size_flags_vertical = 3
 
 [node name="SuccessSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -10.0
 [connection signal="button_down" from="Rows/Columns/RightSide/LevelInfo/Menu/ChapterSelect" to="." method="repopulate_chapters"]
 [connection signal="button_down" from="Rows/Columns/RightSide/LevelInfo/Menu/LevelSelect" to="." method="repopulate_levels"]
 [connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/ReloadButton" to="." method="reload_level"]

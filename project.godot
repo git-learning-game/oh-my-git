@@ -116,6 +116,11 @@ delete_word={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
  ]
 }
+clear={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":76,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [network]
 

@@ -20,7 +20,6 @@ var mouse_inside = false
 var _commit_count = 0
 
 func _ready():
-	
 	# Trigger these again because nodes were not ready before.
 	set_label(label)
 	set_simplified_view(simplified_view)
@@ -73,6 +72,8 @@ func get_path():
 func set_label(new_label):
 	label = new_label
 	if label_node:
+		if new_label == "yours":
+			new_label = ""
 		label_node.text = new_label
 
 func random_position():
@@ -163,10 +164,10 @@ func update_refs():
 	
 func apply_forces():
 	for o in objects.values():
-		if not o.visible:
+		if not o.visible or o.type == "head":
 			continue
 		for o2 in objects.values():
-			if o == o2 or not o2.visible:
+			if o == o2 or not o2.visible or o2.type == "head":
 				continue
 			var d = o.position.distance_to(o2.position)
 			var dir = (o.global_position - o2.global_position).normalized()

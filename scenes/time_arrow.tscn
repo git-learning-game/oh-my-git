@@ -10,17 +10,18 @@ script = ExtResource( 2 )
 [node name="Line" type="Line2D" parent="."]
 z_index = -1
 points = PoolVector2Array( -0.480499, -0.11055, 158.301, 0.581757 )
-default_color = Color( 0.811765, 0.811765, 0.811765, 1 )
+default_color = Color( 0.760784, 0.74902, 0.14902, 1 )
 
 [node name="Tip" type="Node2D" parent="."]
 position = Vector2( 0.175903, -0.0836948 )
+rotation = -0.0733038
 z_index = 1
 
 [node name="Polygon" type="Polygon2D" parent="Tip"]
 position = Vector2( -0.0332336, 0.422104 )
 rotation = 2.86234
 z_index = -1
-color = Color( 0.811765, 0.811765, 0.811765, 1 )
+color = Color( 0.760784, 0.74902, 0.14902, 1 )
 offset = Vector2( -52.4162, -12.5157 )
 polygon = PoolVector2Array( -8.50021, 20.4619, 36.1874, 8.44903, 0.869781, -21.8232 )
 

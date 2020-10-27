@@ -1,13 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://sounds/typewriter_ding.wav" type="AudioStream" id=2]
 [ext_resource path="res://fonts/monospace.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scenes/terminal.gd" type="Script" id=4]
 [ext_resource path="res://scenes/text_editor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/tcp_server.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sounds/buzzer.wav" type="AudioStream" id=7]
-
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 5.0
@@ -69,7 +67,7 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -311.0
+margin_top = -34.0
 columns = 2
 hide_root = true
 __meta__ = {
@@ -116,21 +114,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClearButton" type="Button" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -88.0
-margin_top = 5.0
-margin_right = -5.0
-margin_bottom = 36.0
-focus_mode = 0
-custom_fonts/font = ExtResource( 1 )
-enabled_focus_mode = 0
-text = "Clear"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="TextEditor" parent="." instance=ExtResource( 5 )]
 visible = false
 mouse_filter = 1
@@ -168,6 +151,5 @@ stream = ExtResource( 2 )
 [connection signal="pressed" from="Rows/VBoxContainer/Button3" to="Rows/VBoxContainer/Button3" method="pressed"]
 [connection signal="text_changed" from="Rows/InputLine/Input" to="." method="_input_changed"]
 [connection signal="text_entered" from="Rows/InputLine/Input" to="." method="send_command"]
-[connection signal="pressed" from="ClearButton" to="." method="clear"]
 [connection signal="saved" from="TextEditor" to="." method="editor_saved"]
 [connection signal="data_received" from="TCPServer" to="." method="receive_output"]

@@ -62,7 +62,7 @@ func arrange_cards():
 	yield(t, "timeout")
 	
 	var amount_cards = get_tree().get_nodes_in_group("cards").size()
-	var total_angle = min(50, 45.0/7*amount_cards)
+	var total_angle = min(35, 45.0/7*amount_cards)
 	var angle_between_cards = 0
 	if amount_cards > 1:
 		angle_between_cards = total_angle / (amount_cards-1)

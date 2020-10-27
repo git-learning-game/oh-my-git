@@ -24,7 +24,7 @@ func _ready():
 		$Pop.pitch_scale = rand_range(0.8, 1.2)
 		$Pop.play()
 
-func _process(_delta):
+func _process(delta):
 	if held:
 		if not Input.is_action_pressed("click"):
 			held = false
@@ -32,7 +32,15 @@ func _process(_delta):
 			global_position = get_global_mouse_position()
 
 	if visible:
-		apply_forces()
+		if type == "head":
+			for c in children:
+				if repository.objects.has(c):
+					var other = repository.objects[c]
+					var offset = Vector2(0, -45)
+					var target_position = other.position + offset
+					position = lerp(position, target_position, 10*delta)
+		else:
+			apply_forces()
 
 func apply_forces():
 	var offset = Vector2(-80, 0)
@@ -80,6 +88,7 @@ func type_set(new_type):
 		"head":
 			$Sprite.texture = preload("res://nodes/head.svg")
 			id_always_visible = false
+			z_index = 1
 	if id_always_visible:
 		$ID.show()
 
