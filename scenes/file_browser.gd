@@ -76,7 +76,6 @@ func update():
 						grid.add_child(item)
 
 func item_clicked(item):
-	print(item.label)
 	open_file = item.label
 	match mode:
 		FileBrowserMode.WORKING_DIRECTORY:

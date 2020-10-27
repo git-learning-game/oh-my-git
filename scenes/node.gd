@@ -122,7 +122,6 @@ func _input(event):
 		if type == "commit":
 			if start_pos:
 				var dist = get_viewport().get_mouse_position() - start_pos
-				print(dist.length())
 				if dist.length() < 3:
 					var state = file_browser.visible
 					repository.close_all_file_browsers()
