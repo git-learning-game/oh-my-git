@@ -88,10 +88,10 @@ z_index = 2
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -23.2915
-margin_top = 30.6967
-margin_right = 404.709
-margin_bottom = 172.697
+margin_left = -23.0
+margin_top = 31.0
+margin_right = 574.0
+margin_bottom = 188.0
 mouse_filter = 1
 mode = 1
 [connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]

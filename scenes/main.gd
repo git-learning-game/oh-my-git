@@ -10,13 +10,14 @@ onready var input = terminal.input
 onready var output = terminal.output
 onready var repositories_node = $Rows/Columns/Repositories
 var repositories = {}
-onready var level_select = $Rows/Columns/LevelInfo/Menu/LevelSelect
-onready var chapter_select = $Rows/Columns/LevelInfo/Menu/ChapterSelect
-onready var next_level_button = $Rows/Columns/LevelInfo/Menu/NextLevelButton
-onready var level_name = $Rows/Columns/LevelInfo/LevelPanel/LevelName
-onready var level_description = $Rows/Columns/LevelInfo/LevelPanel/Text/LevelDescription
-onready var level_congrats = $Rows/Columns/LevelInfo/LevelPanel/Text/LevelCongrats
+onready var level_select = $Rows/Columns/RightSide/LevelInfo/Menu/LevelSelect
+onready var chapter_select = $Rows/Columns/RightSide/LevelInfo/Menu/ChapterSelect
+onready var next_level_button = $Rows/Columns/RightSide/LevelInfo/Menu/NextLevelButton
+onready var level_name = $Rows/Columns/RightSide/LevelInfo/LevelPanel/LevelName
+onready var level_description = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelDescription
+onready var level_congrats = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelCongrats
 onready var cards = $Rows/Controls/Cards
+onready var file_browser = $Rows/Columns/RightSide/FileBrowser
 
 func _ready():
 	var args = helpers.parse_args()
@@ -81,6 +82,9 @@ func load_level(level_id):
 		new_repo.size_flags_vertical = SIZE_EXPAND_FILL
 		if new_repo.label != "yours":
 			new_repo.file_browser_active = false
+		else:
+			file_browser.shell = new_repo.shell
+			file_browser.update()
 		repositories_node.add_child(new_repo)		
 		repositories[r] = new_repo
 	
@@ -131,6 +135,7 @@ func update_repos():
 	for r in repositories:
 		var repo = repositories[r]
 		repo.update_everything()
+	file_browser.update()
 	
 	if levels.chapters[current_chapter].levels[current_level].check_win():
 		show_win_status()
