@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/time_arrow.gd" type="Script" id=2]
+
+[node name="Arrow" type="Node2D"]
+show_behind_parent = true
+script = ExtResource( 2 )
+
+[node name="Line" type="Line2D" parent="."]
+z_index = -1
+points = PoolVector2Array( -0.480499, -0.11055, 158.301, 0.581757 )
+default_color = Color( 0.811765, 0.811765, 0.811765, 1 )
+
+[node name="Tip" type="Node2D" parent="."]
+position = Vector2( 0.175903, -0.0836948 )
+z_index = 1
+
+[node name="Polygon" type="Polygon2D" parent="Tip"]
+position = Vector2( -0.0332336, 0.422104 )
+rotation = 2.86234
+z_index = -1
+color = Color( 0.811765, 0.811765, 0.811765, 1 )
+offset = Vector2( -52.4162, -12.5157 )
+polygon = PoolVector2Array( -8.50021, 20.4619, 36.1874, 8.44903, 0.869781, -21.8232 )
+
+[node name="Polygon2" type="Polygon2D" parent="Tip"]
+visible = false
+position = Vector2( -9.66138, -2.89842 )
+z_index = -1
+color = Color( 0.2, 0.2, 0.2, 1 )
+polygon = PoolVector2Array( -8.50021, 20.4619, 22.2526, 5.80623, 2.31131, -19.9012, -12.104, -23.7453, 4.95413, 1.72188, -21.9546, 16.1372 )
+
+[node name="Label" type="Node2D" parent="."]
+visible = false
+position = Vector2( 102, 46 )
+
+[node name="ID" type="Label" parent="Label"]
+margin_left = -19.374
+margin_top = -5.93085
+margin_right = 20.626
+margin_bottom = 8.06915
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "label"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Target" type="Label" parent="."]
+margin_left = -230.84
+margin_top = 42.1225
+margin_right = 231.16
+margin_bottom = 68.1225
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
+text = "label"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

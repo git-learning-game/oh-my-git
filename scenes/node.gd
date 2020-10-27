@@ -15,6 +15,7 @@ var hovered = false
 var start_pos = null
 
 var arrow = preload("res://scenes/arrow.tscn")
+var time_arrow = preload("res://scenes/time_arrow.tscn")
 
 func _ready():
 	content_set(content)
@@ -87,6 +88,8 @@ func children_set(new_children):
 	for c in new_children:
 		if not children.has(c):
 			var a = arrow.instance()
+			if type == "commit":
+				a = time_arrow.instance()
 			a.source = id
 			a.target = c
 			a.repository = repository
