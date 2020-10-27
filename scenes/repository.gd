@@ -342,3 +342,11 @@ func set_file_browser_active(active):
 	file_browser_active = active
 	if file_browser:
 		file_browser.visible = active
+		
+func close_all_file_browsers():
+	var all = all_objects()
+	
+	for o in objects.values():
+		if o.type == "commit":
+			o.file_browser.visible = false
+

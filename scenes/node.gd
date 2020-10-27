@@ -121,6 +121,8 @@ func _input(event):
 				var dist = get_viewport().get_mouse_position() - start_pos
 				print(dist.length())
 				if dist.length() < 3:
-					file_browser.visible = not file_browser.visible
+					var state = file_browser.visible
+					repository.close_all_file_browsers()
+					file_browser.visible = not state
 		
 		start_pos = null
