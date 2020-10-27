@@ -60,16 +60,13 @@ margin_bottom = 784.0
 mouse_filter = 2
 size_flags_vertical = 3
 
-[node name="Repositories" type="HBoxContainer" parent="Rows/Columns"]
+[node name="Repositories" type="VBoxContainer" parent="Rows/Columns"]
 margin_right = 1266.0
 margin_bottom = 784.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 custom_constants/separation = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LevelInfo" type="VBoxContainer" parent="Rows/Columns"]
 margin_left = 1271.0

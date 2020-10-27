@@ -35,15 +35,17 @@ func _process(_delta):
 		apply_forces()
 
 func apply_forces():
-	var offset = Vector2(0, 80)
+	var offset = Vector2(-80, 0)
 	
 	for c in children.keys():
+		if type == "ref" or type == "head":
+			offset = Vector2(0, 80)
 		if repository.objects.has(c):
 			var other = repository.objects[c]
 			if other.visible:
 				var d = other.position.distance_to(position+offset)
 				var dir = (other.position - (position+offset)).normalized()
-				var f = (d*0.03)
+				var f = (d*0.12)
 				position += dir*f
 				other.position -= dir*f
 	
@@ -98,15 +100,16 @@ func children_set(new_children):
 
 func _on_hover():
 	hovered = true
-	if not id_always_visible:
-		content_label.visible = true
+	if not id_always_visible and type != "head":
+		if not file_browser.visible:
+			content_label.visible = true
 		#$ID.visible = true
 	
 func _on_unhover():
 	hovered = false
-	if not id_always_visible:
+	if not id_always_visible and type != "head":
 		content_label.visible = false
-		$ID.visible = false
+		#$ID.visible = false
 
 func _input(event):
 	if hovered:
@@ -126,5 +129,6 @@ func _input(event):
 					var state = file_browser.visible
 					repository.close_all_file_browsers()
 					file_browser.visible = not state
+					content_label.visible = state
 		
 		start_pos = null
