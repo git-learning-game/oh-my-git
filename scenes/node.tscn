@@ -7,7 +7,6 @@
 [ext_resource path="res://nodes/pop.wav" type="AudioStream" id=5]
 [ext_resource path="res://scenes/drop_area.tscn" type="PackedScene" id=6]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 23.6295
 

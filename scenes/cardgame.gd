@@ -1,131 +1,10 @@
 extends Control
 
-var cards = [
-#	{
-#		"command": 'git add .',
-#		"arg_number": 0,
-#		"description": "Add all files in the working directory to the index.",
-#		"energy": 1
-#	},
-#
-#	{
-#		"command": 'touch "file$RANDOM"',
-#		"arg_number": 0,
-#		"description": "Create a new file.",
-#		"energy": 2
-#	},
-#	{
-#		"command": 'git checkout -b "$RANDOM"',
-#		"arg_number": 0,
-#		"description": "Create a new branch and switch to it.",
-#		"energy": 2
-#	},
-#	{
-#		"command": 'git merge',
-#		"arg_number": 1,
-#		"description": "Merge specified commit into HEAD.",
-#		"energy": 1
-#	},
-#	{
-#		"command": 'git commit --allow-empty -m "$RANDOM"',
-#		"arg_number": 0,
-#		"description": "Add a new commit under HEAD.",
-#		"energy": 1
-#	},
-	{
-		"command": 'git checkout',
-		"arg_number": 1,
-		"description": "Travel to a commit!",
-		#"description": "Point HEAD to a branch or commit, and update the index and the working directory.",
-		"energy": 1
-	},
-	{
-		"command": 'git add .; git commit',
-		"arg_number": 0,
-		"description": "Make a new commit!",
-		"energy": 1
-	},
-#	{
-#		"command": 'git branch new',
-#		"arg_number": 1,
-#		"description": "Create a new timeline.",
-#		"energy": 1
-#	},
-	{
-		"command": 'git merge',
-		"arg_number": 1,
-		"description": "Merge the specified timeline into yours.",
-		"energy": 1
-	},
-	{
-		"command": 'git rebase',
-		"arg_number": 1,
-		"description": "Put the events in your current timeline on top of the specified one.",
-		"energy": 1
-	},
-	{
-		"command": 'git pull',
-		"arg_number": 0,
-		"description": "Get timelines from a colleague.",
-		"energy": 1
-	},
-	{
-		"command": 'git push',
-		"arg_number": 0,
-		"description": "Give timelines to a colleague.",
-		"energy": 1
-	},
-	{
-		"command": 'git rebase -i',
-		"arg_number": 1,
-		"description": "Make changes to the events in your current timeline, back to the commit you drag this to.",
-		"energy": 1
-	},
-	{
-		"command": 'git reset --hard',
-		"arg_number": 1,
-		"description": "Reset current label to the specified commit.",
-		"energy": 1
-	},
-	{
-		"command": 'git cherry-pick',
-		"arg_number": 1,
-		"description": "Repeat the specified action on top of your current timeline.",
-		"energy": 1
-	},
-#	{
-#		"command": 'git update-ref -d',
-#		"arg_number": 1,
-#		"description": "Delete a ref.",
-#		"energy": 1
-#	},
-#	{
-#		"command": 'git reflog expire --expire=now --all; git prune',
-#		"arg_number": 0,
-#		"description": "Delete all unreferenced objects.",
-#		"energy": 1
-#	},
-#	{
-#		"command": 'git rebase',
-#		"arg_number": 1,
-#		"description": "Rebase current branch on top of specified commit.",
-#		"energy": 1
-#	},
-#	{
-#		"command": 'git push -f',
-#		"arg_number": 0,
-#		"description": "Push current branch to the remote, overwriting existing commits. Will make everyone angry.",
-#		"energy": 3
-#	},
-#	{
-#		"command": 'git pull',
-#		"arg_number": 0,
-#		"description": "Pull current branch from the remote.",
-#		"energy": 2
-#	},
-]
+var card_store = {}
+var cards
 
 func _ready():
+	load_card_store()
 	redraw_all_cards()
 	arrange_cards()
 	pass
@@ -133,6 +12,11 @@ func _ready():
 func _process(_delta):
 	if $Energy:
 		$Energy.text = str(game.energy)
+
+func load_card_store():
+	var cards_json = JSON.parse(helpers.read_file("res://resources/cards.json")).result
+	for card in cards_json:
+		card_store[card["id"]] = card
 	
 func draw_rand_card():
 	var deck = []
@@ -151,9 +35,9 @@ func draw_rand_card():
 func draw_card(card):
 	var new_card = preload("res://scenes/card.tscn").instance()
 	
-	new_card.command = card.command
-	new_card.arg_number = card.arg_number
-	new_card.description = card.description
+	new_card.command = card["command"]
+	new_card.arg_number = int(card["arg_number"])
+	new_card.description = card["description"]
 	new_card.energy = 0 #card.energy
 	new_card.position = Vector2(rect_size.x, rect_size.y*2)
 	add_child(new_card)
@@ -194,8 +78,8 @@ func redraw_all_cards():
 	for card in get_tree().get_nodes_in_group("cards"):
 		card.queue_free()
 
-	for card in cards:
-		draw_card(card)
+	for card in card_store:
+		draw_card(card_store[card])
 
 func add_card(command):
 	draw_card({"command": command, "description": "", "arg_number": 0, "energy": 0})
