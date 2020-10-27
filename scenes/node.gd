@@ -100,15 +100,16 @@ func children_set(new_children):
 
 func _on_hover():
 	hovered = true
-	if not id_always_visible:
-		content_label.visible = true
+	if not id_always_visible and type != "head":
+		if not file_browser.visible:
+			content_label.visible = true
 		#$ID.visible = true
 	
 func _on_unhover():
 	hovered = false
-	if not id_always_visible:
+	if not id_always_visible and type != "head":
 		content_label.visible = false
-		$ID.visible = false
+		#$ID.visible = false
 
 func _input(event):
 	if hovered:
@@ -125,9 +126,10 @@ func _input(event):
 			if start_pos:
 				var dist = get_viewport().get_mouse_position() - start_pos
 				print(dist.length())
-				if dist.length() < 3:
+				if dist.length() < 3: # <3
 					var state = file_browser.visible
 					repository.close_all_file_browsers()
 					file_browser.visible = not state
+					content_label.visible = state
 		
 		start_pos = null

@@ -15,18 +15,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Rows" type="VSplitContainer" parent="."]
+[node name="Rows" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RepoVis" type="Control" parent="Rows"]
 margin_right = 1920.0
-margin_bottom = 926.0
+margin_bottom = 1080.0
 mouse_filter = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -99,26 +97,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Browsers" type="VBoxContainer" parent="Rows"]
-margin_top = 938.0
-margin_right = 1920.0
-margin_bottom = 1080.0
+[node name="Browsers" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = -356.0
+margin_right = 635.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Index" parent="Rows/Browsers" instance=ExtResource( 4 )]
-visible = false
+[node name="Index" parent="Browsers" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1920.0
-margin_bottom = 142.0
+margin_right = 629.0
+margin_bottom = 173.0
 size_flags_vertical = 3
 title = "Index"
 mode = 2
 
-[node name="FileBrowser" parent="Rows/Browsers" instance=ExtResource( 4 )]
+[node name="FileBrowser" parent="Browsers" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1920.0
-margin_bottom = 142.0
+margin_top = 178.0
+margin_right = 629.0
+margin_bottom = 351.0
 size_flags_vertical = 3
 title = "Working directory"
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

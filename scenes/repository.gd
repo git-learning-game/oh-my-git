@@ -1,8 +1,8 @@
 extends Control
 
-onready var index = $Rows/Browsers/Index
+onready var index = $Browsers/Index
 onready var nodes = $Rows/RepoVis/Nodes
-onready var file_browser = $Rows/Browsers/FileBrowser
+onready var file_browser = $Browsers/FileBrowser
 onready var label_node = $Rows/RepoVis/Label
 onready var path_node = $Rows/RepoVis/Path
 onready var simplify_checkbox = $Rows/RepoVis/SimplifyCheckbox
