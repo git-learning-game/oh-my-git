@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/terminal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=6]
 
-
 [node name="Cardgame" type="Node2D"]
 script = ExtResource( 4 )
 

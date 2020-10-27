@@ -5,6 +5,7 @@ var dragged = false
 var drag_offset
 
 export var arg_number = 0
+export var id = "" setget set_id
 export var command = "" setget set_command
 export var description = "" setget set_description
 export var energy = 0 setget set_energy
@@ -79,6 +80,12 @@ func set_energy(new_energy):
 	energy = new_energy
 	if energy_label:
 		energy_label.text = str(energy)
+
+func set_id(new_id):
+	id = new_id
+	var texture = load("res://cards/%s.svg" % new_id)
+	if texture:
+		$Image.texture = texture
 	
 func move_back():
 	position = _home_position

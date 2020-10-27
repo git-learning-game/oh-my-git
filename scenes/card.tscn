@@ -7,7 +7,6 @@
 [ext_resource path="res://sounds/swoosh.wav" type="AudioStream" id=5]
 [ext_resource path="res://sounds/poof.wav" type="AudioStream" id=6]
 
-
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.45098, 0.584314, 0.843137, 1 )
 border_color = Color( 0.0627451, 0.141176, 0.176471, 1 )
@@ -66,9 +65,9 @@ shape = SubResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -89.0
-margin_top = -276.0
+margin_top = -279.0
 margin_right = 85.0
-margin_bottom = -185.0
+margin_bottom = -184.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Name"
@@ -79,7 +78,7 @@ __meta__ = {
 
 [node name="ColorRect2" type="Panel" parent="."]
 margin_left = -97.0
-margin_top = -169.0
+margin_top = -166.0
 margin_right = 94.0
 margin_bottom = -10.0
 mouse_filter = 2
@@ -90,9 +89,9 @@ __meta__ = {
 
 [node name="Description" type="Label" parent="."]
 margin_left = -92.0
-margin_top = -164.0
-margin_right = 133.0
-margin_bottom = 23.0
+margin_top = -160.0
+margin_right = 146.0
+margin_bottom = 31.0
 rect_scale = Vector2( 0.75, 0.75 )
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -132,5 +131,17 @@ volume_db = -6.848
 [node name="ReturnSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -6.848
+
+[node name="Image" type="TextureRect" parent="."]
+margin_left = -88.0
+margin_top = -243.735
+margin_right = 85.0
+margin_bottom = -178.735
+mouse_filter = 2
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_entered" from="Area2D" to="." method="_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_mouse_exited"]

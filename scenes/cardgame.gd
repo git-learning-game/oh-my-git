@@ -35,6 +35,7 @@ func draw_rand_card():
 func draw_card(card):
 	var new_card = preload("res://scenes/card.tscn").instance()
 	
+	new_card.id = card["id"]
 	new_card.command = card["command"]
 	new_card.arg_number = int(card["arg_number"])
 	new_card.description = card["description"]
