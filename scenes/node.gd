@@ -12,6 +12,7 @@ var children = {} setget children_set
 var id_always_visible = false
 var held = false
 var hovered = false
+var start_pos = null
 
 var arrow = preload("res://scenes/arrow.tscn")
 
@@ -107,12 +108,19 @@ func _on_unhover():
 func _input(event):
 	if hovered:
 		if event.is_action_pressed("click"):
+			start_pos = get_viewport().get_mouse_position()
 			held = true
-			if type == "commit":
-				file_browser.visible = not file_browser.visible
 		elif event.is_action_pressed("right_click"):
 			var input = get_tree().get_current_scene().find_node("Input")
 			input.text += id
 			input.caret_position = input.text.length()
 	if event.is_action_released("click"):
 		held = false
+		if type == "commit":
+			if start_pos:
+				var dist = get_viewport().get_mouse_position() - start_pos
+				print(dist.length())
+				if dist.length() < 3:
+					file_browser.visible = not file_browser.visible
+		
+		start_pos = null
