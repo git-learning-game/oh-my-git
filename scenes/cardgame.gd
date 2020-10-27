@@ -2,6 +2,7 @@ extends Control
 
 var card_store = {}
 var cards
+var card_radius = 1500
 
 func _ready():
 	load_card_store()
@@ -68,9 +69,9 @@ func arrange_cards():
 		
 	var current_angle = -total_angle/2
 	for card in get_tree().get_nodes_in_group("cards"):
-		var target_position = Vector2(rect_size.x/2, rect_size.y + 1500)
+		var target_position = Vector2(rect_size.x/2, rect_size.y + card_radius)
 		var target_rotation = current_angle
-		var translation_vec = Vector2(0,-1500).rotated(current_angle/180.0*PI)
+		var translation_vec = Vector2(0,-card_radius).rotated(current_angle/180.0*PI)
 		target_position += translation_vec
 		current_angle += angle_between_cards
 		card._home_position = target_position

@@ -36,5 +36,4 @@ func _process(_delta):
 	#$Line.points[1] -= $Line.points[1].normalized()*30
 	#$Tip.position = $Line.points[0]
 	#$Tip.rotation = PI+$Line.points[1].angle_to($Line.points[0])
-	print($Line.points[1].angle_to($Line.points[0]))
 	$Tip.rotation = PI-$Line.points[1].angle_to($Line.points[0])+0.25

@@ -118,7 +118,7 @@ func try_play(full_command):
 		var particles = preload("res://scenes/card_particles.tscn").instance()
 		particles.position = position
 		get_parent().add_child(particles)
-		$"../../..".terminal.send_command(full_command)
+		$"../../../..".terminal.send_command(full_command)
 		buuurn()
 		game.energy -= energy
 	else:
