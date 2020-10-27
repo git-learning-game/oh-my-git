@@ -1,4 +1,5 @@
 title = Parallelism
+cards = checkout commit-auto reset-hard
 
 [description]
 

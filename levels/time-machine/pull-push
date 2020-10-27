@@ -1,4 +1,5 @@
 title = Helping each other
+cards = checkout commit-auto reset-hard pull push
 
 [description]
 

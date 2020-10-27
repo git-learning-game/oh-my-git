@@ -5,6 +5,7 @@ var slug
 var title
 var description
 var congrats
+var cards
 var repos = {}
 
 # The path is an outer path.
@@ -20,6 +21,7 @@ func load(path):
 		title = config.get("title", slug)
 		description = config.get("description", "(no description)")
 		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
+		cards = Array(config.get("cards", "checkout commit-auto merge rebase rebase-interactive reset-hard cherry-pick").split(" "))
 		
 		var keys = config.keys()
 		var repo_setups = []

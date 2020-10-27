@@ -1,4 +1,5 @@
 title = Reordering events
+cards = checkout commit-auto reset-hard rebase-interactive cherry-pick
 
 [description]
 

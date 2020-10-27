@@ -1,4 +1,5 @@
 title = Rebasing
+cards = checkout commit-auto reset-hard rebase
 
 [description]
 

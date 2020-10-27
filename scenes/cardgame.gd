@@ -5,7 +5,7 @@ var cards
 
 func _ready():
 	load_card_store()
-	redraw_all_cards()
+	#redraw_all_cards()
 	arrange_cards()
 	pass
 
@@ -41,6 +41,15 @@ func draw_card(card):
 	new_card.energy = 0 #card.energy
 	new_card.position = Vector2(rect_size.x, rect_size.y*2)
 	add_child(new_card)
+	arrange_cards()
+	
+func draw(ids):
+	for card in get_tree().get_nodes_in_group("cards"):
+		card.queue_free()
+		
+	for id in ids:
+		draw_card(card_store[id])
+	
 	arrange_cards()
 	
 func arrange_cards():
@@ -80,6 +89,8 @@ func redraw_all_cards():
 
 	for card in card_store:
 		draw_card(card_store[card])
+	
+	arrange_cards()
 
 func add_card(command):
 	draw_card({"command": command, "description": "", "arg_number": 0, "energy": 0})
