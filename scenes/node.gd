@@ -18,8 +18,9 @@ var arrow = preload("res://scenes/arrow.tscn")
 func _ready():
 	content_set(content)
 	type_set(type)
-	$Pop.pitch_scale = rand_range(0.8, 1.2)
-	$Pop.play()
+	if not repository.simplified_view:
+		$Pop.pitch_scale = rand_range(0.8, 1.2)
+		$Pop.play()
 
 func _process(_delta):
 	if held:
