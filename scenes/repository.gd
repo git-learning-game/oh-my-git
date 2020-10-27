@@ -1,15 +1,12 @@
 extends Control
 
-onready var index = $Browsers/Index
 onready var nodes = $Rows/RepoVis/Nodes
-onready var file_browser = $Browsers/FileBrowser
 onready var label_node = $Rows/RepoVis/Label
 onready var path_node = $Rows/RepoVis/Path
 onready var simplify_checkbox = $Rows/RepoVis/SimplifyCheckbox
 
 export var label: String setget set_label
 export var path: String setget set_path, get_path
-export var file_browser_active = true setget set_file_browser_active
 export var simplified_view = false setget set_simplified_view
 export var editable_path = false setget set_editable_path
 
@@ -23,15 +20,12 @@ var mouse_inside = false
 var _commit_count = 0
 
 func _ready():
-	file_browser.shell = shell
 	
 	# Trigger these again because nodes were not ready before.
 	set_label(label)
-	set_file_browser_active(file_browser_active)
 	set_simplified_view(simplified_view)
 	set_editable_path(editable_path)
 	set_path(path)
-	index.repository = self
 	
 	update_everything()
 	update_node_positions()
@@ -51,17 +45,12 @@ func there_is_a_git():
 	return shell.run("test -d .git && echo yes || echo no") == "yes\n"
 	
 func update_everything():
-	if file_browser:
-		file_browser.update()
 	if there_is_a_git():
 		update_head()
 		update_refs()
-		update_index()
 		update_objects()
 		remove_gone_stuff()
 	else:
-		if index:
-			index.clear()
 		for o in objects:
 			objects[o].queue_free()
 		objects = {}	
@@ -85,9 +74,6 @@ func set_label(new_label):
 	label = new_label
 	if label_node:
 		label_node.text = new_label
-	
-func update_index():
-	index.update()
 
 func random_position():
 	return Vector2(rand_range(0, rect_size.x), rand_range(0, rect_size.y))
@@ -334,11 +320,6 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	mouse_inside = false
-	
-func set_file_browser_active(active):
-	file_browser_active = active
-	if file_browser:
-		file_browser.visible = active
 		
 func close_all_file_browsers():
 	var all = all_objects()

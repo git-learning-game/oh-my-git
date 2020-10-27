@@ -80,9 +80,7 @@ func load_level(level_id):
 		new_repo.label = repo.slug
 		new_repo.size_flags_horizontal = SIZE_EXPAND_FILL
 		new_repo.size_flags_vertical = SIZE_EXPAND_FILL
-		if new_repo.label != "yours":
-			new_repo.file_browser_active = false
-		else:
+		if new_repo.label == "yours":
 			file_browser.shell = new_repo.shell
 			file_browser.update()
 		repositories_node.add_child(new_repo)		

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/repository.gd" type="Script" id=1]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=2]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=3]
-[ext_resource path="res://scenes/file_browser.tscn" type="PackedScene" id=4]
 
 [node name="Repository" type="Control"]
 anchor_right = 1.0
@@ -96,42 +95,6 @@ margin_bottom = 61.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Browsers" type="VBoxContainer" parent="."]
-visible = false
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 6.0
-margin_top = -356.0
-margin_right = 635.0
-margin_bottom = -5.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Index" parent="Browsers" instance=ExtResource( 4 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 629.0
-margin_bottom = 173.0
-size_flags_vertical = 3
-title = "Index"
-mode = 2
-
-[node name="FileBrowser" parent="Browsers" instance=ExtResource( 4 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 629.0
-margin_bottom = 351.0
-size_flags_vertical = 3
-title = "Working directory"
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="Rows/RepoVis/Button" to="." method="update_everything"]
