@@ -326,5 +326,7 @@ func close_all_file_browsers():
 	
 	for o in objects.values():
 		if o.type == "commit":
+			o.file_browser.close()
 			o.file_browser.visible = false
+			
 

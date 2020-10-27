@@ -2,7 +2,7 @@
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=2]
-[ext_resource path="res://scenes/cardgame.gd" type="Script" id=3]
+[ext_resource path="res://scenes/cards.gd" type="Script" id=3]
 
 [node name="Cards" type="Control"]
 anchor_right = 1.0
@@ -14,6 +14,7 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -172.0
