@@ -96,7 +96,7 @@ func _on_hover():
 	hovered = true
 	if not id_always_visible:
 		content_label.visible = true
-		$ID.visible = true
+		#$ID.visible = true
 	
 func _on_unhover():
 	hovered = false
