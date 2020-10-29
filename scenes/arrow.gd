@@ -1,12 +1,13 @@
 extends Node2D
 
 var source: String
-var target: String
+var target: String setget set_target
+var color = Color("333333") setget set_color
 
 var repository: Control
 
 func _ready():
-	pass
+	set_color(color)
 
 func _process(_delta):
 	position = Vector2(0,0)
@@ -15,28 +16,35 @@ func _process(_delta):
 		return
 	
 	var start = repository.objects[source].position
-	var end = start + Vector2(0, 60)
+	var end = start
 	
-	if repository and repository.objects.has(target) and repository.objects[target].visible:
-		var t = repository.objects[target]
-		end = t.position
-		$Target.hide()
-		$Line.show()
-		$Tip.show()
-	else:
-		$Target.text = target
-		if $Target.text.substr(0, 5) != "refs/":
-			$Target.text = ""
-		$Target.show()
-		$Line.hide()
-		$Tip.hide()
+	var parent_position = get_parent().get_parent().position
 	
-	$Line.points[1] = end - repository.objects[source].position
-	# Move the tip away from the object a bit.
-	$Line.points[1] -= $Line.points[1].normalized()*30
-	$Tip.position = $Line.points[1]
-	$Tip.rotation = PI+$Line.points[0].angle_to($Line.points[1])
+	var show_arrow = repository.objects.has(target) and repository.objects[target].visible and repository.objects[source].visible and repository.objects[source].type != "head"
 
-	if repository.objects[source].type == "head":
-		$Tip.hide()
-		$Line.hide()
+	if show_arrow:
+		end = repository.objects[target].position
+		$Target.hide()
+		
+	$Line.visible = show_arrow
+	$Tip.visible = show_arrow
+	
+	if $Target.text.substr(0, 5) != "refs/":
+		$Target.text = ""
+
+	$Line.points[0] = start - parent_position
+	$Line.points[1] = end - parent_position
+
+	#$Line.points[0] += ($Line.points[1] - $Line.points[0]).normalized()*30
+	$Line.points[1] -= ($Line.points[1] - $Line.points[0]).normalized()*30
+	$Tip.position = $Line.points[1]
+	$Tip.rotation = PI + atan2($Line.points[0].y - $Line.points[1].y, $Line.points[0].x - $Line.points[1].x)
+
+func set_color(new_color):
+	color = new_color
+	$Line.default_color = new_color
+	$Tip/Polygon.color = new_color
+
+func set_target(new_target):
+	target = new_target
+	$Target.text = new_target
