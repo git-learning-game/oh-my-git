@@ -1,0 +1,25 @@
+title = Sandbox
+
+[description]
+
+That's all for now! Here's a sandbox you can play around in.
+
+Did you see the black terminal at the very bottom? All cards you play translate into actual commands, and there'a a real Git repo behind this! Fun things to try:
+
+- Make a commit that merges three timelines together at once!
+- Create some tags!
+- Make a timeline that's completely independent of the rest!
+
+[setup]
+
+echo "You wake up." > you
+git add .
+git commit -m "The beginning"
+
+echo "You drink coffee." >> you
+git commit -am "First things first"
+
+echo "You hear a knock on the door." >> you
+git commit -am "Who's there?"
+
+git branch not_main

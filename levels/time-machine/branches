@@ -1,5 +1,5 @@
 title = Branching out
-cards = checkout commit-auto reset-hard merge
+cards = checkout commit-auto merge reset-hard
 
 [description]
 
@@ -78,7 +78,7 @@ git checkout --detach main
 
 [win]
 
-{ git show main:you | grep "You ate a baguette"; } && { git show main:you | grep "You drank coffee"; } && { git show main:you | grep "You ate a donut"; }
+{ git show main:you | grep "You ate.*baguette"; } && { git show main:you | grep "You drank.*coffee"; } && { git show main:you | grep "You ate.*donut"; }
 
 [congrats]
 

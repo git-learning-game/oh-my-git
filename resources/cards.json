@@ -21,7 +21,7 @@
 		"id": "merge",
 		"command": "git merge",
 		"arg_number": 1,
-		"description": "Merge the specified timeline into yours."
+		"description": "Merge the specified timeline into yours. If necessary, will create a merge commit."
 	},
 	{
 		"id": "rebase",

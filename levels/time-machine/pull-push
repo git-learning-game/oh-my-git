@@ -7,23 +7,23 @@ The events and timelines you see are always only what your own time machine know
 
 Of course, time agents don't have to work alone! Here, your sidekick has already prepared a merge for you! You can use the "pull" card to transfer it to your own time machine.
 
-Then, add another event on top, and "push" the result, to transfer it back to your sidekick!
+Then, add another event on top (what does Sam have for dinner?), and `push` the result, to transfer it back to your sidekick!
 
-You can only ever manipulate things in your own time machine (the one on the right).
+You can only ever manipulate things in your own time machine (the one on the bottom).
 
 [setup yours]
 
-echo "Just woke up. Is hungry." > tom
+echo "Just woke up. Is hungry." > sam
 git add .
 git commit -m "The beginning"
 
 git checkout -b pancakes
-echo "Had blueberry pancakes with maple syrup for breakfast." > tom
+echo "Had blueberry pancakes with maple syrup for breakfast." > sam
 git add .
 git commit -m "Pancakes!"
 
 git checkout -b muesli main
-echo "Had muesli with oats and strawberries for breakfast." > tom
+echo "Had muesli with oats and strawberries for breakfast." > sam
 git add .
 git commit -m "Muesli!"
 
@@ -37,7 +37,7 @@ git checkout main
 git merge pancakes
 git merge muesli
 
-echo "Had pancakes with strawberries for breakfast." > tom
+echo "Had pancakes with strawberries for breakfast." > sam
 git add .
 git commit -m "Let's make this breakfast compromise" --author="Sidekick <sidekick@example.com>"
 

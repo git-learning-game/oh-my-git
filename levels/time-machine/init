@@ -5,7 +5,7 @@ cards = init
 
 Welcome, time agent! Good to see you - we could really use your help with fixing some temporal paradoxes!
 
-Ready to initialize your time machine? Drag the `git init` card into the empty space!
+Ready to initialize your time machine? Drag the `git init` card into the empty space above it!
 
 [setup]
 
@@ -17,8 +17,8 @@ test -d .git
 
 [congrats]
 
-Oh hey, that's you! :) Wonderful!
+Oh hey, that's you! :)
 
-Now, let's make sure that your time machine works correctly...
+The time machine can help you fix problems in the past! It allows you to collaborate with other time agents! It's really powerful, and it's really popular!
 
-Click on "Next level", as soon as you're ready!
+Let's get familiar with it! Click on "Next level", as soon as you're ready!

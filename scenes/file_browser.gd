@@ -46,10 +46,12 @@ func update():
 					# The last entry is an empty string, remove it.
 					files.pop_back()
 					files.sort_custom(self, "very_best_sort")
+					visible = false
 					for file_path in files:
 						file_path = file_path.substr(2)
 						if file_path.substr(0, 5) == ".git/":
 							continue
+						visible = true
 						var item = preload("res://scenes/file_browser_item.tscn").instance()
 						item.label = file_path
 						item.connect("clicked", self, "item_clicked")

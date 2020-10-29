@@ -5,7 +5,7 @@ cards = checkout commit-auto
 
 Did you know that creating parallel timelines is perfectly legal and safe? It's true!
 
-Can you find out when things went wrong in this zoo, and create commits that tell a better story?
+Can you find out when things went wrong in this zoo, and create a parallel universe where everyone is happy?
 
 [setup]
 
@@ -22,7 +22,7 @@ git commit -am "The child buys something"
 
 mv child cage
 git add .
-git commit -m "The child is curious"
+git commit -m "The child climbs somewhere"
 
 git rm cage/child
 echo "Looks happy. :)" > cage/lion

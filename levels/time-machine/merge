@@ -1,5 +1,5 @@
 title = Merging timelines
-cards = checkout commit-auto reset-hard merge
+cards = checkout commit-auto merge
 
 [description]
 
@@ -77,15 +77,15 @@ You do not have coffee.
 
 You ate a donut." > you
 git add .
-git commit -m "You eat a donut"
+git commit -m "You eat the donut"
 
 git checkout HEAD~2
 git branch -D main
 
 [win]
 
-{ git show HEAD:you | grep "You ate a baguette"; } && { git show HEAD:you | grep "You drank coffee"; } && { git show HEAD:you | grep "You ate a donut"; }
+{ git show HEAD:you | grep "You ate.*baguette"; } && { git show HEAD:you | grep "You drank.*coffee"; } && { git show HEAD:you | grep "You ate.*donut"; }
 
 [congrats]
 
-I wonder if you're more relaxed when you try to *sleep* in parallel timelines...
+I wonder if you're more relaxed when you *sleep* in parallel timelines...
