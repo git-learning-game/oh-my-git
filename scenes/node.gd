@@ -46,14 +46,14 @@ func apply_forces():
 	var offset = Vector2(-80, 0)
 	
 	for c in children.keys():
-		if type == "ref" or type == "head":
-			offset = Vector2(0, 80)
+#		if type == "ref" or type == "head":
+#			offset = Vector2(0, 80)
 		if repository.objects.has(c):
 			var other = repository.objects[c]
 			if other.visible:
 				var d = other.position.distance_to(position+offset)
 				var dir = (other.position - (position+offset)).normalized()
-				var f = (d*0.12)
+				var f = (d*0.06)
 				position += dir*f
 				other.position -= dir*f
 	

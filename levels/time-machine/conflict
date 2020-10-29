@@ -13,26 +13,26 @@ Again, let your finalized timeline be the "main" one.
 
 [setup]
 
-echo "Just woke up. Is hungry." > tom
+echo "Just woke up. Is hungry." > sam
 git add .
 git commit -m "The beginning"
 
 git checkout -b pancakes
-echo "Had blueberry pancakes with maple syrup for breakfast." > tom
+echo "Had blueberry pancakes with maple syrup for breakfast." > sam
 git add .
 git commit -m "Pancakes!"
 
 echo "
-Is at work." >> tom
+Is at work." >> sam
 git commit -am "Go to work"
 
 git checkout -b muesli main
-echo "Had muesli with oats and strawberries for breakfast." > tom
+echo "Had muesli with oats and strawberries for breakfast." > sam
 git add .
 git commit -m "Muesli!"
 
 echo "
-Is at work." >> tom
+Is at work." >> sam
 git commit -am "Go to work"
 
 git checkout main

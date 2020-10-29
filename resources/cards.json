@@ -1,15 +1,21 @@
 [
 	{
+		"id": "init",
+		"command": "git init",
+		"arg_number": 0,
+		"description": "Initialize the time machine!"
+	},
+	{
 		"id": "checkout",
 		"command": "git checkout",
 		"arg_number": 1,
-		"description": "Travel to a commit!"
+		"description": "Drag this card to a commit or to a branch to travel to it!"
 	},
 	{
 		"id": "commit-auto",
 		"command": "git add .; git commit",
 		"arg_number": 0,
-		"description": "Make a new commit!"
+		"description": "Make a new commit containing your current environment!\nDrag this card anywhere. You'll be asked to enter a short description of what you changed."
 	},
 	{
 		"id": "merge",
@@ -45,7 +51,7 @@
 		"id": "reset-hard",
 		"command": "git reset --hard",
 		"arg_number": 1,
-		"description": "Reset current label to the specified commit."
+		"description": "Move the branch you're on to the specified commit."
 	},
 	{
 		"id": "cherry-pick",

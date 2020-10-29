@@ -114,11 +114,13 @@ func dropped_on(other):
 
 func try_play(full_command):
 	if game.energy >= energy:
+		var terminal = $"../../../..".terminal
+		terminal.send_command(full_command)
+		#yield(terminal, "command_done")
 		$PlaySound.play()
 		var particles = preload("res://scenes/card_particles.tscn").instance()
 		particles.position = position
 		get_parent().add_child(particles)
-		$"../../../..".terminal.send_command(full_command)
 		buuurn()
 		game.energy -= energy
 	else:

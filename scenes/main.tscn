@@ -129,13 +129,13 @@ __meta__ = {
 
 [node name="NextLevelButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
 margin_left = 406.0
-margin_right = 516.0
+margin_right = 511.0
 margin_bottom = 35.0
 focus_mode = 0
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = ExtResource( 4 )
 enabled_focus_mode = 0
-text = "Next Level"
+text = "Next level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -193,7 +193,7 @@ margin_right = 633.0
 margin_bottom = 782.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
-title = "Working directory"
+title = "Current environment"
 
 [node name="Controls" type="HBoxContainer" parent="Rows"]
 margin_top = 790.0

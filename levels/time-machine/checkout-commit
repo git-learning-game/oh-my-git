@@ -1,15 +1,13 @@
-title = Welcome!
-cards = checkout commit-auto reset-hard
+title = Moving through time
+cards = checkout commit-auto
 
 [description]
 
-Welcome, time agent! Good to see you - we could really use your help with fixing some temporal paradoxes!
+The yellow boxes are frozen points in time, we call them "commits"! You can travel between them using the "checkout" card! (Try it!)
 
-Each yellow box is a frozen point in time, we call them "commits"! You can travel to one by dragging the "checkout" card to it, and you can go back to the present by dragging it on the blue "main" tag! (Try it!)
+The grey panel below shows your current environment - click on an object to inspect or modify it! You can also click on commits to look at their contents.
 
-The grey panel shows your current environment - click on an object to inspect or modify it!
-
-Can you find out what happened here? Then, come back to the present, fix the problem, and make a new commit, using the "commit" card!
+Can you find out what happened here? Then, come back to the latest commit, and fix the problem, using the "commit" card!
 
 [setup]
 
@@ -34,9 +32,12 @@ mv room2/little_sister room1
 git add .
 git commit -m "Little sister walks back"
 
+git checkout --detach
+git branch -d main
+
 [win]
 
-{ git show refs/heads/main:room2/piggy_bank | grep "10 coins"; } && { git show refs/heads/main:room1/little_sister | grep -v "10 coins"; }
+{ git show HEAD:room2/piggy_bank | grep "10 coins"; } && { git show HEAD:room1/little_sister | grep -v "10 coins"; } && { git rev-parse HEAD^; }
 
 [congrats]
 

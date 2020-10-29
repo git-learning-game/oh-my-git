@@ -20,7 +20,7 @@ func load(path):
 		
 		title = config.get("title", slug)
 		description = config.get("description", "(no description)")
-		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
+		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
 		cards = Array(config.get("cards", "checkout commit-auto merge rebase rebase-interactive reset-hard cherry-pick").split(" "))
 		
 		var keys = config.keys()
@@ -53,7 +53,7 @@ func load(path):
 	elif dir.file_exists(path+"/description"):
 		# This is an old-style level.
 		description = helpers.read_file(path+"/description", "(no description)")
-		congrats = helpers.read_file(path+"/congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next Level'.")
+		congrats = helpers.read_file(path+"/congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
 		
 		var yours = LevelRepo.new()
 		yours.setup_commands = helpers.read_file(path+"/start", "")

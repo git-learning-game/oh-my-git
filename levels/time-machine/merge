@@ -5,22 +5,20 @@ cards = checkout commit-auto reset-hard merge
 
 Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!
 
-Here, you see three parallel timelines - can you build a reality in the "main" timeline where you have a baguette, a coffee, *and* a donut?
+Here, you see three parallel timelines - can you build a situation where you consumed a baguette, a coffee, *and* a donut?
 
 The "merge" card will help you - try it!
 
 [setup]
 
-mkdir bakery coffee_shop donut_shop
-
 echo "A friendly old lady.
-Sells delicious baguettes for 5 coins each." > bakery/mary
+Sells delicious baguettes." > mary
 
 echo "A rebellious teenager.
-Sells good coffee for 2 coins each." > coffee_shop/larry
+Sells good coffee." > larry
 
 echo "A snail. Literally a snail.
-Sells donuts with an unspecified, slimy filling - for 3 coins each." > donut_shop/gary
+Sells donuts with an unspecified, slimy filling." > gary
 
 echo "You do not have a baguette.
 
@@ -31,50 +29,62 @@ You do not have a donut." > you
 git add .
 git commit -m "The Beginning"
 
-git checkout -b baguette
 echo "You have a baguette.
 
 You do not have coffee.
 
 You do not have a donut." > you
-git mv you bakery
 git add .
-git commit -m "You get a baguette"
-git mv bakery/you .
-git add .
-git commit -m "You leave the bakery"
+git commit -m "You buy a baguette"
 
-git checkout -b coffee main
+echo "You ate a baguette.
+
+You do not have coffee.
+
+You do not have a donut." > you
+git add .
+git commit -m "You eat the baguette"
+
+git checkout HEAD~2
 echo "You do not have a baguette.
 
 You have coffee.
 
 You do not have a donut." > you
-git mv you coffee_shop
 git add .
-git commit -m "You get some coffee"
-git mv coffee_shop/you .
-git add .
-git commit -m "You leave the coffee_shop"
+git commit -m "You buy some coffee"
 
-git checkout -b donut main
+echo "You do not have a baguette.
+
+You drank coffee.
+
+You do not have a donut." > you
+git add .
+git commit -m "You drink the coffee"
+
+git checkout HEAD~2
 echo "You do not have a baguette.
 
 You do not have coffee.
 
 You have a donut." > you
-git mv you donut_shop
 git add .
-git commit -m "You get a donut"
-git mv donut_shop/you .
-git add .
-git commit -m "You leave the donut shop"
+git commit -m "You buy a donut"
 
-git checkout main
+echo "You do not have a baguette.
+
+You do not have coffee.
+
+You ate a donut." > you
+git add .
+git commit -m "You eat a donut"
+
+git checkout HEAD~2
+git branch -D main
 
 [win]
 
-{ git show main:you | grep "You have a baguette"; } && { git show main:you | grep "You have coffee"; } && { git show main:you | grep "You have a donut"; }
+{ git show HEAD:you | grep "You ate a baguette"; } && { git show HEAD:you | grep "You drank coffee"; } && { git show HEAD:you | grep "You ate a donut"; }
 
 [congrats]
 

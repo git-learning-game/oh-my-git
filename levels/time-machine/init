@@ -1,0 +1,22 @@
+title = Welcome!
+cards = init
+
+[description]
+
+Welcome, time agent! Good to see you - we could really use your help with fixing some temporal paradoxes!
+
+Ready to initialize your time machine? Drag the `git init` card into the empty space!
+
+[setup]
+
+rm -rf .git
+
+[win]
+
+test -d .git
+
+[congrats]
+
+Wonderful! Now, let's make sure that your time machine works correctly...
+
+Click on "Next level", as soon as you're ready!

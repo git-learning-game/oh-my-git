@@ -1,51 +1,85 @@
-title = Parallelism
-cards = checkout commit-auto reset-hard
+title = Branching out
+cards = checkout commit-auto reset-hard merge
 
 [description]
 
-In this zoo, we found a some parallel timelines. What's going on here? The ends of the timelines have little tags attached.
+You can use these little blue labels to give names to different timelines! This makes it easier to remember what happened where.
 
-Especially the `bad_ending` one needs our attention! Can you travel to the `good_ending` timeline, and make a new commit where everyone involved is happy?
+One of your colleagues messed up here - can you help reordering the branches correctly using the "reset" card?
 
-[congrats]
+When you do commits or merges while you're on a branch, the branch will grow with you. Try that while you eat that donut.
 
-Whew, good job! This seems like a *much* better outcome.
-
-But our next mission is already waiting...
+Finally, merge all timelines together, in a way so that the "main" branch points to the result. That's base reality!
 
 [setup]
 
-git checkout -b bad_ending
+echo "A friendly old lady.
+Sells delicious baguettes." > mary
 
-mkdir cage
-mkdir toy_shop
-echo "Looks very hungry." > cage/lion
+echo "A rebellious teenager.
+Sells good coffee." > larry
 
-echo "A small child.
-It really loves cats!
-It's holding a lollipop." > child
+echo "A snail. Literally a snail.
+Sells donuts with an unspecified, slimy filling." > gary
+
+echo "You do not have a baguette.
+
+You do not have coffee.
+
+You do not have a donut." > you
+
 git add .
-git commit -m "The beginning"
+git commit -m "The Beginning"
 
-mv child cage
+git checkout -b coffee
+echo "You have a baguette.
+
+You do not have coffee.
+
+You do not have a donut." > you
 git add .
-git commit -m "The child is curious"
-git branch good_ending
+git commit -m "You buy a baguette"
 
-git rm cage/child
-echo "Looks happy. :)" > cage/lion
+echo "You ate a baguette.
+
+You do not have coffee.
+
+You do not have a donut." > you
 git add .
-git commit -m "Oh no"
+git commit -m "You eat the baguette"
 
-git checkout HEAD~2
-git checkout -b boring_ending
-mv child toy_shop
+git checkout -b baguette main
+echo "You do not have a baguette.
+
+You have coffee.
+
+You do not have a donut." > you
 git add .
-git commit -m "The child is distracted"
+git commit -m "You buy some coffee"
 
-git checkout bad_ending
+echo "You do not have a baguette.
+
+You drank coffee.
+
+You do not have a donut." > you
+git add .
+git commit -m "You drink the coffee"
+
+git checkout -b donut main
+echo "You do not have a baguette.
+
+You do not have coffee.
+
+You have a donut." > you
+git add .
+git commit -m "You buy a donut"
+
+git checkout --detach main
 
 [win]
 
-# Is the child still there, and do we have a commit that's not in bad_ending?
-{ git ls-tree --name-only -r good_ending | grep child; } && { test "$(git log good_ending ^bad_ending --oneline | wc -l)" -gt 0; }
+{ git show main:you | grep "You ate a baguette"; } && { git show main:you | grep "You drank coffee"; } && { git show main:you | grep "You ate a donut"; }
+
+[congrats]
+
+Nice! It's often convenient to stay on branches most of the time!
