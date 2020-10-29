@@ -122,7 +122,7 @@ func _on_unhover():
 
 func _input(event):
 	if hovered:
-		if event.is_action_pressed("click"):
+		if event.is_action_pressed("click") and type != "head":
 			start_pos = get_viewport().get_mouse_position()
 			held = true
 		elif event.is_action_pressed("right_click"):
