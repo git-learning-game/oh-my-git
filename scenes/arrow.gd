@@ -29,7 +29,7 @@ func _process(_delta):
 	$Line.visible = show_arrow
 	$Tip.visible = show_arrow
 	
-	if $Target.text.substr(0, 5) != "refs/":
+	if $Target.text.substr(0, 5) != "refs/" or repository.objects.has(target):
 		$Target.text = ""
 
 	$Line.points[0] = start - parent_position
