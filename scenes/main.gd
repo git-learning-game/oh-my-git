@@ -99,6 +99,9 @@ func load_level(level_id):
 	yield(t, "timeout")
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 	# FIXME: Need to clean these up when switching levels somehow.
+	
+	chapter_select.select(current_chapter)
+	level_select.select(current_level)
 
 func reload_level():
 	levels.reload()
@@ -119,7 +122,7 @@ func repopulate_levels():
 	levels.reload()
 	level_select.clear()
 	for level in levels.chapters[current_chapter].levels:
-		level_select.add_item(level.slug)
+		level_select.add_item(level.title)
 	level_select.select(current_level)
 
 func repopulate_chapters():

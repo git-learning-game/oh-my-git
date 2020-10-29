@@ -73,6 +73,7 @@ func type_set(new_type):
 		file_browser.title = "Commit"
 	if type != "ref":
 		$ID.text = $ID.text.substr(0,8)
+	z_index = -1
 	match new_type:
 		"blob":
 			$Sprite.texture = preload("res://nodes/blob.svg")
@@ -88,7 +89,7 @@ func type_set(new_type):
 		"head":
 			$Sprite.texture = preload("res://nodes/head.svg")
 			id_always_visible = false
-			z_index = 1
+			z_index = 0
 	if id_always_visible:
 		$ID.show()
 
