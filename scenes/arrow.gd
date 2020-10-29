@@ -15,8 +15,8 @@ func _process(_delta):
 		return
 	
 	if repository.objects[source].type == "head":
-		hide()
-		set_process(false)
+		$Tip.hide()
+		$Line.hide()
 	
 	var start = repository.objects[source].position
 	var end = start + Vector2(0, 60)
