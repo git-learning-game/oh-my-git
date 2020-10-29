@@ -164,7 +164,9 @@ func update_refs():
 	
 func apply_forces():
 	for o in objects.values():
-		if not o.visible or o.type == "head":
+		if not o.visible:
+			continue
+		if o.type == "head" and o.children.size() > 0 and  objects.has(o.children.keys()[0]):
 			continue
 		for o2 in objects.values():
 			if o == o2 or not o2.visible or o2.type == "head":

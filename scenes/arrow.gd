@@ -14,10 +14,6 @@ func _process(_delta):
 	if not (repository and repository.objects.has(source)):
 		return
 	
-	if repository.objects[source].type == "head":
-		$Tip.hide()
-		$Line.hide()
-	
 	var start = repository.objects[source].position
 	var end = start + Vector2(0, 60)
 	
@@ -40,3 +36,7 @@ func _process(_delta):
 	$Line.points[1] -= $Line.points[1].normalized()*30
 	$Tip.position = $Line.points[1]
 	$Tip.rotation = PI+$Line.points[0].angle_to($Line.points[1])
+
+	if repository.objects[source].type == "head":
+		$Tip.hide()
+		$Line.hide()
