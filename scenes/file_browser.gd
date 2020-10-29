@@ -108,6 +108,7 @@ func _set_commit(new_commit):
 	
 func _set_mode(new_mode):
 	mode = new_mode
+	
 	if save_button:
 		save_button.visible = mode == FileBrowserMode.WORKING_DIRECTORY
 		text_edit.readonly = not mode == FileBrowserMode.WORKING_DIRECTORY

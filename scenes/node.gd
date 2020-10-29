@@ -69,7 +69,7 @@ func type_set(new_type):
 	type = new_type
 	if type == "commit" and file_browser:
 		file_browser.commit = self
-		file_browser.title = "Commit"
+		file_browser.title = "Commit " + id
 	if type != "ref":
 		$ID.text = $ID.text.substr(0,8)
 	z_index = -1
