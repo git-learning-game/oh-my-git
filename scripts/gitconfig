@@ -1,0 +1,12 @@
+[user]
+	email = you@time.agency
+	name = You
+[core]
+	editor = ~/fake-editor
+[init]
+	templateDir = ""
+	defaultBranch = main
+[log]
+	decorate = true
+[advice]
+	detachedHead = false

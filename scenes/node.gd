@@ -100,7 +100,6 @@ func children_set(new_children):
 		if not children.has(c):
 			var a = arrow.instance()
 			if type == "commit":
-				#a = time_arrow.instance()
 				a.source = c
 				a.target = id
 				a.color = Color("c2bf26")

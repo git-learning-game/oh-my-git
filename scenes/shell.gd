@@ -24,13 +24,7 @@ func run(command, crash_on_fail=true):
 		print("$ %s" % command)
 	
 	var env = {}
-	if game.fake_editor:
-		env["GIT_EDITOR"] = game.fake_editor.replace(" ", "\\ ")
-	env["GIT_AUTHOR_NAME"] = "You"
-	env["GIT_COMMITTER_NAME"] = "You"
-	env["GIT_AUTHOR_EMAIL"] = "you@example.com"
-	env["GIT_COMMITTER_EMAIL"] = "you@example.com"
-	env["GIT_TEMPLATE_DIR"] = ""
+	env["HOME"] = game.tmp_prefix
 	
 	var hacky_command = ""
 	for variable in env:

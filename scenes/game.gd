@@ -13,6 +13,8 @@ var state = {}
 func _ready():
 	global_shell = Shell.new()
 	
+	create_file_in_game_env(".gitconfig", helpers.read_file("res://scripts/gitconfig"))
+	
 	create_file_in_game_env("fake-editor", helpers.read_file("res://scripts/fake-editor"))
 	fake_editor = tmp_prefix + "fake-editor"
 	global_shell.run("chmod u+x '%s'" % fake_editor)
