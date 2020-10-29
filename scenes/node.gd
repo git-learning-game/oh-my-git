@@ -19,7 +19,7 @@ var arrow = preload("res://scenes/arrow.tscn")
 func _ready():
 	content_set(content)
 	type_set(type)
-	if not repository.simplified_view:
+	if not repository.simplified_view or (type != "tree" and type != "blob"):
 		$Pop.pitch_scale = rand_range(0.8, 1.2)
 		$Pop.play()
 
