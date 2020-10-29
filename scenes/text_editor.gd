@@ -40,8 +40,8 @@ func save():
 		
 		_client_connection.put_string(text)
 		
-		close()
 		emit_signal("saved")
+		close()
 
 func close():
 	if _client_connection and _client_connection.is_connected_to_host():
