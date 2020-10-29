@@ -66,6 +66,8 @@ func arrange_cards():
 	var angle_between_cards = 0
 	if amount_cards > 1:
 		angle_between_cards = total_angle / (amount_cards-1)
+	else:
+		total_angle = 0
 		
 	var current_angle = -total_angle/2
 	for card in get_tree().get_nodes_in_group("cards"):
