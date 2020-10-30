@@ -6,13 +6,11 @@ var type setget type_set
 var repository: Control
 
 onready var content_label = $Content/ContentLabel
-onready var file_browser = $OnTop/FileBrowser
 
 var children = {} setget children_set
 var id_always_visible = false
 var held = false
 var hovered = false
-var start_pos = null
 
 var arrow = preload("res://scenes/arrow.tscn")
 
@@ -67,9 +65,6 @@ func content_set(new_content):
 
 func type_set(new_type):
 	type = new_type
-	if type == "commit" and file_browser:
-		file_browser.commit = self
-		file_browser.title = "Commit " + id
 	if type != "ref":
 		$ID.text = $ID.text.substr(0,8)
 	z_index = -1
@@ -113,8 +108,7 @@ func children_set(new_children):
 func _on_hover():
 	hovered = true
 	if not id_always_visible and type != "head":
-		if not file_browser.visible:
-			content_label.visible = true
+		content_label.visible = true
 		#$ID.visible = true
 	
 func _on_unhover():
@@ -126,7 +120,6 @@ func _on_unhover():
 func _input(event):
 	if hovered:
 		if event.is_action_pressed("click") and type != "head":
-			start_pos = get_viewport().get_mouse_position()
 			held = true
 		elif event.is_action_pressed("right_click"):
 			var input = get_tree().get_current_scene().find_node("Input")
@@ -134,13 +127,3 @@ func _input(event):
 			input.caret_position = input.text.length()
 	if event.is_action_released("click"):
 		held = false
-		if type == "commit":
-			if start_pos:
-				var dist = get_viewport().get_mouse_position() - start_pos
-				if dist.length() < 3:
-					var state = file_browser.visible
-					repository.close_all_file_browsers()
-					file_browser.visible = not state
-					content_label.visible = state
-		
-		start_pos = null

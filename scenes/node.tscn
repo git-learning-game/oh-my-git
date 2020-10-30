@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/node.gd" type="Script" id=2]
 [ext_resource path="res://nodes/blob.svg" type="Texture" id=3]
-[ext_resource path="res://scenes/file_browser.tscn" type="PackedScene" id=4]
 [ext_resource path="res://nodes/pop.wav" type="AudioStream" id=5]
 [ext_resource path="res://scenes/drop_area.tscn" type="PackedScene" id=6]
 
@@ -81,20 +80,6 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="OnTop" type="Node2D" parent="."]
-z_index = 2
-
-[node name="FileBrowser" parent="OnTop" instance=ExtResource( 4 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -23.0
-margin_top = 31.0
-margin_right = 574.0
-margin_bottom = 231.0
-mouse_filter = 1
-mode = 1
 [connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]
 [connection signal="mouse_exited" from="Rect" to="." method="_on_unhover"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_hover"]
