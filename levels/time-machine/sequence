@@ -6,3 +6,5 @@ branches
 conflict
 pull-push
 rebase
+reorder
+bisect

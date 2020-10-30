@@ -58,5 +58,23 @@
 		"command": "git cherry-pick",
 		"arg_number": 1,
 		"description": "Repeat the specified action on top of your current timeline."
+	},
+	{
+		"id": "bisect-start",
+		"command": "git bisect start",
+		"arg_number": 0,
+		"description": "Start looking for the commit where things got bad."
+	},
+	{
+		"id": "bisect-good",
+		"command": "git bisect good",
+		"arg_number": 0,
+		"description": "State that the current commit is good! When you're automatically transferred, keep playing the `good` and `bad` cards!"
+	},
+	{
+		"id": "bisect-bad",
+		"command": "git bisect bad",
+		"arg_number": 0,
+		"description": "State that the current commit is bad! When you're automatically transferred, keep playing the `good` and `bad` cards!"
 	}
 ]
