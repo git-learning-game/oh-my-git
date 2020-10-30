@@ -83,6 +83,7 @@ func construct():
 		game.global_shell.run("mkdir '%s'" % repo.path)
 		game.global_shell.cd(repo.path)
 		game.global_shell.run("git init")
+		game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
 		
 		# Add other repos as remotes.
 		for r2 in repos:
