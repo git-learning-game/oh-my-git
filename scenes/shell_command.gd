@@ -7,3 +7,4 @@ var command
 var output
 var exit_code
 var crash_on_fail = true
+var thread

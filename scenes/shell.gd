@@ -31,12 +31,13 @@ func run_async(command, crash_on_fail=true):
 	shell_command.command = command
 	shell_command.crash_on_fail = crash_on_fail
 	
-	var _thread = Thread.new()
-	_thread.start(self, "run_async_thread", shell_command)
+	var t = Thread.new()
+	shell_command.thread = t
+	t.start(self, "run_async_thread", shell_command)
 	
 	return shell_command
 	
-func run_async_thread(shell_command):	
+func run_async_thread(shell_command):
 	var debug = false
 	
 	var command = shell_command.command
@@ -88,7 +89,7 @@ func run_async_thread(shell_command):
 	
 	shell_command.output = result["output"]
 	shell_command.exit_code = result["exit_code"]
-	shell_command.emit_signal("done")	
+	shell_command.emit_signal("done")
 	
 func _shell_binary():
 	if _os == "X11" or _os == "OSX":
