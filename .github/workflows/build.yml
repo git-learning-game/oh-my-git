@@ -22,16 +22,35 @@ jobs:
         run: |
           mkdir -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/$GODOT_VERSION.stable ~/.local/share/godot/templates/$GODOT_VERSION.stable
-      - name: Linux Build
+      - name: Build Linux
         run: make linux
-      - name: MacOS Build
+      - name: Build macOS
         run: make macos
+      - name: Build Windows
+        run: make windows
       - name: Clean up
         run: make clean-unzipped
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build
-          CLEAN: true
+      - name: Deploy Linux
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.2
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: linux
+          ITCH_GAME: ${{ env.PROJECT_NAME }}
+          ITCH_USER: blinry
+          PACKAGE: build/${{ env.PROJECT_NAME }}-linux.zip
+      - name: Deploy macOS
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.2
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: osx
+          ITCH_GAME: ${{ env.PROJECT_NAME }}
+          ITCH_USER: blinry
+          PACKAGE: build/${{ env.PROJECT_NAME }}-macos.zip
+      - name: Deploy Windows
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.2
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: windows
+          ITCH_GAME: ${{ env.PROJECT_NAME }}
+          ITCH_USER: blinry
+          PACKAGE: build/${{ env.PROJECT_NAME }}-windows.zip
