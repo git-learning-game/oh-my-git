@@ -6,12 +6,7 @@ The current form is an early prototype, and will change significantly until the 
 
 ## Play the game!
 
-You can download binaries of the game here:
-
-- [Linux](https://git-learning-game.github.io/git-hydra/git-hydra-linux.zip)
-- [macOS](https://git-learning-game.github.io/git-hydra/git-hydra-macos.zip)
-
-We'll also have a Windows version soon – stay tuned! :)
+You can download binaries for Linux, macOS, and Windows [from itch.io](https://blinry.itch.io/git-hydra)!
 
 ## Report bugs!
 
