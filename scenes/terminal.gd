@@ -138,7 +138,7 @@ func relevant_subcommands():
 	var result = {}
 	for h in game.state["history"]:
 		var parts = Array(h.split(" "))
-		if parts[0] == "git":
+		if parts.size() >= 2 and parts[0] == "git":
 			var subcommand = parts[1]
 			if git_commands.has(subcommand):
 				if not result.has(subcommand):
