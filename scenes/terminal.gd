@@ -2,8 +2,6 @@ extends Control
 
 signal command_done
 
-var thread
-
 var history_position = 0
 var git_commands = ["add", "am", "archive", "bisect", "branch", "bundle", "checkout", "cherry-pick", "citool", "clean", "clone", "commit", "describe", "diff", "fetch", "format-patch", "gc", "gitk", "grep", "gui", "init", "log", "merge", "mv", "notes", "pull", "push", "range-diff", "rebase", "reset", "restore", "revert", "rm", "shortlog", "show", "sparse-checkout", "stash", "status", "submodule", "switch", "tag", "worktree", "config", "fast-export", "fast-import", "filter-branch", "mergetool", "pack-refs", "prune", "reflog", "remote", "repack", "replace", "annotate", "blame", "bugreport", "count-objects", "difftool", "fsck", "gitweb", "help", "instaweb", "merge-tree", "rerere", "show-branch", "verify-commit", "verify-tag", "whatchanged", "archimport", "cvsexportcommit", "cvsimport", "cvsserver", "imap-send", "p", "quiltimport", "request-pull", "send-email", "svn", "apply", "checkout-index", "commit-graph", "commit-tree", "hash-object", "index-pack", "merge-file", "merge-index", "mktag", "mktree", "multi-pack-index", "pack-objects", "prune-packed", "read-tree", "symbolic-ref", "unpack-objects", "update-index", "update-ref", "write-tree", "cat-file", "cherry", "diff-files", "diff-index", "diff-tree", "for-each-ref", "get-tar-commit-id", "ls-files", "ls-remote", "ls-tree", "merge-base", "name-rev", "pack-redundant", "rev-list", "rev-parse", "show-index", "show-ref", "unpack-file", "var", "verify-pack", "daemon", "fetch-pack", "http-backend", "send-pack", "update-server-info", "check-attr", "check-ignore", "check-mailmap", "check-ref-format", "column", "credential", "credential-cache", "credential-store", "fmt-merge-msg", "interpret-trailers", "mailinfo", "mailsplit", "merge-one-file", "patch-id", "sh-i", "sh-setup"]
 
@@ -77,20 +75,11 @@ func send_command(command):
 	
 	input.editable = false
 	completions.hide()
-	
-	if thread != null:
-		thread.wait_to_finish()
-	thread = Thread.new()
-	thread.start(self, "run_command_in_a_thread", command)
 
-func send_command_async(command):
-	input.text = ""
-	$TCPServer.send(command+"\n")
-
-func run_command_in_a_thread(command):
-	var o = repository.shell.run(command, false)
+	var cmd = repository.shell.run_async(command, false)
+	yield(cmd, "done")
 	
-	if repository.shell.exit_code == 0:
+	if cmd.exit_code == 0:
 		$OkSound.pitch_scale = rand_range(0.8, 1.2)
 		$OkSound.play()
 	else:
@@ -99,14 +88,14 @@ func run_command_in_a_thread(command):
 	input.text = ""
 	input.editable = true
 	
-	if o.length() <= 1000:
-		output.text = output.text + "$ " + command + "\n" + o
+	if cmd.output.length() <= 1000:
+		output.text = output.text + "$ " + command + "\n" + cmd.output
 	else:
-		$Pager/Text.text = o
+		$Pager/Text.text = cmd.output
 		$Pager.popup()
 	
 	emit_signal("command_done")
-
+	
 func receive_output(text):
 	output.text += text
 	repository.update_everything()

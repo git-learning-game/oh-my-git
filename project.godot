@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Shell",
 "language": "GDScript",
 "path": "res://scenes/shell.gd"
+}, {
+"base": "Node",
+"class": "ShellCommand",
+"language": "GDScript",
+"path": "res://scenes/shell_command.gd"
 } ]
 _global_script_class_icons={
 "Chapter": "",
 "Level": "",
 "LevelRepo": "",
-"Shell": ""
+"Shell": "",
+"ShellCommand": ""
 }
 
 [application]
