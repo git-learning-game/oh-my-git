@@ -21,9 +21,9 @@ shape = SubResource( 1 )
 [node name="Highlight" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Highlight"]
-modulate = Color( 0.65098, 0.560784, 0.890196, 0.533333 )
-position = Vector2( -0.302734, -1.13884 )
-scale = Vector2( 0.921018, 0.921018 )
+modulate = Color( 0.847059, 0.788235, 0.996078, 0.533333 )
+position = Vector2( 0.177797, -0.65835 )
+scale = Vector2( 1.23678, 1.23678 )
 texture = ExtResource( 2 )
 [connection signal="mouse_entered" from="Area2D" to="." method="_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_mouse_exited"]

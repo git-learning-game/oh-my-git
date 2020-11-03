@@ -4,7 +4,7 @@ var hovered = false
 var highlighted = false setget _set_highlighted
 
 func _ready():
-	pass
+	_set_highlighted(false)
 	
 func _mouse_entered():
 	hovered = true
