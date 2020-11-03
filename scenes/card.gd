@@ -4,7 +4,6 @@ var hovered = false
 var dragged = false
 var drag_offset
 
-export var arg_number = 0
 export var id = "" setget set_id
 export var command = "" setget set_command
 export var description = "" setget set_description
@@ -43,6 +42,7 @@ func _unhandled_input(event):
 		if event.button_index == BUTTON_LEFT and event.pressed and hovered:
 			dragged = true
 			game.dragged_object = self
+			_turn_on_highlights()
 			$PickupSound.play()
 			drag_offset = get_viewport().get_mouse_position() - global_position
 			get_tree().set_input_as_handled()
@@ -50,16 +50,32 @@ func _unhandled_input(event):
 		elif event.button_index == BUTTON_LEFT and !event.pressed and dragged:
 			dragged = false
 			game.dragged_object = null
+			_turn_off_highlights()
 			modulate.a = 1
 			
 			if get_viewport().get_mouse_position().y < get_viewport().size.y/3*2:
-				if arg_number == 0 :
-					try_play($Label.text)
-				else:
-					move_back()
+#				if arg_number == 0 :
+#					try_play($Label.text)
+#				else:
+#					move_back()
+				pass
 			else:
 				move_back()
 
+func _turn_on_highlights():
+	var arg_regex = RegEx.new()
+	arg_regex.compile("\\[(.*)\\]")
+	var m = arg_regex.search(command)
+	if m:
+		var types = Array(m.get_string(1).split(","))
+		for type in types:
+			for area in get_tree().get_nodes_in_group("drop_areas"):
+				area.highlight(type.strip_edges())
+		
+func _turn_off_highlights():
+	for area in get_tree().get_nodes_in_group("drop_areas"):
+		area.highlighted = false
+				
 func _mouse_entered():
 	hovered = true
 	z_index = 1
@@ -91,24 +107,21 @@ func move_back():
 	position = _home_position
 	rotation_degrees = _home_rotation
 	$ReturnSound.play()
-	
-func buuurn():
-	move_back()
 
 func dropped_on(other):
 	var full_command = ""
-	match arg_number:
-		1:	
-			var argument = other.id
-			if ($Label.text.begins_with("git checkout") or $Label.text.begins_with("git rebase")) and other.id.begins_with("refs/heads"):
-				argument = Array(other.id.split("/")).pop_back()
-			full_command = $Label.text + " " + argument
-			try_play(full_command)
+#	match arg_number:
+#		1:	
+#			var argument = other.id
+#			if ($Label.text.begins_with("git checkout") or $Label.text.begins_with("git rebase")) and other.id.begins_with("refs/heads"):
+#				argument = Array(other.id.split("/")).pop_back()
+#			full_command = $Label.text + " " + argument
+#			try_play(full_command)
 #		2:
 #			if _first_argument:
 #				full_command = $Label.text + " " + _first_argument + " " + other.id
 #				$"../Terminal".send_command(full_command)
-#				buuurn()
+#				move_back()
 #			else:
 #				_first_argument = other.id
 
@@ -121,7 +134,7 @@ func try_play(full_command):
 		var particles = preload("res://scenes/card_particles.tscn").instance()
 		particles.position = position
 		get_parent().add_child(particles)
-		buuurn()
+		move_back()
 		game.energy -= energy
 	else:
 		move_back()

@@ -2,79 +2,66 @@
 	{
 		"id": "init",
 		"command": "git init",
-		"arg_number": 0,
 		"description": "Initialize the time machine!"
 	},
 	{
 		"id": "checkout",
-		"command": "git checkout",
-		"arg_number": 1,
+		"command": "git checkout [commit, ref]",
 		"description": "Drag this card to a commit or to a branch to travel to it!"
 	},
 	{
 		"id": "commit-auto",
 		"command": "git add .; git commit",
-		"arg_number": 0,
 		"description": "Make a new commit containing your current environment!\nDrag this card anywhere. You'll be asked to enter a short description of what you changed."
 	},
 	{
 		"id": "merge",
-		"command": "git merge",
-		"arg_number": 1,
+		"command": "git merge [commit]",
 		"description": "Merge the specified timeline into yours. If necessary, will create a merge commit."
 	},
 	{
 		"id": "rebase",
-		"command": "git rebase",
-		"arg_number": 1,
+		"command": "git rebase [commit]",
 		"description": "Put the events in your current timeline on top of the specified one."
 	},
 	{
 		"id": "pull",
 		"command": "git pull",
-		"arg_number": 0,
 		"description": "Get timelines from a colleague."
 	},
 	{
 		"id": "push",
 		"command": "git push",
-		"arg_number": 0,
 		"description": "Give timelines to a colleague."
 	},
 	{
 		"id": "rebase-interactive",
-		"command": "git rebase -i",
-		"arg_number": 1,
+		"command": "git rebase -i [commit]",
 		"description": "Make changes to the events in your current timeline, back to the commit you drag this to."
 	},
 	{
 		"id": "reset-hard",
-		"command": "git reset --hard",
-		"arg_number": 1,
+		"command": "git reset --hard [commit]",
 		"description": "Move the branch you're on to the specified commit."
 	},
 	{
 		"id": "cherry-pick",
-		"command": "git cherry-pick",
-		"arg_number": 1,
+		"command": "git cherry-pick [commit]",
 		"description": "Repeat the specified action on top of your current timeline."
 	},
 	{
 		"id": "bisect-start",
 		"command": "git bisect start",
-		"arg_number": 0,
 		"description": "Start looking for the commit where things got bad."
 	},
 	{
 		"id": "bisect-good",
 		"command": "git bisect good",
-		"arg_number": 0,
 		"description": "State that the current commit is good! When you're automatically transferred, keep playing the `good` and `bad` cards!"
 	},
 	{
 		"id": "bisect-bad",
 		"command": "git bisect bad",
-		"arg_number": 0,
 		"description": "State that the current commit is bad! When you're automatically transferred, keep playing the `good` and `bad` cards!"
 	}
 ]
