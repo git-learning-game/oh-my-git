@@ -53,6 +53,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="StatusIcon" type="TextureRect" parent="VBoxContainer/Control/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -11.2842
+margin_top = 0.810516
+margin_right = 13.7158
+margin_bottom = 25.8105
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_top = 98.0
 margin_right = 200.0

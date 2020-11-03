@@ -18,6 +18,7 @@ onready var level_description = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Tex
 onready var level_congrats = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelCongrats
 onready var cards = $Rows/Controls/Cards
 onready var file_browser = $Rows/Columns/RightSide/FileBrowser
+onready var index = $Rows/Columns/RightSide/Index
 
 func _ready():
 	var args = helpers.parse_args()
@@ -83,6 +84,8 @@ func load_level(level_id):
 		if new_repo.label == "yours":
 			file_browser.shell = new_repo.shell
 			file_browser.update()
+			index.repository = new_repo
+			index.update()
 		repositories_node.add_child(new_repo)		
 		repositories[r] = new_repo
 	
@@ -137,6 +140,7 @@ func update_repos():
 		var repo = repositories[r]
 		repo.update_everything()
 	file_browser.update()
+	index.update()
 	
 	if levels.chapters[current_chapter].levels[current_level].check_win():
 		show_win_status()

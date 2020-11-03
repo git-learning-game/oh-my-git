@@ -55,6 +55,9 @@ func update():
 						var item = preload("res://scenes/file_browser_item.tscn").instance()
 						item.label = file_path
 						item.connect("clicked", self, "item_clicked")
+						
+						item.status = get_file_status(file_path, shell, 1)
+							
 						grid.add_child(item)
 			FileBrowserMode.COMMIT:
 				if commit:
@@ -67,25 +70,48 @@ func update():
 						item.connect("clicked", self, "item_clicked")
 						grid.add_child(item)
 			FileBrowserMode.INDEX:
-				if repository:
-					var files = Array(repository.shell.run("git ls-files -s | cut -f2").split("\n"))
+				if repository and repository.there_is_a_git():
+					var files = Array(repository.shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
 					# The last entry is an empty string, remove it.
 					files.pop_back()
 					for file_path in files:
 						var item = preload("res://scenes/file_browser_item.tscn").instance()
 						item.label = file_path
 						item.connect("clicked", self, "item_clicked")
+						item.status = get_file_status(file_path, repository.shell, 0)
 						grid.add_child(item)
+						
+func get_file_status(file_path, shell, idx):
+	var file_status = shell.run("git status -s '%s'" % file_path)
+	if file_status.length()>0:
+		match file_status[idx]:
+			"D":
+				return FileBrowserItem.IconStatus.REMOVED
+			"M":
+				return FileBrowserItem.IconStatus.EDIT
+			"U":
+				return FileBrowserItem.IconStatus.CONFLICT
+			" ":
+				return FileBrowserItem.IconStatus.NONE
+			"A":
+				return FileBrowserItem.IconStatus.NEW
+			"?":
+				return FileBrowserItem.IconStatus.UNTRACKED
+	else:
+		return FileBrowserItem.IconStatus.NONE
 
 func item_clicked(item):
-	open_file = item.label
 	match mode:
 		FileBrowserMode.WORKING_DIRECTORY:
 			text_edit.text = helpers.read_file(shell._cwd + item.label)
 		FileBrowserMode.COMMIT:
 			text_edit.text = commit.repository.shell.run("git show %s:\"%s\"" % [commit.id, item.label])
 		FileBrowserMode.INDEX:
+			if item.status == item.IconStatus.CONFLICT:
+				return
 			text_edit.text = repository.shell.run("git show :\"%s\"" % [item.label])
+			
+	open_file = item.label
 	text_edit.show()
 	text_edit.grab_focus()
 

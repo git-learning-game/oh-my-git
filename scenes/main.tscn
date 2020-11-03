@@ -80,7 +80,7 @@ custom_constants/separation = 8
 
 [node name="LevelInfo" type="VBoxContainer" parent="Rows/Columns/RightSide"]
 margin_right = 633.0
-margin_bottom = 442.0
+margin_bottom = 383.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -143,7 +143,7 @@ __meta__ = {
 [node name="LevelPanel" type="VBoxContainer" parent="Rows/Columns/RightSide/LevelInfo"]
 margin_top = 40.0
 margin_right = 633.0
-margin_bottom = 442.0
+margin_bottom = 383.0
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
@@ -159,7 +159,7 @@ __meta__ = {
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
 margin_top = 65.0
 margin_right = 633.0
-margin_bottom = 402.0
+margin_bottom = 343.0
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
@@ -185,14 +185,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Index" parent="Rows/Columns/RightSide" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 391.0
+margin_right = 633.0
+margin_bottom = 582.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+title = "Next Commit:"
+mode = 2
+
 [node name="FileBrowser" parent="Rows/Columns/RightSide" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 450.0
+margin_top = 590.0
 margin_right = 633.0
 margin_bottom = 782.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.75
+size_flags_stretch_ratio = 0.5
 title = "Current environment"
 
 [node name="Controls" type="HBoxContainer" parent="Rows"]
