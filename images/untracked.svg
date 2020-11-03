@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2.7702048mm"
+   height="4.3661475mm"
+   viewBox="0 0 2.7702047 4.3661474"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="untracked.svg">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect835"
+       is_visible="true"
+       lpeversion="1" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="15.839192"
+     inkscape:cx="19.850642"
+     inkscape:cy="6.6509852"
+     inkscape:document-units="mm"
+     inkscape:current-layer="text834"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="959"
+     inkscape:window-x="6400"
+     inkscape:window-y="1166"
+     inkscape:window-maximized="1"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-18.03237,-142.69074)">
+    <g
+       aria-label="✖"
+       id="text834"
+       style="font-size:9.55161px;line-height:100%;font-family:'Eagle Lake';-inkscape-font-specification:'Eagle Lake';font-variant-ligatures:discretionary-ligatures historical-ligatures;font-variant-numeric:lining-nums tabular-nums slashed-zero;word-spacing:0px;writing-mode:lr-tb;fill:#ffffff;stroke-width:5.99999;stroke-linecap:square">
+      <g
+         aria-label="?"
+         id="text835"
+         style="font-size:5.99723px;line-height:100%;font-family:Arial;-inkscape-font-specification:Arial;font-variant-ligatures:discretionary-ligatures historical-ligatures;font-variant-numeric:lining-nums tabular-nums slashed-zero;writing-mode:lr-tb;fill:#ffffff;stroke-width:6.00001;stroke-linecap:square">
+        <path
+           d="m 19.150994,145.99976 q -0.0029,-0.10542 -0.0029,-0.15813 0,-0.31041 0.08785,-0.53589 0.06442,-0.16984 0.207911,-0.34261 0.10542,-0.12592 0.377756,-0.36605 0.275263,-0.24305 0.357257,-0.38654 0.08199,-0.14349 0.08199,-0.31333 0,-0.30747 -0.240124,-0.53881 -0.240123,-0.23427 -0.588595,-0.23427 -0.336758,0 -0.56224,0.21084 -0.225482,0.21084 -0.295762,0.65888 l -0.541742,-0.0644 q 0.07321,-0.60031 0.433394,-0.91949 0.363113,-0.31919 0.957565,-0.31919 0.629592,0 1.004419,0.34261 0.374827,0.34262 0.374827,0.82872 0,0.28112 -0.131775,0.51832 -0.131775,0.23719 -0.515387,0.57688 -0.257694,0.22841 -0.336759,0.33676 -0.07906,0.10835 -0.117133,0.24891 -0.03807,0.14056 -0.04392,0.45682 z m -0.03221,1.05712 v -0.6003 h 0.600309 v 0.6003 z"
+           style="fill:#ffffff;stroke-width:6"
+           id="path837" />
+      </g>
+    </g>
+  </g>
+</svg>

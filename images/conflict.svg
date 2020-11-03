@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="6.988204mm"
+   height="6.051827mm"
+   viewBox="0 0 6.9882037 6.0518268"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="conflict.svg">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect835"
+       is_visible="true"
+       lpeversion="1" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="15.839192"
+     inkscape:cx="25.80653"
+     inkscape:cy="15.351252"
+     inkscape:document-units="mm"
+     inkscape:current-layer="text834"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="959"
+     inkscape:window-x="6400"
+     inkscape:window-y="1166"
+     inkscape:window-maximized="1"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-16.002082,-142.03262)">
+    <g
+       aria-label="✖"
+       id="text834"
+       style="font-size:9.55161px;line-height:100%;font-family:'Eagle Lake';-inkscape-font-specification:'Eagle Lake';font-variant-ligatures:discretionary-ligatures historical-ligatures;font-variant-numeric:lining-nums tabular-nums slashed-zero;word-spacing:0px;writing-mode:lr-tb;fill:#ffffff;stroke-width:5.99999;stroke-linecap:square">
+      <path
+         id="path835"
+         style="fill:#ffffff;stroke-width:22.6772;stroke-linecap:square"
+         inkscape:transform-center-y="-1.0086419"
+         d="M 12.181641,0.59375 -1.0234375,23.466797 H 25.388672 Z m -1.015625,6.3164062 h 2.164062 V 10.0625 l -0.503906,7.537109 h -1.125 L 11.166016,10.0625 Z m 0.07813,12.2324218 h 2.007812 v 1.988281 h -2.007812 z"
+         transform="matrix(0.26458333,0,0,0.26458333,16.272867,141.87552)" />
+    </g>
+  </g>
+</svg>
