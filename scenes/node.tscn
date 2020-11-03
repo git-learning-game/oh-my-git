@@ -23,6 +23,8 @@ corner_radius_bottom_left = 5
 [node name="Node" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="DropArea" parent="." instance=ExtResource( 6 )]
+
 [node name="Arrows" type="Node2D" parent="."]
 z_index = -1
 
@@ -57,8 +59,6 @@ __meta__ = {
 
 [node name="Pop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
-
-[node name="DropArea" parent="." instance=ExtResource( 6 )]
 
 [node name="Area2D" type="Area2D" parent="."]
 

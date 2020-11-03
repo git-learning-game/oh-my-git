@@ -53,15 +53,11 @@ func _unhandled_input(event):
 			_turn_off_highlights()
 			modulate.a = 1
 			
-			if get_viewport().get_mouse_position().y < get_viewport().size.y/3*2:
-#				if arg_number == 0 :
-#					try_play($Label.text)
-#				else:
-#					move_back()
-				pass
-			else:
+			if "[" in command:
 				move_back()
-
+			else:
+				try_play(command)
+				
 func _turn_on_highlights():
 	var arg_regex = RegEx.new()
 	arg_regex.compile("\\[(.*)\\]")
@@ -109,21 +105,15 @@ func move_back():
 	$ReturnSound.play()
 
 func dropped_on(other):
-	var full_command = ""
-#	match arg_number:
-#		1:	
-#			var argument = other.id
-#			if ($Label.text.begins_with("git checkout") or $Label.text.begins_with("git rebase")) and other.id.begins_with("refs/heads"):
-#				argument = Array(other.id.split("/")).pop_back()
-#			full_command = $Label.text + " " + argument
-#			try_play(full_command)
-#		2:
-#			if _first_argument:
-#				full_command = $Label.text + " " + _first_argument + " " + other.id
-#				$"../Terminal".send_command(full_command)
-#				move_back()
-#			else:
-#				_first_argument = other.id
+	if "[" in command:
+		var argument = other.id
+		if (command.begins_with("git checkout") or command.begins_with("git rebase")) and other.id.begins_with("refs/heads"):
+			argument = Array(other.id.split("/")).pop_back()
+			
+		var arg_regex = RegEx.new()
+		arg_regex.compile("\\[(.*)\\]")
+		var full_command = arg_regex.sub(command, argument)
+		try_play(full_command)
 
 func try_play(full_command):
 	if game.energy >= energy:
