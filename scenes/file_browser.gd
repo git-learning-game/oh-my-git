@@ -128,6 +128,7 @@ func save():
 				text_edit.text += "\n"
 			
 			helpers.write_file(fixme_path+open_file, text_edit.text)
+	update()
 	close()
 
 func _set_commit(new_commit):
