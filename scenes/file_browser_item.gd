@@ -6,6 +6,7 @@ signal clicked(what)
 enum IconStatus {NONE, NEW, REMOVED, CONFLICT, EDIT, UNTRACKED}
 export(IconStatus) var status setget _set_status
 export var label: String setget _set_label
+var type = "file"
 
 onready var label_node = $VBoxContainer/Label
 onready var status_icon = $VBoxContainer/Control/TextureRect/StatusIcon

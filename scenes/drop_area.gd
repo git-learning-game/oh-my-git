@@ -6,10 +6,10 @@ var highlighted = false setget _set_highlighted
 func _ready():
 	_set_highlighted(false)
 	
-func _mouse_entered():
+func _mouse_entered(_area):
 	hovered = true
 
-func _mouse_exited():
+func _mouse_exited(_area):
 	hovered = false
 	
 func _input(event):

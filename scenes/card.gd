@@ -106,9 +106,14 @@ func move_back():
 
 func dropped_on(other):
 	if "[" in command:
-		var argument = other.id
-		if (command.begins_with("git checkout") or command.begins_with("git rebase")) and other.id.begins_with("refs/heads"):
-			argument = Array(other.id.split("/")).pop_back()
+		var argument
+		if other.type == "file":
+			argument = other.label
+		else:
+			argument = other.id
+			
+		if (command.begins_with("git checkout") or command.begins_with("git rebase")) and argument.begins_with("refs/heads"):
+			argument = Array(argument.split("/")).pop_back()
 			
 		var arg_regex = RegEx.new()
 		arg_regex.compile("\\[(.*)\\]")

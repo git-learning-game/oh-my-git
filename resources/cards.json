@@ -63,5 +63,10 @@
 		"id": "bisect-bad",
 		"command": "git bisect bad",
 		"description": "State that the current commit is bad! When you're automatically transferred, keep playing the `good` and `bad` cards!"
+	},
+	{
+		"id": "add",
+		"command": "git add [file]",
+		"description": ""
 	}
 ]
