@@ -197,7 +197,7 @@ margin_right = 633.0
 margin_bottom = 582.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-title = "Next Commit:"
+title = "Plan for the next commit"
 mode = 2
 
 [node name="FileBrowser" parent="Rows/Columns/RightSide" instance=ExtResource( 5 )]

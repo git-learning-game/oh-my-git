@@ -1,0 +1,26 @@
+title = Split a commit!
+cards = checkout commit reset-hard reset add rebase-interactive rebase-continue show
+
+[description]
+
+Here, both changes happened in one commit! Split them to be in two commits instead.
+
+[setup]
+
+echo something > file1
+echo something else > file2
+git add .
+git commit -m "Initial commit"
+
+echo this should happen first >> file1
+echo and this should happen after that >> file2
+git commit -am "Both together"
+
+echo this is some other change >> file1
+echo this is some other change >> file2
+git commit -am "Something else"
+
+[win]
+
+test "$(git diff-tree --no-commit-id --name-status -r main^)" = "M	file2" &&
+test "$(git diff-tree --no-commit-id --name-status -r main~2)" = "M	file1"

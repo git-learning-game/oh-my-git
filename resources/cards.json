@@ -40,9 +40,19 @@
 		"description": "Make changes to the events in your current timeline, back to the commit you drag this to."
 	},
 	{
+		"id": "rebase-continue",
+		"command": "git rebase --continue",
+		"description": "Continue the current rebasing process."
+	},
+	{
 		"id": "reset-hard",
 		"command": "git reset --hard [commit]",
 		"description": "Move the branch you're on to the specified commit."
+	},
+	{
+		"id": "reset",
+		"command": "git reset [commit]",
+		"description": "Jump to the commit, and update the index. Keep the current environment."
 	},
 	{
 		"id": "cherry-pick",
@@ -67,6 +77,16 @@
 	{
 		"id": "add",
 		"command": "git add [file]",
-		"description": ""
+		"description": "Put the current status of the file into the plan."
+	},
+	{
+		"id": "commit",
+		"command": "git commit",
+		"description": "Make a commit from the plan."
+	},
+	{
+		"id": "show",
+		"command": "git show [commit]",
+		"description": "Show what changed in the commit."
 	}
 ]

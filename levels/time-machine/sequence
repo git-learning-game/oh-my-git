@@ -1,10 +1,13 @@
-conflict
 init
 checkout-commit
 branching
 merge
 branches
+conflict
 pull-push
 rebase
 reorder
 bisect
+steps
+split
+sandbox
