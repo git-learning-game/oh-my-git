@@ -78,7 +78,9 @@ func send_command(command):
 
 	var cmd = repository.shell.run_async(command, false)
 	yield(cmd, "done")
-	
+	call_deferred("command_done", cmd)
+
+func command_done(cmd):
 	if cmd.exit_code == 0:
 		$OkSound.pitch_scale = rand_range(0.8, 1.2)
 		$OkSound.play()
@@ -89,7 +91,7 @@ func send_command(command):
 	input.editable = true
 	
 	if cmd.output.length() <= 1000:
-		output.text = output.text + "$ " + command + "\n" + cmd.output
+		output.text = output.text + "$ " + cmd.command + "\n" + cmd.output
 	else:
 		$Pager/Text.text = cmd.output
 		$Pager.popup()
