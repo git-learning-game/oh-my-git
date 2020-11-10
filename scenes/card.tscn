@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://nodes/blob.svg" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://sounds/swish.wav" type="AudioStream" id=4]
 [ext_resource path="res://sounds/swoosh.wav" type="AudioStream" id=5]
 [ext_resource path="res://sounds/poof.wav" type="AudioStream" id=6]
+[ext_resource path="res://fonts/small.tres" type="DynamicFont" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.45098, 0.584314, 0.843137, 1 )
@@ -90,10 +91,9 @@ __meta__ = {
 [node name="Description" type="Label" parent="."]
 margin_left = -92.0
 margin_top = -160.0
-margin_right = 146.0
-margin_bottom = 31.0
-rect_scale = Vector2( 0.75, 0.75 )
-custom_fonts/font = ExtResource( 1 )
+margin_right = 90.0
+margin_bottom = -14.0
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Description"
 autowrap = true
@@ -134,9 +134,9 @@ volume_db = -6.848
 
 [node name="Image" type="TextureRect" parent="."]
 margin_left = -88.0
-margin_top = -243.735
+margin_top = -219.0
 margin_right = 85.0
-margin_bottom = -178.735
+margin_bottom = -178.0
 mouse_filter = 2
 expand = true
 stretch_mode = 6

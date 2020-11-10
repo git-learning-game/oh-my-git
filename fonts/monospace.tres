@@ -3,5 +3,5 @@
 [ext_resource path="res://fonts/iosevka-regular.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 20
+size = 21
 font_data = ExtResource( 1 )

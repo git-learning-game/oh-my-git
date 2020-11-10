@@ -46,7 +46,7 @@ __meta__ = {
 
 [node name="Title" type="Label" parent="Panel/Margin/Rows"]
 margin_right = 1904.0
-margin_bottom = 25.0
+margin_bottom = 32.0
 text = "title"
 align = 1
 
@@ -69,7 +69,7 @@ margin_bottom = 50.0
 text = "dir"
 
 [node name="Scroll" type="ScrollContainer" parent="Panel/Margin/Rows"]
-margin_top = 25.0
+margin_top = 32.0
 margin_right = 1904.0
 margin_bottom = 1064.0
 size_flags_horizontal = 3
@@ -77,12 +77,12 @@ size_flags_vertical = 3
 
 [node name="Grid" type="GridContainer" parent="Panel/Margin/Rows/Scroll"]
 margin_right = 1904.0
-margin_bottom = 1039.0
+margin_bottom = 1032.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 16
 custom_constants/hseparation = 16
-columns = 3
+columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }

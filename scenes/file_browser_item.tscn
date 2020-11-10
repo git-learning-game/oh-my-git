@@ -10,7 +10,7 @@ anchor_right = 0.104
 anchor_bottom = 0.126
 margin_right = 0.319992
 margin_bottom = -0.0800018
-rect_min_size = Vector2( 175, 150 )
+rect_min_size = Vector2( 140, 140 )
 mouse_filter = 1
 script = ExtResource( 1 )
 __meta__ = {
@@ -39,7 +39,7 @@ __meta__ = {
 
 [node name="Control" type="Control" parent="VBoxContainer"]
 margin_right = 200.0
-margin_bottom = 94.0
+margin_bottom = 87.0
 mouse_filter = 2
 size_flags_vertical = 3
 
@@ -83,9 +83,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 98.0
+margin_top = 91.0
 margin_right = 200.0
-margin_bottom = 150.0
+margin_bottom = 140.0
 size_flags_vertical = 7
 size_flags_stretch_ratio = 0.55
 custom_fonts/font = ExtResource( 2 )

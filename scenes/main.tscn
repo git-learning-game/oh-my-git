@@ -87,31 +87,33 @@ margin_right = 633.0
 margin_bottom = 383.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 8
 
 [node name="Menu" type="HBoxContainer" parent="Rows/Columns/RightSide/LevelInfo"]
 margin_right = 633.0
-margin_bottom = 35.0
+margin_bottom = 39.0
+custom_constants/separation = 8
 
 [node name="ChapterSelect" type="OptionButton" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-margin_right = 168.0
-margin_bottom = 35.0
+margin_right = 187.0
+margin_bottom = 39.0
 focus_mode = 0
 enabled_focus_mode = 0
 text = "Select chapter..."
 
 [node name="LevelSelect" type="OptionButton" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-margin_left = 173.0
-margin_right = 317.0
-margin_bottom = 35.0
+margin_left = 195.0
+margin_right = 354.0
+margin_bottom = 39.0
 focus_mode = 0
 enabled_focus_mode = 0
 text = "Select level..."
 expand_icon = true
 
 [node name="ReloadButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-margin_left = 322.0
-margin_right = 401.0
-margin_bottom = 35.0
+margin_left = 362.0
+margin_right = 450.0
+margin_bottom = 39.0
 focus_mode = 0
 enabled_focus_mode = 0
 text = "Reload"
@@ -132,9 +134,9 @@ __meta__ = {
 }
 
 [node name="NextLevelButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-margin_left = 406.0
-margin_right = 511.0
-margin_bottom = 35.0
+margin_left = 458.0
+margin_right = 575.0
+margin_bottom = 39.0
 focus_mode = 0
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = ExtResource( 4 )
@@ -145,12 +147,13 @@ __meta__ = {
 }
 
 [node name="LevelPanel" type="VBoxContainer" parent="Rows/Columns/RightSide/LevelInfo"]
-margin_top = 40.0
+margin_top = 47.0
 margin_right = 633.0
 margin_bottom = 383.0
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
+visible = false
 margin_right = 633.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
@@ -161,9 +164,8 @@ __meta__ = {
 }
 
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
-margin_top = 65.0
 margin_right = 633.0
-margin_bottom = 343.0
+margin_bottom = 336.0
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
