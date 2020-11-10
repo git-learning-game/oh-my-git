@@ -11,6 +11,12 @@ func crash(message):
 	# Violent delights have violent ends.
 	get_tree().fatal_error()
 
+func map(array, object, f):
+	var new_array = []
+	for i in range(array.size()):
+		new_array.push_back(object.call(f, array[i]))
+	return new_array
+
 # Run a simple command with arguments, blocking, using OS.execute.
 func exec(command, args=[], crash_on_fail=true):
 	var debug = false

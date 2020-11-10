@@ -34,21 +34,28 @@ func clear():
 	for item in grid.get_children():
 		item.queue_free()
 		
+func substr2(s):
+	return s.substr(2)
+		
 func update():
 	if grid:
 		clear()
 		match mode:
 			FileBrowserMode.WORKING_DIRECTORY:
 				if shell:
-					var file_string = shell.run("find . -type f")
-					var files = file_string.split("\n")
-					files = Array(files)
+					var wd_files = Array(shell.run("find . -type f").split("\n"))
 					# The last entry is an empty string, remove it.
-					files.pop_back()
+					wd_files.pop_back()
+					wd_files = helpers.map(wd_files, self, "substr2")
+					
+					var deleted_files = Array(shell.run("git status -s | grep '^.D' | sed -r 's/^...//'").split("\n"))
+					deleted_files.pop_back()
+					
+					var files = wd_files + deleted_files
+					
 					files.sort_custom(self, "very_best_sort")
 					var is_visible = false
 					for file_path in files:
-						file_path = file_path.substr(2)
 						if file_path.substr(0, 5) == ".git/":
 							continue
 						is_visible = true
@@ -74,9 +81,12 @@ func update():
 			FileBrowserMode.INDEX:
 				var is_visible = false					
 				if repository and repository.there_is_a_git():
-					var files = Array(repository.shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
-					# The last entry is an empty string, remove it.
-					files.pop_back()
+					var index_files = Array(repository.shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
+					var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed -r 's/^...//'").split("\n"))
+					# The last entries are empty strings, remove them.
+					index_files.pop_back()
+					deleted_files.pop_back()
+					var files = index_files + deleted_files
 					for file_path in files:
 						var item = preload("res://scenes/file_browser_item.tscn").instance()
 						item.label = file_path
@@ -107,6 +117,9 @@ func get_file_status(file_path, shell, idx):
 		return FileBrowserItem.IconStatus.NONE
 
 func item_clicked(item):
+	if item.status == item.IconStatus.REMOVED:
+		return
+		
 	match mode:
 		FileBrowserMode.WORKING_DIRECTORY:
 			text_edit.text = helpers.read_file(shell._cwd + item.label)
@@ -159,10 +172,8 @@ func _set_title(new_title):
 		title_label.text = new_title
 
 func very_best_sort(a,b):
-	# We're looking at the third character because all entries have the form
-	# "./.git/bla".
-	if a.substr(2, 1) == "." and b.substr(2, 1) != ".":
+	if a[0] == "." and b[0] != ".":
 		return false
-	if a.substr(2, 1) != "." and b.substr(2, 1) == ".":
+	if a[0] != "." and b[0] == ".":
 		return true
 	return a.casecmp_to(b) == -1
