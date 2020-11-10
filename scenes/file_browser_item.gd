@@ -2,6 +2,7 @@ class_name FileBrowserItem
 extends Control
 
 signal clicked(what)
+signal deleted(what)
 
 enum IconStatus {NONE, NEW, REMOVED, CONFLICT, EDIT, UNTRACKED}
 export(IconStatus) var status setget _set_status
@@ -14,6 +15,7 @@ onready var status_icon = $VBoxContainer/Control/TextureRect/StatusIcon
 func _ready():
 	_set_label(label)
 	_set_status(status)
+	$PopupMenu.add_item("Delete File", 0)
 
 func _set_label(new_label):
 	label = new_label
@@ -23,6 +25,9 @@ func _set_label(new_label):
 func _gui_input(event):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_LEFT:
 		emit_signal("clicked", self)
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_RIGHT and status != IconStatus.REMOVED:
+		$PopupMenu.set_position(get_global_mouse_position())
+		$PopupMenu.popup()
 		
 func _set_status(new_status):
 	if status_icon:
@@ -47,3 +52,7 @@ func _set_status(new_status):
 				
 	status = new_status
 	
+
+
+func _popup_menu_pressed(id):
+	emit_signal("deleted", self)

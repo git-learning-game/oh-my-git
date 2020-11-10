@@ -48,9 +48,11 @@ func update():
 					wd_files.pop_back()
 					wd_files = helpers.map(wd_files, self, "substr2")
 					
-					var deleted_files = Array(shell.run("git status -s | grep '^.D' | sed -r 's/^...//'").split("\n"))
-					deleted_files.pop_back()
-					
+					var deleted_files = []
+					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
+						deleted_files = Array(shell.run("git status -s | grep '^.D' | sed -r 's/^...//'").split("\n"))
+						deleted_files.pop_back()
+						
 					var files = wd_files + deleted_files
 					
 					files.sort_custom(self, "very_best_sort")
@@ -62,7 +64,7 @@ func update():
 						var item = preload("res://scenes/file_browser_item.tscn").instance()
 						item.label = file_path
 						item.connect("clicked", self, "item_clicked")
-						
+						item.connect("deleted", self, "item_deleted")
 						item.status = get_file_status(file_path, shell, 1)
 							
 						grid.add_child(item)
@@ -133,6 +135,10 @@ func item_clicked(item):
 	open_file = item.label
 	text_edit.show()
 	text_edit.grab_focus()
+	
+func item_deleted(item):
+	helpers.careful_delete(shell._cwd + item.label)
+	update()
 
 func close():
 	text_edit.hide()
