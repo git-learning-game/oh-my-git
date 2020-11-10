@@ -102,9 +102,12 @@ func set_energy(new_energy):
 
 func set_id(new_id):
 	id = new_id
-	var texture = load("res://cards/%s.svg" % new_id)
-	if texture:
-		$Image.texture = texture
+	var art_path = "res://cards/%s.svg" % new_id
+	var file = File.new()
+	if file.file_exists(art_path):
+		var texture = load(art_path)
+		if texture:
+			$Image.texture = texture
 	
 func move_back():
 	position = _home_position

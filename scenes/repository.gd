@@ -323,13 +323,3 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	mouse_inside = false
-		
-func close_all_file_browsers():
-	var all = all_objects()
-	
-	for o in objects.values():
-		if o.type == "commit":
-			o.file_browser.close()
-			o.file_browser.visible = false
-			
-

@@ -54,5 +54,5 @@ func _set_status(new_status):
 	
 
 
-func _popup_menu_pressed(id):
+func _popup_menu_pressed(_id):
 	emit_signal("deleted", self)

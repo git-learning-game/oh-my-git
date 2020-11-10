@@ -100,8 +100,8 @@ func update():
 						#	is_visible = true		
 				#visible = is_visible				
 						
-func get_file_status(file_path, shell, idx):
-	var file_status = shell.run("git status -s '%s'" % file_path)
+func get_file_status(file_path, the_shell, idx):
+	var file_status = the_shell.run("git status -s '%s'" % file_path)
 	if file_status.length()>0:
 		match file_status[idx]:
 			"D":

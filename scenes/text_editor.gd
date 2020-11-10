@@ -16,7 +16,7 @@ func _process(_delta):
 	if _server.is_connection_available():
 		_client_connection = _server.take_connection()
 		var length = _client_connection.get_u32()
-		var filename = _client_connection.get_string(length)
+		var _filename = _client_connection.get_string(length)
 		
 		length = _client_connection.get_u32()
 		var content = _client_connection.get_string(length)
