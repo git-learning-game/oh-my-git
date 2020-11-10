@@ -71,9 +71,13 @@ A level can consist of multiple repositories. To have more than one, you can use
 
 At this stage, we're still exploring ourselves which kind of levels would be fun! So feel free to try new things: basic introductions with a little story? Really hard puzzles? Levels where you have to find information? Levels where you need to fix a problem? Levels with three remotes?
 
-## Contributing code
+## Contribute code!
+
+To open the game in the [Godot editor](https://godotengine.org), run `godot project.godot`. You can then run the game using *F5*.
 
 Feel free to make improvements to the code and send pull requests! There is one exception: because merge conflicts in Godot's scene files tends to be hard to resolve, before working on an existing *\*.tscn* file, please get in touch with us.
+
+To build your own binaries, you'll need Godot's [export templates](https://docs.godotengine.org/en/stable/getting_started/workflow/export/exporting_projects.html), and `zip`, `wget`, and `7z`. Then, run `make`. On Debian/Ubuntu, the Godot binary is called `godot3`, you might need to adjust the paths in the Makefile.
 
 ## Code of Conduct
 

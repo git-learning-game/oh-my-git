@@ -4,16 +4,16 @@ all: linux macos windows
 
 linux:
 	mkdir -p build/$(name)-linux
-	\godot --export "Linux" "build/$(name)-linux/$(name)"
+	godot --export "Linux" "build/$(name)-linux/$(name)"
 	cd build/$(name)-linux && zip -r ../$(name)-linux.zip .
 
 macos:
 	mkdir -p build
-	\godot --export "Mac OS" "build/$(name)-macos.zip"
+	godot --export "Mac OS" "build/$(name)-macos.zip"
 
 windows: dependencies/windows/git/
 	mkdir -p build/$(name)-windows
-	\godot --export "Windows" "build/$(name)-windows/$(name).exe"
+	godot --export "Windows" "build/$(name)-windows/$(name).exe"
 	cp -r --parents dependencies/windows/git/ build/$(name)-windows/
 	cd build/$(name)-windows && zip -r ../$(name)-windows.zip .
 
