@@ -4,21 +4,25 @@
 [ext_resource path="res://nodes/blob.svg" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 23.5871
+radius = 63.1532
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
+uniform float hovered;
+
 void fragment() {
 	vec2 center = vec2(0.5, 0.5);
 	float d = distance(UV, center);
-	COLOR = vec4(0.4, 0.65, 1, smoothstep(0.5,0.2,d));
+	COLOR = vec4(0.4 + hovered*0.2, 0.65 + hovered*0.2, 1, smoothstep(0.5,0.2 + hovered*0.1,d));
 }
 "
 custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
 shader = SubResource( 2 )
+shader_param/hovered = 0.0
 
 [node name="DropArea" type="Node2D" groups=[
 "drop_areas",

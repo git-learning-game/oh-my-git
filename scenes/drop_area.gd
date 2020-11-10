@@ -8,9 +8,17 @@ func _ready():
 	
 func _mouse_entered(_area):
 	hovered = true
+	var tween = Tween.new()
+	tween.interpolate_property($Highlight/Sprite.material, "shader_param/hovered", 0, 1, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	add_child(tween)
+	tween.start()
 
 func _mouse_exited(_area):
 	hovered = false
+	var tween = Tween.new()
+	tween.interpolate_property($Highlight/Sprite.material, "shader_param/hovered", 1, 0, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	add_child(tween)
+	tween.start()
 	
 func _input(event):
 	if event is InputEventMouseButton:
