@@ -57,11 +57,11 @@ func update():
 					var files = wd_files + deleted_files
 					
 					files.sort_custom(self, "very_best_sort")
-					var is_visible = false
+					#var is_visible = false
 					for file_path in files:
 						if file_path.substr(0, 5) == ".git/":
 							continue
-						is_visible = true
+						#is_visible = true
 						var item = preload("res://scenes/file_browser_item.tscn").instance()
 						item.label = file_path
 						item.connect("clicked", self, "item_clicked")
@@ -69,7 +69,7 @@ func update():
 						item.status = get_file_status(file_path, shell, 1)
 							
 						grid.add_child(item)
-					visible = is_visible				
+					#visible = is_visible				
 					
 			FileBrowserMode.COMMIT:
 				if commit:
@@ -82,7 +82,7 @@ func update():
 						item.connect("clicked", self, "item_clicked")
 						grid.add_child(item)
 			FileBrowserMode.INDEX:
-				var is_visible = false					
+				#var is_visible = false					
 				if repository and repository.there_is_a_git():
 					var index_files = Array(repository.shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
 					var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed -r 's/^...//'").split("\n"))
@@ -96,9 +96,9 @@ func update():
 						item.connect("clicked", self, "item_clicked")
 						item.status = get_file_status(file_path, repository.shell, 0)
 						grid.add_child(item)
-						if item.status != item.IconStatus.NONE:
-							is_visible = true		
-				visible = is_visible				
+						#if item.status != item.IconStatus.NONE:
+						#	is_visible = true		
+				#visible = is_visible				
 						
 func get_file_status(file_path, shell, idx):
 	var file_status = shell.run("git status -s '%s'" % file_path)
