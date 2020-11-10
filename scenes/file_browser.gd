@@ -24,6 +24,7 @@ func _ready():
 	update()
 	_set_mode(mode)
 	_set_title(title)
+	$PopupMenu.add_item("New file", 1)
 
 func _input(event):
 	if event.is_action_pressed("save"):
@@ -176,6 +177,11 @@ func _set_title(new_title):
 	title = new_title
 	if title_label:
 		title_label.text = new_title
+		
+func _gui_input(event):
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_RIGHT:
+		$PopupMenu.set_position(get_global_mouse_position())
+		$PopupMenu.popup()
 
 func very_best_sort(a,b):
 	if a[0] == "." and b[0] != ".":

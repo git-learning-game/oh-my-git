@@ -15,7 +15,7 @@ onready var status_icon = $VBoxContainer/Control/TextureRect/StatusIcon
 func _ready():
 	_set_label(label)
 	_set_status(status)
-	$PopupMenu.add_item("Delete File", 0)
+	$PopupMenu.add_item("Delete file", 0)
 
 func _set_label(new_label):
 	label = new_label
