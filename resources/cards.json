@@ -88,5 +88,15 @@
 		"id": "show",
 		"command": "git show [commit]",
 		"description": "Show what changed in the commit."
+	},
+	{
+		"id": "branch",
+		"command": "git branch [string]",
+		"description": "Create a new branch."
+	},
+	{
+		"id": "file-new",
+		"command": "touch [string]",
+		"description": "Create a new file."
 	}
 ]

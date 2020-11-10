@@ -53,7 +53,14 @@ func _unhandled_input(event):
 			_turn_off_highlights()
 			modulate.a = 1
 			
-			if "[" in command:
+			if "[string]" in command:
+				var dialog = preload("res://scenes/input_dialog.tscn").instance()
+				add_child(dialog)
+				dialog.popup_centered()
+				dialog.connect("entered", self, "entered_string")
+				dialog.connect("popup_hide", self, "move_back")
+				hide()
+			elif "[" in command:
 				move_back()
 			else:
 				try_play(command)
@@ -103,6 +110,7 @@ func move_back():
 	position = _home_position
 	rotation_degrees = _home_rotation
 	$ReturnSound.play()
+	show()
 
 func dropped_on(other):
 	if "[" in command:
@@ -133,3 +141,6 @@ func try_play(full_command):
 		game.energy -= energy
 	else:
 		move_back()
+
+func entered_string(string):
+	try_play(command.replace("[string]", "'"+string+"'"))

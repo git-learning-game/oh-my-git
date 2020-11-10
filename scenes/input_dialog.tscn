@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/input_dialog.gd" type="Script" id=1]
+
+[node name="InputDialog" type="WindowDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 816.0
+margin_top = 446.0
+margin_right = -826.0
+margin_bottom = -591.0
+window_title = "Please enter a value:"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_entered" from="LineEdit" to="." method="_text_entered"]
