@@ -3,7 +3,9 @@
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/text_editor.gd" type="Script" id=2]
 
-[node name="TextEditor" type="TextEdit"]
+[node name="TextEditor" type="TextEdit" groups=[
+"editors",
+]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/background_color = Color( 0, 0, 0, 1 )

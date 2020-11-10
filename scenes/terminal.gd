@@ -72,6 +72,7 @@ func load_command(id):
 	input.caret_position = input.text.length()
 
 func send_command(command):
+	close_all_editors()
 	game.state["history"].push_back(command)
 	game.save_state()
 	history_position = game.state["history"].size()
@@ -206,3 +207,7 @@ func _completion_selected():
 
 func editor_saved():
 	emit_signal("command_done")
+
+func close_all_editors():
+	for editor in get_tree().get_nodes_in_group("editors"):
+		editor.close()
