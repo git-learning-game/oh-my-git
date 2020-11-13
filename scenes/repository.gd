@@ -7,7 +7,7 @@ onready var simplify_checkbox = $Rows/RepoVis/SimplifyCheckbox
 
 export var label: String setget set_label
 export var path: String setget set_path, get_path
-export var simplified_view = false setget set_simplified_view
+export var simplified_view = true setget set_simplified_view
 export var editable_path = false setget set_editable_path
 
 var node = preload("res://scenes/node.tscn")
@@ -109,8 +109,8 @@ func update_objects():
 				n.children = c
 				
 				_commit_count += 1
-				if _commit_count >= 3 and not simplified_view:
-					set_simplified_view(true)
+#				if _commit_count >= 3 and not simplified_view:
+#					set_simplified_view(true)
 			"tag":
 				n.children = tag_target(o)
 		

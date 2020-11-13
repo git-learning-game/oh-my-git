@@ -98,5 +98,10 @@
 		"id": "file-new",
 		"command": "touch [string]",
 		"description": "Create a new file."
+	},
+	{
+		"id": "file-delete",
+		"command": "rm [file]",
+		"description": "Delete a new file."
 	}
 ]

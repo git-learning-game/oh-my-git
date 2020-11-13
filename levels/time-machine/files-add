@@ -1,0 +1,23 @@
+title = Interior design
+cards = checkout commit-auto reset-hard file-new file-delete
+
+[description]
+
+Our client want some new furniture! You'll discover that they have a very special taste - please add some more furniture that matches this style and make a commit!
+
+[setup]
+
+echo A yellow cupboard with lots of drawers. > cupboard
+echo A really big yellow shelf. > shelf
+git add .
+git commit -m "A cupboard and a shelf"
+
+[win]
+
+NUM_FILES="$(git ls-tree --name-only -r HEAD | wc -l)"
+YELLOW_FILES="$(git grep -l yellow HEAD | wc -l)"
+test "$NUM_FILES" -ge 5 && test "$YELLOW_FILES" = "$NUM_FILES"
+
+[congrats]
+
+Thanks! Our clients says that they really like what you picked!
