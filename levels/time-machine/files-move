@@ -1,0 +1,28 @@
+title = No sleep required
+cards = checkout commit-auto reset-hard file-new file-delete file-rename
+
+[description]
+
+Our client just let us know they don't need sleep! Huh.
+
+Because of that, they won't require a bed, and have asked you to build some other piece of furniture from the wood.
+
+Can you rename the object into something else, give it a new description, and make a commit from that?
+
+[setup]
+
+echo A yellow cupboard with lots of drawers. > cupboard
+echo A really big yellow shelf. > shelf
+echo A comfortable, yellow bed with yellow cushions. > bed
+git add .
+git commit -m "Initial furniture"
+
+[win]
+
+NUM_FILES="$(git ls-tree --name-only -r HEAD | wc -l)"
+NUM_BEDS="$(git ls-tree --name-only -r HEAD | grep '^bed$' | wc -l)"
+test "$NUM_BEDS" = 0 && test "$NUM_FILES" -ge 3
+
+[congrats]
+
+Neat! It even still looks a bit comfortable!

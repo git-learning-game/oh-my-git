@@ -103,5 +103,10 @@
 		"id": "file-delete",
 		"command": "rm [file]",
 		"description": "Delete a new file."
+	},
+	{
+		"id": "file-rename",
+		"command": "mv [file] [string]",
+		"description": "Rename a new file."
 	}
 ]
