@@ -123,7 +123,7 @@ func dropped_on(other):
 		else:
 			argument = other.id
 			
-		if (command.begins_with("git checkout") or command.begins_with("git rebase")) and argument.begins_with("refs/heads"):
+		if (command.begins_with("git checkout") or command.begins_with("git rebase") or command.begins_with("git branch -D")) and argument.begins_with("refs/heads"):
 			argument = Array(argument.split("/")).pop_back()
 			
 		var arg_regex = RegEx.new()

@@ -1,0 +1,47 @@
+title = Choose your own adventure
+cards = checkout commit-auto reset-hard branch-delete
+
+[description]
+
+Life is full of dangers, right? Even when walking to school, it seems like there's a lot of risks!
+
+This Monday is especially bad. You made it to school, but there's some timelines you definitely don't want to keep around.
+
+Find the bad branches and delete them. Keep the one that seems okay.
+
+[setup]
+
+echo You leave your house and start walking to school. > you
+git add .
+git commit -m "Good morning!"
+
+echo You walk on the right side of the street. >> you
+git commit -am "Right side"
+
+echo You jump over an manhole in the walkway, and arrive at school on time. >> you
+git commit -am "Jump"
+
+git checkout HEAD^ -b friend
+echo Suddenly, you fall down, splash into stinking water, and are eaten by an alligator. >> you
+git commit -am "A new friend"
+
+git checkout HEAD~2 -b music
+echo You walk on the left side of the street. >> you
+git commit -am "Left side"
+
+echo Because you\'re kind of late, you start running. Someone throws a piano out of their windows, and it smashes you. >> you
+git commit -am "Sounds nice"
+
+git checkout HEAD^ -b ice-cream
+echo You\'re not in a hurry, and walk slowly. You even get some ice cream on your way. You arrive at school too late, and your teacher is angry. >> you
+git commit -am "Yum"
+
+git checkout main
+
+[win]
+
+test "$(git branch | cut -c 3-)" = "$(echo -e ice-cream\\nmain)"
+
+[congrats]
+
+On second thought, maybe you even prefer the ice cream timeline to the main one? :)
