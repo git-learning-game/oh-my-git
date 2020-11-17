@@ -16,7 +16,7 @@ func load(path):
 	var dir = Directory.new()
 	if dir.file_exists(path):
 		# This is a new-style level.
-		var config = helpers.parse(path)
+		var config = helpers.parse(helpers.read_file(path))
 		
 		title = config.get("title", slug)
 		description = config.get("description", "(no description)")

@@ -93,8 +93,7 @@ func careful_delete(path_inside):
 		game.global_shell.cd(game.tmp_prefix)
 		game.global_shell.run("rm -rf '%s'" % path_inside)
 
-func parse(file):
-	var text = read_file(file)
+func parse(text):
 	var result = {}
 	var current_section
 	
@@ -118,7 +117,7 @@ func parse(file):
 		
 		# Parse a direct=assignment.
 		m = assignment_regex.search(line)
-		if m:
+		if m and current_section == null:
 			var key = m.get_string(1).strip_edges()
 			var value = m.get_string(2).strip_edges()
 			result[key] = value

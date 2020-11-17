@@ -19,6 +19,7 @@ onready var world = $Panel/Margin/Rows/World
 onready var text_edit = $Panel/TextEdit
 onready var save_button = $Panel/TextEdit/SaveButton
 onready var title_label = $Panel/Margin/Rows/Title
+onready var player = $Panel/Margin/Rows/World/You
 
 func _ready():
 	update()
@@ -30,11 +31,29 @@ func _input(event):
 	if event.is_action_pressed("save"):
 		if text_edit.visible:
 			save()
+	if event.is_action_pressed("down", true):
+		player.move(Vector2(0,1))
+	if event.is_action_pressed("up", true):
+		player.move(Vector2(0,-1))
+	if event.is_action_pressed("right", true):
+		player.move(Vector2(1,0))
+	if event.is_action_pressed("left", true):
+		player.move(Vector2(-1,0))
+	if event.is_action_pressed("pickup"):
+		if player.held:
+			player.held = null
+		else:
+			for item in world.get_children():
+				if item.label != "":
+					if item.position == player.position:
+						player.held = item
+						print("player picked up item " + item.label) 
 	
 func clear():
 	pass
 	for item in world.get_children():
-		item.queue_free()
+		if item.label != "":
+			item.queue_free()
 		
 func substr2(s):
 	return s.substr(2)
@@ -65,12 +84,14 @@ func update():
 						#is_visible = true
 						var item = preload("res://scenes/item.tscn").instance()
 						item.label = file_path
+						item.file_browser = self
 						#item.connect("clicked", self, "item_clicked")
 						#item.connect("deleted", self, "item_deleted")
 						item.status = get_file_status(file_path, shell, 1)
 						seed(item.label.hash())
 						item.position = Vector2(rand_range(0, world.rect_size.x), rand_range(0, world.rect_size.y))
 						randomize()
+						item.content = shell.run("cat " + file_path)
 						world.add_child(item)
 					#visible = is_visible				
 					

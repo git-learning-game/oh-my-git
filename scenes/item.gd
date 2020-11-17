@@ -6,6 +6,10 @@ export(IconStatus) var status setget _set_status
 export var label: String setget _set_label
 var type = "file"
 export var editable = true
+var content setget _set_content
+var held
+var GRID_SIZE = 60
+var file_browser
 
 onready var label_node = $Label
 onready var status_icon = $Status
@@ -51,3 +55,18 @@ func _set_status(new_status):
 				status_icon.texture = null
 				
 	status = new_status
+	
+func _set_content(new_content):
+	content = new_content
+	var attributes = helpers.parse(content)
+	if attributes.has("x") and attributes.has("y"):
+		position.x = int(attributes["x"]) * GRID_SIZE
+		position.y = int(attributes["y"]) * GRID_SIZE
+		
+func move(direction):
+	position += direction * GRID_SIZE
+	if label != "":
+		file_browser.shell.run("echo \"x = "+ String(position.x / GRID_SIZE) +"\ny = "+ String(position.y / GRID_SIZE) +"\" > " + label)
+	if held:
+		held.move(direction)
+		

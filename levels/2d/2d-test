@@ -1,0 +1,14 @@
+title = Apples
+cards = checkout commit-auto reset-hard branch-delete
+
+[description]
+
+Testlevel for 2d interactive files.
+
+[setup]
+
+echo "x = 10
+y = 5
+color = red" > apple
+git add .
+git commit -m "An apple a day"

@@ -77,6 +77,9 @@ margin_bottom = 1064.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="You" parent="Panel/Margin/Rows/World" instance=ExtResource( 6 )]
+editable = false
+
 [node name="TextEdit" type="TextEdit" parent="Panel"]
 visible = false
 anchor_right = 1.0
@@ -121,9 +124,5 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="."]
 margin_right = 20.0
 margin_bottom = 20.0
-
-[node name="You" parent="." instance=ExtResource( 6 )]
-position = Vector2( 175.746, 148.807 )
-editable = false
 [connection signal="pressed" from="Panel/TextEdit/SaveButton" to="." method="save"]
 [connection signal="pressed" from="Panel/TextEdit/CloseButton" to="." method="close"]
