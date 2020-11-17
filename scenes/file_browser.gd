@@ -51,7 +51,7 @@ func update():
 					
 					var deleted_files = []
 					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
-						deleted_files = Array(shell.run("git status -s | grep '^.D' | sed -r 's/^...//'").split("\n"))
+						deleted_files = Array(shell.run("git status -s | grep '^.D' | sed 's/^...//'").split("\n"))
 						deleted_files.pop_back()
 						
 					var files = wd_files + deleted_files
@@ -85,7 +85,7 @@ func update():
 				#var is_visible = false					
 				if repository and repository.there_is_a_git():
 					var index_files = Array(repository.shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
-					var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed -r 's/^...//'").split("\n"))
+					var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed 's/^...//'").split("\n"))
 					# The last entries are empty strings, remove them.
 					index_files.pop_back()
 					deleted_files.pop_back()
