@@ -1,9 +1,11 @@
+class_name Item
 extends Node2D
 
 enum IconStatus {NONE, NEW, REMOVED, CONFLICT, EDIT, UNTRACKED}
 export(IconStatus) var status setget _set_status
 export var label: String setget _set_label
 var type = "file"
+export var editable = true
 
 onready var label_node = $Label
 onready var status_icon = $Status
@@ -11,6 +13,8 @@ onready var status_icon = $Status
 func _ready():
 	_set_label(label)
 	_set_status(status)
+	if not editable:
+		type = "nothing"
 	#$PopupMenu.add_item("Delete file", 0)
 
 func _set_label(new_label):

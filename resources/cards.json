@@ -1,5 +1,10 @@
 [
 	{
+		"id": "edit",
+		"command": "fake-editor [file]",
+		"description": "Edit a file."
+	},
+	{
 		"id": "init",
 		"command": "git init",
 		"description": "Initialize the time machine!"

@@ -124,7 +124,6 @@ margin_bottom = 20.0
 
 [node name="You" parent="." instance=ExtResource( 6 )]
 position = Vector2( 175.746, 148.807 )
-status = 5
-label = "me"
+editable = false
 [connection signal="pressed" from="Panel/TextEdit/SaveButton" to="." method="save"]
 [connection signal="pressed" from="Panel/TextEdit/CloseButton" to="." method="close"]

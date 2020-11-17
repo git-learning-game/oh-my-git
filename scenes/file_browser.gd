@@ -15,7 +15,7 @@ var repository
 
 var open_file
 
-#onready var grid = $Panel/Margin/Rows/Scroll/Grid
+onready var world = $Panel/Margin/Rows/World
 onready var text_edit = $Panel/TextEdit
 onready var save_button = $Panel/TextEdit/SaveButton
 onready var title_label = $Panel/Margin/Rows/Title
@@ -33,8 +33,8 @@ func _input(event):
 	
 func clear():
 	pass
-#	for item in grid.get_children():
-#		item.queue_free()
+	for item in world.get_children():
+		item.queue_free()
 		
 func substr2(s):
 	return s.substr(2)
@@ -63,13 +63,15 @@ func update():
 						if file_path.substr(0, 5) == ".git/":
 							continue
 						#is_visible = true
-						var item = preload("res://scenes/file_browser_item.tscn").instance()
+						var item = preload("res://scenes/item.tscn").instance()
 						item.label = file_path
-						item.connect("clicked", self, "item_clicked")
-						item.connect("deleted", self, "item_deleted")
+						#item.connect("clicked", self, "item_clicked")
+						#item.connect("deleted", self, "item_deleted")
 						item.status = get_file_status(file_path, shell, 1)
-							
-						#grid.add_child(item)
+						seed(item.label.hash())
+						item.position = Vector2(rand_range(0, world.rect_size.x), rand_range(0, world.rect_size.y))
+						randomize()
+						world.add_child(item)
 					#visible = is_visible				
 					
 			FileBrowserMode.COMMIT:
@@ -106,19 +108,19 @@ func get_file_status(file_path, the_shell, idx):
 	if file_status.length()>0:
 		match file_status[idx]:
 			"D":
-				return FileBrowserItem.IconStatus.REMOVED
+				return Item.IconStatus.REMOVED
 			"M":
-				return FileBrowserItem.IconStatus.EDIT
+				return Item.IconStatus.EDIT
 			"U":
-				return FileBrowserItem.IconStatus.CONFLICT
+				return Item.IconStatus.CONFLICT
 			" ":
-				return FileBrowserItem.IconStatus.NONE
+				return Item.IconStatus.NONE
 			"A":
-				return FileBrowserItem.IconStatus.NEW
+				return Item.IconStatus.NEW
 			"?":
-				return FileBrowserItem.IconStatus.UNTRACKED
+				return Item.IconStatus.UNTRACKED
 	else:
-		return FileBrowserItem.IconStatus.NONE
+		return Item.IconStatus.NONE
 
 func item_clicked(item):
 	if item.status == item.IconStatus.REMOVED:

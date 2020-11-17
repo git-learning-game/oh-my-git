@@ -48,6 +48,7 @@ func run_async_thread(shell_command):
 	
 	var env = {}
 	env["HOME"] = game.tmp_prefix
+	env["PATH"] = game.tmp_prefix + ":'\"$PATH\"'"
 	
 	var hacky_command = ""
 	for variable in env:

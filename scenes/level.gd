@@ -24,6 +24,7 @@ func load(path):
 		cards = Array(config.get("cards", "").split(" "))
 		if cards == [""]:
 			cards = []
+		cards.push_back("edit")
 		
 		var keys = config.keys()
 		var repo_setups = []
