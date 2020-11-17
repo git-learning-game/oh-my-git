@@ -15,7 +15,7 @@ var repository
 
 var open_file
 
-onready var grid = $Panel/Margin/Rows/Scroll/Grid
+#onready var grid = $Panel/Margin/Rows/Scroll/Grid
 onready var text_edit = $Panel/TextEdit
 onready var save_button = $Panel/TextEdit/SaveButton
 onready var title_label = $Panel/Margin/Rows/Title
@@ -32,14 +32,15 @@ func _input(event):
 			save()
 	
 func clear():
-	for item in grid.get_children():
-		item.queue_free()
+	pass
+#	for item in grid.get_children():
+#		item.queue_free()
 		
 func substr2(s):
 	return s.substr(2)
 		
 func update():
-	if grid:
+	if true:#grid:
 		clear()
 		match mode:
 			FileBrowserMode.WORKING_DIRECTORY:
@@ -68,7 +69,7 @@ func update():
 						item.connect("deleted", self, "item_deleted")
 						item.status = get_file_status(file_path, shell, 1)
 							
-						grid.add_child(item)
+						#grid.add_child(item)
 					#visible = is_visible				
 					
 			FileBrowserMode.COMMIT:
@@ -80,7 +81,7 @@ func update():
 						var item = preload("res://scenes/file_browser_item.tscn").instance()
 						item.label = file_path
 						item.connect("clicked", self, "item_clicked")
-						grid.add_child(item)
+						#grid.add_child(item)
 			FileBrowserMode.INDEX:
 				#var is_visible = false					
 				if repository and repository.there_is_a_git():
@@ -95,7 +96,7 @@ func update():
 						item.label = file_path
 						item.connect("clicked", self, "item_clicked")
 						item.status = get_file_status(file_path, repository.shell, 0)
-						grid.add_child(item)
+						#grid.add_child(item)
 						#if item.status != item.IconStatus.NONE:
 						#	is_visible = true		
 				#visible = is_visible				

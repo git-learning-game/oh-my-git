@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/file_browser.gd" type="Script" id=1]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/item.tscn" type="PackedScene" id=6]
 
 [node name="FileBrowser" type="Control" groups=[
 "editors",
@@ -52,40 +53,29 @@ align = 1
 
 [node name="Breadcrumbs" type="HBoxContainer" parent="Panel/Margin/Rows"]
 visible = false
-margin_right = 1856.0
-margin_bottom = 50.0
+margin_top = 29.0
+margin_right = 1904.0
+margin_bottom = 79.0
 rect_min_size = Vector2( 0, 50 )
 custom_constants/separation = 8
 
 [node name="Button" type="Button" parent="Panel/Margin/Rows/Breadcrumbs"]
-margin_right = 55.0
+margin_right = 61.0
 margin_bottom = 50.0
 text = "root"
 
 [node name="Button2" type="Button" parent="Panel/Margin/Rows/Breadcrumbs"]
-margin_left = 63.0
-margin_right = 104.0
+margin_left = 69.0
+margin_right = 114.0
 margin_bottom = 50.0
 text = "dir"
 
-[node name="Scroll" type="ScrollContainer" parent="Panel/Margin/Rows"]
+[node name="World" type="Control" parent="Panel/Margin/Rows"]
 margin_top = 29.0
 margin_right = 1904.0
 margin_bottom = 1064.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Grid" type="GridContainer" parent="Panel/Margin/Rows/Scroll"]
-margin_right = 1904.0
-margin_bottom = 1035.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/vseparation = 16
-custom_constants/hseparation = 16
-columns = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextEdit" type="TextEdit" parent="Panel"]
 visible = false
@@ -131,5 +121,10 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="."]
 margin_right = 20.0
 margin_bottom = 20.0
+
+[node name="You" parent="." instance=ExtResource( 6 )]
+position = Vector2( 175.746, 148.807 )
+status = 5
+label = "me"
 [connection signal="pressed" from="Panel/TextEdit/SaveButton" to="." method="save"]
 [connection signal="pressed" from="Panel/TextEdit/CloseButton" to="." method="close"]
