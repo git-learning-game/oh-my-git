@@ -1,0 +1,54 @@
+title = Parallelism
+cards = checkout commit-auto
+
+[description]
+
+Did you know that creating parallel timelines is perfectly legal and safe? It's true!
+
+Can you find out when things went wrong in this zoo, and create a parallel universe where everyone is happy?
+
+[setup]
+
+echo "x = 500
+y = 100" > lion
+
+echo "x = 100
+y = 100" > child
+git add .
+git commit -m "The beginning"
+
+echo "x = 150
+y = 100" > lollipop
+git add .
+git commit -m "The child buys something"
+
+echo "x = 400
+y = 100" > child
+git add .
+git commit -m "The child climbs somewhere"
+
+git rm child
+#echo "Looks happy. :)" > lion
+git add .
+git commit -m "Oh no"
+
+echo "x = 450
+y = 100" > lion
+git add .
+git commit -m "Nap time!"
+
+git checkout --detach
+git branch -d main
+
+[win]
+
+# Is the child still there, and is the lion not hungry?
+{ git ls-tree --name-only -r HEAD | grep child; } && { git show HEAD:lollipop | grep "x = 4"; }
+
+[congrats]
+
+Whew, good job! This seems like a *much* better outcome.
+
+Feel free to add more parallel timelines, or make them longer.
+
+If you're ready, our next mission is already waiting...

@@ -34,9 +34,11 @@ func read_from_file():
 		"index":
 			content = file_browser.shell.run("git show :'%s'" % label)
 			modulate = Color(0, 0, 1.0)
+			$Sprite.scale = Vector2(0.75, 0.75)
 		"head":
 			content = file_browser.shell.run("git show HEAD:'%s'" % label)
-			modulate = Color(0, 0, 0, 0.5)
+			modulate = Color(0, 0, 0, 0.2)
+			$Sprite.scale = Vector2(0.8, 0.8)
 			
 	attributes = helpers.parse(content)
 	position.x = int(attributes["x"])
