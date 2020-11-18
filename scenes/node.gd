@@ -15,6 +15,7 @@ var hovered = false
 var arrow = preload("res://scenes/arrow.tscn")
 
 func _ready():
+	$FileBrowser.hide()
 	content_set(content)
 	type_set(type)
 	if not repository.simplified_view or (type != "tree" and type != "blob"):
@@ -75,6 +76,7 @@ func type_set(new_type):
 			$Sprite.texture = preload("res://nodes/tree.svg")
 		"commit":
 			$Sprite.texture = preload("res://nodes/commit.svg")
+			$FileBrowser.show()
 		"tag":
 			$Sprite.texture = preload("res://nodes/blob.svg")
 		"ref":

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/node.gd" type="Script" id=2]
 [ext_resource path="res://nodes/blob.svg" type="Texture" id=3]
+[ext_resource path="res://scenes/file_browser.tscn" type="PackedScene" id=4]
 [ext_resource path="res://nodes/pop.wav" type="AudioStream" id=5]
 [ext_resource path="res://scenes/drop_area.tscn" type="PackedScene" id=6]
 
@@ -80,6 +81,15 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FileBrowser" parent="." instance=ExtResource( 4 )]
+margin_left = -21.0
+margin_top = -20.0
+margin_right = 578.0
+margin_bottom = 559.0
+rect_min_size = Vector2( 0, 0 )
+rect_scale = Vector2( 0.07, 0.07 )
+mouse_filter = 2
 [connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]
 [connection signal="mouse_exited" from="Rect" to="." method="_on_unhover"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_hover"]

@@ -36,9 +36,14 @@ func read_from_file():
 			modulate = Color(0, 0, 1.0)
 			$Sprite.scale = Vector2(0.75, 0.75)
 		"head":
-			content = file_browser.shell.run("git show HEAD:'%s'" % label)
-			modulate = Color(0, 0, 0, 0.2)
-			$Sprite.scale = Vector2(0.8, 0.8)
+			var commit = "HEAD"
+			if file_browser.commit:
+				commit = file_browser.commit.id
+			else:
+				modulate = Color(0, 0, 0, 0.2)
+				$Sprite.scale = Vector2(0.8, 0.8)
+			content = file_browser.shell.run("git show %s:'%s'" % [commit, label])
+			
 			
 	attributes = helpers.parse(content)
 	position.x = int(attributes["x"])

@@ -47,10 +47,10 @@ func _input(event):
 		get_tree().set_input_as_handled()
 	
 func clear():
-	pass
-	for item in world.get_children():
-		if item.label != "":
-			item.queue_free()
+	if world:
+		for item in world.get_children():
+			if item.label != "":
+				item.queue_free()
 		
 func substr2(s):
 	return s.substr(2)
@@ -142,32 +142,17 @@ func update():
 					
 			FileBrowserMode.COMMIT:
 				if commit:
-					var files = Array(commit.repository.shell.run("git ls-tree --name-only -r %s" % commit.id).split("\n"))
-					# The last entry is an empty string, remove it.
-					files.pop_back()
-					for file_path in files:
-						var item = preload("res://scenes/file_browser_item.tscn").instance()
-						item.label = file_path
-						item.connect("clicked", self, "item_clicked")
-						#grid.add_child(item)
-			FileBrowserMode.INDEX:
-				#var is_visible = false					
-				if repository and repository.there_is_a_git():
-					var index_files = Array(repository.shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
-					var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed 's/^...//'").split("\n"))
-					# The last entries are empty strings, remove them.
-					index_files.pop_back()
-					deleted_files.pop_back()
-					var files = index_files + deleted_files
-					for file_path in files:
-						var item = preload("res://scenes/file_browser_item.tscn").instance()
-						item.label = file_path
-						item.connect("clicked", self, "item_clicked")
-						item.status = get_file_status(file_path, repository.shell, 0)
-						#grid.add_child(item)
-						#if item.status != item.IconStatus.NONE:
-						#	is_visible = true		
-				#visible = is_visible				
+					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
+						var files = Array(shell.run("git ls-tree --name-only -r %s" % commit.id).split("\n"))
+						# The last entry is an empty string, remove it.
+						files.pop_back()
+						for file_path in files:
+							var item = preload("res://scenes/item.tscn").instance()
+							item.label = file_path
+							item.item_type = "head"
+							item.type = "nothing"
+							item.file_browser = self
+							world.add_child(item)
 						
 func get_file_status(file_path, the_shell, idx):
 	var file_status = the_shell.run("git status -s '%s'" % file_path)
@@ -228,7 +213,8 @@ func save():
 
 func _set_commit(new_commit):
 	commit = new_commit
-	update()
+	#update()
+	shell = commit.repository.shell
 	
 func _set_mode(new_mode):
 	mode = new_mode

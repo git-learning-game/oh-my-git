@@ -107,6 +107,8 @@ func update_objects():
 				for p in commit_parents(o):
 					c[p] = ""
 				n.children = c
+				n.find_node("FileBrowser").mode = n.find_node("FileBrowser").FileBrowserMode.COMMIT
+				n.find_node("FileBrowser").commit = n
 				
 				_commit_count += 1
 #				if _commit_count >= 3 and not simplified_view:

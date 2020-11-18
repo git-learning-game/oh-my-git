@@ -48,6 +48,7 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="Panel/Margin/Rows"]
+visible = false
 margin_right = 1904.0
 margin_bottom = 29.0
 text = "title"
@@ -73,7 +74,6 @@ margin_bottom = 50.0
 text = "dir"
 
 [node name="World" type="Control" parent="Panel/Margin/Rows"]
-margin_top = 29.0
 margin_right = 1904.0
 margin_bottom = 1064.0
 mouse_filter = 1
