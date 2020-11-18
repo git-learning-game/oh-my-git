@@ -34,7 +34,7 @@ func _input(event):
 		if text_edit.visible:
 			save()
 	if has_focus():
-		if Input.is_action_pressed("pickup"):
+		if event.is_action_pressed("pickup"):
 			if player.held:
 				player.held = null
 			else:
@@ -42,6 +42,9 @@ func _input(event):
 					if item != player and item.item_type == "wd":
 						if item.position.distance_to(player.position) < 150:
 							player.held = item
+	
+	if event.is_action_pressed("up") or event.is_action_pressed("down") or event.is_action_pressed("left") or event.is_action_pressed("right"):
+		get_tree().set_input_as_handled()
 	
 func clear():
 	pass
