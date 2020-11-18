@@ -6,7 +6,9 @@ export(IconStatus) var status setget _set_status
 export var label: String setget _set_label
 var type = "file"
 export var editable = true
-var content setget _set_content
+
+var attributes
+
 var held
 var GRID_SIZE = 60
 var file_browser
@@ -17,9 +19,26 @@ onready var status_icon = $Status
 func _ready():
 	_set_label(label)
 	_set_status(status)
-	if not editable:
-		type = "nothing"
+	
+	read_from_file()
+#	if not editable:
+#		type = "nothing"
 	#$PopupMenu.add_item("Delete file", 0)
+
+func read_from_file():
+	print(file_browser)
+	attributes = helpers.parse(file_browser.shell.run("cat '%s'" % label))	
+	position.x = int(attributes["x"])
+	position.y = int(attributes["y"])
+
+func write_to_file():
+	attributes["x"] = str(position.x)
+	attributes["y"] = str(position.y)
+	
+	var content = ""
+	for key in attributes:
+		content += "%s = %s\n" % [key, attributes[key]]
+	file_browser.shell.run("echo \"%s\" > %s" % [content, label])
 
 func _set_label(new_label):
 	label = new_label
@@ -55,18 +74,9 @@ func _set_status(new_status):
 				status_icon.texture = null
 				
 	status = new_status
-	
-func _set_content(new_content):
-	content = new_content
-	var attributes = helpers.parse(content)
-	if attributes.has("x") and attributes.has("y"):
-		position.x = int(attributes["x"]) * GRID_SIZE
-		position.y = int(attributes["y"]) * GRID_SIZE
 		
-func move(direction):
-	position += direction * GRID_SIZE
-	if label != "":
-		file_browser.shell.run("echo \"x = "+ String(position.x / GRID_SIZE) +"\ny = "+ String(position.y / GRID_SIZE) +"\" > " + label)
+func move(diff):
+	position += diff
+	write_to_file()
 	if held:
-		held.move(direction)
-		
+		held.move(diff)

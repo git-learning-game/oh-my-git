@@ -7,8 +7,9 @@ Testlevel for 2d interactive files.
 
 [setup]
 
-echo "x = 10
-y = 5
-color = red" > apple
+echo "x = 100
+y = 50" > apple
+echo "x = 200
+y = 50" > pear
 git add .
 git commit -m "An apple a day"

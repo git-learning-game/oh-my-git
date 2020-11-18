@@ -19,13 +19,15 @@ onready var world = $Panel/Margin/Rows/World
 onready var text_edit = $Panel/TextEdit
 onready var save_button = $Panel/TextEdit/SaveButton
 onready var title_label = $Panel/Margin/Rows/Title
-onready var player = $Panel/Margin/Rows/World/You
+#onready var player = $Panel/Margin/Rows/World/You
+var player
 
 func _ready():
 	update()
 	_set_mode(mode)
 	_set_title(title)
 	$PopupMenu.add_item("New file", 1)
+	#player.file_browser = self
 
 func _input(event):
 	if event.is_action_pressed("save"):
@@ -91,7 +93,6 @@ func update():
 						seed(item.label.hash())
 						item.position = Vector2(rand_range(0, world.rect_size.x), rand_range(0, world.rect_size.y))
 						randomize()
-						item.content = shell.run("cat " + file_path)
 						world.add_child(item)
 					#visible = is_visible				
 					
