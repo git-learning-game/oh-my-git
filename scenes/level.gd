@@ -101,6 +101,9 @@ func construct():
 		var repo = repos[r]
 		game.global_shell.cd(repo.path)
 		game.global_shell.run(repo.setup_commands)
+		# If there is no player, add one.
+		if game.global_shell.run("test -f you && echo yes || echo no") == "no\n":
+			game.global_shell.run("echo \"x = 200\ny = 200\" > you")
 
 func check_win():
 	var won = true

@@ -134,7 +134,7 @@ func update():
 						#item.position = Vector2(rand_range(0, world.rect_size.x), rand_range(0, world.rect_size.y))
 						#randomize()
 						world.add_child(item)
-						if not player:
+						if file_path == "you":
 							player = item
 					
 			FileBrowserMode.COMMIT:
