@@ -33,7 +33,10 @@ func read_from_file():
 			content = file_browser.shell.run("cat '%s'" % label)
 		"index":
 			content = file_browser.shell.run("git show :'%s'" % label)
-			modulate = Color(0, 0, 255.0)
+			modulate = Color(0, 0, 1.0)
+		"head":
+			content = file_browser.shell.run("git show HEAD:'%s'" % label)
+			modulate = Color(0, 0, 0, 0.5)
 			
 	attributes = helpers.parse(content)
 	position.x = int(attributes["x"])

@@ -33,23 +33,24 @@ func _input(event):
 	if event.is_action_pressed("save"):
 		if text_edit.visible:
 			save()
-#	if event.is_action_pressed("down", true):
-#		player.move(Vector2(0,1))
-#	if event.is_action_pressed("up", true):
-#		player.move(Vector2(0,-1))
-#	if event.is_action_pressed("right", true):
-#		player.move(Vector2(1,0))
-#	if event.is_action_pressed("left", true):
-#		player.move(Vector2(-1,0))
-#	if event.is_action_pressed("pickup"):
-#		if player.held:
-#			player.held = null
-#		else:
-#			for item in world.get_children():
-#				if item.label != "":
-#					if item.position == player.position:
-#						player.held = item
-#						print("player picked up item " + item.label) 
+	var speed = 30
+	if event.is_action_pressed("down", true):
+		player.move(Vector2(0,speed))
+	if event.is_action_pressed("up", true):
+		player.move(Vector2(0,-speed))
+	if event.is_action_pressed("right", true):
+		player.move(Vector2(speed, 0))
+	if event.is_action_pressed("left", true):
+		player.move(Vector2(-speed,0))
+	if event.is_action_pressed("pickup"):
+		if player.held:
+			player.held = null
+		else:
+			for item in world.get_children():
+				if item != player:
+					if item.position.distance_to(player.position) < 50:
+						player.held = item
+						print("player picked up item " + item.label) 
 	
 func clear():
 	pass
@@ -66,6 +67,39 @@ func update():
 		match mode:
 			FileBrowserMode.WORKING_DIRECTORY:
 				if shell:
+					# Populate HEAD versions.
+					
+					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
+						var files = Array(shell.run("git ls-tree --name-only -r %s" % "HEAD").split("\n"))
+						# The last entry is an empty string, remove it.
+						files.pop_back()
+						for file_path in files:
+							var item = preload("res://scenes/item.tscn").instance()
+							item.label = file_path
+							item.item_type = "head"
+							item.type = "nothing"
+							item.file_browser = self
+							world.add_child(item)
+							
+					# Populate index.
+					
+					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
+						var index_files = Array(shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
+						#var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed 's/^...//'").split("\n"))
+						# The last entries are empty strings, remove them.
+						index_files.pop_back()
+						#deleted_files.pop_back()
+						var files = index_files# + deleted_files
+						for file_path in files:
+							var item = preload("res://scenes/item.tscn").instance()
+							item.label = file_path
+							item.item_type = "index"
+							item.type = "nothing"
+							item.file_browser = self
+							#item.connect("clicked", self, "item_clicked")
+							#item.status = get_file_status(file_path, repository.shell, 0)
+							world.add_child(item)
+							
 					# Populate working directory.
 					
 					var wd_files = Array(shell.run("find . -type f").split("\n"))
@@ -80,6 +114,7 @@ func update():
 						
 					var files = wd_files + deleted_files
 					
+					player = null
 					files.sort_custom(self, "very_best_sort")
 					for file_path in files:
 						if file_path.substr(0, 5) == ".git/":
@@ -93,27 +128,8 @@ func update():
 						#item.position = Vector2(rand_range(0, world.rect_size.x), rand_range(0, world.rect_size.y))
 						#randomize()
 						world.add_child(item)
-					
-					# Populate index.
-					
-					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
-						var index_files = Array(shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
-						#var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed 's/^...//'").split("\n"))
-						# The last entries are empty strings, remove them.
-						index_files.pop_back()
-						#deleted_files.pop_back()
-						files = index_files# + deleted_files
-						for file_path in files:
-							var item = preload("res://scenes/item.tscn").instance()
-							item.label = file_path
-							item.item_type = "index"
-							item.type = "nothing"
-							item.file_browser = self
-							print(item)
-							#item.connect("clicked", self, "item_clicked")
-							#item.status = get_file_status(file_path, repository.shell, 0)
-							world.add_child(item)
-					
+						if not player:
+							player = item
 					
 			FileBrowserMode.COMMIT:
 				if commit:
