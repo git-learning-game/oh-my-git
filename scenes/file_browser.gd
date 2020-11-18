@@ -33,23 +33,23 @@ func _input(event):
 	if event.is_action_pressed("save"):
 		if text_edit.visible:
 			save()
-	if event.is_action_pressed("down", true):
-		player.move(Vector2(0,1))
-	if event.is_action_pressed("up", true):
-		player.move(Vector2(0,-1))
-	if event.is_action_pressed("right", true):
-		player.move(Vector2(1,0))
-	if event.is_action_pressed("left", true):
-		player.move(Vector2(-1,0))
-	if event.is_action_pressed("pickup"):
-		if player.held:
-			player.held = null
-		else:
-			for item in world.get_children():
-				if item.label != "":
-					if item.position == player.position:
-						player.held = item
-						print("player picked up item " + item.label) 
+#	if event.is_action_pressed("down", true):
+#		player.move(Vector2(0,1))
+#	if event.is_action_pressed("up", true):
+#		player.move(Vector2(0,-1))
+#	if event.is_action_pressed("right", true):
+#		player.move(Vector2(1,0))
+#	if event.is_action_pressed("left", true):
+#		player.move(Vector2(-1,0))
+#	if event.is_action_pressed("pickup"):
+#		if player.held:
+#			player.held = null
+#		else:
+#			for item in world.get_children():
+#				if item.label != "":
+#					if item.position == player.position:
+#						player.held = item
+#						print("player picked up item " + item.label) 
 	
 func clear():
 	pass
@@ -66,6 +66,8 @@ func update():
 		match mode:
 			FileBrowserMode.WORKING_DIRECTORY:
 				if shell:
+					# Populate working directory.
+					
 					var wd_files = Array(shell.run("find . -type f").split("\n"))
 					# The last entry is an empty string, remove it.
 					wd_files.pop_back()
@@ -79,22 +81,39 @@ func update():
 					var files = wd_files + deleted_files
 					
 					files.sort_custom(self, "very_best_sort")
-					#var is_visible = false
 					for file_path in files:
 						if file_path.substr(0, 5) == ".git/":
 							continue
-						#is_visible = true
 						var item = preload("res://scenes/item.tscn").instance()
 						item.label = file_path
 						item.file_browser = self
-						#item.connect("clicked", self, "item_clicked")
-						#item.connect("deleted", self, "item_deleted")
-						item.status = get_file_status(file_path, shell, 1)
-						seed(item.label.hash())
-						item.position = Vector2(rand_range(0, world.rect_size.x), rand_range(0, world.rect_size.y))
-						randomize()
+						#item.status = get_file_status(file_path, shell, 1)
+						item.item_type = "wd"
+						#seed(item.label.hash())
+						#item.position = Vector2(rand_range(0, world.rect_size.x), rand_range(0, world.rect_size.y))
+						#randomize()
 						world.add_child(item)
-					#visible = is_visible				
+					
+					# Populate index.
+					
+					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
+						var index_files = Array(shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
+						#var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed 's/^...//'").split("\n"))
+						# The last entries are empty strings, remove them.
+						index_files.pop_back()
+						#deleted_files.pop_back()
+						files = index_files# + deleted_files
+						for file_path in files:
+							var item = preload("res://scenes/item.tscn").instance()
+							item.label = file_path
+							item.item_type = "index"
+							item.type = "nothing"
+							item.file_browser = self
+							print(item)
+							#item.connect("clicked", self, "item_clicked")
+							#item.status = get_file_status(file_path, repository.shell, 0)
+							world.add_child(item)
+					
 					
 			FileBrowserMode.COMMIT:
 				if commit:

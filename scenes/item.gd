@@ -5,6 +5,7 @@ enum IconStatus {NONE, NEW, REMOVED, CONFLICT, EDIT, UNTRACKED}
 export(IconStatus) var status setget _set_status
 export var label: String setget _set_label
 var type = "file"
+var item_type
 export var editable = true
 
 var attributes
@@ -26,8 +27,15 @@ func _ready():
 	#$PopupMenu.add_item("Delete file", 0)
 
 func read_from_file():
-	print(file_browser)
-	attributes = helpers.parse(file_browser.shell.run("cat '%s'" % label))	
+	var content
+	match item_type:
+		"wd":
+			content = file_browser.shell.run("cat '%s'" % label)
+		"index":
+			content = file_browser.shell.run("git show :'%s'" % label)
+			modulate = Color(0, 0, 255.0)
+			
+	attributes = helpers.parse(content)
 	position.x = int(attributes["x"])
 	position.y = int(attributes["y"])
 
