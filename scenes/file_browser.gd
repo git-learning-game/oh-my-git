@@ -33,26 +33,15 @@ func _input(event):
 	if event.is_action_pressed("save"):
 		if text_edit.visible:
 			save()
-			
 	if has_focus():
-		var speed = 30
-		if event.is_action_pressed("down", true):
-			player.move(Vector2(0,speed))
-		if event.is_action_pressed("up", true):
-			player.move(Vector2(0,-speed))
-		if event.is_action_pressed("right", true):
-			player.move(Vector2(speed, 0))
-		if event.is_action_pressed("left", true):
-			player.move(Vector2(-speed,0))
-		if event.is_action_pressed("pickup"):
+		if Input.is_action_pressed("pickup"):
 			if player.held:
 				player.held = null
 			else:
 				for item in world.get_children():
-					if item != player:
-						if item.position.distance_to(player.position) < 50:
+					if item != player and item.item_type == "wd":
+						if item.position.distance_to(player.position) < 150:
 							player.held = item
-							print("player picked up item " + item.label) 
 	
 func clear():
 	pass
@@ -63,7 +52,22 @@ func clear():
 func substr2(s):
 	return s.substr(2)
 		
-func update():
+func _process(delta):
+	if has_focus():
+		var speed = 300*delta
+		var motion = Vector2(0, 0)
+		if Input.is_action_pressed("down"):
+			motion += Vector2(0,1)
+		if Input.is_action_pressed("up"):
+			motion += Vector2(0,-1)
+		if Input.is_action_pressed("right"):
+			motion += Vector2(1, 0)
+		if Input.is_action_pressed("left"):
+			motion += Vector2(-1, 0)
+		if motion.length() > 0:
+			player.move(motion.normalized()*speed)
+
+func update():	
 	if true:#grid:
 		clear()
 		match mode:
