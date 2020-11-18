@@ -11,7 +11,7 @@
 	},
 	{
 		"id": "checkout",
-		"command": "git checkout [commit, ref]",
+		"command": "git checkout [commit, ref, file]",
 		"description": "Drag this card to a commit or to a branch to travel to it!"
 	},
 	{
@@ -56,7 +56,7 @@
 	},
 	{
 		"id": "reset",
-		"command": "git reset [commit]",
+		"command": "git reset [commit, file]",
 		"description": "Jump to the commit, and update the index. Keep the current environment."
 	},
 	{
@@ -86,7 +86,7 @@
 	},
 	{
 		"id": "commit",
-		"command": "git commit",
+		"command": "git commit -m $RANDOM",
 		"description": "Make a commit from the plan."
 	},
 	{

@@ -79,16 +79,17 @@ func update():
 					# Populate HEAD versions.
 					
 					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
-						var files = Array(shell.run("git ls-tree --name-only -r %s" % "HEAD").split("\n"))
-						# The last entry is an empty string, remove it.
-						files.pop_back()
-						for file_path in files:
-							var item = preload("res://scenes/item.tscn").instance()
-							item.label = file_path
-							item.item_type = "head"
-							item.type = "nothing"
-							item.file_browser = self
-							world.add_child(item)
+						if shell.run("git rev-parse HEAD &> /dev/null && echo yes || echo no") == "yes\n":
+							var files = Array(shell.run("git ls-tree --name-only -r %s" % "HEAD").split("\n"))
+							# The last entry is an empty string, remove it.
+							files.pop_back()
+							for file_path in files:
+								var item = preload("res://scenes/item.tscn").instance()
+								item.label = file_path
+								item.item_type = "head"
+								item.type = "nothing"
+								item.file_browser = self
+								world.add_child(item)
 							
 					# Populate index.
 					
@@ -116,12 +117,12 @@ func update():
 					wd_files.pop_back()
 					wd_files = helpers.map(wd_files, self, "substr2")
 					
-					var deleted_files = []
-					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
-						deleted_files = Array(shell.run("git status -s | grep '^.D' | sed 's/^...//'").split("\n"))
-						deleted_files.pop_back()
+#					var deleted_files = []
+#					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
+#						deleted_files = Array(shell.run("git status -s | grep '^.D' | sed 's/^...//'").split("\n"))
+#						deleted_files.pop_back()
 						
-					var files = wd_files + deleted_files
+					var files = wd_files# + deleted_files
 					
 					player = null
 					files.sort_custom(self, "very_best_sort")

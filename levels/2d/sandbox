@@ -1,0 +1,13 @@
+title = Sandbox
+cards = checkout add reset commit merge rebase-interactive file-new file-delete
+
+[setup]
+
+echo "x = 200
+y = 100" > apple
+
+echo "x = 400
+y = 100" > pen
+
+git add .
+git commit -m "The beginning"

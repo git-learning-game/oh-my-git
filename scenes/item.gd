@@ -34,21 +34,28 @@ func read_from_file():
 		"index":
 			content = file_browser.shell.run("git show :'%s'" % label)
 			modulate = Color(0, 0, 1.0)
-			$Sprite.scale = Vector2(0.75, 0.75)
+			$Sprite.scale *= 1.2
 		"head":
 			var commit = "HEAD"
 			if file_browser.commit:
 				commit = file_browser.commit.id
 			else:
 				modulate = Color(0, 0, 0, 0.2)
-				$Sprite.scale = Vector2(0.8, 0.8)
+				$Sprite.scale *= 1.4
 			content = file_browser.shell.run("git show %s:'%s'" % [commit, label])
 			
 			
 	attributes = helpers.parse(content)
-	position.x = int(attributes["x"])
-	position.y = int(attributes["y"])
-
+	if attributes.has("x"):
+		position.x = float(attributes["x"])
+	else:
+		position.x = rand_range(100, 400)
+	if attributes.has("y"):
+		position.y = float(attributes["y"])
+	else:
+		position.y = rand_range(100, 300)
+	write_to_file()
+		
 func write_to_file():
 	attributes["x"] = str(position.x)
 	attributes["y"] = str(position.y)
@@ -62,6 +69,12 @@ func _set_label(new_label):
 	label = new_label
 	if label_node:
 		label_node.text = helpers.abbreviate(new_label, 30)
+	
+	if new_label == "you":
+		$Sprite.texture = preload("res://nodes/head.svg")
+	else:
+		$Sprite.texture = preload("res://nodes/document.svg")
+		$Sprite.scale *= 0.85
 
 #func _gui_input(event):
 #	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_LEFT:
