@@ -28,29 +28,31 @@ func _ready():
 	_set_title(title)
 	$PopupMenu.add_item("New file", 1)
 	#player.file_browser = self
-
+		
 func _input(event):
 	if event.is_action_pressed("save"):
 		if text_edit.visible:
 			save()
-	var speed = 30
-	if event.is_action_pressed("down", true):
-		player.move(Vector2(0,speed))
-	if event.is_action_pressed("up", true):
-		player.move(Vector2(0,-speed))
-	if event.is_action_pressed("right", true):
-		player.move(Vector2(speed, 0))
-	if event.is_action_pressed("left", true):
-		player.move(Vector2(-speed,0))
-	if event.is_action_pressed("pickup"):
-		if player.held:
-			player.held = null
-		else:
-			for item in world.get_children():
-				if item != player:
-					if item.position.distance_to(player.position) < 50:
-						player.held = item
-						print("player picked up item " + item.label) 
+			
+	if has_focus():
+		var speed = 30
+		if event.is_action_pressed("down", true):
+			player.move(Vector2(0,speed))
+		if event.is_action_pressed("up", true):
+			player.move(Vector2(0,-speed))
+		if event.is_action_pressed("right", true):
+			player.move(Vector2(speed, 0))
+		if event.is_action_pressed("left", true):
+			player.move(Vector2(-speed,0))
+		if event.is_action_pressed("pickup"):
+			if player.held:
+				player.held = null
+			else:
+				for item in world.get_children():
+					if item != player:
+						if item.position.distance_to(player.position) < 50:
+							player.held = item
+							print("player picked up item " + item.label) 
 	
 func clear():
 	pass
@@ -237,11 +239,6 @@ func _set_title(new_title):
 	title = new_title
 	if title_label:
 		title_label.text = new_title
-		
-func _gui_input(event):
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_RIGHT:
-		$PopupMenu.set_position(get_global_mouse_position())
-		$PopupMenu.popup()
 
 func very_best_sort(a,b):
 	if a[0] == "." and b[0] != ".":
