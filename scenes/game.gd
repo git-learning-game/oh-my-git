@@ -2,7 +2,6 @@ extends Node
 
 var tmp_prefix = OS.get_user_data_dir() + "/tmp/"
 var global_shell
-var fake_editor
 
 var dragged_object
 var energy = 2
@@ -15,11 +14,15 @@ func _ready():
 	
 	create_file_in_game_env(".gitconfig", helpers.read_file("res://scripts/gitconfig"))
 	
-	create_file_in_game_env("fake-editor", helpers.read_file("res://scripts/fake-editor"))
-	fake_editor = tmp_prefix + "fake-editor"
-	global_shell.run("chmod u+x '%s'" % fake_editor)
+	create_verb("fake-editor")
+	create_verb("take")
+	create_verb("drop")
 	
 	load_state()
+
+func create_verb(name):
+	create_file_in_game_env(name, helpers.read_file("res://scripts/%s" % name))
+	global_shell.run("chmod u+x '%s'" % name)
 	
 func _initial_state():
 	return {"history": []}

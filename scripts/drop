@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "Dropping $1!"
+mv "$HOME/inventory/$1" .
+
+if [ "$#" -eq 3 ]; then
+    echo "x = $2" > "$1"
+    echo "y = $3" >> "$1"
+fi

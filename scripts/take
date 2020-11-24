@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "Taking $1!"
+mkdir -p ~/inventory
+mv "$1" ~/inventory
