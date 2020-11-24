@@ -2,9 +2,16 @@ extends Node2D
 
 var hovered = false
 var highlighted = false setget _set_highlighted
+var dragged = false
 
 func _ready():
 	_set_highlighted(false)
+	
+func _process(delta):
+	if dragged:
+		if get_parent().type == "file":
+			var diff = get_viewport().get_mouse_position() - get_parent().global_position
+			get_parent().move(diff)
 	
 func _mouse_entered(_area):
 	hovered = true
@@ -22,9 +29,14 @@ func _mouse_exited(_area):
 	
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and !event.pressed and hovered:
-			if highlighted and game.dragged_object:
-				game.dragged_object.dropped_on(get_parent_with_type())
+		if event.button_index == BUTTON_LEFT and !event.pressed:
+			if hovered:
+				if highlighted and game.dragged_object:
+					game.dragged_object.dropped_on(get_parent_with_type())
+			dragged = false
+		if event.button_index == BUTTON_LEFT and event.pressed and hovered:
+			if get_parent().type == "file" and get_parent().item_type == "wd":
+				dragged = true
 
 func _set_highlighted(new_highlighted):
 	highlighted = new_highlighted
