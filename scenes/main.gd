@@ -44,7 +44,7 @@ func _ready():
 	
 	# Load first chapter.
 	load_chapter(current_chapter)
-	input.grab_focus()
+	file_browser.grab_focus()
 	
 func _input(event):
 	if event.is_action_pressed("tab"):

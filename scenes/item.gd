@@ -54,7 +54,7 @@ func read_from_file():
 		position.y = float(attributes["y"])
 	else:
 		position.y = rand_range(100, 300)
-	write_to_file()
+	#write_to_file()
 		
 func write_to_file():
 	attributes["x"] = str(position.x)
