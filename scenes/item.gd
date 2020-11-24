@@ -111,3 +111,13 @@ func move(diff):
 	write_to_file()
 	if held:
 		held.move(diff)
+
+func dropped_on(other):
+	#if other is 
+	print("other type:", other.type)
+	if other.type == "inventory":
+		file_browser.shell.run("take '%s'" % label)
+	else: 
+		other.shell.run("drop '%s'" % label)
+	file_browser.update()
+	other.update()

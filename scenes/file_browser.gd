@@ -8,6 +8,7 @@ enum FileBrowserMode {
 
 export(String) var title setget _set_title
 export(FileBrowserMode) var mode = FileBrowserMode.WORKING_DIRECTORY setget _set_mode
+export(String) var type = "world"
 
 var shell
 var commit setget _set_commit

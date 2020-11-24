@@ -30,13 +30,19 @@ func _mouse_exited(_area):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and !event.pressed:
-			if hovered:
-				if highlighted and game.dragged_object:
-					game.dragged_object.dropped_on(get_parent_with_type())
-			dragged = false
+			if dragged:
+				for area in get_tree().get_nodes_in_group("drop_areas"):
+					if area.hovered:
+						if area.highlighted and game.dragged_object:
+							game.dragged_object.dropped_on(area.get_parent_with_type())
+				_turn_off_highlights()
+				dragged = false
+			
 		if event.button_index == BUTTON_LEFT and event.pressed and hovered:
 			if get_parent().type == "file" and get_parent().item_type == "wd":
 				dragged = true
+				game.dragged_object = get_parent_with_type()
+				_turn_on_highlights()
 
 func _set_highlighted(new_highlighted):
 	highlighted = new_highlighted
@@ -51,3 +57,16 @@ func get_parent_with_type():
 func highlight(type):
 	if get_parent_with_type().type == type:
 		_set_highlighted(true)
+		
+func _turn_on_highlights():
+	var parent_type = get_parent_with_type().file_browser.type 
+	var highlight_type = "inventory"
+	if parent_type == "inventory":
+		highlight_type = "world"
+		
+	for area in get_tree().get_nodes_in_group("drop_areas"):
+		area.highlight(highlight_type)
+		
+func _turn_off_highlights():
+	for area in get_tree().get_nodes_in_group("drop_areas"):
+		area.highlighted = false

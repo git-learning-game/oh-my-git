@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/drop_area.tscn" type="PackedScene" id=4]
 
 [node name="Item" type="Node2D"]
+z_index = 10
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]

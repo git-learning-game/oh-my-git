@@ -18,6 +18,7 @@ onready var level_description = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Tex
 onready var level_congrats = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelCongrats
 onready var cards = $Rows/Controls/Cards
 onready var file_browser = $Rows/Columns/RightSide/FileBrowser
+onready var inventory = $Rows/Columns/RightSide/Inventory
 #onready var index = $Rows/Columns/RightSide/Index
 
 func _ready():
@@ -45,6 +46,10 @@ func _ready():
 	# Load first chapter.
 	load_chapter(current_chapter)
 	file_browser.grab_focus()
+	
+	inventory.shell = Shell.new()
+	inventory.shell.cd(game.tmp_prefix + "inventory")
+	
 	
 func _input(event):
 	if event.is_action_pressed("tab"):

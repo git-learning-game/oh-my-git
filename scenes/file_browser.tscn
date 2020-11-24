@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/file_browser.gd" type="Script" id=1]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/drop_area.tscn" type="PackedScene" id=4]
 
 [node name="FileBrowser" type="Control" groups=[
 "editors",
@@ -124,5 +125,8 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="."]
 margin_right = 20.0
 margin_bottom = 20.0
+
+[node name="DropArea" parent="." instance=ExtResource( 4 )]
+position = Vector2( 121.101, 116.61 )
 [connection signal="pressed" from="Panel/TextEdit/SaveButton" to="." method="save"]
 [connection signal="pressed" from="Panel/TextEdit/CloseButton" to="." method="close"]
