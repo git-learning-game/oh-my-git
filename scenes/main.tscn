@@ -84,7 +84,7 @@ custom_constants/separation = 8
 
 [node name="LevelInfo" type="VBoxContainer" parent="Rows/Columns/RightSide"]
 margin_right = 633.0
-margin_bottom = 255.0
+margin_bottom = 306.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 8
@@ -149,7 +149,7 @@ __meta__ = {
 [node name="LevelPanel" type="VBoxContainer" parent="Rows/Columns/RightSide/LevelInfo"]
 margin_top = 47.0
 margin_right = 633.0
-margin_bottom = 255.0
+margin_bottom = 306.0
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
@@ -165,7 +165,7 @@ __meta__ = {
 
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
 margin_right = 633.0
-margin_bottom = 208.0
+margin_bottom = 259.0
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
@@ -194,19 +194,20 @@ __meta__ = {
 [node name="FileBrowser" parent="Rows/Columns/RightSide" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 263.0
+margin_top = 314.0
 margin_right = 633.0
-margin_bottom = 518.0
+margin_bottom = 620.0
 size_flags_vertical = 3
 title = "Current environment"
 
 [node name="Inventory" parent="Rows/Columns/RightSide" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 526.0
+margin_top = 628.0
 margin_right = 633.0
 margin_bottom = 782.0
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
 title = "Current environment"
 type = "inventory"
 

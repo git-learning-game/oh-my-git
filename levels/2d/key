@@ -1,0 +1,29 @@
+title = Find the key
+cards = checkout commit-auto
+
+[description]
+
+Can you restore the key from the past to open the chest?
+Put the key besides the chest and commit you changes to open the treasure!
+
+[setup]
+
+echo "x = 500
+y = 100" > chest
+
+echo "x = 100
+y = 100" > key
+git add .
+git commit -m "start"
+
+git rm key
+git add .
+git commit -m "key broke"
+
+[win]
+
+{ git ls-tree --name-only -r main | grep key; } && { git show main:key | grep "x = 4"; }
+
+[congrats]
+
+Whew, you're a treasure hunter now!

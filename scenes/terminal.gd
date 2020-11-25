@@ -31,13 +31,7 @@ func _ready():
 	completions.hide()
 	history_position = game.state["history"].size()
 
-func _input(event):
-	if not $TextEditor.visible:
-		if event is InputEventKey:
-			var u = event.unicode
-			if u >= 97 && u <= 122:
-				input.grab_focus()
-	
+func _input(event):	
 	if not input.has_focus():
 		return
 

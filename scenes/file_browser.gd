@@ -56,20 +56,6 @@ func clear():
 func substr2(s):
 	return s.substr(2)
 		
-func _process(delta):
-	if has_focus():
-		var speed = 300*delta
-		var motion = Vector2(0, 0)
-		if Input.is_action_pressed("down"):
-			motion += Vector2(0,1)
-		if Input.is_action_pressed("up"):
-			motion += Vector2(0,-1)
-		if Input.is_action_pressed("right"):
-			motion += Vector2(1, 0)
-		if Input.is_action_pressed("left"):
-			motion += Vector2(-1, 0)
-		if motion.length() > 0:
-			player.move(motion.normalized()*speed)
 
 func update():	
 	if true:#grid:
