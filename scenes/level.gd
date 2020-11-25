@@ -87,7 +87,7 @@ func construct():
 		game.global_shell.cd(repo.path)
 		game.global_shell.run("git init")
 		game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
-		game.global_shell.run("test -f ~/fake-editor && rm -rf ~/inventory || exit 1")
+		game.global_shell.run("test -f ~/fake-editor && rm -rf ~/inventory && mkdir -p ~/inventory/ || exit 1")
 		
 		# Add other repos as remotes.
 		for r2 in repos:
