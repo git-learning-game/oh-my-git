@@ -127,6 +127,6 @@ margin_right = 20.0
 margin_bottom = 20.0
 
 [node name="DropArea" parent="." instance=ExtResource( 4 )]
-position = Vector2( 121.101, 116.61 )
+position = Vector2( 79.9581, 82.3243 )
 [connection signal="pressed" from="Panel/TextEdit/SaveButton" to="." method="save"]
 [connection signal="pressed" from="Panel/TextEdit/CloseButton" to="." method="close"]

@@ -45,19 +45,9 @@ func _ready():
 	
 	# Load first chapter.
 	load_chapter(current_chapter)
-	file_browser.grab_focus()
 	
 	inventory.shell = Shell.new()
 	inventory.shell.cd(game.tmp_prefix + "inventory")
-	
-	
-func _input(event):
-	if event.is_action_pressed("tab"):
-		print("ha")
-		if file_browser.has_focus():
-			terminal.grab_focus()
-		else:
-			file_browser.grab_focus()
 
 func load_chapter(id):
 	current_chapter = id
@@ -156,8 +146,7 @@ func update_repos():
 		var repo = repositories[r]
 		repo.update_everything()
 	file_browser.update()
-	#index.update()
-	file_browser.grab_focus()
+	inventory.update()
 	
 	if levels.chapters[current_chapter].levels[current_level].check_win():
 		show_win_status()

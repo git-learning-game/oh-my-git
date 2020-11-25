@@ -3,3 +3,10 @@
 echo "Taking $1!"
 mkdir -p ~/inventory
 mv "$1" ~/inventory
+
+X=50
+for file in ~/inventory/*; do
+    echo "x = $X" > $file
+    echo "y = 50" >> $file
+    X=$(expr $X + 100)
+done

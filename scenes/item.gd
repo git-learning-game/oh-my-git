@@ -118,6 +118,6 @@ func dropped_on(other):
 	if other.type == "inventory":
 		file_browser.shell.run("take '%s'" % label)
 	else: 
-		other.shell.run("drop '%s'" % label)
+		other.shell.run("drop '%s' %d %d" % [label, rand_range(50, 400), rand_range(50, 200)])
 	file_browser.update()
 	other.update()
