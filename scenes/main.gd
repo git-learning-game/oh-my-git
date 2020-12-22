@@ -96,6 +96,8 @@ func load_level(level_id):
 	terminal.clear()
 	terminal.find_node("TextEditor").close()
 	
+	update_repos()
+	
 	# Unmute the audio after a while, so that player can hear pop sounds for
 	# nodes they create.
 	var t = Timer.new()
@@ -108,6 +110,7 @@ func load_level(level_id):
 	
 	chapter_select.select(current_chapter)
 	level_select.select(current_level)
+	
 
 func reload_level():
 	levels.reload()
@@ -117,8 +120,16 @@ func load_next_level():
 	current_level = (current_level + 1) % levels.chapters[current_chapter].levels.size()
 	load_level(current_level)
 	
-func show_win_status():
-	if not level_congrats.visible:
+func show_win_status(win_states):
+	var all_won = true
+	var win_text = "\n\n"
+	for state in win_states:
+		win_text += "%s: %s\n" % [state, win_states[state]]
+		if not win_states[state]:
+			all_won = false
+	level_description.text = levels.chapters[current_chapter].levels[current_level].description + win_text
+			
+	if not level_congrats.visible and all_won and win_states.size() > 0:
 		next_level_button.show()
 		level_description.hide()
 		level_congrats.show()
@@ -145,8 +156,12 @@ func update_repos():
 	file_browser.update()
 	index.update()
 	
-	if levels.chapters[current_chapter].levels[current_level].check_win():
-		show_win_status()
+	#if levels.chapters[current_chapter].levels[current_level].check_win():
+	#	show_win_status()
+	
+	var win_states = levels.chapters[current_chapter].levels[current_level].check_win()
+	show_win_status(win_states)
+		
 
 func toggle_cards():
 	cards.visible = not cards.visible

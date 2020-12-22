@@ -103,15 +103,13 @@ func construct():
 		game.global_shell.run(repo.setup_commands)
 
 func check_win():
-	var won = true
-	var any_checked = false
+	var win_states = {}
 	for r in repos:
 		var repo = repos[r]
 		if repo.win_conditions.size() > 0:
-			any_checked = true
 			game.global_shell.cd(repo.path)
 			for description in repo.win_conditions:
 				var commands = repo.win_conditions[description]
-				if not game.global_shell.run("function win { %s\n}; win 2>/dev/null >/dev/null && echo yes || echo no" % commands) == "yes\n":
-					won = false
-	return won and any_checked
+				var won = game.global_shell.run("function win { %s\n}; win 2>/dev/null >/dev/null && echo yes || echo no" % commands) == "yes\n"
+				win_states[description] = won		
+	return win_states 
