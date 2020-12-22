@@ -11,6 +11,13 @@ When you do commits or merges while you're on a branch, the branch will grow wit
 
 Finally, merge all timelines together, in a way so that the "main" branch points to the result. That's base reality!
 
+---
+tipp1
+---
+tipp2
+---
+tipp3
+
 [setup]
 
 echo "A friendly old lady.

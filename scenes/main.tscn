@@ -67,7 +67,7 @@ mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="Repositories" type="VBoxContainer" parent="Rows/Columns"]
-margin_right = 1266.0
+margin_right = 1260.0
 margin_bottom = 782.0
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -75,7 +75,7 @@ size_flags_stretch_ratio = 2.0
 custom_constants/separation = 8
 
 [node name="RightSide" type="VBoxContainer" parent="Rows/Columns"]
-margin_left = 1271.0
+margin_left = 1265.0
 margin_right = 1904.0
 margin_bottom = 782.0
 size_flags_horizontal = 3
@@ -83,14 +83,14 @@ size_flags_vertical = 3
 custom_constants/separation = 8
 
 [node name="LevelInfo" type="VBoxContainer" parent="Rows/Columns/RightSide"]
-margin_right = 633.0
+margin_right = 639.0
 margin_bottom = 383.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 8
 
 [node name="Menu" type="HBoxContainer" parent="Rows/Columns/RightSide/LevelInfo"]
-margin_right = 633.0
+margin_right = 639.0
 margin_bottom = 39.0
 custom_constants/separation = 8
 
@@ -123,9 +123,9 @@ __meta__ = {
 
 [node name="CardsButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
 visible = false
-margin_left = 406.0
-margin_right = 478.0
-margin_bottom = 35.0
+margin_left = 458.0
+margin_right = 539.0
+margin_bottom = 39.0
 focus_mode = 0
 enabled_focus_mode = 0
 text = "Cards!"
@@ -133,9 +133,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextLevelButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
+[node name="Tip!" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
 margin_left = 458.0
-margin_right = 575.0
+margin_right = 514.0
+margin_bottom = 39.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Tip!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevelButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
+margin_left = 522.0
+margin_right = 639.0
 margin_bottom = 39.0
 focus_mode = 0
 custom_styles/hover = SubResource( 1 )
@@ -148,7 +159,7 @@ __meta__ = {
 
 [node name="LevelPanel" type="VBoxContainer" parent="Rows/Columns/RightSide/LevelInfo"]
 margin_top = 47.0
-margin_right = 633.0
+margin_right = 639.0
 margin_bottom = 383.0
 size_flags_vertical = 3
 
@@ -164,7 +175,7 @@ __meta__ = {
 }
 
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
-margin_right = 633.0
+margin_right = 639.0
 margin_bottom = 336.0
 size_flags_vertical = 3
 
@@ -195,7 +206,7 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 391.0
-margin_right = 633.0
+margin_right = 639.0
 margin_bottom = 582.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
@@ -206,7 +217,7 @@ mode = 2
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 590.0
-margin_right = 633.0
+margin_right = 639.0
 margin_bottom = 782.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
@@ -257,5 +268,6 @@ shape = SubResource( 2 )
 [connection signal="button_down" from="Rows/Columns/RightSide/LevelInfo/Menu/LevelSelect" to="." method="repopulate_levels"]
 [connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/ReloadButton" to="." method="reload_level"]
 [connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/CardsButton" to="." method="toggle_cards"]
+[connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/Tip!" to="." method="new_tip"]
 [connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/NextLevelButton" to="." method="load_next_level"]
 [connection signal="command_done" from="Rows/Controls/Terminal" to="." method="update_repos"]

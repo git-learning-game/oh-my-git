@@ -76,7 +76,7 @@ func load_level(level_id):
 	levels.chapters[current_chapter].levels[current_level].construct()
 
 	var level = levels.chapters[current_chapter].levels[current_level]
-	level_description.bbcode_text = level.description
+	level_description.bbcode_text = level.description[0]
 	level_congrats.bbcode_text = level.congrats
 	level_name.text = level.title
 	if levels.chapters[current_chapter].levels[current_level].cards.size() == 0:
@@ -141,7 +141,10 @@ func show_win_status(win_states):
 		win_text += "%s: %s\n" % [state, win_states[state]]
 		if not win_states[state]:
 			all_won = false
-	level_description.text = levels.chapters[current_chapter].levels[current_level].description + win_text
+	var level = levels.chapters[current_chapter].levels[current_level]
+	level_description.bbcode_text = level.description[0] + win_text
+	for i in range(1,level.tipp_level+1):
+		level_description.bbcode_text += level.description[i]
 			
 	if not level_congrats.visible and all_won and win_states.size() > 0:
 		next_level_button.show()
@@ -179,3 +182,9 @@ func update_repos():
 
 func toggle_cards():
 	cards.visible = not cards.visible
+	
+func new_tip():
+	var level = levels.chapters[current_chapter].levels[current_level]
+	if level.description.size() - 1 > level.tipp_level :
+		level.tipp_level += 1
+		level_description.bbcode_text += level.description[level.tipp_level]

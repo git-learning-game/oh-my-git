@@ -7,6 +7,8 @@ var description
 var congrats
 var cards
 var repos = {}
+var tipp_level = 0
+
 
 # The path is an outer path.
 func load(path):
@@ -20,6 +22,12 @@ func load(path):
 		
 		title = config.get("title", slug)
 		description = config.get("description", "(no description)")
+		# Surround all lines indented with four spaces with [code] tags.
+		var monospace_regex = RegEx.new()
+		monospace_regex.compile("\\n    ([^\\n]*)")
+		description = monospace_regex.sub(description, "\n      [code]$1[/code]", true)
+		description = description.split("---")
+		
 		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
 		cards = Array(config.get("cards", "").split(" "))
 		if cards == [""]:
@@ -56,14 +64,14 @@ func load(path):
 			else:
 				repo = "yours"
 			
-			var description = "Goal"
+			var desc = "Goal"
 			for line in Array(config[k].split("\n")):
 				if line.length() > 0 and line[0] == "#":
-					description = line.substr(1)
+					desc = line.substr(1)
 				else:
-					if not repos[repo].win_conditions.has(description):
-						repos[repo].win_conditions[description] = ""
-					repos[repo].win_conditions[description] += line+"\n"
+					if not repos[repo].win_conditions.has(desc):
+						repos[repo].win_conditions[desc] = ""
+					repos[repo].win_conditions[desc] += line+"\n"
 					
 		for k in repo_actions:
 			var repo
@@ -84,10 +92,7 @@ func load(path):
 		repos[repo].path = game.tmp_prefix+"repos/%s/" % repo
 		repos[repo].slug = repo
 	
-	# Surround all lines indented with four spaces with [code] tags.
-	var monospace_regex = RegEx.new()
-	monospace_regex.compile("\\n    ([^\\n]*)")
-	description = monospace_regex.sub(description, "\n      [code]$1[/code]", true)
+	
 
 func construct():
 	for r in repos:
