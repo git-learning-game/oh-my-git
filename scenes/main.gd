@@ -167,18 +167,14 @@ func repopulate_chapters():
 	chapter_select.select(current_chapter)
 
 func update_repos():
+	var win_states = levels.chapters[current_chapter].levels[current_level].check_win()
+	show_win_status(win_states)
+	
 	for r in repositories:
 		var repo = repositories[r]
 		repo.update_everything()
 	file_browser.update()
 	index.update()
-	
-	#if levels.chapters[current_chapter].levels[current_level].check_win():
-	#	show_win_status()
-	
-	var win_states = levels.chapters[current_chapter].levels[current_level].check_win()
-	show_win_status(win_states)
-		
 
 func toggle_cards():
 	cards.visible = not cards.visible
