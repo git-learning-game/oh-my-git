@@ -1,0 +1,15 @@
+#!/usr/bin/env perl
+
+use IO::Socket;
+
+$socket = IO::Socket::INET->new(PeerAddr => "127.0.0.1",
+                                PeerPort => 1235,
+                                Proto    => "tcp",
+                                Type     => SOCK_STREAM);
+
+my $message = join " ", @ARGV;
+
+# Send the length of the first argument as four bytes.
+$socket->send(pack("L", length($message)));
+# Send the first argument as a string.
+$socket->send($message);

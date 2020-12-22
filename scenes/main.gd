@@ -20,7 +20,13 @@ onready var cards = $Rows/Controls/Cards
 onready var file_browser = $Rows/Columns/RightSide/FileBrowser
 onready var index = $Rows/Columns/RightSide/Index
 
+var _hint_server
+var _hint_client_connection
+
 func _ready():
+	_hint_server = TCP_Server.new()
+	_hint_server.listen(1235)
+	
 	var args = helpers.parse_args()
 	
 	if args.has("sandbox"):
@@ -45,6 +51,14 @@ func _ready():
 	# Load first chapter.
 	load_chapter(current_chapter)
 	input.grab_focus()
+	
+func _process(delta):
+	if _hint_server.is_connection_available():
+		_hint_client_connection = _hint_server.take_connection()
+		var length = _hint_client_connection.get_u32()
+		var message = _hint_client_connection.get_string(length)
+		game.notify(message)
+		
 
 func load_chapter(id):
 	current_chapter = id
@@ -97,7 +111,6 @@ func load_level(level_id):
 	terminal.find_node("TextEditor").close()
 	
 	update_repos()
-	game.notify("Level loaded!")
 	
 	# Unmute the audio after a while, so that player can hear pop sounds for
 	# nodes they create.

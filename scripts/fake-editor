@@ -10,7 +10,7 @@ $socket = IO::Socket::INET->new(PeerAddr => "127.0.0.1",
 
 my $absolute_path = File::Spec->rel2abs($ARGV[0]);
 
-# Send the length of the first argument as a byte.
+# Send the length of the first argument as four bytes.
 $socket->send(pack("L", length($absolute_path)));
 # Send the first argument as a string.
 $socket->send($absolute_path);

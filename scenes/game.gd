@@ -15,11 +15,14 @@ func _ready():
 	
 	create_file_in_game_env(".gitconfig", helpers.read_file("res://scripts/gitconfig"))
 	
-	create_file_in_game_env("fake-editor", helpers.read_file("res://scripts/fake-editor"))
-	fake_editor = tmp_prefix + "fake-editor"
-	global_shell.run("chmod u+x '%s'" % fake_editor)
+	copy_script_to_game_env("fake-editor")
+	copy_script_to_game_env("hint")
 	
 	load_state()
+
+func copy_script_to_game_env(name):
+	create_file_in_game_env(name, helpers.read_file("res://scripts/%s" % name))
+	global_shell.run("chmod u+x '%s'" % (tmp_prefix + name))
 	
 func _initial_state():
 	return {"history": []}
