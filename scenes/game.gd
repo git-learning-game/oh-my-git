@@ -49,3 +49,9 @@ func create_file_in_game_env(filename, content):
 	global_shell.cd(tmp_prefix)
 	# Quoted HERE doc doesn't do any substitutions inside.
 	global_shell.run("cat > '%s' <<'HEREHEREHERE'\n%s\nHEREHEREHERE" % [filename, content])
+
+func notify(text):
+	print(text)
+	var notification = preload("res://scenes/notification.tscn").instance()
+	notification.text = text
+	get_tree().root.call_deferred("add_child", notification)

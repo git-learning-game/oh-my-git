@@ -97,6 +97,7 @@ func load_level(level_id):
 	terminal.find_node("TextEditor").close()
 	
 	update_repos()
+	game.notify("Level loaded!")
 	
 	# Unmute the audio after a while, so that player can hear pop sounds for
 	# nodes they create.
