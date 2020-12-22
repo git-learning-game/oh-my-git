@@ -38,8 +38,11 @@ git branch -d main
 
 [win]
 
-# Is the child still there, and is the lion not hungry?
-{ git ls-tree --name-only -r HEAD | grep child; } && { git show HEAD:cage/lion | grep -v "very hungry"; }
+# Is the child still there?
+git ls-tree --name-only -r HEAD | grep child
+
+# Is the lion not hungry?
+git show HEAD:cage/lion | grep -v "very hungry"
 
 [congrats]
 

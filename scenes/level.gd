@@ -37,7 +37,7 @@ func load(path):
 				
 		for k in repo_setups:
 			var repo
-			if " " in k:
+			if " " in k: # [setup yours]
 				repo = Array(k.split(" "))[1]
 			else:
 				repo = "yours"
@@ -51,18 +51,19 @@ func load(path):
 				repo = Array(k.split(" "))[1]
 			else:
 				repo = "yours"
-			repos[repo].win_commands = config[k]
-	elif dir.file_exists(path+"/description"):
-		# This is an old-style level.
-		description = helpers.read_file(path+"/description", "(no description)")
-		congrats = helpers.read_file(path+"/congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
-		
-		var yours = LevelRepo.new()
-		yours.setup_commands = helpers.read_file(path+"/start", "")
-		#goal_commands = helpers.read_file(path+"/goal", "")
-		yours.win_commands = helpers.read_file(path+"/win", "")
-		
-		repos["yours"] = yours
+			
+			var description = "Goal"
+			for line in Array(config[k].split("\n")):
+				if line.length() > 0 and line[0] == "#":
+					description = line.substr(1)
+				else:
+					if not repos[repo].win_conditions.has(description):
+						repos[repo].win_conditions[description] = ""
+					repos[repo].win_conditions[description] += line+"\n"
+				
+#			for desc in repos[repo].win_conditions:
+#				print("Desc: " + desc)
+#				print("Commands: " + repos[repo].win_conditions[desc])
 	else:
 		helpers.crash("Level %s does not exist." % path)
 	
@@ -106,9 +107,11 @@ func check_win():
 	var any_checked = false
 	for r in repos:
 		var repo = repos[r]
-		if repo.win_commands != "":
+		if repo.win_conditions.size() > 0:
 			any_checked = true
 			game.global_shell.cd(repo.path)
-			if not game.global_shell.run("function win { %s\n}; win 2>/dev/null >/dev/null && echo yes || echo no" % repo.win_commands) == "yes\n":
-				won = false
+			for description in repo.win_conditions:
+				var commands = repo.win_conditions[description]
+				if not game.global_shell.run("function win { %s\n}; win 2>/dev/null >/dev/null && echo yes || echo no" % commands) == "yes\n":
+					won = false
 	return won and any_checked
