@@ -1,0 +1,47 @@
+title = Friend
+cards = pull push commit-auto checkout
+
+[description]
+
+Your friend added another line to your essay! Get it, add a third one and send it to them!
+
+Take turns until you have five lines!
+
+[setup yours]
+
+echo "Line 1" > essay
+git add .
+git commit -m "One line"
+
+git push -u friend main
+
+[setup friend]
+
+git checkout main
+echo "Line 2, gnihihi" >> essay
+git commit -am "Another line"
+
+[actions friend]
+
+if test "$(git log --oneline | wc -l)" -eq 3; then
+    git reset --hard main # Necessary because the working directory isn't updated when we push to the friend.
+    echo "Line 4, blurbblubb" >> essay
+    git commit -am "Final line"
+    hint "Oh nice, I added a fourth line!"
+fi
+
+[win]
+
+# Got the second line from your friend
+git show HEAD:essay | grep gnihihi
+
+# Got the fourth line from your friend.
+git show HEAD:essay | grep blurbblubb
+
+[win friend]
+
+# The friend got a third line from you
+test "$(git show HEAD:essay | wc -l)" -ge 3
+
+# The friend got a fifth line from you
+test "$(git show HEAD:essay | wc -l)" -ge 5
