@@ -34,6 +34,10 @@ func load(path):
 		for k in keys:
 			if k.begins_with("win"):
 				repo_wins.push_back(k)
+		var repo_actions = []
+		for k in keys:
+			if k.begins_with("actions"):
+				repo_actions.push_back(k)
 				
 		for k in repo_setups:
 			var repo
@@ -60,6 +64,15 @@ func load(path):
 					if not repos[repo].win_conditions.has(description):
 						repos[repo].win_conditions[description] = ""
 					repos[repo].win_conditions[description] += line+"\n"
+					
+		for k in repo_actions:
+			var repo
+			if " " in k:
+				repo = Array(k.split(" "))[1]
+			else:
+				repo = "yours"
+			
+			repos[repo].action_commands = config[k]
 				
 #			for desc in repos[repo].win_conditions:
 #				print("Desc: " + desc)
@@ -106,8 +119,10 @@ func check_win():
 	var win_states = {}
 	for r in repos:
 		var repo = repos[r]
+		game.global_shell.cd(repo.path)
+		if repo.action_commands.length() > 0:
+			game.global_shell.run("function actions { %s\n}; actions 2>/dev/null >/dev/null || true" % repo.action_commands)
 		if repo.win_conditions.size() > 0:
-			game.global_shell.cd(repo.path)
 			for description in repo.win_conditions:
 				var commands = repo.win_conditions[description]
 				var won = game.global_shell.run("function win { %s\n}; win 2>/dev/null >/dev/null && echo yes || echo no" % commands) == "yes\n"

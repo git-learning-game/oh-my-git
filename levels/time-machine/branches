@@ -78,7 +78,18 @@ git checkout --detach main
 
 [win]
 
-{ git show main:you | grep "You ate.*baguette"; } && { git show main:you | grep "You drank.*coffee"; } && { git show main:you | grep "You ate.*donut"; }
+# Did you eat a baguette on the main branch?
+git show main:you | grep "You ate.*baguette"
+
+# Did you drink a coffee on the main branch?
+git show main:you | grep "You drank.*coffee"
+
+# Did you eat a donut on the main branch?
+git show main:you | grep "You ate.*donut"
+
+[actions]
+
+test "$(git rev-parse HEAD^)" = "$(git rev-parse donut)" && hint "Ooops, your branch ref is still on the old commit."
 
 [congrats]
 
