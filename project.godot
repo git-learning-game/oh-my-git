@@ -51,8 +51,9 @@ _global_script_class_icons={
 [application]
 
 config/name="git-hydra"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/level_select.tscn"
 config/use_custom_user_dir=true
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
 [autoload]
 
@@ -141,3 +142,7 @@ limits/debugger_stdout/max_chars_per_second=100000
 limits/debugger_stdout/max_messages_per_frame=1000
 limits/debugger_stdout/max_errors_per_second=1000
 limits/debugger_stdout/max_warnings_per_second=1000
+
+[rendering]
+
+environment/default_clear_color=Color( 0, 0, 0, 1 )

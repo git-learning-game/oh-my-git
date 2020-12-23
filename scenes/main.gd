@@ -2,9 +2,6 @@ extends Control
 
 var dragged = null
 
-var current_chapter
-var current_level
-
 onready var terminal = $Rows/Controls/Terminal
 onready var input = terminal.input
 onready var output = terminal.output
@@ -34,22 +31,19 @@ func _ready():
 		if err != OK:
 			helpers.crash("Could not change to sandbox scene")
 		return
-		
-	current_chapter = 0
-	current_level = 0
 	
 	# Initialize level select.
 	level_select.connect("item_selected", self, "load_level")
 	repopulate_levels()
-	level_select.select(current_level)
+	level_select.select(game.current_level)
 	
 	# Initialize chapter select.
 	chapter_select.connect("item_selected", self, "load_chapter")
 	repopulate_chapters()
-	chapter_select.select(current_chapter)
+	chapter_select.select(game.current_chapter)
 	
-	# Load first chapter.
-	load_chapter(current_chapter)
+	# Load current level.
+	load_level(game.current_level)
 	input.grab_focus()
 	
 func _process(delta):
@@ -61,7 +55,7 @@ func _process(delta):
 		
 
 func load_chapter(id):
-	current_chapter = id
+	game.current_chapter = id
 	repopulate_levels()
 	load_level(0)
 
@@ -69,20 +63,20 @@ func load_level(level_id):
 	next_level_button.hide()
 	level_congrats.hide()
 	level_description.show()
-	current_level = level_id
+	game.current_level = level_id
 	
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	
-	levels.chapters[current_chapter].levels[current_level].construct()
+	levels.chapters[game.current_chapter].levels[game.current_level].construct()
 
-	var level = levels.chapters[current_chapter].levels[current_level]
+	var level = levels.chapters[game.current_chapter].levels[game.current_level]
 	level_description.bbcode_text = level.description[0]
 	level_congrats.bbcode_text = level.congrats
 	level_name.text = level.title
-	if levels.chapters[current_chapter].levels[current_level].cards.size() == 0:
+	if levels.chapters[game.current_chapter].levels[game.current_level].cards.size() == 0:
 		cards.redraw_all_cards()
 	else:
-		cards.draw(levels.chapters[current_chapter].levels[current_level].cards)
+		cards.draw(levels.chapters[game.current_chapter].levels[game.current_level].cards)
 	
 	for r in repositories_node.get_children():
 		r.queue_free()
@@ -122,17 +116,17 @@ func load_level(level_id):
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 	# FIXME: Need to clean these up when switching levels somehow.
 	
-	chapter_select.select(current_chapter)
-	level_select.select(current_level)
+	chapter_select.select(game.current_chapter)
+	level_select.select(game.current_level)
 	
 
 func reload_level():
 	levels.reload()
-	load_level(current_level)
+	load_level(game.current_level)
 
 func load_next_level():
-	current_level = (current_level + 1) % levels.chapters[current_chapter].levels.size()
-	load_level(current_level)
+	game.current_level = (game.current_level + 1) % levels.chapters[game.current_chapter].levels.size()
+	load_level(game.current_level)
 	
 func show_win_status(win_states):
 	var all_won = true
@@ -141,7 +135,7 @@ func show_win_status(win_states):
 		win_text += "%s: %s\n" % [state, win_states[state]]
 		if not win_states[state]:
 			all_won = false
-	var level = levels.chapters[current_chapter].levels[current_level]
+	var level = levels.chapters[game.current_chapter].levels[game.current_level]
 	level_description.bbcode_text = level.description[0] + win_text
 	for i in range(1,level.tipp_level+1):
 		level_description.bbcode_text += level.description[i]
@@ -155,19 +149,19 @@ func show_win_status(win_states):
 func repopulate_levels():
 	levels.reload()
 	level_select.clear()
-	for level in levels.chapters[current_chapter].levels:
+	for level in levels.chapters[game.current_chapter].levels:
 		level_select.add_item(level.title)
-	level_select.select(current_level)
+	level_select.select(game.current_level)
 
 func repopulate_chapters():
 	levels.reload()
 	chapter_select.clear()
 	for c in levels.chapters:
 		chapter_select.add_item(c.slug)
-	chapter_select.select(current_chapter)
+	chapter_select.select(game.current_chapter)
 
 func update_repos():
-	var win_states = levels.chapters[current_chapter].levels[current_level].check_win()
+	var win_states = levels.chapters[game.current_chapter].levels[game.current_level].check_win()
 	show_win_status(win_states)
 	
 	for r in repositories:
@@ -180,7 +174,10 @@ func toggle_cards():
 	cards.visible = not cards.visible
 	
 func new_tip():
-	var level = levels.chapters[current_chapter].levels[current_level]
+	var level = levels.chapters[game.current_chapter].levels[game.current_level]
 	if level.description.size() - 1 > level.tipp_level :
 		level.tipp_level += 1
 		level_description.bbcode_text += level.description[level.tipp_level]
+
+func back():
+	get_tree().change_scene("res://scenes/level_select.tscn")

@@ -7,6 +7,9 @@ var fake_editor
 var dragged_object
 var energy = 2
 
+var current_chapter = 0
+var current_level = 0
+
 var _file = "user://savegame.json"
 var state = {}
 
