@@ -28,7 +28,7 @@ git checkout HEAD~1
 [win]
 
 NUM_BRANCHES="$(git branch -a | wc -l)"
-test "$NUM_BRANCHES" -ge 4
+test "$NUM_BRANCHES" -ge 3
 
 [congrats]
 
