@@ -11,7 +11,7 @@ cards = checkout commit-auto reset-hard file-new file-delete
 echo Very smelly socks. > socks
 echo A tiny couch table. > table
 echo An empty energy drink can. > can
-echo An empty bag of chips. > bag
+echo An empty bag of chips. > bag_of_chips
 git add .
 git commit -m "weekend"
 
