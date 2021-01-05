@@ -15,6 +15,7 @@ func _process(_delta):
 		$Energy.text = str(game.energy)
 
 func load_card_store():
+	card_store = {}
 	var cards_json = JSON.parse(helpers.read_file("res://resources/cards.json")).result
 	for card in cards_json:
 		card_store[card["id"]] = card

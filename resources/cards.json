@@ -6,8 +6,13 @@
 	},
 	{
 		"id": "checkout",
-		"command": "git checkout [commit, ref]",
-		"description": "Drag this card to a commit or to a branch to travel to it!"
+		"command": "git checkout [commit, ref, file]",
+		"description": "Drag this card to a commit or to a branch to travel to it!\n\nAlternatively, reset changes in a local file."
+	},
+	{
+		"id": "commit-a",
+		"command": "git commit -a",
+		"description": "Make a new commit, after automatically adding all changes to the index.\nYou'll be asked to enter a short description of what you changed."
 	},
 	{
 		"id": "commit-auto",
@@ -51,8 +56,8 @@
 	},
 	{
 		"id": "reset",
-		"command": "git reset [commit]",
-		"description": "Jump to the commit, and update the index. Keep the current environment."
+		"command": "git reset [commit, file]",
+		"description": "Jump to the commit, and update the index. Keep the current environment.\n\nAlternatively, reset changes in a file in the index."
 	},
 	{
 		"id": "cherry-pick",
@@ -78,6 +83,16 @@
 		"id": "add",
 		"command": "git add [file]",
 		"description": "Put the current status of the file into the plan."
+	},
+	{
+		"id": "rm",
+		"command": "git rm [file]",
+		"description": "Delete a file both in the working directory, as well as the index."
+	},
+	{
+		"id": "mv",
+		"command": "git mv [file] [string]",
+		"description": "DOESN'T WORK YET\n\nRename a file both in the working directory, as well as the index."
 	},
 	{
 		"id": "commit",

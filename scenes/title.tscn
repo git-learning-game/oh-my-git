@@ -61,13 +61,13 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_right = 352.0
+margin_right = 351.0
 margin_bottom = 39.0
 text = "Levels"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 margin_top = 44.0
-margin_right = 352.0
+margin_right = 351.0
 margin_bottom = 83.0
 text = "Quit"
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="levels"]

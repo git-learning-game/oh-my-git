@@ -1,0 +1,21 @@
+title = Checking out files from the index
+cards = add reset checkout
+
+[description]
+
+So you've made changes to your files, but you decide that you don't want to keep them! You can use `git checkout` for that!
+
+[setup]
+
+echo a > a
+echo b > b
+echo c > c
+git add .
+git commit -m "Initial commit"
+echo x > a
+echo x > b
+
+[win]
+
+# Remove all changes in your local files!
+test "$(git diff --name-only | wc -l)" -eq 0

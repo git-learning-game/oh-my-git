@@ -1,0 +1,24 @@
+title = Delete a file in the next commit
+cards = add reset checkout rm commit
+
+[description]
+
+If you want to remove a file in the next commit, you can use `git rm`! This will both delete the file locally, and in the index.
+
+If a file is modified, you'll need to reset these changes first/reset the files.
+
+[setup]
+
+echo a > a
+echo x > b
+echo x > c
+git add .
+git commit -m "Initial commit"
+echo x > a
+echo b > b
+git add b
+
+[win]
+
+# Make a commit where all files are deleted ¯\_(^_^)_/¯
+test "$(git ls-tree main | wc -l)" -eq 0
