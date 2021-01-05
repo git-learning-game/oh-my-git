@@ -1,0 +1,5 @@
+stash
+stash-pop
+stash-clear
+stash-branch
+stash-merge

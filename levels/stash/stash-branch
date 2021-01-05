@@ -1,0 +1,50 @@
+title = Branch from stash
+cards = checkout commit-auto merge reset-hard
+
+[description]
+
+If you want to keep your changes but they don't belong to the main branch, you can easily
+create a new branch from your stashed shanges. Just use
+    git stash branch <branchname> <stash>
+If you just want to use the latest stash entry, you can leave the <stash> option empty.
+
+Create a new branch from the stashed changes!
+    
+Clear you stash stack!
+
+---
+tipp1
+---
+tipp2
+---
+tipp3
+
+[setup]
+
+echo "Apple Pie:" > recipe
+
+git add .
+git commit -m "creating a recipe"
+
+echo "- 4 Apples" >> recipe
+
+git add .
+git commit -m "Adding ingredients"
+
+echo "- 500g Flour" >> recipe
+git stash push
+
+git checkout main
+
+[win]
+
+# Did you clear your stash stack?
+test "$(git branch --list| wc -l)" -ge 2
+
+[actions]
+
+
+
+[congrats]
+
+All clear! :)
