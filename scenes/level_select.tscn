@@ -42,4 +42,15 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 138.588
+margin_top = 59.3009
+margin_right = 226.588
+margin_bottom = 98.3009
+text = "Reload"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Button" to="." method="back"]
+[connection signal="pressed" from="Button2" to="." method="reload"]

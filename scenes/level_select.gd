@@ -3,6 +3,21 @@ extends Control
 onready var level_list = $ScrollContainer/MarginContainer/Levels
 
 func _ready():
+	reload()
+
+func load(chapter_id, level_id):
+	game.current_chapter = chapter_id
+	game.current_level = level_id
+	get_tree().change_scene("res://scenes/main.tscn")
+
+func back():
+	get_tree().change_scene("res://scenes/title.tscn")
+
+
+func reload():
+	for child in level_list.get_children():
+		child.queue_free()
+	
 	var chapter_id = 0
 	
 	levels.reload()
@@ -25,11 +40,3 @@ func _ready():
 			level_id += 1
 			
 		chapter_id += 1
-
-func load(chapter_id, level_id):
-	game.current_chapter = chapter_id
-	game.current_level = level_id
-	get_tree().change_scene("res://scenes/main.tscn")
-
-func back():
-	get_tree().change_scene("res://scenes/title.tscn")
