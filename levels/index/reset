@@ -1,0 +1,22 @@
+title = Resetting files in the index
+cards = add reset
+
+[description]
+
+If you already have changes in the index, but want to reset them, you can use `git reset`!
+
+[setup]
+
+echo a > a
+echo b > b
+echo c > c
+git add .
+git commit -m "Initial commit"
+echo x > a
+echo x > b
+git add .
+
+[win]
+
+# Reset all changes in files in the index!
+test "$(git diff --cached --name-only | wc -l)" -eq 0

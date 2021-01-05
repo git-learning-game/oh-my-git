@@ -1,0 +1,21 @@
+title = Updating files in the index
+cards = add
+
+[description]
+
+So you start working, and make changes to your files! Git lets you choose which of these changes you want to put in the next commit. This is like updating the index version of that file to the new version.
+
+The command for this is the same - `git add`!
+
+[setup]
+
+echo a > a
+echo b > b
+echo c > c
+git add .
+git commit -m "Initial commit"
+
+[win]
+
+# Make changes to all three files, and add all of them to the index.
+test "$(git diff --cached --name-only | wc -l)" -eq 3

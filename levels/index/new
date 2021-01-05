@@ -1,0 +1,19 @@
+title = Add new files to the index
+cards = add
+
+[description]
+
+In the index, we can prepare what will be in the next commit.
+
+Initially, the index will be empty, and all files are untracked. If you have a file, and you want to have it in the next commit, use `git add`!
+
+[setup]
+
+echo a > a
+echo b > b
+echo c > c
+
+[win]
+
+# Add all three files to the index.
+test "$(git diff --cached --name-only | wc -l)" -eq 3
