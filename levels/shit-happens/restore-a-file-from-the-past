@@ -1,22 +1,21 @@
-title = Restore a deleted file
-cards = checkout
+title = Restore a file from the past
+cards = checkout checkout-from commit
 
 [description]
 
-Oops - you deleted the "essay" file, which you worked on all night!
+Here's a similar problem: you really liked the essay from the very first commit, and want to have it back! Well, checkout can also restore things from older commits, Here's how:
 
-Luckily, Git is here to help! You can use `git checkout` to restore the file!
+    git checkout [commit] [file]
 
 [setup]
 
-echo important > essay
+echo "good version" > essay
 git add .
 git commit -m "Initial commit"
-echo "important content" > essay
-git commit -am "Improve essay"
-rm essay
+echo "bad version" > essay
+git commit -am "\"Improve\" essay"
 
 [win]
 
-# Make changes to all three files, and add all of them to the index.
-test "$(cat essay)" = "important content"
+# Get the first version of your essay, and make a new commit with it.
+test "$(git show main:essay)" = "good version"
