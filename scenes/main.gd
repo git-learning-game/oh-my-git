@@ -121,6 +121,7 @@ func load_level(level_id):
 	
 
 func reload_level():
+	cards.load_card_store()
 	levels.reload()
 	load_level(game.current_level)
 
