@@ -1,0 +1,54 @@
+title = I pushed something broken
+cards = revert push
+
+[description]
+
+We were talking about how to undo a commit, and fix it. This only helps when you haven't already pushed it to a remote. When that has happened, and you want to undo the effects of the commit completely, your best option is `git revert`
+
+[setup]
+
+echo "this is fine
+
+?
+
+?
+
+?" > text
+git add .
+git commit -m fine
+echo "this is fine
+
+this is also fine
+
+?
+
+?" > text
+git commit -am "also fine"
+echo "this is fine
+
+this is also fine
+
+this is very bad
+
+?" > text
+git commit -am "very bad"
+echo "this is fine
+
+this is also fine
+
+this is very bad
+
+this is fine again" > text
+git commit -am "fine again"
+
+git push team main
+git branch -u team/main main
+
+[setup team]
+
+[win team]
+
+# The team's main branch no longer contains the bad thing.
+! { git show main:text | grep -q "very bad"; }
+# And the history has not been modified.
+git show main^:text | grep -q "very bad"
