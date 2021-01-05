@@ -5,6 +5,8 @@ onready var level_list = $ScrollContainer/MarginContainer/Levels
 func _ready():
 	var chapter_id = 0
 	
+	levels.reload()
+	
 	for chapter in levels.chapters:
 		var level_id = 0
 		

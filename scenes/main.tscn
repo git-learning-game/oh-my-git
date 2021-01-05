@@ -175,7 +175,6 @@ margin_bottom = 383.0
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
-visible = false
 margin_right = 633.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
@@ -186,6 +185,7 @@ __meta__ = {
 }
 
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
+margin_top = 65.0
 margin_right = 633.0
 margin_bottom = 336.0
 size_flags_vertical = 3
