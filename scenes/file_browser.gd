@@ -39,66 +39,94 @@ func substr2(s):
 	return s.substr(2)
 		
 func update():
-	if grid:
+	if grid and repository:
 		clear()
-		match mode:
-			FileBrowserMode.WORKING_DIRECTORY:
-				if shell:
-					var wd_files = Array(shell.run("find . -type f").split("\n"))
-					# The last entry is an empty string, remove it.
-					wd_files.pop_back()
-					wd_files = helpers.map(wd_files, self, "substr2")
-					
-					var deleted_files = []
-					if shell.run("test -d .git && echo yes || echo no") == "yes\n":
-						deleted_files = Array(shell.run("git status -s | grep '^.D' | sed 's/^...//'").split("\n"))
-						deleted_files.pop_back()
+		
+		# Files in the working directory.
+		var wd_files = Array(repository.shell.run("find . -type f -not -path '*/\\.git/*'").split("\n"))
+		# The last entry is an empty string, remove it.
+		wd_files.pop_back()
+		wd_files = helpers.map(wd_files, self, "substr2")
+		
+		var head_files
+		var index_files
+		
+		if repository.there_is_a_git():
+			# Files in the HEAD commit.
+			head_files = Array(repository.shell.run("git ls-tree --name-only -r HEAD 2> /dev/null || true").split("\n"))
+			# The last entry is an empty string, remove it.
+			head_files.pop_back()
+			# Files in the index.
+			index_files = Array(repository.shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
+			# The last entry is an empty string, remove it.
+			index_files.pop_back()
+		
+		var files = wd_files
+		for f in head_files:
+			if not f in files:
+				files.push_back(f)
+		for f in index_files:
+			if not f in files:
+				files.push_back(f)
+				
+		files.sort_custom(self, "very_best_sort")
+		
+		for file_path in files:
+			var item = preload("res://scenes/file_browser_item.tscn").instance()
+			item.label = file_path
+			item.repository = repository
+			item.connect("clicked", self, "item_clicked")
+			grid.add_child(item)
 						
-					var files = wd_files + deleted_files
-					
-					files.sort_custom(self, "very_best_sort")
-					#var is_visible = false
-					for file_path in files:
-						if file_path.substr(0, 5) == ".git/":
-							continue
-						#is_visible = true
-						var item = preload("res://scenes/file_browser_item.tscn").instance()
-						item.label = file_path
-						item.connect("clicked", self, "item_clicked")
-						item.connect("deleted", self, "item_deleted")
-						item.status = get_file_status(file_path, shell, 1)
-							
-						grid.add_child(item)
+		if false:
+			match mode:
+				FileBrowserMode.WORKING_DIRECTORY:
+					if shell:
+						
+						var deleted_files = []
+						if shell.run("test -d .git && echo yes || echo no") == "yes\n":
+							deleted_files = Array(shell.run("git status -s | grep '^.D' | sed 's/^...//'").split("\n"))
+							deleted_files.pop_back()
+						
+						#var is_visible = false
+						for file_path in files:
+							if file_path.substr(0, 5) == ".git/":
+								continue
+							#is_visible = true
+							var item = preload("res://scenes/file_browser_item.tscn").instance()
+							item.label = file_path
+							item.connect("clicked", self, "item_clicked")
+							item.connect("deleted", self, "item_deleted")
+							item.status = get_file_status(file_path, shell, 1)
+								
+							grid.add_child(item)
+						#visible = is_visible				
+						
+				FileBrowserMode.COMMIT:
+					if commit:
+						# The last entry is an empty string, remove it.
+						files.pop_back()
+						for file_path in files:
+							var item = preload("res://scenes/file_browser_item.tscn").instance()
+							item.label = file_path
+							item.connect("clicked", self, "item_clicked")
+							grid.add_child(item)
+				FileBrowserMode.INDEX:
+					#var is_visible = false					
+					if repository and repository.there_is_a_git():
+						
+						var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed 's/^...//'").split("\n"))
+						# The last entries are empty strings, remove them.
+						
+						for file_path in files:
+							var item = preload("res://scenes/file_browser_item.tscn").instance()
+							item.label = file_path
+							item.connect("clicked", self, "item_clicked")
+							item.status = get_file_status(file_path, repository.shell, 0)
+							grid.add_child(item)
+							#if item.status != item.IconStatus.NONE:
+							#	is_visible = true		
 					#visible = is_visible				
-					
-			FileBrowserMode.COMMIT:
-				if commit:
-					var files = Array(commit.repository.shell.run("git ls-tree --name-only -r %s" % commit.id).split("\n"))
-					# The last entry is an empty string, remove it.
-					files.pop_back()
-					for file_path in files:
-						var item = preload("res://scenes/file_browser_item.tscn").instance()
-						item.label = file_path
-						item.connect("clicked", self, "item_clicked")
-						grid.add_child(item)
-			FileBrowserMode.INDEX:
-				#var is_visible = false					
-				if repository and repository.there_is_a_git():
-					var index_files = Array(repository.shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
-					var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed 's/^...//'").split("\n"))
-					# The last entries are empty strings, remove them.
-					index_files.pop_back()
-					deleted_files.pop_back()
-					var files = index_files + deleted_files
-					for file_path in files:
-						var item = preload("res://scenes/file_browser_item.tscn").instance()
-						item.label = file_path
-						item.connect("clicked", self, "item_clicked")
-						item.status = get_file_status(file_path, repository.shell, 0)
-						grid.add_child(item)
-						#if item.status != item.IconStatus.NONE:
-						#	is_visible = true		
-				#visible = is_visible				
 						
 func get_file_status(file_path, the_shell, idx):
 	var file_status = the_shell.run("git status -s '%s'" % file_path)
@@ -120,12 +148,12 @@ func get_file_status(file_path, the_shell, idx):
 		return FileBrowserItem.IconStatus.NONE
 
 func item_clicked(item):
-	if item.status == item.IconStatus.REMOVED:
+	if not item.get_node("VBoxContainer/Control/WD").visible:
 		return
 		
 	match mode:
 		FileBrowserMode.WORKING_DIRECTORY:
-			text_edit.text = helpers.read_file(shell._cwd + item.label)
+			text_edit.text = helpers.read_file(repository.shell._cwd + item.label)
 		FileBrowserMode.COMMIT:
 			text_edit.text = commit.repository.shell.run("git show %s:\"%s\"" % [commit.id, item.label])
 		FileBrowserMode.INDEX:
@@ -147,7 +175,7 @@ func close():
 func save():
 	match mode:
 		FileBrowserMode.WORKING_DIRECTORY:
-			var fixme_path = shell._cwd
+			var fixme_path = repository.shell._cwd
 	
 			# Add a newline to the end of the file if there is none.
 			if text_edit.text.length() > 0 and text_edit.text.substr(text_edit.text.length()-1, 1) != "\n":

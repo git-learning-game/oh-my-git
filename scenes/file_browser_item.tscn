@@ -53,13 +53,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Control"]
+[node name="HEAD" type="TextureRect" parent="VBoxContainer/Control"]
+self_modulate = Color( 0, 0, 0, 0.317647 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
+margin_left = -9.54361
+margin_top = 0.372345
+margin_right = -25.5436
+margin_bottom = -15.6277
+rect_scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
@@ -67,15 +69,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StatusIcon" type="TextureRect" parent="VBoxContainer/Control/TextureRect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -11.2842
-margin_top = 0.810516
-margin_right = 13.7158
-margin_bottom = 25.8105
+[node name="Index" type="TextureRect" parent="VBoxContainer/Control"]
+self_modulate = Color( 0.54902, 0.45098, 1, 0.654902 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.15317
+margin_top = 4.18617
+margin_right = -17.1532
+margin_bottom = -11.8138
+rect_scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WD" type="TextureRect" parent="VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 __meta__ = {

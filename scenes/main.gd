@@ -15,7 +15,6 @@ onready var level_description = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Tex
 onready var level_congrats = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelCongrats
 onready var cards = $Rows/Controls/Cards
 onready var file_browser = $Rows/Columns/RightSide/FileBrowser
-onready var index = $Rows/Columns/RightSide/Index
 
 var _hint_server
 var _hint_client_connection
@@ -93,10 +92,8 @@ func load_level(level_id):
 		new_repo.size_flags_horizontal = SIZE_EXPAND_FILL
 		new_repo.size_flags_vertical = SIZE_EXPAND_FILL
 		if new_repo.label == "yours":
-			file_browser.shell = new_repo.shell
+			file_browser.repository = new_repo
 			file_browser.update()
-			index.repository = new_repo
-			index.update()
 		repositories_node.add_child(new_repo)		
 		repositories[r] = new_repo
 	
@@ -169,7 +166,6 @@ func update_repos():
 		var repo = repositories[r]
 		repo.update_everything()
 	file_browser.update()
-	index.update()
 
 func toggle_cards():
 	cards.visible = not cards.visible
