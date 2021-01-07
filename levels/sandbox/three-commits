@@ -1,4 +1,4 @@
-title = Sandbox
+title = Three commits
 
 [setup]
 
@@ -14,11 +14,7 @@ git commit -am "Who's there?"
 
 git branch not_main
 
-[win]
-
-test true
-
-[congrats]
+[description]
 
 That's all for now! Here's a sandbox you can play around in.
 

@@ -1,14 +1,11 @@
 title = Why Git?
+cards = file-copy
 
 [description]
-
-(This chapter is not a complete introduction to Git yet, but it will explain some of the basic concepts to you.)
 
 So you've been working on an essay about goldfish. You can look at the backup copies you made by clicking on them!
 
 But look - something went wrong in the latest version of the file! Maybe it has been infected with a vowel-eating virus?
-
-Make a new version (with the number 5) from the last version that's still okay, and add at least two more lines to it!
 
 [congrats]
 
@@ -26,27 +23,31 @@ rm -rf .git
 
 echo "~ Why goldfish are the best pets ~
 
-(I still need to write this.)" >> essay_1.txt
+(I still need to write this.)" >> essay1.txt
 
 
 echo "~ Why goldfish are the best pets ~
 
 - They don't make any noise.
-- They are pretty. (I should probably put this higher in the list?)" >> essay_2.txt
+- They are pretty. (I should probably put this higher in the list?)" >> essay2.txt
 
 
 echo "~ Why goldfish are the best pets ~
 
 - They are pretty.
 - They don't pee on the carpet.
-- They don't make any noise." >> essay_3.txt
+- They don't make any noise." >> essay3.txt
 
 echo "~ Why gldfsh r th bst pts ~
 
 - Thy r prtty.
 - Thy dn't p n th crpt.
-- Thy dn't mk ny ns." >> essay_4.txt
+- Thy dn't mk ny ns." >> essay4.txt
 
 [win]
 
-test "$(cat *5.txt | wc -l )" -ge 7 && grep carpet *5.txt
+# Make a new version (with the number 5) from the last version that's still okay
+cat essay5.txt | grep carpet
+
+# And add at least two more lines to it!
+test "$(cat essay5.txt | wc -l )" -ge 7

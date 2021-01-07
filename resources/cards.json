@@ -6,8 +6,13 @@
 	},
 	{
 		"id": "checkout",
-		"command": "git checkout [commit, ref, file]",
-		"description": "Drag this card to a commit or to a branch to travel to it!\n\nAlternatively, reset changes in a local file."
+		"command": "git checkout [commit, ref]",
+		"description": "Drag this card to a commit or to a branch to travel to it!"
+	},
+	{
+		"id": "checkout-file",
+		"command": "git checkout [file]",
+		"description": "Reset changes in a local file."
 	},
 	{
 		"id": "checkout-from",
@@ -21,8 +26,8 @@
 	},
 	{
 		"id": "commit-auto",
-		"command": "git add .; git commit",
-		"description": "Make a new commit containing your current environment!\nYou'll be asked to enter a short description of what you changed."
+		"command": "git add .; git commit -m \"New commit\"",
+		"description": "Make a new commit containing your current environment!"
 	},
 	{
 		"id": "merge",
@@ -143,5 +148,10 @@
 		"id": "file-rename",
 		"command": "mv [file] [string]",
 		"description": "Rename a new file."
+	},
+	{
+		"id": "file-copy",
+		"command": "cp [file] [string]",
+		"description": "Make a copy of a file."
 	}
 ]

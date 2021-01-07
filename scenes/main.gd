@@ -72,10 +72,10 @@ func load_level(level_id):
 	level_description.bbcode_text = level.description[0]
 	level_congrats.bbcode_text = level.congrats
 	level_name.text = level.title
-	if levels.chapters[game.current_chapter].levels[game.current_level].cards.size() == 0:
-		cards.redraw_all_cards()
-	else:
-		cards.draw(levels.chapters[game.current_chapter].levels[game.current_level].cards)
+	#if levels.chapters[game.current_chapter].levels[game.current_level].cards.size() == 0:
+	#	cards.redraw_all_cards()
+	#else:
+	cards.draw(levels.chapters[game.current_chapter].levels[game.current_level].cards)
 	
 	for r in repositories_node.get_children():
 		r.queue_free()

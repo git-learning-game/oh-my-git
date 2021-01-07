@@ -1,0 +1,34 @@
+title = A better way
+cards = init commit-auto
+
+[description]
+
+One month later, you're woking on an essay about tardigrades!
+
+This time, a friend has recommended that you use the version control system Git to keep backups of your file.
+
+Currently, your directory only contains your essay. To initialize a Git repository in your directory, use the `init` card!
+
+Then, each time you want to make a backup, use the `commit` card!
+
+That way, you've made a backup of the current version of the file. 
+
+[setup]
+
+rm -rf .git
+
+echo "~ Why tardigrades are cool ~
+
+- They can survive in space.
+- They are resistant to extreme heat and cold." > essay.txt
+
+[win]
+
+# Initialize a Git repository
+test -d .git
+
+# And make another commit
+test -d .git && git rev-parse HEAD^
+
+# Add at least two more lines.
+test "$(git show HEAD:essay.txt | wc -l)" -ge 6
