@@ -5,6 +5,21 @@
 		"description": "Initialize the time machine!"
 	},
 	{
+		"id": "clone",
+		"command": "git clone ../[remote] .",
+		"description": "Create your own copy of your friend's repo."
+	},
+	{
+		"id": "config-name",
+		"command": "git config --global user.name [string]",
+		"description": "Set your name."
+	},
+	{
+		"id": "config-email",
+		"command": "git config --global user.email [string]",
+		"description": "Set your email address."
+	},
+	{
 		"id": "checkout",
 		"command": "git checkout [commit, ref]",
 		"description": "Drag this card to a commit or to a branch to travel to it!"

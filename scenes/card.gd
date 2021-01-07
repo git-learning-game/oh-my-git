@@ -118,7 +118,7 @@ func move_back():
 func dropped_on(other):
 	if "[" in command:
 		var argument
-		if other.type == "file":
+		if other.type == "file" or other.type == "remote":
 			argument = other.label
 		else:
 			argument = other.id

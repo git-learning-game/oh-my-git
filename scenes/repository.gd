@@ -10,6 +10,8 @@ export var path: String setget set_path, get_path
 export var simplified_view = true setget set_simplified_view
 export var editable_path = false setget set_editable_path
 
+var type = "remote"
+
 var node = preload("res://scenes/node.tscn")
 
 var shell = Shell.new()
@@ -74,6 +76,7 @@ func set_label(new_label):
 	if label_node:
 		if new_label == "yours":
 			new_label = ""
+			$Rows/RepoVis/DropArea.queue_free()
 		label_node.text = new_label
 
 func random_position():

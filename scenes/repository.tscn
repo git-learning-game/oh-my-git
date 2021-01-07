@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/repository.gd" type="Script" id=1]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=2]
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/drop_area.tscn" type="PackedScene" id=4]
 
 [node name="Repository" type="Control"]
 anchor_right = 1.0
@@ -29,6 +30,9 @@ size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DropArea" parent="Rows/RepoVis" instance=ExtResource( 4 )]
+position = Vector2( 67.3194, 32.6666 )
 
 [node name="Label" type="Label" parent="Rows/RepoVis"]
 margin_left = 5.60091
