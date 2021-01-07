@@ -48,6 +48,8 @@ func update():
 		wd_files.pop_back()
 		wd_files = helpers.map(wd_files, self, "substr2")
 		
+		var files = wd_files
+		
 		var head_files
 		var index_files
 		
@@ -61,13 +63,12 @@ func update():
 			# The last entry is an empty string, remove it.
 			index_files.pop_back()
 		
-		var files = wd_files
-		for f in head_files:
-			if not f in files:
-				files.push_back(f)
-		for f in index_files:
-			if not f in files:
-				files.push_back(f)
+			for f in head_files:
+				if not f in files:
+					files.push_back(f)
+			for f in index_files:
+				if not f in files:
+					files.push_back(f)
 				
 		files.sort_custom(self, "very_best_sort")
 		

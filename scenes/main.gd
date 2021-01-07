@@ -143,6 +143,12 @@ func show_win_status(win_states):
 		level_description.hide()
 		level_congrats.show()
 		$SuccessSound.play()
+		if not game.state.has("solved_levels"):
+			game.state["solved_levels"] = []
+		var slug = levels.chapters[game.current_chapter].slug + "/" + level.slug
+		if not slug in game.state["solved_levels"]:
+			game.state["solved_levels"].push_back(slug)
+			game.save_state()
 
 func repopulate_levels():
 	levels.reload()

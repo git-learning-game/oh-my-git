@@ -36,6 +36,11 @@ func reload():
 			b.text = level.title
 			b.align = HALIGN_LEFT
 			b.connect("pressed", self, "load", [chapter_id, level_id])
+			var slug = chapter.slug + "/" + level.slug
+			if slug in game.state["solved_levels"]:
+				b.set("custom_colors/font_color", Color(0.1, 0.8, 0.1, 1))
+				b.set("custom_colors/font_color_hover", Color(0.1, 0.8, 0.1, 1))
+				b.set("custom_colors/font_color_pressed", Color(0.1, 0.8, 0.1, 1))
 			level_list.add_child(b)
 			level_id += 1
 			
