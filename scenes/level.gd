@@ -67,7 +67,7 @@ func load(path):
 			var desc = "Goal"
 			for line in Array(config[k].split("\n")):
 				if line.length() > 0 and line[0] == "#":
-					desc = line.substr(1)
+					desc = line.substr(1).strip_edges(true, true)
 				else:
 					if not repos[repo].win_conditions.has(desc):
 						repos[repo].win_conditions[desc] = ""

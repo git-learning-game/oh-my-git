@@ -6,6 +6,8 @@ enum FileBrowserMode {
 	INDEX
 }
 
+signal saved
+
 export(String) var title setget _set_title
 export(FileBrowserMode) var mode = FileBrowserMode.WORKING_DIRECTORY setget _set_mode
 
@@ -183,7 +185,8 @@ func save():
 				text_edit.text += "\n"
 			
 			helpers.write_file(fixme_path+open_file, text_edit.text)
-	update()
+			update()
+			emit_signal("saved")
 	close()
 
 func _set_commit(new_commit):

@@ -15,6 +15,7 @@ onready var level_description = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Tex
 onready var level_congrats = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelCongrats
 onready var cards = $Rows/Controls/Cards
 onready var file_browser = $Rows/Columns/RightSide/FileBrowser
+onready var goals = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Goals
 
 var _hint_server
 var _hint_client_connection
@@ -129,8 +130,31 @@ func load_next_level():
 func show_win_status(win_states):
 	var all_won = true
 	var win_text = "\n\n"
+	for child in goals.get_children():
+		child.queue_free()
 	for state in win_states:
-		win_text += "%s: %s\n" % [state, win_states[state]]
+		var b = Label.new()
+		b.text = state
+		b.align = HALIGN_LEFT
+		var bg = StyleBoxFlat.new()
+		if win_states[state]:
+			bg.bg_color = Color(0.1, 0.5, 0.1)
+		else:
+			bg.bg_color = Color(0.5, 0.1, 0.1)
+		bg.corner_radius_bottom_left = 8
+		bg.corner_radius_bottom_right = 8
+		bg.corner_radius_top_left = 8
+		bg.corner_radius_top_right = 8
+		bg.content_margin_bottom = 8
+		bg.content_margin_top = 8
+		bg.content_margin_left = 8
+		bg.content_margin_right = 8
+		b.set("custom_styles/normal", bg)
+		#b.connect("pressed", self, "load", [chapter_id, level_id])
+		#var slug = chapter.slug + "/" + level.slug
+		
+		goals.add_child(b)
+		b.autowrap = true
 		if not win_states[state]:
 			all_won = false
 	var level = levels.chapters[game.current_chapter].levels[game.current_level]

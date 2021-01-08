@@ -145,6 +145,7 @@ __meta__ = {
 }
 
 [node name="Tip!" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
+visible = false
 margin_left = 169.0
 margin_right = 225.0
 margin_bottom = 39.0
@@ -156,8 +157,8 @@ __meta__ = {
 }
 
 [node name="NextLevelButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-margin_left = 233.0
-margin_right = 350.0
+margin_left = 169.0
+margin_right = 286.0
 margin_bottom = 39.0
 focus_mode = 0
 custom_styles/hover = SubResource( 1 )
@@ -187,7 +188,7 @@ __meta__ = {
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
 margin_top = 65.0
 margin_right = 633.0
-margin_bottom = 469.0
+margin_bottom = 264.0
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
@@ -212,6 +213,12 @@ text = "Level description here!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Goals" type="VBoxContainer" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
+margin_top = 269.0
+margin_right = 633.0
+margin_bottom = 469.0
+size_flags_vertical = 3
 
 [node name="FileBrowser" parent="Rows/Columns/RightSide" instance=ExtResource( 5 )]
 anchor_right = 0.0
@@ -270,4 +277,5 @@ shape = SubResource( 2 )
 [connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/CardsButton" to="." method="toggle_cards"]
 [connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/Tip!" to="." method="new_tip"]
 [connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/NextLevelButton" to="." method="load_next_level"]
+[connection signal="saved" from="Rows/Columns/RightSide/FileBrowser" to="." method="update_repos"]
 [connection signal="command_done" from="Rows/Controls/Terminal" to="." method="update_repos"]
