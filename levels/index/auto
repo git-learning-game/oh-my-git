@@ -1,0 +1,29 @@
+title = Capturing the status quo
+cards = file-new file-delete commit-auto
+
+[description]
+
+So far, you have made commits using a pretty convenient command, which captures the complete working directory as it is in a commit. See how the card says something about "add"?
+
+Let's try using that one again! (Only pay attention to the white, actual files for now!)
+
+[setup]
+
+echo a > a
+echo b > b
+echo c > c
+git add .
+git commit -m "Initial commit"
+
+git commit -m "Nothing changed" --allow-empty
+
+[win]
+
+# Make a single commit where you modify a file ...
+git show --name-status --oneline | grep '^M	'
+
+# ... add a new file ...
+git show --name-status --oneline | grep '^A	'
+
+# ... and delete a file.
+git show --name-status --oneline | grep '^D	'

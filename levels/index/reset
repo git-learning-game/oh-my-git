@@ -1,9 +1,11 @@
 title = Resetting files in the index
-cards = add reset
+cards = add reset commit
 
 [description]
 
-If you already have changes in the index, but want to reset them, you can use `git reset`!
+See the dark shadow behind the icons? That's the version of the commit you're at!
+
+If you already have updated the index to a changed file, but want to reset it, you can use `git reset`!
 
 [setup]
 
@@ -14,9 +16,17 @@ git add .
 git commit -m "Initial commit"
 echo x > a
 echo x > b
+echo x > c
 git add .
 
 [win]
 
-# Reset all changes in files in the index!
-test "$(git diff --cached --name-only | wc -l)" -eq 0
+# Reset the changes in a and c
+test "$(git show :a)" == "a" &&
+test "$(git show :b)" != "a" &&
+test "$(git show :c)" == "c"
+
+# And make a commit!
+test "$(git show main:a)" == "a" &&
+test "$(git show main:b)" != "b" &&
+test "$(git show main:c)" == "c"

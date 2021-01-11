@@ -1,0 +1,39 @@
+title = Enter the time machine
+cards = init commit-auto checkout
+
+[description]
+
+Another month later, you're woking on an essay about tardigrades!
+
+But this time, a friend has borrowed you a time machine!
+
+It's called "Git", and it's very shiny.
+
+[setup]
+
+rm -rf .git
+
+echo "~ Why tardigrades are cool ~
+
+- They can survive in space.
+- They are resistant to extreme heat and cold." > essay.txt
+
+[win]
+
+# Initialize the time machine!
+test -d .git
+
+# Make a snapshot of your essay (a "commit")
+test -d .git && git rev-parse HEAD
+
+# Add another line to the essay.
+test "$(cat essay.txt | wc -l)" -ge 5
+
+# And make a second commit!
+git rev-parse HEAD^ && test "$(git show HEAD:essay.txt | wc -l)" -ge 5
+
+[congrats]
+
+Nice! You can now travel between those two snapshots using `git checkout` - try it, and look at the essay in each commit!
+
+You can also make some additional commits. When you feel comfortable, click on "Next Level".

@@ -3,7 +3,7 @@ cards = add reset checkout commit
 
 [description]
 
-With that, we're ready to make our first commit! It will contain the version of the files which are currently in the index.
+For practice, make a commit where all files contain an "x"!
 
 [setup]
 

@@ -1,23 +1,35 @@
-title = Nice to meet you!
-cards = config-name config-email
+title = Welcome to time travel school!
+cards = config-name commit-auto checkout
 
 [description]
 
-Introduce yourself using
-
-    git config --global user.name Firstname
-    git config --global user.email "your@mail.com"
+Your time travel teacher welcomes you: "Hello there! Wanna tell us your name?"
 
 [setup]
 
+git config --global user.name "You"
+
+echo "~ Why do you want to learn how to use time machines? ~
+
+[ ] To make sure that my cat doesn't eat my homework.
+[ ] So I don't have to keep copies of all my essays.
+[ ] To collaborate with other time travel students.
+[ ] Other, please specify:" > form
+
 [actions]
 
-test "$(git config user.name)" != "You" && hint "Hey $(git config user.name), nice to meet you!"
+test "$(git config user.name)" != "You" && hint "Hey $(git config user.name), welcome to time travel school!"
 
 [win]
 
-# Have a name configured.
+# Introduce yourself.
 test "$(git config user.name)" != "You"
 
-# Have an email address configured.
-test "$(git config user.email)" != "you@time.agency"
+# Fill out the enrollment form, and commit it!
+git show main:form | grep '\[x\]'
+
+[congrats]
+
+"We're glad to have you! See how the commit now includes your name?
+
+Git can help you fix problems in the past! It allows you to collaborate with other students of time travel! It's really powerful, and it's really popular! I'll see you for your first lesson tomorrow!"

@@ -2,7 +2,7 @@
 	{
 		"id": "init",
 		"command": "git init",
-		"description": "Initialize the time machine!"
+		"description": "Drag this card into the empty space above to initialize the time machine!"
 	},
 	{
 		"id": "clone",
@@ -12,7 +12,7 @@
 	{
 		"id": "config-name",
 		"command": "git config --global user.name [string]",
-		"description": "Set your name."
+		"description": "Set your name.\n\n(Will not change anything outside of this game.)"
 	},
 	{
 		"id": "config-email",
@@ -57,12 +57,12 @@
 	{
 		"id": "pull",
 		"command": "git pull",
-		"description": "Get timelines from a colleague."
+		"description": "Get timelines from a friend."
 	},
 	{
 		"id": "push",
 		"command": "git push",
-		"description": "Give timelines to a colleague."
+		"description": "Give timelines to a friend."
 	},
 	{
 		"id": "rebase-interactive",
@@ -157,12 +157,12 @@
 	{
 		"id": "file-delete",
 		"command": "rm [file]",
-		"description": "Delete a new file."
+		"description": "Delete a file."
 	},
 	{
 		"id": "file-rename",
 		"command": "mv [file] [string]",
-		"description": "Rename a new file."
+		"description": "Rename a file."
 	},
 	{
 		"id": "file-copy",

@@ -1,11 +1,17 @@
 title = Add new files to the index
-cards = add
+cards = add commit
 
 [description]
 
-In the index, we can prepare what will be in the next commit.
+But Git allows to you capture changes with more precision!
 
-Initially, the index will be empty, and all files are untracked. If you have a file, and you want to have it in the next commit, use `git add`!
+To understand how to do that, you need to learn about [your teacher raises her voice dramatically] *the index*!
+
+In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura!
+
+Initially, all files are untracked. If you have a file, and you want to have it in the next commit, use `git add`!
+
+Here, we don't use the fancy commit card, but a plain `git commit`!
 
 [setup]
 
@@ -16,4 +22,7 @@ echo c > c
 [win]
 
 # Add all three files to the index.
-test "$(git diff --cached --name-only | wc -l)" -eq 3
+test "$(git ls-files | wc -l)" -eq 3
+
+# And make a commit.
+test "$(git ls-tree main | wc -l)" -eq 3

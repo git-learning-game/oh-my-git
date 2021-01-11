@@ -1,0 +1,41 @@
+title = Making copies
+cards =
+
+[description]
+
+One month later, you're working on an essay about cats.
+You've started making backup copies of your essay regularly - you can look at them by clicking on them!
+
+Your current version, essay4.txt, needs one more line
+
+[congrats]
+
+Okay, this works. But you're a bit worried that two weeks from now, you'll have hundreds of copies of your essay, and it will be hard to keep track of all of them.
+
+And especially when working with other people, sending copies back and forth doesn't seem ideal. Let's look at another way to do this!
+
+[setup]
+
+rm -rf .git
+
+echo "~ Why cats are the best pets ~
+
+(I still need to write this.)" >> essay1.txt
+
+
+echo "~ Why cats are the best pets ~
+
+- They live longer than goldfish." >> essay2.txt
+
+
+echo "~ Why cats are the best pets ~
+
+- They live longer than goldfish.
+- Their little paws are super cute." >> essay3.txt
+
+cp essay3.txt essay4.txt
+
+[win]
+
+# Add two more lines to essay4.txt!
+test "$(cat essay4.txt | wc -l )" -ge 6

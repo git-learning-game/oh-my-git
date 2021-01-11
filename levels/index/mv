@@ -1,5 +1,5 @@
 title = Rename a file in the next commit
-cards = add reset checkout mv commit
+cards = add reset checkout-file mv commit
 
 [description]
 

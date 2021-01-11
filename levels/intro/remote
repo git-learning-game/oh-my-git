@@ -1,0 +1,45 @@
+title = Working together
+cards = clone checkout commit-auto pull push
+
+[description]
+
+A friend has asked you to help with an essay about hobbies! She has already started to write a list, and started tracking it with her own time machine!
+
+[congrats]
+
+"Thanks, these are some really nice hobbies! Hope we can do that together soon!"
+
+You're still pretty confused by everything that's going on. The next day, you decide to enroll in time travel school!
+
+[setup]
+
+rm -rf .git
+
+[setup friend]
+
+echo "~ Best hobbies ~" > hobbies.txt
+git add .
+git commit -m "Initial version"
+
+echo " 
+- Collecting stamps
+- Looking at clouds" >> hobbies.txt
+
+git add .
+git commit -m "Added two hobbies"
+
+[win]
+
+# Get a copy of her timeline using `git clone`!
+test -d .git
+
+# Add at least two more items to the list!
+test "$(cat hobbies.txt |wc -l)" -ge 6
+
+# Commit your result.
+test "$(git show main:hobbies.txt |wc -l)" -ge 6
+
+[win friend]
+
+# And use `git push` to send it to your friend!
+test "$(git show main:hobbies.txt |wc -l)" -ge 6

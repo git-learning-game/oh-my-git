@@ -1,9 +1,11 @@
 title = Updating files in the index
-cards = add
+cards = add commit checkout
 
 [description]
 
 So you start working, and make changes to your files! Git lets you choose which of these changes you want to put in the next commit. This is like updating the index version of that file to the new version.
+
+This allows you to have smaller commits, that describe better what you changed!
 
 The command for this is the same - `git add`!
 
@@ -17,5 +19,20 @@ git commit -m "Initial commit"
 
 [win]
 
-# Make changes to all three files, and add all of them to the index.
-test "$(git diff --cached --name-only | wc -l)" -eq 3
+# Make changes to all files!
+test "$(cat a)" != "a" &&
+test "$(cat b)" != "b" &&
+test "$(cat c)" != "c"
+
+# Add only the changes of a and c, and make a commit! Finally, make a commit which captures the changes in b!
+
+test "$(git show main:a)" != "a" &&
+test "$(git show main:b)" != "b" &&
+test "$(git show main:c)" != "c" &&
+test "$(git show main^:a)" != "a" &&
+test "$(git show main^:b)" == "b" &&
+test "$(git show main^:c)" != "c"
+
+[congrats]
+
+Well done! Try tavelling between the commits using `git checkout`, so you can look at their contents again!
