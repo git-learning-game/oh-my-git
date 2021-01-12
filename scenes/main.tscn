@@ -179,9 +179,11 @@ size_flags_vertical = 3
 margin_right = 633.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
+size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 custom_fonts/normal_font = ExtResource( 7 )
 text = "Level name here!"
+fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

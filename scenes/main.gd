@@ -124,8 +124,13 @@ func reload_level():
 	load_level(game.current_level)
 
 func load_next_level():
-	game.current_level = (game.current_level + 1) % levels.chapters[game.current_chapter].levels.size()
-	load_level(game.current_level)
+	game.current_level += 1
+	if game.current_level >= levels.chapters[game.current_chapter].levels.size():
+		
+		back()
+	else:
+		load_level(game.current_level)
+	
 	
 func show_win_status(win_states):
 	var all_won = true
