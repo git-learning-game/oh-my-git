@@ -236,7 +236,8 @@ func object_type(id):
 	return git("cat-file -t "+id)
 
 func object_content(id):
-	return git("cat-file -p "+id)
+	#return git("cat-file -p "+id)
+	return git("show -s --format=%B "+id).strip_edges()
 
 func tree_children(id):
 	var children = git("cat-file -p "+id, true)
