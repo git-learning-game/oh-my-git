@@ -5,7 +5,7 @@ all: linux macos windows
 linux:
 	mkdir -p build/$(name)-linux
 	godot --export "Linux" "build/$(name)-linux/$(name)"
-	cd build/$(name)-linux && zip -r ../$(name)-linux.zip .
+	cd build/$(name)-linux && zip -r ../$(name)-linux.zip *
 
 macos:
 	mkdir -p build
@@ -13,9 +13,10 @@ macos:
 
 windows: dependencies/windows/git/
 	mkdir -p build/$(name)-windows
-	godot --export "Windows" "build/$(name)-windows/$(name).exe"
+	# We're using the debug template here so that the bash.exe doesn't spawn a cmd.exe each time...
+	godot --export-debug "Windows" "build/$(name)-windows/$(name).exe"
 	cp -r --parents dependencies/windows/git/ build/$(name)-windows/
-	cd build/$(name)-windows && zip -r ../$(name)-windows.zip .
+	cd build/$(name)-windows && zip -r ../$(name)-windows.zip *
 
 clean-unzipped:
 	cd build && ls | grep -v '\.zip$$' | xargs rm -r
