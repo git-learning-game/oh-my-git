@@ -110,7 +110,7 @@ func construct():
 		for r2 in repos:
 			if r == r2:
 				continue
-			game.global_shell.run("git remote add %s %s" % [r2, repos[r2].path])
+			game.global_shell.run("git remote add %s '%s'" % [r2, repos[r2].path])
 		
 		# Allow receiving a push of the checked-out branch.
 		game.global_shell.run("git config receive.denyCurrentBranch ignore")
