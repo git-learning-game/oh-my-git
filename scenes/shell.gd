@@ -48,7 +48,8 @@ func run_async_thread(shell_command):
 	
 	var env = {}
 	env["HOME"] = game.tmp_prefix
-	env["PATH"] = game.tmp_prefix+":/usr/bin:/bin"
+	env["PATH"] = game.tmp_prefix+":/usr/bin:/bin:/mingw64/bin/"
+
 	
 	var hacky_command = ""
 	for variable in env:
