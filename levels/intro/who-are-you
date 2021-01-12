@@ -26,7 +26,7 @@ test "$(git config user.name)" != "You" && hint "Hey $(git config user.name), we
 test "$(git config user.name)" != "You"
 
 # Fill out the enrollment form, and commit it!
-git show main:form | grep '\[x\]'
+git show main:form | grep '\[[xX]\]'
 
 [congrats]
 
