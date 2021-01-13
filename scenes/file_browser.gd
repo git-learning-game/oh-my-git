@@ -55,7 +55,7 @@ func update():
 		var head_files
 		var index_files
 		
-		if repository.there_is_a_git():
+		if repository.there_is_a_git_cache:
 			# Files in the HEAD commit.
 			head_files = Array(repository.shell.run("git ls-tree --name-only -r HEAD 2> /dev/null || true").split("\n"))
 			# The last entry is an empty string, remove it.
@@ -116,7 +116,7 @@ func update():
 							grid.add_child(item)
 				FileBrowserMode.INDEX:
 					#var is_visible = false					
-					if repository and repository.there_is_a_git():
+					if repository and repository.there_is_a_git_cache:
 						
 						var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed 's/^...//'").split("\n"))
 						# The last entries are empty strings, remove them.

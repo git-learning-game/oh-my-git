@@ -18,6 +18,11 @@ var shell = Shell.new()
 var objects = {}
 var mouse_inside = false
 
+# Used for caching.
+var all_objects_cache
+var all_refs_cache
+var there_is_a_git_cache
+
 # We use this for a heuristic of when to hide trees and blobs.
 var _commit_count = 0
 
@@ -46,8 +51,8 @@ func there_is_a_git():
 	return shell.run("test -d .git && echo yes || echo no") == "yes\n"
 	
 func update_everything():
-	print("update_everything()")
-	if there_is_a_git():
+	there_is_a_git_cache = there_is_a_git()
+	if there_is_a_git_cache:
 		update_head()
 		update_refs()
 		update_objects()
@@ -84,10 +89,10 @@ func random_position():
 	return Vector2(rand_range(0, rect_size.x), rand_range(0, rect_size.y))
 		
 func update_objects():
-	var all = all_objects()
+	all_objects_cache = all_objects()
 	
 	# Create new objects, if necessary.
-	for o in all:
+	for o in all_objects_cache:
 		if objects.has(o):
 			continue
 			
@@ -127,7 +132,7 @@ func update_objects():
 		objects[o] = n
 		
 func update_node_positions():
-	if there_is_a_git():
+	if there_is_a_git_cache:
 		var graph_text = shell.run("git log --graph --oneline --all --no-abbrev")
 		var graph_lines = Array(graph_text.split("\n"))
 		graph_lines.pop_back()
@@ -141,7 +146,7 @@ func update_node_positions():
 				var regex_match = hash_regex.search(line)
 				objects[regex_match.get_string()].position = Vector2((graph_lines.size()-line_count) * 100 + 500, star_idx * 100 + 500)
 				
-		for ref in all_refs():
+		for ref in all_refs_cache:
 			var target_reference = objects[ref].children.keys()[0]
 			var target = objects[target_reference]
 			objects[ref].position = Vector2(target.position.x ,target.position.y - 100)
@@ -151,8 +156,9 @@ func update_node_positions():
 			var target = objects[target_reference]
 			objects["HEAD"].position = Vector2(target.position.x ,target.position.y - 100)
 	 
-func update_refs():   
-	for r in all_refs():
+func update_refs():
+	all_refs_cache = all_refs()
+	for r in all_refs_cache:
 		if not objects.has(r):
 			var n = node.instance()
 			n.id = r
@@ -311,11 +317,10 @@ func set_editable_path(editable):
 		path_node.visible = editable
 
 func remove_gone_stuff():
-	# FIXME: Cache the result of all_objects.
 	var all = {}
-	for o in all_objects():
+	for o in all_objects_cache:
 		all[o] = ""
-	for o in all_refs():
+	for o in all_refs_cache:
 		all[o] = ""
 	all["HEAD"] = ""
 	# Delete objects, if they disappeared.
