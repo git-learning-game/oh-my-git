@@ -46,6 +46,7 @@ func there_is_a_git():
 	return shell.run("test -d .git && echo yes || echo no") == "yes\n"
 	
 func update_everything():
+	print("update_everything()")
 	if there_is_a_git():
 		update_head()
 		update_refs()
@@ -65,8 +66,8 @@ func set_path(new_path):
 		for o in objects.values():
 			o.queue_free()
 		objects = {}
-		if is_inside_tree():
-			update_everything()
+#		if is_inside_tree():
+#			update_everything()
 	
 func get_path():
 	return path
@@ -91,7 +92,11 @@ func update_objects():
 			continue
 			
 		var type = object_type(o)
-		
+
+		if simplified_view:
+			if type == "tree" or type == "blob":
+				continue
+
 		var n = node.instance()
 		n.id = o
 		n.type = object_type(o)
@@ -106,7 +111,7 @@ func update_objects():
 				n.content = n.content.replacen("\t", " ")
 			"commit":
 				var c = {}
-				c[commit_tree(o)] = ""
+				#c[commit_tree(o)] = ""
 				for p in commit_parents(o):
 					c[p] = ""
 				n.children = c
@@ -120,10 +125,6 @@ func update_objects():
 		n.position = find_position(n)
 		nodes.add_child(n)
 		objects[o] = n
-		
-		if simplified_view:
-			if type == "tree" or type == "blob":
-				n.hide()
 		
 func update_node_positions():
 	if there_is_a_git():
@@ -226,7 +227,8 @@ func update_head():
 	n.children = {ref_target("HEAD"): ""}
 
 func all_objects():
-	var obj = git("cat-file --batch-check='%(objectname)' --batch-all-objects", true)
+	#var obj = git("cat-file --batch-check='%(objectname)' --batch-all-objects", true)
+	var obj = git("cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep '\\(tag\\|commit\\)$' | cut -f1 -d' '", true)
 	var dict = {}
 	for o in obj:
 		dict[o] = ""

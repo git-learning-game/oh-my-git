@@ -10,3 +10,5 @@
 	decorate = true
 [advice]
 	detachedHead = false
+[receive]
+	denyCurrentBranch = ignore

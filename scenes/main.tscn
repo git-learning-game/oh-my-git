@@ -179,11 +179,8 @@ size_flags_vertical = 3
 margin_right = 633.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
 custom_fonts/normal_font = ExtResource( 7 )
 text = "Level name here!"
-fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -191,14 +188,12 @@ __meta__ = {
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
 margin_top = 65.0
 margin_right = 633.0
-margin_bottom = 464.0
+margin_bottom = 264.0
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 0.943848
-margin_right = 0.943848
 size_flags_vertical = 3
 bbcode_enabled = true
 bbcode_text = "Level description here!"
@@ -220,11 +215,10 @@ __meta__ = {
 }
 
 [node name="Goals" type="VBoxContainer" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
-margin_top = 469.0
+margin_top = 269.0
 margin_right = 633.0
 margin_bottom = 469.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
 
 [node name="FileBrowser" parent="Rows/Columns/RightSide" instance=ExtResource( 5 )]
 anchor_right = 0.0
