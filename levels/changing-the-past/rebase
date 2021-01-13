@@ -11,15 +11,6 @@ Again, we want to make that our base reality - the "main" branch should point to
 
 [setup]
 
-echo "A friendly old lady.
-Sells delicious baguettes." > mary
-
-echo "A rebellious teenager.
-Sells good coffee." > larry
-
-echo "A snail. Literally a snail.
-Sells donuts with an unspecified, slimy filling." > gary
-
 echo "You do not have a baguette.
 
 You do not have coffee.

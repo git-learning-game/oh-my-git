@@ -1,15 +1,15 @@
-title = A normal day
+title = Living dangerously
 cards =
 
 [description]
 
-You're working on an essay about goldfish! Your current version is already quite nice, but needs a bit more work.
+So you're working on an essay about goldfish! Your current version is already quite nice, but needs a bit more work.
 
 [congrats]
 
-Suddenly, your cat jumps on your keyboard, deletes what you've written, and runs away! Oh no. :( Just look at it now! All your hard work, destroyed!
+Suddenly, your cat jumps on your keyboard, deletes what you've written, and runs away! Oh no. Just look at it now! All your hard work, destroyed!
 
-You decide to be more careful in the future.
+You clearly need a better solution.
 
 (Click "Next Level" as soon as you're ready!)
 
@@ -17,7 +17,7 @@ You decide to be more careful in the future.
 
 rm -rf .git
 
-echo "~ Why are the best pets ~
+echo "~ Why goldfish are the best pets ~
 
 - They are pretty.
 - They don't pee on the carpet.
@@ -29,7 +29,7 @@ It's small, black, and very cute!" > cat
 
 [actions]
 
-test "$(cat essay.txt | wc -l )" -ge 7 && echo "~ Why goldfish are the best pets ~
+test "$(cat essay.txt | wc -l )" -ge 6 && echo "~ Why goldfish are the best pets ~
 
 - asdijwrlj
 - they
@@ -40,5 +40,5 @@ test "$(cat essay.txt | wc -l )" -ge 7 && echo "~ Why goldfish are the best pets
 
 [win]
 
-# Add two more lines to essay.txt!
-test "$(cat essay.txt | wc -l )" -ge 7
+# Add another line to essay.txt!
+test "$(cat essay.txt | wc -l )" -ge 6

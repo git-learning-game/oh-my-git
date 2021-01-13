@@ -3,6 +3,8 @@ cards = config-name commit-auto checkout
 
 [description]
 
+You're still pretty confused by everything that's going on. The next day, you decide to enroll in time travel school!
+
 Your time travel teacher welcomes you: "Hello there! Wanna tell us your name?"
 
 [setup]
@@ -18,7 +20,8 @@ echo "~ Why do you want to learn how to use time machines? ~
 
 [actions]
 
-test "$(git config user.name)" != "You" && hint "Hey $(git config user.name), welcome to time travel school!"
+test "$(git config user.name)" != "You" && cat form | grep -v Signature && echo "
+Signature: $(git config user.name)" >> form
 
 [win]
 
@@ -30,6 +33,6 @@ git show main:form | grep '\[[xX]\]'
 
 [congrats]
 
-"We're glad to have you! See how the commit now includes your name?
+"We're so glad to have you!
 
 Git can help you fix problems in the past! It allows you to collaborate with other students of time travel! It's really powerful, and it's really popular! I'll see you for your first lesson tomorrow!"

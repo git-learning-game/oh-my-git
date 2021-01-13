@@ -1,5 +1,5 @@
 title = Fetching from remotes
-cards = checkout
+cards = checkout fetch commit-auto
 
 [description]
 

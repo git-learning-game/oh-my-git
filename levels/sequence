@@ -2,10 +2,7 @@ intro
 files
 branches
 merge
-remotes
 index
-tags
+remotes
 changing-the-past
-shit-happens
-stash
-low-level
+bisect

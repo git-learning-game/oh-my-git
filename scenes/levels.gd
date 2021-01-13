@@ -36,7 +36,7 @@ func reload():
 		chapter_names.erase(chapter)
 		final_chapter_sequence.push_back(chapter)
 	
-	final_chapter_sequence += chapter_names
+	#final_chapter_sequence += chapter_names
 	
 	for c in final_chapter_sequence:
 		var chapter = Chapter.new()
