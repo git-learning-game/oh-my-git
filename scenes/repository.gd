@@ -17,6 +17,7 @@ var node = preload("res://scenes/node.tscn")
 var shell = Shell.new()
 var objects = {}
 var mouse_inside = false
+var has_been_layouted = false
 
 # Used for caching.
 var all_objects_cache
@@ -33,8 +34,8 @@ func _ready():
 	set_editable_path(editable_path)
 	set_path(path)
 	
-	update_everything()
-	update_node_positions()
+	#update_everything()
+	#update_node_positions()
 
 func _process(_delta):
 	nodes.rect_pivot_offset = nodes.rect_size / 2
@@ -60,7 +61,10 @@ func update_everything():
 	else:
 		for o in objects:
 			objects[o].queue_free()
-		objects = {}	
+		objects = {}
+	if not has_been_layouted:
+		update_node_positions()
+		has_been_layouted = true
 
 func set_path(new_path):
 	path = new_path

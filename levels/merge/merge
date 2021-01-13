@@ -5,10 +5,6 @@ cards = checkout commit-auto merge
 
 Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!
 
-Here, you see three parallel timelines - can you build a situation where you consumed a baguette, a coffee, *and* a donut?
-
-The "merge" card will help you - try it!
-
 [setup]
 
 echo "A friendly old lady.
@@ -79,11 +75,12 @@ You ate a donut." > you
 git add .
 git commit -m "You eat the donut"
 
-git checkout HEAD~2
+git checkout --detach
 git branch -D main
 
 [win]
 
+# Build a situation where you consumed a baguette, a coffee, *and* a donut.
 { git show HEAD:you | grep "You ate.*baguette"; } && { git show HEAD:you | grep "You drank.*coffee"; } && { git show HEAD:you | grep "You ate.*donut"; }
 
 [congrats]

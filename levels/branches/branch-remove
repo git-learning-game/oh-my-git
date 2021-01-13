@@ -1,4 +1,4 @@
-title = Choose your own adventure
+title = Deleting branches
 cards = checkout commit-auto reset-hard branch-delete
 
 [description]
@@ -6,8 +6,6 @@ cards = checkout commit-auto reset-hard branch-delete
 Life is full of dangers, right? Even when walking to school, it seems like there's a lot of risks!
 
 This Monday is especially bad. You made it to school, but there's some timelines you definitely don't want to keep around.
-
-Find the bad branches and delete them. Keep the one that seems okay.
 
 [setup]
 
@@ -33,14 +31,16 @@ echo Because you\'re kind of late, you start running. Someone throws a piano out
 git commit -am "Sounds nice"
 
 git checkout HEAD^ -b ice-cream
-echo You\'re not in a hurry, and walk slowly. You even get some ice cream on your way. You arrive at school too late, and your teacher is angry. >> you
+echo You\'re not in a hurry, and walk slowly. You even get some ice cream on your way. You arrive at school too late, your teacher is angry, and you are expelled. >> you
 git commit -am "Yum"
 
-git checkout main
+git branch -M main leap
+git checkout leap^^
 
 [win]
 
-test "$(git branch | cut -c 3-)" = "$(echo -e ice-cream\\nmain)"
+# Find the bad branches and delete them. Keep the best one.
+test "$(git show-ref --heads | cut -f2 -d' ')" = "$(echo refs/heads/leap)"
 
 [congrats]
 

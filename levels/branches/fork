@@ -1,4 +1,4 @@
-title = Parallelism
+title = Make parallel commits
 cards = checkout commit-auto
 
 [description]
@@ -38,10 +38,10 @@ git branch -d main
 
 [win]
 
-# Is the child still there?
+# Make sure that the child is happy.
 git ls-tree --name-only -r HEAD | grep child
 
-# Is the lion not hungry?
+# Make sure that the lion gets something to eat.
 git show HEAD:cage/lion | grep -v "very hungry"
 
 [congrats]

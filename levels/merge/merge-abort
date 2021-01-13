@@ -1,9 +1,10 @@
-title = Merging timelines
-cards = checkout commit-auto merge
+title = Abort a merge
+cards = checkout commit-auto merge merge-abort
 
 [description]
 
-Sometimes you want to merge two commits, nut a merge conflict occurs that you currently don't want to resolve. 
+Sometimes you want to merge two commits, but a merge conflict occurs that you currently don't want to resolve.
+
 In these situations you can abort the merge to merge later. Use
     git merge --abort
 when you are in a merge process.
@@ -46,7 +47,7 @@ fi
 test -f .git/secretfile
 
 # You aborted to merge?
-test -f .git/secretfile && ! test -f .git/MERGE_HEAD
+test -f .git/secretfile && ! test -f .git/MERGE_HEAD && ! git rev-parse HEAD^^
 
 [congrats]
 

@@ -46,8 +46,13 @@
 	},
 	{
 		"id": "merge",
-		"command": "git merge [commit]",
+		"command": "git merge [commit, ref]",
 		"description": "Merge the specified timeline into yours. If necessary, will create a merge commit."
+	},
+	{
+		"id": "merge-abort",
+		"command": "git merge --abort",
+		"description": "Abort the current merge attempt, and reconstruct the previous state."
 	},
 	{
 		"id": "rebase",
@@ -137,7 +142,7 @@
 	{
 		"id": "branch",
 		"command": "git branch [string]",
-		"description": "Create a new branch."
+		"description": "Create a new branch at your current location."
 	},
 	{
 		"id": "branch-delete",

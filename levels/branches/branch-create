@@ -1,35 +1,40 @@
-title = Party Time
-cards = checkout commit-auto reset-hard branch
+title = Creating branches
+cards = checkout commit-auto branch branch-delete reset-hard
 
 [description]
 
-You were invited to two parties but they will happen at the same time! At party 1 your favorite band is playing and the other one is your best friend's birthday party.
+You were invited to two parties! At one of them, your favorite band is playing - and the other one is your best friend's birthday party. Where should you go? No worries - as a time travel agent in training, you can go to both parties!
 
-Where should you go? No worries - you are a time travel agent in training. You can go to both parties! To quickly switch between both events, check out the last commits and
-create branches with the `git branch [string]` command. Now you can easily switch between both branches by calling `git checkout [branch]`.
+To make it easier to tell which timeline is which, you can create time portals! (We call these "branches".)
 
 [setup]
 
-echo "-Birthday present.
--Concert ticket." > backpack
+echo "You wrap the birthday present, and grab your concert ticket." > you
 git add .
-git commit -m "evening preparations"
-echo "-Birthday present." > backpack
+git commit -m "Evening preparations"
+echo "You go to the birthday party!" >> you
 git add .
-git commit -m "go to the birthday"
+git commit -m "Go to the birthday"
 
 git checkout HEAD~1
-echo "-Concert ticket." > backpack
+echo "You go to the concert!" > you
 git add .
-git commit -m "go to the concert"
+git commit -m "Go to the concert"
 
 git checkout HEAD~1
+
+git branch -D main
 
 [win]
 
-NUM_BRANCHES="$(git show-ref --heads | wc -l)"
-test "$NUM_BRANCHES" -ge 3
+# Create a branch called 'birthday' that points to the birthday timeline.
+git show birthday | grep 'to the birthday'
+
+# Create a branch called 'concert' that points to the concert timeline.
+git show concert | grep 'to the concert'
 
 [congrats]
+
+Now you can travel between those branches easily (using `git checkout`) - try it!
 
 Your friend is happy that you made it to the birthday party and you also got your concert ticket signed. Yay!
