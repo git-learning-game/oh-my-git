@@ -31,14 +31,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DropArea" parent="Rows/RepoVis" instance=ExtResource( 4 )]
-position = Vector2( 67.3194, 32.6666 )
+[node name="SeparatorLine" type="ColorRect" parent="Rows/RepoVis"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -4.0
+mouse_filter = 2
+color = Color( 0.196078, 0.184314, 0.435294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DropArea" parent="Rows/RepoVis/SeparatorLine" instance=ExtResource( 4 )]
+position = Vector2( 71.6342, -29.3427 )
 
 [node name="Label" type="Label" parent="Rows/RepoVis"]
-margin_left = 5.60091
-margin_top = -0.518692
-margin_right = 204.601
-margin_bottom = 48.4813
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 7.06314
+margin_top = -64.5048
+margin_right = 229.063
+margin_bottom = -8.50476
 custom_fonts/font = ExtResource( 3 )
 text = "Repo name"
 __meta__ = {

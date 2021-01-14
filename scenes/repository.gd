@@ -86,7 +86,8 @@ func set_label(new_label):
 	if label_node:
 		if new_label == "yours":
 			new_label = ""
-			$Rows/RepoVis/DropArea.queue_free()
+			$Rows/RepoVis/SeparatorLine/DropArea.queue_free()
+			$Rows/RepoVis/SeparatorLine.hide()
 		label_node.text = new_label
 
 func random_position():
