@@ -31,7 +31,7 @@ git commit -m "Added two hobbies"
 # Get a copy of her timeline using `git clone`!
 test -d .git
 
-# Add at least two more items to the list!
+# Add at least two more lines to hobbies.txt
 test "$(cat hobbies.txt |wc -l)" -ge 6
 
 # Commit your result.
