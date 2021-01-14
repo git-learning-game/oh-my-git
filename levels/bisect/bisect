@@ -9,7 +9,7 @@ Oh no! You have lost your key at some point during the day!
 
 Sure, you could look at every single commit in an attempt to find it - but there's a better way: your time machine has a built-in way to find the point in time where things went wrong quickly!
 
-First, play the "bisect start" card. Then, go to a commit where you don't have the key, and play the "bisect bad" card. Likewise, go to a commit early on where you have the key, and play the "bisect good card".
+First, play the "bisect start" card. Then, go to a commit where you don't have the key, and play the "bisect bad" card. Likewise, go to a commit early on where you have the key *in your pocket*, and play the "bisect good card".
 
 After you've found the last good commit, reset the main branch to it. What happened to the key after you lost it?
 
@@ -35,6 +35,7 @@ done
 
 [win]
 
+# Find the last good commit
 test "$(git log --pretty=%s main | head -1)" -eq 17
 
 [congrats]
