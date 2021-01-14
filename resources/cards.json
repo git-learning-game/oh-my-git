@@ -62,17 +62,17 @@
 	{
 		"id": "pull",
 		"command": "git pull",
-		"description": "Get timelines from a friend."
+		"description": "Get a friend's version of the current timeline, and try to merge it into yours."
 	},
 	{
 		"id": "fetch",
 		"command": "git fetch [remote]",
-		"description": "Get timelines from a friend."
+		"description": "Get a friend's version of the current timeline."
 	},
 	{
 		"id": "push",
 		"command": "git push",
-		"description": "Give timelines to a friend."
+		"description": "Give the current timeline to a friend."
 	},
 	{
 		"id": "rebase-interactive",
@@ -91,8 +91,13 @@
 	},
 	{
 		"id": "reset",
-		"command": "git reset [commit, file]",
-		"description": "Jump to the commit, and update the index. Keep the current environment.\n\nAlternatively, reset changes in a file in the index."
+		"command": "git reset [commit]",
+		"description": "Jump to the commit, and update the index. Keep the current environment."
+	},
+	{
+		"id": "reset-file",
+		"command": "git reset [file]",
+		"description": "Reset the index version of a file to the version in the commit you're on."
 	},
 	{
 		"id": "cherry-pick",
@@ -122,7 +127,7 @@
 	{
 		"id": "add",
 		"command": "git add [file]",
-		"description": "Put the current status of the file into the plan."
+		"description": "Update the index version of the file to its current real content."
 	},
 	{
 		"id": "rm",
@@ -137,7 +142,7 @@
 	{
 		"id": "commit",
 		"command": "git commit",
-		"description": "Make a commit from the plan."
+		"description": "Make a commit from the current index."
 	},
 	{
 		"id": "show",
