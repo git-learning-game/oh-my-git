@@ -61,14 +61,14 @@ __meta__ = {
 position = Vector2( 0, -145.336 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -6.10352e-05, 0.00012207 )
+position = Vector2( -6.10352e-05, -0.641296 )
 shape = SubResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -89.0
 margin_top = -279.0
 margin_right = 85.0
-margin_bottom = -184.0
+margin_bottom = -189.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Name"
@@ -79,7 +79,7 @@ __meta__ = {
 
 [node name="ColorRect2" type="Panel" parent="."]
 margin_left = -97.0
-margin_top = -166.0
+margin_top = -101.0
 margin_right = 94.0
 margin_bottom = -10.0
 mouse_filter = 2
@@ -90,7 +90,7 @@ __meta__ = {
 
 [node name="Description" type="Label" parent="."]
 margin_left = -92.0
-margin_top = -160.0
+margin_top = -98.0
 margin_right = 90.0
 margin_bottom = -14.0
 custom_fonts/font = ExtResource( 7 )
@@ -134,9 +134,9 @@ volume_db = -6.848
 
 [node name="Image" type="TextureRect" parent="."]
 margin_left = -88.0
-margin_top = -219.0
+margin_top = -215.0
 margin_right = 85.0
-margin_bottom = -178.0
+margin_bottom = -134.0
 mouse_filter = 2
 expand = true
 stretch_mode = 6

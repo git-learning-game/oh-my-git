@@ -1,5 +1,5 @@
 title = Checking out files from the index
-cards = add reset checkout-file commit
+cards = add reset-file checkout-file commit
 
 [description]
 
