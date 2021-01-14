@@ -17,6 +17,7 @@ var arrow = preload("res://scenes/arrow.tscn")
 func _ready():
 	content_set(content)
 	type_set(type)
+	id_set(id)
 	if not repository.simplified_view or (type != "tree" and type != "blob"):
 		$Pop.pitch_scale = rand_range(0.8, 1.2)
 		$Pop.play()
@@ -57,6 +58,10 @@ func apply_forces():
 func id_set(new_id):
 	id = new_id
 	$ID.text = id
+	if type == "ref":
+		$ID.text = $ID.text.replace("refs/heads/", "")
+		$ID.text = $ID.text.replace("refs/remotes/", "")
+		$ID.text = $ID.text.replace("refs/tags/", "")
 	
 func content_set(new_content):
 	content = new_content
