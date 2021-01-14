@@ -37,9 +37,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Control2" type="Control" parent="VBoxContainer"]
 margin_right = 200.0
-margin_bottom = 87.0
+margin_bottom = 11.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.13
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_top = 15.0
+margin_right = 200.0
+margin_bottom = 106.0
 mouse_filter = 2
 size_flags_vertical = 3
 
@@ -100,11 +107,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 91.0
+margin_top = 110.0
 margin_right = 200.0
-margin_bottom = 140.0
+margin_bottom = 139.0
 size_flags_vertical = 7
-size_flags_stretch_ratio = 0.55
+size_flags_stretch_ratio = 0.0
 custom_fonts/font = ExtResource( 2 )
 text = "filename"
 align = 1
