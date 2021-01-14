@@ -1,5 +1,5 @@
 title = Problems
-cards = checkout add pull push commit-auto
+cards = checkout add pull push commit-auto merge
 
 [description]
 
@@ -30,4 +30,4 @@ test "$(git status -s)" = ""
 [win friend]
 
 # Look at your friend's suggestion, make a compromise, and push it back.
-git show main:file | grep green && git show main:file | grep blue
+git show main:file | grep green && git show main:file | grep blue || git show main:file | grep turquoise
