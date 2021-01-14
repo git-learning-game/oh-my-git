@@ -70,6 +70,7 @@ git commit -am "Put on shirt"
 
 [win]
 
+# Reorder the commits to dress yourself in the correct way
 { git log main --oneline | grep -Pz "shoes[\s\S]*pants[\s\S]*underwear"; } && { test "$(git log main --oneline | wc -l)" -eq 5; }
 
 [congrats]
