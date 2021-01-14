@@ -97,7 +97,7 @@
 	{
 		"id": "reset-file",
 		"command": "git reset [file]",
-		"description": "Reset the index "
+		"description": "Reset the index version of a file to the version in the commit you're on."
 	},
 	{
 		"id": "cherry-pick",
