@@ -7,9 +7,7 @@ onready var input = terminal.input
 onready var output = terminal.output
 onready var repositories_node = $Rows/Columns/Repositories
 var repositories = {}
-onready var level_select = $Rows/Columns/RightSide/LevelInfo/Menu/LevelSelect
-onready var chapter_select = $Rows/Columns/RightSide/LevelInfo/Menu/ChapterSelect
-onready var next_level_button = $Rows/Columns/RightSide/LevelInfo/Menu/NextLevelButton
+onready var next_level_button = $Menu/NextLevelButton
 onready var level_name = $Rows/Columns/RightSide/LevelInfo/LevelPanel/LevelName
 onready var level_description = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelDescription
 onready var level_congrats = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelCongrats
@@ -33,14 +31,14 @@ func _ready():
 		return
 	
 	# Initialize level select.
-	level_select.connect("item_selected", self, "load_level")
-	repopulate_levels()
-	level_select.select(game.current_level)
+#	level_select.connect("item_selected", self, "load_level")
+#	repopulate_levels()
+#	level_select.select(game.current_level)
 	
-	# Initialize chapter select.
-	chapter_select.connect("item_selected", self, "load_chapter")
-	repopulate_chapters()
-	chapter_select.select(game.current_chapter)
+#	# Initialize chapter select.
+#	chapter_select.connect("item_selected", self, "load_chapter")
+#	repopulate_chapters()
+#	chapter_select.select(game.current_chapter)
 	
 	# Load current level.
 	load_level(game.current_level)
@@ -56,7 +54,6 @@ func _process(delta):
 
 func load_chapter(id):
 	game.current_chapter = id
-	repopulate_levels()
 	load_level(0)
 
 func load_level(level_id):
@@ -114,8 +111,8 @@ func load_level(level_id):
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 	# FIXME: Need to clean these up when switching levels somehow.
 	
-	chapter_select.select(game.current_chapter)
-	level_select.select(game.current_level)
+#	chapter_select.select(game.current_chapter)
+#	level_select.select(game.current_level)
 	
 
 func reload_level():
@@ -179,19 +176,19 @@ func show_win_status(win_states):
 			game.state["solved_levels"].push_back(slug)
 			game.save_state()
 
-func repopulate_levels():
-	levels.reload()
-	level_select.clear()
-	for level in levels.chapters[game.current_chapter].levels:
-		level_select.add_item(level.title)
-	level_select.select(game.current_level)
+#func repopulate_levels():
+#	levels.reload()
+#	level_select.clear()
+#	for level in levels.chapters[game.current_chapter].levels:
+#		level_select.add_item(level.title)
+#	level_select.select(game.current_level)
 
-func repopulate_chapters():
-	levels.reload()
-	chapter_select.clear()
-	for c in levels.chapters:
-		chapter_select.add_item(c.slug)
-	chapter_select.select(game.current_chapter)
+#func repopulate_chapters():
+#	levels.reload()
+#	chapter_select.clear()
+#	for c in levels.chapters:
+#		chapter_select.add_item(c.slug)
+#	chapter_select.select(game.current_chapter)
 
 func update_repos():
 	var win_states = levels.chapters[game.current_chapter].levels[game.current_level].check_win()

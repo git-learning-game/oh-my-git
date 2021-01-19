@@ -10,6 +10,9 @@
 [ext_resource path="res://sounds/success.wav" type="AudioStream" id=8]
 [ext_resource path="res://scenes/cursor.gd" type="Script" id=9]
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 1.0
+
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 10.0
 content_margin_right = 10.0
@@ -20,9 +23,6 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 1.0
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -84,95 +84,14 @@ custom_constants/separation = 8
 
 [node name="LevelInfo" type="VBoxContainer" parent="Rows/Columns/RightSide"]
 margin_right = 633.0
-margin_bottom = 516.0
+margin_bottom = 595.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 8
 
-[node name="Menu" type="HBoxContainer" parent="Rows/Columns/RightSide/LevelInfo"]
-margin_right = 633.0
-margin_bottom = 39.0
-custom_constants/separation = 8
-
-[node name="ChapterSelect" type="OptionButton" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-visible = false
-margin_right = 187.0
-margin_bottom = 39.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Select chapter..."
-
-[node name="LevelSelect" type="OptionButton" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-visible = false
-margin_right = 159.0
-margin_bottom = 39.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Select level..."
-expand_icon = true
-
-[node name="BackButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-margin_right = 65.0
-margin_bottom = 39.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ReloadButton2" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-margin_left = 73.0
-margin_right = 161.0
-margin_bottom = 39.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Reload"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CardsButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-visible = false
-margin_left = 458.0
-margin_right = 539.0
-margin_bottom = 39.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Cards!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tip!" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-visible = false
-margin_left = 169.0
-margin_right = 225.0
-margin_bottom = 39.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Tip!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NextLevelButton" type="Button" parent="Rows/Columns/RightSide/LevelInfo/Menu"]
-margin_left = 169.0
-margin_right = 286.0
-margin_bottom = 39.0
-focus_mode = 0
-custom_styles/hover = SubResource( 1 )
-custom_styles/normal = ExtResource( 4 )
-enabled_focus_mode = 0
-text = "Next level"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="LevelPanel" type="VBoxContainer" parent="Rows/Columns/RightSide/LevelInfo"]
-margin_top = 47.0
 margin_right = 633.0
-margin_bottom = 516.0
+margin_bottom = 595.0
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
@@ -188,7 +107,7 @@ __meta__ = {
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
 margin_top = 65.0
 margin_right = 633.0
-margin_bottom = 464.0
+margin_bottom = 590.0
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
@@ -215,20 +134,20 @@ __meta__ = {
 }
 
 [node name="Goals" type="VBoxContainer" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
-margin_top = 469.0
+margin_top = 595.0
 margin_right = 633.0
-margin_bottom = 469.0
+margin_bottom = 595.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
 [node name="FileBrowser" parent="Rows/Columns/RightSide" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 524.0
+margin_top = 603.0
 margin_right = 633.0
 margin_bottom = 782.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
+size_flags_stretch_ratio = 0.3
 
 [node name="Controls" type="HBoxContainer" parent="Rows"]
 margin_top = 790.0
@@ -271,12 +190,78 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D"]
 shape = SubResource( 2 )
-[connection signal="button_down" from="Rows/Columns/RightSide/LevelInfo/Menu/ChapterSelect" to="." method="repopulate_chapters"]
-[connection signal="button_down" from="Rows/Columns/RightSide/LevelInfo/Menu/LevelSelect" to="." method="repopulate_levels"]
-[connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/BackButton" to="." method="back"]
-[connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/ReloadButton2" to="." method="reload_level"]
-[connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/CardsButton" to="." method="toggle_cards"]
-[connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/Tip!" to="." method="new_tip"]
-[connection signal="pressed" from="Rows/Columns/RightSide/LevelInfo/Menu/NextLevelButton" to="." method="load_next_level"]
+
+[node name="Menu" type="HBoxContainer" parent="."]
+margin_left = 3.86392
+margin_top = 5.13129
+margin_right = 636.864
+margin_bottom = 44.1313
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="Menu"]
+margin_right = 65.0
+margin_bottom = 39.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReloadButton2" type="Button" parent="Menu"]
+margin_left = 73.0
+margin_right = 161.0
+margin_bottom = 39.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Reload"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CardsButton" type="Button" parent="Menu"]
+visible = false
+margin_left = 458.0
+margin_right = 539.0
+margin_bottom = 39.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Cards!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tip!" type="Button" parent="Menu"]
+visible = false
+margin_left = 169.0
+margin_right = 225.0
+margin_bottom = 39.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Tip!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevelButton" type="Button" parent="Menu"]
+margin_left = 169.0
+margin_right = 286.0
+margin_bottom = 39.0
+focus_mode = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = ExtResource( 4 )
+enabled_focus_mode = 0
+text = "Next level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="saved" from="Rows/Columns/RightSide/FileBrowser" to="." method="update_repos"]
 [connection signal="command_done" from="Rows/Controls/Terminal" to="." method="update_repos"]
+[connection signal="pressed" from="Menu/BackButton" to="." method="back"]
+[connection signal="pressed" from="Menu/ReloadButton2" to="." method="reload_level"]
+[connection signal="pressed" from="Menu/CardsButton" to="." method="toggle_cards"]
+[connection signal="pressed" from="Menu/Tip!" to="." method="new_tip"]
+[connection signal="pressed" from="Menu/NextLevelButton" to="." method="load_next_level"]
