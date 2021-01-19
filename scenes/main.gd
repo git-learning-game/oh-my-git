@@ -113,7 +113,7 @@ func load_level(level_id):
 	
 #	chapter_select.select(game.current_chapter)
 #	level_select.select(game.current_level)
-	
+	#game.notify("These are your cards!", cards)
 
 func reload_level():
 	cards.load_card_store()

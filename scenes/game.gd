@@ -28,7 +28,7 @@ func copy_script_to_game_env(name):
 	global_shell.run("chmod u+x '%s'" % (tmp_prefix + name))
 	
 func _initial_state():
-	return {"history": [], "solved_levels": []}
+	return {"history": [], "solved_levels": [], "received_hints": []}
 	
 func save_state():
 	var savegame = File.new()
@@ -56,8 +56,19 @@ func create_file_in_game_env(filename, content):
 	# Quoted HERE doc doesn't do any substitutions inside.
 	global_shell.run("cat > '%s' <<'HEREHEREHERE'\n%s\nHEREHEREHERE" % [filename, content])
 
-func notify(text):
-	print(text)
+func notify(text, target=null, hint_slug=null):
+	if hint_slug:
+		if not state.has("received_hints"):
+			state["received_hints"] = []
+		if hint_slug in state["received_hints"]:
+			return
+		
 	var notification = preload("res://scenes/notification.tscn").instance()
 	notification.text = text
-	get_tree().root.call_deferred("add_child", notification)
+	if not target:
+		target = get_tree().root
+	target.call_deferred("add_child", notification)
+	
+	if hint_slug:
+		state["received_hints"].push_back(hint_slug)
+		save_state()
