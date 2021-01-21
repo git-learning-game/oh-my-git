@@ -6,6 +6,7 @@ var fake_editor
 
 var dragged_object
 var energy = 2
+var used_cards = false
 
 var current_chapter = 0
 var current_level = 0
@@ -28,7 +29,7 @@ func copy_script_to_game_env(name):
 	global_shell.run("chmod u+x '%s'" % (tmp_prefix + name))
 	
 func _initial_state():
-	return {"history": [], "solved_levels": [], "received_hints": []}
+	return {"history": [], "solved_levels": [], "received_hints": [], "cli_badge": []}
 	
 func save_state():
 	var savegame = File.new()

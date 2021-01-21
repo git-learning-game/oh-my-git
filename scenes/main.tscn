@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
@@ -9,11 +9,12 @@
 [ext_resource path="res://fonts/big.tres" type="DynamicFont" id=7]
 [ext_resource path="res://sounds/success.wav" type="AudioStream" id=8]
 [ext_resource path="res://scenes/cursor.gd" type="Script" id=9]
+[ext_resource path="res://scenes/cli_badge.tscn" type="PackedScene" id=10]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 1.0
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 5.0
@@ -189,7 +190,7 @@ collision_layer = 524288
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Menu" type="HBoxContainer" parent="."]
 margin_left = 3.86392
@@ -246,12 +247,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NextLevelButton" type="Button" parent="Menu"]
+[node name="CLIBadge" parent="Menu" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 169.0
-margin_right = 286.0
+margin_right = 214.0
+margin_bottom = 39.0
+
+[node name="NextLevelButton" type="Button" parent="Menu"]
+margin_left = 222.0
+margin_right = 339.0
 margin_bottom = 39.0
 focus_mode = 0
-custom_styles/hover = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
 custom_styles/normal = ExtResource( 4 )
 enabled_focus_mode = 0
 text = "Next level"

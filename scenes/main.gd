@@ -50,7 +50,8 @@ func _process(delta):
 		var length = _hint_client_connection.get_u32()
 		var message = _hint_client_connection.get_string(length)
 		game.notify(message)
-		
+	if game.used_cards:
+		$Menu/CLIBadge.active = false
 
 func load_chapter(id):
 	game.current_chapter = id
@@ -61,6 +62,9 @@ func load_level(level_id):
 	level_congrats.hide()
 	level_description.show()
 	game.current_level = level_id
+	game.used_cards = false
+	$Menu/CLIBadge.active = true
+	$Menu/CLIBadge.sparkling = false
 	
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 	
@@ -169,12 +173,14 @@ func show_win_status(win_states):
 		level_description.hide()
 		level_congrats.show()
 		$SuccessSound.play()
-		if not game.state.has("solved_levels"):
-			game.state["solved_levels"] = []
 		var slug = levels.chapters[game.current_chapter].slug + "/" + level.slug
 		if not slug in game.state["solved_levels"]:
 			game.state["solved_levels"].push_back(slug)
 			game.save_state()
+		if not game.used_cards and not slug in game.state["cli_badge"]:
+			game.state["cli_badge"].push_back(slug)
+			game.save_state()
+			$Menu/CLIBadge.sparkling = true
 
 #func repopulate_levels():
 #	levels.reload()

@@ -52,5 +52,9 @@ text = "Reload"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect" type="TextureRect" parent="Button2"]
+margin_right = 40.0
+margin_bottom = 40.0
 [connection signal="pressed" from="Button" to="." method="back"]
 [connection signal="pressed" from="Button2" to="." method="reload"]

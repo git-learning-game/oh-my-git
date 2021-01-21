@@ -136,6 +136,7 @@ func try_play(full_command):
 		var terminal = $"../../../..".terminal
 		terminal.send_command(full_command)
 		#yield(terminal, "command_done")
+		game.used_cards = true
 		$PlaySound.play()
 		var particles = preload("res://scenes/card_particles.tscn").instance()
 		particles.position = position
