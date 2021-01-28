@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://styles/theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/level_select.gd" type="Script" id=2]
+[ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.54902, 0.0392157, 0.0392157, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
@@ -56,5 +64,30 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="Button2"]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="HelpLabel" type="Label" parent="."]
+margin_left = 63.0
+margin_top = 159.0
+margin_right = 378.0
+margin_bottom = 220.0
+text = "Help us improving git-hydra by
+answering some questions:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="HelpLabel"]
+margin_left = -1.0
+margin_top = 68.0
+margin_right = 314.0
+margin_bottom = 118.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "To the survey /o/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Button" to="." method="back"]
 [connection signal="pressed" from="Button2" to="." method="reload"]
+[connection signal="pressed" from="HelpLabel/Button3" to="." method="onSurveyPressed"]
