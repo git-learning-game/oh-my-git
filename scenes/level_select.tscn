@@ -66,6 +66,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="HelpLabel" type="Label" parent="."]
+visible = false
 margin_left = 63.0
 margin_top = 159.0
 margin_right = 378.0
@@ -77,9 +78,9 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="HelpLabel"]
-margin_left = -1.0
+margin_left = -2.0
 margin_top = 68.0
-margin_right = 314.0
+margin_right = 313.0
 margin_bottom = 118.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/focus = ExtResource( 3 )

@@ -59,5 +59,4 @@ func reload():
 		chapter_id += 1
 
 
-func onSurveyPressed():
-	OS.shell_open("https://docs.google.com/forms/d/e/1FAIpQLSehHVcYfELT59h6plcn2ilbuqBcmDX3TH0qzB4jCgFIFOy_qg/viewform")
+

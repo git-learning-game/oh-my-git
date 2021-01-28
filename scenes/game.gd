@@ -15,6 +15,9 @@ var _file = "user://savegame.json"
 var state = {}
 
 func _ready():
+	if OS.has_feature("standalone"):
+		get_tree().set_auto_accept_quit(false)
+	
 	global_shell = Shell.new()
 	
 	create_file_in_game_env(".gitconfig", helpers.read_file("res://scripts/gitconfig"))
@@ -23,6 +26,12 @@ func _ready():
 	copy_script_to_game_env("hint")
 	
 	load_state()
+	
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		#get_tree().quit() # default behavio
+		get_tree().change_scene("res://scenes/survey.tscn")
+		
 
 func copy_script_to_game_env(name):
 	create_file_in_game_env(name, helpers.read_file("res://scripts/%s" % name))
@@ -73,3 +82,6 @@ func notify(text, target=null, hint_slug=null):
 	if hint_slug:
 		state["received_hints"].push_back(hint_slug)
 		save_state()
+		
+func open_survey():
+	OS.shell_open("https://docs.google.com/forms/d/e/1FAIpQLSehHVcYfELT59h6plcn2ilbuqBcmDX3TH0qzB4jCgFIFOy_qg/viewform")

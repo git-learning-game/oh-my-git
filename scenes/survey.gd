@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	pass
+	get_tree().set_auto_accept_quit(true)
 
 func quit():
 	get_tree().quit()
