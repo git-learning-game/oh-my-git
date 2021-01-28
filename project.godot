@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="git-hydra"
-run/main_scene="res://scenes/level_select.tscn"
+run/main_scene="res://scenes/title.tscn"
 config/use_custom_user_dir=true
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 

@@ -10,6 +10,7 @@ var used_cards = false
 
 var current_chapter = 0
 var current_level = 0
+var skipped_title = false
 
 var _file = "user://savegame.json"
 var state = {}
