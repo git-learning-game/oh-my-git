@@ -1,0 +1,25 @@
+title = Update files in the index
+cards = add commit
+
+[description]
+
+When we change files, the index won't change on its own. We have to use `git add` to update the index to the changed version of the file.
+
+Let's try that!
+
+[setup]
+
+echo "The candle is burning with a blue flame." > candle
+git add .
+git commit -m "The beginning"
+
+[win]
+
+# Make a change to the candle.
+test "$(git diff --name-only)" = "candle" || file -f .git/candle-changed && touch .git/candle-changed
+
+# Add the candle.
+test "$(git diff --cached --name-only)" = "candle" || file -f .git/candle-added && touch .git/candle-added
+
+# Make a commit.
+test "$(git diff --name-only HEAD HEAD^)" = "candle"

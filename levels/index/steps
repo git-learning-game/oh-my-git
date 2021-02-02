@@ -1,0 +1,53 @@
+title = Adding changes step by step
+cards = add commit
+
+[description]
+
+The index is really useful, because it allows us to be precise about which changes we want to include in each commit!
+
+[setup]
+
+echo "A small, but heavy glass ball. It is not touching the book." > ball
+echo "A thin book, that's standing upright." > book
+echo "A candle, burning with a blue flame." > candle
+
+git add .
+git commit -m "The beginning"
+
+[win]
+
+# Make changes to all three objects!
+test "$(git diff --name-only | wc -l)" -eq 3 || file -f .git/candle-changed && touch .git/candle-changed
+
+# Only add one of these changes!
+test "$(git diff --cached --name-only | wc -l)" -eq 1 || file -f .git/candle-added && touch .git/candle-added
+
+# And make a commit.
+COUNT=0
+for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
+    if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
+        COUNT=$((COUNT+1))
+    fi
+done
+
+test "$COUNT" -ge 1
+
+# Make a second commit that only records a single change.
+COUNT=0
+for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
+    if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
+        COUNT=$((COUNT+1))
+    fi
+done
+
+test "$COUNT" -ge 2
+
+# And a third one.
+COUNT=0
+for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
+    if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
+        COUNT=$((COUNT+1))
+    fi
+done
+
+test "$COUNT" -ge 3

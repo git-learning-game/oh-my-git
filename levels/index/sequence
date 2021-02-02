@@ -1,6 +1,4 @@
-auto
+compare
 new
-add
-reset
-checkout
-rm
+change
+steps

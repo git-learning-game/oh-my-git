@@ -38,7 +38,7 @@ func load(path):
 		level_names.erase(level)
 		final_level_sequence.push_back(level)
 	
-	final_level_sequence += level_names
+	#final_level_sequence += level_names
 	
 	for l in final_level_sequence:
 		var level = Level.new()

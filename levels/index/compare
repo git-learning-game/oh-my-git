@@ -1,0 +1,45 @@
+title = Step by step
+cards = checkout
+
+[description]
+
+Welcome to today's lesson! Today, we're going to learn how to make commits with precision!
+
+Have a look at these two timelines. They have exactly the same outcome. But one of them makes it much easier to figure out what happened.
+
+[setup]
+
+echo "A small, but heavy glass ball." > ball
+echo "A thin book, that's standing upright." > book
+echo "A candle, burning with a blue flame." > candle
+
+git add .
+git commit -m "The beginning"
+
+git branch -M all-at-once
+
+echo "The ball is now touching the book." > ball
+echo "The book has fallen over." > book
+echo "The candle has been blown out." > candle
+
+git commit -am "The end"
+
+git checkout HEAD^
+
+git checkout -b step-by-step
+
+echo "The ball is now touching the book." > ball
+git commit -am "The ball rolls towards the book"
+
+echo "The book has fallen over." > book
+git commit -am "The book falls over"
+
+echo "The candle has been blown out." > candle
+git commit -am "The book blows out the candle"
+
+git checkout HEAD~3
+
+[win]
+
+# This level doesn't have a goal yet.
+false

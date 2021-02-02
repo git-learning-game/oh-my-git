@@ -3,26 +3,20 @@ cards = add commit
 
 [description]
 
-But Git allows to you capture changes with more precision!
+So far, when we made a commit, we've always recorded the current status all objects, right?
 
-To understand how to do that, you need to learn about [your teacher raises her voice dramatically] *the index*!
+But Git allows you to pick which changes you want to put in a commit!
 
-In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura!
-
-Initially, all files are untracked. If you have a file, and you want to have it in the next commit, use `git add`!
-
-Here, we don't use the fancy commit card, but a plain `git commit`!
+To learn how that works, we need to learn about the "index"! In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura!
 
 [setup]
 
-echo a > a
-echo b > b
-echo c > c
+echo "The candle is burning with a blue flame." > candle
 
 [win]
 
-# Add all three files to the index.
-test "$(git ls-files | wc -l)" -eq 3
+# Add the candle.
+test "$(git diff --cached --name-only)" = "candle" || file -f .git/candle-added && touch .git/candle-added
 
-# And make a commit.
-test "$(git ls-tree main | wc -l)" -eq 3
+# Make a commit.
+test "$(git ls-tree --name-only HEAD)" = "candle"
