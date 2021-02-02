@@ -87,7 +87,7 @@ func type_set(new_type):
 			$Sprite.texture = preload("res://nodes/ref.svg")
 			id_always_visible = true
 		"head":
-			$Sprite.texture = preload("res://nodes/head.svg")
+			$Sprite.texture = preload("res://nodes/head3.svg")
 			id_always_visible = false
 			z_index = 0
 	if id_always_visible:
