@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://styles/theme.tres" type="Theme" id=1]
 [ext_resource path="res://nodes/head.svg" type="Texture" id=2]
 [ext_resource path="res://scenes/title.gd" type="Script" id=3]
-[ext_resource path="res://fonts/big.tres" type="DynamicFont" id=4]
+[ext_resource path="res://fonts/cabin-bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
@@ -24,21 +30,21 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 854.463
-margin_top = 234.592
-margin_right = 1034.46
-margin_bottom = 290.592
-custom_fonts/font = ExtResource( 4 )
-text = "git-hydra"
+margin_left = 794.213
+margin_top = 255.807
+margin_right = 1117.21
+margin_bottom = 365.807
+custom_fonts/font = SubResource( 1 )
+text = "Git Guru"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 774.698
-margin_top = 297.059
-margin_right = 1115.7
-margin_bottom = 353.059
+margin_left = 773.285
+margin_top = 346.274
+margin_right = 1114.29
+margin_bottom = 402.274
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
 text = "by bleeptrack & blinry"
@@ -48,14 +54,14 @@ __meta__ = {
 }
 
 [node name="head" type="Sprite" parent="."]
-position = Vector2( 946.624, 163.148 )
+position = Vector2( 949.453, 168.805 )
 texture = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 772.095
-margin_top = 394.369
-margin_right = 1124.09
-margin_bottom = 577.369
+margin_left = 771.152
+margin_top = 416.996
+margin_right = 1123.15
+margin_bottom = 599.996
 __meta__ = {
 "_edit_use_anchors_": false
 }
