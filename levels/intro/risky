@@ -3,11 +3,15 @@ cards =
 
 [description]
 
-So you're working on an essay about goldfish! Your current version is already quite nice, but needs a bit more work.
+So you have decided to apply for time travel school, to learn how to use this time machine called "Git"!
+
+How exciting!
+
+You're almost done with the paperwork! You just need to fill in one more reason why you want to learn Git.
 
 [congrats]
 
-Suddenly, your cat jumps on your keyboard, deletes what you've written, and runs away! Oh no. Just look at it now! All your hard work, destroyed!
+Suddenly, your cat jumps on the table, snatches away the form, and runs away! Oh no. All your hard work, gone!
 
 You clearly need a better solution.
 
@@ -17,28 +21,22 @@ You clearly need a better solution.
 
 rm -rf .git
 
-echo "~ Why goldfish are the best pets ~
+echo "~ Why I want to learn Git ~
 
-- They are pretty.
-- They don't pee on the carpet.
-- They don't make any noise." >> essay.txt
-
-echo "Your cat is sitting next to you, watching you intensely.
-
-It's small, black, and very cute!" > cat
+- So that I can undo mistakes
+- To track my projects over time" >> form.txt
 
 [actions]
 
-test "$(cat essay.txt | wc -l )" -ge 6 && echo "~ Why goldfish are the best pets ~
+test "$(cat form.txt | wc -l )" -ge 5 && echo "(Has been stolen by your cat.)
 
-- asdijwrlj
-- they
-- are
-- delicious
-- adfkafkasdufyasfiudasd" > essay.txt && rm -f cat
 
+
+
+
+" > form.txt
 
 [win]
 
-# Add another line to essay.txt!
-test "$(cat essay.txt | wc -l )" -ge 6
+# Add another line to from.txt!
+test "$(cat form.txt | wc -l )" -ge 5

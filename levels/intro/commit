@@ -1,0 +1,29 @@
+title = Your first commit
+cards = commit-auto
+
+[description]
+
+You can use your time machine to make snapshots of objects around you!
+
+Here, let's practice this!
+
+(Your teacher pours some water into a glass.)
+
+[setup]
+
+echo "The glass is full of water." > glass
+
+[win]
+
+# Make a snapshot of the glass (a "commit")
+git rev-parse HEAD
+
+# Change the contents of the glass!
+! test "$(cat glass)" = "The glass is full of water."
+
+# And make a second commit!
+git rev-parse HEAD^ && ! test "$(git show main:glass)" = "The glass is full of water."
+
+[congrats]
+
+Nice! You can try making some additional commits. When you feel comfortable, click on "Next Level".

@@ -3,44 +3,40 @@ cards =
 
 [description]
 
-One month later, you're working on an essay about cats.
-
-You've started making backup copies of your essay regularly - you can look at them by clicking on them!
-
-You think that you're almost done - your current version, just needs one more line!
+This time, you're making a lot of backup copies - you can look at them by clicking on them!
 
 [congrats]
 
 Okay, this kind of works.
 
-But you're a bit worried that two weeks from now, you'll have hundreds of copies of your essay, and it will be hard to keep track of all of them.
+But you're a bit worried that you'll end up with hundreds of copies of this form, and it will be hard to keep track of all of them.
 
 And especially when working with other people, sending copies back and forth doesn't seem ideal.
 
-You wonder what would be a better way to do this.
+You can't wait to try these time machines!
 
 [setup]
 
 rm -rf .git
 
-echo "~ Why cats are the best pets ~
+echo "~ Why I want to learn Git ~
 
-(I still need to write this.)" >> essay.txt
-
-
-echo "~ Why cats are the best pets ~
-
-- They live longer than goldfish." >> essay2.txt
+(I still need to write this.)" >> form.txt
 
 
-echo "~ Why cats are the best pets ~
+echo "~ Why I want to learn Git ~
 
-- They live longer than goldfish.
-- Their little paws are super cute." >> essay2_final.txt
+- So that I can undo mistakes" >> form2.txt
 
-cp essay2_final.txt essay2_really_final.txt
+
+echo "~ Why I want to learn Git ~
+
+- So that I can undo mistakes
+- To track my projects over time" >> form2_final.txt
+
+cp form2_final.txt form2_really_final.txt
 
 [win]
 
-# Add another line to essay2_really_final.txt!
-test "$(cat essay2_really_final.txt | wc -l )" -ge 5
+# Add another line to form2_really_final.txt!
+test "$(cat form2_really_final.txt | wc -l )" -ge 5

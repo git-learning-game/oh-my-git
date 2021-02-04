@@ -1,0 +1,21 @@
+title = Enter the time machine
+cards = init
+
+[description]
+
+You've been accepted to time travel school! Yay! It's your first day! Your teacher explains:
+
+"To do anything with a time machine, you first need to initialize it! Go ahead, try it!"
+
+[setup]
+
+rm -rf .git
+
+[win]
+
+# Initialize the time machine!
+test -d .git
+
+[congrats]
+
+Nice! See that little owl squirrel that appeared? It will be your companion, and always show you where you are in time!

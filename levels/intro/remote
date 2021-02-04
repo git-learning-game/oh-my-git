@@ -3,41 +3,43 @@ cards = clone checkout commit-auto pull push
 
 [description]
 
-A friend has asked you to help with an essay about hobbies! She has already started to write a list, and started tracking it with her own time machine!
+Let's add your name to our list of students!
+
+I have a copy of it in my time machine - let's work together!
 
 [congrats]
 
-"Thanks, these are some really nice hobbies! Hope we can do that together soon!"
+Welcome to time travel school! :) I'll see you for your first class tomorrow!
 
 [setup]
 
 rm -rf .git
 
-[setup friend]
+[setup teacher]
 
-echo "~ Best hobbies ~" > hobbies.txt
+echo "~ List of current students ~" > students
 git add .
 git commit -m "Initial version"
 
 echo " 
-- Collecting stamps
-- Looking at clouds" >> hobbies.txt
+- Sam
+- Alex" >> students
 
 git add .
-git commit -m "Added two hobbies"
+git commit -m "Added two students"
 
 [win]
 
-# Get a copy of her timeline using `git clone`!
+# Get a copy of your teacher's timeline using `git clone`!
 test -d .git
 
-# Add at least two more lines to hobbies.txt
-test "$(cat hobbies.txt |wc -l)" -ge 6
+# Add your name to the list of students
+test "$(cat students |wc -l)" -ge 5
 
 # Commit your result.
-test "$(git show main:hobbies.txt |wc -l)" -ge 6
+test "$(git show main:students |wc -l)" -ge 5
 
-[win friend]
+[win teacher]
 
-# And use `git push` to send it to your friend!
-test "$(git show main:hobbies.txt |wc -l)" -ge 6
+# And use `git push` to send it to your teacher!
+test "$(git show main:students |wc -l)" -ge 5
