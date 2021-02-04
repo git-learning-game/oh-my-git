@@ -1,4 +1,5 @@
-title = Three commits
+title = Sandbox
+cards = checkout add reset-file checkout-file commit merge rebase
 
 [setup]
 
@@ -16,9 +17,9 @@ git branch not_main
 
 [description]
 
-That's all for now! Here's a sandbox you can play around in.
+Here's a sandbox you can play around in.
 
-Did you see the black terminal at the very bottom? All cards you play translate into actual commands, and there'a a real Git repo behind this! Fun things to try:
+You can use both the playing cards, as well as the terminal. Fun things to try:
 
 - Make a commit that merges three timelines together at once!
 - Create some tags!

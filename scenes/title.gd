@@ -14,3 +14,9 @@ func levels():
 
 func on_survey_pressed():
 	game.open_survey()
+
+
+func sandbox():
+	game.current_chapter = levels.chapters.size() - 1
+	game.current_level = levels.chapters[game.current_chapter].levels.size() -1
+	get_tree().change_scene("res://scenes/main.tscn")

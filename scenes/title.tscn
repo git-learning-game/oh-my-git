@@ -71,10 +71,17 @@ margin_right = 351.0
 margin_bottom = 39.0
 text = "Levels"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Button3" type="Button" parent="VBoxContainer"]
 margin_top = 44.0
 margin_right = 351.0
 margin_bottom = 83.0
+text = "Sandbox"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+margin_top = 88.0
+margin_right = 351.0
+margin_bottom = 127.0
 text = "Quit"
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="levels"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="sandbox"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="quit"]
