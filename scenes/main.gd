@@ -66,7 +66,7 @@ func load_level(level_id):
 	$Menu/CLIBadge.active = true
 	$Menu/CLIBadge.sparkling = false
 	
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), true)
 	
 	levels.chapters[game.current_chapter].levels[game.current_level].construct()
 
@@ -112,7 +112,7 @@ func load_level(level_id):
 	add_child(t)
 	t.start()
 	yield(t, "timeout")
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), false)
 	# FIXME: Need to clean these up when switching levels somehow.
 	
 #	chapter_select.select(game.current_chapter)
@@ -204,6 +204,8 @@ func update_repos():
 		var repo = repositories[r]
 		repo.update_everything()
 	file_browser.update()
+	
+	input.grab_focus()
 
 func toggle_cards():
 	cards.visible = not cards.visible

@@ -59,6 +59,7 @@ __meta__ = {
 
 [node name="Pop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+bus = "SFX"
 
 [node name="Area2D" type="Area2D" parent="."]
 

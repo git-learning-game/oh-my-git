@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gigantic-greasy-giraffe.ogg-f6c5f1ef0e57d5d768517fa39e6be36c.oggstr"
+
+[deps]
+
+source_file="res://music/gigantic-greasy-giraffe.ogg"
+dest_files=[ "res://.import/gigantic-greasy-giraffe.ogg-f6c5f1ef0e57d5d768517fa39e6be36c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

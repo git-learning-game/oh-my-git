@@ -56,14 +56,24 @@ margin_left = 138.588
 margin_top = 59.3009
 margin_right = 226.588
 margin_bottom = 98.3009
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Reload"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Button2"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Button3" type="Button" parent="."]
+margin_left = 241.005
+margin_top = 58.856
+margin_right = 387.005
+margin_bottom = 97.856
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Toggle music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HelpLabel" type="Label" parent="."]
 visible = false
@@ -91,4 +101,5 @@ __meta__ = {
 }
 [connection signal="pressed" from="Button" to="." method="back"]
 [connection signal="pressed" from="Button2" to="." method="reload"]
+[connection signal="pressed" from="Button3" to="." method="toggle_music"]
 [connection signal="pressed" from="HelpLabel/Button3" to="." method="onSurveyPressed"]

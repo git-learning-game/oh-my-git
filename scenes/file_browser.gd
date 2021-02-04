@@ -177,6 +177,7 @@ func item_deleted(item):
 
 func close():
 	text_edit.hide()
+	emit_signal("saved")
 	
 func save():
 	match mode:
@@ -189,7 +190,6 @@ func save():
 			
 			helpers.write_file(fixme_path+open_file, text_edit.text)
 			update()
-			emit_signal("saved")
 	close()
 
 func _set_commit(new_commit):

@@ -63,3 +63,12 @@ func reload():
 
 
 
+
+
+func toggle_music():
+	var music = game.find_node("Music")
+	if music.volume_db > -20:
+		music.volume_db -= 100
+	else:
+		music.volume_db += 100
+		

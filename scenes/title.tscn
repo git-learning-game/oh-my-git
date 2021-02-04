@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://styles/theme.tres" type="Theme" id=1]
-[ext_resource path="res://nodes/head.svg" type="Texture" id=2]
+[ext_resource path="res://nodes/head1.svg" type="Texture" id=2]
 [ext_resource path="res://scenes/title.gd" type="Script" id=3]
 [ext_resource path="res://fonts/cabin-bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
@@ -24,16 +24,18 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.889893
+margin_bottom = -0.889893
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 794.213
-margin_top = 255.807
-margin_right = 1117.21
-margin_bottom = 365.807
+margin_left = 795.993
+margin_top = 243.349
+margin_right = 1166.99
+margin_bottom = 353.349
 custom_fonts/font = SubResource( 1 )
 text = "Git Guru"
 __meta__ = {
@@ -53,15 +55,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label3" type="Label" parent="."]
+margin_left = 692.22
+margin_top = 373.555
+margin_right = 1192.22
+margin_bottom = 429.555
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+text = "Original score by winniehell"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="head" type="Sprite" parent="."]
-position = Vector2( 949.453, 168.805 )
+position = Vector2( 944.114, 185.713 )
 texture = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 771.152
-margin_top = 416.996
-margin_right = 1123.15
-margin_bottom = 599.996
+margin_left = 765.813
+margin_top = 465.05
+margin_right = 1117.81
+margin_bottom = 648.05
 __meta__ = {
 "_edit_use_anchors_": false
 }
