@@ -1,17 +1,22 @@
 title = Step by step
-cards = checkout
+cards = checkout commit-auto
 
 [description]
 
-Welcome to today's lesson! Today, we're going to learn how to make commits with precision!
+Welcome to today's lesson! We're going to learn how to make commits with more precision!
 
 Have a look at these two timelines. They have exactly the same outcome. But one of them makes it much easier to figure out what happened.
+
+[win]
+
+Right! Having each change in its own commit makes it easier to understand what's going on! Let's learn how to do that!
 
 [setup]
 
 echo "A small, but heavy glass ball." > ball
 echo "A thin book, that's standing upright." > book
 echo "A candle, burning with a blue flame." > candle
+echo "A smoke detector. It's absolutely silent." > smoke_detector
 
 git add .
 git commit -m "The beginning"
@@ -41,5 +46,5 @@ git checkout HEAD~3
 
 [win]
 
-# This level doesn't have a goal yet.
-false
+# Pick the timeline that's clearer, and make the next logical change!
+git show step-by-step:smoke_detector | grep -v "absolutely silent"

@@ -1,5 +1,5 @@
 title = Adding changes step by step
-cards = add commit
+cards = add reset-file commit
 
 [description]
 
@@ -7,16 +7,16 @@ The index is really useful, because it allows us to be precise about which chang
 
 [setup]
 
-echo "A small, but heavy glass ball. It is not touching the book." > ball
-echo "A thin book, that's standing upright." > book
-echo "A candle, burning with a blue flame." > candle
+echo "A hammer, balancing on its handle." > hammer
+echo "A bottle, containing a clear liquid." > bottle
+echo "A white sugar cube." > sugar_cube
 
 git add .
 git commit -m "The beginning"
 
 [win]
 
-# Make changes to all three objects!
+# Make changes to all three objects, to form a logical sequence of events!
 test "$(git diff --name-only | wc -l)" -eq 3 || file -f .git/candle-changed && touch .git/candle-changed
 
 # Only add one of these changes!

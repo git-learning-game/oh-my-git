@@ -3,11 +3,13 @@ cards = add commit
 
 [description]
 
-So far, when we made a commit, we've always recorded the current status all objects, right?
+So far, when we made a commit, we've always recorded the current status of all objects, right?
 
 But Git allows you to pick which changes you want to put in a commit!
 
 To learn how that works, we need to learn about the "index"! In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura!
+
+Initially, the index is empty. To make a commit that contains a new file, we need to add it!
 
 [setup]
 

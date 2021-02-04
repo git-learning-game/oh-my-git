@@ -7,6 +7,12 @@ When we change files, the index won't change on its own. We have to use `git add
 
 Let's try that!
 
+The icons in the file browser show you when the actual file (white) and the version in the index (blue) are different, and when they are the same!
+
+[win]
+
+Good! The index is sometimes also called the "staging area" - it contains exactly what ends up in the next commit when you use `git commit`!
+
 [setup]
 
 echo "The candle is burning with a blue flame." > candle
