@@ -1,4 +1,4 @@
-name = "git-hydra"
+name = "oh-my-git"
 
 all: linux macos windows
 

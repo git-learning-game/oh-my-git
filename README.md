@@ -1,6 +1,6 @@
-# git-hydra
+# Oh My Git!
 
-**git-hydra** (working title) is an open-source game about learning Git!
+**Oh My Git!** is an open-source game about learning Git!
 
 The current form is an early prototype, and will change significantly until the end of February 2021.
 

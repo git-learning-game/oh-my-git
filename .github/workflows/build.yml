@@ -6,7 +6,7 @@ on:
       - '*'
 
 env:
-  PROJECT_NAME: ${{ github.event.repository.name }}
+  PROJECT_NAME: oh-my-git
   GODOT_VERSION: 3.2.3
 
 jobs:

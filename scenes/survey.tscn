@@ -31,7 +31,7 @@ margin_top = 234.592
 margin_right = 1034.46
 margin_bottom = 290.592
 custom_fonts/font = ExtResource( 4 )
-text = "git-hydra"
+text = "Oh My Git!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -88,7 +88,7 @@ __meta__ = {
 margin_right = 466.0
 margin_bottom = 93.0
 text = "Thank you very much for playing!
-Please help us improve git-hydra 
+Please help us improve Oh My Git! 
 by filling out this survey:"
 align = 1
 
