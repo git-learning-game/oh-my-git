@@ -6,13 +6,13 @@ The current form is an early prototype, and will change significantly until the 
 
 ## Play the game!
 
-You can download binaries for Linux, macOS, and Windows [from itch.io](https://blinry.itch.io/git-hydra)!
+You can download binaries for Linux, macOS, and Windows [from itch.io](https://blinry.itch.io/oh-my-git)!
 
 ## Report bugs!
 
-If something doesn't work or looks broken, please let us know! You can describe the issue you're having [in our issue tracker](https://github.com/git-learning-game/git-hydra/issues).
+If something doesn't work or looks broken, please let us know! You can describe the issue you're having [in our issue tracker](https://github.com/git-learning-game/oh-my-git/issues).
 
-If you have ideas for new features, we'd be excited to hear them! Also in that case, we invite you to [open an issue](https://github.com/git-learning-game/git-hydra/issues)!
+If you have ideas for new features, we'd be excited to hear them! Also in that case, we invite you to [open an issue](https://github.com/git-learning-game/oh-my-git/issues)!
 
 ## Build your own level!
 
