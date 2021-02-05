@@ -15,6 +15,9 @@ jobs:
     container:
       image: barichello/godot-ci:3.2.3
     steps:
+      - name: Get tag name
+        id: tag_name
+        run: echo ::set-output name=TAG_NAME::${GITHUB_REF#refs/tags/}
       - name: Install dependencies
         run: apt-get update && apt-get install -y rsync p7zip make
       - uses: actions/checkout@v2
@@ -38,6 +41,7 @@ jobs:
           ITCH_GAME: ${{ env.PROJECT_NAME }}
           ITCH_USER: blinry
           PACKAGE: build/${{ env.PROJECT_NAME }}-linux.zip
+          VERSION: ${{ steps.tag_name.outputs.TAG_NAME }}
       - name: Deploy macOS
         uses: josephbmanley/butler-publish-itchio-action@v1.0.2
         env:
@@ -46,6 +50,7 @@ jobs:
           ITCH_GAME: ${{ env.PROJECT_NAME }}
           ITCH_USER: blinry
           PACKAGE: build/${{ env.PROJECT_NAME }}-macos.zip
+          VERSION: ${{ steps.tag_name.outputs.TAG_NAME }}
       - name: Deploy Windows
         uses: josephbmanley/butler-publish-itchio-action@v1.0.2
         env:
@@ -54,3 +59,4 @@ jobs:
           ITCH_GAME: ${{ env.PROJECT_NAME }}
           ITCH_USER: blinry
           PACKAGE: build/${{ env.PROJECT_NAME }}-windows.zip
+          VERSION: ${{ steps.tag_name.outputs.TAG_NAME }}
