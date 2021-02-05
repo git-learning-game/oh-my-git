@@ -55,6 +55,15 @@ func read_file(path, fallback_string=null):
 func write_file(path, content):
 	if debug_file_io:
 		print("writing " + path)
+	
+	# Create the base directory of the file, if it doesn't exist.
+	var parts = Array(path.split("/"))
+	parts.pop_back()
+	var dirname = PoolStringArray(parts).join("/")
+	var dir = Directory.new()
+	if not dir.dir_exists(path):
+		dir.make_dir_recursive(dirname)
+		
 	var file = File.new()
 	file.open(path, File.WRITE)
 	file.store_string(content)
