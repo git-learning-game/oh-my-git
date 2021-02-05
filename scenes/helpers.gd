@@ -88,11 +88,11 @@ func careful_delete(path_inside):
 	var os = OS.get_name()
 	
 	if os == "X11":
-		expected_prefix = "/home/%s/.local/share/Git Guru/tmp/" % OS.get_environment("USER")
+		expected_prefix = "/home/%s/.local/share/Oh My Git/tmp/" % OS.get_environment("USER")
 	elif os == "OSX":
-		expected_prefix = "/Users/%s/Library/Application Support/Git Guru/tmp/" % OS.get_environment("USER")
+		expected_prefix = "/Users/%s/Library/Application Support/Oh My Git/tmp/" % OS.get_environment("USER")
 	elif os == "Windows":
-		expected_prefix = "C:/Users/%s/AppData/Roaming/Git Guru/tmp/" % OS.get_environment("USERNAME")
+		expected_prefix = "C:/Users/%s/AppData/Roaming/Oh My Git/tmp/" % OS.get_environment("USERNAME")
 	else:
 		helpers.crash("Unsupported OS: %s" % os)
 	
