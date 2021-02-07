@@ -38,5 +38,5 @@ test "$(cat form.txt | wc -l )" -ge 5 && echo "(Has been stolen by your cat.)
 
 [win]
 
-# Add another line to from.txt!
+# Add another line to form.txt!
 test "$(cat form.txt | wc -l )" -ge 5
