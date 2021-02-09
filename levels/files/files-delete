@@ -1,29 +1,30 @@
-title = Unexpected Visitors
-cards = file-new file-delete
+title = Unexpected Roommates
+cards = file-delete
 
 [description]
 
-*ring ring* Oh no! You wanted to meet with your parents in your student apartment and your alarm did not go off in time to clean your room!
+The first day at Time Travel School comes to an end and you receive the key to your room.
+Full of excitement you open the door just to find... spider webs! Spider webs everywhere!
 
-"Coming!" you yell while you jump out of bed. Now quick! 
+Remove all the spider webs you can find with the remove card!
 
 [setup]
 
-echo Very smelly socks. > socks
-echo A tiny couch table. > table
-echo An empty energy drink can. > can
-echo An empty bag of chips. > bag_of_chips
+echo A tiny spider web is next to your window. > tiny_web
+echo A big spider web sticks above your bed. > big_web
+echo A cozy bed. > bed
+echo An extra thick spider web is right beside your door. > thick_web
 
 [win]
 
-# Remove all litter and trash.
-! ls | grep bag_of_chips &&
-! ls | grep can &&
-! ls | grep socks
+# Remove all spider webs.
+! ls | grep thick_web &&
+! ls | grep big_web &&
+! ls | grep tiny_web
 
-# But make sure to keep important things!
-ls | grep table
+# But make sure you keep your bed!
+ls | grep bed
 
 [congrats]
 
-Your parents are happy to see you (and, of course, your neat and tidy apartment)!
+Your room looks now very tidy and cozy! Time to unpack your stuff!
