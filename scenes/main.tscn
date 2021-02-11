@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://sounds/success.wav" type="AudioStream" id=8]
 [ext_resource path="res://scenes/cursor.gd" type="Script" id=9]
 [ext_resource path="res://scenes/cli_badge.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/music_button.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 1.0
@@ -250,16 +251,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button3" parent="Menu" instance=ExtResource( 11 )]
+margin_left = 169.0
+margin_top = 0.0
+margin_right = 315.0
+margin_bottom = 39.0
+
 [node name="CLIBadge" parent="Menu" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 169.0
-margin_right = 214.0
+margin_left = 323.0
+margin_right = 368.0
 margin_bottom = 39.0
 
 [node name="NextLevelButton" type="Button" parent="Menu"]
-margin_left = 222.0
-margin_right = 339.0
+margin_left = 376.0
+margin_right = 493.0
 margin_bottom = 39.0
 focus_mode = 0
 custom_styles/hover = SubResource( 2 )
