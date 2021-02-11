@@ -80,6 +80,11 @@ func send_command(command):
 	input.editable = false
 	completions.hide()
 
+	# If someone tries to run an editor, use fake-editor instead.
+	var editor_regex = RegEx.new()
+	editor_regex.compile("^(vim?|gedit|emacs|kate|nano|code) ")
+	command = editor_regex.sub(command, "fake-editor ")
+
 	var cmd = repository.shell.run_async(command, false)
 	yield(cmd, "done")
 	call_deferred("command_done", cmd)
