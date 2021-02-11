@@ -86,3 +86,10 @@ func notify(text, target=null, hint_slug=null):
 		
 func open_survey():
 	OS.shell_open("https://docs.google.com/forms/d/e/1FAIpQLSehHVcYfELT59h6plcn2ilbuqBcmDX3TH0qzB4jCgFIFOy_qg/viewform")
+	
+func toggle_music():
+	var music = game.find_node("Music")
+	if music.volume_db > -20:
+		music.volume_db -= 100
+	else:
+		music.volume_db += 100

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://styles/theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/level_select.gd" type="Script" id=2]
 [ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=3]
+[ext_resource path="res://scenes/music_button.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.54902, 0.0392157, 0.0392157, 1 )
@@ -63,17 +64,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="."]
-margin_left = 241.005
-margin_top = 58.856
-margin_right = 387.005
-margin_bottom = 97.856
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Toggle music"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Button3" parent="." instance=ExtResource( 4 )]
 
 [node name="HelpLabel" type="Label" parent="."]
 visible = false
@@ -101,5 +92,4 @@ __meta__ = {
 }
 [connection signal="pressed" from="Button" to="." method="back"]
 [connection signal="pressed" from="Button2" to="." method="reload"]
-[connection signal="pressed" from="Button3" to="." method="toggle_music"]
 [connection signal="pressed" from="HelpLabel/Button3" to="." method="onSurveyPressed"]
