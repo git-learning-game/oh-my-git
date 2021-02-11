@@ -17,16 +17,16 @@ After you've found the last good commit, reset the main branch to it. What happe
 
 echo "You still have your key." > you
 
-for i in {1..60}; do
-    if test $i -eq 18; then
+for i in {1..30}; do
+    if test $i -eq 12; then
         echo "Your pocket is empty." > you
         echo "Is on the ground." > key
     fi
-    if test $i -eq 19; then
+    if test $i -eq 13; then
         echo "Is holding a key in its beak." > bird
         rm key
     fi
-    if test $i -eq 20; then
+    if test $i -eq 14; then
         rm bird
     fi
     git add .
@@ -36,7 +36,7 @@ done
 [win]
 
 # Find the last good commit
-test "$(git log --pretty=%s main | head -1)" -eq 17
+test "$(git log --pretty=%s main | head -1)" -eq 11
 
 [congrats]
 
