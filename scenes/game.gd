@@ -18,6 +18,8 @@ var state = {}
 func _ready():
 	if OS.has_feature("standalone"):
 		get_tree().set_auto_accept_quit(false)
+	else:
+		game.toggle_music()
 	
 	global_shell = Shell.new()
 	
