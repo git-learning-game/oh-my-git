@@ -28,6 +28,9 @@ func load(path):
 		description = monospace_regex.sub(description, "\n      [code]$1[/code]", true)
 		description = description.split("---")
 		
+		var cli_hints = "\n\n[color=#787878]"+config.get("cli", "")+"[/color]"
+		description[0] = description[0] + cli_hints
+		
 		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
 		cards = Array(config.get("cards", "").split(" "))
 		if cards == [""]:

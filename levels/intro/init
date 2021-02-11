@@ -7,6 +7,9 @@ You've been accepted to time travel school! Yay! It's your first day! Your teach
 
 "To do anything with a time machine, you first need to initialize it! Go ahead, try it!"
 
+[cli]
+Instead of playing a card, you can slo type 'git init' directly into your terminal!
+
 [setup]
 
 rm -rf .git
