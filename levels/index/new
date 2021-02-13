@@ -7,7 +7,7 @@ So far, when we made a commit, we've always recorded the current status of all o
 
 But Git allows you to pick which changes you want to put in a commit!
 
-To learn how that works, we need to learn about the "index"! In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura!
+To learn how that works, we need to learn about the "index"! In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura around icons in the file browser!
 
 Initially, the index is empty. To make a commit that contains a new file, we need to add it!
 
