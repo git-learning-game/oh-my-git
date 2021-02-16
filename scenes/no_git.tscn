@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://styles/theme.tres" type="Theme" id=1]
+[ext_resource path="res://images/oh-my-git.png" type="Texture" id=2]
+[ext_resource path="res://scenes/no_git.gd" type="Script" id=3]
+[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.454902, 0.054902, 0.054902, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Title" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.4126
+margin_right = 1.4126
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 797.196
+margin_top = 545.117
+margin_right = 1138.2
+margin_bottom = 601.117
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+text = "by bleeptrack & blinry"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 716.131
+margin_top = 572.398
+margin_right = 1216.13
+margin_bottom = 628.398
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+text = "Original score by winniehell"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 794.627
+margin_top = 959.284
+margin_right = 1146.62
+margin_bottom = 1142.28
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+visible = false
+margin_right = 351.0
+margin_bottom = 39.0
+text = "Levels"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+visible = false
+margin_right = 351.0
+margin_bottom = 39.0
+text = "Sandbox"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+margin_right = 351.0
+margin_bottom = 39.0
+text = "Sure, I'll install it!"
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="oh-my-git" type="Sprite" parent="Sprite"]
+position = Vector2( 966.528, 293.526 )
+scale = Vector2( 0.320895, 0.320895 )
+texture = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 695.937
+margin_top = 641.155
+margin_right = 1263.94
+margin_bottom = 911.155
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 20.0
+margin_top = 21.0
+margin_right = 546.0
+margin_bottom = 252.0
+text = "Hi! It seems that you don't have Git installed yet!
+
+On Linux, please install it from your package manager, usually the package is called \"git\"!
+
+On macOS 10.8 and below, you can download Git from git-scm.com."
+autowrap = true
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="levels"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="sandbox"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="quit"]
