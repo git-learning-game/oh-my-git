@@ -15,10 +15,10 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 790.904
-margin_top = 570.287
-margin_right = 1131.91
-margin_bottom = 626.287
+margin_left = 790.778
+margin_top = 594.135
+margin_right = 1131.78
+margin_bottom = 650.135
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
 text = "by bleeptrack & blinry"
@@ -28,10 +28,10 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="."]
-margin_left = 709.839
-margin_top = 597.568
-margin_right = 1209.84
-margin_bottom = 653.568
+margin_left = 709.713
+margin_top = 621.416
+margin_right = 1209.71
+margin_bottom = 677.416
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
 text = "Original score by winniehell"
@@ -41,10 +41,10 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 783.432
-margin_top = 689.063
-margin_right = 1135.43
-margin_bottom = 872.063
+margin_left = 784.553
+margin_top = 702.517
+margin_right = 1136.55
+margin_bottom = 885.517
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,7 +69,7 @@ text = "Quit"
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="oh-my-git" type="Sprite" parent="Sprite"]
-position = Vector2( 969.045, 326.247 )
+position = Vector2( 967.924, 306.066 )
 scale = Vector2( 0.320895, 0.320895 )
 texture = ExtResource( 2 )
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="levels"]
