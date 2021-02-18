@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="63.171692mm"
+   height="63.171692mm"
+   viewBox="0 0 63.171687 63.171689"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.2 (1.0.2+r75+1)"
+   sodipodi:docname="file-delete.svg">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect1251"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect895"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect874"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect872"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect862"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect860"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect859"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect857"
+       is_visible="true"
+       lpeversion="1" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="201.53234"
+     inkscape:cy="123.68223"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1343"
+     inkscape:window-height="1340"
+     inkscape:window-x="663"
+     inkscape:window-y="384"
+     inkscape:window-maximized="0"
+     inkscape:snap-global="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-37.415255,-71.015579)">
+    <g
+       id="g955"
+       transform="matrix(1.2986706,0,0,1.2986706,37.197058,-79.888572)"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.884961">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.54646;stroke-miterlimit:10"
+         d="m 27.687619,125.4926 v 8.76189 h 8.760685 z"
+         id="path951"
+         sodipodi:nodetypes="cccc" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5;stroke-miterlimit:10"
+         d="m -130.84766,-71.34375 c -4.77953,0 -8.62695,3.847415 -8.62695,8.626953 V 50.054688 c 0,4.779538 3.84742,8.626953 8.62695,8.626953 h 87.681644 c 4.779539,0 8.626954,-3.847415 8.626954,-8.626953 v -76.6875 H -79.25 V -71.34375 Z"
+         transform="matrix(0.23414606,0,0,0.23414606,44.705446,142.02764)"
+         id="path953"
+         sodipodi:nodetypes="sssssscccs" />
+    </g>
+    <g
+       id="g903"
+       transform="matrix(0.45766632,1.3608212,1.3608212,-0.45766632,-147.09369,-142.11072)">
+      <circle
+         style="fill:none;stroke:#d90000;stroke-width:4;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         id="path847"
+         cx="150.51315"
+         cy="170.44556"
+         r="20"
+         transform="matrix(0.31877122,0.94783169,0.94783169,-0.31877122,0,0)" />
+      <path
+         style="fill:none;stroke:#d90000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 191.17252,80.377126 36.63907,16.906577"
+         id="path849"
+         sodipodi:nodetypes="cc" />
+    </g>
+  </g>
+</svg>

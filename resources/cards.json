@@ -135,11 +135,6 @@
 		"description": "Delete a file both in the working directory, as well as the index."
 	},
 	{
-		"id": "mv",
-		"command": "git mv [file] [string]",
-		"description": "DOESN'T WORK YET\n\nRename a file both in the working directory, as well as the index."
-	},
-	{
 		"id": "commit",
 		"command": "git commit",
 		"description": "Make a commit from the current index."
@@ -163,11 +158,6 @@
 		"id": "reflog",
 		"command": "git reflog [ref, head]",
 		"description": "Display a log of there the ref pointed to in the past."
-	},
-	{
-		"id": "remote-add",
-		"command": "mv [file] [string]",
-		"description": "Rename a file."
 	},
 	{
 		"id": "file-new",
