@@ -52,6 +52,10 @@ func _process(delta):
 		game.notify(message)
 	if game.used_cards:
 		$Menu/CLIBadge.active = false
+		
+	# Magic height number to fix a weird rescaling bug that affected
+	# the Rows height. 
+	$Rows.rect_size.y = 1064
 
 func load_chapter(id):
 	game.current_chapter = id
