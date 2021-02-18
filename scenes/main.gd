@@ -50,8 +50,8 @@ func _process(delta):
 		var length = _hint_client_connection.get_u32()
 		var message = _hint_client_connection.get_string(length)
 		game.notify(message)
-	if game.used_cards:
-		$Menu/CLIBadge.active = false
+#	if game.used_cards:
+#		$Menu/CLIBadge.impossible = true
 		
 	# Magic height number to fix a weird rescaling bug that affected
 	# the Rows height. 
@@ -67,8 +67,6 @@ func load_level(level_id):
 	level_description.show()
 	game.current_level = level_id
 	game.used_cards = false
-	$Menu/CLIBadge.active = true
-	$Menu/CLIBadge.sparkling = false
 	
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), true)
 	
@@ -78,6 +76,11 @@ func load_level(level_id):
 	level_description.bbcode_text = level.description[0]
 	level_congrats.bbcode_text = level.congrats
 	level_name.text = level.title
+	
+	var slug = levels.chapters[game.current_chapter].slug + "/" + level.slug
+	$Menu/CLIBadge.active = slug in game.state["cli_badge"]
+	$Menu/CLIBadge.sparkling = false
+	
 	#if levels.chapters[game.current_chapter].levels[game.current_level].cards.size() == 0:
 	#	cards.redraw_all_cards()
 	#else:
@@ -184,6 +187,7 @@ func show_win_status(win_states):
 		if not game.used_cards and not slug in game.state["cli_badge"]:
 			game.state["cli_badge"].push_back(slug)
 			game.save_state()
+			$Menu/CLIBadge.active = true
 			$Menu/CLIBadge.sparkling = true
 
 #func repopulate_levels():
