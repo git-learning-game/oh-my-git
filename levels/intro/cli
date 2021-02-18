@@ -1,0 +1,29 @@
+title = The command line
+cards = 
+
+[description]
+
+These playing cards are designed to be easy to use and to remember! We'd suggest sticking to them if you don't have a lot of experience with Git!
+
+[cli]
+
+But there's another way to interact with Git:
+
+Try typing `git init` into the black terminal below, and pressing the enter key!
+
+[setup]
+
+rm -rf .git
+
+[win]
+
+# Initialize the time machine!
+test -d .git
+
+[congrats]
+
+Cool! When you don't use the cards in a level, you'll get a golden sparkling "command line badge"! See it in the top left?
+
+The command line is pretty powerful! Often, you can use it to solve tasks faster compared to using a graphical interface.
+
+It's also totally optional in this game. But if you want to learn how to use Git from the command line, we invite you to this challenge! :)
