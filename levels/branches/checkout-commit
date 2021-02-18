@@ -9,6 +9,12 @@ The grey panel below shows your current environment - click on an object to insp
 
 Can you find out what happened here? Then, while on the latest commit, edit the files to fix the problem, and make a new commit!
 
+[cli]
+
+To checkout a specific commit, type `git checkout`, then a space, and then right click on the commit you want!
+
+This will insert the commit's unique identifier!
+
 [setup]
 
 echo "This piggy bank belongs to the big sister.

@@ -5,10 +5,13 @@ cards = init
 
 You've been accepted to time travel school! Yay! It's your first day! Your teacher explains:
 
-"To do anything with a time machine, you first need to initialize it! Go ahead, try it!"
+"To do anything with a time machine, you first need to initialize it!"
+
+Drag the blue card up to play it!
 
 [cli]
-Instead of playing a card, you can slo type 'git init' directly into your terminal!
+
+Instead of using the card, you can also type `git init` into the black box below, and press the enter key!
 
 [setup]
 

@@ -8,6 +8,12 @@ Full of excitement you open the door just to find... spider webs! Spider webs ev
 
 Remove all the spider webs you can find with the remove card!
 
+[cli]
+
+On the command line, you can easily delete all files ending in -web using this command:
+
+    rm *web
+
 [setup]
 
 echo A tiny spider web is next to your window. > tiny_web

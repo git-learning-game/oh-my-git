@@ -1,13 +1,19 @@
 title = Working together
-cards = clone checkout commit-auto pull push
+cards = clone commit-auto pull push
 
 [description]
 
-Let's add your name to our list of students!
-
-I already have this list my time machine - let's work together!
+Let's add your name to our list of students! I already have this list my time machine - let's work together!
 
 Drag the "clone" card to my name to make your own copy of my timeline!
+
+[cli]
+
+To clone the teacher's repo via the command line, you need this command:
+
+    git clone ../teacher .
+
+(Don't forget the dot at the end!)
 
 [congrats]
 

@@ -3,13 +3,13 @@
 [ext_resource path="res://images/cli-badge.svg" type="Texture" id=1]
 [ext_resource path="res://scenes/cli_badge.gd" type="Script" id=2]
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
 emission_box_extents = Vector3( 20, 20, 1 )
 flag_disable_z = true
@@ -20,7 +20,7 @@ initial_velocity_random = 0.47
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 7.25
-scale_curve = SubResource( 3 )
+scale_curve = SubResource( 2 )
 color = Color( 0.913725, 0.913725, 0.447059, 1 )
 
 [node name="CLIBadge" type="TextureRect"]
@@ -42,4 +42,4 @@ position = Vector2( 21.7701, 14.5133 )
 z_index = 1
 amount = 3
 randomness = 0.34
-process_material = SubResource( 1 )
+process_material = SubResource( 3 )

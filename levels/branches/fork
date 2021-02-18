@@ -7,6 +7,18 @@ Did you know that creating parallel timelines is perfectly legal and safe? It's 
 
 Can you find out when things went wrong in this zoo, and create a parallel universe where everyone is happy?
 
+[cli]
+
+The blue animal represents a concept known as the "HEAD pointer" in Git: It shows you which commit is the current one.
+
+Here's a cool trick to go to the previous commit: 
+
+    git checkout HEAD^
+
+You can also go back two commits by typing, for example: 
+
+    git checkout HEAD~2
+
 [setup]
 
 mkdir cage

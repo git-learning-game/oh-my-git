@@ -22,14 +22,25 @@ func load(path):
 		
 		title = config.get("title", slug)
 		description = config.get("description", "(no description)")
+		
 		# Surround all lines indented with four spaces with [code] tags.
 		var monospace_regex = RegEx.new()
 		monospace_regex.compile("\\n    ([^\\n]*)")
-		description = monospace_regex.sub(description, "\n      [code]$1[/code]", true)
+		description = monospace_regex.sub(description, "\n      [code][color=#e1e160]$1[/color][/code]", true)
 		description = description.split("---")
 		
-		var cli_hints = "\n\n[color=#787878]"+config.get("cli", "")+"[/color]"
-		description[0] = description[0] + cli_hints
+		var cli_hints = config.get("cli", "")
+		# Also do this substitution in the CLI hints.
+		cli_hints = monospace_regex.sub(cli_hints, "\n      [code][color=#bbbb5d]$1[/color][/code]", true)
+		
+		# Also replace `code` with [code] tags.
+		var monospace_inline_regex = RegEx.new()
+		monospace_inline_regex.compile("`([^`]+)`")
+		description[0] = monospace_inline_regex.sub(description[0], "[code][color=#e1e160]$1[/color][/code]")
+		cli_hints = monospace_inline_regex.sub(cli_hints, "[code][color=#bbbb5d]$1[/color][/code]", true)
+		
+		if cli_hints != "":
+			description[0] = description[0] + "\n\n[color=#787878]"+cli_hints+"[/color]"
 		
 		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
 		cards = Array(config.get("cards", "").split(" "))
