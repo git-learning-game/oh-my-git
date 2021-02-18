@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
 [ext_resource path="res://nodes/blob.svg" type="Texture" id=2]
@@ -19,10 +19,30 @@ shadow_color = Color( 0, 0, 0, 0.392157 )
 shadow_size = 4
 shadow_offset = Vector2( -2, 2 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="Shader" id=2]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float hovered;
+
+void fragment() {
+	vec2 center = vec2(0.5, 0.5);
+	float dx = abs(UV.x - center.x);
+	float dy = abs(UV.y - center.y);
+	float d = distance(UV, center);
+	COLOR = vec4(0.9, 0.5, 0.5, smoothstep(0.5,0.2 + hovered*0.1,d));
+}
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = SubResource( 2 )
+shader_param/hovered = 0.0
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 105.74, 143.46 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 1, 1, 1, 0.243137 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -45,6 +65,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Glow" type="Sprite" parent="Panel"]
+modulate = Color( 1, 1, 1, 0.643137 )
+show_behind_parent = true
+material = SubResource( 3 )
+position = Vector2( 101.782, 146.207 )
+scale = Vector2( 5.03758, 6.05786 )
+texture = ExtResource( 2 )
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 margin_left = -103.0
@@ -62,7 +90,7 @@ position = Vector2( 0, -145.336 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -6.10352e-05, -0.641296 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Label" type="RichTextLabel" parent="."]
 margin_left = -91.0
@@ -82,7 +110,7 @@ margin_top = -101.0
 margin_right = 94.0
 margin_bottom = -10.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

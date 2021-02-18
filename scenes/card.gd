@@ -120,6 +120,7 @@ func set_id(new_id):
 	var texture = load(art_path)
 	if texture:
 		$Image.texture = texture
+	$Panel/Glow.visible = not id in game.state["played_cards"]
 	
 func move_back():
 	position = _home_position
@@ -155,6 +156,10 @@ func try_play(full_command):
 		get_parent().add_child(particles)
 		move_back()
 		game.energy -= energy
+		if not id in game.state["played_cards"]:
+			game.state["played_cards"].push_back(id)
+			game.save_state()
+			$Panel/Glow.hide()
 	else:
 		move_back()
 
