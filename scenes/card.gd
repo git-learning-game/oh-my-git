@@ -89,7 +89,19 @@ func _mouse_exited():
 	
 func set_command(new_command):
 	command = new_command
-	$Label.text = command
+	var commands = new_command.split("[", true, 1)
+	var args = ''
+	if commands.size() > 1:
+		args = commands[1].replace("]", "")
+		args = args.replace(", ", "/")
+		args = args.replace("ref", " [img=20]images/ref.svg[/img] ")
+		args = args.replace("commit", " [img=20]images/commit.svg[/img] ")
+		args = args.replace("string", " [img=20]images/string.svg[/img] ")
+		args = args.replace("head", " [img=20]images/head.svg[/img] ")
+		args = args.replace("file", " [img=20]images/file.svg[/img] ")
+		args = args.replace("remote", " [img=20]images/remote.svg[/img] ")
+	$Label.bbcode_text = commands[0] + args
+	#$Label.text = command
 
 func set_description(new_description):
 	description = new_description

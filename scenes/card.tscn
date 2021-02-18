@@ -64,15 +64,14 @@ position = Vector2( 0, -145.336 )
 position = Vector2( -6.10352e-05, -0.641296 )
 shape = SubResource( 2 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = -89.0
+[node name="Label" type="RichTextLabel" parent="."]
+margin_left = -91.0
 margin_top = -279.0
-margin_right = 85.0
+margin_right = 95.0
 margin_bottom = -189.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Name"
-autowrap = true
+mouse_filter = 2
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
