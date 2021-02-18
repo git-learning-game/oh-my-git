@@ -1,182 +1,182 @@
 [
-	{
-		"id": "init",
-		"command": "git init",
-		"description": "Drag this card into the empty space above to initialize the time machine!"
-	},
-	{
-		"id": "clone",
-		"command": "git clone ../[remote] .",
-		"description": "Create your own copy of your friend's repo."
-	},
-	{
-		"id": "config-name",
-		"command": "git config --global user.name [string]",
-		"description": "Set your name.\n\n(Will not change anything outside of this game.)"
-	},
-	{
-		"id": "config-email",
-		"command": "git config --global user.email [string]",
-		"description": "Set your email address."
-	},
-	{
-		"id": "checkout",
-		"command": "git checkout [commit, ref]",
-		"description": "Drag this card to a commit or to a branch to travel to it!"
-	},
-	{
-		"id": "checkout-file",
-		"command": "git checkout [file]",
-		"description": "Reset changes in a local file."
-	},
-	{
-		"id": "checkout-from",
-		"command": "git checkout [commit, ref] [file]",
-		"description": "Get the file contents from the specified commits, and reset both the working directory, as well as the index, to it."
-	},
-	{
-		"id": "commit-a",
-		"command": "git commit -a",
-		"description": "Make a new commit, after automatically adding all changes to the index.\nYou'll be asked to enter a short description of what you changed."
-	},
-	{
-		"id": "commit-auto",
-		"command": "git add .; git commit -m \"New commit\"",
-		"description": "Make a new commit containing your current environment!"
-	},
-	{
-		"id": "merge",
-		"command": "git merge [commit, ref]",
-		"description": "Merge the specified timeline into yours. If necessary, will create a merge commit."
-	},
-	{
-		"id": "merge-abort",
-		"command": "git merge --abort",
-		"description": "Abort the current merge attempt, and reconstruct the previous state."
-	},
-	{
-		"id": "rebase",
-		"command": "git rebase [commit]",
-		"description": "Put the events in your current timeline on top of the specified one."
-	},
-	{
-		"id": "pull",
-		"command": "git pull",
-		"description": "Get a friend's version of the current timeline, and try to merge it into yours."
-	},
-	{
-		"id": "fetch",
-		"command": "git fetch [remote]",
-		"description": "Get a friend's version of the current timeline."
-	},
-	{
-		"id": "push",
-		"command": "git push",
-		"description": "Give the current timeline to a friend."
-	},
-	{
-		"id": "rebase-interactive",
-		"command": "git rebase -i [commit]",
-		"description": "Make changes to the events in your current timeline, back to the commit you drag this to."
-	},
-	{
-		"id": "rebase-continue",
-		"command": "git rebase --continue",
-		"description": "Continue the current rebasing process."
-	},
-	{
-		"id": "reset-hard",
-		"command": "git reset --hard [commit]",
-		"description": "Move the branch you're on to the specified commit."
-	},
-	{
-		"id": "reset",
-		"command": "git reset [commit]",
-		"description": "Jump to the commit, and update the index. Keep the current environment."
-	},
-	{
-		"id": "reset-file",
-		"command": "git reset [file]",
-		"description": "Reset the index version of a file to the version in the commit you're on."
-	},
-	{
-		"id": "cherry-pick",
-		"command": "git cherry-pick [commit]",
-		"description": "Repeat the specified action on top of your current timeline."
-	},
-	{
-		"id": "revert",
-		"command": "git revert [commit]",
-		"description": "Make a new commit that reverts the changes of the speicified commit."
-	},
-	{
-		"id": "bisect-start",
-		"command": "git bisect start",
-		"description": "Start looking for the commit where things got bad."
-	},
-	{
-		"id": "bisect-good",
-		"command": "git bisect good",
-		"description": "State that the current commit is good! When you're automatically transferred, keep playing the `good` and `bad` cards!"
-	},
-	{
-		"id": "bisect-bad",
-		"command": "git bisect bad",
-		"description": "State that the current commit is bad! When you're automatically transferred, keep playing the `good` and `bad` cards!"
-	},
-	{
-		"id": "add",
-		"command": "git add [file]",
-		"description": "Update the index version of the file to its current real content."
-	},
-	{
-		"id": "rm",
-		"command": "git rm [file]",
-		"description": "Delete a file both in the working directory, as well as the index."
-	},
-	{
-		"id": "commit",
-		"command": "git commit",
-		"description": "Make a commit from the current index."
-	},
-	{
-		"id": "show",
-		"command": "git show [commit]",
-		"description": "Show what changed in the commit."
-	},
-	{
-		"id": "branch",
-		"command": "git branch [string]",
-		"description": "Create a new branch at your current location."
-	},
-	{
-		"id": "branch-delete",
-		"command": "git branch -D [ref]",
-		"description": "Delete a branch."
-	},
-	{
-		"id": "reflog",
-		"command": "git reflog [ref, head]",
-		"description": "Display a log of there the ref pointed to in the past."
-	},
-	{
-		"id": "file-new",
-		"command": "touch [string]",
-		"description": "Create a new file."
-	},
-	{
-		"id": "file-delete",
-		"command": "rm [file]",
-		"description": "Delete a file."
-	},
-	{
-		"id": "file-rename",
-		"command": "mv [file] [string]",
-		"description": "Rename a file."
-	},
-	{
-		"id": "file-copy",
-		"command": "cp [file] [string]",
-		"description": "Make a copy of a file."
-	}
+    {
+        "id": "init",
+        "command": "git init",
+        "description": "Drag this card into the empty space above to initialize the time machine!"
+    },
+    {
+        "id": "clone",
+        "command": "git clone ../[remote] .",
+        "description": "Create your own copy of someone else's repo."
+    },
+    {
+        "id": "config-name",
+        "command": "git config --global user.name [string]",
+        "description": "Set your name.\n\n(Will not change anything outside of this game.)"
+    },
+    {
+        "id": "config-email",
+        "command": "git config --global user.email [string]",
+        "description": "Set your email address."
+    },
+    {
+        "id": "checkout",
+        "command": "git checkout [commit, ref]",
+        "description": "Drag this card to a commit or to a branch to travel to it!"
+    },
+    {
+        "id": "checkout-file",
+        "command": "git checkout [file]",
+        "description": "Reset changes in a local file."
+    },
+    {
+        "id": "checkout-from",
+        "command": "git checkout [commit, ref] [file]",
+        "description": "Get the file contents from the specified commits, and reset both the working directory, as well as the index, to it."
+    },
+    {
+        "id": "commit-a",
+        "command": "git commit -a",
+        "description": "Make a new commit, after automatically adding all changes to the index.\nYou'll be asked to enter a short description of what you changed."
+    },
+    {
+        "id": "commit-auto",
+        "command": "git add .; git commit -m \"New commit\"",
+        "description": "Make a new commit containing your current environment!"
+    },
+    {
+        "id": "merge",
+        "command": "git merge [commit, ref]",
+        "description": "Merge the specified timeline into yours. If necessary, will create a merge commit."
+    },
+    {
+        "id": "merge-abort",
+        "command": "git merge --abort",
+        "description": "Abort the current merge attempt, and reconstruct the previous state."
+    },
+    {
+        "id": "rebase",
+        "command": "git rebase [commit]",
+        "description": "Put the events in your current timeline on top of the specified one."
+    },
+    {
+        "id": "pull",
+        "command": "git pull",
+        "description": "Get someone else's version of the current timeline, and try to merge it into yours."
+    },
+    {
+        "id": "fetch",
+        "command": "git fetch [remote]",
+        "description": "Get a someone else's version of the current timeline."
+    },
+    {
+        "id": "push",
+        "command": "git push",
+        "description": "Give the current timeline to someone else."
+    },
+    {
+        "id": "rebase-interactive",
+        "command": "git rebase -i [commit]",
+        "description": "Make changes to the events in your current timeline, back to the commit you drag this to."
+    },
+    {
+        "id": "rebase-continue",
+        "command": "git rebase --continue",
+        "description": "Continue the current rebasing process."
+    },
+    {
+        "id": "reset-hard",
+        "command": "git reset --hard [commit]",
+        "description": "Move the branch you're on to the specified commit."
+    },
+    {
+        "id": "reset",
+        "command": "git reset [commit]",
+        "description": "Jump to the commit, and update the index. Keep the current environment."
+    },
+    {
+        "id": "reset-file",
+        "command": "git reset [file]",
+        "description": "Reset the index version of a file to the version in the commit you're on."
+    },
+    {
+        "id": "cherry-pick",
+        "command": "git cherry-pick [commit]",
+        "description": "Repeat the specified action on top of your current timeline."
+    },
+    {
+        "id": "revert",
+        "command": "git revert [commit]",
+        "description": "Make a new commit that reverts the changes of the speicified commit."
+    },
+    {
+        "id": "bisect-start",
+        "command": "git bisect start",
+        "description": "Start looking for the commit where things got bad."
+    },
+    {
+        "id": "bisect-good",
+        "command": "git bisect good",
+        "description": "State that the current commit is good! When you're automatically transferred, keep playing the `good` and `bad` cards!"
+    },
+    {
+        "id": "bisect-bad",
+        "command": "git bisect bad",
+        "description": "State that the current commit is bad! When you're automatically transferred, keep playing the `good` and `bad` cards!"
+    },
+    {
+        "id": "add",
+        "command": "git add [file]",
+        "description": "Update the index version of the file to its current real content."
+    },
+    {
+        "id": "rm",
+        "command": "git rm [file]",
+        "description": "Delete a file both in the working directory, as well as the index."
+    },
+    {
+        "id": "commit",
+        "command": "git commit",
+        "description": "Make a commit from the current index."
+    },
+    {
+        "id": "show",
+        "command": "git show [commit]",
+        "description": "Show what changed in the commit."
+    },
+    {
+        "id": "branch",
+        "command": "git branch [string]",
+        "description": "Create a new branch at your current location."
+    },
+    {
+        "id": "branch-delete",
+        "command": "git branch -D [ref]",
+        "description": "Delete a branch."
+    },
+    {
+        "id": "reflog",
+        "command": "git reflog [ref, head]",
+        "description": "Display a log of there the ref pointed to in the past."
+    },
+    {
+        "id": "file-new",
+        "command": "touch [string]",
+        "description": "Create a new file."
+    },
+    {
+        "id": "file-delete",
+        "command": "rm [file]",
+        "description": "Delete a file."
+    },
+    {
+        "id": "file-rename",
+        "command": "mv [file] [string]",
+        "description": "Rename a file."
+    },
+    {
+        "id": "file-copy",
+        "command": "cp [file] [string]",
+        "description": "Make a copy of a file."
+    }
 ]

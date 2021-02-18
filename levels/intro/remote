@@ -1,21 +1,15 @@
 title = Working together
-cards = clone commit-auto pull push
+cards = pull commit-auto push
 
 [description]
 
-Let's add your name to our list of students! I already have this list my time machine - let's work together!
+Let's add your name to our list of students!
 
-Drag the "clone" card to my name to make your own copy of my timeline!
+I already have a second commit of it in my time machine - let's work together!
 
 [cli]
 
-To clone the teacher's repo via the command line, you need this command:
-
-    git clone ../teacher .
-
-(Don't forget the dot at the end!)
-
-To go through old commands, you can press arrow up and down. That way, you don't have to type in long commands twice.
+To go back to old commands, you can press arrow up and down. That way, you don't have to type in long commands twice.
 
 [congrats]
 
@@ -23,13 +17,14 @@ Welcome to time travel school! :) I'll see you for your first class tomorrow!
 
 [setup]
 
-rm -rf .git
-
-[setup teacher]
-
 echo "~ List of current students ~" > students
 git add .
 git commit -m "Initial version"
+git push -u teacher main
+
+[setup teacher]
+
+git reset --hard main
 
 echo " 
 - Sam
@@ -40,8 +35,8 @@ git commit -m "Added two students"
 
 [win]
 
-# Get a copy of your teacher's timeline using `git clone`!
-test -d .git
+# Get the second commit from your teacher using `git pull`.
+test "$(git log --oneline teacher/main | wc -l)" -ge 2
 
 # Add your name to the list of students
 test "$(cat students |wc -l)" -ge 5
