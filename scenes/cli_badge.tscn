@@ -43,3 +43,11 @@ z_index = 1
 amount = 3
 randomness = 0.34
 process_material = SubResource( 3 )
+
+[node name="Nope" type="Line2D" parent="."]
+visible = false
+position = Vector2( 22.4111, 18.7121 )
+scale = Vector2( 1.32773, 1.32773 )
+points = PoolVector2Array( -16.448, 11.5553, 16.0161, -12.8519 )
+width = 5.0
+default_color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
