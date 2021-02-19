@@ -22,8 +22,6 @@ test -d .git
 
 [congrats]
 
-Cool! When you don't use the cards in a level, you'll get a golden sparkling "command line badge"! See it in the top left?
+Cool! Instead of using the playing cards, you can also do everything via the command line!
 
 The command line is pretty powerful! Often, you can use it to solve tasks faster compared to using a graphical interface.
-
-It's also totally optional in this game. But if you want to learn how to use Git from the command line, we invite you to this challenge! :)

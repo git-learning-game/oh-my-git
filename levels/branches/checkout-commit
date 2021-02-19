@@ -5,9 +5,7 @@ cards = checkout commit-auto
 
 The yellow boxes are frozen points in time, we call them "commits"! You can travel between them using the "checkout" card! (Try it!)
 
-The grey panel below shows your current environment - click on an object to inspect or modify it!
-
-Can you find out what happened here? Then, while on the latest commit, edit the files to fix the problem, and make a new commit!
+Can you find out what happened here? Then, while on the last commit, edit the files to fix the problem, and make a new commit!
 
 [cli]
 

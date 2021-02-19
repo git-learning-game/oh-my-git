@@ -41,8 +41,8 @@
     },
     {
         "id": "commit-auto",
-        "command": "git add .; git commit -m \"New commit\"",
-        "description": "Make a new commit containing your current environment!"
+        "command": "git add .; git commit",
+        "description": "Make a new commit containing your current environment! Type in a description of what changed!"
     },
     {
         "id": "merge",

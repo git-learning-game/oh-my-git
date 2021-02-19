@@ -22,6 +22,8 @@ git add .
 git commit -m "Initial version"
 git push -u teacher main
 
+git update-ref -d refs/remotes/teacher/main
+
 [setup teacher]
 
 git reset --hard main
