@@ -1,24 +1,61 @@
 #!/usr/bin/env perl
 
+use IPC::Open2;
 use IO::Socket;
+
+my $pid = open2(my $out, my $in, 'bash');
 
 $socket = IO::Socket::INET->new(PeerAddr => "127.0.0.1",
                                 PeerPort => 6666,
                                 Proto    => "tcp",
                                 Type     => SOCK_STREAM);
 
-$s = "Hey äöü!";
-
-my $send_length = pack("L", length($s));
-$socket->send($send_length);
-$socket->send($s);
+#$s = "Hey äöü!";
+#
+#my $send_length = pack("L", length($s));
+#$socket->send($send_length);
+#$socket->send($s);
 
 while(true) {
+    #STDOUT->flush();
     my $len;
     $socket->recv($len, 4);
     my $actual_len = unpack("L", $len);
+    if ($actual_len == 0) {
+        print("not connected");
+        exit;
+    }
+    print("still connected");
     my $s2;
     $socket->recv($s2, ord($len));
+
     print($s2);
     STDOUT->flush();
+
+    #$s = `bash -c '$s2' 2>&1`;
+
+    $s = "";
+    $command = $s2 . "\necho MAGIC\n";
+    print $in $command;
+
+    inner_while: while (true) {
+        $line = <$out>;
+        if ($line eq "MAGIC\n") {
+            STDOUT->flush();
+            last inner_while;
+        }
+        $s = $s . $line;
+    }
+    print "got complete output";
+    print $s;
+
+    print length($s);
+    STDOUT->flush();
+    my $send_length = pack("L", length($s));
+    $socket->send($send_length);
+    $socket->send($s);
+
+    my $exit_code = pack("L", 0);
+    $socket->send($exit_code);
+
 }

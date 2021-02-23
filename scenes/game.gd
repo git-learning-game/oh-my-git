@@ -20,6 +20,8 @@ func _ready():
 		get_tree().set_auto_accept_quit(false)
 	else:
 		game.toggle_music()
+		
+	start_remote_shell()
 	
 	global_shell = Shell.new()
 
@@ -33,7 +35,26 @@ func _ready():
 		copy_script_to_game_env("hint")
 	
 	load_state()
-	
+
+func start_remote_shell():
+	var user_dir = ProjectSettings.globalize_path("user://")
+	var script_content = helpers.read_file("res://scripts/net-test")
+	var target_filename = user_dir + "net-test"
+	var target_file = File.new()
+	target_file.open(target_filename, File.WRITE)
+	target_file.store_string(script_content)
+	target_file.close()
+	helpers.exec_async(_perl_executable(), [target_filename])
+
+func _perl_executable():
+	if OS.get_name() == "Windows":
+		return "dependencies/windows/git/usr/bin/perl.exe"
+	else:
+		return "perl"
+
+func shell_received(text):
+	print(text)
+
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		#get_tree().quit() # default behavio
@@ -99,3 +120,7 @@ func toggle_music():
 		music.volume_db -= 100
 	else:
 		music.volume_db += 100
+
+
+func shell_test(command):
+	return $ShellServer.send(command)
