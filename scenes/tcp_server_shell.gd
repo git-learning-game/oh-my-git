@@ -37,9 +37,14 @@ func _process(_delta):
 
 func send(text):
 	if _connected:
-		text += "\n"
 		_c.put_utf8_string(text)
 		var response = _c.get_utf8_string()
-		emit_signal("data_received", response)
+		var exit_code = _c.get_u32()
+		
+		var shell_command = ShellCommand.new()
+		shell_command.command = text
+		shell_command.output = response
+		shell_command.exit_code = exit_code
+		return shell_command
 	else:
 		helpers.crash("Trying to send data on closed connection")

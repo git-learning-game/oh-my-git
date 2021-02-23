@@ -35,6 +35,9 @@ func exec(command, args=[], crash_on_fail=true):
 
 	return {"output": output, "exit_code": exit_code}
 
+func exec_async(command, args=[]):
+	OS.execute(command, args, false)
+
 # Return the contents of a file. If no fallback_string is provided, crash when
 # the file doesn't exist.
 func read_file(path, fallback_string=null):

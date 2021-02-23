@@ -85,8 +85,9 @@ func send_command(command):
 	editor_regex.compile("^(vim?|gedit|emacs|kate|nano|code) ")
 	command = editor_regex.sub(command, "fake-editor ")
 
-	var cmd = repository.shell.run_async(command, false)
-	yield(cmd, "done")
+#	var cmd = repository.shell.run_async(command, false)
+#	yield(cmd, "done")
+	var cmd = game.shell_test(command)
 	call_deferred("command_done", cmd)
 
 func command_done(cmd):
