@@ -44,13 +44,19 @@ func start_remote_shell():
 	target_file.open(target_filename, File.WRITE)
 	target_file.store_string(script_content)
 	target_file.close()
-	helpers.exec_async(_perl_executable(), [target_filename])
+	helpers.exec_async(_perl_executable(), [target_filename, _bash_executable()])
 
 func _perl_executable():
 	if OS.get_name() == "Windows":
 		return "dependencies/windows/git/usr/bin/perl.exe"
 	else:
 		return "perl"
+
+func _bash_executable():
+	if OS.get_name() == "Windows":
+		return "dependencies/windows/git/usr/bin/bash.exe"
+	else:
+		return "bash"
 
 func shell_received(text):
 	print(text)

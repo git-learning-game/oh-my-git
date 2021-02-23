@@ -1,20 +1,21 @@
 #!/usr/bin/env perl
 
-use IPC::Open2;
+use IPC::Open3;
 use IO::Socket;
 
-my $pid = open2(my $out, my $in, 'bash');
+my $bash = "bash";
+if ($#ARGV >= 0) {
+    $bash = $ARGV[0];
+}
+
+my $pid = open3(my $in, my $out, my $err, $bash);
 
 $socket = IO::Socket::INET->new(PeerAddr => "127.0.0.1",
                                 PeerPort => 6666,
                                 Proto    => "tcp",
                                 Type     => SOCK_STREAM);
 
-#$s = "Hey äöü!";
-#
-#my $send_length = pack("L", length($s));
-#$socket->send($send_length);
-#$socket->send($s);
+print $in 'export PATH="/usr/bin:/mingw64/bin:$PATH"' . "\n";
 
 while(true) {
     #STDOUT->flush();
@@ -31,8 +32,6 @@ while(true) {
 
     print($s2);
     STDOUT->flush();
-
-    #$s = `bash -c '$s2' 2>&1`;
 
     $s = "";
     $command = $s2 . "\necho MAGIC\n";
