@@ -44,6 +44,8 @@ func send(text):
 		var shell_command = ShellCommand.new()
 		shell_command.command = text
 		shell_command.output = response
+		print("response:")
+		print(response)
 		shell_command.exit_code = exit_code
 		return shell_command
 	else:

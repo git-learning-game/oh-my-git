@@ -57,40 +57,40 @@ func run_async_thread(shell_command):
 	hacky_command += "cd '%s' || exit 1;" % _cwd
 	hacky_command += command
 
+	print(hacky_command)
+
 	var result
-	if _os == "X11" or _os == "OSX":
-		# Godot's OS.execute wraps each argument in double quotes before executing
-		# on Linux and macOS.
-		# Because we want to be in a single-quote context, where nothing is evaluated,
-		# we end those double quotes and start a single quoted string. For each single
-		# quote appearing in our string, we close the single quoted string, and add
-		# a double quoted string containing the single quote. Ooooof!
-		#
-		# Example: The string
-		# 
-		#     test 'fu' "bla" blubb
-		# 
-		# becomes
-		# 
-		#     "'test '"'"'fu'"'"' "bla" blubb"
-		
-		hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
-		result = helpers.exec(_shell_binary(), ["-c",  hacky_command], crash_on_fail)
-	elif _os == "Windows":
-		# On Windows, if the command contains a newline (even if inside a string),
-		# execution will end. To avoid that, we first write the command to a file,
-		# and run that file with bash.
-		var script_path = game.tmp_prefix + "command" + str(randi())
-		helpers.write_file(script_path, hacky_command)
-		result = helpers.exec(_shell_binary(), [script_path], crash_on_fail)
-	else:
-		helpers.crash("Unimplemented OS: %s" % _os)
+	var shell_command_internal = game.shell_test(hacky_command)
+#	if _os == "X11" or _os == "OSX":
+#		# Godot's OS.execute wraps each argument in double quotes before executing
+#		# on Linux and macOS.
+#		# Because we want to be in a single-quote context, where nothing is evaluated,
+#		# we end those double quotes and start a single quoted string. For each single
+#		# quote appearing in our string, we close the single quoted string, and add
+#		# a double quoted string containing the single quote. Ooooof!
+#		#
+#		# Example: The string
+#		# 
+#		#     test 'fu' "bla" blubb
+#		# 
+#		# becomes
+#		# 
+#		#     "'test '"'"'fu'"'"' "bla" blubb"
+#
+#		hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
+#		result = helpers.exec(_shell_binary(), ["-c",  hacky_command], crash_on_fail)
+#	elif _os == "Windows":
+#		# On Windows, if the command contains a newline (even if inside a string),
+#		# execution will end. To avoid that, we first write the command to a file,
+#		# and run that file with bash.
+#		var script_path = game.tmp_prefix + "command" + str(randi())
+#		helpers.write_file(script_path, hacky_command)
+#		result = helpers.exec(_shell_binary(), [script_path], crash_on_fail)
+#	else:
+#		helpers.crash("Unimplemented OS: %s" % _os)
 	
-	if debug:
-		print(result["output"])
-	
-	shell_command.output = result["output"]
-	shell_command.exit_code = result["exit_code"]
+	shell_command.output = shell_command_internal.output
+	shell_command.exit_code = shell_command_internal.exit_code
 	shell_command.emit_signal("done")
 	
 func _shell_binary():

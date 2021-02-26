@@ -15,15 +15,28 @@ var skipped_title = false
 var _file = "user://savegame.json"
 var state = {}
 
+var mutex
+
 func _ready():
+	mutex = Mutex.new()
+	load_state()
+	
 	if OS.has_feature("standalone"):
 		get_tree().set_auto_accept_quit(false)
 	else:
 		game.toggle_music()
 		
 	start_remote_shell()
-	
+	yield(get_tree().create_timer(0.1), "timeout")
 	global_shell = Shell.new()
+	
+#	var cmd = global_shell.run("echo hi")
+#	print(cmd)
+#	cmd = global_shell.run("seq 1 10")
+#	print(cmd)
+#	cmd = global_shell.run("ls")
+#	print(cmd)
+#	helpers.crash(":)")
 
 	if global_shell.run("command -v git &>/dev/null && echo yes || echo no") == "no\n":
 		game.skipped_title = true
@@ -33,8 +46,6 @@ func _ready():
 		
 		copy_script_to_game_env("fake-editor")
 		copy_script_to_game_env("hint")
-	
-	load_state()
 
 func start_remote_shell():
 	var user_dir = ProjectSettings.globalize_path("user://")
@@ -129,4 +140,9 @@ func toggle_music():
 
 
 func shell_test(command):
-	return $ShellServer.send(command)
+	mutex.lock()
+	print("go")
+	var response = $ShellServer.send(command)
+	print("stop")
+	mutex.unlock()
+	return response

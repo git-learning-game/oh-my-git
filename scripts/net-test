@@ -28,13 +28,19 @@ while(true) {
     }
     print("still connected");
     my $s2;
-    $socket->recv($s2, ord($len));
+    $socket->recv($s2, $actual_len);
 
     print($s2);
     STDOUT->flush();
 
+    my $script;
+    open($script, ">", "/tmp/omgscript") or die $!;
+    #$s3 = 'export HOME=\'/home/blinry/.local/share/Oh My Git/tmp/\';export PATH=\'/home/blinry/.local/share/Oh My Git/tmp/:\'"$PATH";cd \'/home/blinry/.local/share/Oh My Git/tmp/repos/yours/\' || exit 1;find . -type f -not -path \'*/\\.git/*\'';
+    print $script $s2;
+    close($script);
+
     $s = "";
-    $command = $s2 . "\necho MAGIC\n";
+    $command = ". /tmp/omgscript" . "\necho MAGIC\n";
     print $in $command;
 
     inner_while: while (true) {
