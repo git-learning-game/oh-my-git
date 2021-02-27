@@ -141,8 +141,12 @@ func toggle_music():
 
 func shell_test(command):
 	mutex.lock()
-	print("go")
+	#print("go")
+	print(command)
+	var before = OS.get_ticks_msec()
 	var response = $ShellServer.send(command)
-	print("stop")
+	var after = OS.get_ticks_msec()
+	print("took " + str(after-before)+" ms")
+	#print("stop")
 	mutex.unlock()
 	return response
