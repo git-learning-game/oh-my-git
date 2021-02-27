@@ -23,24 +23,18 @@ while(true) {
     $socket->recv($len, 4);
     my $actual_len = unpack("L", $len);
     if ($actual_len == 0) {
-        print("not connected");
+        #print("not connected");
         exit;
     }
-    print("still connected");
+    #print("still connected");
     my $s2;
     $socket->recv($s2, $actual_len);
 
-    print($s2);
+    #print($s2);
     STDOUT->flush();
 
-    my $script;
-    open($script, ">", "/tmp/omgscript") or die $!;
-    #$s3 = 'export HOME=\'/home/blinry/.local/share/Oh My Git/tmp/\';export PATH=\'/home/blinry/.local/share/Oh My Git/tmp/:\'"$PATH";cd \'/home/blinry/.local/share/Oh My Git/tmp/repos/yours/\' || exit 1;find . -type f -not -path \'*/\\.git/*\'';
-    print $script $s2;
-    close($script);
-
     $s = "";
-    $command = ". /tmp/omgscript" . "\necho MAGIC\n";
+    $command = $s2 . "\necho MAGIC\n";
     print $in $command;
 
     inner_while: while (true) {
@@ -51,10 +45,10 @@ while(true) {
         }
         $s = $s . $line;
     }
-    print "got complete output";
-    print $s;
+    #print "got complete output";
+    #print $s;
 
-    print length($s);
+    #print length($s);
     STDOUT->flush();
     my $send_length = pack("L", length($s));
     $socket->send($send_length);

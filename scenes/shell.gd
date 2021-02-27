@@ -53,11 +53,11 @@ func run_async_thread(shell_command):
 	for variable in env:
 		hacky_command += "export %s='%s';" % [variable, env[variable]]
 	
-	hacky_command += "export PATH=\'"+game.tmp_prefix+":'\"$PATH\";"
+	#hacky_command += "export PATH=\'"+game.tmp_prefix+":'\"$PATH\";"
 	hacky_command += "cd '%s' || exit 1;" % _cwd
 	hacky_command += command
 
-	print(hacky_command)
+	#print(hacky_command)
 
 	var result
 	var shell_command_internal = game.shell_test(hacky_command)
