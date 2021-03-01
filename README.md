@@ -1,4 +1,5 @@
 # Oh My Git!
+<img src="https://github.com/git-learning-game/oh-my-git/blob/main/images/oh-my-git.png" width="400">
 
 **Oh My Git!** is an open-source game about learning Git!
 
@@ -35,6 +36,12 @@ This text will be shown when the level starts.
 
 It describes the task or puzzle the player can solve.
 
+[cli]
+
+(optional) This text will be shown below the level description in a darker color.
+
+It should give hints to the player about command line usage and also maybe some neat tricks.
+
 [congrats]
 
 This text will be shown after the player has solved the level.
@@ -56,7 +63,8 @@ git commit -m "Initial commit"
 # writing the body of a Bash function. Make the function return 0 if it's
 # solved, and a non-zero value otherwise. You can use `return`, and also, Bash
 # functions return the exit code of the last statement, which sometimes allows
-# very succinct checks.
+# very succinct checks. The comment above the win check will be shown in the game
+# as win condition text.
 
 # Check whether the file has at least two lines in the latest commit:
 test "$(git show HEAD:people_who_are_awesome | wc -l)" -ge 2
