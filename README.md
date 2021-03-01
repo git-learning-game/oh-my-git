@@ -1,4 +1,3 @@
-# Oh My Git!
 <img src="https://github.com/git-learning-game/oh-my-git/blob/main/images/oh-my-git.png" width="400">
 
 **Oh My Git!** is an open-source game about learning Git!
