@@ -2,8 +2,6 @@
 
 **Oh My Git!** is an open-source game about learning Git!
 
-The current form is an early prototype, and will change significantly until the end of February 2021.
-
 ## Play the game!
 
 You can download binaries for Linux, macOS, and Windows [from itch.io](https://blinry.itch.io/oh-my-git)!
