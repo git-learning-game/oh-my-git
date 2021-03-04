@@ -20,7 +20,7 @@ You do not have a donut." > you
 git add .
 git commit -m "The Beginning"
 
-git checkout -b coffee
+git checkout -b baguette main
 echo "You have a baguette.
 
 You do not have coffee.
@@ -37,7 +37,7 @@ You do not have a donut." > you
 git add .
 git commit -m "You eat the baguette"
 
-git checkout -b baguette main
+git checkout -b coffee
 echo "You do not have a baguette.
 
 You have coffee.
