@@ -28,7 +28,7 @@ func _ready():
 		
 	start_remote_shell()
 	yield(get_tree().create_timer(0.1), "timeout")
-	global_shell = Shell.new()
+	global_shell = new_shell()
 	
 #	var cmd = global_shell.run("echo hi")
 #	print(cmd)
@@ -138,7 +138,6 @@ func toggle_music():
 	else:
 		music.volume_db += 100
 
-
 func shell_test(command):
 	mutex.lock()
 	#print("go")
@@ -150,3 +149,9 @@ func shell_test(command):
 	#print("stop")
 	mutex.unlock()
 	return response
+	
+func new_shell():
+	if OS.get_name() == "Windows":
+		return BetterShell.new()
+	else:
+		return Shell.new()
