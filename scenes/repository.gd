@@ -14,7 +14,7 @@ var type = "remote"
 
 var node = preload("res://scenes/node.tscn")
 
-var shell = Shell.new()
+var shell = game.new_shell()
 var objects = {}
 var mouse_inside = false
 var has_been_layouted = false

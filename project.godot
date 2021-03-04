@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "BetterShell",
+"language": "GDScript",
+"path": "res://scenes/better_shell.gd"
+}, {
+"base": "Node",
 "class": "Chapter",
 "language": "GDScript",
 "path": "res://scenes/chapter.gd"
@@ -40,6 +45,7 @@ _global_script_classes=[ {
 "path": "res://scenes/shell_command.gd"
 } ]
 _global_script_class_icons={
+"BetterShell": "",
 "Chapter": "",
 "FileBrowserItem": "",
 "Level": "",
