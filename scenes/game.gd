@@ -25,9 +25,9 @@ func _ready():
 		get_tree().set_auto_accept_quit(false)
 	else:
 		game.toggle_music()
-		
-	start_remote_shell()
-	yield(get_tree().create_timer(0.1), "timeout")
+	
+	if OS.get_name() == "Windows":
+		start_remote_shell()
 	global_shell = new_shell()
 	
 #	var cmd = global_shell.run("echo hi")
@@ -141,11 +141,15 @@ func toggle_music():
 func shell_test(command):
 	mutex.lock()
 	#print("go")
-	print(command)
+	#print(command)
 	var before = OS.get_ticks_msec()
+	
+	while not $ShellServer._connected:
+		$ShellServer._process(0.1)
+	
 	var response = $ShellServer.send(command)
 	var after = OS.get_ticks_msec()
-	print("took " + str(after-before)+" ms")
+	#print("took " + str(after-before)+" ms")
 	#print("stop")
 	mutex.unlock()
 	return response
