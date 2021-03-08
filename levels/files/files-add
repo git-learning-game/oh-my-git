@@ -24,7 +24,7 @@ test "$NUM_FILES" -ge 3
 
 # Make sure the colors match your bed's color.
 NUM_FILES="$(ls | wc -l)"
-YELLOW_FILES="$(grep -l yellow * | wc -l)"
+YELLOW_FILES="$(grep -li yellow * | wc -l)"
 test "$NUM_FILES" -ge 2 && test "$YELLOW_FILES" = "$NUM_FILES"
 
 [congrats]
