@@ -41,7 +41,7 @@ git checkout --detach main
 
 [win]
 
-# Did you create a new tag?
+# Did you remove all tags?
 test "$(git tag -l | wc -l)" -eq 0
 
 [actions]
