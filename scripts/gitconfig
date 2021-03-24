@@ -12,3 +12,5 @@
 	detachedHead = false
 [receive]
 	denyCurrentBranch = ignore
+[pull]
+	rebase = false
