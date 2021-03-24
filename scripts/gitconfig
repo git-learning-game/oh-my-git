@@ -12,3 +12,5 @@
 	detachedHead = false
 [receive]
 	denyCurrentBranch = ignore
+[commit]
+    gpgsign = false
