@@ -13,4 +13,6 @@
 [receive]
 	denyCurrentBranch = ignore
 [commit]
-    gpgsign = false
+	gpgsign = false
+[pull]
+	rebase = false
