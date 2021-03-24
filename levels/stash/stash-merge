@@ -35,6 +35,7 @@ git stash push
 echo "- Pinch of Salt" >> recipe
 
 git checkout main
+git add recipe
 
 [win]
 
