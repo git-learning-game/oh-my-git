@@ -34,12 +34,12 @@ while(true) {
     STDOUT->flush();
 
     $s = "";
-    $command = $s2 . "\necho MAGIC\n";
+    $command = $s2 . "\necho -e \"\\v\"\n";
     print $in $command;
 
     inner_while: while (true) {
         $line = <$out>;
-        if ($line eq "MAGIC\n") {
+        if ($line =~ s/\cK//) {
             STDOUT->flush();
             last inner_while;
         }
