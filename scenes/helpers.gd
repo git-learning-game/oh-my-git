@@ -93,7 +93,7 @@ func careful_delete(path_inside):
 	if os == "X11":
 		expected_prefix = "/home/%s/.local/share/Oh My Git/tmp/" % OS.get_environment("USER")
 	elif os == "OSX":
-		expected_prefix = "/Users/%s/Library/Application Support/Oh My Git/tmp/" % OS.get_environment("USER")
+		expected_prefix = "%s/Library/Application Support/Oh My Git/tmp/" % OS.get_environment("HOME")
 	elif os == "Windows":
 		expected_prefix = "C:/Users/%s/AppData/Roaming/Oh My Git/tmp/" % OS.get_environment("USERNAME")
 		# Windows treats paths case-insensitively:
