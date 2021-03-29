@@ -4,7 +4,7 @@ cards = checkout commit-auto merge reset-hard
 [description]
 
 You will encounter situations in which you are working on your project but you need to
-put your current changes aride temporarily. To do so, you can use the stash function. Use
+put your current changes aside temporarily. To do so, you can use the stash function. Use
     git stash push 
 to add your current changes to the stash stack.
 
