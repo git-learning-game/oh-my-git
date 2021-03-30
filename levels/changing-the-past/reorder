@@ -71,7 +71,7 @@ git commit -am "Put on shirt"
 [win]
 
 # Reorder the commits to dress yourself in the correct way
-{ git log main --oneline | LC_ALL=en_US.utf8 grep -Pz "shoes[\s\S]*pants[\s\S]*underwear"; } && { test "$(git log main --oneline | wc -l)" -eq 5; }
+{ git log main --oneline | perl -0777 -ne'exit(1) if not /shoes[\s\S]*pants[\s\S]*underwear/'; } && { test "$(git log main --oneline | wc -l)" -eq 5; }
 
 [congrats]
 
