@@ -86,23 +86,15 @@ func parse_args():
 	return arguments
 	
 func careful_delete(path_inside):
-	var expected_prefix
+	var expected_prefix = "%s/tmp/" % OS.get_user_data_dir()
 	
 	var os = OS.get_name()
-	
-	if os == "X11":
-		expected_prefix = "%s/.local/share/Oh My Git/tmp/" % OS.get_environment("HOME")
-	elif os == "OSX":
-		expected_prefix = "%s/Library/Application Support/Oh My Git/tmp/" % OS.get_environment("HOME")
-	elif os == "Windows":
-		expected_prefix = "%s/AppData/Roaming/Oh My Git/tmp/" % OS.get_environment("USERPROFILE")
+	if os == "Windows":
 		# In the game, we use forward slashes:
 		expected_prefix = expected_prefix.replace("\\", "/")
 		# Windows treats paths case-insensitively:
 		expected_prefix = expected_prefix.to_lower()
 		path_inside = path_inside.to_lower()
-	else:
-		helpers.crash("Unsupported OS: %s" % os)
 	
 	if path_inside.substr(0,expected_prefix.length()) != expected_prefix:
 		helpers.crash("Refusing to delete directory %s that does not start with %s" % [path_inside, expected_prefix])
