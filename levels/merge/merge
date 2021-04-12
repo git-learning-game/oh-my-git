@@ -74,6 +74,9 @@ git branch -D main
 # Build a situation where you consumed a baguette, a coffee, *and* a donut.
 { git show HEAD:you | grep "You ate.*baguette"; } && { git show HEAD:you | grep "You drank.*coffee"; } && { git show HEAD:you | grep "You ate.*donut"; }
 
+# Be on a merge commit.
+test "$(git log --pretty=%P -n 1 HEAD | wc -w)" -ge 2
+
 [congrats]
 
 I wonder if you're more relaxed when you *sleep* in parallel timelines...
