@@ -91,11 +91,13 @@ func careful_delete(path_inside):
 	var os = OS.get_name()
 	
 	if os == "X11":
-		expected_prefix = "/home/%s/.local/share/Oh My Git/tmp/" % OS.get_environment("USER")
+		expected_prefix = "%s/.local/share/Oh My Git/tmp/" % OS.get_environment("HOME")
 	elif os == "OSX":
-		expected_prefix = "/Users/%s/Library/Application Support/Oh My Git/tmp/" % OS.get_environment("USER")
+		expected_prefix = "%s/Library/Application Support/Oh My Git/tmp/" % OS.get_environment("HOME")
 	elif os == "Windows":
-		expected_prefix = "C:/Users/%s/AppData/Roaming/Oh My Git/tmp/" % OS.get_environment("USERNAME")
+		expected_prefix = "%s/AppData/Roaming/Oh My Git/tmp/" % OS.get_environment("USERPROFILE")
+		# In the game, we use forward slashes:
+		expected_prefix = expected_prefix.replace("\\", "/")
 		# Windows treats paths case-insensitively:
 		expected_prefix = expected_prefix.to_lower()
 		path_inside = path_inside.to_lower()
