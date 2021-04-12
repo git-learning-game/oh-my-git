@@ -11,7 +11,7 @@ Oh, you don't want to keep your stashed changes? There are way too many? Then go
 If you only want to discard a certain stash entry, you can use
     git stash drop <stash>
     
-Clear you stash stack!
+Clear your stash stack!
 
 ---
 tipp1
