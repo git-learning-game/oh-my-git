@@ -157,7 +157,7 @@
     {
         "id": "reflog",
         "command": "git reflog [ref, head]",
-        "description": "Display a log of there the ref pointed to in the past."
+        "description": "Display a log of where the ref pointed to in the past."
     },
     {
         "id": "file-new",
