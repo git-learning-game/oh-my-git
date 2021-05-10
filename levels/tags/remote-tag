@@ -17,7 +17,7 @@ You can also sync
     git fetch <remote> --prune --prune-tags
 
 
-Add a tag names "v2" to the last commit and push it to the remote. Also pull the v1 tag to your local repository.
+Add a tag named "v2" to the last commit and push it to the remote. Also pull the v1 tag to your local repository.
 [setup yours]
 
 git checkout main
