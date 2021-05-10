@@ -9,7 +9,8 @@ Have a look at these two timelines. They have exactly the same outcome. But one 
 
 [win]
 
-Right! Having each change in its own commit makes it easier to understand what's going on! Let's learn how to do that!
+# Right! Having each change in its own commit makes it easier to understand what's going on! Let's learn how to do that!
+git branch --show-current | grep step-by-step
 
 [setup]
 
@@ -46,5 +47,5 @@ git checkout HEAD~3
 
 [win]
 
-# Pick the timeline that's clearer, and make the next logical change!
-git show step-by-step:smoke_detector | grep -v "absolutely silent"
+# Pick the timeline that's clearer, and make the alarm go off!
+git show step-by-step:smoke_detector | tail -n 1 | grep -v "absolutely silent"
