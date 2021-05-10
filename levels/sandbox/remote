@@ -3,7 +3,7 @@ cards = checkout commit-auto pull fetch push
 
 [description]
 
-Here's a sandbox with a remote! Try pulling, fetching, or pulling!
+Here's a sandbox with a remote! Try pulling, fetching, or pushing!
 
 How can you push tags and branches on a remote? How can you delete them again?
 
