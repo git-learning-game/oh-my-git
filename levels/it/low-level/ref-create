@@ -1,0 +1,42 @@
+[description]
+
+Let's take a look at "refs" (short for "references")! Refs are not objects, but rather very simple *pointers* to objects! They can help you keep track of what's where.
+
+You can create or update a ref with
+
+    git update-ref refs/<refname> <newvalue>
+
+Make sure to always start a ref's name with "refs/"! That's a convention that helps Git find all refs you create. If you forget the "refs/", you will not see the ref.
+
+Create refs that point to all objects in this repository!
+
+[setup]
+
+echo hello > hello
+echo world > world
+BLOB1=$(git hash-object -w hello)
+BLOB2=$(git hash-object -w world)
+git add .
+TREE=$(git write-tree)
+COMMIT=$(git commit-tree $TREE -m "Initial commit")
+
+[setup goal]
+
+echo hello > hello
+echo world > world
+BLOB1=$(git hash-object -w hello)
+BLOB2=$(git hash-object -w world)
+git add .
+TREE=$(git write-tree)
+COMMIT=$(git commit-tree $TREE -m "Initial commit")
+
+git update-ref refs/a $BLOB1
+git update-ref refs/b $BLOB2
+git update-ref refs/c $TREE
+git update-ref refs/d $COMMIT
+
+[win]
+
+OBJECTS=$(git cat-file --batch-check='%(objectname)' --batch-all-objects | sort)
+REF_TARGETS=$(git show-ref -s | sort | uniq)
+test "$OBJECTS" = "$REF_TARGETS"

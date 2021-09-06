@@ -72,6 +72,7 @@ text = "Quit"
 position = Vector2( 967.924, 306.066 )
 scale = Vector2( 0.320895, 0.320895 )
 texture = ExtResource( 2 )
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="levels"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="sandbox"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="quit"]

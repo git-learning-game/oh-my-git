@@ -1,0 +1,52 @@
+title = Dai lavoriamo tutti assieme
+cards = pull commit-auto push
+
+[description]
+
+Aggiungi il tuo nome nella nostra lista di studenti!
+
+Ho già un secondo "commit" nella mia macchina del tempo - Dai lavoriamo tutti assieme!
+
+[cli]
+
+Per tornare in dietro alle vecchie istruzioni, puoi premere la freccia in alto o in basso. In questo modo non devi digitare, nuovamente, le istruzioni.
+
+[congrats]
+
+Benvenuto nella scuola del viaggio nel tepo! :) Ci vediamo domani per la tua prima lezione!
+
+[setup]
+
+echo "~ Lista degli attuali studenti ~" > students
+git add .
+git commit -m "Versione iniziale"
+git push -u teacher main
+
+git update-ref -d refs/remotes/teacher/main
+
+[setup teacher]
+
+git reset --hard main
+
+echo " 
+- Sam
+- Alex" >> students
+
+git add .
+git commit -m "Aggiunti due studenti"
+
+[win]
+
+# Ottieni il secondo "commit" dal tuo insegnante usando `git pull`.
+test "$(git log --oneline teacher/main | wc -l)" -ge 2
+
+# Aggiungi il tuo nome alla lista degli studenti.
+test "$(cat students |wc -l)" -ge 5
+
+# Crea un'istantanea dei risultati.
+test "$(git show main:students |wc -l)" -ge 5
+
+[win teacher]
+
+# E usa `git push` per inviarlo al tuo insegnante!
+test "$(git show main:students |wc -l)" -ge 5

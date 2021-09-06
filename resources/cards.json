@@ -2,181 +2,289 @@
     {
         "id": "init",
         "command": "git init",
-        "description": "Drag this card into the empty space above to initialize the time machine!"
+        "description": {
+	    "en": "Drag this card into the empty space above to initialize the time machine!",
+	    "it": "Trascina questa carta nell'area vuota sopra per inizializzare la macchina del tempo"
+	}
     },
     {
         "id": "clone",
         "command": "git clone ../[remote] .",
-        "description": "Create your own copy of someone else's repo."
+        "description": {
+	    "en": "Create your own copy of someone else's repo.",
+	    "it": "Crea la copia del Repo di qualcun'altro."
+	}
     },
     {
         "id": "config-name",
         "command": "git config --global user.name [string]",
-        "description": "Set your name.\n\n(Will not change anything outside of this game.)"
+        "description": {
+	    "en": "Set your name.\n\n(Will not change anything outside of this game.)",
+	    "it": "Imposta il tuo nome.\n\n(Non cambierà nulla all'infuori del gioco.)"
+	}
     },
     {
         "id": "config-email",
         "command": "git config --global user.email [string]",
-        "description": "Set your email address."
+        "description": {
+	    "en": "Set your email address.",
+	    "it": "Imposta la tua e-mail."
+	}
     },
     {
         "id": "checkout",
         "command": "git checkout [commit, ref]",
-        "description": "Drag this card to a commit or to a branch to travel to it!"
+        "description": {
+	    "en": "Drag this card to a commit or to a branch to travel to it!",
+	    "it": "Sposta questa carta su un commit o su una branch per viaggiare in quello specifico momento."
+	}
     },
     {
         "id": "checkout-file",
         "command": "git checkout [file]",
-        "description": "Reset changes in a local file."
+        "description": {
+	    "en": "Reset changes in a local file.",
+	    "it": "Resetta i cambiamenti in un file locale"
+	}
     },
     {
         "id": "checkout-from",
         "command": "git checkout [commit, ref] [file]",
-        "description": "Get the file contents from the specified commits, and reset both the working directory, as well as the index, to it."
+        "description": {
+	    "en": "Get the file contents from the specified commits, and reset both the working directory, as well as the index, to it.",
+	    "it": "Prendi il contenuto del file da uno specifico commits e resetta sia la directory di lavoro sia l'indice."
+	}
     },
     {
         "id": "commit-a",
         "command": "git commit -a",
-        "description": "Make a new commit, after automatically adding all changes to the index.\nYou'll be asked to enter a short description of what you changed."
+        "description": {
+	    "en": "Make a new commit, after automatically adding all changes to the index.\nYou'll be asked to enter a short description of what you changed.",
+	    "it": "Crea un nuovo commit, dopo aver aggiunto automatico tutti i cambiamenti all'indice.|n Ti verrà chiesto di inserire una piccola descrizione di cosa hai cambiato."
+	}
     },
     {
         "id": "commit-auto",
         "command": "git add .; git commit",
-        "description": "Make a new commit containing your current environment! Type in a description of what changed!"
+        "description": {
+	    "en": "Make a new commit containing your current environment! Type in a description of what changed!",
+	    "it": "Crea un nuovo commit contenente il tuo ambiente attuale! Scrivi nella descrizione di cosa hai cambiato"
+	}
     },
     {
         "id": "merge",
         "command": "git merge [commit, ref]",
-        "description": "Merge the specified timeline into yours. If necessary, will create a merge commit."
+        "description": {
+	    "en": "Merge the specified timeline into yours. If necessary, will create a merge commit.",
+	    "it": "Unisce la linea temporale specificata con la tua. Se necessario, creerà un commit di unione."
+	}
     },
     {
         "id": "merge-abort",
         "command": "git merge --abort",
-        "description": "Abort the current merge attempt, and reconstruct the previous state."
+        "description": {
+	    "en": "Abort the current merge attempt, and reconstruct the previous state.",
+	    "it": "Interrompe il corrente tentativo di unione e ricostruisce lo stato precedente."
+	}
     },
     {
         "id": "rebase",
         "command": "git rebase [commit]",
-        "description": "Put the events in your current timeline on top of the specified one."
+        "description": {
+	    "en": "Put the events in your current timeline on top of the specified one.",
+	    "it": "Mette l'evento nella tua, corrente, linea temporale sopra a quello specificato."
+	}
     },
     {
         "id": "pull",
         "command": "git pull",
-        "description": "Get someone else's version of the current timeline, and try to merge it into yours."
+        "description": {
+	    "en": "Get someone else's version of the current timeline, and try to merge it into yours.",
+	    "it": "Prende la versione corrente della line temporale di qualcun'altro e prova ad unirla alla tua."
+	}
     },
     {
         "id": "fetch",
         "command": "git fetch [remote]",
-        "description": "Get a someone else's version of the current timeline."
+        "description": {
+	    "en": "Get a someone else's version of the current timeline.",
+	    "it": "Prende la versione, corrente, della linea temporale di qualcun'altro"
+	}
     },
     {
         "id": "push",
         "command": "git push",
-        "description": "Give the current timeline to someone else."
+        "description": {
+	    "en": "Give the current timeline to someone else.",
+	    "it": "Invia la corrente line temporale a qualcun'altro"
+	}
     },
     {
         "id": "rebase-interactive",
         "command": "git rebase -i [commit]",
-        "description": "Make changes to the events in your current timeline, back to the commit you drag this to."
+        "description": {
+	    "en": "Make changes to the events in your current timeline, back to the commit you drag this to.",
+	    "it": "Apporta modifiche agli eventi nella tua timeline corrente, torna al commit su cui lo trascini "
+	}
     },
     {
         "id": "rebase-continue",
         "command": "git rebase --continue",
-        "description": "Continue the current rebasing process."
+        "description": {
+	    "en": "Continue the current rebasing process.",
+	    "it": "Continua il corrente processo di ricostruzione"
+	}
     },
     {
         "id": "reset-hard",
         "command": "git reset --hard [commit]",
-        "description": "Move the branch you're on to the specified commit."
+        "description": {
+	    "en": "Move the branch you're on to the specified commit.",
+	    "it": "Muove il tuo branch (ramo) nello specifico commit."
+	}
     },
     {
         "id": "reset",
         "command": "git reset [commit]",
-        "description": "Jump to the commit, and update the index. Keep the current environment."
+        "description": {
+	    "en": "Jump to the commit, and update the index. Keep the current environment.",
+	    "it": "Salta alcommit e aggiorna l'indice. Mette l'ambiente attuale."
+	}
     },
     {
         "id": "reset-file",
         "command": "git reset [file]",
-        "description": "Reset the index version of a file to the version in the commit you're on."
+        "description": {
+	    "en": "Reset the index version of a file to the version in the commit you're on.",
+	    "it": "Resetta la versione dell'indice di un file alla versione del commit in cui sei"
+	}
     },
     {
         "id": "cherry-pick",
         "command": "git cherry-pick [commit]",
-        "description": "Repeat the specified action on top of your current timeline."
+        "description": {
+	    "en": "Repeat the specified action on top of your current timeline.",
+	    "it": "Ripete l'azione specificata sulla corrente linea temporale"
+	}
     },
     {
         "id": "revert",
         "command": "git revert [commit]",
-        "description": "Make a new commit that reverts the changes of the speicified commit."
+        "description": {
+	    "en": "Make a new commit that reverts the changes of the speicified commit.",
+	    "it": "Crea un nuovo commit che annula le modifiche dello specifico commit"
+	}
     },
     {
         "id": "bisect-start",
         "command": "git bisect start",
-        "description": "Start looking for the commit where things got bad."
+        "description": {
+	    "en": "Start looking for the commit where things got bad.",
+	    "it": "Inizia a cercare il commit dove le cose sono andate storte"
+	}
     },
     {
         "id": "bisect-good",
         "command": "git bisect good",
-        "description": "State that the current commit is good! When you're automatically transferred, keep playing the `good` and `bad` cards!"
+        "description": {
+	    "en": "State that the current commit is good! When you're automatically transferred, keep playing the `good` and `bad` cards!",
+	    "it": "Dichiara che l'attuale commit è buono! Continua a giocare con le carte `buone` e `cattive`!"
+	}
     },
     {
         "id": "bisect-bad",
         "command": "git bisect bad",
-        "description": "State that the current commit is bad! When you're automatically transferred, keep playing the `good` and `bad` cards!"
+        "description": {
+	    "en": "State that the current commit is bad! When you're automatically transferred, keep playing the `good` and `bad` cards!",
+	    "it": "Dichiara che l'attuale commit non è valido! Continua a giocare con le carte `buone` e `cattive`!"
+	}
     },
     {
         "id": "add",
         "command": "git add [file]",
-        "description": "Update the index version of the file to its current real content."
+        "description": {
+	    "en": "Update the index version of the file to its current real content.",
+	    "it": "Aggiorna l'indice del file con il, corrente, reale contenuto."
+	}
     },
     {
         "id": "rm",
         "command": "git rm [file]",
-        "description": "Delete a file both in the working directory, as well as the index."
+        "description": {
+	    "en": "Delete a file both in the working directory, as well as the index.",
+	    "it": "Cancella il file sia dalla corrente directory che dall'indice."
+	}
     },
     {
         "id": "commit",
         "command": "git commit",
-        "description": "Make a commit from the current index."
+        "description": {
+	    "en": "Make a commit from the current index.",
+	    "it": "Crea un commit dal corrente indice."
+	}
     },
     {
         "id": "show",
         "command": "git show [commit]",
-        "description": "Show what changed in the commit."
+        "description": {
+	    "en": "Show what changed in the commit.",
+	    "it": "Mostra cosa è cambiato nel commit."
+	}
     },
     {
         "id": "branch",
         "command": "git branch [string]",
-        "description": "Create a new branch at your current location."
+        "description": {
+	    "en": "Create a new branch at your current location.",
+	    "it": "Crea un nuovo branch (ramo) nella tua corrente posizione."
+	}
     },
     {
         "id": "branch-delete",
         "command": "git branch -D [ref]",
-        "description": "Delete a branch."
+        "description": {
+	    "en": "Delete a branch.",
+	    "it": "Cancella un branch.(ramo)"
+	}
     },
     {
         "id": "reflog",
         "command": "git reflog [ref, head]",
-        "description": "Display a log of where the ref pointed to in the past."
+        "description": {
+	    "en": "Display a log of where the ref pointed to in the past.",
+	    "it": "Mostra un log di dove il riferimento puntava in passato"
+	}
     },
     {
         "id": "file-new",
         "command": "touch [string]",
-        "description": "Create a new file."
+        "description": {
+	    "en": "Create a new file.",
+	    "it": "Crea un nuovo file."
+	}
     },
     {
         "id": "file-delete",
         "command": "rm [file]",
-        "description": "Delete a file."
+        "description": {
+	    "en": "Delete a file.",
+	    "it": "Cancella un file."
+	}
     },
     {
         "id": "file-rename",
         "command": "mv [file] [string]",
-        "description": "Rename a file."
+        "description": {
+	    "en": "Rename a file.",
+	    "it": "Rinomina un file."
+	}
     },
     {
         "id": "file-copy",
         "command": "cp [file] [string]",
-        "description": "Make a copy of a file."
+        "description": {
+	    "en": "Make a copy of a file.",
+	    "it": "Crea una copia di un file."
+	}
     }
 ]

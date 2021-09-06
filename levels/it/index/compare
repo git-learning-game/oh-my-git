@@ -1,0 +1,51 @@
+title = Step by step
+cards = checkout commit-auto
+
+[description]
+
+Welcome to today's lesson! We're going to learn how to make commits with more precision!
+
+Have a look at these two timelines. They have exactly the same outcome. But one of them makes it much easier to figure out what happened.
+
+[win]
+
+# Right! Having each change in its own commit makes it easier to understand what's going on! Let's learn how to do that!
+git branch --show-current | grep step-by-step
+
+[setup]
+
+echo "A small, but heavy glass ball." > ball
+echo "A thin book, that's standing upright." > book
+echo "A candle, burning with a blue flame." > candle
+echo "A smoke detector. It's absolutely silent." > smoke_detector
+
+git add .
+git commit -m "The beginning"
+
+git branch -M all-at-once
+
+echo "The ball is now touching the book." > ball
+echo "The book has fallen over." > book
+echo "The candle has been blown out." > candle
+
+git commit -am "The end"
+
+git checkout HEAD^
+
+git checkout -b step-by-step
+
+echo "The ball is now touching the book." > ball
+git commit -am "The ball rolls towards the book"
+
+echo "The book has fallen over." > book
+git commit -am "The book falls over"
+
+echo "The candle has been blown out." > candle
+git commit -am "The book blows out the candle"
+
+git checkout HEAD~3
+
+[win]
+
+# Pick the timeline that's clearer, and make the alarm go off!
+git show step-by-step:smoke_detector | tail -n 1 | grep -v "absolutely silent"

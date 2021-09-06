@@ -1,0 +1,37 @@
+title = Resetting files in the index
+cards = add reset-file commit
+
+[description]
+
+See the dark shadow behind the icons? That's the version of the file in the last commit!
+
+For example, these candles have been blown out, and that change has been added.
+
+But you decide that this was a mistake! You only want to blow out the red candle in the next commit!
+
+If you already have updated the index to a changed file, but want to reset it, you can use `git reset`!
+
+[setup]
+
+echo "It's burning!" > red_candle
+echo "It's burning!" > green_candle
+echo "It's burning!" > blue_candle
+git add .
+git commit -m "The beginning"
+
+echo "It's been blown out." > red_candle
+echo "It's been blown out." > green_candle
+echo "It's been blown out." > blue_candle
+git add .
+
+[win]
+
+# Reset the changes in the green and blue candles!
+git show :green_candle | grep burning &&
+git show :blue_candle | grep burning &&
+git show :red_candle | grep -v burning
+
+# And make a commit!
+git show main:green_candle | grep burning &&
+git show main:blue_candle | grep burning &&
+git show main:red_candle | grep -v burning

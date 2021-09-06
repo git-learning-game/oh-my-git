@@ -1,0 +1,54 @@
+title = Merging popped stash
+cards = checkout commit-auto merge reset-hard
+
+[description]
+
+When you want to reapply your changes but you already continued working on your file, you might get
+a merge conflict! Let's practise this situation.
+Pop the changes from the stash with
+    git stash pop
+and resolve the merge conflict. Commit the resolved changes and clear the stash stack afterwards.
+
+---
+tipp1
+---
+tipp2
+---
+tipp3
+
+[setup]
+
+echo "Apple Pie:" > recipe
+
+git add .
+git commit -m "creating a recipe"
+
+echo "- 4 Apples" >> recipe
+
+git add .
+git commit -m "Adding ingredients"
+
+echo "- 500g Flour" >> recipe
+
+git stash push
+
+echo "- Pinch of Salt" >> recipe
+
+git checkout main
+git add recipe
+
+[win]
+
+# Did you resolve the confict and commit?
+{ git show HEAD | grep "Flour"; } && { git show HEAD | grep "Salt"; }
+
+# Did you clear stash stack?
+test "$(git stash list | wc -l)" -eq 0
+
+[actions]
+
+
+
+[congrats]
+
+Yay, you got your changes back! :)

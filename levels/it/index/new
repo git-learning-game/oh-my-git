@@ -1,0 +1,28 @@
+title = Add new files to the index
+cards = add commit
+
+[description]
+
+So far, when we made a commit, we've always recorded the current status of all objects, right?
+
+But Git allows you to pick which changes you want to put in a commit!
+
+To learn how that works, we need to learn about the "index"! In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura around icons in the file browser!
+
+Initially, the index is empty. To make a commit that contains a new file, we need to add it!
+
+[cli]
+
+You can use tab completion in the terminal! Start typing a filename, then press the tab key to complete its name. This will often save you some time!
+
+[setup]
+
+echo "The candle is burning with a blue flame." > candle
+
+[win]
+
+# Add the candle.
+test "$(git diff --cached --name-only)" = "candle" || file -f .git/candle-added && touch .git/candle-added
+
+# Make a commit.
+test "$(git ls-tree --name-only HEAD)" = "candle"

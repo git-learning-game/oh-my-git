@@ -1,0 +1,45 @@
+title = Stashing
+cards = checkout commit-auto merge reset-hard
+
+[description]
+
+You will encounter situations in which you are working on your project but you need to
+put your current changes aside temporarily. To do so, you can use the stash function. Use
+    git stash push 
+to add your current changes to the stash stack.
+
+---
+tipp1
+---
+tipp2
+---
+tipp3
+
+[setup]
+
+echo "Apple Pie:" > recipe
+
+git add .
+git commit -m "creating a recipe"
+
+echo "- 4 Apples" >> recipe
+
+git add .
+git commit -m "Adding ingredients"
+
+echo "- 500g Flour" >> recipe
+
+git checkout main
+
+[win]
+
+# Did you stash the current changes?
+test "$(git stash list | wc -l)" -ge 1
+
+[actions]
+
+
+
+[congrats]
+
+Nice stash you got there! :)

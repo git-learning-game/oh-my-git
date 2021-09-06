@@ -1,0 +1,37 @@
+[description]
+
+So a tree describes a directory structure at a specific point in time.
+
+It would be nice if we could remember when that state existed, and who authored it, right?
+
+Enter: commits. They are objects that point to a tree and contain some additional metadata. You can create a commit using
+
+    git commit-tree <tree> -m "Description of your commit"
+
+Make a commit from the tree in this repository!
+
+[setup]
+
+touch empty_file
+git add .
+git write-tree
+
+rm empty_file
+git update-index --remove empty_file
+
+[setup goal]
+
+touch empty_file
+git add .
+git write-tree
+
+rm empty_file
+git update-index --remove empty_file
+
+git commit-tree 3185 -m 'Clever commit message'
+
+[win]
+
+COMMIT_COUNT=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep commit | wc -l)
+
+test "$COMMIT_COUNT" -gt 0

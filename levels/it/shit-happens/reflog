@@ -1,0 +1,26 @@
+title = Go back to where you were before
+cards = checkout reflog
+
+[description]
+
+Say you were looking at something in the past, and then switched back to the main branch.
+
+But then, you got reaaally distracted, and after your lunch break, you can't remember on which commit in the past you were before. How can you find out?
+
+There's a convenient command that shows you all the places your HEAD did point to in the past:
+
+    git reflog
+
+[setup]
+
+for i in {1..10}; do
+    git commit --allow-empty -m $i
+    git branch $i
+done
+git checkout 3
+git checkout main
+
+[win]
+
+# Find out where you've been before, and go back there!
+test "$(git rev-parse HEAD)" = "$(git rev-parse 3)"

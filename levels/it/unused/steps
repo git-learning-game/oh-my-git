@@ -1,0 +1,23 @@
+title = One step after another
+cards = checkout commit reset-hard add
+
+[description]
+
+Sometimes, you might want to record the order in which things changed, instead of making a single commit.
+
+What happened here? Make two commits from the changes (using the "add" card), in an order that makes sense!
+
+[setup]
+
+echo something > file1
+echo something else > file2
+git add .
+git commit -m "Initial commit"
+
+echo this should happen first >> file1
+echo and this should happen after that >> file2
+
+[win]
+
+test "$(git diff-tree --no-commit-id --name-status -r main)" = "M	file2" &&
+test "$(git diff-tree --no-commit-id --name-status -r main^)" = "M	file1"

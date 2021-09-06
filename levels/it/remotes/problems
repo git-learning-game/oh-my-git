@@ -1,0 +1,33 @@
+title = Problems
+cards = checkout add pull push commit-auto merge
+
+[description]
+
+Both you and your friend have been working on the file, and want to sync up!
+
+[setup yours]
+
+echo "The bike shed should be ???" > file
+git add .
+git commit -m "initial"
+
+git push -u friend main
+
+echo "The bike shed should be green" > file
+
+[setup friend]
+
+git checkout main
+
+echo "The bike shed should be blue" > file
+git commit -a -m "friends version"
+
+[win]
+
+# Commit your local changes.
+test "$(git status -s)" = ""
+
+[win friend]
+
+# Look at your friend's suggestion, make a compromise, and push it back.
+git rev-parse main^ && test "$(git rev-parse main^1^)" = "$(git rev-parse main^2^)"

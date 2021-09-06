@@ -1,0 +1,27 @@
+title = La line di comando
+cards = 
+
+[description]
+
+Queste carte da gioco sono state disegnate per essere usate e ricordate facilmente! Ti consigliamo di attenerti a loro se non hai molta esperienza di Git!
+
+[cli]
+
+Ma c'è un'altra via per interagire con Git:
+
+Prova a digitare `git init` nel terminale qui sotto e premere il pulsante Enter!
+
+[setup]
+
+rm -rf .git
+
+[win]
+
+# Inizializza la macchina del tempo!
+test -d .git
+
+[congrats]
+
+Perfetto! Al posto di usare le carte da gioco, puoi anche fare tutto dalla line di comando!
+
+La line di comando e piuttosto potente! A volte, puoi usarla per risolvere le attività più velocemente che con l'interfaccia grafica.
