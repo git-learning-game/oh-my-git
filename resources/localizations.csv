@@ -1,0 +1,17 @@
+keys,en,it
+LEVELS,Livels,Livelli
+QUIT,Quit,Esci
+BACK,Back,Indietro
+RELOAD,Reload,Ricarica
+MUSIC,Toggle Music,Musica
+NEXT_LEVEL,Next Level,Prossimo Livello
+GIT_MESSAGE,"Hi! It seems that you don't have Git installed yet!
+
+On Linux, please install it from your package manager, usually the package is called "git"!
+
+On macOS 10.8 and below, you can download Git from git-scm.com.","Ciao! Sembra che tu non abbia ancora installato Git!
+
+Su Linux, installalo dal tuo gestore di pacchetti, di solito il pacchetto si chiama "git"!
+
+Su macOS 10.8 e versioni precedenti, puoi scaricare Git da git-scm.com."
+INSTALL,"Sure, I'll install it!","Sicuro, lo installerò"

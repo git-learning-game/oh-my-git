@@ -3,7 +3,7 @@ extends Control
 var card_store = {}
 var cards
 var card_radius = 1500
-var lang = "it" # TODO: Make a global variable to setting dir and cards localizations
+#var lang = "it" # TODO: Make a global variable to setting dir and cards localizations
 
 func _ready():
 	load_card_store()
@@ -17,7 +17,7 @@ func _process(_delta):
 
 func load_card_store():
 	card_store = {}
-	var cards_json = JSON.parse(helpers.read_file("res://resources/cards_i18n.json")).result
+	var cards_json = JSON.parse(helpers.read_file("res://resources/cards.json")).result
 	for card in cards_json:
 		card_store[card["id"]] = card
 	
@@ -40,7 +40,7 @@ func draw_card(card):
 	
 	new_card.id = card["id"]
 	new_card.command = card["command"]
-	new_card.description = card["description"][lang]
+	new_card.description = card["description"][helpers.lang]
 	new_card.energy = 0 #card.energy
 	new_card.position = Vector2(rect_size.x, rect_size.y*2)
 	add_child(new_card)

@@ -13,7 +13,7 @@ func load(path):
 	
 	var level_names = []
 	var dir = Directory.new()
-	dir.open("res://levels/%s" % slug)
+	dir.open("res://levels/" + helpers.lang + "/%s" % slug)
 	dir.list_dir_begin()
 
 	while true:
@@ -28,7 +28,7 @@ func load(path):
 	
 	var final_level_sequence = []
 	
-	var level_sequence = Array(helpers.read_file("res://levels/%s/sequence" % slug, "").split("\n"))
+	var level_sequence = Array(helpers.read_file("res://levels/" + helpers.lang + "/%s/sequence" % slug, "").split("\n"))
 	
 	for level in level_sequence:
 		if level == "":
@@ -42,7 +42,7 @@ func load(path):
 	
 	for l in final_level_sequence:
 		var level = Level.new()
-		level.load("res://levels/%s/%s" % [slug, l])
+		level.load("res://levels/" + helpers.lang + "/%s/%s" % [slug, l])
 		levels.push_back(level)
 
 func _to_string():

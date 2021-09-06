@@ -149,6 +149,10 @@ mute={
  ]
 }
 
+[locale]
+
+translations=PoolStringArray( "res://resources/localizations.en.translation", "res://resources/localizations.it.translation" )
+
 [network]
 
 limits/debugger_stdout/max_chars_per_second=100000

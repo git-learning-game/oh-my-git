@@ -131,5 +131,6 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="."]
 margin_right = 20.0
 margin_bottom = 20.0
+
 [connection signal="pressed" from="Panel/TextEdit/SaveButton" to="." method="save"]
 [connection signal="pressed" from="Panel/TextEdit/CloseButton" to="." method="close"]

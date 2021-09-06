@@ -81,6 +81,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]
 [connection signal="mouse_exited" from="Rect" to="." method="_on_unhover"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_hover"]

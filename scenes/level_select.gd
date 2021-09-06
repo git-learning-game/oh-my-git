@@ -15,6 +15,7 @@ func back():
 
 
 func reload():
+	
 	for child in level_list.get_children():
 		child.queue_free()
 	

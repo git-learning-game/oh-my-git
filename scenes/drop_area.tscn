@@ -45,5 +45,6 @@ material = SubResource( 3 )
 position = Vector2( -0.102825, -0.377726 )
 scale = Vector2( 2.25501, 2.25501 )
 texture = ExtResource( 2 )
+
 [connection signal="area_entered" from="Area2D" to="." method="_mouse_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_mouse_exited"]
