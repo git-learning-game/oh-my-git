@@ -66,6 +66,13 @@ margin_right = 351.0
 margin_bottom = 127.0
 text = "QUIT"
 
+[node name="Language" type="MenuButton" parent="VBoxContainer"]
+margin_top = 132.0
+margin_right = 351.0
+margin_bottom = 171.0
+text = "LANGUAGE"
+flat = false
+
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="oh-my-git" type="Sprite" parent="Sprite"]

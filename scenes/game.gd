@@ -1,5 +1,7 @@
 extends Node
 
+var lang = OS.get_locale() # Variable for game localization
+
 var tmp_prefix = OS.get_user_data_dir() + "/tmp/"
 var global_shell
 var fake_editor
@@ -18,6 +20,7 @@ var state = {}
 var mutex
 
 func _ready():
+	print(lang)
 	mutex = Mutex.new()
 	load_state()
 	

@@ -1,7 +1,5 @@
 extends Node
 
-var lang = "it"  # Variable for localization
-
 var debug_file_io = false
 
 # Crash the game and display the error message.
