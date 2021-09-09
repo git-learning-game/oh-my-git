@@ -1,29 +1,29 @@
-title = Creating branches
+title = Creare ramificazioni
 cards = checkout commit-auto branch branch-delete reset-hard
 
 [description]
 
-You were invited to two parties! At one of them, your favorite band is playing - and the other one is your best friend's birthday party. Where should you go? No worries - as a time travel agent in training, you can go to both parties!
+Vieni invitato a due feste! In una di queste, suona il tuo gruppo preferito e l'altra è la festa del tuo miglio amico. Dove andrai? Non preoccuparti - come agente del viaggio nel tempo, puoi andare ad entrambe le feste!
 
-To make it easier to tell which timeline is which, you can create time portals! (We call these "branches".)
+Per rendere più facile dire quale sia la linea temporale, puoi creare portali temporali! (Chiamiamoli "rami-branchs")
 
 [cli]
 
-Branches also make it really easy to travel between different places using the command line! As soon as you have a branch called "birthday", you can type `git checkout birthday` to travel to it!
+Anche viaggiare tra differenti rami temporali è davvero facile usando la linea di comando! Hai un ramo chiamato "birthday", puoi digitare `git checkout birthday` per arrivarci.
 
 [setup]
 
-echo "You wrap the birthday present, and grab your concert ticket." > you
+echo "Incarta il regalo di compleanno e prendi il biglietto del concerto." > you
 git add .
-git commit -m "Evening preparations"
-echo "You go to the birthday party!" >> you
+git commit -m "Preparazione serale"
+echo "Vai alla festa di compleanno!" >> you
 git add .
-git commit -m "Go to the birthday"
+git commit -m "Vai al compleanno"
 
 git checkout HEAD~1
-echo "You go to the concert!" > you
+echo "Vai al concerto!" > you
 git add .
-git commit -m "Go to the concert"
+git commit -m "Vai al concerto"
 
 git checkout HEAD~1
 
@@ -31,14 +31,14 @@ git branch -D main
 
 [win]
 
-# Create a branch called 'birthday' that points to the birthday timeline.
-git show birthday | grep 'to the birthday'
+# Crea un ramo chiamato 'birthday questo punta alla linea temporale del compleanno
+git show birthday | grep 'al compleanno'
 
 # Create a branch called 'concert' that points to the concert timeline.
-git show concert | grep 'to the concert'
+git show concert | grep 'al concerto'
 
 [congrats]
 
-Now you can travel between those branches easily (using `git checkout`) - try it!
+Adesso tu puoi viaggiare tra quie rami facilmente (usando `git checkout`) - Prova!
 
-Your friend is happy that you made it to the birthday party and you also got your concert ticket signed. Yay!
+Il tuo amico è felice che tu sia andato alla sua festa di compleanno e anche tu sei contento del biglietto del concerto firmato. Yay!

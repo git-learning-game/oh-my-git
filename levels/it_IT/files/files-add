@@ -1,32 +1,31 @@
-title = Interior design
+title = Arredatore di interni
 cards = file-new file-delete
 
 [description]
 
-Now that your room looks tidy, you can start to unpack your stuff. You brought two new pieces of furniture with you and with a bright smile,
-you see that their colors match the color of your bed!
+Ora che la tua stanza sembra in ordine, puoi iniziare a disfare le tue cose. Hai portato con te due mobili nuovi e con un sorriso luminoso,
+vedi che i loro colori corrispondono al colore del tuo letto!
 
-Build up your two pieces of furniture by playing the touch card.
-Then name your furniture - you can choose whatever you like.
+Costruisci i tuoi due mobili usando la carta touch.
+Quindi dai il nome ai tuoi mobili - puoi sciegliere quello che tu vuoi.
 
-Make sure the colors match! You can find the bed's color in its description.
-Don't forget to add a color and description to your new furnitures, too!
+Assicurati che i colori siano uguali! Puoi trovare il colore del letto nella descrizione.
+Non dimenticare di aggiungere un colore e una descrizione anche ai tuoi nuovi mobile.
 
 [setup]
-
-echo A yellow cozy bed. > bed
+echo Un accogliente letto giallo. > bed
 
 [win]
 
-# Add two more pieces of furniture
+# Aggiungi altri due mobili
 NUM_FILES="$(ls | wc -l)"
 test "$NUM_FILES" -ge 3
 
-# Make sure the colors match your bed's color.
+# Assicurati che i colori corrispondano a quelle del tuo letto
 NUM_FILES="$(ls | wc -l)"
-YELLOW_FILES="$(grep -li yellow * | wc -l)"
+YELLOW_FILES="$(grep -li giallo * | wc -l)"
 test "$NUM_FILES" -ge 2 && test "$YELLOW_FILES" = "$NUM_FILES"
 
 [congrats]
 
-Don't you immediately feel more at home?
+Non ti senti già più a casa?
