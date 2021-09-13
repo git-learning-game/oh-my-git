@@ -1,14 +1,14 @@
-title = Tagging later
+title = Etichettare dopo
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-But what happens if you forgot to tag your current commit?
-No Prob! You can also tag older commits via
+Ma cosa succede se ti dimentichi di etichettare il corrente commit?
+No c'è problema! Puoi etichettare i vecchi commit tramite
 
     git tag <tag-name> <commit-hash>
-    
-Tag the commit "Adding feature 2" with the name "v1"!
+
+Etichetta il commit "Aggiunta caratteristica 2" con il nome "v1"!
 
 ---
 tipp1
@@ -19,26 +19,26 @@ tipp3
 
 [setup]
 
-echo "event 1" > feature-list
+echo "event 1" > elenco-caratteristiche
 
 git add .
-git commit -m "Adding feature 1"
+git commit -m "Aggiunta caratteristica 1"
 
-echo "event 2" >> feature-list
-
-git add .
-git commit -m "Adding feature 2"
-
-echo "event 3" >> feature-list
+echo "event 2" >> elenco-caratteristiche
 
 git add .
-git commit -m "Adding feature 3"
+git commit -m "Aggiunta caratteristica 2"
+
+echo "event 3" >> elecno-caratteristiche
+
+git add .
+git commit -m "Aggiunta caratteristica 3"
 
 git checkout --detach main
 
 [win]
 
-# Did you create a new tag?
+# Hai creato una nuova etichetta?
 test "$(git show v1 -s --format=%h)" = "$(git show HEAD~1 -s --format=%h)"
 
 [actions]
@@ -47,4 +47,4 @@ test "$(git show v1 -s --format=%h)" = "$(git show HEAD~1 -s --format=%h)"
 
 [congrats]
 
-Well done :)
+Motlo bene :)

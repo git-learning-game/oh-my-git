@@ -1,43 +1,43 @@
-title = Moving through time
+title = Muoversi attraverso il tempo
 cards = checkout commit-auto
 
 [description]
 
-The yellow boxes are frozen points in time, we call them "commits"! You can travel between them using the "checkout" card! (Try it!)
+La scatole gialle sono un punto fisso nel tempo, possiamo chiamarli "commits"! Puoi viaggiare tra loro usando la carta "checkout"! (Provala!)
 
-Can you find out what happened here? Then, while on the last commit, edit the files to fix the problem, and make a new commit!
+Puoi scoprire cosa è successo qui? Quindi, durante ultimo commit, modifica i files per risolvere il problema ed invia un nuovo commit!
 
 [cli]
 
-To checkout a specific commit, type `git checkout`, then a space, and then right click on the commit you want!
+Guarda uno specifico commit, digita `git checkout` uno spazio e premi il tasto destro sopra il commit che vuoi!
 
-This will insert the commit's unique identifier!
+Questo inserirà l'identificatore unico del commit!
 
 [setup]
 
-echo "This piggy bank belongs to the big sister.
-It contains 10 coins." > piggy_bank
+echo "Questo salvadanaio appartiene alla sorella maggiore.
+Contiene 10 monete." > piggy_bank
 git add .
-git commit -m "The beginning"
+git commit -m "L'inizio"
 
-echo "A young girl with brown, curly hair." > little_sister
+echo "Una giovane donna con capelli, ricci, marroni." > little_sister
 git add .
-git commit -m "Little sister comes in"
+git commit -m "La sorella piccola è arrivata"
 
-echo "Has 10 coins." >> little_sister
-echo "This piggy bank belongs to the big sister.
-It is empty." > piggy_bank
+echo "Ha 10 monete." >> little_sister
+echo "Questo salvadanaio appartiene alla sorella maggiore.
+E' vuoto." > piggy_bank
 git add .
-git commit -m "Little sister does something"
+git commit -m "La sorella piccola ha fatto qualcosa"
 
 git checkout HEAD^^
 git branch -df main
 
 [win]
 
-# Restore sisterly peace.
-{ git show HEAD:piggy_bank | grep "10 coins"; } && { git show HEAD:little_sister | grep -v "10 coins"; } && { git rev-parse HEAD^^^; }
+# Ripristina il salvadanaio della sorella.
+{ git show HEAD:piggy_bank | grep "10 monete"; } && { git show HEAD:little_sister | grep -v "10 monete"; } && { git rev-parse HEAD^^^; }
 
 [congrats]
 
-Wonderful! Now that you're getting familiar with the time machine, let's look at some more complicated situations...
+Stupendo! Adesso hai preso famiglirità con la macchina del tempo, vediamo situazioni più complicate...

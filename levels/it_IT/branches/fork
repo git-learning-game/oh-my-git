@@ -1,65 +1,65 @@
-title = Make parallel commits
+title = Crea universi paralleli
 cards = checkout commit-auto
 
 [description]
 
-Did you know that creating parallel timelines is perfectly legal and safe? It's true!
+Sai che creare line temporali parallele è perfettamente legale e sicuro? Vero!
 
-Can you find out when things went wrong in this zoo? Then, go back to the last good commit and create a parallel universe where everyone is happy!
+Puoi scoprire qundo le cose sono andate male in questo zoo? Poi torna all'ultimo momento buono e crea un universo parallelo dove sono tutti felicy!
 
 [cli]
 
-The blue animal represents a concept known as the "HEAD pointer" in Git: It shows you which commit is the current one.
+L'animale blue rappresenta un concetto conosciuto come "HEAD pointer" in Git: Ti mostra qual'è il commit attuale.
 
-Here's a cool trick to go to the previous commit: 
+Ecco un simpatico trucchetto andare al commit precedente:
 
     git checkout HEAD^
 
-You can also go back two commits by typing, for example: 
+Puoi anche andare indietro di 2 commit digitando, pre esempio:
 
     git checkout HEAD~2
 
 [setup]
 
 mkdir cage
-echo "Looks very hungry." > cage/lion
+echo "Sembra molto affamato." > cage/lion
 
-echo "A small child.
-It really loves cats!" > child
+echo "Un ragazzino..
+Ama veramente i gatti!" > child
 git add .
-git commit -m "The beginning"
+git commit -m "L'inizio"
 
-echo "It's holding a lollipop." >> child
-git commit -am "The child buys something"
+echo "Tiene in mano un leccalecca." >> child
+git commit -am "Il ragazzo compra qualcosa"
 
 mv child cage
 git add .
-git commit -m "The child climbs somewhere"
+git commit -m "Il bambino si arrampica da qualche parte"
 
 git rm cage/child
-echo "Looks happy. :)" > cage/lion
+echo "E' felice. :)" > cage/lion
 git add .
 git commit -m "Oh no"
 
-echo "It's sleeping." > cage/lion
+echo "Sta dormendo." > cage/lion
 git add .
-git commit -m "Nap time!"
+git commit -m "Ora del pisolino!"
 
 git checkout --detach
 git branch -d main
 
 [win]
 
-# Make sure that the child is happy.
+# Assicurati che il ragazzino sia felice.
 git ls-tree --name-only -r HEAD | grep child
 
-# Make sure that the lion gets something to eat.
-git show HEAD:cage/lion | grep -v "very hungry"
+# Assicurati che il leone abbia qualcosa da mangiare.
+git show HEAD:cage/lion | grep -v "molto affamato"
 
 [congrats]
 
-Whew, good job! This seems like a *much* better outcome.
+Whew, ottimo lavoro! Questo sembra un risultato molto migliore.
 
-Feel free to add more parallel timelines, or make them longer.
+Sentiti libero di aggiungere altre line temporali parallele o allungarle.
 
-If you're ready, our next mission is already waiting...
+Se sei pronto, la prossima missione ci sta aspettando...

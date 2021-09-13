@@ -1,13 +1,12 @@
-title = Merging popped stash
+title = Unire la scorta spuntata
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-When you want to reapply your changes but you already continued working on your file, you might get
-a merge conflict! Let's practise this situation.
-Pop the changes from the stash with
+Quando vuoi riapplicare i cambiamenti ma hai continuato a lavora nei tuoi file, potresti ricevere un conflitto di unione! Facciamo un pò di pratica con questa situazione.
+Fai uscire le modifiche dalla scorta con
     git stash pop
-and resolve the merge conflict. Commit the resolved changes and clear the stash stack afterwards.
+e risolvi i conflitti di unione. Invia la soluzione dei cambiamenti e dopo pulisci la scorta.
 
 ---
 tipp1
@@ -18,31 +17,31 @@ tipp3
 
 [setup]
 
-echo "Apple Pie:" > recipe
+echo "Torta di mele:" > recipe
 
 git add .
-git commit -m "creating a recipe"
+git commit -m "creata una ricetta"
 
-echo "- 4 Apples" >> recipe
+echo "- 4 Mele" >> recipe
 
 git add .
-git commit -m "Adding ingredients"
+git commit -m "Aggiunti ingredienti"
 
-echo "- 500g Flour" >> recipe
+echo "- 500g Farina" >> recipe
 
 git stash push
 
-echo "- Pinch of Salt" >> recipe
+echo "- Pizzico di sale" >> recipe
 
 git checkout main
 git add recipe
 
 [win]
 
-# Did you resolve the confict and commit?
-{ git show HEAD | grep "Flour"; } && { git show HEAD | grep "Salt"; }
+# Hai rislto i conflitti ed inviato?
+{ git show HEAD | grep "Farina"; } && { git show HEAD | grep "Sale"; }
 
-# Did you clear stash stack?
+# Hai pulito la pila di scorta?
 test "$(git stash list | wc -l)" -eq 0
 
 [actions]
@@ -51,4 +50,4 @@ test "$(git stash list | wc -l)" -eq 0
 
 [congrats]
 
-Yay, you got your changes back! :)
+Yay, hai riavuto le tue modifiche in dietro! :)

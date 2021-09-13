@@ -1,17 +1,17 @@
-title = Clear the Stash
+title = Pulire la scorta
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-If you want to inspect your stash stack, use the command
+Se vuoi controllare la tua scorta, usa il comando
     git stash list
-    
-Oh, you don't want to keep your stashed changes? There are way too many? Then go ahead and clear the stack with
+
+Oh, non vuoi mantenere i tuoi cambiamenti nella scorta? C'è un modo per farlo? Poi vai avanti e pulisci la scorta con 
     git stash clear
-If you only want to discard a certain stash entry, you can use
+Se vuoi solo scartare un certo elemento dalla scorta, puoi usare
     git stash drop <stash>
     
-Clear your stash stack!
+Pulisci la tua pila di scorta!
 
 ---
 tipp1
@@ -22,30 +22,30 @@ tipp3
 
 [setup]
 
-echo "Apple Pie:" > recipe
+echo "Torta di mele:" > recipe
 
 git add .
-git commit -m "creating a recipe"
+git commit -m "creata una ricetta"
 
-echo "- 4 Apples" >> recipe
+echo "- 4 Mele" >> recipe
 
 git add .
-git commit -m "Adding ingredients"
+git commit -m "Aggiunto ingredienti"
 
-echo "- 500g Flour" >> recipe
+echo "- 500g Farina" >> recipe
 git stash push
 
-echo "- 200g Sugar" >> recipe
+echo "- 200g Zucchero" >> recipe
 git stash push
 
-echo "- Pinch of Salt" >> recipe
+echo "- Pizzico di sale" >> recipe
 git stash push
 
 git checkout main
 
 [win]
 
-# Did you clear your stash stack?
+# Hai pulito la tua pila di scorta?
 test "$(git stash list | wc -l)" -eq 0
 
 [actions]
@@ -54,4 +54,4 @@ test "$(git stash list | wc -l)" -eq 0
 
 [congrats]
 
-All clear! :)
+Pulito tutto! :)

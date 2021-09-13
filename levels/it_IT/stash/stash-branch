@@ -1,14 +1,13 @@
-title = Branch from stash
+title = Ramo dalla scorta
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-If you want to keep your changes but they don't belong to the main branch, you can easily
-create a new branch from your stashed changes. Just use
+Se vuoi matenere tutte le modifiche ma non appartengono al ramo principale, puoi facilemnte creare un nuovo ramo dai cambiamenti dalle modifiche nascoste. Usando
     git stash branch <branchname> <stash>
-If you just want to use the latest stash entry, you can leave the <stash> option empty.
+Se vuoi solo usare l'ultimo elemento della scorta puoi lasciare vuota l'opzione <stash>.
 
-Create a new branch from the stashed changes!
+Crea un nuovo ramo dalle modifiche nascoste!!
 
 ---
 tipp1
@@ -19,24 +18,24 @@ tipp3
 
 [setup]
 
-echo "Apple Pie:" > recipe
+echo "Torta di mele:" > recipe
 
 git add .
-git commit -m "creating a recipe"
+git commit -m "creata una ricetta"
 
-echo "- 4 Apples" >> recipe
+echo "- 4 Mele" >> recipe
 
 git add .
-git commit -m "Adding ingredients"
+git commit -m "Aggiunto ingredienti"
 
-echo "- 500g Flour" >> recipe
+echo "- 500g Farina" >> recipe
 git stash push
 
 git checkout main
 
 [win]
 
-# Did you create a new branch from the stashed changes?
+# Hai creato un nuovo ramo dai cambiamenti nascosti?
 test "$(git branch --list| wc -l)" -ge 2
 
 [actions]
@@ -45,4 +44,4 @@ test "$(git branch --list| wc -l)" -ge 2
 
 [congrats]
 
-Stashed changes are in a new branch! :)
+I cambiamenti nascosti sono nel nuovo ramo! :)

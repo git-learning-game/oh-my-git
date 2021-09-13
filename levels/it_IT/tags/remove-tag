@@ -1,13 +1,13 @@
-title = Removing tags
+title = Rimuovere etichette
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-You added way too many tags? No prob! Delete them with
+Hai aggiunto molte ectichette? Non c'è problema! Cancellali con
 
     git tag -d <tag-name>
     
-Remove all tags in this repo!
+Rimuovi tutti i tag in questo repository!
 
 ---
 tipp1
@@ -18,20 +18,20 @@ tipp3
 
 [setup]
 
-echo "event 1" > feature-list
+echo "event 1" > elenco-caratteristiche
 
 git add .
-git commit -m "Adding feature 1"
+git commit -m "Aggiunta caratteristica 1"
 
-echo "event 2" >> feature-list
-
-git add .
-git commit -m "Adding feature 2"
-
-echo "event 3" >> feature-list
+echo "event 2" >> elenco-caratteristiche
 
 git add .
-git commit -m "Adding feature 3"
+git commit -m "Aggiunta caratteristica 2"
+
+echo "event 3" >> elenco-caratteristiche
+
+git add .
+git commit -m "Aggiunta caratteristica 3"
 
 git tag v1 HEAD~2
 git tag v2 HEAD~1
@@ -41,7 +41,7 @@ git checkout --detach main
 
 [win]
 
-# Did you remove all tags?
+# Hai riosso tutte le etichette?
 test "$(git tag -l | wc -l)" -eq 0
 
 [actions]
@@ -50,4 +50,4 @@ test "$(git tag -l | wc -l)" -eq 0
 
 [congrats]
 
-Well done :)
+Molto bene :)
