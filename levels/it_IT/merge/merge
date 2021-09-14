@@ -1,82 +1,82 @@
-title = Merging timelines
+title = Unire le linee temporali
 cards = checkout commit-auto merge
 
 [description]
 
-Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!
+Ecco un trucco per domire un pò più a lungo: fai tutte le tue attività, in universi paralleli, e poi uniscile!
 
 [setup]
 
-echo "You do not have a baguette.
+echo "Non hai una baguette.
 
-You do not have coffee.
+Non hai caffe.
 
-You do not have a donut." > you
+Non hai una ciambella." > you
 
 git add .
-git commit -m "The Beginning"
+git commit -m "L'inizio"
 
-echo "You have a baguette.
+echo "Hai una baguette.
 
-You do not have coffee.
+Non hai caffe.
 
-You do not have a donut." > you
+Non hai una ciambella." > you
 git add .
-git commit -m "You buy a baguette"
+git commit -m "Compri una baguette"
 
-echo "You ate a baguette.
+echo "Mangi una baguette.
 
-You do not have coffee.
+Non hai caffe.
 
-You do not have a donut." > you
+Non hai una ciambella." > you
 git add .
-git commit -m "You eat the baguette"
+git commit -m "Mangi la baguette"
 
 git checkout HEAD~2
-echo "You do not have a baguette.
+echo "Non hai una baguette.
 
-You have coffee.
+Hai caffe.
 
-You do not have a donut." > you
+Non hai una ciambella." > you
 git add .
-git commit -m "You buy some coffee"
+git commit -m "Compri un pò di caffe"
 
-echo "You do not have a baguette.
+echo "Non hai una baguette.
 
-You drank coffee.
+Bevi caffe.
 
-You do not have a donut." > you
+Non hai una ciambella." > you
 git add .
-git commit -m "You drink the coffee"
+git commit -m "Bevi il caffe"
 
 git checkout HEAD~2
-echo "You do not have a baguette.
+echo "Non hai una baguette.
 
-You do not have coffee.
+Non hai caffe.
 
-You have a donut." > you
+Hai una ciambella." > you
 git add .
-git commit -m "You buy a donut"
+git commit -m "Compri una ciambella"
 
-echo "You do not have a baguette.
+echo "Non hai una baguette.
 
-You do not have coffee.
+Non hai caffe.
 
-You ate a donut." > you
+Mangi una ciambella." > you
 git add .
-git commit -m "You eat the donut"
+git commit -m "Mangi la ciambella"
 
 git checkout --detach
 git branch -D main
 
 [win]
 
-# Build a situation where you consumed a baguette, a coffee, *and* a donut.
-{ git show HEAD:you | grep "You ate.*baguette"; } && { git show HEAD:you | grep "You drank.*coffee"; } && { git show HEAD:you | grep "You ate.*donut"; }
+# Crea una situazione dove consumi una baguette, un caffe e una ciambella.
+{ git show HEAD:you | grep "Mangi.*baguette"; } && { git show HEAD:you | grep "Bevi.*coffe"; } && { git show HEAD:you | grep "Mangi.*donut"; }
 
-# Be on a merge commit.
+# E' un commit di unione.
 test "$(git log --pretty=%P -n 1 HEAD | wc -w)" -ge 2
 
 [congrats]
 
-I wonder if you're more relaxed when you *sleep* in parallel timelines...
+Mi chiedo se sei più rilassato quando *dormi* in linee temporali parallele...

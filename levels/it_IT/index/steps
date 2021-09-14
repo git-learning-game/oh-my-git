@@ -1,28 +1,28 @@
-title = Adding changes step by step
+title = Aggiungi modifice passo dopo passo
 cards = add reset-file commit
 
 [description]
 
-The index is really useful, because it allows us to be precise about which changes we want to include in each commit!
+L'indice è veramente utile perché ci permette di essere precisi su quali cambiamenti vogliamo includere in ogni commit!
 
 [setup]
 
-echo "A hammer, balancing on its handle." > hammer
-echo "A bottle, containing a clear liquid." > bottle
-echo "A white sugar cube." > sugar_cube
+echo "Un martello, in equilibrio sul suo manico." > hammer
+echo "Una bottiglia contenente un liquido trasparente." > bottle
+echo "Un cubo di zucche bianco." > sugar_cube
 
 git add .
-git commit -m "The beginning"
+git commit -m "L'inizio"
 
 [win]
 
-# Make changes to all three objects, to form a logical sequence of events!
+# Fai dei cambiamenti a tutti e tre gli oggetti per creare una sequenza logica di eventi!
 test "$(git diff --name-only | wc -l)" -eq 3 || file -f .git/candle-changed && touch .git/candle-changed
 
-# Only add one of these changes!
+# Aggiungi solo uno dei cambiamenti!
 test "$(git diff --cached --name-only | wc -l)" -eq 1 || file -f .git/candle-added && touch .git/candle-added
 
-# And make a commit.
+# E fai un commit
 COUNT=0
 for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
     if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
@@ -32,7 +32,7 @@ done
 
 test "$COUNT" -ge 1
 
-# Make a second commit that only records a single change.
+# Fai un secondo commit che registri solo un singolo cambiamento.
 COUNT=0
 for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
     if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
@@ -42,7 +42,7 @@ done
 
 test "$COUNT" -ge 2
 
-# And a third one.
+# E aggiungine un terzo.
 COUNT=0
 for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
     if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then

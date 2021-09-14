@@ -1,47 +1,47 @@
-title = Friend
+title = Amico
 cards = pull push commit-auto checkout
 
 [description]
 
-Your friend added another line to your essay! Get it, add a third one and send it to them!
+Il tuo amico ha aggiunto un'altra linea alla tua tesi! Prendilo, aggiungine un'altra e reinvialo a loro!
 
-Take turns until you have five lines!
+A turno fino a che non ti ritrovi ad avere cinque linee!
 
 [setup yours]
 
-echo "Line 1" > essay
+echo "Linea 1" > essay
 git add .
-git commit -m "One line"
+git commit -m "Una linea"
 
 git push -u friend main
 
 [setup friend]
 
 git checkout main
-echo "Line 2, gnihihi" >> essay
-git commit -am "Another line"
+echo "Linea 2, gnihihi" >> essay
+git commit -am "Un'altra linea"
 
 [actions friend]
 
 if test "$(git log --oneline | wc -l)" -eq 3; then
-    git reset --hard main # Necessary because the working directory isn't updated when we push to the friend.
-    echo "Line 4, blurbblubb" >> essay
-    git commit -am "Final line"
-    hint "Oh nice, I added a fourth line!"
+    git reset --hard main # Necessario perché la directory di lavoro non è aggiornata fintanto che non viene inviata all'amico
+    echo "Linea 4, blurbblubb" >> essay
+    git commit -am "Linea finale"
+    hint "Oh bene, Ho aggiunt la quarta linea!"
 fi
 
 [win]
 
-# Got the second line from your friend
+# Ricevuto la seconda linea dal tuo amico.
 git show HEAD:essay | grep gnihihi
 
-# Got the fourth line from your friend.
+# Ricevuto la quarta linea dal tuo amico.
 git show HEAD:essay | grep blurbblubb
 
 [win friend]
 
-# The friend got a third line from you
+# L'amico ha ricevuto la terza linea da te.
 test "$(git show HEAD:essay | wc -l)" -ge 3
 
-# The friend got a fifth line from you
+# L'amico ha ricevuto la quinta linea da te.
 test "$(git show HEAD:essay | wc -l)" -ge 5
