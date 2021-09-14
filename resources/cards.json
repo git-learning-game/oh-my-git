@@ -4,7 +4,7 @@
 	"command": "git init",
         "description": {
 	    "en_EN": "Drag this card into the empty space above to initialize the time machine!",
-	    "it": "Trascina questa carta nell'area vuota sopra per inizializzare la macchina del tempo"
+	    "it_IT": "Trascina questa carta nell'area vuota sopra per inizializzare la macchina del tempo"
 	}
     },
     {
