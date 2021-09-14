@@ -147,6 +147,7 @@ volume_db = -10.0
 [node name="OkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -5.0
+
 [connection signal="item_selected" from="Rows/TopHalf/Completions" to="." method="_completion_selected"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button" to="Rows/VBoxContainer/Button" method="pressed"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button2" to="Rows/VBoxContainer/Button2" method="pressed"]

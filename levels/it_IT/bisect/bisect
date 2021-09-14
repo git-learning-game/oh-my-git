@@ -1,29 +1,29 @@
-title = Yellow brick road
+title = Strada di mattoni gialli
 cards = checkout commit-auto reset-hard bisect-start bisect-good bisect-bad
 
 [description]
 
-(Please zoom out a bit using your mouse wheel! :D)
+(Perpiacere rimpicciolisci un pochino usando la rotella del mouse! :D)
 
-Oh no! You have lost your key at some point during the day!
+Oh no! Hai perso la tua chiave da qualche parte durante il giorno!
 
-Sure, you could look at every single commit in an attempt to find it - but there's a better way: your time machine has a built-in way to find the point in time where things went wrong quickly!
+Sicuro, certo potresti guardare in ogni singolo commit nella speranza di trovarlo - ma c'è un modo migliore: la tua macchina del tempo ha un modo integrato per trovare velocemente il punto nel tempo dove le cose sono andate male!
 
-First, play the "bisect start" card. Then, go to a commit where you don't have the key, and play the "bisect bad" card. Likewise, go to a commit early on where you have the key *in your pocket*, and play the "bisect good card".
+Per prima cosa, gioca la carta "bisec start". Quindi, vai ad un commit in cui non hai la chiave e gioca la carta "bisect bad". Allo stesso modo vai velocemente in un commit dove hai la chiave *in tascca* e gioca la carta "bisect goofìd".
 
-After you've found the last good commit, reset the main branch to it. What happened to the key after you lost it?
+Dopo aver trovato l'ultimo commit valido reimposta la branch principale su di esso. Cosa è successo alla chiave dopo che l'hai persa?
 
 [setup]
 
-echo "You still have your key." > you
+echo "Hai ancora la tua chiave." > you
 
 for i in {1..30}; do
     if test $i -eq 12; then
-        echo "Your pocket is empty." > you
-        echo "Is on the ground." > key
+        echo "La tua tasca è vuota." > you
+        echo "E' per terra." > key
     fi
     if test $i -eq 13; then
-        echo "Is holding a key in its beak." > bird
+        echo "Tiene una chiave nel becco." > bird
         rm key
     fi
     if test $i -eq 14; then
@@ -35,9 +35,9 @@ done
 
 [win]
 
-# Find the last good commit
+# Trova l'ultimo commit buono
 test "$(git log --pretty=%s main | head -1)" -eq 11
 
 [congrats]
 
-Well done! :) The only problem is that you now have to walk all the way back home, again...
+Molto bene! :) L'unico problema è che adesso devi tornare a casa camminando, dinuovo...

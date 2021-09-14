@@ -18,3 +18,14 @@ INSTALL,"Sure, I'll install it!","Sicuro, lo installerò"
 LANGUAGE,Language,Linguaggio
 ITALIAN,Italian,Italiano
 ENGLISH,English,Inglese
+GOT_IT,"Got it!","fatto"
+INTERESTING,"Interesting!","interessante"
+VERY_USEFULL,"Very useful!","Veramente utile!"
+COOL,"Cool!","Bello!"
+NICE,"Nice!","Bene!"
+THANKS,"Thanks!","Grazie!"
+WHATEVER,"Whatever...","Ad ogni costo..."
+OKAY,"Okay!","Ok!"
+YAY,"Yay!","Yay!"
+AWESOME,"Awesome!","Eccezionale!"
+YOUR_TERMINAL,"This is your terminal! All commands are executed here, and you can see their output. You can also type your own commands here!","Questo è il tuo terminale! Tutti i comandi sono eseguiti qui e puoi vedere il loro output. Puoi anche digitare i tuoi comndi qui!"
