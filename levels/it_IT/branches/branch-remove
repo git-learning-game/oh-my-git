@@ -20,7 +20,7 @@ echo Salti in un tombino nel marciapiede e arrivi in orario a scuola. >> you
 git commit -am "Salto"
 
 git checkout HEAD^ -b friend
-echo All'improvviso cadi in una pozzanghera puzzolente e vieni mangiato da degli alligatori. >> you
+echo "All'improvviso cadi in una pozzanghera puzzolente e vieni mangiato da degli alligatori." >> you
 git commit -am "Un nuovo amico"
 
 git checkout HEAD~2 -b music

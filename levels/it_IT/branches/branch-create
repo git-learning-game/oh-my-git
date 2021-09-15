@@ -31,11 +31,11 @@ git branch -D main
 
 [win]
 
-# Crea un ramo chiamato 'birthday questo punta alla linea temporale del compleanno
-git show birthday | grep 'al compleanno'
+# Crea un ramo chiamato 'birthday' questo punta alla linea temporale del compleanno
+git show birthday | grep 'birthday'
 
-# Create a branch called 'concert' that points to the concert timeline.
-git show concert | grep 'al concerto'
+# Crea un ramo chiamato 'concert' questo punta alla linea temporale del compleanno
+git show concert | grep 'concert'
 
 [congrats]
 

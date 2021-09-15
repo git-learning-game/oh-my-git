@@ -42,7 +42,7 @@ func load(path):
 		if cli_hints != "":
 			description[0] = description[0] + "\n\n[color=#787878]"+cli_hints+"[/color]"
 		
-		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
+		congrats = config.get("congrats", "GOOD_JOB")
 		cards = Array(config.get("cards", "").split(" "))
 		if cards == [""]:
 			cards = []
@@ -78,7 +78,7 @@ func load(path):
 			else:
 				repo = "yours"
 			
-			var desc = "Complete the goal of this level"
+			var desc = tr("COMPLETE_GOAL")
 			for line in Array(config[k].split("\n")):
 				if line.length() > 0 and line[0] == "#":
 					desc = line.substr(1).strip_edges(true, true)
