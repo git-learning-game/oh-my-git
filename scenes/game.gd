@@ -1,5 +1,6 @@
 extends Node
 
+var langs = {0: "en_EN", 1: "it_IT"} # Localizations allowed
 var lang = OS.get_locale() # Variable for game localization
 
 var tmp_prefix = OS.get_user_data_dir() + "/tmp/"
@@ -20,7 +21,10 @@ var state = {}
 var mutex
 
 func _ready():
-	print(lang)
+	# Check if present localization language
+	if not langs.values().has(lang):
+		lang = langs[0]
+		
 	mutex = Mutex.new()
 	load_state()
 	

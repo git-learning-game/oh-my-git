@@ -3,7 +3,6 @@ extends Control
 var card_store = {}
 var cards
 var card_radius = 1500
-#var lang = "it" # TODO: Make a global variable to setting dir and cards localizations
 
 func _ready():
 	load_card_store()

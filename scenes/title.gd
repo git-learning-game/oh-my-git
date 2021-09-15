@@ -3,6 +3,7 @@ extends Control
 onready var popup = $VBoxContainer/Language
 
 func _ready():
+	check_correct_lang_item()
 	if !OS.has_feature("standalone") and !game.skipped_title:
 		game.skipped_title = true
 		get_tree().change_scene("res://scenes/level_select.tscn")
@@ -26,28 +27,31 @@ func sandbox():
 	get_tree().change_scene("res://scenes/main.tscn")
 
 
+# Check the apropriate locale
+func check_correct_lang_item():
+	for i in game.langs.keys():
+		if game.lang == game.langs[i]:
+			popup.get_popup().set_item_checked(i, true)
+
+# Set all items to unchecked
 func uncheck_all_item():
-	# Set all item unchecked
-	var num = popup.get_popup().get_item_count()
-	for n in num:
-		popup.get_popup().set_item_checked(n, false)
-	pass
+	for i in game.langs.keys():
+		popup.get_popup().set_item_checked(i, false)
 
 
+# Create popup items width allowed locales
 func make_popup_item():
-	popup.get_popup().add_radio_check_item("en_EN", 0)
-	popup.get_popup().add_radio_check_item(tr("it_IT"), 1)
+	for i in game.langs.keys():
+		popup.get_popup().add_radio_check_item(game.langs[i], i)
 	
 	uncheck_all_item()
 	
-	if game.lang == "en_EN":
-		popup.get_popup().set_item_checked(0, true)
-	elif game.lang == "it_IT":
-		popup.get_popup().set_item_checked(1, true)
+	check_correct_lang_item()
 	
 	popup.get_popup().connect("id_pressed", self, "_on_item_pressed")
 
 
+# Change the translations and localizations of the cards and strings
 func _on_item_pressed(id):
 	uncheck_all_item()
 	
@@ -56,6 +60,4 @@ func _on_item_pressed(id):
 
 	
 	TranslationServer.set_locale(game.lang)
-	# DELETE ME
-	print(popup.get_popup().get_item_text(id))
-	print(game.lang)
+	
