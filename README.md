@@ -82,7 +82,7 @@ At this stage, we're still exploring ourselves which kind of levels would be fun
        "description": {
           "en_EN": "Drag this card into the empty space above to initialize the time machine!",
 	  "it_IT": "Trascina questa carta nell'area vuota sopra per inizializzare la macchina del tempo",
-	  "es_ES": ""
+	  "es_ES": "Arrastre esta tarjeta al área en blanco de arriba para inicializar la máquina del tiempo"
        }
 ```
 2. Add, into the directory **levels**, the directory with the levels to you want to adding (es. ./levels/fr_FR/LIVELLI )
