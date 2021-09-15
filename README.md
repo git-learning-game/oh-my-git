@@ -85,9 +85,10 @@ Example:
    "es_ES": "Arrastre esta tarjeta al área en blanco de arriba para inicializar la máquina del tiempo"
 }
 ```
-2. Add, into the directory **levels**, the directory with the levels to you want to adding (es. ./levels/fr_FR/LIVELLI )
+2. Add, into the directory **levels**, the directory with the levels do you want to adding (es. ./levels/fr_FR/LIVELLI )
 1. Add, the localization into the dictionary game.langs (es. `var langs = {0: "en_EN", 1: "it_IT", 2: "es_ES"}` the first and default localization it must be en_EN
-
+ 
+If one or more localizations in the descriptions of cards are missing and levels require that card, the game crashes!
 
 ## Contribute code!
 
