@@ -78,12 +78,12 @@ At this stage, we're still exploring ourselves which kind of levels would be fun
 ## Add localizations
 1. Add the localization text into the section "description" in the  file ./resource/cards.json
 ```
-   Example:
-       "description": {
-          "en_EN": "Drag this card into the empty space above to initialize the time machine!",
-	  "it_IT": "Trascina questa carta nell'area vuota sopra per inizializzare la macchina del tempo",
-	  "es_ES": "Arrastre esta tarjeta al área en blanco de arriba para inicializar la máquina del tiempo"
-       }
+Example:
+"description": {
+   "en_EN": "Drag this card into the empty space above to initialize the time machine!",
+   "it_IT": "Trascina questa carta nell'area vuota sopra per inizializzare la macchina del tempo",
+   "es_ES": "Arrastre esta tarjeta al área en blanco de arriba para inicializar la máquina del tiempo"
+}
 ```
 2. Add, into the directory **levels**, the directory with the levels to you want to adding (es. ./levels/fr_FR/LIVELLI )
 1. Add, the localization into the dictionary game.langs (es. `var langs = {0: "en_EN", 1: "it_IT", 2: "es_ES"}` the first and default localization it must be en_EN
