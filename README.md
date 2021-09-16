@@ -86,7 +86,17 @@ Example:
 }
 ```
 2. Add, into the directory **levels**, the directory with the levels do you want to adding (es. ./levels/fr_FR/LIVELLI )
-1. Add, the localization into the dictionary game.langs (es. `var langs = {0: "en_EN", 1: "it_IT", 2: "es_ES"}` the first and default localization it must be en_EN
+3. Add, the localization into the dictionary game.langs (es. `var langs = {0: "en_EN", 1: "it_IT", 2: "es_ES"}` the first and default localization it must be en_EN
+4. Add column of specific locale and relative traductions for avery keys in the file ./resource/localization.csv
+```
+Example:
+
+keys,en,it,es
+LEVELS,Livels,Livelli,niveles
+QUIT,Quit,Esci,Salir
+BACK,Back,Indietro,Espalda
+
+```
  
 If one or more localizations in the descriptions of cards are missing and levels require that card, the game crashes!
 
