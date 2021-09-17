@@ -1,78 +1,77 @@
-title = Reordering events
+title = Riordinare gli eventi
 cards = checkout commit-auto reset-hard rebase-interactive cherry-pick
 
 [description]
 
-Oops, looks like there's something messed up here. Can you put the events back into their correct order?
+Oops, guarda c'è qualcosa di incasinato qui. Puoi rimettere gli eventi nel corretto ordine?
 
-There are two ways to do this: You can drag the "interactive rebase" card to the commit before the one you want to change, then reorder the lines in the file that opens, and save it.
-
-Or you can reset the main tag to the very first commit, and then cherry-pick single commits in the order you want. You have cards for both approaches!
+Ci sono due modi per farlo: Puoi spostare la carta "interactive rebase" nel commit precedente a quello che vuoi cambiare, poi aprire e riordinare le linee nel file e salvarlo.
+Oppure puoi reimpostare il tag principale al primo commit, quindi selezionare i singoli commit nell'ordine desiderato. Hai carte per entrambe i modi!
 
 [setup]
 
-echo "You just woke up.
+echo "Ti sei appena svegliato.
 
-You are NOT wearing underwear.
+Non indossi biancheria intima.
 
-You are NOT wearing pants.
+Non indossi pantaloni.
 
-You are NOT wearing a shirt.
+Non indossi la maglia.
 
-You are NOT wearing shoes." > you
+Non indossi le scarpe." > you
 git add .
 
-git commit -m "The Beginning"
+git commit -m "L'inizio"
 
-echo "You just woke up.
+echo "Ti sei appena svegliato.
 
-You are NOT wearing underwear.
+Non indossi biancheria intima.
 
-You are NOT wearing pants.
+Non indossi pantaloni.
 
-You are NOT wearing a shirt.
+Non indossi la maglia.
 
-You are wearing shoes." > you
-git commit -am "Put on shoes"
+Indossi le scarpe." > you
+git commit -am "Metti le scarpe"
 
-echo "You just woke up.
+echo "Ti sei appena svegliato.
 
-You are NOT wearing underwear.
+Non indossi biancheria intima.
 
-You are wearing pants.
+Indossi pantaloni
 
-You are NOT wearing a shirt.
+Non indossi la maglia.
 
-You are wearing shoes." > you
-git commit -am "Put on pants"
+Indossi le scarpe." > you
+git commit -am "Metti i pantaloni"
 
-echo "You just woke up.
+echo "Ti sei appena svegliato.
 
-You are wearing underwear.
+Indossi la biancheria intima.
 
-You are wearing pants.
+Indossi pantaloni.
 
-You are NOT wearing a shirt.
+Non indossi la maglia.
 
-You are wearing shoes." > you
-git commit -am "Put on underwear"
+Indossi le scarpe." > you
+git commit -am "Metti biancheria intima"
 
-echo "You just woke up.
+echo "Ti sei appena svegliato.
 
-You are wearing underwear.
+Indossi biancheria intima.
 
-You are wearing pants.
+Indossi pantaloni.
 
-You are wearing a shirt.
+Indossi la maglia.
 
-You are wearing shoes." > you
-git commit -am "Put on shirt"
+Indossi le scarpe." > you
+git commit -am "Ti metti la maglia"
 
 [win]
 
-# Reorder the commits to dress yourself in the correct way
-{ git log main --oneline | perl -0777 -ne'exit(1) if not /shoes[\s\S]*pants[\s\S]*underwear/'; } && { test "$(git log main --oneline | wc -l)" -eq 5; }
+# Riordina i commits per vestirti nel modo corretto
+{ git log main --oneline | perl -0777 -ne'exit(1) if not /scarpe[\s\S]*pantaloni[\s\S]*biancheria/'; } && { test "$(git log main --oneline | wc -l)" -eq 5; }
 
 [congrats]
 
-Feel free to reset the level and try the other strategy! Which one do you like better?
+Sentiti libero di resettare il livello e provare l'altra strategia!Qual'è quella che preferisci?

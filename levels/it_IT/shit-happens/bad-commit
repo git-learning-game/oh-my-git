@@ -1,30 +1,31 @@
-title = Undo a bad commit
+title = Annullare un cattivo commit
 cards = reset commit-a
 
 [description]
 
-Oh no, we made a bad commit! How can we undo making the commit, and go back to a point where we can try again?
+Oh no, abbiamo fatto un cattivo commit! Come possiamo annualre un commit e tornare al punto per poter riprovare?
 
-The answer is using `git reset [commit]`, which does two things:
+La risposta è usare `git reset [commit]` che fa due cose:
 
-- It resets the current branch ref to the commit you specify.
-- And it resets the index to that commit.
+- Reimposta il riferimento del ramo corrente al commit che hai specificato.
+- Reimposta l'indice a quel commit.
 
-It does not change your working directory in any way, which means that after that, you can try making the commit you want again.
+Non cambia la tua directory di lavoro in nessun modo, il che significa che dopo puoi provare a rifare il commit che desideri.
+
 
 [setup]
 
 echo "1 2 3 4" > numbers
 git add .
-git commit -m "Initial commit"
+git commit -m "commit iniziale"
 echo "1 2 3 4 5 6 7 8 9 11" > numbers
-git commit -am "More numberrrrrs"
+git commit -am "Più numerrrrri"
 
 [win]
 
-# In the last main commit, the numbers file contains the numbers from 1 to 10.
+# Nel primo commit il file numbers contiene i numeri da 1 a 10.
 test "$(git show main:numbers)" = "1 2 3 4 5 6 7 8 9 10"
-# The commit message of that commit is "More numbers".
-git log -1 --oneline | grep "More numbers"
-# The commit with the typo is not part of the main branch anymore.
+# Il messaggio di questo commit è "Più numeri".
+git log -1 --oneline | grep "Più numeri"
+# Il commit con l'errore si battitura non fa più parte del ramo principale.
 git log --oneline | grep -v "rrrrr"

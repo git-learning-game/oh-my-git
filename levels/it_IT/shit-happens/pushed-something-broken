@@ -1,13 +1,13 @@
-title = I pushed something broken
+title = Ho rotto qualcosaI pushed something broken
 cards = revert push
 
 [description]
 
-We were talking about how to undo a commit, and fix it. This only helps when you haven't already pushed it to a remote. When that has happened, and you want to undo the effects of the commit completely, your best option is `git revert`
+Stavamo parlato di come annulare un commit e correggerlo. Questo ci aiuto solo quando non lo abbiamo già inviato al remoto. Quando succede questo e vuoi annullare completamente l'effetto del commit la tua migliore opzione è `git revert`
 
 [setup]
 
-echo "this is fine
+echo "questo va bene
 
 ?
 
@@ -16,30 +16,30 @@ echo "this is fine
 ?" > text
 git add .
 git commit -m fine
-echo "this is fine
+echo "questo va bene
 
-this is also fine
+anche questo va bene
 
 ?
 
 ?" > text
-git commit -am "also fine"
-echo "this is fine
+git commit -am "anche bene"
+echo "questo va bene
 
-this is also fine
+anche questo va bene
 
-this is very bad
+questo è veramente sbagliato
 
 ?" > text
-git commit -am "very bad"
-echo "this is fine
+git commit -am "veramente sbagliato"
+echo "questo va bene
 
-this is also fine
+anche questo va bene
 
-this is very bad
+questo è veramente sbagliato
 
-this is fine again" > text
-git commit -am "fine again"
+questo va nuovamente bene" > text
+git commit -am "nuovamente bene"
 
 git push team main
 git branch -u team/main main
@@ -48,7 +48,7 @@ git branch -u team/main main
 
 [win team]
 
-# The team's main branch no longer contains the bad thing.
-! { git show main:text | grep -q "very bad"; }
-# And the history has not been modified.
-git show main^:text | grep -q "very bad"
+# Il ramo principale del Team non contiene più niente di sbagliato.
+! { git show main:text | grep -q "veramente sbaglaito"; }
+# e la cronologia non è stata modificata.
+git show main^:text | grep -q "veramente sbaglaito"
