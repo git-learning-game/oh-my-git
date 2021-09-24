@@ -1,21 +1,21 @@
-title = Aggiorna i file nell'indice
+title = Aggiornare i file nell'indice
 cards = add commit
 
 [description]
 
-Quando cambiamo i files l'indice non cambia da solo. Dobbiamo usare `git add` per aggiornare l'indice della versione cambiata dei file..
+Quando cambiamo i files l'indice non cambia da solo. Dobbiamo usare `git add` per aggiornare l'indice alla nuova versione del file..
 
 Proviamoci!
 
-Le icona nel browser dei file mostrano quando il file attuale (bianco) e la versione nell'indice (blu) sono differenti o quando sono uguali!
+Le icone nel file manager ti mostrano quando il file attuale (bianco) e la versione nell'indice (blu) differiscono o sono uguali!
 
 [win]
 
-Bene! L'indice, a volte, può essere chiamato "staging are" - Contiene esattamente ciò che finisce nel prossimo commit quando usi `git commit`!
+Bene! L'indice è anche chiamato "staging area" (area di staging) - E contiene esattamente ciò che finisce nel prossimo commit quando usi `git commit`!
 
 [setup]
 
-echo "La candela brucia con una fiamma blue." > candle
+echo "La candela brucia con una fiamma blu." > candle
 git add .
 git commit -m "L'inizio"
 

@@ -3,20 +3,20 @@ cards = checkout commit-auto
 
 [description]
 
-Benvenuto nella lezione di oggi! Siamo impareremo come creare commits con più precisione!
+Benvenuto! nella lezione di oggi impareremo come creare commits con più precisione!
 
-Dai un'occhiata a queste due linee temporali. Hanno lo stesso risultato ma una di loro rende più semplice capire cosa è successo.
+Dai un'occhiata a queste due linee temporali. Hanno lo stesso risultato, ma in una delle due è molto più semplice capire cosa è successo.
 
 [win]
 
-# Pronti! Avere ogni cambiamento nel proprio commit rende più facile capire cosa sta succedendo!
+# Esatto! Avere ogni cambiamento nel proprio commit rende più facile capire cosa sta succedendo!
 git branch --show-current | grep step-by-step
 
 [setup]
 
 echo "Una piccola ma pesante palla di vetro." > ball
 echo "Un sottile libro che sta in piedi." > book
-echo "Una candela brucia con una fiamma blue." > candle
+echo "Una candela brucia con una fiamma blu." > candle
 echo "Un sensore di fumo. E' assolutamente silenzioso." > smoke_detector
 
 git add .

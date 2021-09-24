@@ -1,4 +1,4 @@
-title = Aggiungi modifice passo dopo passo
+title = Aggiungere le modifice una per volta
 cards = add reset-file commit
 
 [description]
@@ -9,7 +9,7 @@ L'indice è veramente utile perché ci permette di essere precisi su quali cambi
 
 echo "Un martello, in equilibrio sul suo manico." > hammer
 echo "Una bottiglia contenente un liquido trasparente." > bottle
-echo "Un cubo di zucche bianco." > sugar_cube
+echo "Un cubetto di zucchero bianco." > sugar_cube
 
 git add .
 git commit -m "L'inizio"

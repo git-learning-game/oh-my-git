@@ -3,7 +3,7 @@ cards = checkout commit-auto merge
 
 [description]
 
-Ecco un trucco per domire un pò più a lungo: fai tutte le tue attività, in universi paralleli, e poi uniscile!
+Ecco un trucco per domire un pò più a lungo: svolgi tutte le tue attività mattutine in universi paralleli, e poi uniscile!
 
 [setup]
 
@@ -43,7 +43,7 @@ git commit -m "Compri un pò di caffe"
 
 echo "Non hai una baguette.
 
-Bevi caffe.
+Bevi il caffe.
 
 Non hai una ciambella." > you
 git add .
@@ -74,7 +74,7 @@ git branch -D main
 # Crea una situazione dove consumi una baguette, un caffe e una ciambella.
 { git show HEAD:you | grep "Mangi.*baguette"; } && { git show HEAD:you | grep "Bevi.*coffe"; } && { git show HEAD:you | grep "Mangi.*donut"; }
 
-# E' un commit di unione.
+# Crea (e spostati su) un commit di unione.
 test "$(git log --pretty=%P -n 1 HEAD | wc -w)" -ge 2
 
 [congrats]
