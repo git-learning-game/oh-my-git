@@ -1,11 +1,11 @@
-title = Amico
+title = Amici
 cards = pull push commit-auto checkout
 
 [description]
 
-Il tuo amico ha aggiunto un'altra linea alla tua tesi! Prendilo, aggiungine un'altra e reinvialo a loro!
+Il tuo amico ha aggiunto un'altra linea alla tua tesi! Prendilo, aggiungine un'altra e reinvialo!
 
-A turno fino a che non ti ritrovi ad avere cinque linee!
+Fate botta e risposta fino a che non ti ritrovi ad avere cinque linee!
 
 [setup yours]
 
@@ -24,10 +24,10 @@ git commit -am "Un'altra linea"
 [actions friend]
 
 if test "$(git log --oneline | wc -l)" -eq 3; then
-    git reset --hard main # Necessario perché la directory di lavoro non è aggiornata fintanto che non viene inviata all'amico
+    git reset --hard main # Necessario perché la directory di lavoro non è aggiornata quando viene inviata all'amico
     echo "Linea 4, blurbblubb" >> essay
     git commit -am "Linea finale"
-    hint "Oh bene, Ho aggiunt la quarta linea!"
+    hint "Oh bene, Ho aggiunto la quarta linea!"
 fi
 
 [win]

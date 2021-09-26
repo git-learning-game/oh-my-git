@@ -7,39 +7,39 @@ A volte le linee temporali si contraddicono a vicenda.
 
 Per esempio, in questo caso, un nostro cliente vuole che queste linee temporali siano unite ma hanno mangiato cose differenti in entrambe le linee temporali.
 
-Prova ad unirle insieme! Noterai che c'è un conflitto! La macchina del tempo ti lascerà decidere come procedere: puoi modificare gli elementi, ti mostrerà le sezione in conflitti. Puoi scegliere una delle due versioni o creare una combinazione di esse! Rimuovi i markers >>>, <<<, e === e crea un nuovo commit per finalizare l'unione!
+Prova ad unirle! Noterai che c'è un conflitto! La macchina del tempo ti lascerà decidere come procedere: puoi modificare l'elemento problematico, ti verranno mostrate le parti che vanno in conflitto. Puoi mantenere una delle due versioni o creare una combinazione di entrambe! Poi rimuovi i marcatori >>>, <<<, e === e crea un nuovo commit per finalizare l'unione!
 
-Lascia che la tua linea temporale definitiva sia "main".
+La tua linea temporale definitiva è "main".
 
 [setup]
 
-echo "Appena sveglio. Sei affamato." > sam
+echo "Si è appena svegliato. È affamato." > sam
 git add .
 git commit -m "L'inizio"
 
 git checkout -b pancakes
-echo "Avevamo pancakes con mirtilli e sciroppo d'acero per colazione." > sam
+echo "Ha fatto colazione con pancakes ai mirtilli e sciroppo d'acero." > sam
 git add .
 git commit -m "Pancakes!"
 
 echo "
-Is at work." >> sam
-git commit -am "Vai a lavoro"
+È al lavoro." >> sam
+git commit -am "Va al lavoro"
 
 git checkout -b muesli main
-echo "Avevamo muesli con avena e fragole per colazione." > sam
+echo "Ha fatto colazione con muesli all'avena e fragole." > sam
 git add .
 git commit -m "Muesli!"
 
 echo "
-Is at work." >> sam
-git commit -am "Vai a lavoro"
+È al lavoro." >> sam
+git commit -am "Va al lavoro"
 
 git checkout main
 
 [win]
 
-# Crea un compromesso nella colazione del branch "main".
+# Crea un compromesso tra le due colazioni nel branch "main".
 git rev-parse main^ && test "$(git rev-parse main^1^^)" = "$(git rev-parse main^2^^)"
 
 [congrats]

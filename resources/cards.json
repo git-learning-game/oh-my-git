@@ -12,7 +12,7 @@
         "command": "git clone ../[remote] .",
         "description": {
 	    "en_EN": "Create your own copy of someone else's repo.",
-	    "it_IT": "Crea la copiag del Repo di qualcun'altro."
+	    "it_IT": "Crea la tua copia personale del Repo di qualcun'altro."
 	}
     },
     {
@@ -36,7 +36,7 @@
         "command": "git checkout [commit, ref]",
         "description": {
 	    "en_EN": "Drag this card to a commit or to a branch to travel to it!",
-	    "it_IT": "Sposta questa carta su un commit o su una branch per viaggiare in quello specifico momento."
+	    "it_IT": "Trascina questa carta su un commit o su un branch per spostarti su di esso."
 	}
     },
     {
@@ -52,7 +52,7 @@
         "command": "git checkout [commit, ref] [file]",
         "description": {
 	    "en_EN": "Get the file contents from the specified commits, and reset both the working directory, as well as the index, to it.",
-	    "it_IT": "Prendi il contenuto del file da uno specifico commits e resetta sia la directory di lavoro sia l'indice."
+	    "it_IT": "Ottieni il contenuto dei file dai commit specificati e resetta sia la directory di lavoro sia l'indice."
 	}
     },
     {
@@ -60,7 +60,7 @@
         "command": "git commit -a",
         "description": {
 	    "en_EN": "Make a new commit, after automatically adding all changes to the index.\nYou'll be asked to enter a short description of what you changed.",
-	    "it_IT": "Crea un nuovo commit, dopo aver aggiunto automatico tutti i cambiamenti all'indice.|n Ti verrà chiesto di inserire una piccola descrizione di cosa hai cambiato."
+	    "it_IT": "Crea un nuovo commit, dopo aver aggiunto automaticamente tutti i cambiamenti all'indice.\nDovrai inserire una breve descrizione di cosa hai cambiato."
 	}
     },
     {
@@ -68,7 +68,7 @@
         "command": "git add .; git commit",
         "description": {
 	    "en_EN": "Make a new commit containing your current environment! Type in a description of what changed!",
-	    "it_IT": "Crea un nuovo commit contenente il tuo ambiente attuale! Scrivi nella descrizione di cosa hai cambiato"
+	    "it_IT": "Crea un commit contenente il tuo ambiente attuale! Scrivi una descrizione di cosa è cambiato!"
 	}
     },
     {
@@ -76,7 +76,7 @@
         "command": "git merge [commit, ref]",
         "description": {
 	    "en_EN": "Merge the specified timeline into yours. If necessary, will create a merge commit.",
-	    "it_IT": "Unisce la linea temporale specificata con la tua. Se necessario, creerà un commit di unione."
+	    "it_IT": "Unisce la linea temporale specificata con la tua. Se necessario, creerà un commit di merge."
 	}
     },
     {
@@ -92,15 +92,15 @@
         "command": "git rebase [commit]",
         "description": {
 	    "en_EN": "Put the events in your current timeline on top of the specified one.",
-	    "it_IT": "Mette l'evento nella tua, corrente, linea temporale sopra a quello specificato."
-	}
+	    "it_IT": "Mette gli eventi della tua linea temporale corrente sulla linea temporale specificata."
+    }
     },
     {
         "id": "pull",
         "command": "git pull",
         "description": {
 	    "en_EN": "Get someone else's version of the current timeline, and try to merge it into yours.",
-	    "it_IT": "Prende la versione corrente della line temporale di qualcun'altro e prova ad unirla alla tua."
+	    "it_IT": "Prende la versione di qualcun'altro della temporale corrente e prova ad unirla alla tua."
 	}
     },
     {
@@ -108,7 +108,7 @@
         "command": "git fetch [remote]",
         "description": {
 	    "en_EN": "Get a someone else's version of the current timeline.",
-	    "it_IT": "Prende la versione, corrente, della linea temporale di qualcun'altro"
+	    "it_IT": "Prende la versione di qualcun'altro della temporale corrente"
 	}
     },
     {
@@ -116,7 +116,7 @@
         "command": "git push",
         "description": {
 	    "en_EN": "Give the current timeline to someone else.",
-	    "it_IT": "Invia la corrente line temporale a qualcun'altro"
+	    "it_IT": "Invia la linea temporale corrente a qualcun'altro"
 	}
     },
     {
@@ -124,7 +124,7 @@
         "command": "git rebase -i [commit]",
         "description": {
 	    "en_EN": "Make changes to the events in your current timeline, back to the commit you drag this to.",
-	    "it_IT": "Apporta modifiche agli eventi nella tua timeline corrente, torna al commit su cui lo trascini "
+        "it_IT": "Cambia gli eventi della linea temporale fino al commit su cui hai trascinato questa scheda."
 	}
     },
     {
@@ -132,7 +132,7 @@
         "command": "git rebase --continue",
         "description": {
 	    "en_EN": "Continue the current rebasing process.",
-	    "it_IT": "Continua il corrente processo di ricostruzione"
+	    "it_IT": "Continua il processo di rebasing"
 	}
     },
     {
@@ -140,7 +140,7 @@
         "command": "git reset --hard [commit]",
         "description": {
 	    "en_EN": "Move the branch you're on to the specified commit.",
-	    "it_IT": "Muove il tuo branch (ramo) nello specifico commit."
+	    "it_IT": "Sposta il branch su cui ti trovi al commit specificato."
 	}
     },
     {
@@ -148,7 +148,7 @@
         "command": "git reset [commit]",
         "description": {
 	    "en_EN": "Jump to the commit, and update the index. Keep the current environment.",
-	    "it_IT": "Salta alcommit e aggiorna l'indice. Mette l'ambiente attuale."
+	    "it_IT": "Salta al commit e aggiorna l'indice. Mantieni l'ambiente attuale."
 	}
     },
     {
@@ -164,7 +164,7 @@
         "command": "git cherry-pick [commit]",
         "description": {
 	    "en_EN": "Repeat the specified action on top of your current timeline.",
-	    "it_IT": "Ripete l'azione specificata sulla corrente linea temporale"
+	    "it_IT": "Ripete l'azione specificata, in cima alla linea temporale corrente"
 	}
     },
     {
@@ -172,7 +172,7 @@
         "command": "git revert [commit]",
         "description": {
 	    "en_EN": "Make a new commit that reverts the changes of the speicified commit.",
-	    "it_IT": "Crea un nuovo commit che annula le modifiche dello specifico commit"
+	    "it_IT": "Crea un nuovo commit che annulla le modifiche del commit specificato."
 	}
     },
     {
@@ -188,7 +188,7 @@
         "command": "git bisect good",
         "description": {
 	    "en_EN": "State that the current commit is good! When you're automatically transferred, keep playing the `good` and `bad` cards!",
-	    "it_IT": "Dichiara che l'attuale commit è buono! Continua a giocare con le carte `buone` e `cattive`!"
+	    "it_IT": "Dichiara che l'attuale commit è buono! Continua a giocare con le carte `buono` e `cattivo`!"
 	}
     },
     {
@@ -204,7 +204,7 @@
         "command": "git add [file]",
         "description": {
 	    "en_EN": "Update the index version of the file to its current real content.",
-	    "it_IT": "Aggiorna l'indice del file con il, corrente, reale contenuto."
+        "it_IT": "Aggiorna la versione in indice del file con il contenuto attuale."
 	}
     },
     {
@@ -212,7 +212,7 @@
         "command": "git rm [file]",
         "description": {
 	    "en_EN": "Delete a file both in the working directory, as well as the index.",
-	    "it_IT": "Cancella il file sia dalla corrente directory che dall'indice."
+	    "it_IT": "Cancella un file sia dalla cartella di lavoro corrente che dall'indice."
 	}
     },
     {
@@ -220,7 +220,7 @@
         "command": "git commit",
         "description": {
 	    "en_EN": "Make a commit from the current index.",
-	    "it_IT": "Crea un commit dal corrente indice."
+	    "it_IT": "Crea un commit dall'indice corrente."
 	}
     },
     {
@@ -236,7 +236,7 @@
         "command": "git branch [string]",
         "description": {
 	    "en_EN": "Create a new branch at your current location.",
-	    "it_IT": "Crea un nuovo branch (ramo) nella tua corrente posizione."
+	    "it_IT": "Crea un nuovo branch alla posizione corrente."
 	}
     },
     {
@@ -244,7 +244,7 @@
         "command": "git branch -D [ref]",
         "description": {
 	    "en_EN": "Delete a branch.",
-	    "it_IT": "Cancella un branch.(ramo)"
+	    "it_IT": "Cancella un branch."
 	}
     },
     {
@@ -252,7 +252,7 @@
         "command": "git reflog [ref, head]",
         "description": {
 	    "en_EN": "Display a log of where the ref pointed to in the past.",
-	    "it_IT": "Mostra un log di dove il riferimento puntava in passato"
+	    "it_IT": "Mostra un log di dove il riferimento (ref) ha puntato in passato."
 	}
     },
     {
