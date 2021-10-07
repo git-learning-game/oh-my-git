@@ -77,7 +77,7 @@ git checkout --detach main
 [win]
 
 # Ordina le tre ramificazioni in una e muovi il riferimento al ramo principale
-{ git show main:you | grep "Mangi.*baguette"; } && { git show main:you | grep "Bevuto.*caffe"; } && { git show main:you | grep "Mangi.*ciambella"; } && { test "$(git log main --oneline | wc -l)" -eq 7; }
+{ git show main:you | grep "Mangi.*baguette"; } && { git show main:you | grep "bevuto.*caffe"; } && { git show main:you | grep "Mangi.*ciambella"; } && { test "$(git log main --oneline | wc -l)" -eq 7; }
 
 [congrats]
 

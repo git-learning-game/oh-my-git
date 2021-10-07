@@ -72,7 +72,7 @@ git branch -D main
 [win]
 
 # Crea una situazione dove consumi una baguette, un caffe e una ciambella.
-{ git show HEAD:you | grep "Mangi.*baguette"; } && { git show HEAD:you | grep "Bevi.*coffe"; } && { git show HEAD:you | grep "Mangi.*donut"; }
+{ git show HEAD:you | grep "Mangi.*baguette"; } && { git show HEAD:you | grep "Bevi.*caffe"; } && { git show HEAD:you | grep "Mangi.*ciambella"; }
 
 # Crea (e spostati su) un commit di unione.
 test "$(git log --pretty=%P -n 1 HEAD | wc -w)" -ge 2
