@@ -3,11 +3,11 @@ cards = reset commit-a
 
 [description]
 
-Oh no, abbiamo fatto un cattivo commit! Come possiamo annualre un commit e tornare al punto per poter riprovare?
+Oh no, abbiamo fatto un cattivo commit! Come possiamo annullare un commit e tornare ad un punto dove poter riprovare?
 
 La risposta è usare `git reset [commit]` che fa due cose:
 
-- Reimposta il riferimento del ramo corrente al commit che hai specificato.
+- Reimposta il riferimento (ref) del ramo corrente al commit che hai specificato.
 - Reimposta l'indice a quel commit.
 
 Non cambia la tua directory di lavoro in nessun modo, il che significa che dopo puoi provare a rifare il commit che desideri.

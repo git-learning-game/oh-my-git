@@ -5,8 +5,8 @@ cards = checkout commit-auto reset-hard rebase-interactive cherry-pick
 
 Oops, guarda c'è qualcosa di incasinato qui. Puoi rimettere gli eventi nel corretto ordine?
 
-Ci sono due modi per farlo: Puoi spostare la carta "interactive rebase" nel commit precedente a quello che vuoi cambiare, poi aprire e riordinare le linee nel file e salvarlo.
-Oppure puoi reimpostare il tag principale al primo commit, quindi selezionare i singoli commit nell'ordine desiderato. Hai carte per entrambe i modi!
+Ci sono due modi per farlo: Puoi trascinare la carta "interactive rebase" sul commit precedente a quello che vuoi cambiare, poi riordinare le linee nel file che si apre e salvarlo.
+Oppure puoi reimpostare il tag principale al primo commit, quindi selezionare i singoli commit (cherry-pick) nell'ordine desiderato. Hai carte per entrambe i modi!
 
 [setup]
 
@@ -69,9 +69,9 @@ git commit -am "Ti metti la maglia"
 
 [win]
 
-# Riordina i commits per vestirti nel modo corretto
+# Riordina i commit per vestirti nel modo corretto
 { git log main --oneline | perl -0777 -ne'exit(1) if not /scarpe[\s\S]*pantaloni[\s\S]*biancheria/'; } && { test "$(git log main --oneline | wc -l)" -eq 5; }
 
 [congrats]
 
-Sentiti libero di resettare il livello e provare l'altra strategia!Qual'è quella che preferisci?
+Sentiti libero di resettare il livello e provare l'altra strategia! Qual'è quella che preferisci?

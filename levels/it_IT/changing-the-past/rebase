@@ -3,9 +3,9 @@ cards = checkout commit-auto reset-hard rebase
 
 [description]
 
-Okay - Viene vuori che risparmiare tempo al mattino utilizzando universi paralleli è contro i regolamenti dell'International Time Travel Association. Dopotutto, dovrai svolgere i tuoi compiti in sequenza.
+Okay - Salta vuori che risparmiare tempo al mattino utilizzando universi paralleli è contro il regolamento dell'International Time Travel Association. Dovrai svolgere i tuoi compiti in sequenza dopotutto.
 
-Vedi la carta "rebase"? Quando la sposti su un commit, copierà gli eventi della tua corrente linea temporale dopo quello specificato! In questo modo crei una linea temporale chiara e pulita dove visiti tutti e tre i negozzi.
+Vedi la carta "rebase"? Quando la trascini su di un commit, copierà dopo di esso tutti gli eventi della linea temporale su cui ti trovi! In questo modo crei una linea temporale chiara e pulita dove visiti tutti e tre i negozzi.
 
 Nuovamente, vogliamo rendere questa la nostra realtà di base - il ramo "main" dovrebbe puntare a quella linea temporale!
 
