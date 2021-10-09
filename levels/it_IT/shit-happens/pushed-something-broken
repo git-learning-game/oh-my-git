@@ -1,9 +1,9 @@
-title = Ho rotto qualcosaI pushed something broken
+title = Ho fatto il push di qualcosa di rotto
 cards = revert push
 
 [description]
 
-Stavamo parlato di come annulare un commit e correggerlo. Questo ci aiuto solo quando non lo abbiamo già inviato al remoto. Quando succede questo e vuoi annullare completamente l'effetto del commit la tua migliore opzione è `git revert`
+Stavamo parlando di come annulare un commit e correggerlo. Questo ci aiuta solo quando non lo abbiamo già inviato al server remoto. Quando questo succede e vuoi annullare completamente l'effetto del commit la tua migliore opzione è `git revert`
 
 [setup]
 
@@ -15,7 +15,7 @@ echo "questo va bene
 
 ?" > text
 git add .
-git commit -m fine
+git commit -m bene
 echo "questo va bene
 
 anche questo va bene
@@ -23,7 +23,7 @@ anche questo va bene
 ?
 
 ?" > text
-git commit -am "anche bene"
+git commit -am "anche questo bene"
 echo "questo va bene
 
 anche questo va bene
@@ -48,7 +48,7 @@ git branch -u team/main main
 
 [win team]
 
-# Il ramo principale del Team non contiene più niente di sbagliato.
-! { git show main:text | grep -q "veramente sbaglaito"; }
+# Il ramo main del Team non contiene più niente di sbagliato.
+! { git show main:text | grep -q "veramente sbagliato"; }
 # e la cronologia non è stata modificata.
-git show main^:text | grep -q "veramente sbaglaito"
+git show main^:text | grep -q "veramente sbagliato"
