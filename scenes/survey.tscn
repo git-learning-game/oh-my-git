@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://styles/theme.tres" type="Theme" id=1]
 [ext_resource path="res://nodes/head.svg" type="Texture" id=2]
@@ -7,23 +7,19 @@
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
 [ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=6]
 [ext_resource path="res://styles/alert_button_hover.tres" type="StyleBox" id=7]
+[ext_resource path="res://images/blinry.png" type="Texture" id=8]
+[ext_resource path="res://images/bleeptrack.png" type="Texture" id=9]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="."]
 margin_left = 854.463
@@ -41,8 +37,8 @@ margin_left = 774.698
 margin_top = 297.059
 margin_right = 1115.7
 margin_bottom = 353.059
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "by bleeptrack & blinry"
 align = 1
 __meta__ = {
@@ -86,25 +82,38 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
 margin_right = 466.0
-margin_bottom = 93.0
-text = "Thank you very much for playing!
-Please help us improve Oh My Git! 
-by filling out this survey:"
+margin_bottom = 189.0
+text = "Thanks for playing!
+
+Oh My Git! is free and open-source! <3
+
+If this game was valuable to you, consider joining our supporters on Patreon:"
 align = 1
+autowrap = true
 
 [node name="Button" type="Button" parent="VBoxContainer2"]
-margin_top = 117.0
+margin_top = 213.0
 margin_right = 466.0
-margin_bottom = 156.0
+margin_bottom = 252.0
 focus_mode = 0
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 7 )
 custom_styles/focus = ExtResource( 7 )
 custom_styles/normal = ExtResource( 6 )
 enabled_focus_mode = 0
-text = "To the survey /o/"
+text = "Support us! (Open two browser tabs)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Bleeptrack" type="Sprite" parent="."]
+position = Vector2( 854.699, 736.706 )
+texture = ExtResource( 9 )
+
+[node name="Blinry" type="Sprite" parent="."]
+position = Vector2( 1053.08, 738.03 )
+scale = Vector2( 0.161431, 0.161431 )
+texture = ExtResource( 8 )
+
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="quit"]
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="on_survey_pressed"]
