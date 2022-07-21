@@ -34,7 +34,7 @@ jobs:
       - name: Clean up
         run: make clean-unzipped
       - name: Deploy Linux
-        uses: josephbmanley/butler-publish-itchio-action@v1.0.2
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: linux
@@ -43,7 +43,7 @@ jobs:
           PACKAGE: build/${{ env.PROJECT_NAME }}-linux.zip
           VERSION: ${{ steps.tag_name.outputs.TAG_NAME }}
       - name: Deploy macOS
-        uses: josephbmanley/butler-publish-itchio-action@v1.0.2
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: osx
@@ -52,7 +52,7 @@ jobs:
           PACKAGE: build/${{ env.PROJECT_NAME }}-macos.zip
           VERSION: ${{ steps.tag_name.outputs.TAG_NAME }}
       - name: Deploy Windows
-        uses: josephbmanley/butler-publish-itchio-action@v1.0.2
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: windows
