@@ -40,7 +40,7 @@ func uncheck_all_item():
 
 
 # Create popup items width allowed locales
-func make_popup_item():
+func make_popup_items():
 	for i in game.langs.keys():
 		popup.get_popup().add_radio_check_item(game.langs[i], i)
 	
