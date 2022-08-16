@@ -8,7 +8,7 @@ func _ready():
 		game.skipped_title = true
 		get_tree().change_scene("res://scenes/level_select.tscn")
 	
-	make_popup_item()
+	make_popup_items()
 
 func quit():
 	get_tree().quit()
