@@ -89,7 +89,7 @@ func set_label(new_label):
 			$Rows/RepoVis/SeparatorLine/DropArea.queue_free()
 			$Rows/RepoVis/SeparatorLine.hide()
 		else:
-			game.notify("INTERACT", self, "remote")
+			game.notify(tr("INTERACT"), self, "remote")
 		label_node.text = new_label
 
 func random_position():
