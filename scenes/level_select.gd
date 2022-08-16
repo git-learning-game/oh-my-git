@@ -57,7 +57,7 @@ func reload():
 			level_list.add_child(hb)
 			
 			if badge.active:
-				game.notify("GOLDEN_BADGE", badge, "cli-badge")
+				game.notify(tr("GOLDEN_BADGE"), badge, "cli-badge")
 			level_id += 1
 			
 		chapter_id += 1
