@@ -92,7 +92,7 @@ Example:
 Example:
 
 keys,en,it,es
-LEVELS,Livels,Livelli,niveles
+LEVELS,Levels,Livelli,niveles
 QUIT,Quit,Esci,Salir
 BACK,Back,Indietro,Espalda
 
