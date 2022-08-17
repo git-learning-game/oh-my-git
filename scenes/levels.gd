@@ -3,14 +3,14 @@ extends Node
 var chapters
 
 func _ready():
-	var lang = game.lang
+	var lang = game.os_lang
 	reload()
 	
 func reload():
 	chapters = []
 	
 	var dir = Directory.new()
-	dir.open("res://levels/" + game.lang)
+	dir.open("res://levels/" + game.os_lang)
 	dir.list_dir_begin()
 
 	var chapter_names = []
@@ -27,7 +27,7 @@ func reload():
 	
 	var final_chapter_sequence = []
 	
-	var chapter_sequence = Array(helpers.read_file("res://levels/" + game.lang + "/sequence", "").split("\n"))
+	var chapter_sequence = Array(helpers.read_file("res://levels/" + game.os_lang + "/sequence", "").split("\n"))
 	
 	for chapter in chapter_sequence:
 		if chapter == "":
@@ -41,5 +41,5 @@ func reload():
 	
 	for c in final_chapter_sequence:
 		var chapter = Chapter.new()
-		chapter.load("res://levels/" + game.lang + "/%s" % c)
+		chapter.load("res://levels/" + game.os_lang + "/%s" % c)
 		chapters.push_back(chapter)

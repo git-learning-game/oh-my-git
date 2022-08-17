@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://styles/theme.tres" type="Theme" id=1]
 [ext_resource path="res://images/oh-my-git.png" type="Texture" id=2]
 [ext_resource path="res://scenes/title.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Language.gd" type="Script" id=4]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
 
 [node name="Title" type="Control"]
@@ -19,8 +20,8 @@ margin_left = 790.778
 margin_top = 594.135
 margin_right = 1131.78
 margin_bottom = 650.135
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "by bleeptrack & blinry"
 align = 1
 __meta__ = {
@@ -32,8 +33,8 @@ margin_left = 709.713
 margin_top = 621.416
 margin_right = 1209.71
 margin_bottom = 677.416
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "Original score by winniehell"
 align = 1
 __meta__ = {
@@ -72,6 +73,7 @@ margin_right = 351.0
 margin_bottom = 171.0
 text = "LANGUAGE"
 flat = false
+script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 

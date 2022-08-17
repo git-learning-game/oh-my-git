@@ -1,7 +1,7 @@
 extends Node
 
-var langs = {0: "en_EN", 1: "it_IT"} # Localizations allowed
-var lang = OS.get_locale() # Variable for game localization
+var languages = {"en": tr("ENGLISH"), "it": tr("ITALIAN")} # Localizations allowed
+var os_lang = OS.get_locale_language() # Variable for game localization
 
 var tmp_prefix = OS.get_user_data_dir() + "/tmp/"
 var global_shell
@@ -21,10 +21,10 @@ var state = {}
 var mutex
 
 func _ready():
-	# Check if present localization language
-	if not langs.values().has(lang):
-		lang = langs[0]
-		
+	# Check if language traslation exist otherwise use the default language
+	if not languages.keys().has(os_lang):
+		os_lang = "en"
+	
 	mutex = Mutex.new()
 	load_state()
 	
