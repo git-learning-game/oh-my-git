@@ -21,6 +21,7 @@ func load(path):
 		var config = helpers.parse(path)
 		
 		title = config.get("title", slug)
+		print(tr(title))
 		description = config.get("description", "(no description)")
 		
 		# Surround all lines indented with four spaces with [code] tags.
@@ -42,7 +43,7 @@ func load(path):
 		if cli_hints != "":
 			description[0] = description[0] + "\n\n[color=#787878]"+cli_hints+"[/color]"
 		
-		congrats = config.get("congrats", "GOOD_JOB")
+		congrats = config.get("congrats", tr("Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'."))
 		cards = Array(config.get("cards", "").split(" "))
 		if cards == [""]:
 			cards = []

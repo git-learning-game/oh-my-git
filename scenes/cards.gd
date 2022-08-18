@@ -40,7 +40,7 @@ func draw_card(card):
 	new_card.id = card["id"]
 	new_card.command = card["command"]
 	# TODO: Make better game.os_lang + "_" + game.os_lang.to_upper()
-	new_card.description = card["description"][game.os_lang + "_" + game.os_lang.to_upper()]
+	new_card.description = tr(card["description"])
 	new_card.energy = 0 #card.energy
 	new_card.position = Vector2(rect_size.x, rect_size.y*2)
 	add_child(new_card)
