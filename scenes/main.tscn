@@ -36,9 +36,6 @@ margin_bottom = -8.0
 mouse_filter = 2
 theme = ExtResource( 6 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -122,9 +119,6 @@ size_flags_vertical = 3
 bbcode_enabled = true
 bbcode_text = "Level description here!"
 text = "Level description here!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LevelCongrats" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
 visible = false
@@ -189,9 +183,9 @@ position = Vector2( 68.6342, 59.1206 )
 script = ExtResource( 9 )
 
 [node name="Area2D" type="Area2D" parent="Cursor"]
-input_pickable = false
 collision_layer = 524288
 collision_mask = 0
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D"]
 shape = SubResource( 1 )
@@ -202,27 +196,24 @@ margin_top = 5.13129
 margin_right = 636.864
 margin_bottom = 44.1313
 custom_constants/separation = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Back" type="Button" parent="Menu"]
-margin_right = 75.0
+margin_right = 65.0
 margin_bottom = 39.0
 focus_mode = 0
 enabled_focus_mode = 0
-text = "BACK"
+text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Reload" type="Button" parent="Menu"]
-margin_left = 83.0
-margin_right = 191.0
+margin_left = 73.0
+margin_right = 161.0
 margin_bottom = 39.0
 focus_mode = 0
 enabled_focus_mode = 0
-text = "RELOAD"
+text = "Reload"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -252,27 +243,28 @@ __meta__ = {
 }
 
 [node name="Toogle_Music" parent="Menu" instance=ExtResource( 11 )]
-margin_left = 199.0
+margin_left = 169.0
 margin_top = 0.0
-margin_right = 288.0
+margin_right = 315.0
 margin_bottom = 39.0
+text = "Toggle music"
 
 [node name="CLIBadge" parent="Menu" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 296.0
-margin_right = 341.0
+margin_left = 323.0
+margin_right = 368.0
 margin_bottom = 39.0
 
 [node name="NextLevelButton" type="Button" parent="Menu"]
-margin_left = 349.0
-margin_right = 501.0
+margin_left = 376.0
+margin_right = 493.0
 margin_bottom = 39.0
 focus_mode = 0
 custom_styles/hover = SubResource( 2 )
 custom_styles/normal = ExtResource( 4 )
 enabled_focus_mode = 0
-text = "NEXT_LEVEL"
+text = "Next level"
 __meta__ = {
 "_edit_use_anchors_": false
 }

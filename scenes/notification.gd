@@ -2,16 +2,16 @@ extends Node2D
 
 var text setget _set_text
 var button_texts = [
-	tr("GOT_IT"),
-	tr("INTERESTING"),
-	tr("VERY_USEFULL"),
-	tr("COOL"),
-	tr("NICE"),
-	tr("THANKS"),
-	tr("WHATEVER"),
-	tr("OKAY"),
-	tr("YAY"),
-	tr("AWESOME") ]
+	tr("Got it!"),
+	tr("Interesting!"),
+	tr("Very useful!"),
+	tr("Cool!"),
+	tr("Nice!"),
+	tr("Thanks!"),
+	tr("Whatever..."),
+	tr("Okay!"),
+	tr("Yay!"),
+	tr("Awesome!") ]
 
 func _ready():
 	button_texts.shuffle()

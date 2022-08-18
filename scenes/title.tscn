@@ -11,9 +11,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label2" type="Label" parent="."]
 margin_left = 790.778
@@ -24,9 +21,6 @@ custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
 custom_fonts/font = ExtResource( 5 )
 text = "by bleeptrack & blinry"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label3" type="Label" parent="."]
 margin_left = 709.713
@@ -53,7 +47,7 @@ __meta__ = {
 [node name="Button" type="Button" parent="VBoxContainer"]
 margin_right = 351.0
 margin_bottom = 39.0
-text = "LEVELS"
+text = "Levels"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 margin_top = 44.0
@@ -65,13 +59,13 @@ text = "Sandbox"
 margin_top = 88.0
 margin_right = 351.0
 margin_bottom = 127.0
-text = "QUIT"
+text = "Quit"
 
 [node name="Language" type="MenuButton" parent="VBoxContainer"]
 margin_top = 132.0
 margin_right = 351.0
 margin_bottom = 171.0
-text = "LANGUAGE"
+text = "Language"
 flat = false
 script = ExtResource( 4 )
 

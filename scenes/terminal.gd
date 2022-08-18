@@ -104,7 +104,7 @@ func command_done(cmd):
 	
 	if cmd.output.length() <= 1000:
 		output.text = output.text + "$ " + cmd.command + "\n" + cmd.output
-		game.notify(tr("YOUR_TERMINAL"), self, "terminal")
+		game.notify(tr("This is your terminal! All commands are executed here, and you can see their output. You can also type your own commands here!"), self, "terminal")
 	else:
 		$Pager/Text.text = cmd.output
 		$Pager.popup()

@@ -13,9 +13,6 @@ margin_bottom = -0.0800018
 rect_min_size = Vector2( 140, 140 )
 mouse_filter = 1
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Control" type="Control" parent="."]
 anchor_left = 0.5

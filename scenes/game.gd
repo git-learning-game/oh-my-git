@@ -1,6 +1,6 @@
 extends Node
 
-var languages = {"en": tr("ENGLISH"), "it": tr("ITALIAN")} # Localizations allowed
+var languages = {"en": tr("English"), "it": tr("Italian")} # Localizations allowed
 var os_lang = OS.get_locale_language() # Variable for game localization
 
 var tmp_prefix = OS.get_user_data_dir() + "/tmp/"

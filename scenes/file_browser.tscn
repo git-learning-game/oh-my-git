@@ -4,17 +4,12 @@
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=3]
 
-[node name="FileBrowser" type="Control" groups=[
-"editors",
-]]
+[node name="FileBrowser" type="Control" groups=["editors"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 0, 142 )
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
@@ -53,19 +48,19 @@ align = 1
 
 [node name="Breadcrumbs" type="HBoxContainer" parent="Panel/Margin/Rows"]
 visible = false
-margin_right = 1856.0
+margin_right = 1904.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
 custom_constants/separation = 8
 
 [node name="Button" type="Button" parent="Panel/Margin/Rows/Breadcrumbs"]
-margin_right = 55.0
+margin_right = 61.0
 margin_bottom = 50.0
 text = "root"
 
 [node name="Button2" type="Button" parent="Panel/Margin/Rows/Breadcrumbs"]
-margin_left = 63.0
-margin_right = 104.0
+margin_left = 69.0
+margin_right = 114.0
 margin_bottom = 50.0
 text = "dir"
 

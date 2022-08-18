@@ -39,7 +39,8 @@ func draw_card(card):
 	
 	new_card.id = card["id"]
 	new_card.command = card["command"]
-	new_card.description = card["description"][game.lang]
+	# TODO: Make better game.os_lang + "_" + game.os_lang.to_upper()
+	new_card.description = card["description"][game.os_lang + "_" + game.os_lang.to_upper()]
 	new_card.energy = 0 #card.energy
 	new_card.position = Vector2(rect_size.x, rect_size.y*2)
 	add_child(new_card)
@@ -55,7 +56,7 @@ func draw(ids):
 	arrange_cards()
 	
 	if ids.size() > 0:
-		game.notify(tr("YOUR_CARDS"), self, "cards")
+		game.notify(tr("These are your cards! Drag them to highlighted areas to play them!"), self, "cards")
 	
 func arrange_cards():
 	var t = Timer.new()

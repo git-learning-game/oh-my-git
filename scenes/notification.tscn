@@ -22,9 +22,6 @@ margin_right = 492.0
 margin_bottom = 170.0
 theme = ExtResource( 2 )
 custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="Panel"]
 anchor_right = 1.0
@@ -36,9 +33,6 @@ margin_bottom = -15.0
 custom_fonts/font = ExtResource( 1 )
 text = "This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint!"
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel"]
 anchor_top = 1.0
