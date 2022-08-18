@@ -20,9 +20,9 @@ func load(path):
 		# This is a new-style level.
 		var config = helpers.parse(path)
 		
-		title = config.get("title", slug)
-		print(tr(title))
+		title = tr(config.get("title", slug))
 		description = config.get("description", "(no description)")
+		description = tr(description.replace("\"", "\'"))
 		
 		# Surround all lines indented with four spaces with [code] tags.
 		var monospace_regex = RegEx.new()
@@ -31,8 +31,10 @@ func load(path):
 		description = description.split("---")
 		
 		var cli_hints = config.get("cli", "")
+		cli_hints = tr(cli_hints.replace("\"", "\'"))
 		# Also do this substitution in the CLI hints.
 		cli_hints = monospace_regex.sub(cli_hints, "\n      [code][color=#bbbb5d]$1[/color][/code]", true)
+		
 		
 		# Also replace `code` with [code] tags.
 		var monospace_inline_regex = RegEx.new()
@@ -43,7 +45,9 @@ func load(path):
 		if cli_hints != "":
 			description[0] = description[0] + "\n\n[color=#787878]"+cli_hints+"[/color]"
 		
-		congrats = config.get("congrats", tr("Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'."))
+		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
+		congrats = congrats.replace("\"", "\'")
+		congrats = tr(congrats)
 		cards = Array(config.get("cards", "").split(" "))
 		if cards == [""]:
 			cards = []

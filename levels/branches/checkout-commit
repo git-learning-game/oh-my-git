@@ -3,7 +3,7 @@ cards = checkout commit-auto
 
 [description]
 
-The yellow boxes are frozen points in time, we call them "commits"! You can travel between them using the "checkout" card! (Try it!)
+The yellow boxes are frozen points in time, we call them 'commits'! You can travel between them using the "checkout" card! (Try it!)
 
 Can you find out what happened here? Then, while on the last commit, edit the files to fix the problem, and make a new commit!
 
