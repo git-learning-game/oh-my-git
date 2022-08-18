@@ -399,3 +399,435 @@ msgid "Nice! You tagged your first commit :)"
 msgstr "PIPPO"
 msgid "Well done :)"
 msgstr "PIPPO"
+
+#: Command
+--- Debugging process started ---
+Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
+OpenGL ES 3.0 Renderer: Mesa Intel(R) UHD Graphics 620 (KBL GT2)
+Async. shader compilation: OFF
+ 
+msgid "Add another line to form.txt!"
+msgstr "PIPPO"
+
+msgid "Add another line to form2_really_final.txt!"
+msgstr "PIPPO"
+
+msgid "Initialize the time machine!"
+msgstr "PIPPO"
+
+msgid "Initialize the time machine!"
+msgstr "PIPPO"
+
+msgid "Make a snapshot of the glass (a "commit")"
+msgstr "PIPPO"
+
+msgid "Change the contents of the glass!"
+msgstr "PIPPO"
+
+msgid "And make a second commit!"
+msgstr "PIPPO"
+
+msgid "Get the second commit from your teacher using `git pull`."
+msgstr "PIPPO"
+
+msgid "Add your name to the list of students"
+msgstr "PIPPO"
+
+msgid "Commit your result."
+msgstr "PIPPO"
+
+msgid "And use `git push` to send it to your teacher!"
+msgstr "PIPPO"
+
+msgid "Remove all spider webs."
+msgstr "PIPPO"
+
+msgid "But make sure you keep your bed!"
+msgstr "PIPPO"
+
+msgid "Add two more pieces of furniture"
+msgstr "PIPPO"
+
+msgid "Make sure the colors match your bed's color."
+msgstr "PIPPO"
+
+msgid "Restore sisterly peace."
+msgstr "PIPPO"
+
+msgid "Make sure that the child is happy."
+msgstr "PIPPO"
+
+msgid "Make sure that the lion gets something to eat."
+msgstr "PIPPO"
+
+msgid "Create a branch called 'birthday' that points to the birthday timeline."
+msgstr "PIPPO"
+
+msgid "Create a branch called 'concert' that points to the concert timeline."
+msgstr "PIPPO"
+
+msgid "Travel directly to the last yellow commit of the birthday timeline, make a change to 'you', and make a commit"
+msgstr "PIPPO"
+
+msgid "Travel to the blue 'concert' branch, make a change to 'you', and a commit."
+msgstr "PIPPO"
+
+msgid "Find the bad branches and delete them. Keep only the best one."
+msgstr "PIPPO"
+
+msgid "Did you eat a baguette on the baguette branch?"
+msgstr "PIPPO"
+
+msgid "Did you drink a coffee on the coffee branch?"
+msgstr "PIPPO"
+
+msgid "Did you eat a donut on the donut branch?"
+msgstr "PIPPO"
+
+msgid "Build a situation where you consumed a baguette, a coffee, *and* a donut."
+msgstr "PIPPO"
+
+msgid "Be on a merge commit."
+msgstr "PIPPO"
+
+msgid "Make a breakfast compromise in the 'main' branch."
+msgstr "PIPPO"
+
+msgid "Pick the timeline that's clearer, and make the alarm go off!"
+msgstr "PIPPO"
+
+msgid "Add the candle."
+msgstr "PIPPO"
+
+msgid "Make a commit."
+msgstr "PIPPO"
+
+msgid "Make a change to the candle."
+msgstr "PIPPO"
+
+msgid "Add the candle."
+msgstr "PIPPO"
+
+msgid "Make a commit."
+msgstr "PIPPO"
+
+msgid "Reset the changes in the green and blue candles!"
+msgstr "PIPPO"
+
+msgid "And make a commit!"
+msgstr "PIPPO"
+
+msgid "Make changes to all three objects, to form a logical sequence of events!"
+msgstr "PIPPO"
+
+msgid "Only add one of these changes!"
+msgstr "PIPPO"
+
+msgid "And make a commit."
+msgstr "PIPPO"
+
+msgid "Make a second commit that only records a single change."
+msgstr "PIPPO"
+
+msgid "And a third one."
+msgstr "PIPPO"
+
+msgid "Got the second line from your friend"
+msgstr "PIPPO"
+
+msgid "Got the fourth line from your friend."
+msgstr "PIPPO"
+
+msgid "The friend got a third line from you"
+msgstr "PIPPO"
+
+msgid "The friend got a fifth line from you"
+msgstr "PIPPO"
+
+msgid "Commit your local changes."
+msgstr "PIPPO"
+
+msgid "Look at your friend's suggestion, make a compromise, and push it back."
+msgstr "PIPPO"
+
+msgid "Order all tree branches into one and move the main branch ref"
+msgstr "PIPPO"
+
+msgid "Reorder the commits to dress yourself in the correct way"
+msgstr "PIPPO"
+
+msgid "Restore the essay to contain "important content""
+msgstr "PIPPO"
+
+msgid "Get the first version of your essay, and make a new commit with it."
+msgstr "PIPPO"
+
+msgid "In the last main commit, the numbers file contains the numbers from 1 to 10."
+msgstr "PIPPO"
+
+msgid "The commit message of that commit is "More numbers"."
+msgstr "PIPPO"
+
+msgid "The commit with the typo is not part of the main branch anymore."
+msgstr "PIPPO"
+
+msgid "The team's main branch no longer contains the bad thing."
+msgstr "PIPPO"
+
+msgid "And the history has not been modified."
+msgstr "PIPPO"
+
+msgid "Find out where you've been before, and go back there!"
+msgstr "PIPPO"
+
+msgid "Find the last good commit"
+msgstr "PIPPO"
+
+msgid "Did you stash the current changes?"
+msgstr "PIPPO"
+
+msgid "Did you pop the changes from the stash stack?"
+msgstr "PIPPO"
+
+msgid "Did you clear your stash stack?"
+msgstr "PIPPO"
+
+msgid "Did you create a new branch from the stashed changes?"
+msgstr "PIPPO"
+
+msgid "Did you resolve the confict and commit?"
+msgstr "PIPPO"
+
+msgid "Did you clear stash stack?"
+msgstr "PIPPO"
+
+msgid "Did you create a new tag?"
+msgstr "PIPPO"
+
+msgid "Did you remove all tags?"
+msgstr "PIPPO"
+
+msgid "Did you create a new tag?"
+msgstr "PIPPO"
+
+msgid "v1 tag in your repo"
+msgstr "PIPPO"
+
+msgid "v2 tag in your repo"
+msgstr "PIPPO"
+
+msgid "v2 tag in the remote"
+msgstr "PIPPO"
+
+msgid "Add another line to form.txt!"
+msgstr "PIPPO"
+
+msgid "Add another line to form2_really_final.txt!"
+msgstr "PIPPO"
+
+msgid "Initialize the time machine!"
+msgstr "PIPPO"
+
+msgid "Initialize the time machine!"
+msgstr "PIPPO"
+
+msgid "Make a snapshot of the glass (a "commit")"
+msgstr "PIPPO"
+
+msgid "Change the contents of the glass!"
+msgstr "PIPPO"
+
+msgid "And make a second commit!"
+msgstr "PIPPO"
+
+msgid "Get the second commit from your teacher using `git pull`."
+msgstr "PIPPO"
+
+msgid "Add your name to the list of students"
+msgstr "PIPPO"
+
+msgid "Commit your result."
+msgstr "PIPPO"
+
+msgid "And use `git push` to send it to your teacher!"
+msgstr "PIPPO"
+
+msgid "Remove all spider webs."
+msgstr "PIPPO"
+
+msgid "But make sure you keep your bed!"
+msgstr "PIPPO"
+
+msgid "Add two more pieces of furniture"
+msgstr "PIPPO"
+
+msgid "Make sure the colors match your bed's color."
+msgstr "PIPPO"
+
+msgid "Restore sisterly peace."
+msgstr "PIPPO"
+
+msgid "Make sure that the child is happy."
+msgstr "PIPPO"
+
+msgid "Make sure that the lion gets something to eat."
+msgstr "PIPPO"
+
+msgid "Create a branch called 'birthday' that points to the birthday timeline."
+msgstr "PIPPO"
+
+msgid "Create a branch called 'concert' that points to the concert timeline."
+msgstr "PIPPO"
+
+msgid "Travel directly to the last yellow commit of the birthday timeline, make a change to 'you', and make a commit"
+msgstr "PIPPO"
+
+msgid "Travel to the blue 'concert' branch, make a change to 'you', and a commit."
+msgstr "PIPPO"
+
+msgid "Find the bad branches and delete them. Keep only the best one."
+msgstr "PIPPO"
+
+msgid "Did you eat a baguette on the baguette branch?"
+msgstr "PIPPO"
+
+msgid "Did you drink a coffee on the coffee branch?"
+msgstr "PIPPO"
+
+msgid "Did you eat a donut on the donut branch?"
+msgstr "PIPPO"
+
+msgid "Build a situation where you consumed a baguette, a coffee, *and* a donut."
+msgstr "PIPPO"
+
+msgid "Be on a merge commit."
+msgstr "PIPPO"
+
+msgid "Make a breakfast compromise in the 'main' branch."
+msgstr "PIPPO"
+
+msgid "Pick the timeline that's clearer, and make the alarm go off!"
+msgstr "PIPPO"
+
+msgid "Add the candle."
+msgstr "PIPPO"
+
+msgid "Make a commit."
+msgstr "PIPPO"
+
+msgid "Make a change to the candle."
+msgstr "PIPPO"
+
+msgid "Add the candle."
+msgstr "PIPPO"
+
+msgid "Make a commit."
+msgstr "PIPPO"
+
+msgid "Reset the changes in the green and blue candles!"
+msgstr "PIPPO"
+
+msgid "And make a commit!"
+msgstr "PIPPO"
+
+msgid "Make changes to all three objects, to form a logical sequence of events!"
+msgstr "PIPPO"
+
+msgid "Only add one of these changes!"
+msgstr "PIPPO"
+
+msgid "And make a commit."
+msgstr "PIPPO"
+
+msgid "Make a second commit that only records a single change."
+msgstr "PIPPO"
+
+msgid "And a third one."
+msgstr "PIPPO"
+
+msgid "Got the second line from your friend"
+msgstr "PIPPO"
+
+msgid "Got the fourth line from your friend."
+msgstr "PIPPO"
+
+msgid "The friend got a third line from you"
+msgstr "PIPPO"
+
+msgid "The friend got a fifth line from you"
+msgstr "PIPPO"
+
+msgid "Commit your local changes."
+msgstr "PIPPO"
+
+msgid "Look at your friend's suggestion, make a compromise, and push it back."
+msgstr "PIPPO"
+
+msgid "Order all tree branches into one and move the main branch ref"
+msgstr "PIPPO"
+
+msgid "Reorder the commits to dress yourself in the correct way"
+msgstr "PIPPO"
+
+msgid "Restore the essay to contain "important content""
+msgstr "PIPPO"
+
+msgid "Get the first version of your essay, and make a new commit with it."
+msgstr "PIPPO"
+
+msgid "In the last main commit, the numbers file contains the numbers from 1 to 10."
+msgstr "PIPPO"
+
+msgid "The commit message of that commit is "More numbers"."
+msgstr "PIPPO"
+
+msgid "The commit with the typo is not part of the main branch anymore."
+msgstr "PIPPO"
+
+msgid "The team's main branch no longer contains the bad thing."
+msgstr "PIPPO"
+
+msgid "And the history has not been modified."
+msgstr "PIPPO"
+
+msgid "Find out where you've been before, and go back there!"
+msgstr "PIPPO"
+
+msgid "Find the last good commit"
+msgstr "PIPPO"
+
+msgid "Did you stash the current changes?"
+msgstr "PIPPO"
+
+msgid "Did you pop the changes from the stash stack?"
+msgstr "PIPPO"
+
+msgid "Did you clear your stash stack?"
+msgstr "PIPPO"
+
+msgid "Did you create a new branch from the stashed changes?"
+msgstr "PIPPO"
+
+msgid "Did you resolve the confict and commit?"
+msgstr "PIPPO"
+
+msgid "Did you clear stash stack?"
+msgstr "PIPPO"
+
+msgid "Did you create a new tag?"
+msgstr "PIPPO"
+
+msgid "Did you remove all tags?"
+msgstr "PIPPO"
+
+msgid "Did you create a new tag?"
+msgstr "PIPPO"
+
+msgid "v1 tag in your repo"
+msgstr "PIPPO"
+
+msgid "v2 tag in your repo"
+msgstr "PIPPO"
+
+msgid "v2 tag in the remote"
+msgstr "PIPPO"

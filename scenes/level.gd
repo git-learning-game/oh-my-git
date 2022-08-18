@@ -87,6 +87,7 @@ func load(path):
 			for line in Array(config[k].split("\n")):
 				if line.length() > 0 and line[0] == "#":
 					desc = line.substr(1).strip_edges(true, true)
+					print("msgid \"", desc, "\"\nmsgstr \"PIPPO\"\n")
 				else:
 					if not repos[repo].win_conditions.has(desc):
 						repos[repo].win_conditions[desc] = ""
