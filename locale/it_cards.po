@@ -8,28 +8,34 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-08-18 10:39+0200\n"
-"PO-Revision-Date: 2022-08-18 10:39+0200\n"
+"PO-Revision-Date: 2022-08-19 14:48+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.10.3\n"
+"X-Generator: Poedit 3.1\n"
 
-#: CARDS DESCRIPTION
-#: oh-my-git/resources/cards.json:6
+#: CARDS DESCRIPTION oh-my-git/resources/cards.json:6
 msgid "Drag this card into the empty space above to initialize the time machine!"
-msgstr "Trascina questa carta nell'area vuota sopra per inizializzare la macchina del tempo"
+msgstr "Trascina questa carta nell'area vuota sopra per inizializzare la macchina del tempo!"
 
 #: oh-my-git/resources/cards.json:14
 msgid "Create your own copy of someone else's repo."
 msgstr "Crea la tua copia personale del Repo di qualcun'altro."
 
 #: oh-my-git/resources/cards.json:22
-msgid "Set your name.\n\n(Will not change anything outside of this game.)"
-msgstr "Imposta il tuo nome.\n\n(Non cambierà nulla all'infuori del gioco.)"
+msgid ""
+"Set your name.\n"
+"\n"
+"(Will not change anything outside of this game.)"
+msgstr ""
+"Imposta il tuo nome.\n"
+"\n"
+"(Non cambierà nulla all'infuori del gioco.)"
 
 #: oh-my-git/resources/cards.json:30
 msgid "Set your email address."
@@ -37,19 +43,23 @@ msgstr "Imposta la tua e-mail."
 
 #: oh-my-git/resources/cards.json:38
 msgid "Drag this card to a commit or to a branch to travel to it!"
-msgstr "Trascina questa carta su un commit o su un branch per spostarti su di esso."
+msgstr "Trascina questa carta su un commit o su un branch per spostarti su di esso.!"
 
 #: oh-my-git/resources/cards.json:46
 msgid "Reset changes in a local file."
-msgstr "Resetta i cambiamenti in un file locale"
+msgstr "Resetta i cambiamenti in un file locale."
 
 #: oh-my-git/resources/cards.json:54
 msgid "Get the file contents from the specified commits, and reset both the working directory, as well as the index, to it."
 msgstr "Ottieni il contenuto dei file dai commit specificati e resetta sia la directory di lavoro sia l'indice."
 
 #: oh-my-git/resources/cards.json:62
-msgid "Make a new commit, after automatically adding all changes to the index.\nYou'll be asked to enter a short description of what you changed."
-msgstr "Crea un nuovo commit, dopo aver aggiunto automaticamente tutti i cambiamenti all'indice.\nDovrai inserire una breve descrizione di cosa hai cambiato."
+msgid ""
+"Make a new commit, after automatically adding all changes to the index.\n"
+"You'll be asked to enter a short description of what you changed."
+msgstr ""
+"Crea un nuovo commit, dopo aver aggiunto automaticamente tutti i cambiamenti all'indice.\n"
+"Dovrai inserire una breve descrizione di cosa hai cambiato."
 
 #: oh-my-git/resources/cards.json:70
 msgid "Make a new commit containing your current environment! Type in a description of what changed!"
@@ -73,11 +83,11 @@ msgstr "Prende la versione di qualcun'altro della temporale corrente e prova ad 
 
 #: oh-my-git/resources/cards.json:110
 msgid "Get a someone else's version of the current timeline."
-msgstr "Prende la versione di qualcun'altro della temporale corrente"
+msgstr "Prende la versione di qualcun'altro della temporale corrente."
 
 #: oh-my-git/resources/cards.json:118
 msgid "Give the current timeline to someone else."
-msgstr "Invia la linea temporale corrente a qualcun'altro"
+msgstr "Invia la linea temporale corrente a qualcun'altro."
 
 #: oh-my-git/resources/cards.json:126
 msgid "Make changes to the events in your current timeline, back to the commit you drag this to."
@@ -85,7 +95,7 @@ msgstr "Cambia gli eventi della linea temporale fino al commit su cui hai trasci
 
 #: oh-my-git/resources/cards.json:134
 msgid "Continue the current rebasing process."
-msgstr "Continua il processo di rebasing"
+msgstr "Continua il processo di rebasing."
 
 #: oh-my-git/resources/cards.json:142
 msgid "Move the branch you're on to the specified commit."
@@ -97,11 +107,11 @@ msgstr "Salta al commit e aggiorna l'indice. Mantieni l'ambiente attuale."
 
 #: oh-my-git/resources/cards.json:158
 msgid "Reset the index version of a file to the version in the commit you're on."
-msgstr "Resetta la versione dell'indice di un file alla versione del commit in cui sei"
+msgstr "Resetta la versione dell'indice di un file alla versione del commit in cui sei."
 
 #: oh-my-git/resources/cards.json:166
 msgid "Repeat the specified action on top of your current timeline."
-msgstr "Ripete l'azione specificata, in cima alla linea temporale corrente"
+msgstr "Ripete l'azione specificata, in cima alla linea temporale corrente."
 
 #: oh-my-git/resources/cards.json:174
 msgid "Make a new commit that reverts the changes of the speicified commit."
@@ -109,7 +119,7 @@ msgstr "Crea un nuovo commit che annulla le modifiche del commit specificato."
 
 #: oh-my-git/resources/cards.json:182
 msgid "Start looking for the commit where things got bad."
-msgstr "Inizia a cercare il commit dove le cose sono andate storte"
+msgstr "Inizia a cercare il commit dove le cose sono andate storte."
 
 #: oh-my-git/resources/cards.json:190
 msgid "State that the current commit is good! When you're automatically transferred, keep playing the `good` and `bad` cards!"

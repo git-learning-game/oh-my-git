@@ -8,826 +8,1096 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-08-18 10:39+0200\n"
-"PO-Revision-Date: 2022-08-18 10:39+0200\n"
+"PO-Revision-Date: 2022-08-19 16:33+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
-"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.10.3\n"
+"X-Generator: Poedit 3.1\n"
 
 #: TITLE
-#: oh-my-git/levels/
-msgid "Friend"
-msgstr "Amici"
-
-msgid "friend"
-msgstr "amici"
-
-
-#: DESCRIPTION
-msgid "So you have decided to apply for time travel school, to learn how to use this time machine called 'Git'!\n\nHow exciting!\n\nYou're almost done with the paperwork! You just need to fill in one more reason why you want to learn Git."
-msgstr "PIPPO"
-
-msgid "This time, you're making a lot of backup copies - you can look at them by clicking on them!"
-msgstr "PIPPO"
-
-msgid "You've been accepted to time travel school! Yay! It's your first day! Your teacher explains:\n\n'To do anything with a time machine, you first need to initialize it!'\n\nDrag that blue card up to play it!"
-msgstr "PIPPO"
-
-msgid "These playing cards are designed to be easy to use and to remember! We'd suggest sticking to them if you don't have a lot of experience with Git!"
-msgstr "PIPPO"
-
-msgid "You can use your time machine to make snapshots of objects around you! Here, let's practice this!\n\n(Your teacher pours some water into a glass.)"
-msgstr "PIPPO"
-
-msgid "Let's add your name to our list of students!\n\nI already have a second commit of it in my time machine - let's work together!"
-msgstr "PIPPO"
-
-msgid "The first day at Time Travel School comes to an end and you receive the key to your room.\nFull of excitement you open the door just to find... spider webs! Spider webs everywhere!\n\nRemove all the spider webs you can find with the remove card!"
-msgstr "PIPPO"
-
-msgid "Now that your room looks tidy, you can start to unpack your stuff. You brought two new pieces of furniture with you and with a bright smile,\nyou see that their colors match the color of your bed!\n\nBuild up your two pieces of furniture by playing the touch card.\nThen name your furniture - you can choose whatever you like.\n\nMake sure the colors match! You can find the bed's color in its description.\nDon't forget to add a color and description to your new furnitures, too!"
-msgstr "PIPPO"
-
-msgid "The yellow boxes are frozen points in time, we call them 'commits'! You can travel between them using the 'checkout' card! (Try it!)\n\nCan you find out what happened here? Then, while on the last commit, edit the files to fix the problem, and make a new commit!"
-msgstr "PIPPO"
-
-msgid "Did you know that creating parallel timelines is perfectly legal and safe? It's true!\n\nCan you find out when things went wrong in this zoo? Then, go back to the last good commit and create a parallel universe where everyone is happy!"
-msgstr "PIPPO"
-
-msgid "You were invited to two parties! At one of them, your favorite band is playing - and the other one is your best friend's birthday party. Where should you go? No worries - as a time travel agent in training, you can go to both parties!\n\nTo make it easier to tell which timeline is which, you can create time portals! (We call these 'branches'.)"
-msgstr "PIPPO"
-
-msgid "Note that there are two options to 'travel to the end of a timeline':\n\nFirst, you can directly travel to the commit, like we've done it before.\n\nAnd second, you can travel to the branch label. In this case, when you make a new commit, the branch will grow with you, and still point at the end of the timeline!"
-msgstr "PIPPO"
-
-msgid "Life is full of dangers, right? Even when walking to school, it seems like there's a lot of risks!\n\nThis Monday is especially bad. You made it to school, but there's some timelines you definitely don't want to keep around."
-msgstr "PIPPO"
-
-msgid "One of your colleagues messed up here, and put the branches in the wrong timelines!\n\nYou could delete and re-create these branches - but you can also directly move them to different commits, by using\n\n    git checkout\n\non the branch names, and then using\n\n    git reset --hard\n\non the commit where you want the branch to be.\n\nThe donut branch is in the right place, but the timeline is still incomplete - make you actually *eat* the donut in that branch!"
-msgstr "PIPPO"
-
-msgid "Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!"
-msgstr "PIPPO"
-
-msgid "Sometimes, timelines will contradict each other.\n\nFor example, in this case, one of our clients wants these timelines merged, but they ate different things for breakfast in both timelines.\n\nTry to merge them together! You'll notice that there will be a conflict! The time machine will leave it up to you how to proceed: you can edit the problematic item, it will show you the conflicting sections. You can keep either of the two versions - or create a combination of them! Remove the >>>, <<<, and === markers, and make a new commit to finalize the merge!\n\nLet your finalized timeline be the 'main' one."
-msgstr "PIPPO"
-
-msgid "Welcome to today's lesson! We're going to learn how to make commits with more precision!\n\nHave a look at these two timelines. They have exactly the same outcome. But one of them makes it much easier to figure out what happened."
-msgstr "PIPPO"
-
-msgid "So far, when we made a commit, we've always recorded the current status of all objects, right?\n\nBut Git allows you to pick which changes you want to put in a commit!\n\nTo learn how that works, we need to learn about the 'index'! In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura around icons in the file browser!\n\nInitially, the index is empty. To make a commit that contains a new file, we need to add it!"
-msgstr "PIPPO"
-
-msgid "When we change files, the index won't change on its own. We have to use `git add` to update the index to the changed version of the file.\n\nLet's try that!\n\nThe icons in the file browser show you when the actual file (white) and the version in the index (blue) are different, and when they are the same!"
-msgstr "PIPPO"
-
-msgid "See the dark shadow behind the icons? That's the version of the file in the last commit!\n\nFor example, these candles have been blown out, and that change has been added.\n\nBut you decide that this was a mistake! You only want to blow out the red candle in the next commit!\n\nIf you already have updated the index to a changed file, but want to reset it, you can use `git reset`!"
-msgstr "PIPPO"
-
-msgid "The index is really useful, because it allows us to be precise about which changes we want to include in each commit!"
-msgstr "PIPPO"
-
-msgid "Your friend added another line to your essay! Get it, add a third one and send it to them!\n\nTake turns until you have five lines!"
-msgstr "PIPPO"
-
-msgid "Both you and your friend have been working on the file, and want to sync up!"
-msgstr "PIPPO"
-
-msgid "Okay - turns out that saving time in the morning by utilizing parallel universes is against the regulations of the International Time Travel Association. You'll have to do your tasks in sequence after all.\n\nSee the 'rebase' card? When you drag it to a commit, it will copy the events in your current timeline after the specified one! This way, make a clean, linear timeline where you visit all three shops.\n\nAgain, we want to make that our base reality - the 'main' branch should point to that timeline!"
-msgstr "PIPPO"
-
-msgid "Oops, looks like there's something messed up here. Can you put the events back into their correct order?\n\nThere are two ways to do this: You can drag the 'interactive rebase' card to the commit before the one you want to change, then reorder the lines in the file that opens, and save it.\n\nOr you can reset the main tag to the very first commit, and then cherry-pick single commits in the order you want. You have cards for both approaches!"
-msgstr "PIPPO"
-
-msgid "Oops - you deleted the 'essay' file, which you worked on all night!\n\nLuckily, Git is here to help! You can use `git checkout` to restore the file!"
-msgstr "PIPPO"
-
-msgid "Here's a similar problem: you really liked the essay from the very first commit, and want to have it back! Well, checkout can also restore things from older commits, Here's how:\n\n    git checkout [commit] [file]"
-msgstr "PIPPO"
-
-msgid "Oh no, we made a bad commit! How can we undo making the commit, and go back to a point where we can try again?\n\nThe answer is using `git reset [commit]`, which does two things:\n\n- It resets the current branch ref to the commit you specify.\n- And it resets the index to that commit.\n\nIt does not change your working directory in any way, which means that after that, you can try making the commit you want again."
-msgstr "PIPPO"
-
-msgid "We were talking about how to undo a commit, and fix it. This only helps when you haven't already pushed it to a remote. When that has happened, and you want to undo the effects of the commit completely, your best option is `git revert`"
-msgstr "PIPPO"
-
-msgid "Say you were looking at something in the past, and then switched back to the main branch.\n\nBut then, you got reaaally distracted, and after your lunch break, you can't remember on which commit in the past you were before. How can you find out?\n\nThere's a convenient command that shows you all the places your HEAD did point to in the past:\n\n    git reflog"
-msgstr "PIPPO"
-
-msgid "Your friend has a problem! Clone the repo, create a branch called 'solution', and fix the problem in this branch. When you're ready, make a 'Pull Request' by using `git tag pr`."
-msgstr "PIPPO"
-
-msgid "(Please zoom out a bit using your mouse wheel! :D)\n\nOh no! You have lost your key at some point during the day!\n\nSure, you could look at every single commit in an attempt to find it - but there's a better way: your time machine has a built-in way to find the point in time where things went wrong quickly!\n\nFirst, play the 'bisect start' card. Then, go to a commit where you don't have the key, and play the 'bisect bad' card. Likewise, go to a commit early on where you have the key *in your pocket*, and play the 'bisect good card'.\n\nAfter you've found the last good commit, reset the main branch to it. What happened to the key after you lost it?"
-msgstr "PIPPO"
-
-msgid "You will encounter situations in which you are working on your project but you need to\nput your current changes aside temporarily. To do so, you can use the stash function. Use\n    git stash push \nto add your current changes to the stash stack.\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "When you stashed your changes and you want to apply them back to your current working directory, you can use\n    git stash pop\nThis will remove the changes from the stash stack. If you also want to keep the changes on the stash stack, use\n    git stash apply\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "If you want to inspect your stash stack, use the command\n    git stash list\n    \nOh, you don't want to keep your stashed changes? There are way too many? Then go ahead and clear the stack with\n    git stash clear\nIf you only want to discard a certain stash entry, you can use\n    git stash drop <stash>\n    \nClear your stash stack!\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "If you want to keep your changes but they don't belong to the main branch, you can easily\ncreate a new branch from your stashed changes. Just use\n    git stash branch <branchname> <stash>\nIf you just want to use the latest stash entry, you can leave the <stash> option empty.\n\nCreate a new branch from the stashed changes!\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "When you want to reapply your changes but you already continued working on your file, you might get\na merge conflict! Let's practise this situation.\nPop the changes from the stash with\n    git stash pop\nand resolve the merge conflict. Commit the resolved changes and clear the stash stack afterwards.\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "Some of your commits may be special commits. Maybe you reached a milestone or a new version number.\n\nYou can mark these commits with a special flag called 'tag'.\n\nWrite \n\n    git tag <tag-name> \n    \nto tag your commit.\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "You added way too many tags? No prob! Delete them with\n\n    git tag -d <tag-name>\n    \nRemove all tags in this repo!\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "But what happens if you forgot to tag your current commit?\nNo Prob! You can also tag older commits via\n\n    git tag <tag-name> <commit-hash>\n    \nTag the commit 'Adding feature 2' with the name 'v1'!\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "When you work with remote repositories, tags are not pushed or pulled automatically.\n\nYou can push a tag with\n    git push <remote> <tag-name>\nOr all tags with:\n    git push <remote> --tags\n    \nDeleting tags on your remote works with: \n    git push <remote> --delete <tag-name>\n    \nYou can also sync \n    git fetch <remote> --prune --prune-tags\n\n\nAdd a tag named 'v2' to the last commit and push it to the remote. Also pull the v1 tag to your local repository."
-msgstr "PIPPO"
-
-msgid "This is an empty sandbox you can play around in."
-msgstr "PIPPO"
-
-msgid "Here's a sandbox with a remote! Try pulling, fetching, or pushing!\n\nHow can you push tags and branches on a remote? How can you delete them again?"
-msgstr "PIPPO"
-
-msgid "Here's a sandbox you can play around in.\n\nYou can use both the playing cards, as well as the terminal. This is a real Git terminal! Fun things to try:\n\n- Make a commit that merges three timelines together at once!\n- Create and delete some tags!\n- Make a timeline that's completely independent of the rest!"
-msgstr "PIPPO"
-
-msgid "So you have decided to apply for time travel school, to learn how to use this time machine called 'Git'!\n\nHow exciting!\n\nYou're almost done with the paperwork! You just need to fill in one more reason why you want to learn Git."
-msgstr "PIPPO"
-
-msgid "This time, you're making a lot of backup copies - you can look at them by clicking on them!"
-msgstr "PIPPO"
-
-msgid "You've been accepted to time travel school! Yay! It's your first day! Your teacher explains:\n\n'To do anything with a time machine, you first need to initialize it!'\n\nDrag that blue card up to play it!"
-msgstr "PIPPO"
-
-msgid "These playing cards are designed to be easy to use and to remember! We'd suggest sticking to them if you don't have a lot of experience with Git!"
-msgstr "PIPPO"
-
-msgid "You can use your time machine to make snapshots of objects around you! Here, let's practice this!\n\n(Your teacher pours some water into a glass.)"
-msgstr "PIPPO"
-
-msgid "Let's add your name to our list of students!\n\nI already have a second commit of it in my time machine - let's work together!"
-msgstr "PIPPO"
-
-msgid "The first day at Time Travel School comes to an end and you receive the key to your room.\nFull of excitement you open the door just to find... spider webs! Spider webs everywhere!\n\nRemove all the spider webs you can find with the remove card!"
-msgstr "PIPPO"
-
-msgid "Now that your room looks tidy, you can start to unpack your stuff. You brought two new pieces of furniture with you and with a bright smile,\nyou see that their colors match the color of your bed!\n\nBuild up your two pieces of furniture by playing the touch card.\nThen name your furniture - you can choose whatever you like.\n\nMake sure the colors match! You can find the bed's color in its description.\nDon't forget to add a color and description to your new furnitures, too!"
-msgstr "PIPPO"
-
-msgid "The yellow boxes are frozen points in time, we call them 'commits'! You can travel between them using the 'checkout' card! (Try it!)\n\nCan you find out what happened here? Then, while on the last commit, edit the files to fix the problem, and make a new commit!"
-msgstr "PIPPO"
-
-msgid "Did you know that creating parallel timelines is perfectly legal and safe? It's true!\n\nCan you find out when things went wrong in this zoo? Then, go back to the last good commit and create a parallel universe where everyone is happy!"
-msgstr "PIPPO"
-
-msgid "You were invited to two parties! At one of them, your favorite band is playing - and the other one is your best friend's birthday party. Where should you go? No worries - as a time travel agent in training, you can go to both parties!\n\nTo make it easier to tell which timeline is which, you can create time portals! (We call these 'branches'.)"
-msgstr "PIPPO"
-
-msgid "Note that there are two options to 'travel to the end of a timeline':\n\nFirst, you can directly travel to the commit, like we've done it before.\n\nAnd second, you can travel to the branch label. In this case, when you make a new commit, the branch will grow with you, and still point at the end of the timeline!"
-msgstr "PIPPO"
-
-msgid "Life is full of dangers, right? Even when walking to school, it seems like there's a lot of risks!\n\nThis Monday is especially bad. You made it to school, but there's some timelines you definitely don't want to keep around."
-msgstr "PIPPO"
-
-msgid "One of your colleagues messed up here, and put the branches in the wrong timelines!\n\nYou could delete and re-create these branches - but you can also directly move them to different commits, by using\n\n    git checkout\n\non the branch names, and then using\n\n    git reset --hard\n\non the commit where you want the branch to be.\n\nThe donut branch is in the right place, but the timeline is still incomplete - make you actually *eat* the donut in that branch!"
-msgstr "PIPPO"
-
-msgid "Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!"
-msgstr "PIPPO"
-
-msgid "Sometimes, timelines will contradict each other.\n\nFor example, in this case, one of our clients wants these timelines merged, but they ate different things for breakfast in both timelines.\n\nTry to merge them together! You'll notice that there will be a conflict! The time machine will leave it up to you how to proceed: you can edit the problematic item, it will show you the conflicting sections. You can keep either of the two versions - or create a combination of them! Remove the >>>, <<<, and === markers, and make a new commit to finalize the merge!\n\nLet your finalized timeline be the 'main' one."
-msgstr "PIPPO"
-
-msgid "Welcome to today's lesson! We're going to learn how to make commits with more precision!\n\nHave a look at these two timelines. They have exactly the same outcome. But one of them makes it much easier to figure out what happened."
-msgstr "PIPPO"
-
-msgid "So far, when we made a commit, we've always recorded the current status of all objects, right?\n\nBut Git allows you to pick which changes you want to put in a commit!\n\nTo learn how that works, we need to learn about the 'index'! In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura around icons in the file browser!\n\nInitially, the index is empty. To make a commit that contains a new file, we need to add it!"
-msgstr "PIPPO"
-
-msgid "When we change files, the index won't change on its own. We have to use `git add` to update the index to the changed version of the file.\n\nLet's try that!\n\nThe icons in the file browser show you when the actual file (white) and the version in the index (blue) are different, and when they are the same!"
-msgstr "PIPPO"
-
-msgid "See the dark shadow behind the icons? That's the version of the file in the last commit!\n\nFor example, these candles have been blown out, and that change has been added.\n\nBut you decide that this was a mistake! You only want to blow out the red candle in the next commit!\n\nIf you already have updated the index to a changed file, but want to reset it, you can use `git reset`!"
-msgstr "PIPPO"
-
-msgid "The index is really useful, because it allows us to be precise about which changes we want to include in each commit!"
-msgstr "PIPPO"
-
-msgid "Your friend added another line to your essay! Get it, add a third one and send it to them!\n\nTake turns until you have five lines!"
-msgstr "PIPPO"
-
-msgid "Both you and your friend have been working on the file, and want to sync up!"
-msgstr "PIPPO"
-
-msgid "Okay - turns out that saving time in the morning by utilizing parallel universes is against the regulations of the International Time Travel Association. You'll have to do your tasks in sequence after all.\n\nSee the 'rebase' card? When you drag it to a commit, it will copy the events in your current timeline after the specified one! This way, make a clean, linear timeline where you visit all three shops.\n\nAgain, we want to make that our base reality - the 'main' branch should point to that timeline!"
-msgstr "PIPPO"
-
-msgid "Oops, looks like there's something messed up here. Can you put the events back into their correct order?\n\nThere are two ways to do this: You can drag the 'interactive rebase' card to the commit before the one you want to change, then reorder the lines in the file that opens, and save it.\n\nOr you can reset the main tag to the very first commit, and then cherry-pick single commits in the order you want. You have cards for both approaches!"
-msgstr "PIPPO"
-
-msgid "Oops - you deleted the 'essay' file, which you worked on all night!\n\nLuckily, Git is here to help! You can use `git checkout` to restore the file!"
-msgstr "PIPPO"
-
-msgid "Here's a similar problem: you really liked the essay from the very first commit, and want to have it back! Well, checkout can also restore things from older commits, Here's how:\n\n    git checkout [commit] [file]"
-msgstr "PIPPO"
-
-msgid "Oh no, we made a bad commit! How can we undo making the commit, and go back to a point where we can try again?\n\nThe answer is using `git reset [commit]`, which does two things:\n\n- It resets the current branch ref to the commit you specify.\n- And it resets the index to that commit.\n\nIt does not change your working directory in any way, which means that after that, you can try making the commit you want again."
-msgstr "PIPPO"
-
-msgid "We were talking about how to undo a commit, and fix it. This only helps when you haven't already pushed it to a remote. When that has happened, and you want to undo the effects of the commit completely, your best option is `git revert`"
-msgstr "PIPPO"
-
-msgid "Say you were looking at something in the past, and then switched back to the main branch.\n\nBut then, you got reaaally distracted, and after your lunch break, you can't remember on which commit in the past you were before. How can you find out?\n\nThere's a convenient command that shows you all the places your HEAD did point to in the past:\n\n    git reflog"
-msgstr "PIPPO"
-
-msgid "Your friend has a problem! Clone the repo, create a branch called 'solution', and fix the problem in this branch. When you're ready, make a 'Pull Request' by using `git tag pr`."
-msgstr "PIPPO"
-
-msgid "(Please zoom out a bit using your mouse wheel! :D)\n\nOh no! You have lost your key at some point during the day!\n\nSure, you could look at every single commit in an attempt to find it - but there's a better way: your time machine has a built-in way to find the point in time where things went wrong quickly!\n\nFirst, play the 'bisect start' card. Then, go to a commit where you don't have the key, and play the 'bisect bad' card. Likewise, go to a commit early on where you have the key *in your pocket*, and play the 'bisect good card'.\n\nAfter you've found the last good commit, reset the main branch to it. What happened to the key after you lost it?"
-msgstr "PIPPO"
-
-msgid "You will encounter situations in which you are working on your project but you need to\nput your current changes aside temporarily. To do so, you can use the stash function. Use\n    git stash push \nto add your current changes to the stash stack.\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "When you stashed your changes and you want to apply them back to your current working directory, you can use\n    git stash pop\nThis will remove the changes from the stash stack. If you also want to keep the changes on the stash stack, use\n    git stash apply\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "If you want to inspect your stash stack, use the command\n    git stash list\n    \nOh, you don't want to keep your stashed changes? There are way too many? Then go ahead and clear the stack with\n    git stash clear\nIf you only want to discard a certain stash entry, you can use\n    git stash drop <stash>\n    \nClear your stash stack!\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "If you want to keep your changes but they don't belong to the main branch, you can easily\ncreate a new branch from your stashed changes. Just use\n    git stash branch <branchname> <stash>\nIf you just want to use the latest stash entry, you can leave the <stash> option empty.\n\nCreate a new branch from the stashed changes!\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "When you want to reapply your changes but you already continued working on your file, you might get\na merge conflict! Let's practise this situation.\nPop the changes from the stash with\n    git stash pop\nand resolve the merge conflict. Commit the resolved changes and clear the stash stack afterwards.\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "Some of your commits may be special commits. Maybe you reached a milestone or a new version number.\n\nYou can mark these commits with a special flag called 'tag'.\n\nWrite \n\n    git tag <tag-name> \n    \nto tag your commit.\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "You added way too many tags? No prob! Delete them with\n\n    git tag -d <tag-name>\n    \nRemove all tags in this repo!\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "But what happens if you forgot to tag your current commit?\nNo Prob! You can also tag older commits via\n\n    git tag <tag-name> <commit-hash>\n    \nTag the commit 'Adding feature 2' with the name 'v1'!\n\n---\ntipp1\n---\ntipp2\n---\ntipp3"
-msgstr "PIPPO"
-
-msgid "When you work with remote repositories, tags are not pushed or pulled automatically.\n\nYou can push a tag with\n    git push <remote> <tag-name>\nOr all tags with:\n    git push <remote> --tags\n    \nDeleting tags on your remote works with: \n    git push <remote> --delete <tag-name>\n    \nYou can also sync \n    git fetch <remote> --prune --prune-tags\n\n\nAdd a tag named 'v2' to the last commit and push it to the remote. Also pull the v1 tag to your local repository."
-msgstr "PIPPO"
-
-msgid "This is an empty sandbox you can play around in."
-msgstr "PIPPO"
-
-msgid "Here's a sandbox with a remote! Try pulling, fetching, or pushing!\n\nHow can you push tags and branches on a remote? How can you delete them again?"
-msgstr "PIPPO"
-
-msgid "Here's a sandbox you can play around in.\n\nYou can use both the playing cards, as well as the terminal. This is a real Git terminal! Fun things to try:\n\n- Make a commit that merges three timelines together at once!\n- Create and delete some tags!\n- Make a timeline that's completely independent of the rest!"
-msgstr "PIPPO"
-
-#: HITS
-msgid "But there's another way to interact with Git:\n\nTry typing `git init` into the black terminal below, and pressing the enter key!"
-msgstr "PIPPO"
-
-msgid "Again, instead of using the card, you can also type the commands which are printed on it into the black terminal below!\n\nThis is totally optional! But this will be a super useful skill in the real world - and it will give you a sparkling golden badge! :)"
-msgstr "PIPPO"
-
-msgid "To go back to old commands, you can press arrow up and down. That way, you don't have to type in long commands twice."
-msgstr "PIPPO"
-
-msgid "On the command line, you can easily delete all files ending in -web using this command:\n\n    rm *web"
-msgstr "PIPPO"
-
-msgid "To checkout a specific commit, type `git checkout`, then a space, and then right click on the commit you want!\n\nThis will insert the commit's unique identifier!"
-msgstr "PIPPO"
-
-msgid "The blue animal represents a concept known as the 'HEAD pointer' in Git: It shows you which commit is the current one.\n\nHere's a cool trick to go to the previous commit: \n\n    git checkout HEAD^\n\nYou can also go back two commits by typing, for example: \n\n    git checkout HEAD~2"
-msgstr "PIPPO"
-
-msgid "Branches also make it really easy to travel between different places using the command line! As soon as you have a branch called 'birthday', you can type `git checkout birthday` to travel to it!"
-msgstr "PIPPO"
-
-msgid "To travel to a branch, type `git checkout name_of_the_branch`.\n\nAnd to travel to the last commit, type `git checkout --detach name_of_the_branch`."
-msgstr "PIPPO"
-
-msgid "You can use tab completion in the terminal! Start typing a filename, then press the tab key to complete its name. This will often save you some time!"
-msgstr "PIPPO"
-
-msgid "But there's another way to interact with Git:\n\nTry typing `git init` into the black terminal below, and pressing the enter key!"
-msgstr "PIPPO"
-
-msgid "Again, instead of using the card, you can also type the commands which are printed on it into the black terminal below!\n\nThis is totally optional! But this will be a super useful skill in the real world - and it will give you a sparkling golden badge! :)"
-msgstr "PIPPO"
-
-msgid "To go back to old commands, you can press arrow up and down. That way, you don't have to type in long commands twice."
-msgstr "PIPPO"
-
-msgid "On the command line, you can easily delete all files ending in -web using this command:\n\n    rm *web"
-msgstr "PIPPO"
-
-msgid "To checkout a specific commit, type `git checkout`, then a space, and then right click on the commit you want!\n\nThis will insert the commit's unique identifier!"
-msgstr "PIPPO"
-
-msgid "The blue animal represents a concept known as the 'HEAD pointer' in Git: It shows you which commit is the current one.\n\nHere's a cool trick to go to the previous commit: \n\n    git checkout HEAD^\n\nYou can also go back two commits by typing, for example: \n\n    git checkout HEAD~2"
-msgstr "PIPPO"
-
-msgid "Branches also make it really easy to travel between different places using the command line! As soon as you have a branch called 'birthday', you can type `git checkout birthday` to travel to it!"
-msgstr "PIPPO"
-
-msgid "To travel to a branch, type `git checkout name_of_the_branch`.\n\nAnd to travel to the last commit, type `git checkout --detach name_of_the_branch`."
-msgstr "PIPPO"
-
-msgid "You can use tab completion in the terminal! Start typing a filename, then press the tab key to complete its name. This will often save you some time!"
-msgstr "PIPPO"
-
-
-#############################################
-
-#: CONGRAT
-msgid "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'."
-msgstr "PIPPO"
-msgid "Suddenly, your cat jumps on the table, snatches away the form, and runs away! Oh no. All your hard work, gone!\n\nYou clearly need a better solution.\n\n(Click 'Next Level' as soon as you're ready!)"
-msgstr "PIPPO"
-msgid "Okay, this kind of works.\n\nBut you're a bit worried that you'll end up with hundreds of copies of this form, and it will be hard to keep track of all of them.\n\nAnd especially when working with other people, sending copies back and forth doesn't seem ideal.\n\nYou can't wait to try these time machines!"
-msgstr "PIPPO"
-msgid "Nice! See that little owl squirrel that appeared? It will be your companion, and always show you where you are in time!"
-msgstr "PIPPO"
-msgid "Cool! Instead of using the playing cards, you can also do everything via the command line!\n\nThe command line is pretty powerful! Often, you can use it to solve tasks faster compared to using a graphical interface."
-msgstr "PIPPO"
-msgid "Nice! You can try making some additional commits. When you feel comfortable, click on 'Next Level'."
-msgstr "PIPPO"
-msgid "Welcome to time travel school! :) I'll see you for your first class tomorrow!"
-msgstr "PIPPO"
-msgid "Your room looks now very tidy and cozy! Time to unpack your stuff!"
-msgstr "PIPPO"
-msgid "Don't you immediately feel more at home?"
-msgstr "PIPPO"
-msgid "Wonderful! Now that you're getting familiar with the time machine, let's look at some more complicated situations..."
-msgstr "PIPPO"
-msgid "Whew, good job! This seems like a *much* better outcome.\n\nFeel free to add more parallel timelines, or make them longer.\n\nIf you're ready, our next mission is already waiting..."
-msgstr "PIPPO"
-msgid "Now you can travel between those branches easily (using `git checkout`) - try it!\n\nYour friend is happy that you made it to the birthday party and you also got your concert ticket signed. Yay!"
-msgstr "PIPPO"
-msgid "On second thought, maybe you even prefer the ice cream timeline to the main one? :)"
-msgstr "PIPPO"
-msgid "I wonder if you're more relaxed when you *sleep* in parallel timelines..."
-msgstr "PIPPO"
-msgid "Yum, that sounds like a good breakfast!"
-msgstr "PIPPO"
-msgid "Notice how the other timelines and commits are still there - if anything goes wrong, you can also travel back to them.\n\nIt's really hard to actually *destroy* stuff with your time machine."
-msgstr "PIPPO"
-msgid "Feel free to reset the level and try the other strategy! Which one do you like better?"
-msgstr "PIPPO"
-msgid "Well done! :) The only problem is that you now have to walk all the way back home, again..."
-msgstr "PIPPO"
-msgid "Nice stash you got there! :)"
-msgstr "PIPPO"
-msgid "Yay, you got your changes back! :)"
-msgstr "PIPPO"
-msgid "All clear! :)"
-msgstr "PIPPO"
-msgid "Stashed changes are in a new branch! :)"
-msgstr "PIPPO"
-msgid "Nice! You tagged your first commit :)"
-msgstr "PIPPO"
-msgid "Well done :)"
-msgstr "PIPPO"
+msgid "Living dangerously"
+msgstr "Vivere pericolosamente"
 
 #: Command
---- Debugging process started ---
-Godot Engine v3.5.stable.official.991bb6ac7 - https://godotengine.org
-OpenGL ES 3.0 Renderer: Mesa Intel(R) UHD Graphics 620 (KBL GT2)
-Async. shader compilation: OFF
- 
 msgid "Add another line to form.txt!"
-msgstr "PIPPO"
+msgstr "Aggiungi un'ulteriore linea a form.txt!"
+
+msgid "Making backups"
+msgstr "Fare backups"
 
 msgid "Add another line to form2_really_final.txt!"
-msgstr "PIPPO"
+msgstr "Aggiungi un'ulteriore linea a form2_really_final.txt!"
+
+msgid "Enter the time machine"
+msgstr "Entra nella macchina del tempo"
 
 msgid "Initialize the time machine!"
-msgstr "PIPPO"
+msgstr "Inizializza la macchina del tempo!"
 
-msgid "Initialize the time machine!"
-msgstr "PIPPO"
+msgid "The command line"
+msgstr "La linea di comando"
 
-msgid "Make a snapshot of the glass (a "commit")"
-msgstr "PIPPO"
+msgid "Your first commit"
+msgstr "Il tuo primo commit"
+
+msgid "Make a snapshot of the glass (a 'commit')"
+msgstr "Crea un'istantanea di glass (un 'commit')"
 
 msgid "Change the contents of the glass!"
-msgstr "PIPPO"
+msgstr "Cambia il contenuto di glass!"
 
 msgid "And make a second commit!"
-msgstr "PIPPO"
+msgstr "E crea un secondo commit!"
+
+msgid "Working together"
+msgstr "Lavoriamo assieme"
 
 msgid "Get the second commit from your teacher using `git pull`."
-msgstr "PIPPO"
+msgstr "Recupera il secondo commit dal tuo insegnante usando `git pull`."
 
 msgid "Add your name to the list of students"
-msgstr "PIPPO"
+msgstr "Aggiungi il tuo nome alla lista degli studenti"
 
 msgid "Commit your result."
-msgstr "PIPPO"
+msgstr "Conferma il risultato."
 
 msgid "And use `git push` to send it to your teacher!"
-msgstr "PIPPO"
+msgstr "E usa `git push` per inviarlo al tuo insegnante!"
+
+msgid "Unexpected Roommates"
+msgstr ""
 
 msgid "Remove all spider webs."
-msgstr "PIPPO"
+msgstr ""
 
 msgid "But make sure you keep your bed!"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Interior design"
+msgstr ""
 
 msgid "Add two more pieces of furniture"
-msgstr "PIPPO"
+msgstr ""
 
 msgid "Make sure the colors match your bed's color."
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Moving through time"
+msgstr ""
 
 msgid "Restore sisterly peace."
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Make parallel commits"
+msgstr ""
 
 msgid "Make sure that the child is happy."
-msgstr "PIPPO"
+msgstr ""
 
 msgid "Make sure that the lion gets something to eat."
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Creating branches"
+msgstr ""
 
 msgid "Create a branch called 'birthday' that points to the birthday timeline."
-msgstr "PIPPO"
+msgstr ""
 
 msgid "Create a branch called 'concert' that points to the concert timeline."
-msgstr "PIPPO"
+msgstr ""
 
-msgid "Travel directly to the last yellow commit of the birthday timeline, make a change to 'you', and make a commit"
-msgstr "PIPPO"
+msgid "Branches grow with you!"
+msgstr ""
 
-msgid "Travel to the blue 'concert' branch, make a change to 'you', and a commit."
-msgstr "PIPPO"
+msgid ""
+"Travel directly to the last yellow commit of the birthday timeline, make a "
+"change to 'you', and make a commit"
+msgstr ""
+
+msgid ""
+"Travel to the blue 'concert' branch, make a change to 'you', and a commit."
+msgstr ""
+
+msgid "Deleting branches"
+msgstr ""
 
 msgid "Find the bad branches and delete them. Keep only the best one."
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Moving branches around"
+msgstr ""
 
 msgid "Did you eat a baguette on the baguette branch?"
-msgstr "PIPPO"
+msgstr ""
 
 msgid "Did you drink a coffee on the coffee branch?"
-msgstr "PIPPO"
+msgstr ""
 
 msgid "Did you eat a donut on the donut branch?"
-msgstr "PIPPO"
+msgstr ""
 
-msgid "Build a situation where you consumed a baguette, a coffee, *and* a donut."
-msgstr "PIPPO"
+msgid "Merging timelines"
+msgstr ""
+
+msgid ""
+"Build a situation where you consumed a baguette, a coffee, *and* a donut."
+msgstr ""
 
 msgid "Be on a merge commit."
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Contradictions"
+msgstr ""
 
 msgid "Make a breakfast compromise in the 'main' branch."
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Step by step"
+msgstr ""
 
 msgid "Pick the timeline that's clearer, and make the alarm go off!"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Add new files to the index"
+msgstr ""
 
 msgid "Add the candle."
-msgstr "PIPPO"
+msgstr ""
 
 msgid "Make a commit."
-msgstr "PIPPO"
+msgstr "Crea un commit."
+
+msgid "Update files in the index"
+msgstr ""
 
 msgid "Make a change to the candle."
-msgstr "PIPPO"
+msgstr ""
 
-msgid "Add the candle."
-msgstr "PIPPO"
-
-msgid "Make a commit."
-msgstr "PIPPO"
+msgid "Resetting files in the index"
+msgstr ""
 
 msgid "Reset the changes in the green and blue candles!"
-msgstr "PIPPO"
+msgstr ""
 
 msgid "And make a commit!"
-msgstr "PIPPO"
+msgstr ""
 
-msgid "Make changes to all three objects, to form a logical sequence of events!"
-msgstr "PIPPO"
+msgid "Adding changes step by step"
+msgstr ""
+
+msgid ""
+"Make changes to all three objects, to form a logical sequence of events!"
+msgstr ""
 
 msgid "Only add one of these changes!"
-msgstr "PIPPO"
+msgstr ""
 
 msgid "And make a commit."
-msgstr "PIPPO"
+msgstr ""
 
 msgid "Make a second commit that only records a single change."
-msgstr "PIPPO"
+msgstr ""
 
 msgid "And a third one."
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Friend"
+msgstr ""
 
 msgid "Got the second line from your friend"
-msgstr "PIPPO"
+msgstr ""
 
 msgid "Got the fourth line from your friend."
-msgstr "PIPPO"
+msgstr ""
 
 msgid "The friend got a third line from you"
-msgstr "PIPPO"
+msgstr ""
 
 msgid "The friend got a fifth line from you"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Problems"
+msgstr ""
 
 msgid "Commit your local changes."
-msgstr "PIPPO"
+msgstr ""
 
 msgid "Look at your friend's suggestion, make a compromise, and push it back."
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Rebasing"
+msgstr ""
 
 msgid "Order all tree branches into one and move the main branch ref"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Reordering events"
+msgstr ""
 
 msgid "Reorder the commits to dress yourself in the correct way"
-msgstr "PIPPO"
+msgstr ""
 
-msgid "Restore the essay to contain "important content""
-msgstr "PIPPO"
+msgid "Restore a deleted file"
+msgstr ""
+
+msgid "Restore the essay to contain 'important content'"
+msgstr ""
+
+msgid "Restore a file from the past"
+msgstr ""
 
 msgid "Get the first version of your essay, and make a new commit with it."
-msgstr "PIPPO"
+msgstr ""
 
-msgid "In the last main commit, the numbers file contains the numbers from 1 to 10."
-msgstr "PIPPO"
+msgid "Undo a bad commit"
+msgstr ""
 
-msgid "The commit message of that commit is "More numbers"."
-msgstr "PIPPO"
+msgid ""
+"In the last main commit, the numbers file contains the numbers from 1 to 10."
+msgstr ""
+
+msgid "The commit message of that commit is 'More numbers'."
+msgstr ""
 
 msgid "The commit with the typo is not part of the main branch anymore."
-msgstr "PIPPO"
+msgstr ""
+
+msgid "I pushed something broken"
+msgstr ""
 
 msgid "The team's main branch no longer contains the bad thing."
-msgstr "PIPPO"
+msgstr ""
 
 msgid "And the history has not been modified."
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Go back to where you were before"
+msgstr ""
 
 msgid "Find out where you've been before, and go back there!"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Cloning a repo"
+msgstr ""
+
+msgid "Yellow brick road"
+msgstr ""
 
 msgid "Find the last good commit"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Stashing"
+msgstr ""
 
 msgid "Did you stash the current changes?"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Pop from Stash"
+msgstr ""
 
 msgid "Did you pop the changes from the stash stack?"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Clear the Stash"
+msgstr ""
 
 msgid "Did you clear your stash stack?"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Branch from stash"
+msgstr ""
 
 msgid "Did you create a new branch from the stashed changes?"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Merging popped stash"
+msgstr ""
 
 msgid "Did you resolve the confict and commit?"
-msgstr "PIPPO"
+msgstr ""
 
 msgid "Did you clear stash stack?"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Creating tags"
+msgstr ""
 
 msgid "Did you create a new tag?"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Removing tags"
+msgstr ""
 
 msgid "Did you remove all tags?"
-msgstr "PIPPO"
+msgstr ""
 
-msgid "Did you create a new tag?"
-msgstr "PIPPO"
+msgid "Tagging later"
+msgstr ""
+
+msgid "Remote Tags"
+msgstr ""
 
 msgid "v1 tag in your repo"
-msgstr "PIPPO"
+msgstr ""
 
 msgid "v2 tag in your repo"
-msgstr "PIPPO"
+msgstr ""
 
 msgid "v2 tag in the remote"
-msgstr "PIPPO"
-
-msgid "Add another line to form.txt!"
-msgstr "PIPPO"
-
-msgid "Add another line to form2_really_final.txt!"
-msgstr "PIPPO"
-
-msgid "Initialize the time machine!"
-msgstr "PIPPO"
-
-msgid "Initialize the time machine!"
-msgstr "PIPPO"
-
-msgid "Make a snapshot of the glass (a "commit")"
-msgstr "PIPPO"
-
-msgid "Change the contents of the glass!"
-msgstr "PIPPO"
-
-msgid "And make a second commit!"
-msgstr "PIPPO"
-
-msgid "Get the second commit from your teacher using `git pull`."
-msgstr "PIPPO"
-
-msgid "Add your name to the list of students"
-msgstr "PIPPO"
-
-msgid "Commit your result."
-msgstr "PIPPO"
-
-msgid "And use `git push` to send it to your teacher!"
-msgstr "PIPPO"
-
-msgid "Remove all spider webs."
-msgstr "PIPPO"
-
-msgid "But make sure you keep your bed!"
-msgstr "PIPPO"
-
-msgid "Add two more pieces of furniture"
-msgstr "PIPPO"
-
-msgid "Make sure the colors match your bed's color."
-msgstr "PIPPO"
-
-msgid "Restore sisterly peace."
-msgstr "PIPPO"
-
-msgid "Make sure that the child is happy."
-msgstr "PIPPO"
-
-msgid "Make sure that the lion gets something to eat."
-msgstr "PIPPO"
-
-msgid "Create a branch called 'birthday' that points to the birthday timeline."
-msgstr "PIPPO"
-
-msgid "Create a branch called 'concert' that points to the concert timeline."
-msgstr "PIPPO"
-
-msgid "Travel directly to the last yellow commit of the birthday timeline, make a change to 'you', and make a commit"
-msgstr "PIPPO"
-
-msgid "Travel to the blue 'concert' branch, make a change to 'you', and a commit."
-msgstr "PIPPO"
-
-msgid "Find the bad branches and delete them. Keep only the best one."
-msgstr "PIPPO"
-
-msgid "Did you eat a baguette on the baguette branch?"
-msgstr "PIPPO"
-
-msgid "Did you drink a coffee on the coffee branch?"
-msgstr "PIPPO"
-
-msgid "Did you eat a donut on the donut branch?"
-msgstr "PIPPO"
-
-msgid "Build a situation where you consumed a baguette, a coffee, *and* a donut."
-msgstr "PIPPO"
-
-msgid "Be on a merge commit."
-msgstr "PIPPO"
-
-msgid "Make a breakfast compromise in the 'main' branch."
-msgstr "PIPPO"
-
-msgid "Pick the timeline that's clearer, and make the alarm go off!"
-msgstr "PIPPO"
-
-msgid "Add the candle."
-msgstr "PIPPO"
-
-msgid "Make a commit."
-msgstr "PIPPO"
-
-msgid "Make a change to the candle."
-msgstr "PIPPO"
-
-msgid "Add the candle."
-msgstr "PIPPO"
-
-msgid "Make a commit."
-msgstr "PIPPO"
-
-msgid "Reset the changes in the green and blue candles!"
-msgstr "PIPPO"
-
-msgid "And make a commit!"
-msgstr "PIPPO"
-
-msgid "Make changes to all three objects, to form a logical sequence of events!"
-msgstr "PIPPO"
-
-msgid "Only add one of these changes!"
-msgstr "PIPPO"
-
-msgid "And make a commit."
-msgstr "PIPPO"
-
-msgid "Make a second commit that only records a single change."
-msgstr "PIPPO"
-
-msgid "And a third one."
-msgstr "PIPPO"
-
-msgid "Got the second line from your friend"
-msgstr "PIPPO"
-
-msgid "Got the fourth line from your friend."
-msgstr "PIPPO"
-
-msgid "The friend got a third line from you"
-msgstr "PIPPO"
-
-msgid "The friend got a fifth line from you"
-msgstr "PIPPO"
-
-msgid "Commit your local changes."
-msgstr "PIPPO"
-
-msgid "Look at your friend's suggestion, make a compromise, and push it back."
-msgstr "PIPPO"
-
-msgid "Order all tree branches into one and move the main branch ref"
-msgstr "PIPPO"
-
-msgid "Reorder the commits to dress yourself in the correct way"
-msgstr "PIPPO"
-
-msgid "Restore the essay to contain "important content""
-msgstr "PIPPO"
-
-msgid "Get the first version of your essay, and make a new commit with it."
-msgstr "PIPPO"
-
-msgid "In the last main commit, the numbers file contains the numbers from 1 to 10."
-msgstr "PIPPO"
-
-msgid "The commit message of that commit is "More numbers"."
-msgstr "PIPPO"
-
-msgid "The commit with the typo is not part of the main branch anymore."
-msgstr "PIPPO"
-
-msgid "The team's main branch no longer contains the bad thing."
-msgstr "PIPPO"
-
-msgid "And the history has not been modified."
-msgstr "PIPPO"
-
-msgid "Find out where you've been before, and go back there!"
-msgstr "PIPPO"
-
-msgid "Find the last good commit"
-msgstr "PIPPO"
-
-msgid "Did you stash the current changes?"
-msgstr "PIPPO"
-
-msgid "Did you pop the changes from the stash stack?"
-msgstr "PIPPO"
-
-msgid "Did you clear your stash stack?"
-msgstr "PIPPO"
-
-msgid "Did you create a new branch from the stashed changes?"
-msgstr "PIPPO"
-
-msgid "Did you resolve the confict and commit?"
-msgstr "PIPPO"
-
-msgid "Did you clear stash stack?"
-msgstr "PIPPO"
-
-msgid "Did you create a new tag?"
-msgstr "PIPPO"
-
-msgid "Did you remove all tags?"
-msgstr "PIPPO"
-
-msgid "Did you create a new tag?"
-msgstr "PIPPO"
-
-msgid "v1 tag in your repo"
-msgstr "PIPPO"
-
-msgid "v2 tag in your repo"
-msgstr "PIPPO"
-
-msgid "v2 tag in the remote"
-msgstr "PIPPO"
+msgstr ""
+
+msgid "Empty sandbox"
+msgstr ""
+
+msgid "Sandbox with a remote"
+msgstr ""
+
+msgid "Sandbox with three commits"
+msgstr ""
+
+#: DESCRIPTION
+msgid ""
+"So you have decided to apply for time travel school, to learn how to use "
+"this time machine called 'Git'!\n"
+"\n"
+"How exciting!\n"
+"\n"
+"You're almost done with the paperwork! You just need to fill in one more "
+"reason why you want to learn Git."
+msgstr ""
+"Bene hai deciso di fare domanda per la scuola di viaggio nel tempo, per "
+"usare questa macchina del tempo chiamata 'Git'!\n"
+"\n"
+"Che emozione!\n"
+"\n"
+"Hai quasi concluso le scartoffie! Devi solamente inserire un motivo per il "
+"quale vuoi imparare Git."
+
+msgid ""
+"This time, you're making a lot of backup copies - you can look at them by "
+"clicking on them!"
+msgstr ""
+"Questa volta hai fatto molti copie di backup - le puoi guardare cliccandoci "
+"sopra!"
+
+msgid ""
+"You've been accepted to time travel school! Yay! It's your first day! Your "
+"teacher explains:\n"
+"\n"
+"'To do anything with a time machine, you first need to initialize it!'\n"
+"\n"
+"Drag that blue card up to play it!"
+msgstr ""
+"Sei stato accettato nella scuola della macchina del tempo! Yay! E' il tuo "
+"primo giorno! Il tuo insegnante spiega;\n"
+"\n"
+"'Prima di fare qualsiasi altra cosa con la macchina del tempo, e' necessario "
+"che la inizializzi!'\n"
+"\n"
+"Trascina verso l'alto la carta blue per usarla!"
+
+msgid ""
+"These playing cards are designed to be easy to use and to remember! We'd "
+"suggest sticking to them if you don't have a lot of experience with Git!"
+msgstr ""
+"Queste carte da gioco sono state disegnate per essere facili da utilizzare e "
+"ricordare! Ti consigliamo di usarle se non hai molta esperienza con Git!"
+
+msgid ""
+"You can use your time machine to make snapshots of objects around you! Here, "
+"let's practice this!\n"
+"\n"
+"(Your teacher pours some water into a glass.)"
+msgstr ""
+"Puoi usare la tua macchina del tempo per creare delle istantanee degli "
+"oggetti che ti circondano! Ecco, facciamo questo!\n"
+"\n"
+"(Il tuo insegnante versa dell'acqua nel bicchiere.)"
+
+msgid ""
+"Let's add your name to our list of students!\n"
+"\n"
+"I already have a second commit of it in my time machine - let's work "
+"together!"
+msgstr ""
+"Aggiungiamo il tuo nome nella nostra lista di studenti!\n"
+"\n"
+"Io ne ho gia' un secondo commit nella mia macchina del tempo - lavoriamo "
+"assieme!"
+
+msgid ""
+"The first day at Time Travel School comes to an end and you receive the key "
+"to your room.\n"
+"Full of excitement you open the door just to find... spider webs! Spider "
+"webs everywhere!\n"
+"\n"
+"Remove all the spider webs you can find with the remove card!"
+msgstr ""
+
+msgid ""
+"Now that your room looks tidy, you can start to unpack your stuff. You "
+"brought two new pieces of furniture with you and with a bright smile,\n"
+"you see that their colors match the color of your bed!\n"
+"\n"
+"Build up your two pieces of furniture by playing the touch card.\n"
+"Then name your furniture - you can choose whatever you like.\n"
+"\n"
+"Make sure the colors match! You can find the bed's color in its "
+"description.\n"
+"Don't forget to add a color and description to your new furnitures, too!"
+msgstr ""
+
+msgid ""
+"The yellow boxes are frozen points in time, we call them 'commits'! You can "
+"travel between them using the 'checkout' card! (Try it!)\n"
+"\n"
+"Can you find out what happened here? Then, while on the last commit, edit "
+"the files to fix the problem, and make a new commit!"
+msgstr ""
+
+msgid ""
+"Did you know that creating parallel timelines is perfectly legal and safe? "
+"It's true!\n"
+"\n"
+"Can you find out when things went wrong in this zoo? Then, go back to the "
+"last good commit and create a parallel universe where everyone is happy!"
+msgstr ""
+
+msgid ""
+"You were invited to two parties! At one of them, your favorite band is "
+"playing - and the other one is your best friend's birthday party. Where "
+"should you go? No worries - as a time travel agent in training, you can go "
+"to both parties!\n"
+"\n"
+"To make it easier to tell which timeline is which, you can create time "
+"portals! (We call these 'branches'.)"
+msgstr ""
+
+msgid ""
+"Note that there are two options to 'travel to the end of a timeline':\n"
+"\n"
+"First, you can directly travel to the commit, like we've done it before.\n"
+"\n"
+"And second, you can travel to the branch label. In this case, when you make "
+"a new commit, the branch will grow with you, and still point at the end of "
+"the timeline!"
+msgstr ""
+
+msgid ""
+"Life is full of dangers, right? Even when walking to school, it seems like "
+"there's a lot of risks!\n"
+"\n"
+"This Monday is especially bad. You made it to school, but there's some "
+"timelines you definitely don't want to keep around."
+msgstr ""
+
+msgid ""
+"One of your colleagues messed up here, and put the branches in the wrong "
+"timelines!\n"
+"\n"
+"You could delete and re-create these branches - but you can also directly "
+"move them to different commits, by using\n"
+"\n"
+"    git checkout\n"
+"\n"
+"on the branch names, and then using\n"
+"\n"
+"    git reset --hard\n"
+"\n"
+"on the commit where you want the branch to be.\n"
+"\n"
+"The donut branch is in the right place, but the timeline is still incomplete "
+"- make you actually *eat* the donut in that branch!"
+msgstr ""
+
+msgid ""
+"Here's a trick so that you can sleep a bit longer: just do all your morning "
+"activities in parallel universes, and then at the end, merge them together!"
+msgstr ""
+
+msgid ""
+"Sometimes, timelines will contradict each other.\n"
+"\n"
+"For example, in this case, one of our clients wants these timelines merged, "
+"but they ate different things for breakfast in both timelines.\n"
+"\n"
+"Try to merge them together! You'll notice that there will be a conflict! The "
+"time machine will leave it up to you how to proceed: you can edit the "
+"problematic item, it will show you the conflicting sections. You can keep "
+"either of the two versions - or create a combination of them! Remove the "
+">>>, <<<, and === markers, and make a new commit to finalize the merge!\n"
+"\n"
+"Let your finalized timeline be the 'main' one."
+msgstr ""
+
+msgid ""
+"Welcome to today's lesson! We're going to learn how to make commits with "
+"more precision!\n"
+"\n"
+"Have a look at these two timelines. They have exactly the same outcome. But "
+"one of them makes it much easier to figure out what happened."
+msgstr ""
+
+msgid ""
+"So far, when we made a commit, we've always recorded the current status of "
+"all objects, right?\n"
+"\n"
+"But Git allows you to pick which changes you want to put in a commit!\n"
+"\n"
+"To learn how that works, we need to learn about the 'index'! In the index, "
+"we can prepare what will be in the next commit. In this game, the index is "
+"represented by a blue aura around icons in the file browser!\n"
+"\n"
+"Initially, the index is empty. To make a commit that contains a new file, we "
+"need to add it!"
+msgstr ""
+
+msgid ""
+"When we change files, the index won't change on its own. We have to use `git "
+"add` to update the index to the changed version of the file.\n"
+"\n"
+"Let's try that!\n"
+"\n"
+"The icons in the file browser show you when the actual file (white) and the "
+"version in the index (blue) are different, and when they are the same!"
+msgstr ""
+
+msgid ""
+"See the dark shadow behind the icons? That's the version of the file in the "
+"last commit!\n"
+"\n"
+"For example, these candles have been blown out, and that change has been "
+"added.\n"
+"\n"
+"But you decide that this was a mistake! You only want to blow out the red "
+"candle in the next commit!\n"
+"\n"
+"If you already have updated the index to a changed file, but want to reset "
+"it, you can use `git reset`!"
+msgstr ""
+
+msgid ""
+"The index is really useful, because it allows us to be precise about which "
+"changes we want to include in each commit!"
+msgstr ""
+
+msgid ""
+"Your friend added another line to your essay! Get it, add a third one and "
+"send it to them!\n"
+"\n"
+"Take turns until you have five lines!"
+msgstr ""
+
+msgid ""
+"Both you and your friend have been working on the file, and want to sync up!"
+msgstr ""
+
+msgid ""
+"Okay - turns out that saving time in the morning by utilizing parallel "
+"universes is against the regulations of the International Time Travel "
+"Association. You'll have to do your tasks in sequence after all.\n"
+"\n"
+"See the 'rebase' card? When you drag it to a commit, it will copy the events "
+"in your current timeline after the specified one! This way, make a clean, "
+"linear timeline where you visit all three shops.\n"
+"\n"
+"Again, we want to make that our base reality - the 'main' branch should "
+"point to that timeline!"
+msgstr ""
+
+msgid ""
+"Oops, looks like there's something messed up here. Can you put the events "
+"back into their correct order?\n"
+"\n"
+"There are two ways to do this: You can drag the 'interactive rebase' card to "
+"the commit before the one you want to change, then reorder the lines in the "
+"file that opens, and save it.\n"
+"\n"
+"Or you can reset the main tag to the very first commit, and then cherry-pick "
+"single commits in the order you want. You have cards for both approaches!"
+msgstr ""
+
+msgid ""
+"Oops - you deleted the 'essay' file, which you worked on all night!\n"
+"\n"
+"Luckily, Git is here to help! You can use `git checkout` to restore the file!"
+msgstr ""
+
+msgid ""
+"Here's a similar problem: you really liked the essay from the very first "
+"commit, and want to have it back! Well, checkout can also restore things "
+"from older commits, Here's how:\n"
+"\n"
+"    git checkout [commit] [file]"
+msgstr ""
+
+msgid ""
+"Oh no, we made a bad commit! How can we undo making the commit, and go back "
+"to a point where we can try again?\n"
+"\n"
+"The answer is using `git reset [commit]`, which does two things:\n"
+"\n"
+"- It resets the current branch ref to the commit you specify.\n"
+"- And it resets the index to that commit.\n"
+"\n"
+"It does not change your working directory in any way, which means that after "
+"that, you can try making the commit you want again."
+msgstr ""
+
+msgid ""
+"We were talking about how to undo a commit, and fix it. This only helps when "
+"you haven't already pushed it to a remote. When that has happened, and you "
+"want to undo the effects of the commit completely, your best option is `git "
+"revert`"
+msgstr ""
+
+msgid ""
+"Say you were looking at something in the past, and then switched back to the "
+"main branch.\n"
+"\n"
+"But then, you got reaaally distracted, and after your lunch break, you can't "
+"remember on which commit in the past you were before. How can you find out?\n"
+"\n"
+"There's a convenient command that shows you all the places your HEAD did "
+"point to in the past:\n"
+"\n"
+"    git reflog"
+msgstr ""
+
+msgid ""
+"Your friend has a problem! Clone the repo, create a branch called "
+"'solution', and fix the problem in this branch. When you're ready, make a "
+"'Pull Request' by using `git tag pr`."
+msgstr ""
+
+msgid ""
+"(Please zoom out a bit using your mouse wheel! :D)\n"
+"\n"
+"Oh no! You have lost your key at some point during the day!\n"
+"\n"
+"Sure, you could look at every single commit in an attempt to find it - but "
+"there's a better way: your time machine has a built-in way to find the point "
+"in time where things went wrong quickly!\n"
+"\n"
+"First, play the 'bisect start' card. Then, go to a commit where you don't "
+"have the key, and play the 'bisect bad' card. Likewise, go to a commit early "
+"on where you have the key *in your pocket*, and play the 'bisect good "
+"card'.\n"
+"\n"
+"After you've found the last good commit, reset the main branch to it. What "
+"happened to the key after you lost it?"
+msgstr ""
+
+msgid ""
+"You will encounter situations in which you are working on your project but "
+"you need to\n"
+"put your current changes aside temporarily. To do so, you can use the stash "
+"function. Use\n"
+"    git stash push \n"
+"to add your current changes to the stash stack.\n"
+"\n"
+"---\n"
+"tipp1\n"
+"---\n"
+"tipp2\n"
+"---\n"
+"tipp3"
+msgstr ""
+
+msgid ""
+"When you stashed your changes and you want to apply them back to your "
+"current working directory, you can use\n"
+"    git stash pop\n"
+"This will remove the changes from the stash stack. If you also want to keep "
+"the changes on the stash stack, use\n"
+"    git stash apply\n"
+"\n"
+"---\n"
+"tipp1\n"
+"---\n"
+"tipp2\n"
+"---\n"
+"tipp3"
+msgstr ""
+
+msgid ""
+"If you want to inspect your stash stack, use the command\n"
+"    git stash list\n"
+"    \n"
+"Oh, you don't want to keep your stashed changes? There are way too many? "
+"Then go ahead and clear the stack with\n"
+"    git stash clear\n"
+"If you only want to discard a certain stash entry, you can use\n"
+"    git stash drop <stash>\n"
+"    \n"
+"Clear your stash stack!\n"
+"\n"
+"---\n"
+"tipp1\n"
+"---\n"
+"tipp2\n"
+"---\n"
+"tipp3"
+msgstr ""
+
+msgid ""
+"If you want to keep your changes but they don't belong to the main branch, "
+"you can easily\n"
+"create a new branch from your stashed changes. Just use\n"
+"    git stash branch <branchname> <stash>\n"
+"If you just want to use the latest stash entry, you can leave the <stash> "
+"option empty.\n"
+"\n"
+"Create a new branch from the stashed changes!\n"
+"\n"
+"---\n"
+"tipp1\n"
+"---\n"
+"tipp2\n"
+"---\n"
+"tipp3"
+msgstr ""
+
+msgid ""
+"When you want to reapply your changes but you already continued working on "
+"your file, you might get\n"
+"a merge conflict! Let's practise this situation.\n"
+"Pop the changes from the stash with\n"
+"    git stash pop\n"
+"and resolve the merge conflict. Commit the resolved changes and clear the "
+"stash stack afterwards.\n"
+"\n"
+"---\n"
+"tipp1\n"
+"---\n"
+"tipp2\n"
+"---\n"
+"tipp3"
+msgstr ""
+
+msgid ""
+"Some of your commits may be special commits. Maybe you reached a milestone "
+"or a new version number.\n"
+"\n"
+"You can mark these commits with a special flag called 'tag'.\n"
+"\n"
+"Write \n"
+"\n"
+"    git tag <tag-name> \n"
+"    \n"
+"to tag your commit.\n"
+"\n"
+"---\n"
+"tipp1\n"
+"---\n"
+"tipp2\n"
+"---\n"
+"tipp3"
+msgstr ""
+
+msgid ""
+"You added way too many tags? No prob! Delete them with\n"
+"\n"
+"    git tag -d <tag-name>\n"
+"    \n"
+"Remove all tags in this repo!\n"
+"\n"
+"---\n"
+"tipp1\n"
+"---\n"
+"tipp2\n"
+"---\n"
+"tipp3"
+msgstr ""
+
+msgid ""
+"But what happens if you forgot to tag your current commit?\n"
+"No Prob! You can also tag older commits via\n"
+"\n"
+"    git tag <tag-name> <commit-hash>\n"
+"    \n"
+"Tag the commit 'Adding feature 2' with the name 'v1'!\n"
+"\n"
+"---\n"
+"tipp1\n"
+"---\n"
+"tipp2\n"
+"---\n"
+"tipp3"
+msgstr ""
+
+msgid ""
+"When you work with remote repositories, tags are not pushed or pulled "
+"automatically.\n"
+"\n"
+"You can push a tag with\n"
+"    git push <remote> <tag-name>\n"
+"Or all tags with:\n"
+"    git push <remote> --tags\n"
+"    \n"
+"Deleting tags on your remote works with: \n"
+"    git push <remote> --delete <tag-name>\n"
+"    \n"
+"You can also sync \n"
+"    git fetch <remote> --prune --prune-tags\n"
+"\n"
+"\n"
+"Add a tag named 'v2' to the last commit and push it to the remote. Also pull "
+"the v1 tag to your local repository."
+msgstr ""
+
+msgid "This is an empty sandbox you can play around in."
+msgstr ""
+
+msgid ""
+"Here's a sandbox with a remote! Try pulling, fetching, or pushing!\n"
+"\n"
+"How can you push tags and branches on a remote? How can you delete them "
+"again?"
+msgstr ""
+
+msgid ""
+"Here's a sandbox you can play around in.\n"
+"\n"
+"You can use both the playing cards, as well as the terminal. This is a real "
+"Git terminal! Fun things to try:\n"
+"\n"
+"- Make a commit that merges three timelines together at once!\n"
+"- Create and delete some tags!\n"
+"- Make a timeline that's completely independent of the rest!"
+msgstr ""
+
+#: HITS
+msgid ""
+"But there's another way to interact with Git:\n"
+"\n"
+"Try typing `git init` into the black terminal below, and pressing the enter "
+"key!"
+msgstr ""
+"Ma c'e' un'altro modo per interagire con Git:\n"
+"\n"
+"Prova a scrivere `git init` nel terminale sotto, per poi premere il tasto "
+"invio!"
+
+msgid ""
+"Again, instead of using the card, you can also type the commands which are "
+"printed on it into the black terminal below!\n"
+"\n"
+"This is totally optional! But this will be a super useful skill in the real "
+"world - and it will give you a sparkling golden badge! :)"
+msgstr ""
+"Nuovamente, al posto di usare la carta, puoi anche digitare, nel terminale "
+"sotto, i comandi che trovi stampato sulla carta!\n"
+"\n"
+"Questo e' completamente opzionale! Ma questa sara' una skill veramente utile "
+"nel mondo reale - e ti dara' un distintivo scintillante! :)"
+
+msgid ""
+"To go back to old commands, you can press arrow up and down. That way, you "
+"don't have to type in long commands twice."
+msgstr ""
+"Per scorrere i vecchi comandi, puoi premere la freccia su e giu. In questo "
+"modo, non dovrai digitare nuovamente i comandi."
+
+msgid ""
+"On the command line, you can easily delete all files ending in -web using "
+"this command:\n"
+"\n"
+"    rm *web"
+msgstr ""
+
+msgid ""
+"To checkout a specific commit, type `git checkout`, then a space, and then "
+"right click on the commit you want!\n"
+"\n"
+"This will insert the commit's unique identifier!"
+msgstr ""
+
+msgid ""
+"The blue animal represents a concept known as the 'HEAD pointer' in Git: It "
+"shows you which commit is the current one.\n"
+"\n"
+"Here's a cool trick to go to the previous commit: \n"
+"\n"
+"    git checkout HEAD^\n"
+"\n"
+"You can also go back two commits by typing, for example: \n"
+"\n"
+"    git checkout HEAD~2"
+msgstr ""
+
+msgid ""
+"Branches also make it really easy to travel between different places using "
+"the command line! As soon as you have a branch called 'birthday', you can "
+"type `git checkout birthday` to travel to it!"
+msgstr ""
+
+msgid ""
+"To travel to a branch, type `git checkout name_of_the_branch`.\n"
+"\n"
+"And to travel to the last commit, type `git checkout --detach "
+"name_of_the_branch`."
+msgstr ""
+
+msgid ""
+"You can use tab completion in the terminal! Start typing a filename, then "
+"press the tab key to complete its name. This will often save you some time!"
+msgstr ""
+
+#: CONGRAT
+msgid ""
+"Good job, you solved the level!\n"
+"\n"
+"Feel free to try a few more things or click 'Next level'."
+msgstr ""
+"Ottimo lavoro, hai risolto il livello!\n"
+" Sentiti libero di provare qualche altra cosa o clicca su 'Prossimo livello'."
+
+msgid ""
+"Suddenly, your cat jumps on the table, snatches away the form, and runs "
+"away! Oh no. All your hard work, gone!\n"
+"\n"
+"You clearly need a better solution.\n"
+"\n"
+"(Click 'Next Level' as soon as you're ready!)"
+msgstr ""
+"All'improvviso il tuo gatto salta sul tavolo, strappa via il modulo e scappa "
+"via!Oh no. Tutto il tuo duro lavoro, andato!\n"
+"\n"
+"Devi trovare una buona soluzione\n"
+"\n"
+"(Clicca 'Prossimo livello' appena sei pronto!)"
+
+msgid ""
+"Okay, this kind of works.\n"
+"\n"
+"But you're a bit worried that you'll end up with hundreds of copies of this "
+"form, and it will be hard to keep track of all of them.\n"
+"\n"
+"And especially when working with other people, sending copies back and forth "
+"doesn't seem ideal.\n"
+"\n"
+"You can't wait to try these time machines!"
+msgstr ""
+"Ok, questo cosa può funzionare.\n"
+"\n"
+"Ma sei un pochino preoccupato che alla fine ti troverai con un centinaio di "
+"copie di questo form, ed e' difficile tenerne traccia di tutto loro.\n"
+"\n"
+"Specialmente quando lavorerai con altre persone, inviare copie avanti ed "
+"indietro non sembra l'ideale.\n"
+"\n"
+"Non vedi l'ora di provare questa macchina del tempo!"
+
+msgid ""
+"Nice! See that little owl squirrel that appeared? It will be your companion, "
+"and always show you where you are in time!"
+msgstr ""
+"Bene! Vedi quel piccolo animale che e' apparso? Sara' il tuo compagno e ti "
+"mostrera' dove ti trovi nel tempo!"
+
+msgid ""
+"Cool! Instead of using the playing cards, you can also do everything via the "
+"command line!\n"
+"\n"
+"The command line is pretty powerful! Often, you can use it to solve tasks "
+"faster compared to using a graphical interface."
+msgstr ""
+"Bello! Al posto di usare le carte, puoi anche fare tutto tramite la linea di "
+"comando!\n"
+"\n"
+"La linea di comando e' molto potente! A volte, puoi usarla per svolgere "
+"alcuni compiti piu' velocemente in confronto all'uso dell'interfaccia "
+"grafica."
+
+msgid ""
+"Nice! You can try making some additional commits. When you feel comfortable, "
+"click on 'Next Level'."
+msgstr ""
+"Bene! Puoi provare a creare altri commit aggiuntivi. Quando ti senti a tuo "
+"agio, clicca su 'Prossimo livello'."
+
+msgid ""
+"Welcome to time travel school! :) I'll see you for your first class tomorrow!"
+msgstr ""
+"Benvenuto nella scuola del viaggio nel tempo! :) Ci vediamo domani per la "
+"tua prima lezione!"
+
+msgid "Your room looks now very tidy and cozy! Time to unpack your stuff!"
+msgstr ""
+
+msgid "Don't you immediately feel more at home?"
+msgstr ""
+
+msgid ""
+"Wonderful! Now that you're getting familiar with the time machine, let's "
+"look at some more complicated situations..."
+msgstr ""
+
+msgid ""
+"Whew, good job! This seems like a *much* better outcome.\n"
+"\n"
+"Feel free to add more parallel timelines, or make them longer.\n"
+"\n"
+"If you're ready, our next mission is already waiting..."
+msgstr ""
+
+msgid ""
+"Now you can travel between those branches easily (using `git checkout`) - "
+"try it!\n"
+"\n"
+"Your friend is happy that you made it to the birthday party and you also got "
+"your concert ticket signed. Yay!"
+msgstr ""
+
+msgid ""
+"On second thought, maybe you even prefer the ice cream timeline to the main "
+"one? :)"
+msgstr ""
+
+msgid ""
+"I wonder if you're more relaxed when you *sleep* in parallel timelines..."
+msgstr ""
+
+msgid "Yum, that sounds like a good breakfast!"
+msgstr ""
+
+msgid ""
+"Notice how the other timelines and commits are still there - if anything "
+"goes wrong, you can also travel back to them.\n"
+"\n"
+"It's really hard to actually *destroy* stuff with your time machine."
+msgstr ""
+
+msgid ""
+"Feel free to reset the level and try the other strategy! Which one do you "
+"like better?"
+msgstr ""
+
+msgid ""
+"Well done! :) The only problem is that you now have to walk all the way back "
+"home, again..."
+msgstr ""
+
+msgid "Nice stash you got there! :)"
+msgstr ""
+
+msgid "Yay, you got your changes back! :)"
+msgstr ""
+
+msgid "All clear! :)"
+msgstr ""
+
+msgid "Stashed changes are in a new branch! :)"
+msgstr ""
+
+msgid "Nice! You tagged your first commit :)"
+msgstr ""
+
+msgid "Well done :)"
+msgstr ""

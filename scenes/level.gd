@@ -20,9 +20,9 @@ func load(path):
 		# This is a new-style level.
 		var config = helpers.parse(path)
 		
-		title = tr(config.get("title", slug))
+		title = tr(config.get("title", slug)) # Title of Levels
 		description = config.get("description", "(no description)")
-		description = tr(description.replace("\"", "\'"))
+		description = tr(description.replace("\"", "\'")) # Descriptions how to make the level
 		
 		# Surround all lines indented with four spaces with [code] tags.
 		var monospace_regex = RegEx.new()
@@ -31,7 +31,7 @@ func load(path):
 		description = description.split("---")
 		
 		var cli_hints = config.get("cli", "")
-		cli_hints = tr(cli_hints.replace("\"", "\'"))
+		cli_hints = tr(cli_hints.replace("\"", "\'")) # suggestions to work strong
 		# Also do this substitution in the CLI hints.
 		cli_hints = monospace_regex.sub(cli_hints, "\n      [code][color=#bbbb5d]$1[/color][/code]", true)
 		
@@ -47,7 +47,7 @@ func load(path):
 		
 		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
 		congrats = congrats.replace("\"", "\'")
-		congrats = tr(congrats)
+		congrats = tr(congrats) # Congratulations when the level is finish
 		cards = Array(config.get("cards", "").split(" "))
 		if cards == [""]:
 			cards = []
@@ -87,7 +87,7 @@ func load(path):
 			for line in Array(config[k].split("\n")):
 				if line.length() > 0 and line[0] == "#":
 					desc = line.substr(1).strip_edges(true, true)
-					print("msgid \"", desc, "\"\nmsgstr \"PIPPO\"\n")
+					desc = desc.replace("\"", "\'")
 				else:
 					if not repos[repo].win_conditions.has(desc):
 						repos[repo].win_conditions[desc] = ""

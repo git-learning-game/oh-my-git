@@ -247,7 +247,6 @@ margin_left = 169.0
 margin_top = 0.0
 margin_right = 315.0
 margin_bottom = 39.0
-text = "Toggle music"
 
 [node name="CLIBadge" parent="Menu" instance=ExtResource( 10 )]
 anchor_right = 0.0

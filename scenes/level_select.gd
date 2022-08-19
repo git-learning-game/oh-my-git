@@ -61,10 +61,3 @@ func reload():
 			level_id += 1
 			
 		chapter_id += 1
-
-
-
-
-
-
-		

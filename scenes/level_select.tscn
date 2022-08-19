@@ -97,7 +97,6 @@ margin_left = 163.0
 margin_top = 0.0
 margin_right = 309.0
 margin_bottom = 39.0
-text = "Toggle music"
 
 [connection signal="pressed" from="HelpLabel/Button3" to="." method="onSurveyPressed"]
 [connection signal="pressed" from="HBoxContainer/Back" to="." method="back"]
