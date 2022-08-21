@@ -107,7 +107,7 @@
     {
         "id": "revert",
         "command": "git revert [commit]",
-        "description": "Make a new commit that reverts the changes of the speicified commit."
+        "description": "Make a new commit that reverts the changes of the specified commit."
     },
     {
         "id": "bisect-start",
