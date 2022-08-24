@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2022-08-18 10:39+0200\n"
-"PO-Revision-Date: 2022-08-22 20:29+0200\n"
+"PO-Revision-Date: 2022-08-24 12:17+0200\n"
 "Last-Translator: Luca Canali <info@canaliluca.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -91,7 +91,7 @@ msgid "Moving through time"
 msgstr "Muoversi attraverso il tempo"
 
 msgid "Restore sisterly peace."
-msgstr "Ripristina il salvadanaio della sorella"
+msgstr "Ripristina il salvadanaio della sorella."
 
 msgid "Make parallel commits"
 msgstr "Crea commit paralleli"
@@ -103,147 +103,158 @@ msgid "Make sure that the lion gets something to eat."
 msgstr "Assicurati che il leone abbia qualcosa da mangiare."
 
 msgid "Creating branches"
-msgstr ""
+msgstr "Creare branch"
 
 msgid "Create a branch called 'birthday' that points to the birthday timeline."
 msgstr ""
+"Creare una branch chiamata 'birthday' che punti alla timeline del compleanno."
 
 msgid "Create a branch called 'concert' that points to the concert timeline."
 msgstr ""
+"Crare una branch chiamata 'concert' che punti alla timeline del concerto."
 
 msgid "Branches grow with you!"
-msgstr ""
+msgstr "Le branch crescono con te!"
 
 msgid ""
 "Travel directly to the last yellow commit of the birthday timeline, make a "
 "change to 'you', and make a commit"
 msgstr ""
+"VIaggia direttamente nell'ultimo commit della linea temporale del "
+"compleanno, fai un cambiamento in 'you' e crea un commit"
 
 msgid ""
 "Travel to the blue 'concert' branch, make a change to 'you', and a commit."
 msgstr ""
+"Viaggia nella branch blue 'concert', fai un cambiamento in 'you', e un "
+"commit."
 
 msgid "Deleting branches"
-msgstr ""
+msgstr "Cancella le branch"
 
 msgid "Find the bad branches and delete them. Keep only the best one."
-msgstr ""
+msgstr "Trova le brach sbagliate e cancellale. Tieni solo la migliore."
 
 msgid "Moving branches around"
-msgstr ""
+msgstr "Sposta le branch in giro"
 
 msgid "Did you eat a baguette on the baguette branch?"
-msgstr ""
+msgstr "Hai mangiato una baguette nella branch 'baguette'?"
 
 msgid "Did you drink a coffee on the coffee branch?"
-msgstr ""
+msgstr "Hai bevuto un caffe nella branch 'coffee'?"
 
 msgid "Did you eat a donut on the donut branch?"
-msgstr ""
+msgstr "Hai mangiato una ciambella nella branch 'donut'?"
 
 msgid "Merging timelines"
-msgstr ""
+msgstr "Unisci le line temporali"
 
 msgid ""
 "Build a situation where you consumed a baguette, a coffee, *and* a donut."
 msgstr ""
+"Crea una condizione dove tu consumi una baguette, un caffe *e* una ciambella."
 
 msgid "Be on a merge commit."
-msgstr ""
+msgstr "Crea (e spostati su) un commit di unione."
 
 msgid "Contradictions"
-msgstr ""
+msgstr "Contradizioni"
 
 msgid "Make a breakfast compromise in the 'main' branch."
-msgstr ""
+msgstr "Fai un compromesso per la colazione nella branch 'main'."
 
 msgid "Step by step"
-msgstr ""
+msgstr "Passo dopo passo"
 
 msgid "Pick the timeline that's clearer, and make the alarm go off!"
-msgstr ""
+msgstr "Scegli la linea temporale piu' chiara e fai suonare l'allarme!"
 
 msgid "Add new files to the index"
-msgstr ""
+msgstr "Aggiungi nuovi file all'indice"
 
 msgid "Add the candle."
-msgstr ""
+msgstr "Aggiungi la candela."
 
 msgid "Make a commit."
 msgstr "Crea un commit."
 
 msgid "Update files in the index"
-msgstr ""
+msgstr "Aggiorna i file nell'indice"
 
 msgid "Make a change to the candle."
-msgstr ""
+msgstr "Fai un cambiamento nella candela."
 
 msgid "Resetting files in the index"
-msgstr ""
+msgstr "Resetta i file nell'indice"
 
 msgid "Reset the changes in the green and blue candles!"
-msgstr ""
+msgstr "Resetta i cambiamenti nelle candele verdi e blue!"
 
 msgid "And make a commit!"
-msgstr ""
+msgstr "E crea un commit!"
 
 msgid "Adding changes step by step"
-msgstr ""
+msgstr "Aggiungi i cambiamenti passo dopo passo"
 
 msgid ""
 "Make changes to all three objects, to form a logical sequence of events!"
 msgstr ""
+"Crea cambiamenti in tutti e tre gli oggetti, da una sequenza logica di "
+"eventi!"
 
 msgid "Only add one of these changes!"
-msgstr ""
+msgstr "Aggiungi solo uno di questi cambiamenti!"
 
 msgid "And make a commit."
-msgstr ""
+msgstr "E crea un commit."
 
 msgid "Make a second commit that only records a single change."
-msgstr ""
+msgstr "Crea un secondo commit con solo i record con un singolo cambiamento."
 
 msgid "And a third one."
-msgstr ""
+msgstr "E un terzo."
 
 msgid "Friend"
-msgstr ""
+msgstr "Amici"
 
 msgid "Got the second line from your friend"
-msgstr ""
+msgstr "Ottenuta la seconda linea dal tuo amico"
 
 msgid "Got the fourth line from your friend."
-msgstr ""
+msgstr "Ottenuta la quarta linea dal tuo amico."
 
 msgid "The friend got a third line from you"
-msgstr ""
+msgstr "Il tuo amico ti ha dato la terza linea"
 
 msgid "The friend got a fifth line from you"
-msgstr ""
+msgstr "Il tuo amico ti ha dato la quinta linea"
 
 msgid "Problems"
-msgstr ""
+msgstr "Problemi"
 
 msgid "Commit your local changes."
-msgstr ""
+msgstr "Committa i tuoi combiamenti."
 
 msgid "Look at your friend's suggestion, make a compromise, and push it back."
 msgstr ""
+"Guarda i suggerimenti del tuo amico, fai un compromesso, e rimadalo in "
+"dietro."
 
 msgid "Rebasing"
 msgstr ""
 
 msgid "Order all tree branches into one and move the main branch ref"
-msgstr ""
+msgstr "Ordina le tre branch in una e muovi il riferimeto alla branch 'main'"
 
 msgid "Reordering events"
-msgstr ""
+msgstr "Riordinare gli eventi"
 
 msgid "Reorder the commits to dress yourself in the correct way"
-msgstr ""
+msgstr "Riordina i commit per vestirti nell'ordine giusto"
 
 msgid "Restore a deleted file"
-msgstr ""
+msgstr "Recupera un file cancellato"
 
 msgid "Restore the essay to contain 'important content'"
 msgstr ""
@@ -506,6 +517,13 @@ msgid ""
 "To make it easier to tell which timeline is which, you can create time "
 "portals! (We call these 'branches'.)"
 msgstr ""
+"Sei stato invitato a due feste! In una di queste, suona la tua band "
+"preferita - e l'altra e' il compleanno del tuo migliore amico. Dove dovresti "
+"andare? Non ti preoccupare - sei un agente del tempo in addestramento, tu "
+"puoi andare ad entrambe le feste!\n"
+"\n"
+"Per rendere piu' facile capire quale sequenza temporale e', puoi creare dei "
+"portali! ( Che chiamiamo 'branches'.)"
 
 msgid ""
 "Note that there are two options to 'travel to the end of a timeline':\n"
@@ -983,6 +1001,9 @@ msgid ""
 "the command line! As soon as you have a branch called 'birthday', you can "
 "type `git checkout birthday` to travel to it!"
 msgstr ""
+"Le branch rendono molto facile viaggiare tra luoghi diversi anche usando la "
+"linea di comando! Quando hai una branch chiamata 'birthday', puoi digitare "
+"`git checkout bithday` per raggiungerlo!"
 
 msgid ""
 "To travel to a branch, type `git checkout name_of_the_branch`.\n"
@@ -990,11 +1011,18 @@ msgid ""
 "And to travel to the last commit, type `git checkout --detach "
 "name_of_the_branch`."
 msgstr ""
+"Per viaggiare in una branch, digita `git checkout nome_della_branch`.\n"
+"\n"
+"Per andare all'ultimo commit, digita `git checkout --detach "
+"nome_della_branch`."
 
 msgid ""
 "You can use tab completion in the terminal! Start typing a filename, then "
 "press the tab key to complete its name. This will often save you some time!"
 msgstr ""
+"Puoi usare la tab completition nel terminale! Inizia a digitare il nome del "
+"file, quindi permi il tasto tab per completare il suo nome. Questo ti "
+"permettera' di risparmiare tempo!"
 
 #: CONGRAT
 msgid ""
@@ -1087,7 +1115,7 @@ msgid ""
 "look at some more complicated situations..."
 msgstr ""
 "Stupendo! Adesso hai più famigliarità con la macchina del tempo, vediamo "
-"situazioni più complicate... "
+"situazioni più complicate..."
 
 msgid ""
 "Whew, good job! This seems like a *much* better outcome.\n"
@@ -1146,13 +1174,13 @@ msgid "Yay, you got your changes back! :)"
 msgstr ""
 
 msgid "All clear! :)"
-msgstr ""
+msgstr "Tutto chiaro! :)"
 
 msgid "Stashed changes are in a new branch! :)"
 msgstr ""
 
 msgid "Nice! You tagged your first commit :)"
-msgstr ""
+msgstr "Bello! Hai taggato il tuo primo commit :)"
 
 msgid "Well done :)"
-msgstr ""
+msgstr "Ben fatto :)"
