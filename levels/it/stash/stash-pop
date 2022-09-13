@@ -1,0 +1,46 @@
+title = Pop dalla scorta
+cards = checkout commit-auto merge reset-hard
+
+[description]
+
+Quando hai nascosto le tue modifiche e vuoi riapplicarle nella tua directory di lavoro, puoi usare
+    git stash pop
+Questo rimuoverà i cambiamenti dalla pila di scorta. Se voui anche mantenere le modifiche della pila di scorta usa
+    git stash apply
+
+---
+tipp1
+---
+tipp2
+---
+tipp3
+
+[setup]
+
+echo "Torta di mele:" > recipe
+
+git add .
+git commit -m "creata una ricetta"
+
+echo "- 4 Mele" >> recipe
+
+git add .
+git commit -m "Aggiunto ingredienti"
+
+echo "- 500g Farina" >> recipe
+
+git stash push
+git checkout main
+
+[win]
+
+# Hai pop i cambiamenti dalla pila di scorta?
+test "$(git stash list | wc -l)" -eq 0
+
+[actions]
+
+
+
+[congrats]
+
+Yay, hai riavuto i tuoi cambiamenti in dietro! :)

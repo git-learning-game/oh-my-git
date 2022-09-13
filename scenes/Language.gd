@@ -29,6 +29,7 @@ func _on_item_pressed(id):
 		var value = tr(game.languages[key])
 		if value == lang:
 			game.os_lang = key
+			game.levels_dir = "res://levels/" + key
 	
 	check_current_items()
 	TranslationServer.set_locale(game.os_lang)

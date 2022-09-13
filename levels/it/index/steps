@@ -1,0 +1,53 @@
+title = Aggiungere le modifice una per volta
+cards = add reset-file commit
+
+[description]
+
+L'indice è veramente utile perché ci permette di essere precisi su quali cambiamenti vogliamo includere in ogni commit!
+
+[setup]
+
+echo "Un martello, in equilibrio sul suo manico." > hammer
+echo "Una bottiglia contenente un liquido trasparente." > bottle
+echo "Un cubetto di zucchero bianco." > sugar_cube
+
+git add .
+git commit -m "L'inizio"
+
+[win]
+
+# Fai dei cambiamenti a tutti e tre gli oggetti per creare una sequenza logica di eventi!
+test "$(git diff --name-only | wc -l)" -eq 3 || file -f .git/candle-changed && touch .git/candle-changed
+
+# Aggiungi solo uno dei cambiamenti!
+test "$(git diff --cached --name-only | wc -l)" -eq 1 || file -f .git/candle-added && touch .git/candle-added
+
+# E fai un commit
+COUNT=0
+for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
+    if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
+        COUNT=$((COUNT+1))
+    fi
+done
+
+test "$COUNT" -ge 1
+
+# Fai un secondo commit che registri solo un singolo cambiamento.
+COUNT=0
+for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
+    if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
+        COUNT=$((COUNT+1))
+    fi
+done
+
+test "$COUNT" -ge 2
+
+# E aggiungine un terzo.
+COUNT=0
+for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
+    if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
+        COUNT=$((COUNT+1))
+    fi
+done
+
+test "$COUNT" -ge 3

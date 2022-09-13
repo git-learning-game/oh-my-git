@@ -1,7 +1,8 @@
 extends Node
 
 var languages = {"en": tr("English"), "it": tr("Italian")} # Localizations allowed
-var os_lang = OS.get_locale_language() # Variable for game localization
+var os_lang = OS.get_locale_language() # Variable for game localization (it, en, ecc...)
+var levels_dir = "res://levels/" + os_lang
 
 var tmp_prefix = OS.get_user_data_dir() + "/tmp/"
 var global_shell

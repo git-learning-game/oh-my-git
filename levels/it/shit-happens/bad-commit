@@ -1,0 +1,31 @@
+title = Annullare un cattivo commit
+cards = reset commit-a
+
+[description]
+
+Oh no, abbiamo fatto un cattivo commit! Come possiamo annullare un commit e tornare ad un punto dove poter riprovare?
+
+La risposta è usare `git reset [commit]` che fa due cose:
+
+- Reimposta il riferimento (ref) del ramo corrente al commit che hai specificato.
+- Reimposta l'indice a quel commit.
+
+Non cambia la tua directory di lavoro in nessun modo, il che significa che dopo puoi provare a rifare il commit che desideri.
+
+
+[setup]
+
+echo "1 2 3 4" > numbers
+git add .
+git commit -m "commit iniziale"
+echo "1 2 3 4 5 6 7 8 9 11" > numbers
+git commit -am "Più numerrrrri"
+
+[win]
+
+# Nel primo commit il file numbers contiene i numeri da 1 a 10.
+test "$(git show main:numbers)" = "1 2 3 4 5 6 7 8 9 10"
+# Il messaggio di questo commit è "Più numeri".
+git log -1 --oneline | grep "Più numeri"
+# Il commit con l'errore si battitura non fa più parte del ramo principale.
+git log --oneline | grep -v "rrrrr"

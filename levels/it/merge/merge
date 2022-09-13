@@ -1,0 +1,82 @@
+title = Unire le linee temporali
+cards = checkout commit-auto merge
+
+[description]
+
+Ecco un trucco per domire un pò più a lungo: svolgi tutte le tue attività mattutine in universi paralleli, e poi uniscile!
+
+[setup]
+
+echo "Non hai una baguette.
+
+Non hai caffe.
+
+Non hai una ciambella." > you
+
+git add .
+git commit -m "L'inizio"
+
+echo "Hai una baguette.
+
+Non hai caffe.
+
+Non hai una ciambella." > you
+git add .
+git commit -m "Compri una baguette"
+
+echo "Mangi una baguette.
+
+Non hai caffe.
+
+Non hai una ciambella." > you
+git add .
+git commit -m "Mangi la baguette"
+
+git checkout HEAD~2
+echo "Non hai una baguette.
+
+Hai caffe.
+
+Non hai una ciambella." > you
+git add .
+git commit -m "Compri un pò di caffe"
+
+echo "Non hai una baguette.
+
+Bevi il caffe.
+
+Non hai una ciambella." > you
+git add .
+git commit -m "Bevi il caffe"
+
+git checkout HEAD~2
+echo "Non hai una baguette.
+
+Non hai caffe.
+
+Hai una ciambella." > you
+git add .
+git commit -m "Compri una ciambella"
+
+echo "Non hai una baguette.
+
+Non hai caffe.
+
+Mangi una ciambella." > you
+git add .
+git commit -m "Mangi la ciambella"
+
+git checkout --detach
+git branch -D main
+
+[win]
+
+# Crea una situazione dove consumi una baguette, un caffe e una ciambella.
+{ git show HEAD:you | grep "Mangi.*baguette"; } && { git show HEAD:you | grep "Bevi.*caffe"; } && { git show HEAD:you | grep "Mangi.*ciambella"; }
+
+# Crea (e spostati su) un commit di unione.
+test "$(git log --pretty=%P -n 1 HEAD | wc -w)" -ge 2
+
+[congrats]
+
+Mi chiedo se sei più rilassato quando *dormi* in linee temporali parallele...

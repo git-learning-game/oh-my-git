@@ -1,0 +1,31 @@
+[description]
+
+When using the commit-tree command, you can optionally specify a parent:
+
+    git commit-tree <tree> -m "Description" -p <parent commit>
+
+Make a string of three commits!
+
+Hint: You'll need a tree object. What could be the easiest way to obtain one?
+
+[setup]
+
+[setup goal]
+
+git write-tree
+FIRST_COMMIT=$(git commit-tree 4b82 -m 'First commit :O')
+SECOND_COMMIT=$(git commit-tree 4b82 -p $FIRST_COMMIT -m 'Second commit :D')
+THIRD_COMMIT=$(git commit-tree 4b82 -p $SECOND_COMMIT -m 'Third commit \o/')
+
+[win]
+
+COMMITS=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep commit | cut -f1 -d" ")
+
+for COMMIT in $COMMITS; do
+    echo a commit named $COMMIT
+    if [ $(git rev-list $COMMIT | wc -l) -ge 3 ]; then
+        return 0
+    fi
+done
+
+return 1

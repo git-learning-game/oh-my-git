@@ -1,0 +1,53 @@
+title = Rimuovere etichette
+cards = checkout commit-auto merge reset-hard
+
+[description]
+
+Hai aggiunto molte ectichette? Non c'è problema! Cancellali con
+
+    git tag -d <tag-name>
+    
+Rimuovi tutti i tag in questo repository!
+
+---
+tipp1
+---
+tipp2
+---
+tipp3
+
+[setup]
+
+echo "event 1" > elenco-caratteristiche
+
+git add .
+git commit -m "Aggiunta caratteristica 1"
+
+echo "event 2" >> elenco-caratteristiche
+
+git add .
+git commit -m "Aggiunta caratteristica 2"
+
+echo "event 3" >> elenco-caratteristiche
+
+git add .
+git commit -m "Aggiunta caratteristica 3"
+
+git tag v1 HEAD~2
+git tag v2 HEAD~1
+git tag v3 
+
+git checkout --detach main
+
+[win]
+
+# Hai riosso tutte le etichette?
+test "$(git tag -l | wc -l)" -eq 0
+
+[actions]
+
+
+
+[congrats]
+
+Molto bene :)

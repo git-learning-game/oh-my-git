@@ -1,0 +1,22 @@
+title = Sandbox with a remote
+cards = checkout commit-auto pull fetch push
+
+[description]
+
+Here's a sandbox with a remote! Try pulling, fetching, or pushing!
+
+How can you push tags and branches on a remote? How can you delete them again?
+
+[setup yours]
+
+echo "Line 1" > essay
+git add .
+git commit -m "Initial commit"
+
+git push -u friend main
+
+[setup friend]
+
+git checkout main
+echo "Line 2" >> essay
+git commit -am "Another line"

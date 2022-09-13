@@ -1,0 +1,36 @@
+title = Coinquilini inaspettati
+cards = file-delete
+
+[description]
+
+Il primo giorno alla Scuola del viaggio nel tempo sta per finire e tu ricevi le chiavi della tua stanza.
+Eccitatissimo apri la porta giusto per vedere... ragnatele! Ragnatele ovunque!
+
+Cava tutte le ragnatele che puoi trovare con la carta remove!
+
+[cli]
+
+Nella line di comando, puoi facilmente eliminare tutti i file che finiscono in "web" usando il comando:
+
+    rm *web
+
+[setup]
+
+echo Una piccola ragnatela è accanto alla tua finestra. > tiny_web
+echo Una grande ragnatela attaccata sopra al tuo letto. > big_web
+echo Un letto accogliente. > bed
+echo Una ragnatela spessa è alla destra della tua porta. > thick_web
+
+[win]
+
+# Rimuovi tutte le ragnatele.
+! ls | grep thick_web &&
+! ls | grep big_web &&
+! ls | grep tiny_web
+
+# Ma assicurati di mantenere il tuo letto!
+ls | grep bed
+
+[congrats]
+
+Guarda la tua stanza adesso è davvero ordinata ed accogliente! Il momento per disfare le valige!

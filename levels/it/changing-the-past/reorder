@@ -1,0 +1,77 @@
+title = Riordinare gli eventi
+cards = checkout commit-auto reset-hard rebase-interactive cherry-pick
+
+[description]
+
+Oops, guarda c'è qualcosa di incasinato qui. Puoi rimettere gli eventi nel corretto ordine?
+
+Ci sono due modi per farlo: Puoi trascinare la carta "interactive rebase" sul commit precedente a quello che vuoi cambiare, poi riordinare le linee nel file che si apre e salvarlo.
+Oppure puoi reimpostare il tag principale al primo commit, quindi selezionare i singoli commit (cherry-pick) nell'ordine desiderato. Hai carte per entrambe i modi!
+
+[setup]
+
+echo "Ti sei appena svegliato.
+
+Non indossi biancheria intima.
+
+Non indossi pantaloni.
+
+Non indossi la maglia.
+
+Non indossi le scarpe." > you
+git add .
+
+git commit -m "L'inizio"
+
+echo "Ti sei appena svegliato.
+
+Non indossi biancheria intima.
+
+Non indossi pantaloni.
+
+Non indossi la maglia.
+
+Indossi le scarpe." > you
+git commit -am "Metti le scarpe"
+
+echo "Ti sei appena svegliato.
+
+Non indossi biancheria intima.
+
+Indossi pantaloni.
+
+Non indossi la maglia.
+
+Indossi le scarpe." > you
+git commit -am "Metti i pantaloni"
+
+echo "Ti sei appena svegliato.
+
+Indossi la biancheria intima.
+
+Indossi pantaloni.
+
+Non indossi la maglia.
+
+Indossi le scarpe." > you
+git commit -am "Metti biancheria intima"
+
+echo "Ti sei appena svegliato.
+
+Indossi biancheria intima.
+
+Indossi pantaloni.
+
+Indossi la maglia.
+
+Indossi le scarpe." > you
+git commit -am "Ti metti la maglia"
+
+[win]
+
+# Riordina i commit per vestirti nel modo corretto
+{ git log main --oneline | perl -0777 -ne'exit(1) if not /scarpe[\s\S]*pantaloni[\s\S]*biancheria/'; } && { test "$(git log main --oneline | wc -l)" -eq 5; }
+
+[congrats]
+
+Sentiti libero di resettare il livello e provare l'altra strategia! Qual'è quella che preferisci?
