@@ -3,7 +3,6 @@ extends Node
 var chapters
 
 func _ready():
-	print(game.os_lang)
 	reload()
 	
 func reload():

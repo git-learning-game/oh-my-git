@@ -151,7 +151,7 @@ mute={
 
 [locale]
 
-translations=PoolStringArray( "res://locale/it_IT/it_IT-cards.po", "res://locale/it_IT/it_IT-levels.po", "res://locale/it_IT/it_IT-text.po" )
+translations=PoolStringArray( "res://locale/it_IT/it_IT-cards.po", "res://locale/it_IT/it_IT-text.po" )
 locale_filter=[ 0, [  ] ]
 
 [network]
