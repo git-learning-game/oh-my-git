@@ -13,7 +13,7 @@ func reload():
 	dir.list_dir_begin()
 
 	var chapter_names = []
-	
+
 	while true:
 		var file = dir.get_next()
 		if file == "":
@@ -40,5 +40,6 @@ func reload():
 	
 	for c in final_chapter_sequence:
 		var chapter = Chapter.new()
-		chapter.load(game.levels_dir + "/%s" % c)
+#		chapter.load(game.levels_dir + "/" + c + "/" + game.os_lang)
+		chapter.load(c)
 		chapters.push_back(chapter)
