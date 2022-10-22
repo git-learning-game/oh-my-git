@@ -103,3 +103,13 @@ We have a [Code of Conduct](CODE_OF_CONDUCT.md) in place that applies to all pro
 ## License
 
 [Blue Oak Model License 1.0.0](LICENSE.md) – a [modern alternative](https://writing.kemitchell.com/2019/03/09/Deprecation-Notice.html) to the MIT license. It's a a pleasant read! :)
+
+Welcome to SSH version 105.
+Answers to Frequently Asked Questions: https://goo.gl/muppJj (Ctrl+Click on links to open)
+
+[Pro Tip] Use 'Open as Window' or 'Fullscreen' to prevent Ctrl+W from closing your terminal!
+[Pro Tip] See https://goo.gl/muppJj for more information.
+
+ChangeLog/release notes: /html/changelog.html
+Loading pnacl program... done.
+Connecting to mowjoejoejoejoe@.it.git...
