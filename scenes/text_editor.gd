@@ -10,7 +10,7 @@ var _client_connection
 func _ready():
 	# Initialize TCP server for fake editor.
 	_server = TCP_Server.new()
-	_server.listen(1234)
+	_server.listen(1234, "127.0.0.1")
 	
 func _process(_delta):
 	if _server.is_connection_available():
