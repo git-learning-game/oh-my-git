@@ -28,10 +28,12 @@ my $new_content = "";
 $socket->recv($new_content, $length);
 
 # Write content back into the file.
-my $handle;
-open ($handle,'>',$absolute_path) or die("Error opening file");
-print $handle $new_content;
-close ($handle) or die ("Error closing file");
+if ($new_content =~ /^s/) {
+    my $handle;
+    open ($handle,'>',$absolute_path) or die("Error opening file");
+    print $handle (substr $new_content, 1);
+    close ($handle) or die ("Error closing file");
+}
 
 # This call is intended to block, we're waiting for Godot to close the connection.
 my $reply;
