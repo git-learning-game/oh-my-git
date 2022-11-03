@@ -45,29 +45,14 @@ func _ready():
 	history_position = game.state["history"].size()
 
 func _input(event):
-	if not input.has_focus():
+	if not input.has_focus() or not event.is_pressed():
 		return
 
-	if game.state["history"].size() > 0:
-		if event.is_action_pressed("ui_up"):
-			if history_position > 0:
-				history_position -= 1
-				input.text = game.state["history"][history_position]
-				input.caret_position = input.text.length()
-			# This prevents the Input taking the arrow as a "skip to beginning" command.
-			get_tree().set_input_as_handled()
-		if event.is_action_pressed("ui_down"):
-			if history_position < game.state["history"].size()-1:
-				history_position += 1
-				input.text = game.state["history"][history_position]
-				input.caret_position = input.text.length()
-			get_tree().set_input_as_handled()
-			
-	if event.is_action_pressed("tab_complete"):
+	if event.is_action("tab_complete"):
 		if completions.visible:
 			completions.get_root().get_children().select(0)
 		get_tree().set_input_as_handled()
-	if event.is_action_pressed("delete_word"):
+	elif event.is_action("delete_word"):
 		var first_half = input.text.substr(0,input.caret_position)
 		var second_half = input.text.substr(input.caret_position)
 		
@@ -77,9 +62,32 @@ func _input(event):
 			input.caret_position = idx+1
 		else:
 			input.text = "" + second_half
-	if event.is_action_pressed("clear"):
+	elif event.is_action("clear"):
 		clear()
-		
+	elif event.is_action("ui_page_up"):
+		var scroll = output.get_v_scroll()
+		scroll.set_value(scroll.value - output.get_rect().size.y / 2)
+	elif event.is_action("ui_page_down"):
+		var scroll = output.get_v_scroll()
+		scroll.set_value(scroll.value + output.get_rect().size.y / 2)
+	elif game.state["history"].size() > 0:
+		if event.is_action("ui_up"):
+			if history_position > 0:
+				history_position -= 1
+				input.text = game.state["history"][history_position]
+				input.caret_position = input.text.length()
+			# This prevents the Input taking the arrow as a "skip to beginning" command.
+			get_tree().set_input_as_handled()
+		elif event.is_action("ui_down"):
+			if history_position < game.state["history"].size():
+				history_position += 1
+				if history_position == game.state["history"].size():
+					input.text = ""
+				else:
+					input.text = game.state["history"][history_position]
+				input.caret_position = input.text.length()
+			get_tree().set_input_as_handled()
+
 func load_command(id):
 	input.text = premade_commands[id]
 	input.caret_position = input.text.length()
