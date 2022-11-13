@@ -3,7 +3,7 @@
 use IO::Socket;
 
 $socket = IO::Socket::INET->new(PeerAddr => "127.0.0.1",
-                                PeerPort => 1235,
+                                PeerPort => $ENV{HINT_TCP_PORT},
                                 Proto    => "tcp",
                                 Type     => SOCK_STREAM);
 

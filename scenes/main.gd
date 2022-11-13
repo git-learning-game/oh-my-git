@@ -20,7 +20,8 @@ var _hint_client_connection
 
 func _ready():
 	_hint_server = TCP_Server.new()
-	_hint_server.listen(1235)
+	_hint_server.listen(1235, "127.0.0.1")
+	OS.set_environment("HINT_TCP_PORT", "1235")
 	
 	var args = helpers.parse_args()
 	
