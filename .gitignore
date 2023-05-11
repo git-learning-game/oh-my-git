@@ -2,3 +2,7 @@
 /cache/
 /dependencies/
 /build/
+*~
+*.org
+#*#
+*.mo

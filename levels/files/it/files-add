@@ -1,0 +1,31 @@
+title = Arredatore di interni
+cards = file-new file-delete
+
+[description]
+
+Ora che la tua stanza sembra in ordine, puoi iniziare a disfare le tue cose. Hai portato con te due mobili nuovi e con un sorriso luminoso,
+vedi che i loro colori corrispondono al colore del tuo letto!
+
+Costruisci i tuoi due mobili usando la carta touch.
+Quindi dai il nome ai tuoi mobili - puoi sciegliere quello che tu vuoi.
+
+Assicurati che i colori siano uguali! Puoi trovare il colore del letto nella descrizione.
+Non dimenticare di aggiungere un colore e una descrizione anche ai tuoi nuovi mobile.
+
+[setup]
+echo Un accogliente letto giallo. > bed
+
+[win]
+
+# Aggiungi altri due mobili
+NUM_FILES="$(ls | wc -l)"
+test "$NUM_FILES" -ge 3
+
+# Assicurati che i colori corrispondano a quelle del tuo letto
+NUM_FILES="$(ls | wc -l)"
+YELLOW_FILES="$(grep -li giallo * | wc -l)"
+test "$NUM_FILES" -ge 2 && test "$YELLOW_FILES" = "$NUM_FILES"
+
+[congrats]
+
+Non ti senti già più a casa?

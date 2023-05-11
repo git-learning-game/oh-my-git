@@ -1,0 +1,24 @@
+title = Entra nella machina del tempo
+cards = init
+
+[description]
+
+Sei stato accettato nella scuola della macchina del tempo! Questo è il tuo primo giorno! Il tuo insegnate ti spiega:
+
+"Per fare qualsiasi cosa con una macchina del tempo, devi prima inizializzarla!"
+
+Trascina quella carta blu verso l'alto per usarla!
+
+[setup]
+
+rm -rf .git
+
+[win]
+
+# Inizializzazione della macchina del tempo
+test -d .git
+
+[congrats]
+
+Perfetto! Vedi quel piccolo animale che è apparso? Sarà il tuo compagno e ti mostrerà dove ti trovi nel tempo!
+

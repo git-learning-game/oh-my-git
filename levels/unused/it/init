@@ -1,0 +1,14 @@
+title = Welcome!
+cards = init
+
+[description]
+
+
+[setup]
+
+rm -rf .git
+
+[win]
+
+# Again, initialize your time machine!
+test -d .git

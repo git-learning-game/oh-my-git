@@ -1,0 +1,26 @@
+title = Torna dove eri prima
+cards = checkout reflog
+
+[description]
+
+Diciamo che stavi guardando qualcosa nel passato e poi sei tornato al ramo principale (main).
+
+Ma poi ti sei distratto e dopo la pausa pranzo, non riesci a ricordare cosa stavi facendo prima. Come puoi scoprirlo?
+
+C'è un comodo comando che ti mostra tutti i posti a cui la tua HEAD ha puntato in passato:
+
+    git reflog
+
+[setup]
+
+for i in {1..10}; do
+    git commit --allow-empty -m $i
+    git branch $i
+done
+git checkout 3
+git checkout main
+
+[win]
+
+# Trova cosa stavi facendo prima e tornaci!
+test "$(git rev-parse HEAD)" = "$(git rev-parse 3)"

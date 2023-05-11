@@ -1,0 +1,42 @@
+title = Crea una copia
+cards =
+
+[description]
+
+Questa volta, stai facendo molte copie di backup - puoi guardarli cliccandoci sopra!
+
+[congrats]
+
+Okay, questo è un modo di lavorare.
+
+Ma sei preoccupato che ti ritroverai con centinaia di copie di questo modulo e sarà difficile tenerne traccia nel tempo.
+
+Specialmente quando lavori con altre persone, inviare copie avanti ed indietro non sembra l'ideale.
+
+Fermati, devi provare questa macchina del tempo!
+
+[setup]
+
+rm -rf .git
+
+echo "~ Perchè voglio imparare Git ~
+
+(Devo ancora scriverlo.)" >> form.txt
+
+
+echo "~ Perchè volgio imparare Git ~
+
+- Così posso annullare gli errori" >> form2.txt
+
+
+echo "~ Perchè volgio imparare Git ~
+
+- Così posso annullare gli errori
+- Per tracciare i mie progetti attraverso il tempo" >> form2_final.txt
+
+cp form2_final.txt form2_really_final.txt
+
+[win]
+
+# Aggiungi una nuova line al file form2_really_final.txt!
+test "$(cat form2_really_final.txt | wc -l )" -ge 5

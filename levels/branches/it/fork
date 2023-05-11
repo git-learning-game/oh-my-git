@@ -1,0 +1,65 @@
+title = Crea universi paralleli
+cards = checkout commit-auto
+
+[description]
+
+Sai che creare line temporali parallele è perfettamente legale e sicuro? Vero!
+
+Puoi scoprire qundo le cose sono andate male in questo zoo? Poi torna all'ultimo momento buono e crea un universo parallelo dove sono tutti felicy!
+
+[cli]
+
+L'animale blue rappresenta un concetto conosciuto come "HEAD pointer" in Git: Ti mostra qual'è il commit attuale.
+
+Ecco un simpatico trucchetto andare al commit precedente:
+
+    git checkout HEAD^
+
+Puoi anche andare indietro di 2 commit digitando, pre esempio:
+
+    git checkout HEAD~2
+
+[setup]
+
+mkdir cage
+echo "Sembra molto affamato." > cage/lion
+
+echo "Un ragazzino..
+Ama veramente i gatti!" > child
+git add .
+git commit -m "L'inizio"
+
+echo "Tiene in mano un leccalecca." >> child
+git commit -am "Il ragazzo compra qualcosa"
+
+mv child cage
+git add .
+git commit -m "Il bambino si arrampica da qualche parte"
+
+git rm cage/child
+echo "E' felice. :)" > cage/lion
+git add .
+git commit -m "Oh no"
+
+echo "Sta dormendo." > cage/lion
+git add .
+git commit -m "Ora del pisolino!"
+
+git checkout --detach
+git branch -d main
+
+[win]
+
+# Assicurati che il ragazzino sia felice.
+git ls-tree --name-only -r HEAD | grep child
+
+# Assicurati che il leone abbia qualcosa da mangiare.
+git show HEAD:cage/lion | grep -v "molto affamato"
+
+[congrats]
+
+Whew, ottimo lavoro! Questo sembra un risultato molto migliore.
+
+Sentiti libero di aggiungere altre line temporali parallele o allungarle.
+
+Se sei pronto, la prossima missione ci sta aspettando...

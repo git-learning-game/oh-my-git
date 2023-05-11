@@ -13,9 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -41,8 +38,8 @@ margin_left = 774.698
 margin_top = 297.059
 margin_right = 1115.7
 margin_bottom = 353.059
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "by bleeptrack & blinry"
 align = 1
 __meta__ = {
@@ -61,9 +58,6 @@ anchor_bottom = 1.0
 margin_left = -175.997
 margin_top = -183.0
 margin_right = 175.997
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 margin_right = 351.0
@@ -106,5 +100,6 @@ text = "To the survey /o/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="quit"]
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="on_survey_pressed"]

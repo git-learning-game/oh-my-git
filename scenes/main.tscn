@@ -36,9 +36,6 @@ margin_bottom = -8.0
 mouse_filter = 2
 theme = ExtResource( 6 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -122,9 +119,6 @@ size_flags_vertical = 3
 bbcode_enabled = true
 bbcode_text = "Level description here!"
 text = "Level description here!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LevelCongrats" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
 visible = false
@@ -189,9 +183,9 @@ position = Vector2( 68.6342, 59.1206 )
 script = ExtResource( 9 )
 
 [node name="Area2D" type="Area2D" parent="Cursor"]
-input_pickable = false
 collision_layer = 524288
 collision_mask = 0
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D"]
 shape = SubResource( 1 )
@@ -202,11 +196,8 @@ margin_top = 5.13129
 margin_right = 636.864
 margin_bottom = 44.1313
 custom_constants/separation = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="BackButton" type="Button" parent="Menu"]
+[node name="Back" type="Button" parent="Menu"]
 margin_right = 65.0
 margin_bottom = 39.0
 focus_mode = 0
@@ -216,7 +207,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ReloadButton2" type="Button" parent="Menu"]
+[node name="Reload" type="Button" parent="Menu"]
 margin_left = 73.0
 margin_right = 161.0
 margin_bottom = 39.0
@@ -229,8 +220,8 @@ __meta__ = {
 
 [node name="CardsButton" type="Button" parent="Menu"]
 visible = false
-margin_left = 458.0
-margin_right = 539.0
+margin_left = 169.0
+margin_right = 250.0
 margin_bottom = 39.0
 focus_mode = 0
 enabled_focus_mode = 0
@@ -251,7 +242,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" parent="Menu" instance=ExtResource( 11 )]
+[node name="Toogle_Music" parent="Menu" instance=ExtResource( 11 )]
 margin_left = 169.0
 margin_top = 0.0
 margin_right = 315.0
@@ -276,10 +267,11 @@ text = "Next level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="saved" from="Rows/Columns/RightSide/FileBrowser" to="." method="update_repos"]
 [connection signal="command_done" from="Rows/Controls/Terminal" to="." method="update_repos"]
-[connection signal="pressed" from="Menu/BackButton" to="." method="back"]
-[connection signal="pressed" from="Menu/ReloadButton2" to="." method="reload_level"]
+[connection signal="pressed" from="Menu/Back" to="." method="back"]
+[connection signal="pressed" from="Menu/Reload" to="." method="reload_level"]
 [connection signal="pressed" from="Menu/CardsButton" to="." method="toggle_cards"]
 [connection signal="pressed" from="Menu/Tip!" to="." method="new_tip"]
 [connection signal="pressed" from="Menu/NextLevelButton" to="." method="load_next_level"]

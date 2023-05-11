@@ -75,6 +75,31 @@ A level can consist of multiple repositories. To have more than one, you can use
 
 At this stage, we're still exploring ourselves which kind of levels would be fun! So feel free to try new things: basic introductions with a little story? Really hard puzzles? Levels where you have to find information? Levels where you need to fix a problem? Levels with three remotes?
 
+## Add localizations
+1. Add the localization text into the section "description" in the  file ./resource/cards.json
+```
+Example:
+"description": {
+   "en_EN": "Drag this card into the empty space above to initialize the time machine!",
+   "it_IT": "Trascina questa carta nell'area vuota sopra per inizializzare la macchina del tempo",
+   "es_ES": "Arrastre esta tarjeta al área en blanco de arriba para inicializar la máquina del tiempo"
+}
+```
+2. Add, into the directory **levels**, the directory with the levels do you want to adding (es. ./levels/fr_FR/LIVELLI )
+3. Add, the localization into the dictionary game.langs (es. `var langs = {0: "en_EN", 1: "it_IT", 2: "es_ES"}` the first and default localization it must be en_EN
+4. Add column of specific locale and relative traductions for avery keys in the file ./resource/localization.csv
+```
+Example:
+
+keys,en,it,es
+LEVELS,Levels,Livelli,niveles
+QUIT,Quit,Esci,Salir
+BACK,Back,Indietro,Espalda
+
+```
+ 
+If one or more localizations in the descriptions of cards are missing and levels require that card, the game crashes!
+
 ## Contribute code!
 
 To open the game in the [Godot editor](https://godotengine.org), run `godot project.godot`. You can then run the game using *F5*.

@@ -1,7 +1,7 @@
 [
     {
-        "id": "init",
-        "command": "git init",
+	"id": "init",
+	"command": "git init",
         "description": "Drag this card into the empty space above to initialize the time machine!"
     },
     {

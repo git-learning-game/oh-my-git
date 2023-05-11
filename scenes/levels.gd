@@ -9,11 +9,11 @@ func reload():
 	chapters = []
 	
 	var dir = Directory.new()
-	dir.open("res://levels")
+	dir.open(game.levels_dir)
 	dir.list_dir_begin()
 
 	var chapter_names = []
-	
+
 	while true:
 		var file = dir.get_next()
 		if file == "":
@@ -26,7 +26,7 @@ func reload():
 	
 	var final_chapter_sequence = []
 	
-	var chapter_sequence = Array(helpers.read_file("res://levels/sequence", "").split("\n"))
+	var chapter_sequence = Array(helpers.read_file(game.levels_dir + "/sequence", "").split("\n"))
 	
 	for chapter in chapter_sequence:
 		if chapter == "":
@@ -40,5 +40,6 @@ func reload():
 	
 	for c in final_chapter_sequence:
 		var chapter = Chapter.new()
-		chapter.load("res://levels/%s" % c)
+#		chapter.load(game.levels_dir + "/" + c + "/" + game.os_lang)
+		chapter.load(c)
 		chapters.push_back(chapter)

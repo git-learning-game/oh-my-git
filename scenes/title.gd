@@ -1,12 +1,18 @@
 extends Control
 
+
 func _ready():
+	#check_correct_lang_item()
 	if !OS.has_feature("standalone") and !game.skipped_title:
 		game.skipped_title = true
 		get_tree().change_scene("res://scenes/level_select.tscn")
+	
+	#make_popup_items()
+
 
 func quit():
 	get_tree().quit()
+
 
 func levels():
 	get_tree().change_scene("res://scenes/level_select.tscn")

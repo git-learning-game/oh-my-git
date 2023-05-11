@@ -1,0 +1,33 @@
+title = Problemi
+cards = checkout add pull push commit-auto merge
+
+[description]
+
+Entrambi, tu ed il tuo amico, avete lavorato sullo stesso file e volete sincronizare!
+
+[setup yours]
+
+echo "Il capannone delle bici dovrebbe essere ???" > file
+git add .
+git commit -m "inizio"
+
+git push -u friend main
+
+echo "Il capannone delle bici dovrebbe essere verde" > file
+
+[setup friend]
+
+git checkout main
+
+echo "Il capannone delle bici dovrebbe essere blu" > file
+git commit -a -m "versione dell'amico"
+
+[win]
+
+# Fai il commit delle tue modifiche locali.
+test "$(git status -s)" = ""
+
+[win friend]
+
+# Quarda il suggerimento dell'amico, trova un compromesso e rimandalo in dietro.
+git rev-parse main^ && test "$(git rev-parse main^1^)" = "$(git rev-parse main^2^)"

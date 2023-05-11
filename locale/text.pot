@@ -1,0 +1,206 @@
+# Translations template for PROJECT.
+# Copyright (C) 2022 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# Automatically generated, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-08-18 10:39+0200\n"
+"PO-Revision-Date: 2022-08-19 16:52+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.10.3\n"
+"X-Generator: Poedit 3.1\n"
+
+msgid "teacher"
+msgstr ""
+
+#: oh-my-git/scenes/arrow.tscn:35 oh-my-git/scenes/arrow.tscn:48
+#: oh-my-git/scenes/card.tscn:125 oh-my-git/scenes/card.tscn:144
+#: oh-my-git/scenes/cards.gd:58
+msgid "These are your cards! Drag them to highlighted areas to play them!"
+msgstr ""
+
+#: oh-my-git/scenes/cards.tscn:34
+msgid "Draw new cards"
+msgstr ""
+
+#: oh-my-git/scenes/cards.tscn:48 oh-my-git/scenes/file_browser.tscn:51
+msgid "title"
+msgstr ""
+
+#: oh-my-git/scenes/file_browser.tscn:64 oh-my-git/scenes/file_browser.tscn:70
+#: oh-my-git/scenes/file_browser.tscn:111 oh-my-git/scenes/text_editor.tscn:32
+msgid "Save"
+msgstr ""
+
+#: oh-my-git/scenes/file_browser.tscn:126 oh-my-git/scenes/text_editor.tscn:47
+#: oh-my-git/scenes/file_browser_item.tscn:118
+msgid "filename"
+msgstr ""
+
+#: oh-my-git/scenes/game.gd:3
+msgid "English"
+msgstr ""
+
+#: oh-my-git/scenes/game.gd:3
+msgid "Italian"
+msgstr ""
+
+#: oh-my-git/scenes/level.gd:45
+msgid ""
+"Good job, you solved the level!\n"
+"Feel free to try a few more things or click 'Next level'."
+msgstr ""
+
+#: oh-my-git/scenes/level.gd:81
+msgid "Complete the goal of this level"
+msgstr ""
+
+#: oh-my-git/scenes/level_select.gd:60
+msgid "You get a golden badge for each level you solve without using the playing cards! Can you solve them all using the command line?"
+msgstr ""
+
+#: oh-my-git/scenes/level_select.tscn:51
+msgid ""
+"Help us improving Oh My Git! by\n"
+"answering some questions:"
+msgstr ""
+
+#: oh-my-git/scenes/level_select.tscn:65 oh-my-git/scenes/survey.tscn:105
+msgid "To the survey /o/"
+msgstr ""
+
+#: oh-my-git/scenes/level_select.tscn:82 oh-my-git/scenes/main.tscn:214
+msgid "Back"
+msgstr ""
+
+#: oh-my-git/scenes/level_select.tscn:93 oh-my-git/scenes/main.tscn:225
+msgid "Reload"
+msgstr ""
+
+#: oh-my-git/scenes/main.tscn:105 oh-my-git/scenes/main.tscn:124
+#: oh-my-git/scenes/main.tscn:136 oh-my-git/scenes/main.tscn:237
+msgid "Cards!"
+msgstr ""
+
+#: oh-my-git/scenes/main.tscn:249
+msgid "Tip!"
+msgstr ""
+
+#: oh-my-git/scenes/main.tscn:275
+msgid "Next level"
+msgstr ""
+
+#: oh-my-git/scenes/music_button.tscn:12
+msgid "Toggle music"
+msgstr ""
+
+#: oh-my-git/scenes/no_git.tscn:33 oh-my-git/scenes/survey.tscn:46
+#: oh-my-git/scenes/title.tscn:25 oh-my-git/scenes/no_git.tscn:46
+#: oh-my-git/scenes/title.tscn:38 oh-my-git/scenes/no_git.tscn:65
+#: oh-my-git/scenes/title.tscn:56
+msgid "Levels"
+msgstr ""
+
+#: oh-my-git/scenes/no_git.tscn:71 oh-my-git/scenes/title.tscn:62
+msgid "Sandbox"
+msgstr ""
+
+#: oh-my-git/scenes/no_git.tscn:76
+msgid "Install"
+msgstr ""
+
+#: oh-my-git/scenes/no_git.tscn:97 oh-my-git/scenes/node.gd:83
+msgid "You can drag these around with your mouse!"
+msgstr ""
+
+#: oh-my-git/scenes/node.tscn:55 oh-my-git/scenes/notification.gd:5
+#: oh-my-git/scenes/notification.tscn:59
+msgid "Got it!"
+msgstr ""
+
+#: oh-my-git/scenes/notification.gd:6
+msgid "Interesting!"
+msgstr ""
+
+#: oh-my-git/scenes/notification.gd:7
+msgid "Very useful!"
+msgstr ""
+
+#: oh-my-git/scenes/notification.gd:8
+msgid "Cool!"
+msgstr ""
+
+#: oh-my-git/scenes/notification.gd:9
+msgid "Nice!"
+msgstr ""
+
+#: oh-my-git/scenes/notification.gd:10
+msgid "Thanks!"
+msgstr ""
+
+#: oh-my-git/scenes/notification.gd:11
+msgid "Whatever..."
+msgstr ""
+
+#: oh-my-git/scenes/notification.gd:12
+msgid "Okay!"
+msgstr ""
+
+#: oh-my-git/scenes/notification.gd:13
+msgid "Yay!"
+msgstr ""
+
+#: oh-my-git/scenes/notification.gd:14
+msgid "Awesome!"
+msgstr ""
+
+#: oh-my-git/scenes/notification.tscn:37
+msgid "This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint!"
+msgstr ""
+
+#: oh-my-git/scenes/notification.tscn:59 oh-my-git/scenes/repository.gd:92
+msgid "This is the time machine of another person! To interact with it, you need special commands!"
+msgstr ""
+
+#: oh-my-git/scenes/repository.tscn:56 oh-my-git/scenes/repository.tscn:67
+#: oh-my-git/scenes/repository.tscn:78
+msgid "Update"
+msgstr ""
+
+#: oh-my-git/scenes/repository.tscn:93
+msgid "Hide trees and blobs"
+msgstr ""
+
+#: oh-my-git/scenes/survey.tscn:34 oh-my-git/scenes/survey.tscn:71
+#: oh-my-git/scenes/title.tscn:68
+msgid "Quit"
+msgstr ""
+
+#: oh-my-git/scenes/survey.tscn:90
+msgid ""
+"Thank you very much for playing!\n"
+"Please help us improve Oh My Git! \n"
+"by filling out this survey:"
+msgstr ""
+
+#: oh-my-git/scenes/terminal.gd:107
+msgid "This is your terminal! All commands are executed here, and you can see their output. You can also type your own commands here!"
+msgstr ""
+
+#: oh-my-git/scenes/terminal.tscn:86 oh-my-git/scenes/terminal.tscn:93
+#: oh-my-git/scenes/terminal.tscn:100 oh-my-git/scenes/text_editor.tscn:12
+msgid "Text here"
+msgstr ""
+
+#: oh-my-git/scenes/title.tscn:68 oh-my-git/scenes/title.tscn:74
+msgid "Language"
+msgstr ""

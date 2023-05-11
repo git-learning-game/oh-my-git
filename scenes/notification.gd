@@ -1,7 +1,17 @@
 extends Node2D
 
 var text setget _set_text
-var button_texts = ["Got it!", "Interesting!", "Very useful!", "Cool!", "Nice!", "Thanks!", "Whatever...", "Okay!", "Yay!", "Awesome!"]
+var button_texts = [
+	tr("Got it!"),
+	tr("Interesting!"),
+	tr("Very useful!"),
+	tr("Cool!"),
+	tr("Nice!"),
+	tr("Thanks!"),
+	tr("Whatever..."),
+	tr("Okay!"),
+	tr("Yay!"),
+	tr("Awesome!") ]
 
 func _ready():
 	button_texts.shuffle()

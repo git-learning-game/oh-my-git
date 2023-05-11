@@ -1,0 +1,58 @@
+title = Etichette remote
+cards = pull push commit-auto checkout
+
+[description]
+
+Quando lavori con un repositor remoto, le etichette non sono messe o prese automaticamente.
+
+Puoi inviare un tag con
+    git push <remote> <tag-name>
+O tutti i tags con
+    git push <remote> --tags
+
+Rimuovere i tags nel repository remoto con
+    git push <remote> --delete <tag-name>
+    
+Puoi anche sincronizzare 
+    git fetch <remote> --prune --prune-tags
+
+
+Aggiungere un nome di tag "v2" nell'ultimo commit ed inviarlo nel remoto, anche prendere il tag "v1" in quello locale.
+[setup yours]
+
+git checkout main
+
+git checkout main
+echo "Condivisione dello spazzolino" > project-ideas
+git add .
+git commit -m "Prima idea"
+
+echo "Il mio telefono è sottosopra? App" >> project-ideas
+git commit -am "Un'altra idea"
+
+
+
+git push friend main
+
+git branch -u friend/main main
+
+[setup friend]
+
+
+
+[actions friend]
+
+git tag v1 HEAD~1
+
+[win]
+# v1 tag nel tuo repo
+test "$(git show v1 -s --format=%h)" = "$(git show HEAD~1 -s --format=%h)"
+
+# v2 tag nel tuo repo
+test "$(git show v2 -s --format=%h)" = "$(git show HEAD -s --format=%h)"
+
+
+[win friend]
+
+# v2 tag nel remoto
+test "$(git show v2 -s --format=%h)" = "$(git show HEAD -s --format=%h)"

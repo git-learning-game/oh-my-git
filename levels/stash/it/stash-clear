@@ -1,0 +1,57 @@
+title = Pulire la scorta
+cards = checkout commit-auto merge reset-hard
+
+[description]
+
+Se vuoi controllare la tua scorta, usa il comando
+    git stash list
+
+Oh, non vuoi mantenere i tuoi cambiamenti nella scorta? C'è un modo per farlo? Poi vai avanti e pulisci la scorta con 
+    git stash clear
+Se vuoi solo scartare un certo elemento dalla scorta, puoi usare
+    git stash drop <stash>
+    
+Pulisci la tua pila di scorta!
+
+---
+tipp1
+---
+tipp2
+---
+tipp3
+
+[setup]
+
+echo "Torta di mele:" > recipe
+
+git add .
+git commit -m "creata una ricetta"
+
+echo "- 4 Mele" >> recipe
+
+git add .
+git commit -m "Aggiunto ingredienti"
+
+echo "- 500g Farina" >> recipe
+git stash push
+
+echo "- 200g Zucchero" >> recipe
+git stash push
+
+echo "- Pizzico di sale" >> recipe
+git stash push
+
+git checkout main
+
+[win]
+
+# Hai pulito la tua pila di scorta?
+test "$(git stash list | wc -l)" -eq 0
+
+[actions]
+
+
+
+[congrats]
+
+Pulito tutto! :)

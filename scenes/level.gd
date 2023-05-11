@@ -78,7 +78,7 @@ func load(path):
 			else:
 				repo = "yours"
 			
-			var desc = "Complete the goal of this level"
+			var desc = tr("Complete the goal of this level")
 			for line in Array(config[k].split("\n")):
 				if line.length() > 0 and line[0] == "#":
 					desc = line.substr(1).strip_edges(true, true)

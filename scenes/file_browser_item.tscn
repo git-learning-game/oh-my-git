@@ -13,9 +13,6 @@ margin_bottom = -0.0800018
 rect_min_size = Vector2( 140, 140 )
 mouse_filter = 1
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Control" type="Control" parent="."]
 anchor_left = 0.5
@@ -122,4 +119,5 @@ autowrap = true
 [node name="PopupMenu" type="PopupMenu" parent="."]
 margin_right = 20.0
 margin_bottom = 20.0
+
 [connection signal="id_pressed" from="PopupMenu" to="." method="_popup_menu_pressed"]

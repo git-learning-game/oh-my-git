@@ -1,0 +1,30 @@
+[description]
+
+A commit can have multiple parents! You can specify the -p option multiple times, like this:
+
+    git commit-tree <tree> -m "Description" -p <parent1> -p <parent2>
+
+Build a rhombus shape from commits, where two commits point to the same parent, and then a fourth commit points to both of them.
+
+[setup]
+
+[setup goal]
+
+TREE=$(git write-tree)
+SOUTH=$(git commit-tree $TREE -m "South")
+EAST=$(git commit-tree $TREE -m "East" -p $SOUTH)
+WEST=$(git commit-tree $TREE -m "West" -p $SOUTH)
+NORTH=$(git commit-tree $TREE -m "Nort" -p $EAST -p $WEST)
+
+[win]
+
+COMMITS=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep commit | cut -f1 -d" ")
+
+for COMMIT in $COMMITS; do
+    # My first parent's parents has to be the same as my second parent's parent.
+    if [ "$(git rev-parse --verify -q $COMMIT^1^)" = "$(git rev-parse --verify -q $COMMIT^2^)" ]; then
+        return 0
+    fi
+done
+
+return 1

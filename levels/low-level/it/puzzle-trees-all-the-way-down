@@ -1,0 +1,34 @@
+[description]
+
+Construct a chain of three trees, which don't point to anything else.
+
+This is hard! The `git mktree` command might be useful.
+
+[setup]
+
+[setup goal]
+
+git mktree
+TREE=$(echo -e "040000 tree 4b825dc642cb6eb9a060e54bf8d69288fbee4904\tdir" | git mktree)
+echo -e "040000 tree $TREE\tdir" | git mktree
+
+[win]
+
+TREES=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep tree | cut -f1 -d" ")
+
+for TREE in $TREES; do
+    if [ "$(git cat-file -p $TREE | wc -l)" -eq 1 ]; then
+        if [ "$(git cat-file -p $TREE | cut -f1 | grep tree | wc -l)" -eq 1 ]; then
+            # So the tree has exactly one child, and it is a tree!
+            TREE2=$(git cat-file -p $TREE | cut -f1 | grep tree | cut -f3 -d" ")
+            if [ "$(git cat-file -p $TREE2 | wc -l)" -eq 1 ]; then
+                if [ "$(git cat-file -p $TREE2 | cut -f1 | grep tree | wc -l)" -eq 1 ]; then
+                    # Same for its child! \o/
+                    return 0
+                fi
+            fi
+        fi
+    fi
+done
+
+return 1

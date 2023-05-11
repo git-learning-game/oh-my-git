@@ -1,5 +1,9 @@
 extends Node
 
+var languages = {"en": tr("English"), "it": tr("Italian")} # Localizations allowed
+var os_lang = OS.get_locale_language() # Variable for game localization (it, en, ecc...)
+var levels_dir = "res://levels"
+
 var tmp_prefix = OS.get_user_data_dir() + "/tmp/"
 var global_shell
 var fake_editor
@@ -18,6 +22,10 @@ var state = {}
 var mutex
 
 func _ready():
+	# Check if language traslation exist otherwise use the default language
+	if not languages.keys().has(os_lang):
+		os_lang = "en"
+	
 	mutex = Mutex.new()
 	load_state()
 	
@@ -119,7 +127,7 @@ func notify(text, target=null, hint_slug=null):
 			return
 		
 	var notification = preload("res://scenes/notification.tscn").instance()
-	notification.text = text
+	notification.text = tr(text)
 	if not target:
 		target = get_tree().root
 	target.call_deferred("add_child", notification)

@@ -1,0 +1,28 @@
+title = Aggiungere nuovi file all'indice
+cards = add commit
+
+[description]
+
+Finora, quando abbiamo eseguito un commit abbiamo sempre registrato lo stato di tutti gli oggetti, vero?
+
+Ma Git ti permette di scegliere i cambiamenti che si vogliono mettere in un commit!
+
+Per sapere come funziona, dobbiamo conoscere l'"indice"! Nell'indice, possiamo preparare ciò che sarà nel prossimo commit. In questo gioco, l'indice è rappresentato da un'aura blu attorno alle icone nel file manager!
+
+Inizialmente, l'indice è vuoto. Per fare un commit che contenga un nuovo file, dobbiamo aggiungerlo!
+
+[cli]
+
+Puoi usare il completamento con la tabulazione nel terminale! Inizia a scrivere il nome di un file e premi il tasto tab per completarlo. Così risparmi tempo!
+
+[setup]
+
+echo "La candela brucia con una fiamma blu." > candle
+
+[win]
+
+# Aggiungi la candela.
+test "$(git diff --cached --name-only)" = "candle" || file -f .git/candle-added && touch .git/candle-added
+
+# Crea un commit.
+test "$(git ls-tree --name-only HEAD)" = "candle"

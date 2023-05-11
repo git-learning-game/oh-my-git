@@ -1,0 +1,37 @@
+title = Resettare i file nell'indice
+cards = add reset-file commit
+
+[description]
+
+Vedi l'ombra scura dietro le icone? Questa è la versione del file nell'ultimo commit!
+
+Per esempio, queste candele sono state spente e quella modifica è stata aggiunta!
+
+Ma è stato un errore! Vuoi solo spegnere al candela rossa nel prossimo commit!
+
+Se hai già aggiunto un file modificato all'indice ma vuoi ripristinarlo, puoi usare `git reset`!
+
+[setup]
+
+echo "Sta bruciando!" > red_candle
+echo "Sta bruciando!" > green_candle
+echo "Sta bruciando!" > blue_candle
+git add .
+git commit -m "L'inizio"
+
+echo "È stata spenta." > red_candle
+echo "È stata spenta." > green_candle
+echo "È stata spenta." > blue_candle
+git add .
+
+[win]
+
+# Ripristina i cambiamenti nella candela verde e in quella blu!
+git show :green_candle | grep burning &&
+git show :blue_candle | grep burning &&
+git show :red_candle | grep -v burning
+
+# E fai un commit
+git show main:green_candle | grep burning &&
+git show main:blue_candle | grep burning &&
+git show main:red_candle | grep -v burning
