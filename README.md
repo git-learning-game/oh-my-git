@@ -16,7 +16,7 @@ If you have ideas for new features, we'd be excited to hear them! Also in that c
 
 Wanna build your own level? Great! Here's how to do it:
 
-1. Download the latest version of the [Godot game engine](https://godotengine.org).
+1. Download the latest version of the [Godot **3** game engine](https://godotengine.org/download/3.x). Godot 4 is not supported yet.
 1. Clone this repository.
 1. Run the game – the easiest way to do so is to run `godot scenes/main.tscn` from the project directory.
 1. Get a bit familiar with the levels which are currently there.
