@@ -121,7 +121,6 @@ func update():
 					#var is_visible = false					
 					if repository and repository.there_is_a_git_cache:
 						
-						var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed 's/^...//'").split("\n"))
 						# The last entries are empty strings, remove them.
 						
 						for file_path in files:
