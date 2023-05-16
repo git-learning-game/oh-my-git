@@ -34,9 +34,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Rows" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -56,8 +53,8 @@ anchor_bottom = 1.0
 margin_top = -1.92206
 margin_bottom = -1.92212
 size_flags_vertical = 3
-custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 3 )
+custom_styles/normal = SubResource( 1 )
 scroll_following = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -147,6 +144,7 @@ volume_db = -10.0
 [node name="OkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -5.0
+
 [connection signal="item_selected" from="Rows/TopHalf/Completions" to="." method="_completion_selected"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button" to="Rows/VBoxContainer/Button" method="pressed"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button2" to="Rows/VBoxContainer/Button2" method="pressed"]

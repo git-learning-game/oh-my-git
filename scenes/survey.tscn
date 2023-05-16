@@ -41,8 +41,8 @@ margin_left = 774.698
 margin_top = 297.059
 margin_right = 1115.7
 margin_bottom = 353.059
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "by bleeptrack & blinry"
 align = 1
 __meta__ = {
@@ -106,5 +106,6 @@ text = "To the survey /o/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="quit"]
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="on_survey_pressed"]
