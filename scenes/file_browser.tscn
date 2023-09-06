@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/file_browser.gd" type="Script" id=1]
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/default.tres" type="FontFile" id=2]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=3]
 
 [node name="FileBrowser" type="Control" groups=[
@@ -9,7 +9,7 @@
 ]]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 0, 142 )
+custom_minimum_size = Vector2( 0, 142 )
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -26,62 +26,62 @@ __meta__ = {
 [node name="Margin" type="MarginContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 8
-custom_constants/margin_top = 8
-custom_constants/margin_left = 8
-custom_constants/margin_bottom = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Rows" type="VBoxContainer" parent="Panel/Margin"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 1912.0
-margin_bottom = 1072.0
-custom_constants/separation = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1912.0
+offset_bottom = 1072.0
+theme_override_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title" type="Label" parent="Panel/Margin/Rows"]
 visible = false
-margin_right = 1904.0
-margin_bottom = 29.0
+offset_right = 1904.0
+offset_bottom = 29.0
 text = "title"
 align = 1
 
 [node name="Breadcrumbs" type="HBoxContainer" parent="Panel/Margin/Rows"]
 visible = false
-margin_right = 1856.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 0, 50 )
-custom_constants/separation = 8
+offset_right = 1856.0
+offset_bottom = 50.0
+custom_minimum_size = Vector2( 0, 50 )
+theme_override_constants/separation = 8
 
 [node name="Button" type="Button" parent="Panel/Margin/Rows/Breadcrumbs"]
-margin_right = 55.0
-margin_bottom = 50.0
+offset_right = 55.0
+offset_bottom = 50.0
 text = "root"
 
 [node name="Button2" type="Button" parent="Panel/Margin/Rows/Breadcrumbs"]
-margin_left = 63.0
-margin_right = 104.0
-margin_bottom = 50.0
+offset_left = 63.0
+offset_right = 104.0
+offset_bottom = 50.0
 text = "dir"
 
 [node name="Scroll" type="ScrollContainer" parent="Panel/Margin/Rows"]
-margin_right = 1904.0
-margin_bottom = 1064.0
+offset_right = 1904.0
+offset_bottom = 1064.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Grid" type="GridContainer" parent="Panel/Margin/Rows/Scroll"]
-margin_right = 1904.0
-margin_bottom = 1064.0
+offset_right = 1904.0
+offset_bottom = 1064.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/vseparation = 16
-custom_constants/hseparation = 16
+theme_override_constants/v_separation = 16
+theme_override_constants/h_separation = 16
 columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -101,13 +101,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -114.396
-margin_top = -59.399
-margin_right = -14.3955
-margin_bottom = -14.399
+offset_left = -114.396
+offset_top = -59.399
+offset_right = -14.3955
+offset_bottom = -14.399
 focus_mode = 0
-custom_fonts/font = ExtResource( 2 )
-enabled_focus_mode = 0
+theme_override_fonts/font = ExtResource( 2 )
+focus_mode = 0
 text = "Save"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -116,20 +116,20 @@ __meta__ = {
 [node name="CloseButton" type="Button" parent="Panel/TextEdit"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -54.3247
-margin_top = 12.0
-margin_right = -14.3247
-margin_bottom = 52.0
+offset_left = -54.3247
+offset_top = 12.0
+offset_right = -14.3247
+offset_bottom = 52.0
 focus_mode = 0
-custom_fonts/font = ExtResource( 2 )
-enabled_focus_mode = 0
+theme_override_fonts/font = ExtResource( 2 )
+focus_mode = 0
 text = "x"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-margin_right = 20.0
-margin_bottom = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
 [connection signal="pressed" from="Panel/TextEdit/SaveButton" to="." method="save"]
 [connection signal="pressed" from="Panel/TextEdit/CloseButton" to="." method="close"]

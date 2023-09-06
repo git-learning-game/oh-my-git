@@ -3,12 +3,12 @@
 [ext_resource path="res://scenes/music_button.gd" type="Script" id=1]
 
 [node name="Button3" type="Button"]
-margin_left = 241.005
-margin_top = 58.856
-margin_right = 387.005
-margin_bottom = 97.856
+offset_left = 241.005
+offset_top = 58.856
+offset_right = 387.005
+offset_bottom = 97.856
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 text = "Toggle music"
 script = ExtResource( 1 )
 __meta__ = {

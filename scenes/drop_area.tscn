@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/drop_area.gd" type="Script" id=1]
-[ext_resource path="res://nodes/blob.svg" type="Texture" id=2]
+[ext_resource path="res://nodes/blob.svg" type="Texture2D" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 63.1532
@@ -39,7 +39,7 @@ shape = SubResource( 1 )
 
 [node name="Highlight" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Highlight"]
+[node name="Sprite2D" type="Sprite2D" parent="Highlight"]
 modulate = Color( 1, 1, 1, 0.643137 )
 material = SubResource( 3 )
 position = Vector2( -0.102825, -0.377726 )

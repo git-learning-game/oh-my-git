@@ -4,11 +4,11 @@ extends Control
 signal clicked(what)
 signal deleted(what)
 
-export var label: String setget _set_label
+@export var label: String: set = _set_label
 var type = "file"
 var repository
 
-onready var label_node = $VBoxContainer/Label
+@onready var label_node = $VBoxContainer/Label
 
 func _ready():
 	_set_label(label)
@@ -36,11 +36,11 @@ func _ready():
 	if exists_in_wd and exists_in_index and wd_hash != index_hash and offset_index == offset_wd:
 		offset_wd += 1
 		
-	$VBoxContainer/Control/Index.rect_position.x += offset_index*offset
-	$VBoxContainer/Control/Index.rect_position.y -= offset_index*offset
+	$VBoxContainer/Control/Index.position.x += offset_index*offset
+	$VBoxContainer/Control/Index.position.y -= offset_index*offset
 	
-	$VBoxContainer/Control/WD.rect_position.x += offset_wd*offset
-	$VBoxContainer/Control/WD.rect_position.y -= offset_wd*offset
+	$VBoxContainer/Control/WD.position.x += offset_wd*offset
+	$VBoxContainer/Control/WD.position.y -= offset_wd*offset
 	
 	if conflict:
 		$VBoxContainer/Control/Index.self_modulate = Color(1, 0.2, 0.2, 0.5)
@@ -55,7 +55,7 @@ func _set_label(new_label):
 		label_node.text = helpers.abbreviate(new_label, 30)
 
 func _gui_input(event):
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_LEFT:
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		emit_signal("clicked", self)
 #	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_RIGHT and status != IconStatus.REMOVED:
 #		$PopupMenu.set_position(get_global_mouse_position())

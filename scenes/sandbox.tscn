@@ -1,51 +1,42 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://bdev1n7xpa2yd"]
 
-[ext_resource path="res://scenes/terminal.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/repository.tscn" type="PackedScene" id=2]
-[ext_resource path="res://styles/theme.tres" type="Theme" id=3]
-[ext_resource path="res://scenes/sandbox.gd" type="Script" id=4]
+[ext_resource type="PackedScene" uid="uid://bw81a517gpv2u" path="res://scenes/terminal.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/repository.tscn" id="2"]
+[ext_resource type="Theme" uid="uid://d2e7phm6ufj2i" path="res://styles/theme.tres" id="3"]
+[ext_resource type="Script" path="res://scenes/sandbox.gd" id="4"]
 
 [node name="Sandbox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 3 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3")
+script = ExtResource("4")
 
 [node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
 
 [node name="Columns" type="HSplitContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 5.0
-margin_right = -5.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
 
-[node name="Repository" parent="Columns" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 949.0
-margin_bottom = 1070.0
+[node name="Repository" parent="Columns" instance=ExtResource("2")]
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Terminal" parent="Columns" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 961.0
-margin_right = 1910.0
-margin_bottom = 1070.0
+[node name="Terminal" parent="Columns" instance=ExtResource("1")]
+layout_mode = 2
 size_flags_horizontal = 3
-[connection signal="command_done" from="Columns/Terminal" to="." method="update_repo"]
+
+[connection signal="command_done_signal" from="Columns/Terminal" to="." method="update_repo"]

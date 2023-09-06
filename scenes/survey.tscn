@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://styles/theme.tres" type="Theme" id=1]
-[ext_resource path="res://nodes/head.svg" type="Texture" id=2]
+[ext_resource path="res://nodes/head.svg" type="Texture2D" id=2]
 [ext_resource path="res://scenes/survey.gd" type="Script" id=3]
-[ext_resource path="res://fonts/big.tres" type="DynamicFont" id=4]
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
+[ext_resource path="res://fonts/big.tres" type="FontFile" id=4]
+[ext_resource path="res://fonts/default.tres" type="FontFile" id=5]
 [ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=6]
 [ext_resource path="res://styles/alert_button_hover.tres" type="StyleBox" id=7]
 
@@ -26,30 +26,30 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 854.463
-margin_top = 234.592
-margin_right = 1034.46
-margin_bottom = 290.592
-custom_fonts/font = ExtResource( 4 )
+offset_left = 854.463
+offset_top = 234.592
+offset_right = 1034.46
+offset_bottom = 290.592
+theme_override_fonts/font = ExtResource( 4 )
 text = "Oh My Git!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 774.698
-margin_top = 297.059
-margin_right = 1115.7
-margin_bottom = 353.059
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+offset_left = 774.698
+offset_top = 297.059
+offset_right = 1115.7
+offset_bottom = 353.059
+theme_override_fonts/font = ExtResource( 5 )
+theme_override_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
 text = "by bleeptrack & blinry"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="head" type="Sprite" parent="."]
+[node name="head" type="Sprite2D" parent="."]
 position = Vector2( 946.624, 163.148 )
 texture = ExtResource( 2 )
 
@@ -58,16 +58,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -175.997
-margin_top = -183.0
-margin_right = 175.997
+offset_left = -175.997
+offset_top = -183.0
+offset_right = 175.997
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
-margin_right = 351.0
-margin_bottom = 39.0
+offset_right = 351.0
+offset_bottom = 39.0
 text = "Quit"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
@@ -75,33 +75,33 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -233.0
-margin_top = -175.0
-margin_right = 233.0
-margin_bottom = 175.0
-custom_constants/separation = 24
+offset_left = -233.0
+offset_top = -175.0
+offset_right = 233.0
+offset_bottom = 175.0
+theme_override_constants/separation = 24
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
-margin_right = 466.0
-margin_bottom = 93.0
+offset_right = 466.0
+offset_bottom = 93.0
 text = "Thank you very much for playing!
 Please help us improve Oh My Git! 
 by filling out this survey:"
 align = 1
 
 [node name="Button" type="Button" parent="VBoxContainer2"]
-margin_top = 117.0
-margin_right = 466.0
-margin_bottom = 156.0
+offset_top = 117.0
+offset_right = 466.0
+offset_bottom = 156.0
 focus_mode = 0
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 7 )
-custom_styles/focus = ExtResource( 7 )
-custom_styles/normal = ExtResource( 6 )
-enabled_focus_mode = 0
+theme_override_styles/hover = ExtResource( 7 )
+theme_override_styles/pressed = ExtResource( 7 )
+theme_override_styles/focus = ExtResource( 7 )
+theme_override_styles/normal = ExtResource( 6 )
+focus_mode = 0
 text = "To the survey /o/"
 __meta__ = {
 "_edit_use_anchors_": false

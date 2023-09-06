@@ -1,8 +1,8 @@
 extends TextureRect
 
-export var active = true setget _set_active
-export var sparkling = true setget _set_sparkling
-export var impossible = false setget _set_impossible
+@export var active = true: set = _set_active
+@export var sparkling = true: set = _set_sparkling
+@export var impossible = false: set = _set_impossible
 
 
 func _ready():
@@ -18,8 +18,8 @@ func _set_active(new_active):
 
 func _set_sparkling(new_sparkling):
 	sparkling = new_sparkling
-	if $Particles2D:
-		$Particles2D.emitting = sparkling
+	if $GPUParticles2D:
+		$GPUParticles2D.emitting = sparkling
 		
 func _set_impossible(new_impossible):
 	impossible = new_impossible

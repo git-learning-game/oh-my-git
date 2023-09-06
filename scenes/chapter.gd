@@ -12,9 +12,8 @@ func load(path):
 	slug = parts[parts.size()-1]
 	
 	var level_names = []
-	var dir = Directory.new()
-	dir.open("res://levels/%s" % slug)
-	dir.list_dir_begin()
+	var dir = DirAccess.open("res://levels/%s" % slug)
+	dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 
 	while true:
 		var file = dir.get_next()

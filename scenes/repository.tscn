@@ -2,13 +2,13 @@
 
 [ext_resource path="res://scenes/repository.gd" type="Script" id=1]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=2]
-[ext_resource path="res://fonts/big.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/big.tres" type="FontFile" id=3]
 [ext_resource path="res://scenes/drop_area.tscn" type="PackedScene" id=4]
 
 [node name="Repository" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = true
+clip_contents = true
 mouse_filter = 2
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
@@ -22,8 +22,8 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="RepoVis" type="Control" parent="Rows"]
-margin_right = 1920.0
-margin_bottom = 1080.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -35,7 +35,7 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -4.0
+offset_top = -4.0
 mouse_filter = 2
 color = Color( 0.196078, 0.184314, 0.435294, 1 )
 __meta__ = {
@@ -48,11 +48,11 @@ position = Vector2( 71.6342, -29.3427 )
 [node name="Label" type="Label" parent="Rows/RepoVis"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 7.06314
-margin_top = -64.5048
-margin_right = 229.063
-margin_bottom = -8.50476
-custom_fonts/font = ExtResource( 3 )
+offset_left = 7.06314
+offset_top = -64.5048
+offset_right = 229.063
+offset_bottom = -8.50476
+theme_override_fonts/font = ExtResource( 3 )
 text = "Repo name"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -60,10 +60,10 @@ __meta__ = {
 
 [node name="IndexLabel" type="Label" parent="Rows/RepoVis"]
 visible = false
-margin_left = 21.0
-margin_top = 65.0
-margin_right = 377.0
-margin_bottom = 108.0
+offset_left = 21.0
+offset_top = 65.0
+offset_right = 377.0
+offset_bottom = 108.0
 text = "Index:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -71,10 +71,10 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="Rows/RepoVis"]
 visible = false
-margin_left = 36.5602
-margin_top = 67.9891
-margin_right = 119.56
-margin_bottom = 109.989
+offset_left = 36.5602
+offset_top = 67.9891
+offset_right = 119.56
+offset_bottom = 109.989
 text = "Update"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -84,12 +84,12 @@ __meta__ = {
 visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -208.715
-margin_top = 17.9594
-margin_right = -15.7146
-margin_bottom = 42.9594
+offset_left = -208.715
+offset_top = 17.9594
+offset_right = -15.7146
+offset_bottom = 42.9594
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 text = "Hide trees and blobs"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -98,18 +98,18 @@ __meta__ = {
 [node name="Nodes" type="Control" parent="Rows/RepoVis"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -6.10352e-05
+offset_bottom = -6.10352e-05
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Path" type="LineEdit" parent="Rows/RepoVis"]
+[node name="Path3D" type="LineEdit" parent="Rows/RepoVis"]
 visible = false
-margin_left = 23.0
-margin_top = 12.0
-margin_right = 374.0
-margin_bottom = 61.0
+offset_left = 23.0
+offset_top = 12.0
+offset_right = 374.0
+offset_bottom = 61.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -117,4 +117,4 @@ __meta__ = {
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="Rows/RepoVis/Button" to="." method="update_everything"]
 [connection signal="toggled" from="Rows/RepoVis/SimplifyCheckbox" to="." method="set_simplified_view"]
-[connection signal="text_entered" from="Rows/RepoVis/Path" to="." method="set_path"]
+[connection signal="text_submitted" from="Rows/RepoVis/Path3D" to="." method="set_path"]

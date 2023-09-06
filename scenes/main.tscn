@@ -1,283 +1,210 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=14 format=3 uid="uid://v70goeoq4k5y"]
 
-[ext_resource path="res://scenes/terminal.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/main.gd" type="Script" id=2]
-[ext_resource path="res://scenes/cards.tscn" type="PackedScene" id=3]
-[ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=4]
-[ext_resource path="res://scenes/file_browser.tscn" type="PackedScene" id=5]
-[ext_resource path="res://styles/theme.tres" type="Theme" id=6]
-[ext_resource path="res://fonts/big.tres" type="DynamicFont" id=7]
-[ext_resource path="res://sounds/success.wav" type="AudioStream" id=8]
-[ext_resource path="res://scenes/cursor.gd" type="Script" id=9]
-[ext_resource path="res://scenes/cli_badge.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/music_button.tscn" type="PackedScene" id=11]
+[ext_resource type="PackedScene" uid="uid://bw81a517gpv2u" path="res://scenes/terminal.tscn" id="1"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/cards.tscn" id="3"]
+[ext_resource type="StyleBox" path="res://styles/alert_button.tres" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/file_browser.tscn" id="5"]
+[ext_resource type="Theme" uid="uid://d2e7phm6ufj2i" path="res://styles/theme.tres" id="6"]
+[ext_resource type="FontFile" path="res://fonts/big.tres" id="7"]
+[ext_resource type="AudioStream" uid="uid://b4cfjjgk8un1l" path="res://sounds/success.wav" id="8"]
+[ext_resource type="Script" path="res://scenes/cursor.gd" id="9"]
+[ext_resource type="PackedScene" path="res://scenes/cli_badge.tscn" id="10"]
+[ext_resource type="PackedScene" path="res://scenes/music_button.tscn" id="11"]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id="1"]
 radius = 1.0
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id="2"]
 content_margin_left = 10.0
-content_margin_right = 10.0
 content_margin_top = 5.0
+content_margin_right = 10.0
 content_margin_bottom = 5.0
-bg_color = Color( 0.847059, 0.0666667, 0.0666667, 1 )
+bg_color = Color(0.847059, 0.0666667, 0.0666667, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource( 6 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("6")
+script = ExtResource("2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
 
 [node name="Rows" type="VBoxContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
 size_flags_vertical = 3
-custom_constants/separation = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
+mouse_filter = 2
+theme_override_constants/separation = 8
 
 [node name="Columns" type="HBoxContainer" parent="Rows"]
-margin_right = 1904.0
-margin_bottom = 782.0
-mouse_filter = 2
+layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="Repositories" type="VBoxContainer" parent="Rows/Columns"]
-margin_right = 1266.0
-margin_bottom = 782.0
-mouse_filter = 2
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
-custom_constants/separation = 8
+mouse_filter = 2
+theme_override_constants/separation = 8
 
 [node name="RightSide" type="VBoxContainer" parent="Rows/Columns"]
-margin_left = 1271.0
-margin_right = 1904.0
-margin_bottom = 782.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 8
+theme_override_constants/separation = 8
 
 [node name="LevelInfo" type="VBoxContainer" parent="Rows/Columns/RightSide"]
-margin_right = 633.0
-margin_bottom = 595.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 8
+theme_override_constants/separation = 8
 
 [node name="LevelPanel" type="VBoxContainer" parent="Rows/Columns/RightSide/LevelInfo"]
-margin_right = 633.0
-margin_bottom = 595.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="LevelName" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
-margin_right = 633.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 0, 60 )
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 size_flags_stretch_ratio = 0.0
-custom_fonts/normal_font = ExtResource( 7 )
+theme_override_fonts/normal_font = ExtResource("7")
 text = "Level name here!"
-fit_content_height = true
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Text" type="Control" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
-margin_top = 65.0
-margin_right = 633.0
-margin_bottom = 590.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="LevelDescription" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
 bbcode_enabled = true
-bbcode_text = "Level description here!"
 text = "Level description here!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LevelCongrats" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
 visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
 bbcode_enabled = true
-bbcode_text = "Level description here!"
 text = "Level description here!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Goals" type="VBoxContainer" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel"]
-margin_top = 595.0
-margin_right = 633.0
-margin_bottom = 595.0
+layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 
-[node name="FileBrowser" parent="Rows/Columns/RightSide" instance=ExtResource( 5 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 603.0
-margin_right = 633.0
-margin_bottom = 782.0
+[node name="FileBrowser" parent="Rows/Columns/RightSide" instance=ExtResource("5")]
+layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 
 [node name="Controls" type="HBoxContainer" parent="Rows"]
-margin_top = 790.0
-margin_right = 1904.0
-margin_bottom = 1064.0
-mouse_filter = 2
+layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
+mouse_filter = 2
 
-[node name="Cards" parent="Rows/Controls" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1266.0
-margin_bottom = 274.0
+[node name="Cards" parent="Rows/Controls" instance=ExtResource("3")]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Terminal" parent="Rows/Controls" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 1271.0
-margin_right = 1904.0
-margin_bottom = 274.0
+[node name="Terminal" parent="Rows/Controls" instance=ExtResource("1")]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SuccessSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource("8")
 volume_db = -10.0
 
 [node name="Cursor" type="Node2D" parent="."]
-position = Vector2( 68.6342, 59.1206 )
-script = ExtResource( 9 )
+position = Vector2(68.6342, 59.1206)
+script = ExtResource("9")
 
 [node name="Area2D" type="Area2D" parent="Cursor"]
-input_pickable = false
 collision_layer = 524288
 collision_mask = 0
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D"]
-shape = SubResource( 1 )
+shape = SubResource("1")
 
 [node name="Menu" type="HBoxContainer" parent="."]
-margin_left = 3.86392
-margin_top = 5.13129
-margin_right = 636.864
-margin_bottom = 44.1313
-custom_constants/separation = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 0
+offset_left = 3.86392
+offset_top = 5.13129
+offset_right = 636.864
+offset_bottom = 44.1313
+theme_override_constants/separation = 8
 
 [node name="BackButton" type="Button" parent="Menu"]
-margin_right = 65.0
-margin_bottom = 39.0
+layout_mode = 2
 focus_mode = 0
-enabled_focus_mode = 0
 text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ReloadButton2" type="Button" parent="Menu"]
-margin_left = 73.0
-margin_right = 161.0
-margin_bottom = 39.0
+layout_mode = 2
 focus_mode = 0
-enabled_focus_mode = 0
 text = "Reload"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CardsButton" type="Button" parent="Menu"]
 visible = false
-margin_left = 458.0
-margin_right = 539.0
-margin_bottom = 39.0
+layout_mode = 2
 focus_mode = 0
-enabled_focus_mode = 0
 text = "Cards!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tip!" type="Button" parent="Menu"]
 visible = false
-margin_left = 169.0
-margin_right = 225.0
-margin_bottom = 39.0
+layout_mode = 2
 focus_mode = 0
-enabled_focus_mode = 0
 text = "Tip!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Button3" parent="Menu" instance=ExtResource( 11 )]
-margin_left = 169.0
-margin_top = 0.0
-margin_right = 315.0
-margin_bottom = 39.0
+[node name="Button3" parent="Menu" instance=ExtResource("11")]
+layout_mode = 2
 
-[node name="CLIBadge" parent="Menu" instance=ExtResource( 10 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 323.0
-margin_right = 368.0
-margin_bottom = 39.0
+[node name="CLIBadge" parent="Menu" instance=ExtResource("10")]
+layout_mode = 2
+expand_mode = 1
 
 [node name="NextLevelButton" type="Button" parent="Menu"]
-margin_left = 376.0
-margin_right = 493.0
-margin_bottom = 39.0
+layout_mode = 2
 focus_mode = 0
-custom_styles/hover = SubResource( 2 )
-custom_styles/normal = ExtResource( 4 )
-enabled_focus_mode = 0
+theme_override_styles/normal = ExtResource("4")
+theme_override_styles/hover = SubResource("2")
 text = "Next level"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
 [connection signal="saved" from="Rows/Columns/RightSide/FileBrowser" to="." method="update_repos"]
-[connection signal="command_done" from="Rows/Controls/Terminal" to="." method="update_repos"]
+[connection signal="command_done_signal" from="Rows/Controls/Terminal" to="." method="update_repos"]
 [connection signal="pressed" from="Menu/BackButton" to="." method="back"]
 [connection signal="pressed" from="Menu/ReloadButton2" to="." method="reload_level"]
 [connection signal="pressed" from="Menu/CardsButton" to="." method="toggle_cards"]

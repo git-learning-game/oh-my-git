@@ -2,13 +2,13 @@
 
 [ext_resource path="res://scripts/input_dialog.gd" type="Script" id=1]
 
-[node name="InputDialog" type="WindowDialog"]
+[node name="InputDialog" type="Window"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 816.0
-margin_top = 446.0
-margin_right = -826.0
-margin_bottom = -591.0
+offset_left = 816.0
+offset_top = 446.0
+offset_right = -826.0
+offset_bottom = -591.0
 window_title = "Please enter a value:"
 script = ExtResource( 1 )
 __meta__ = {
@@ -21,4 +21,4 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="text_entered" from="LineEdit" to="." method="_text_entered"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_text_entered"]

@@ -8,9 +8,8 @@ func _ready():
 func reload():
 	chapters = []
 	
-	var dir = Directory.new()
-	dir.open("res://levels")
-	dir.list_dir_begin()
+	var dir = DirAccess.open("res://levels")
+	dir.list_dir_begin() # TODOConverter3To4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 
 	var chapter_names = []
 	

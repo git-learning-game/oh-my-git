@@ -1,14 +1,14 @@
 extends Control
 
-onready var nodes = $Rows/RepoVis/Nodes
-onready var label_node = $Rows/RepoVis/Label
-onready var path_node = $Rows/RepoVis/Path
-onready var simplify_checkbox = $Rows/RepoVis/SimplifyCheckbox
+@onready var nodes = $Rows/RepoVis/Nodes
+@onready var label_node = $Rows/RepoVis/Label
+@onready var path_node = $Rows/RepoVis/Path3D
+@onready var simplify_checkbox = $Rows/RepoVis/SimplifyCheckbox
 
-export var label: String setget set_label
-export var path: String setget set_path, get_path
-export var simplified_view = true setget set_simplified_view
-export var editable_path = false setget set_editable_path
+@export var label: String: set = set_label
+@export var path: String: get = get_the_path, set = set_path
+@export var simplified_view = true: set = set_simplified_view
+@export var editable_path = false: set = set_editable_path
 
 var type = "remote"
 
@@ -38,15 +38,15 @@ func _ready():
 	#update_node_positions()
 
 func _process(_delta):
-	nodes.rect_pivot_offset = nodes.rect_size / 2
+	nodes.pivot_offset = nodes.size / 2
 	if path:
 		apply_forces()
 		
 func _unhandled_input(event):
-	if event.is_action_pressed("zoom_out") and nodes.rect_scale.x > 0.3:
-		nodes.rect_scale -= Vector2(0.05, 0.05)
-	if event.is_action_pressed("zoom_in") and nodes.rect_scale.x < 2:
-		nodes.rect_scale += Vector2(0.05, 0.05)
+	if event.is_action_pressed("zoom_out") and nodes.scale.x > 0.3:
+		nodes.scale -= Vector2(0.05, 0.05)
+	if event.is_action_pressed("zoom_in") and nodes.scale.x < 2:
+		nodes.scale += Vector2(0.05, 0.05)
 
 func there_is_a_git():
 	return shell.run("test -d .git && echo yes || echo no") == "yes\n"
@@ -78,7 +78,7 @@ func set_path(new_path):
 #		if is_inside_tree():
 #			update_everything()
 	
-func get_path():
+func get_the_path():
 	return path
 	
 func set_label(new_label):
@@ -93,7 +93,7 @@ func set_label(new_label):
 		label_node.text = new_label
 
 func random_position():
-	return Vector2(rand_range(0, rect_size.x), rand_range(0, rect_size.y))
+	return Vector2(randf_range(0, size.x), randf_range(0, size.y))
 		
 func update_objects():
 	all_objects_cache = all_objects()
@@ -109,7 +109,7 @@ func update_objects():
 			if type == "tree" or type == "blob":
 				continue
 
-		var n = node.instance()
+		var n = node.instantiate()
 		n.id = o
 		n.type = object_type(o)
 		n.content = object_content(o)
@@ -162,12 +162,12 @@ func update_node_positions():
 		if objects.has(target_reference):
 			var target = objects[target_reference]
 			objects["HEAD"].position = Vector2(target.position.x ,target.position.y - 100)
-	 
+
 func update_refs():
 	all_refs_cache = all_refs()
 	for r in all_refs_cache:
 		if not objects.has(r):
-			var n = node.instance()
+			var n = node.instantiate()
 			n.id = r
 			n.type = "ref"
 			n.content = ""
@@ -193,10 +193,10 @@ func apply_forces():
 			var f = 2000/pow(d+0.00001,1.5)
 			o.position += dir*f
 			o2.position -= dir*f
-		var center_of_gravity = nodes.rect_size/2
+		var center_of_gravity = nodes.size/2
 		var d = o.position.distance_to(center_of_gravity)
 		var dir = (o.position - center_of_gravity).normalized()
-		var f = (d+0.00001)*(Vector2(nodes.rect_size.y/10, nodes.rect_size.x/3).normalized()/30)
+		var f = (d+0.00001)*(Vector2(nodes.size.y/10, nodes.size.x/3).normalized()/30)
 		o.position -= dir*f
 	
 func find_position(n):	
@@ -219,7 +219,8 @@ func git(args, splitlines = false):
 	if splitlines:
 		o = o.split("\n")
 		# Remove last empty line.
-		o.remove(len(o)-1)
+		o.remove_at(len(o)-1)
+		
 	else:
 		# Remove trailing newline.
 		o = o.substr(0,len(o)-1)
@@ -227,13 +228,13 @@ func git(args, splitlines = false):
 
 func update_head():
 	if not objects.has("HEAD"):
-		var n = node.instance()
+		var n = node.instantiate()
 		n.id = "HEAD"
 		n.type = "head"
 		n.content = ""
 		n.repository = self
 		n.position = find_position(n)
-		   
+
 		objects["HEAD"] = n
 		nodes.add_child(n)
 	var n = objects["HEAD"]
@@ -309,7 +310,7 @@ func ref_target(ref):
 func set_simplified_view(simplify):
 	simplified_view = simplify
 	if simplify_checkbox:
-		simplify_checkbox.pressed = simplify
+		simplify_checkbox.button_pressed = simplify
 		
 	for o in objects:
 		var obj = objects[o]

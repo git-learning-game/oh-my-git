@@ -1,77 +1,64 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://b1567m7y80gn0"]
 
-[ext_resource path="res://styles/theme.tres" type="Theme" id=1]
-[ext_resource path="res://images/oh-my-git.png" type="Texture" id=2]
-[ext_resource path="res://scenes/title.gd" type="Script" id=3]
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
+[ext_resource type="Theme" uid="uid://d2e7phm6ufj2i" path="res://styles/theme.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://w1afg4vatjcq" path="res://images/oh-my-git.png" id="2"]
+[ext_resource type="Script" path="res://scenes/title.gd" id="3"]
+[ext_resource type="FontFile" path="res://fonts/default.tres" id="5"]
 
 [node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource("1")
+script = ExtResource("3")
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 790.778
-margin_top = 594.135
-margin_right = 1131.78
-margin_bottom = 650.135
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+layout_mode = 0
+offset_left = 790.778
+offset_top = 594.135
+offset_right = 1131.78
+offset_bottom = 650.135
+theme_override_colors/font_color = Color(0.533333, 0.392157, 0.392157, 1)
+theme_override_fonts/font = ExtResource("5")
 text = "by bleeptrack & blinry"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label3" type="Label" parent="."]
-margin_left = 709.713
-margin_top = 621.416
-margin_right = 1209.71
-margin_bottom = 677.416
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+layout_mode = 0
+offset_left = 709.713
+offset_top = 621.416
+offset_right = 1209.71
+offset_bottom = 677.416
+theme_override_colors/font_color = Color(0.533333, 0.392157, 0.392157, 1)
+theme_override_fonts/font = ExtResource("5")
 text = "Original score by winniehell"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 784.553
-margin_top = 702.517
-margin_right = 1136.55
-margin_bottom = 885.517
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 0
+offset_left = 784.553
+offset_top = 702.517
+offset_right = 1136.55
+offset_bottom = 885.517
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_right = 351.0
-margin_bottom = 39.0
+layout_mode = 2
 text = "Levels"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
-margin_top = 44.0
-margin_right = 351.0
-margin_bottom = 83.0
+layout_mode = 2
 text = "Sandbox"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
-margin_top = 88.0
-margin_right = 351.0
-margin_bottom = 127.0
+layout_mode = 2
 text = "Quit"
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="oh-my-git" type="Sprite" parent="Sprite"]
-position = Vector2( 967.924, 306.066 )
-scale = Vector2( 0.320895, 0.320895 )
-texture = ExtResource( 2 )
+[node name="oh-my-git" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(967.924, 306.066)
+scale = Vector2(0.320895, 0.320895)
+texture = ExtResource("2")
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="levels"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="sandbox"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="quit"]

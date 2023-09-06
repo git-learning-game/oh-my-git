@@ -22,30 +22,31 @@ func exec(command, args=[], crash_on_fail=true):
 	var debug = false
 	
 	if debug:
-		print("exec: %s [%s]" % [command, PoolStringArray(args).join(", ")])
+		print("exec: %s [%s]" % [command, ", ".join(PackedStringArray(args))])
 		
 	var output = []
-	var exit_code = OS.execute(command, args, true, output, true)
+	var exit_code = OS.execute(command, args, output, true)
 	output = output[0]
 		
 	if exit_code != 0 and crash_on_fail:
-		helpers.crash("OS.execute failed: %s [%s] Output: %s \nExit Code %d" % [command, PoolStringArray(args).join(", "), output, exit_code])
+		helpers.crash("OS.execute failed: %s [%s] Output: %s \nExit Code %d" % [command, ", ".join(PackedStringArray(args)), output, exit_code])
 	elif debug:
 		print("Output: %s" %output)
 
 	return {"output": output, "exit_code": exit_code}
 
 func exec_async(command, args=[]):
-	OS.execute(command, args, false)
+	#thread needed for async
+	OS.execute(command, args)
 
 # Return the contents of a file. If no fallback_string is provided, crash when
 # the file doesn't exist.
 func read_file(path, fallback_string=null):
 	if debug_file_io:
 		print("reading " + path)
-	var file = File.new()
-	var open_status = file.open(path, File.READ)
-	if open_status == OK:
+	var file = FileAccess.open(path,FileAccess.READ)
+	#var open_status = file.open(path, File.READ)
+	if file != null:
 		var content = file.get_as_text()
 		file.close()
 		return content
@@ -62,13 +63,13 @@ func write_file(path, content):
 	# Create the base directory of the file, if it doesn't exist.
 	var parts = Array(path.split("/"))
 	parts.pop_back()
-	var dirname = PoolStringArray(parts).join("/")
-	var dir = Directory.new()
-	if not dir.dir_exists(path):
-		dir.make_dir_recursive(dirname)
+	var dirname = "/".join(PackedStringArray(parts))
+	var dir = DirAccess.open(path)
+	if not dir:
+		DirAccess.make_dir_recursive_absolute(dirname)
 		
-	var file = File.new()
-	file.open(path, File.WRITE)
+	var file = FileAccess.open(path,FileAccess.WRITE)
+	#file.open(path, File.WRITE)
 	file.store_string(content)
 	file.close()
 	return true

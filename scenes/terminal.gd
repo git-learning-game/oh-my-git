@@ -1,17 +1,18 @@
+class_name Terminal
 extends Control
 
-signal command_done
+signal command_done_signal
 
 var history_position = 0
 var git_commands = ["add", "am", "archive", "bisect", "branch", "bundle", "checkout", "cherry-pick", "citool", "clean", "clone", "commit", "describe", "diff", "fetch", "format-patch", "gc", "gitk", "grep", "gui", "init", "log", "merge", "mv", "notes", "pull", "push", "range-diff", "rebase", "reset", "restore", "revert", "rm", "shortlog", "show", "sparse-checkout", "stash", "status", "submodule", "switch", "tag", "worktree", "config", "fast-export", "fast-import", "filter-branch", "mergetool", "pack-refs", "prune", "reflog", "remote", "repack", "replace", "annotate", "blame", "bugreport", "count-objects", "difftool", "fsck", "gitweb", "help", "instaweb", "merge-tree", "rerere", "show-branch", "verify-commit", "verify-tag", "whatchanged", "archimport", "cvsexportcommit", "cvsimport", "cvsserver", "imap-send", "p", "quiltimport", "request-pull", "send-email", "svn", "apply", "checkout-index", "commit-graph", "commit-tree", "hash-object", "index-pack", "merge-file", "merge-index", "mktag", "mktree", "multi-pack-index", "pack-objects", "prune-packed", "read-tree", "symbolic-ref", "unpack-objects", "update-index", "update-ref", "write-tree", "cat-file", "cherry", "diff-files", "diff-index", "diff-tree", "for-each-ref", "get-tar-commit-id", "ls-files", "ls-remote", "ls-tree", "merge-base", "name-rev", "pack-redundant", "rev-list", "rev-parse", "show-index", "show-ref", "unpack-file", "var", "verify-pack", "daemon", "fetch-pack", "http-backend", "send-pack", "update-server-info", "check-attr", "check-ignore", "check-mailmap", "check-ref-format", "column", "credential", "credential-cache", "credential-store", "fmt-merge-msg", "interpret-trailers", "mailinfo", "mailsplit", "merge-one-file", "patch-id", "sh-i", "sh-setup"]
 
 var git_commands_help = []
 
-onready var input = $Rows/InputLine/Input
-onready var output = $Rows/TopHalf/Output
-onready var completions = $Rows/TopHalf/Completions
+@onready var input = $Rows/InputLine/Input
+@onready var output = $Rows/TopHalf/Output
+@onready var completions = $Rows/TopHalf/Completions
 var repository
-onready var main = get_tree().get_root().get_node("Main")
+@onready var main = get_tree().get_root().get_node("Main")
 
 var shell = Shell.new()
 
@@ -22,7 +23,7 @@ var premade_commands = [
 ]
 
 func _ready():
-	var error = $TextEditor.connect("hide", self, "editor_closed")
+	var error = $TextEditor.connect("hidden", Callable(self, "editor_closed"))
 	if error != OK:
 		helpers.crash("Could not connect TextEditor's hide signal")
 	input.grab_focus()
@@ -42,28 +43,28 @@ func _input(event):
 			if history_position > 0:
 				history_position -= 1
 				input.text = game.state["history"][history_position]
-				input.caret_position = input.text.length()
+				input.caret_column = input.text.length()
 			# This prevents the Input taking the arrow as a "skip to beginning" command.
-			get_tree().set_input_as_handled()
+			get_viewport().set_input_as_handled()
 		if event.is_action_pressed("ui_down"):
 			if history_position < game.state["history"].size()-1:
 				history_position += 1
 				input.text = game.state["history"][history_position]
-				input.caret_position = input.text.length()
-			get_tree().set_input_as_handled()
+				input.caret_column = input.text.length()
+			get_viewport().set_input_as_handled()
 			
 	if event.is_action_pressed("tab_complete"):
 		if completions.visible:
 			completions.get_root().get_children().select(0)
-		get_tree().set_input_as_handled()
+		get_viewport().set_input_as_handled()
 	if event.is_action_pressed("delete_word"):
-		var first_half = input.text.substr(0,input.caret_position)
-		var second_half = input.text.substr(input.caret_position)
+		var first_half = input.text.substr(0,input.caret_column)
+		var second_half = input.text.substr(input.caret_column)
 		
-		var idx = first_half.strip_edges(false, true).find_last(" ")
+		var idx = first_half.strip_edges(false, true).rfind(" ")
 		if idx > 0:
 			input.text = first_half.substr(0,idx+1) + second_half
-			input.caret_position = idx+1
+			input.caret_column = idx+1
 		else:
 			input.text = "" + second_half
 	if event.is_action_pressed("clear"):
@@ -71,7 +72,7 @@ func _input(event):
 		
 func load_command(id):
 	input.text = premade_commands[id]
-	input.caret_position = input.text.length()
+	input.caret_column = input.text.length()
 
 func send_command(command):
 	close_all_editors()
@@ -89,12 +90,12 @@ func send_command(command):
 
 	shell.cd(repository.path)
 	var cmd = shell.run_async(command, false)
-	yield(cmd, "done")
+	await cmd.done
 	call_deferred("command_done", cmd)
 
 func command_done(cmd):
 	if cmd.exit_code == 0:
-		$OkSound.pitch_scale = rand_range(0.8, 1.2)
+		$OkSound.pitch_scale = randf_range(0.8, 1.2)
 		$OkSound.play()
 	else:
 		$ErrorSound.play()
@@ -109,7 +110,7 @@ func command_done(cmd):
 		$Pager/Text.text = cmd.output
 		$Pager.popup()
 	
-	emit_signal("command_done")
+	emit_signal("command_done_signal")
 	
 func receive_output(text):
 	output.text += text
@@ -147,7 +148,7 @@ func regenerate_completions_menu(new_text):
 				if idx >= 0:
 					child.set_text(1, git_commands_help[idx])
 					
-		completions.margin_top = -min(filtered_comp.size() * 35 + 10, 210) 
+		completions.offset_top = -min(filtered_comp.size() * 35 + 10, 210) 
 
 func relevant_subcommands():
 	var result = {}
@@ -165,7 +166,7 @@ func relevant_subcommands():
 	for r in result:
 		result_array.push_back([r, result[r]])
 	
-	result_array.sort_custom(self, "sort_by_frequency_desc")
+	result_array.sort_custom(Callable(self, "sort_by_frequency_desc"))
 	
 	var plain_result = []
 	for r in result_array:
@@ -212,7 +213,7 @@ func _completion_selected():
 	input.emit_signal("text_changed", input.text)
 	#completions.hide()
 	input.grab_focus()
-	input.caret_position = input.text.length()
+	input.caret_column = input.text.length()
 
 func editor_saved():
 	emit_signal("command_done")

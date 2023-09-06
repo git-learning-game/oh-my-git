@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://images/cli-badge.svg" type="Texture" id=1]
+[ext_resource path="res://images/cli-badge.svg" type="Texture2D" id=1]
 [ext_resource path="res://scenes/cli_badge.gd" type="Script" id=2]
 
 [sub_resource type="Curve" id=1]
@@ -9,7 +9,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="CurveTexture" id=2]
 curve = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticleProcessMaterial" id=3]
 emission_shape = 2
 emission_box_extents = Vector3( 20, 20, 1 )
 flag_disable_z = true
@@ -26,7 +26,7 @@ color = Color( 0.913725, 0.913725, 0.447059, 1 )
 [node name="CLIBadge" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 45, 0 )
+custom_minimum_size = Vector2( 45, 0 )
 size_flags_stretch_ratio = 0.0
 texture = ExtResource( 1 )
 expand = true
@@ -36,7 +36,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 show_behind_parent = true
 position = Vector2( 21.7701, 14.5133 )
 z_index = 1
@@ -48,6 +48,6 @@ process_material = SubResource( 3 )
 visible = false
 position = Vector2( 22.4111, 18.7121 )
 scale = Vector2( 1.32773, 1.32773 )
-points = PoolVector2Array( -16.448, 11.5553, 16.0161, -12.8519 )
+points = PackedVector2Array( -16.448, 11.5553, 16.0161, -12.8519 )
 width = 5.0
 default_color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )

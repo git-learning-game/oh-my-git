@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/default.tres" type="FontFile" id=1]
 [ext_resource path="res://scenes/node.gd" type="Script" id=2]
-[ext_resource path="res://nodes/blob.svg" type="Texture" id=3]
+[ext_resource path="res://nodes/blob.svg" type="Texture2D" id=3]
 [ext_resource path="res://nodes/pop.wav" type="AudioStream" id=5]
 [ext_resource path="res://scenes/drop_area.tscn" type="PackedScene" id=6]
 
@@ -30,28 +30,28 @@ z_index = -1
 
 [node name="Rect" type="ColorRect" parent="."]
 visible = false
-margin_left = -29.0
-margin_top = -28.0
-margin_right = 29.0
-margin_bottom = 29.0
+offset_left = -29.0
+offset_top = -28.0
+offset_right = 29.0
+offset_bottom = 29.0
 mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="ID" type="Label" parent="."]
 visible = false
-margin_left = -19.9265
-margin_top = -12.0097
-margin_right = 129.073
-margin_bottom = 40.9903
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+offset_left = -19.9265
+offset_top = -12.0097
+offset_right = 129.073
+offset_bottom = 40.9903
+theme_override_fonts/font = ExtResource( 1 )
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
 text = "object_id"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -71,13 +71,13 @@ z_index = 1
 
 [node name="ContentLabel" type="Label" parent="Content"]
 visible = false
-margin_left = -22.057
-margin_top = 31.1738
-margin_right = -12.057
-margin_bottom = 66.1738
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+offset_left = -22.057
+offset_top = 31.1738
+offset_right = -12.057
+offset_bottom = 66.1738
+theme_override_styles/normal = SubResource( 2 )
+theme_override_fonts/font = ExtResource( 1 )
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

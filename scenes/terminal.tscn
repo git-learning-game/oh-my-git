@@ -1,25 +1,25 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://bw81a517gpv2u"]
 
-[ext_resource path="res://sounds/typewriter_ding.wav" type="AudioStream" id=2]
-[ext_resource path="res://fonts/monospace.tres" type="DynamicFont" id=3]
-[ext_resource path="res://scenes/terminal.gd" type="Script" id=4]
-[ext_resource path="res://scenes/text_editor.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/tcp_server.tscn" type="PackedScene" id=6]
-[ext_resource path="res://sounds/buzzer.wav" type="AudioStream" id=7]
+[ext_resource type="AudioStream" uid="uid://b83v18ysjftqi" path="res://sounds/typewriter_ding.wav" id="2"]
+[ext_resource type="FontFile" path="res://fonts/monospace.tres" id="3"]
+[ext_resource type="Script" path="res://scenes/terminal.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://d00aa7p4xsxf2" path="res://scenes/text_editor.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/tcp_server.tscn" id="6"]
+[ext_resource type="AudioStream" uid="uid://cco182msscd1y" path="res://sounds/buzzer.wav" id="7"]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id="1"]
 content_margin_left = 5.0
-content_margin_right = 5.0
 content_margin_top = 5.0
+content_margin_right = 5.0
 content_margin_bottom = 5.0
-bg_color = Color( 0, 0, 0, 1 )
-border_color = Color( 0.415686, 0.333333, 1, 1 )
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.415686, 0.333333, 1, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id="2"]
 script/source = "extends Button
 
 func _ready():
@@ -30,128 +30,98 @@ func pressed():
 "
 
 [node name="Terminal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("4")
 
 [node name="Rows" type="VBoxContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TopHalf" type="Control" parent="Rows"]
-margin_right = 1920.0
-margin_bottom = 1052.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Output" type="RichTextLabel" parent="Rows/TopHalf"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -1.92206
-margin_bottom = -1.92212
+offset_top = -1.92206
+offset_bottom = -1.92212
 size_flags_vertical = 3
-custom_styles/normal = SubResource( 1 )
-custom_fonts/normal_font = ExtResource( 3 )
+theme_override_fonts/normal_font = ExtResource("3")
+theme_override_styles/normal = SubResource("1")
 scroll_following = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Completions" type="Tree" parent="Rows/TopHalf"]
+layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -34.0
+offset_top = -34.0
 columns = 2
 hide_root = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Rows"]
 visible = false
-margin_top = 984.0
-margin_right = 1920.0
-margin_bottom = 1052.0
+layout_mode = 2
 
 [node name="Button" type="Button" parent="Rows/VBoxContainer"]
-margin_right = 1920.0
-margin_bottom = 20.0
+layout_mode = 2
 text = "git commit --allow-empty -m \"$RANDOM\""
-script = SubResource( 2 )
+script = SubResource("2")
 
 [node name="Button2" type="Button" parent="Rows/VBoxContainer"]
-margin_top = 24.0
-margin_right = 1920.0
-margin_bottom = 44.0
+layout_mode = 2
 text = "git checkout HEAD^"
-script = SubResource( 2 )
+script = SubResource("2")
 
 [node name="Button3" type="Button" parent="Rows/VBoxContainer"]
-margin_top = 48.0
-margin_right = 1920.0
-margin_bottom = 68.0
+layout_mode = 2
 text = "git checkout -b \"$RANDOM\""
-script = SubResource( 2 )
+script = SubResource("2")
 
 [node name="InputLine" type="HBoxContainer" parent="Rows"]
-margin_top = 1056.0
-margin_right = 1920.0
-margin_bottom = 1080.0
+layout_mode = 2
 
 [node name="Input" type="LineEdit" parent="Rows/InputLine"]
-margin_right = 1920.0
-margin_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 caret_blink = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="TextEditor" parent="." instance=ExtResource( 5 )]
+[node name="TextEditor" parent="." instance=ExtResource("5")]
 visible = false
+layout_mode = 0
 mouse_filter = 1
-syntax_highlighting = false
+syntax_highlighter = null
 
-[node name="TCPServer" parent="." instance=ExtResource( 6 )]
+[node name="TCPServer" parent="." instance=ExtResource("6")]
 
-[node name="Pager" type="WindowDialog" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 18.0
-margin_top = 39.0
-margin_right = -687.0
-margin_bottom = -48.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Pager" type="Window" parent="."]
 
 [node name="Text" type="RichTextLabel" parent="Pager"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/normal_font = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme_override_fonts/normal_font = ExtResource("3")
 
 [node name="ErrorSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource("7")
 volume_db = -10.0
 
 [node name="OkSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource("2")
 volume_db = -5.0
+
 [connection signal="item_selected" from="Rows/TopHalf/Completions" to="." method="_completion_selected"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button" to="Rows/VBoxContainer/Button" method="pressed"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button2" to="Rows/VBoxContainer/Button2" method="pressed"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button3" to="Rows/VBoxContainer/Button3" method="pressed"]
 [connection signal="text_changed" from="Rows/InputLine/Input" to="." method="_input_changed"]
-[connection signal="text_entered" from="Rows/InputLine/Input" to="." method="send_command"]
+[connection signal="text_submitted" from="Rows/InputLine/Input" to="." method="send_command"]
 [connection signal="saved" from="TextEditor" to="." method="editor_saved"]
 [connection signal="data_received" from="TCPServer" to="." method="receive_output"]

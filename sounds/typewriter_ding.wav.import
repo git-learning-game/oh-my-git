@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/typewriter_ding.wav-261baf709f530d1d0a04e5c5a6efc553.sample"
+type="AudioStreamWAV"
+uid="uid://b83v18ysjftqi"
+path="res://.godot/imported/typewriter_ding.wav-261baf709f530d1d0a04e5c5a6efc553.sample"
 
 [deps]
 
 source_file="res://sounds/typewriter_ding.wav"
-dest_files=[ "res://.import/typewriter_ding.wav-261baf709f530d1d0a04e5c5a6efc553.sample" ]
+dest_files=["res://.godot/imported/typewriter_ding.wav-261baf709f530d1d0a04e5c5a6efc553.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

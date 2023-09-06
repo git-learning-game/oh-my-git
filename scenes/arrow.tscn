@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/default.tres" type="FontFile" id=1]
 [ext_resource path="res://scenes/arrow.gd" type="Script" id=2]
 
 [node name="Arrow" type="Node2D"]
@@ -8,7 +8,7 @@ show_behind_parent = true
 script = ExtResource( 2 )
 
 [node name="Line" type="Line2D" parent="."]
-points = PoolVector2Array( -0.480499, -0.11055, 158.301, 0.581757 )
+points = PackedVector2Array( -0.480499, -0.11055, 158.301, 0.581757 )
 default_color = Color( 0.2, 0.2, 0.2, 1 )
 
 [node name="Tip" type="Node2D" parent="."]
@@ -19,19 +19,19 @@ z_index = 1
 position = Vector2( -24.7164, -6.37881 )
 z_index = -1
 color = Color( 0.2, 0.2, 0.2, 1 )
-polygon = PoolVector2Array( -4.87012, 27.2617, 39.7077, 6.0953, -4.87012, -15.0711 )
+polygon = PackedVector2Array( -4.87012, 27.2617, 39.7077, 6.0953, -4.87012, -15.0711 )
 
 [node name="Label" type="Node2D" parent="."]
 visible = false
 position = Vector2( 102, 46 )
 
 [node name="ID" type="Label" parent="Label"]
-margin_left = -19.374
-margin_top = -5.93085
-margin_right = 20.626
-margin_bottom = 8.06915
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+offset_left = -19.374
+offset_top = -5.93085
+offset_right = 20.626
+offset_bottom = 8.06915
+theme_override_fonts/font = ExtResource( 1 )
+theme_override_colors/font_color = Color( 1, 1, 1, 1 )
 text = "label"
 align = 1
 __meta__ = {
@@ -39,12 +39,12 @@ __meta__ = {
 }
 
 [node name="Target" type="Label" parent="."]
-margin_left = -230.84
-margin_top = 42.1225
-margin_right = 231.16
-margin_bottom = 68.1225
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
+offset_left = -230.84
+offset_top = 42.1225
+offset_right = 231.16
+offset_bottom = 68.1225
+theme_override_fonts/font = ExtResource( 1 )
+theme_override_colors/font_color = Color( 0.356863, 0.356863, 0.356863, 1 )
 text = "label"
 align = 1
 __meta__ = {

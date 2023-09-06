@@ -16,7 +16,9 @@ func _process(_delta):
 
 func load_card_store():
 	card_store = {}
-	var cards_json = JSON.parse(helpers.read_file("res://resources/cards.json")).result
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(helpers.read_file("res://resources/cards.json"))
+	var cards_json = test_json_conv.data
 	for card in cards_json:
 		card_store[card["id"]] = card
 	
@@ -35,13 +37,13 @@ func draw_rand_card():
 	draw_card(card)
 
 func draw_card(card):
-	var new_card = preload("res://scenes/card.tscn").instance()
+	var new_card = preload("res://scenes/card.tscn").instantiate()
 	
 	new_card.id = card["id"]
 	new_card.command = card["command"]
 	new_card.description = card["description"]
 	new_card.energy = 0 #card.energy
-	new_card.position = Vector2(rect_size.x, rect_size.y*2)
+	new_card.position = Vector2(size.x, size.y*2)
 	add_child(new_card)
 	arrange_cards()
 	
@@ -62,7 +64,7 @@ func arrange_cards():
 	t.wait_time = 0.05
 	add_child(t)
 	t.start()
-	yield(t, "timeout")
+	await t.timeout
 	
 	var amount_cards = get_tree().get_nodes_in_group("cards").size()
 	var total_angle = min(35, 45.0/7*amount_cards)
@@ -74,7 +76,7 @@ func arrange_cards():
 		
 	var current_angle = -total_angle/2
 	for card in get_tree().get_nodes_in_group("cards"):
-		var target_position = Vector2(rect_size.x/2, rect_size.y + card_radius)
+		var target_position = Vector2(size.x/2, size.y + card_radius)
 		var target_rotation = current_angle
 		var translation_vec = Vector2(0,-card_radius).rotated(current_angle/180.0*PI)
 		target_position += translation_vec
@@ -82,11 +84,9 @@ func arrange_cards():
 		card._home_position = target_position
 		card._home_rotation = target_rotation
 		
-		var tween = Tween.new()
-		tween.interpolate_property(card, "position", card.position, target_position, 0.5, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-		tween.interpolate_property(card, "rotation_degrees", card.rotation_degrees, target_rotation, 0.5, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-		add_child(tween)
-		tween.start()
+		var tween = get_tree().create_tween()
+		tween.tween_property(card, "position", target_position, 0.5)
+		tween.tween_property(card, "rotation_degrees", target_rotation, 0.5)
 		
 func redraw_all_cards():
 	game.energy = 5

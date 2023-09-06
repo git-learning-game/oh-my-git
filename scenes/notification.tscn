@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://fonts/default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/default.tres" type="FontFile" id=1]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=2]
 [ext_resource path="res://scenes/notification.gd" type="Script" id=3]
 
@@ -16,12 +16,12 @@ z_index = 4096
 script = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 492.0
-margin_bottom = 170.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 492.0
+offset_bottom = 170.0
 theme = ExtResource( 2 )
-custom_styles/panel = SubResource( 1 )
+theme_override_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -29,11 +29,11 @@ __meta__ = {
 [node name="Label" type="Label" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = 13.0
-margin_right = -15.0
-margin_bottom = -15.0
-custom_fonts/font = ExtResource( 1 )
+offset_left = 16.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = -15.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint!"
 autowrap = true
 __meta__ = {
@@ -44,18 +44,18 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -58.0
+offset_top = -58.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="OK" type="Button" parent="Panel/CenterContainer"]
-margin_left = 202.0
-margin_top = 9.0
-margin_right = 282.0
-margin_bottom = 48.0
+offset_left = 202.0
+offset_top = 9.0
+offset_right = 282.0
+offset_bottom = 48.0
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 text = "Got it!"
 __meta__ = {
 "_edit_use_anchors_": false

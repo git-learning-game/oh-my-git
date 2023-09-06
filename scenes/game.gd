@@ -40,7 +40,7 @@ func _ready():
 
 	if global_shell.run("command -v git &>/dev/null && echo yes || echo no") == "no\n":
 		game.skipped_title = true
-		get_tree().change_scene("res://scenes/no_git.tscn")
+		get_tree().change_scene_to_file("res://scenes/no_git.tscn")
 	else:
 		create_file_in_game_env(".gitconfig", helpers.read_file("res://scripts/gitconfig"))
 		
@@ -51,8 +51,8 @@ func start_remote_shell():
 	var user_dir = ProjectSettings.globalize_path("user://")
 	var script_content = helpers.read_file("res://scripts/net-test")
 	var target_filename = user_dir + "net-test"
-	var target_file = File.new()
-	target_file.open(target_filename, File.WRITE)
+	var target_file = FileAccess.open(target_filename,FileAccess.WRITE)
+	#target_file.open(target_filename, File.WRITE)
 	target_file.store_string(script_content)
 	target_file.close()
 	helpers.exec_async(_perl_executable(), [target_filename, _bash_executable()])
@@ -73,9 +73,9 @@ func shell_received(text):
 	print(text)
 
 func _notification(what):
-	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		#get_tree().quit() # default behavio
-		get_tree().change_scene("res://scenes/survey.tscn")
+		get_tree().change_scene_to_file("res://scenes/survey.tscn")
 		
 
 func copy_script_to_game_env(name):
@@ -86,21 +86,23 @@ func _initial_state():
 	return {"history": [], "solved_levels": [], "received_hints": [], "cli_badge": [], "played_cards": []}
 	
 func save_state():
-	var savegame = File.new()
+	var savegame = FileAccess.open(_file,FileAccess.WRITE)
 	
-	savegame.open(_file, File.WRITE)
-	savegame.store_line(to_json(state))
+	#savegame.open(_file, File.WRITE)
+	savegame.store_line(JSON.new().stringify(state))
 	savegame.close()
 	
 func load_state():
-	var savegame = File.new()
+	var savegame = FileAccess.open(_file,FileAccess.READ)
 	if not savegame.file_exists(_file):
 		save_state()
 	
-	savegame.open(_file, File.READ)
+	#savegame.open(_file, File.READ)
 	
 	state = _initial_state()
-	var new_state = parse_json(savegame.get_line())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(savegame.get_line())
+	var new_state = test_json_conv.get_data()
 	for key in new_state:
 		state[key] = new_state[key]
 	savegame.close()
@@ -118,7 +120,7 @@ func notify(text, target=null, hint_slug=null):
 		if hint_slug in state["received_hints"]:
 			return
 		
-	var notification = preload("res://scenes/notification.tscn").instance()
+	var notification = preload("res://scenes/notification.tscn").instantiate()
 	notification.text = text
 	if not target:
 		target = get_tree().root
@@ -132,7 +134,7 @@ func open_survey():
 	OS.shell_open("https://docs.google.com/forms/d/e/1FAIpQLSehHVcYfELT59h6plcn2ilbuqBcmDX3TH0qzB4jCgFIFOy_qg/viewform")
 	
 func toggle_music():
-	var music = game.find_node("Music")
+	var music = game.find_child("Music")
 	if music.volume_db > -20:
 		music.volume_db -= 100
 	else:
@@ -142,13 +144,13 @@ func shell_test(command):
 	mutex.lock()
 	#print("go")
 	#print(command)
-	var before = OS.get_ticks_msec()
+	var before = Time.get_ticks_msec()
 	
 	while not $ShellServer._connected:
 		$ShellServer._process(0.1)
 	
 	var response = $ShellServer.send(command)
-	var after = OS.get_ticks_msec()
+	var after = Time.get_ticks_msec()
 	#print("took " + str(after-before)+" ms")
 	#print("stop")
 	mutex.unlock()

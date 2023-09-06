@@ -15,8 +15,8 @@ func load(path):
 	var parts = path.split("/")
 	slug = parts[parts.size()-1]
 	
-	var dir = Directory.new()
-	if dir.file_exists(path):
+	var file = FileAccess.open(path, FileAccess.READ)
+	if file:
 		# This is a new-style level.
 		var config = helpers.parse(path)
 		

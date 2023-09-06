@@ -8,19 +8,19 @@ enum FileBrowserMode {
 
 signal saved
 
-export(String) var title setget _set_title
-export(FileBrowserMode) var mode = FileBrowserMode.WORKING_DIRECTORY setget _set_mode
+@export var title: String: set = _set_title
+@export var mode: FileBrowserMode = FileBrowserMode.WORKING_DIRECTORY: set = _set_mode
 
 var shell
-var commit setget _set_commit
+var commit : set = _set_commit
 var repository
 
 var open_file
 
-onready var grid = $Panel/Margin/Rows/Scroll/Grid
-onready var text_edit = $Panel/TextEdit
-onready var save_button = $Panel/TextEdit/SaveButton
-onready var title_label = $Panel/Margin/Rows/Title
+@onready var grid = $Panel/Margin/Rows/Scroll/Grid
+@onready var text_edit = $Panel/TextEdit
+@onready var save_button = $Panel/TextEdit/SaveButton
+@onready var title_label = $Panel/Margin/Rows/Title
 
 func _ready():
 	update()
@@ -72,13 +72,13 @@ func update():
 				if not f in files:
 					files.push_back(f)
 				
-		files.sort_custom(self, "very_best_sort")
+		files.sort_custom(Callable(self, "very_best_sort"))
 		
 		for file_path in files:
-			var item = preload("res://scenes/file_browser_item.tscn").instance()
+			var item = preload("res://scenes/file_browser_item.tscn").instantiate()
 			item.label = file_path
 			item.repository = repository
-			item.connect("clicked", self, "item_clicked")
+			item.connect("clicked", Callable(self, "item_clicked"))
 			grid.add_child(item)
 		
 		if files.size() > 0:
@@ -90,7 +90,7 @@ func update():
 					if shell:
 						
 						var deleted_files = []
-						if shell.run("test -d .git && echo yes || echo no") == "yes\n":
+						if shell.run("test -d super.git && echo yes || echo no") == "yes\n":
 							deleted_files = Array(shell.run("git status -s | grep '^.D' | sed 's/^...//'").split("\n"))
 							deleted_files.pop_back()
 						
@@ -99,11 +99,12 @@ func update():
 							if file_path.substr(0, 5) == ".git/":
 								continue
 							#is_visible = true
-							var item = preload("res://scenes/file_browser_item.tscn").instance()
+							var item = preload("res://scenes/file_browser_item.tscn").instantiate()
 							item.label = file_path
-							item.connect("clicked", self, "item_clicked")
-							item.connect("deleted", self, "item_deleted")
-							item.status = get_file_status(file_path, shell, 1)
+							item.connect("clicked", Callable(self, "item_clicked"))
+							item.connect("deleted", Callable(self, "item_deleted"))
+							#ToDo what'shappening with the status?
+							#item.status = get_file_status(file_path, shell, 1)
 								
 							grid.add_child(item)
 						#visible = is_visible				
@@ -113,9 +114,9 @@ func update():
 						# The last entry is an empty string, remove it.
 						files.pop_back()
 						for file_path in files:
-							var item = preload("res://scenes/file_browser_item.tscn").instance()
+							var item = preload("res://scenes/file_browser_item.tscn").instantiate()
 							item.label = file_path
-							item.connect("clicked", self, "item_clicked")
+							item.connect("clicked", Callable(self, "item_clicked"))
 							grid.add_child(item)
 				FileBrowserMode.INDEX:
 					#var is_visible = false					
@@ -125,33 +126,33 @@ func update():
 						# The last entries are empty strings, remove them.
 						
 						for file_path in files:
-							var item = preload("res://scenes/file_browser_item.tscn").instance()
+							var item = preload("res://scenes/file_browser_item.tscn").instantiate()
 							item.label = file_path
-							item.connect("clicked", self, "item_clicked")
-							item.status = get_file_status(file_path, repository.shell, 0)
+							item.connect("clicked", Callable(self, "item_clicked"))
+							#item.status = get_file_status(file_path, repository.shell, 0)
 							grid.add_child(item)
 							#if item.status != item.IconStatus.NONE:
 							#	is_visible = true		
 					#visible = is_visible				
 						
-func get_file_status(file_path, the_shell, idx):
-	var file_status = the_shell.run("git status -s '%s'" % file_path)
-	if file_status.length()>0:
-		match file_status[idx]:
-			"D":
-				return FileBrowserItem.IconStatus.REMOVED
-			"M":
-				return FileBrowserItem.IconStatus.EDIT
-			"U":
-				return FileBrowserItem.IconStatus.CONFLICT
-			" ":
-				return FileBrowserItem.IconStatus.NONE
-			"A":
-				return FileBrowserItem.IconStatus.NEW
-			"?":
-				return FileBrowserItem.IconStatus.UNTRACKED
-	else:
-		return FileBrowserItem.IconStatus.NONE
+#func get_file_status(file_path, the_shell, idx):
+#	var file_status = the_shell.run("git status -s '%s'" % file_path)
+#	if file_status.length()>0:
+#		match file_status[idx]:
+#			"D":
+#				return FileBrowserItem.IconStatus.REMOVED
+#			"M":
+#				return FileBrowserItem.IconStatus.EDIT
+#			"U":
+#				return FileBrowserItem.IconStatus.CONFLICT
+#			" ":
+#				return FileBrowserItem.IconStatus.NONE
+#			"A":
+#				return FileBrowserItem.IconStatus.NEW
+#			"?":
+#				return FileBrowserItem.IconStatus.UNTRACKED
+#	else:
+#		return FileBrowserItem.IconStatus.NONE
 
 func item_clicked(item):
 	if not item.get_node("VBoxContainer/Control/WD").visible:
@@ -201,7 +202,7 @@ func _set_mode(new_mode):
 	
 	if save_button:
 		save_button.visible = mode == FileBrowserMode.WORKING_DIRECTORY
-		text_edit.readonly = not mode == FileBrowserMode.WORKING_DIRECTORY
+		text_edit.editable = mode == FileBrowserMode.WORKING_DIRECTORY
 		text_edit.selecting_enabled = mode == FileBrowserMode.WORKING_DIRECTORY
 		if mode == FileBrowserMode.WORKING_DIRECTORY:
 			text_edit.focus_mode = Control.FOCUS_CLICK
@@ -214,7 +215,7 @@ func _set_title(new_title):
 		title_label.text = new_title
 		
 func _gui_input(event):
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == BUTTON_RIGHT:
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_RIGHT:
 		$PopupMenu.set_position(get_global_mouse_position())
 		$PopupMenu.popup()
 

@@ -1,13 +1,13 @@
 extends Node2D
 
-var id setget id_set
-var content setget content_set
-var type setget type_set
+var id : set = id_set
+var content : set = content_set
+var type : set = type_set
 var repository: Control
 
-onready var content_label = $Content/ContentLabel
+@onready var content_label = $Content/ContentLabel
 
-var children = {} setget children_set
+var children = {}: set = children_set
 var id_always_visible = false
 var held = false
 var hovered = false
@@ -19,7 +19,7 @@ func _ready():
 	type_set(type)
 	id_set(id)
 	if not repository.simplified_view or (type != "tree" and type != "blob"):
-		$Pop.pitch_scale = rand_range(0.8, 1.2)
+		$Pop.pitch_scale = randf_range(0.8, 1.2)
 		$Pop.play()
 
 func _process(delta):
@@ -75,19 +75,19 @@ func type_set(new_type):
 	z_index = -1
 	match new_type:
 		"blob":
-			$Sprite.texture = preload("res://nodes/blob.svg")
+			$Sprite2D.texture = preload("res://nodes/blob.svg")
 		"tree":
-			$Sprite.texture = preload("res://nodes/tree.svg")
+			$Sprite2D.texture = preload("res://nodes/tree.svg")
 		"commit":
-			$Sprite.texture = preload("res://nodes/commit.svg")
+			$Sprite2D.texture = preload("res://nodes/commit.svg")
 			game.notify("You can drag these around with your mouse!", self, "drag-nodes")
 		"tag":
-			$Sprite.texture = preload("res://nodes/blob.svg")
+			$Sprite2D.texture = preload("res://nodes/blob.svg")
 		"ref":
-			$Sprite.texture = preload("res://nodes/ref.svg")
+			$Sprite2D.texture = preload("res://nodes/ref.svg")
 			id_always_visible = true
 		"head":
-			$Sprite.texture = preload("res://nodes/head3.svg")
+			$Sprite2D.texture = preload("res://nodes/head3.svg")
 			id_always_visible = false
 			z_index = 0
 	if id_always_visible:
@@ -99,7 +99,7 @@ func children_set(new_children):
 			c.queue_free()
 	for c in new_children:
 		if not children.has(c):
-			var a = arrow.instance()
+			var a = arrow.instantiate()
 			if type == "commit":
 				a.source = c
 				a.target = id
@@ -128,8 +128,8 @@ func _input(event):
 		if event.is_action_pressed("click") and type != "head":
 			held = true
 		elif event.is_action_pressed("right_click"):
-			var input = get_tree().get_current_scene().find_node("Input")
+			var input = get_tree().get_current_scene().find_child("Input")
 			input.text += id
-			input.caret_position = input.text.length()
+			input.caret_column = input.text.length()
 	if event.is_action_released("click"):
 		held = false

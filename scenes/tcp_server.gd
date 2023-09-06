@@ -3,9 +3,9 @@ extends Node
 signal data_received(string)
 signal new_connection
 
-export var port: int
+@export var port: int
 
-var _s = TCP_Server.new()
+var _s = TCPServer.new()
 var _c
 var _connected = false
 

@@ -4,16 +4,16 @@ var hovered = false
 var dragged = false
 var drag_offset
 
-export var id = "" setget set_id
-export var command = "" setget set_command
-export var description = "" setget set_description
-export var energy = 0 setget set_energy
+@export var id = "": set = set_id
+@export var command = "": set = set_meta_pressed
+@export var description = "": set = set_description
+@export var energy = 0: set = set_energy
 
 var _first_argument = null
 var _home_position = null
 var _home_rotation = null
 
-onready var energy_label = $Sprite/Energy
+@onready var energy_label = $Sprite2D/Energy
 
 func _ready():
 	set_process_unhandled_input(true)
@@ -39,26 +39,26 @@ func _process(delta):
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed and hovered:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and hovered:
 			dragged = true
 			game.dragged_object = self
 			_turn_on_highlights()
 			$PickupSound.play()
 			drag_offset = get_viewport().get_mouse_position() - global_position
-			get_tree().set_input_as_handled()
+			get_viewport().set_input_as_handled()
 			modulate.a = 0.5
-		elif event.button_index == BUTTON_LEFT and !event.pressed and dragged:
+		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed and dragged:
 			dragged = false
 			game.dragged_object = null
 			_turn_off_highlights()
 			modulate.a = 1
 			
 			if "[string]" in command:
-				var dialog = preload("res://scenes/input_dialog.tscn").instance()
+				var dialog = preload("res://scenes/input_dialog.tscn").instantiate()
 				add_child(dialog)
 				dialog.popup_centered()
-				dialog.connect("entered", self, "entered_string")
-				dialog.connect("popup_hide", self, "move_back")
+				dialog.connect("entered", Callable(self, "entered_string"))
+				dialog.connect("popup_hide", Callable(self, "move_back"))
 				hide()
 			elif "[" in command:
 				move_back()
@@ -87,7 +87,7 @@ func _mouse_exited():
 	hovered = false
 	z_index = 0
 	
-func set_command(new_command):
+func set_meta_pressed(new_command):
 	command = new_command
 	var commands = new_command.split("[", true, 1)
 	var args = ''
@@ -100,7 +100,7 @@ func set_command(new_command):
 		args = args.replace("head", " [img=20]images/head.svg[/img] ")
 		args = args.replace("file", " [img=20]images/file.svg[/img] ")
 		args = args.replace("remote", " [img=20]images/remote.svg[/img] ")
-	$Label.bbcode_text = commands[0] + args
+	$Label.text = commands[0] + args
 	#$Label.text = command
 
 func set_description(new_description):
@@ -115,7 +115,7 @@ func set_energy(new_energy):
 func set_id(new_id):
 	id = new_id
 	var art_path = "res://cards/%s.svg" % new_id
-	var file = File.new()
+	#var file = File.new()
 	#if file.file_exists(art_path):
 	var texture = load(art_path)
 	if texture:
@@ -151,7 +151,7 @@ func try_play(full_command):
 		#yield(terminal, "command_done")
 		game.used_cards = true
 		$PlaySound.play()
-		var particles = preload("res://scenes/card_particles.tscn").instance()
+		var particles = preload("res://scenes/card_particles.tscn").instantiate()
 		particles.position = position
 		get_parent().add_child(particles)
 		move_back()

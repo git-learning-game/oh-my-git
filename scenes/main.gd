@@ -2,30 +2,30 @@ extends Control
 
 var dragged = null
 
-onready var terminal = $Rows/Controls/Terminal
-onready var input = terminal.input
-onready var output = terminal.output
-onready var repositories_node = $Rows/Columns/Repositories
+@onready var terminal = $Rows/Controls/Terminal
+@onready var input = terminal.input
+@onready var output = terminal.output
+@onready var repositories_node = $Rows/Columns/Repositories
 var repositories = {}
-onready var next_level_button = $Menu/NextLevelButton
-onready var level_name = $Rows/Columns/RightSide/LevelInfo/LevelPanel/LevelName
-onready var level_description = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelDescription
-onready var level_congrats = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelCongrats
-onready var cards = $Rows/Controls/Cards
-onready var file_browser = $Rows/Columns/RightSide/FileBrowser
-onready var goals = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Goals
+@onready var next_level_button = $Menu/NextLevelButton
+@onready var level_name = $Rows/Columns/RightSide/LevelInfo/LevelPanel/LevelName
+@onready var level_description = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelDescription
+@onready var level_congrats = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Text/LevelCongrats
+@onready var cards = $Rows/Controls/Cards
+@onready var file_browser = $Rows/Columns/RightSide/FileBrowser
+@onready var goals = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Goals
 
 var _hint_server
 var _hint_client_connection
 
 func _ready():
-	_hint_server = TCP_Server.new()
+	_hint_server = TCPServer.new()
 	_hint_server.listen(1235)
 	
 	var args = helpers.parse_args()
 	
 	if args.has("sandbox"):
-		var err = get_tree().change_scene("res://scenes/sandbox.tscn")
+		var err = get_tree().change_scene_to_file("res://scenes/sandbox.tscn")
 		if err != OK:
 			helpers.crash("Could not change to sandbox scene")
 		return
@@ -55,7 +55,7 @@ func _process(delta):
 		
 	# Magic height number to fix a weird rescaling bug that affected
 	# the Rows height. 
-	$Rows.rect_size.y = 1064
+	$Rows.size.y = 1064
 
 func load_chapter(id):
 	game.current_chapter = id
@@ -73,8 +73,8 @@ func load_level(level_id):
 	levels.chapters[game.current_chapter].levels[game.current_level].construct()
 
 	var level = levels.chapters[game.current_chapter].levels[game.current_level]
-	level_description.bbcode_text = level.description[0]
-	level_congrats.bbcode_text = level.congrats
+	level_description.text = level.description[0]
+	level_congrats.text = level.congrats
 	level_name.text = level.title
 	
 	var slug = levels.chapters[game.current_chapter].slug + "/" + level.slug
@@ -91,11 +91,11 @@ func load_level(level_id):
 	repositories = {}
 	
 	var repo_names = level.repos.keys()
-	repo_names.invert()
+	repo_names.reverse()
 	
 	for r in repo_names:
 		var repo = level.repos[r]
-		var new_repo = preload("res://scenes/repository.tscn").instance()
+		var new_repo = preload("res://scenes/repository.tscn").instantiate()
 		new_repo.path = repo.path
 		new_repo.label = repo.slug
 		new_repo.size_flags_horizontal = SIZE_EXPAND_FILL
@@ -108,7 +108,7 @@ func load_level(level_id):
 	
 	terminal.repository = repositories[repo_names[repo_names.size()-1]]
 	terminal.clear()
-	terminal.find_node("TextEditor").close()
+	terminal.find_child("TextEditor").close()
 	
 	update_repos()
 	
@@ -118,7 +118,7 @@ func load_level(level_id):
 	t.wait_time = 1
 	add_child(t)
 	t.start()
-	yield(t, "timeout")
+	await t.timeout
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), false)
 	# FIXME: Need to clean these up when switching levels somehow.
 	
@@ -148,7 +148,7 @@ func show_win_status(win_states):
 	for state in win_states:
 		var b = Label.new()
 		b.text = state
-		b.align = HALIGN_LEFT
+		#b.align = HALIGN_LEFT   ToDo align fix
 		var bg = StyleBoxFlat.new()
 		if win_states[state]:
 			bg.bg_color = Color(0.1, 0.5, 0.1)
@@ -162,18 +162,18 @@ func show_win_status(win_states):
 		bg.content_margin_top = 8
 		bg.content_margin_left = 8
 		bg.content_margin_right = 8
-		b.set("custom_styles/normal", bg)
+		b.set("theme_override_styles/normal", bg)
 		#b.connect("pressed", self, "load", [chapter_id, level_id])
 		#var slug = chapter.slug + "/" + level.slug
 		
 		goals.add_child(b)
-		b.autowrap = true
+		b.autowrap_mode = TextServer.AUTOWRAP_ARBITRARY
 		if not win_states[state]:
 			all_won = false
 	var level = levels.chapters[game.current_chapter].levels[game.current_level]
-	level_description.bbcode_text = level.description[0] + win_text
+	level_description.text = level.description[0] + win_text
 	for i in range(1,level.tipp_level+1):
-		level_description.bbcode_text += level.description[i]
+		level_description.text += level.description[i]
 			
 	if not level_congrats.visible and all_won and win_states.size() > 0:
 		next_level_button.show()
@@ -222,7 +222,7 @@ func new_tip():
 	var level = levels.chapters[game.current_chapter].levels[game.current_level]
 	if level.description.size() - 1 > level.tipp_level :
 		level.tipp_level += 1
-		level_description.bbcode_text += level.description[level.tipp_level]
+		level_description.text += level.description[level.tipp_level]
 
 func back():
-	get_tree().change_scene("res://scenes/level_select.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_select.tscn")

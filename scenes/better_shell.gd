@@ -33,7 +33,7 @@ func run_async(command, crash_on_fail=true):
 	
 	var t = Thread.new()
 	shell_command.thread = t
-	t.start(self, "run_async_thread", shell_command)
+	t.start(Callable(self, "run_async_thread").bind(shell_command))
 	
 	return shell_command
 	

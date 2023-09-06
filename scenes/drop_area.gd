@@ -1,28 +1,28 @@
 extends Node2D
 
 var hovered = false
-var highlighted = false setget _set_highlighted
+var highlighted = false: set = _set_highlighted
 
 func _ready():
 	_set_highlighted(false)
 	
 func _mouse_entered(_area):
 	hovered = true
-	var tween = Tween.new()
-	tween.interpolate_property($Highlight/Sprite.material, "shader_param/hovered", 0, 1, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-	add_child(tween)
-	tween.start()
+	var tween = get_tree().create_tween()
+	tween.tween_property($Highlight/Sprite2D.material, "shader_param/hovered",1,0.1)
+	#tween.interpolate_property($Highlight/Sprite2D.material, "shader_param/hovered", 0, 1, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	#add_child(tween)
+	#tween.start()
 
 func _mouse_exited(_area):
 	hovered = false
-	var tween = Tween.new()
-	tween.interpolate_property($Highlight/Sprite.material, "shader_param/hovered", 1, 0, 0.1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-	add_child(tween)
-	tween.start()
+	var tween = get_tree().create_tween()
+	tween.tween_property($Highlight/Sprite2D.material, "shader_param/hovered", 0, 0.1)
+
 	
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and !event.pressed and hovered:
+		if event.button_index == MOUSE_BUTTON_LEFT and !event.pressed and hovered:
 			if highlighted and game.dragged_object:
 				game.dragged_object.dropped_on(get_parent_with_type())
 

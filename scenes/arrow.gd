@@ -1,8 +1,8 @@
 extends Node2D
 
 var source: String
-var target: String setget set_target
-var color = Color("333333") setget set_color
+var target: String: set = set_target
+var color = Color("333333"): set = set_color
 
 var repository: Control
 

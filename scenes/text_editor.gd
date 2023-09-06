@@ -9,7 +9,7 @@ var _client_connection
 
 func _ready():
 	# Initialize TCP server for fake editor.
-	_server = TCP_Server.new()
+	_server = TCPServer.new()
 	_server.listen(1234)
 	
 func _process(_delta):
@@ -44,7 +44,8 @@ func save():
 		close()
 
 func close():
-	if _client_connection and _client_connection.is_connected_to_host():
+	if _client_connection and _client_connection.get_status() == StreamPeerTCP.STATUS_CONNECTED:
 		_client_connection.disconnect_from_host()
+		
 	text = ""
 	hide()

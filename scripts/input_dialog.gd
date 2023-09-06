@@ -1,4 +1,4 @@
-extends WindowDialog
+extends Window
 
 signal entered(text)
 
@@ -7,5 +7,7 @@ func _text_entered(text):
 	queue_free()
 
 func _notification(what):
-	if what == Popup.NOTIFICATION_POST_POPUP:
-		$LineEdit.grab_focus()
+	pass
+	#ToDo 
+	#if what == Popup.NOTIFICATION_POST_POPUP:
+	#	$LineEdit.grab_focus()
