@@ -1,0 +1,8 @@
+res://scenes/game.tscn
+res://styles/theme.tres
+res://scenes/shell.gd
+res://scenes/terminal.gd
+res://scenes/shell_command.gd
+res://scenes/game.gd
+res://scenes/helpers.gd
+res://scenes/repository.gd

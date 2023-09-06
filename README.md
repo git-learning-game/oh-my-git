@@ -16,7 +16,7 @@ If you have ideas for new features, we'd be excited to hear them! Also in that c
 
 Wanna build your own level? Great! Here's how to do it:
 
-1. Download the latest version of the [Godot game engine](https://godotengine.org).
+1. Download the latest version of the [Godot **3** game engine](https://godotengine.org/download/3.x). Godot 4 is not supported yet.
 1. Clone this repository.
 1. Run the game – the easiest way to do so is to run `godot scenes/main.tscn` from the project directory.
 1. Get a bit familiar with the levels which are currently there.
@@ -89,7 +89,7 @@ We have a [Code of Conduct](CODE_OF_CONDUCT.md) in place that applies to all pro
 
 ## Funded by
 
-<a href="https://www.bmbf.de/en/"><img src="https://timelens.io/assets/images/bmbf.svg" alt="Logo of the German Ministry for Education and Research" height="100px"></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://prototypefund.de/en/"><img src="https://timelens.io/assets/images/prototypefund.svg" alt="Logo of the Prototype Fund" height="100px"></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://okfn.de/en/"><img src="https://timelens.io/assets/images/okfde.svg" alt="Logo of the Open Knowledge Foundation Germany" height="100px"></a>
+<a href="https://www.bmbf.de/en/"><img src="https://www.dipf.de/en/images/BMBF_4C_M_e.jpg/@@download/image/BMBF_4C_M_e.jpg" alt="Logo of the German Ministry for Education and Research" height="100px"></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://prototypefund.de/en/"><img src="https://raw.githubusercontent.com/prototypefund/ptf-ci/main/logos/PrototypeFund-Icon.svg" alt="Logo of the Prototype Fund" height="100px"></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://okfn.de/en/"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Open_Knowledge_Foundation_Deutschland_Logo.svg" alt="Logo of the Open Knowledge Foundation Germany" height="100px"></a>
 
 ## Thanks
 
