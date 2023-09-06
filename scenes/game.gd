@@ -94,7 +94,7 @@ func save_state():
 	
 func load_state():
 	var savegame = FileAccess.open(_file,FileAccess.READ)
-	if not savegame.file_exists(_file):
+	if not savegame:
 		save_state()
 	
 	#savegame.open(_file, File.READ)

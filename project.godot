@@ -111,4 +111,5 @@ limits/debugger/max_warnings_per_second=1000
 
 [rendering]
 
+renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)

@@ -83,6 +83,16 @@ func run_async_thread(shell_command):
 		var script_path = game.tmp_prefix + "command" + str(randi())
 		helpers.write_file(script_path, hacky_command)
 		result = helpers.exec(_shell_binary(), [script_path], crash_on_fail)
+	elif _os == "Web":
+		hacky_command = hacky_command.replace("\\", "\\\\").replace("'", "\\'").replace("\n", "\\n")
+		var js_code = "console.log('" + hacky_command + "')"
+		print(js_code)
+		print(shell_command)
+		JavaScriptBridge.eval(js_code)
+		#JavaScriptBridge.eval("test('blubb')")
+		result = {}
+		result["output"] = "Hi!"
+		result["exit_code"] = 0
 	else:
 		helpers.crash("Unimplemented OS: %s" % _os)
 	
