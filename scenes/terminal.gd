@@ -89,9 +89,17 @@ func send_command(command):
 	command = editor_regex.sub(command, "fake-editor ")
 
 	shell.cd(repository.path)
-	var cmd = shell.run_async(command, false)
-	await cmd.done
-	call_deferred("command_done", cmd)
+	
+	#var cmd = shell.run_async(command, false)
+	#await cmd.done
+	#call_deferred("command_done", cmd)
+	
+	var output = shell.run(command, false)
+	var shell_command = ShellCommand.new()
+	shell_command.exit_code = 0
+	shell_command.output = output
+	shell_command.command = command
+	command_done(shell_command)
 
 func command_done(cmd):
 	if cmd.exit_code == 0:

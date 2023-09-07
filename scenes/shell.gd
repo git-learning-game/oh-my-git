@@ -6,11 +6,13 @@ var exit_code
 var _cwd
 var _os = OS.get_name()
 
+var web_shell = JavaScriptBridge.get_interface("web_shell")
+
 func _init():
 	# Create required directories and move into the tmp directory.
 	_cwd = "/tmp"
 	run("mkdir -p '%s/repos'" % game.tmp_prefix)
-	_cwd = game.tmp_prefix
+	_cwd = game.tmp_prefixls
 	
 func cd(dir):
 	_cwd = dir
@@ -85,13 +87,17 @@ func run_async_thread(shell_command):
 		result = helpers.exec(_shell_binary(), [script_path], crash_on_fail)
 	elif _os == "Web":
 		hacky_command = hacky_command.replace("\\", "\\\\").replace("'", "\\'").replace("\n", "\\n")
-		var js_code = "console.log('" + hacky_command + "')"
-		print(js_code)
-		print(shell_command)
-		JavaScriptBridge.eval(js_code)
-		#JavaScriptBridge.eval("test('blubb')")
+		#var js_code = "await run_in_vm('" + hacky_command + "')"
+		#print(js_code)
+		#var output = JavaScriptBridge.eval(js_code, true)
+		
+		var output = JavaScriptBridge.eval("testy()")
+		
+		#print(hacky_command)
+		#var output = web_shell.run_in_vm(hacky_command)
+		
 		result = {}
-		result["output"] = "Hi!"
+		result["output"] = output
 		result["exit_code"] = 0
 	else:
 		helpers.crash("Unimplemented OS: %s" % _os)

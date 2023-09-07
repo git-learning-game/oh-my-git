@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Oh My Git 2.0</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script src="web-shell/lib/libv86.js"></script>
+    <script src="web-shell/script.js"></script>
+    <script src="$GODOT_URL"></script>
+    <script>
+      (async () => {
+        await boot();
+        console.log("VM booted!");
+        var engine = new Engine($GODOT_CONFIG);
+        engine.startGame();
+      })();
+    </script>
+  </body>
+</html>
