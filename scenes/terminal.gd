@@ -200,7 +200,7 @@ func generate_completions(command):
 	# Part2: Prevent autocompletion to only show filename at the beginning of a command.
 	if !(command.substr(0,4) == "git " and command.split(" ").size() <= 2) and command.split(" ").size() > 1:
 		var last_word = Array(command.split(" ")).pop_back()
-		var file_string = repository.shell.run("find . -type f")
+		var file_string = await repository.shell.run("find . -type f")
 		var files = file_string.split("\n")
 		files = Array(files)
 		# The last entry is an empty string, remove it.

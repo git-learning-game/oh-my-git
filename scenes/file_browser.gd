@@ -45,7 +45,7 @@ func update():
 		clear()
 		
 		# Files in the working directory.
-		var wd_files = Array(repository.shell.run("find . -type f -not -path '*/\\.git/*'").split("\n"))
+		var wd_files = Array((await repository.shell.run("find . -type f -not -path '*/\\.git/*'")).split("\n"))
 		# The last entry is an empty string, remove it.
 		wd_files.pop_back()
 		wd_files = helpers.map(wd_files, self, "substr2")

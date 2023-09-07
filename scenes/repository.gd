@@ -49,7 +49,7 @@ func _unhandled_input(event):
 		nodes.scale += Vector2(0.05, 0.05)
 
 func there_is_a_git():
-	return shell.run("test -d .git && echo yes || echo no") == "yes\n"
+	return await shell.run("test -d .git && echo yes || echo no") == "yes\n"
 	
 func update_everything():
 	there_is_a_git_cache = there_is_a_git()
@@ -140,7 +140,7 @@ func update_objects():
 		
 func update_node_positions():
 	if there_is_a_git_cache:
-		var graph_text = shell.run("git log --graph --oneline --all --no-abbrev")
+		var graph_text = await shell.run("git log --graph --oneline --all --no-abbrev")
 		var graph_lines = Array(graph_text.split("\n"))
 		graph_lines.pop_back()
 		
@@ -214,7 +214,7 @@ func find_position(n):
 	return n.position
 
 func git(args, splitlines = false):
-	var o = shell.run("git --no-replace-objects " + args)
+	var o = await shell.run("git --no-replace-objects " + args)
 	
 	if splitlines:
 		o = o.split("\n")

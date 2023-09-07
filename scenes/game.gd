@@ -44,14 +44,15 @@ func _ready():
 #	print(cmd)
 #	helpers.crash(":)")
 
-	if global_shell.run("command -v git &>/dev/null && echo yes || echo no") == "no\n":
-		game.skipped_title = true
-		get_tree().change_scene_to_file("res://scenes/no_git.tscn")
-	else:
-		create_file_in_game_env(".gitconfig", helpers.read_file("res://scripts/gitconfig"))
-		
-		copy_script_to_game_env("fake-editor")
-		copy_script_to_game_env("hint")
+	if false:
+		if global_shell.run("command -v git &>/dev/null && echo yes || echo no") == "no\n":
+			game.skipped_title = true
+			get_tree().change_scene_to_file("res://scenes/no_git.tscn")
+		else:
+			create_file_in_game_env(".gitconfig", helpers.read_file("res://scripts/gitconfig"))
+			
+			copy_script_to_game_env("fake-editor")
+			copy_script_to_game_env("hint")
 
 func start_remote_shell():
 	var user_dir = ProjectSettings.globalize_path("user://")

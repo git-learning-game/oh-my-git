@@ -25,6 +25,7 @@ func run(command, crash_on_fail=true):
 	shell_command.crash_on_fail = crash_on_fail
 	
 	run_async_thread(shell_command)
+	await shell_command.done
 	exit_code = shell_command.exit_code
 	return shell_command.output
 
@@ -102,7 +103,7 @@ func run_async_thread(shell_command):
 		
 		#print(hacky_command)
 		shell_command.js_callback = JavaScriptBridge.create_callback(Callable(shell_command, "callback"))
-		web_shell.run_in_vm(hacky_command).then(shell_command.js_callback)
+		web_shell.run_in_vm(command).then(shell_command.js_callback)
 	else:
 		helpers.crash("Unimplemented OS: %s" % _os)
 	
