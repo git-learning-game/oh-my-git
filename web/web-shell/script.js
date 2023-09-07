@@ -1,46 +1,48 @@
-var emulator;
+//import {Mutex} from "./mutex.js"
+
+var emulator
 
 // Whether or not to restore the VM state from a file. Set to false to perform a regular boot.
-let restoreState = true;
+let restoreState = true
 
 function testy(cmd) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("testy!!" + cmd);
-    }, 100);
-  });
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("testy!!" + cmd)
+        }, 100)
+    })
 }
-window.testy = testy;
+window["testy"] = testy
 
 // Run a command via the serial port (/dev/ttyS0) and return the output.
-function run_in_vm(cmd) {
-  emulator.serial0_send(cmd + "\n");
+function run(cmd) {
+    emulator.serial0_send(cmd + "\n")
 
-  return new Promise((resolve, reject) => {
-    var output = "";
-    var listener = (char) => {
-      if (char !== "\r") {
-        output += char;
-      }
+    return new Promise((resolve, reject) => {
+        var output = ""
+        var listener = (char) => {
+            if (char !== "\r") {
+                output += char
+            }
 
-      if (output.endsWith("# ")) {
-        emulator.remove_listener("serial0-output-char", listener);
-        let outputWithoutPrompt = output.slice(0, -4);
-        let outputWithoutFirstLine = outputWithoutPrompt.slice(
-          outputWithoutPrompt.indexOf("\n") + 1
-        );
-        if (outputWithoutFirstLine.endsWith("\n")) {
-          outputWithoutFirstLine = outputWithoutFirstLine.slice(0, -1);
+            if (output.endsWith("# ")) {
+                emulator.remove_listener("serial0-output-char", listener)
+                let outputWithoutPrompt = output.slice(0, -4)
+                let outputWithoutFirstLine = outputWithoutPrompt.slice(
+                    outputWithoutPrompt.indexOf("\n") + 1
+                )
+                if (outputWithoutFirstLine.endsWith("\n")) {
+                    outputWithoutFirstLine = outputWithoutFirstLine.slice(0, -1)
+                }
+                emulator.remove_listener("serial0-output-char", listener)
+                resolve(outputWithoutFirstLine)
+            }
         }
-        emulator.remove_listener("serial0-output-char", listener);
-        resolve(outputWithoutFirstLine);
-      }
-    };
-    emulator.add_listener("serial0-output-char", listener);
-  });
+        emulator.add_listener("serial0-output-char", listener)
+    })
 }
-window.run_in_vm = run_in_vm;
-window.web_shell = { run_in_vm, testy };
+window["run"] = run
+window["web_shell"] = {run, testy}
 
 /*
 
@@ -54,35 +56,35 @@ async function test(condition) {
 
 // Set emulator config.
 let config = {
-  wasm_path: "web-shell/lib/v86.wasm",
-  memory_size: 64 * 1024 * 1024,
-  vga_memory_size: 2 * 1024 * 1024,
-  screen_container: document.getElementById("screen_container"),
-  bios: { url: "web-shell/images/seabios.bin" },
-  vga_bios: { url: "web-shell/images/vgabios.bin" },
-  cdrom: { url: "web-shell/images/image.iso.zst" },
-  disable_mouse: true,
-  autostart: true,
-};
+    wasm_path: "/web-shell/lib/v86.wasm",
+    memory_size: 64 * 1024 * 1024,
+    vga_memory_size: 2 * 1024 * 1024,
+    screen_container: document.getElementById("screen_container"),
+    bios: {url: "/web-shell/images/seabios.bin"},
+    vga_bios: {url: "/web-shell/images/vgabios.bin"},
+    cdrom: {url: "/web-shell/images/image.iso.zst"},
+    disable_mouse: true,
+    autostart: true,
+}
 if (restoreState) {
-  config.initial_state = {
-    url: "web-shell/images/booted-state.bin.zst",
-  };
+    config["initial_state"] = {
+        url: "/web-shell/images/booted-state.bin.zst",
+    }
 }
 
 function boot() {
-  return new Promise((resolve, reject) => {
-    // Start the emulator!
-    emulator = window.emulator = new V86Starter(config);
+    return new Promise((resolve, reject) => {
+        // Start the emulator!
+        emulator = window["emulator"] = new V86Starter(config)
 
-    // Wait for the emulator to start, then resolve the promise.
-    var interval = setInterval(() => {
-      if (emulator.is_running()) {
-        clearInterval(interval);
-        resolve();
-      }
-    }, 100);
-  });
+        // Wait for the emulator to start, then resolve the promise.
+        var interval = setInterval(() => {
+            if (emulator.is_running()) {
+                clearInterval(interval)
+                resolve(true)
+            }
+        }, 100)
+    })
 }
 
 /*
