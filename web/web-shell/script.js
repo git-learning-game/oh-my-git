@@ -56,7 +56,7 @@ function run(cmd) {
 
                 if (output.endsWith("# ")) {
                     emulator.remove_listener("serial0-output-char", listener)
-                    let outputWithoutPrompt = output.slice(0, -4)
+                    let outputWithoutPrompt = output.slice(0, -3)
                     let outputWithoutFirstLine = outputWithoutPrompt.slice(
                         outputWithoutPrompt.indexOf("\n") + 1
                     )
@@ -114,6 +114,7 @@ function boot() {
         // Wait for the emulator to start, then resolve the promise.
         var interval = setInterval(() => {
             if (emulator.is_running()) {
+                run("PS1='#  '")
                 clearInterval(interval)
                 resolve(true)
             }
