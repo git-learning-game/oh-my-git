@@ -14,7 +14,7 @@ var type = "remote"
 
 var node = preload("res://scenes/node.tscn")
 
-var shell = game.new_shell()
+var shell = await game.new_shell()
 var objects = {}
 var mouse_inside = false
 var has_been_layouted = false
@@ -52,18 +52,18 @@ func there_is_a_git():
 	return await shell.run("test -d .git && echo yes || echo no") == "yes\n"
 	
 func update_everything():
-	there_is_a_git_cache = there_is_a_git()
+	there_is_a_git_cache = await there_is_a_git()
 	if there_is_a_git_cache:
-		update_head()
-		update_refs()
-		update_objects()
-		remove_gone_stuff()
+		await update_head()
+		await update_refs()
+		await update_objects()
+		await remove_gone_stuff()
 	else:
 		for o in objects:
 			objects[o].queue_free()
 		objects = {}
 	if not has_been_layouted:
-		update_node_positions()
+		await update_node_positions()
 		has_been_layouted = true
 
 func set_path(new_path):
@@ -96,14 +96,14 @@ func random_position():
 	return Vector2(randf_range(0, size.x), randf_range(0, size.y))
 		
 func update_objects():
-	all_objects_cache = all_objects()
+	all_objects_cache = await all_objects()
 	
 	# Create new objects, if necessary.
 	for o in all_objects_cache:
 		if objects.has(o):
 			continue
 			
-		var type = object_type(o)
+		var type = await object_type(o)
 
 		if simplified_view:
 			if type == "tree" or type == "blob":
@@ -111,20 +111,20 @@ func update_objects():
 
 		var n = node.instantiate()
 		n.id = o
-		n.type = object_type(o)
-		n.content = object_content(o)
+		n.type = await object_type(o)
+		n.content = await object_content(o)
 		n.repository = self
 	
 		match type:
 			"blob":
 				pass
 			"tree":
-				n.children = tree_children(o)
+				n.children = await tree_children(o)
 				n.content = n.content.replacen("\t", " ")
 			"commit":
 				var c = {}
 				#c[commit_tree(o)] = ""
-				for p in commit_parents(o):
+				for p in await commit_parents(o):
 					c[p] = ""
 				n.children = c
 				
@@ -132,7 +132,7 @@ func update_objects():
 #				if _commit_count >= 3 and not simplified_view:
 #					set_simplified_view(true)
 			"tag":
-				n.children = tag_target(o)
+				n.children = await tag_target(o)
 		
 		n.position = find_position(n)
 		nodes.add_child(n)
@@ -164,7 +164,7 @@ func update_node_positions():
 			objects["HEAD"].position = Vector2(target.position.x ,target.position.y - 100)
 
 func update_refs():
-	all_refs_cache = all_refs()
+	all_refs_cache = await all_refs()
 	for r in all_refs_cache:
 		if not objects.has(r):
 			var n = node.instantiate()
@@ -173,11 +173,11 @@ func update_refs():
 			n.content = ""
 			n.repository = self
 			objects[r] = n
-			n.children = {ref_target(r): ""}
+			n.children = {(await ref_target(r)): ""}
 			n.position = find_position(n)
 			nodes.add_child(n)
 		var n = objects[r]
-		n.children = {ref_target(r): ""}
+		n.children = {(await ref_target(r)): ""}
 	
 func apply_forces():
 	for o in objects.values():
@@ -238,25 +238,25 @@ func update_head():
 		objects["HEAD"] = n
 		nodes.add_child(n)
 	var n = objects["HEAD"]
-	n.children = {ref_target("HEAD"): ""}
+	n.children = {(await ref_target("HEAD")): ""}
 
 func all_objects():
 	#var obj = git("cat-file --batch-check='%(objectname)' --batch-all-objects", true)
-	var obj = git("cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep '\\(tag\\|commit\\)$' | cut -f1 -d' '", true)
+	var obj = await git("cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep '\\(tag\\|commit\\)$' | cut -f1 -d' '", true)
 	var dict = {}
 	for o in obj:
 		dict[o] = ""
 	return dict
 
 func object_type(id):
-	return git("cat-file -t "+id)
+	return await git("cat-file -t "+id)
 
 func object_content(id):
 	#return git("cat-file -p "+id)
-	return git("show -s --format=%B "+id).strip_edges()
+	return (await git("show -s --format=%B "+id)).strip_edges()
 
 func tree_children(id):
-	var children = git("cat-file -p "+id, true)
+	var children = await git("cat-file -p "+id, true)
 	var ids = {}
 	for c in children:
 		var a = c.split(" ")
@@ -264,7 +264,7 @@ func tree_children(id):
 	return ids
 
 func commit_tree(id):
-	var c = git("cat-file -p "+id, true)
+	var c = await git("cat-file -p "+id, true)
 	for cc in c:
 		var ccc = cc.split(" ", 2)
 		match ccc[0]:
@@ -274,7 +274,7 @@ func commit_tree(id):
 
 func commit_parents(id):
 	var parents = []
-	var c = git("cat-file -p "+id, true)
+	var c = await git("cat-file -p "+id, true)
 	for cc in c:
 		var ccc = cc.split(" ", 2)
 		match ccc[0]:
@@ -283,13 +283,13 @@ func commit_parents(id):
 	return parents
 
 func tag_target(id):
-	var c = git("rev-parse %s^{}" % id)
+	var c = await git("rev-parse %s^{}" % id)
 	return {c: ""}
 
 func all_refs():
 	var refs = {}
 	# If there are no refs, show-ref will have exit code 1. We don't care.
-	for line in git("show-ref || true", true):
+	for line in await git("show-ref || true", true):
 		line = line.split(" ")
 		var _id = line[0]
 		var name = line[1]
@@ -298,13 +298,13 @@ func all_refs():
 	
 func ref_target(ref):
 	# Test whether this is a symbolic ref.
-	var ret = git("symbolic-ref -q "+ref+" || true")
+	var ret = await git("symbolic-ref -q "+ref+" || true")
 	# If it's not, it's probably a regular ref.
 	if ret == "":
 		if ref == "HEAD":
-			ret = git("show-ref --head "+ref).split(" ")[0]
+			ret = (await git("show-ref --head "+ref)).split(" ")[0]
 		else:
-			ret = git("show-ref "+ref).split(" ")[0]
+			ret = (await git("show-ref "+ref)).split(" ")[0]
 	return ret
 
 func set_simplified_view(simplify):

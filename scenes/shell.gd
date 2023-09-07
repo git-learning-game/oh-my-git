@@ -11,7 +11,7 @@ var web_shell = JavaScriptBridge.get_interface("web_shell")
 func _init():
 	# Create required directories and move into the tmp directory.
 	_cwd = "/tmp"
-	run("mkdir -p '%s/repos'" % game.tmp_prefix)
+	await run("mkdir -p '%s/repos'" % game.tmp_prefix)
 	_cwd = game.tmp_prefix
 	
 func cd(dir):
@@ -20,25 +20,16 @@ func cd(dir):
 # Run a shell command given as a string. Run this if you're interested in the
 # output of the command.
 func run(command, crash_on_fail=true):
+	print("run " + command)
 	var shell_command = ShellCommand.new()
 	shell_command.command = command
 	shell_command.crash_on_fail = crash_on_fail
 	
 	run_async_thread(shell_command)
 	await shell_command.done
+	print("output in run (" +command+ "): " + shell_command.output)
 	exit_code = shell_command.exit_code
 	return shell_command.output
-
-func run_async(command, crash_on_fail=true):
-	var shell_command = ShellCommand.new()
-	shell_command.command = command
-	shell_command.crash_on_fail = crash_on_fail
-	
-	var t = Thread.new()
-	shell_command.thread = t
-	t.start(Callable(self, "run_async_thread").bind(shell_command))
-	
-	return shell_command
 
 func run_async_web(command, crash_on_fail=true):
 	var shell_command = ShellCommand.new()
@@ -48,6 +39,7 @@ func run_async_web(command, crash_on_fail=true):
 	return shell_command
 
 func run_async_thread(shell_command):
+	print("in async thread " + shell_command.command)
 	var debug = false
 	
 	var command = shell_command.command
@@ -103,7 +95,7 @@ func run_async_thread(shell_command):
 		
 		#print(hacky_command)
 		shell_command.js_callback = JavaScriptBridge.create_callback(Callable(shell_command, "callback"))
-		web_shell.run_in_vm(command).then(shell_command.js_callback)
+		web_shell.run_in_vm(hacky_command).then(shell_command.js_callback)
 	else:
 		helpers.crash("Unimplemented OS: %s" % _os)
 	

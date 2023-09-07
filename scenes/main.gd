@@ -15,12 +15,12 @@ var repositories = {}
 @onready var file_browser = $Rows/Columns/RightSide/FileBrowser
 @onready var goals = $Rows/Columns/RightSide/LevelInfo/LevelPanel/Goals
 
-var _hint_server
-var _hint_client_connection
+#var _hint_server
+#var _hint_client_connection
 
 func _ready():
-	_hint_server = TCPServer.new()
-	_hint_server.listen(1235)
+	#_hint_server = TCPServer.new()
+	#_hint_server.listen(1235)
 	
 	var args = helpers.parse_args()
 	
@@ -45,11 +45,11 @@ func _ready():
 	input.grab_focus()
 	
 func _process(delta):
-	if _hint_server.is_connection_available():
-		_hint_client_connection = _hint_server.take_connection()
-		var length = _hint_client_connection.get_u32()
-		var message = _hint_client_connection.get_string(length)
-		game.notify(message)
+#	if _hint_server.is_connection_available():
+#		_hint_client_connection = _hint_server.take_connection()
+#		var length = _hint_client_connection.get_u32()
+#		var message = _hint_client_connection.get_string(length)
+#		game.notify(message)
 #	if game.used_cards:
 #		$Menu/CLIBadge.impossible = true
 		
@@ -110,7 +110,7 @@ func load_level(level_id):
 	terminal.clear()
 	terminal.find_child("TextEditor").close()
 	
-	update_repos()
+	await update_repos()
 	
 	# Unmute the audio after a while, so that player can hear pop sounds for
 	# nodes they create.
@@ -205,13 +205,13 @@ func show_win_status(win_states):
 #	chapter_select.select(game.current_chapter)
 
 func update_repos():
-	var win_states = levels.chapters[game.current_chapter].levels[game.current_level].check_win()
+	var win_states = await levels.chapters[game.current_chapter].levels[game.current_level].check_win()
 	show_win_status(win_states)
 	
 	for r in repositories:
 		var repo = repositories[r]
-		repo.update_everything()
-	file_browser.update()
+		await repo.update_everything()
+	await file_browser.update()
 	
 	input.grab_focus()
 

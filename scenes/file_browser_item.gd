@@ -13,13 +13,13 @@ var repository
 func _ready():
 	_set_label(label)
 	#$PopupMenu.add_item("Delete file", 0)
-	var exists_in_wd = repository.shell.run("test -f '%s' && echo yes || echo no" % label) == "yes\n"
-	var exists_in_index = repository.shell.run("git ls-files --error-unmatch '%s' &>/dev/null && echo yes || echo no" % label) == "yes\n"
-	var exists_in_head = repository.shell.run("git cat-file -e HEAD:'%s' &>/dev/null && echo yes || echo no" % label) == "yes\n"
+	var exists_in_wd = (await repository.shell.run("test -f '%s' && echo yes || echo no" % label)) == "yes\n"
+	var exists_in_index = (await repository.shell.run("git ls-files --error-unmatch '%s' &>/dev/null && echo yes || echo no" % label)) == "yes\n"
+	var exists_in_head = (await repository.shell.run("git cat-file -e HEAD:'%s' &>/dev/null && echo yes || echo no" % label)) == "yes\n"
 	
-	var wd_hash = repository.shell.run("git hash-object '%s' 2>/dev/null || true" % label)
-	var index_hash = repository.shell.run("git ls-files -s '%s' | cut -f2 -d' '" % label)
-	var head_hash = repository.shell.run("git ls-tree HEAD '%s' | cut -f1 | cut -f3 -d' '" % label)
+	var wd_hash = await repository.shell.run("git hash-object '%s' 2>/dev/null || true" % label)
+	var index_hash = await repository.shell.run("git ls-files -s '%s' | cut -f2 -d' '" % label)
+	var head_hash = await repository.shell.run("git ls-tree HEAD '%s' | cut -f1 | cut -f3 -d' '" % label)
 	
 	var conflict = Array(index_hash.split("\n")).size() > 2
 	

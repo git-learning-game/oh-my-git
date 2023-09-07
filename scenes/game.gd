@@ -21,7 +21,7 @@ func get_tmp_prefix():
 	if OS.get_name() == "Web":
 		return "/tmp/"
 	else:
-		OS.get_user_data_dir() + "/tmp/"
+		return OS.get_user_data_dir() + "/tmp/"
 
 func _ready():
 	mutex = Mutex.new()
@@ -34,25 +34,17 @@ func _ready():
 	
 	if OS.get_name() == "Windows":
 		start_remote_shell()
-	global_shell = new_shell()
-	
-#	var cmd = global_shell.run("echo hi")
-#	print(cmd)
-#	cmd = global_shell.run("seq 1 10")
-#	print(cmd)
-#	cmd = global_shell.run("ls")
-#	print(cmd)
-#	helpers.crash(":)")
+	global_shell = await new_shell()
 
 	if false:
-		if global_shell.run("command -v git &>/dev/null && echo yes || echo no") == "no\n":
+		if (await global_shell.run("command -v git &>/dev/null && echo yes || echo no")) == "no\n":
 			game.skipped_title = true
 			get_tree().change_scene_to_file("res://scenes/no_git.tscn")
 		else:
-			create_file_in_game_env(".gitconfig", helpers.read_file("res://scripts/gitconfig"))
+			await create_file_in_game_env(".gitconfig", helpers.read_file("res://scripts/gitconfig"))
 			
-			copy_script_to_game_env("fake-editor")
-			copy_script_to_game_env("hint")
+			await copy_script_to_game_env("fake-editor")
+			await copy_script_to_game_env("hint")
 
 func start_remote_shell():
 	var user_dir = ProjectSettings.globalize_path("user://")
@@ -86,8 +78,8 @@ func _notification(what):
 		
 
 func copy_script_to_game_env(name):
-	create_file_in_game_env(name, helpers.read_file("res://scripts/%s" % name))
-	global_shell.run("chmod u+x '%s'" % (tmp_prefix + name))
+	await create_file_in_game_env(name, helpers.read_file("res://scripts/%s" % name))
+	await global_shell.run("chmod u+x '%s'" % (tmp_prefix + name))
 	
 func _initial_state():
 	return {"history": [], "solved_levels": [], "received_hints": [], "cli_badge": [], "played_cards": []}
@@ -116,9 +108,9 @@ func load_state():
 	
 # filename is relative to the tmp directory!
 func create_file_in_game_env(filename, content):
-	global_shell.cd(tmp_prefix)
+	await global_shell.cd(tmp_prefix)
 	# Quoted HERE doc doesn't do any substitutions inside.
-	global_shell.run("cat > '%s' <<'HEREHEREHERE'\n%s\nHEREHEREHERE" % [filename, content])
+	await global_shell.run("cat > '%s' <<'HEREHEREHERE'\n%s\nHEREHEREHERE" % [filename, content])
 
 func notify(text, target=null, hint_slug=null):
 	if hint_slug:
@@ -167,4 +159,4 @@ func new_shell():
 	if OS.get_name() == "Windows":
 		return BetterShell.new()
 	else:
-		return Shell.new()
+		return await Shell.new()

@@ -57,11 +57,11 @@ func update():
 		
 		if repository.there_is_a_git_cache:
 			# Files in the HEAD commit.
-			head_files = Array(repository.shell.run("git ls-tree --name-only -r HEAD 2> /dev/null || true").split("\n"))
+			head_files = Array((await repository.shell.run("git ls-tree --name-only -r HEAD 2> /dev/null || true")).split("\n"))
 			# The last entry is an empty string, remove it.
 			head_files.pop_back()
 			# Files in the index.
-			index_files = Array(repository.shell.run("git ls-files -s | cut -f2 | uniq").split("\n"))
+			index_files = Array((await repository.shell.run("git ls-files -s | cut -f2 | uniq")).split("\n"))
 			# The last entry is an empty string, remove it.
 			index_files.pop_back()
 		
@@ -90,8 +90,8 @@ func update():
 					if shell:
 						
 						var deleted_files = []
-						if shell.run("test -d super.git && echo yes || echo no") == "yes\n":
-							deleted_files = Array(shell.run("git status -s | grep '^.D' | sed 's/^...//'").split("\n"))
+						if (await shell.run("test -d super.git && echo yes || echo no")) == "yes\n":
+							deleted_files = Array((await shell.run("git status -s | grep '^.D' | sed 's/^...//'")).split("\n"))
 							deleted_files.pop_back()
 						
 						#var is_visible = false
@@ -122,7 +122,7 @@ func update():
 					#var is_visible = false					
 					if repository and repository.there_is_a_git_cache:
 						
-						var deleted_files = Array(repository.shell.run("git status -s | grep '^D' | sed 's/^...//'").split("\n"))
+						var deleted_files = Array((await repository.shell.run("git status -s | grep '^D' | sed 's/^...//'")).split("\n"))
 						# The last entries are empty strings, remove them.
 						
 						for file_path in files:
@@ -135,25 +135,6 @@ func update():
 							#	is_visible = true		
 					#visible = is_visible				
 						
-#func get_file_status(file_path, the_shell, idx):
-#	var file_status = the_shell.run("git status -s '%s'" % file_path)
-#	if file_status.length()>0:
-#		match file_status[idx]:
-#			"D":
-#				return FileBrowserItem.IconStatus.REMOVED
-#			"M":
-#				return FileBrowserItem.IconStatus.EDIT
-#			"U":
-#				return FileBrowserItem.IconStatus.CONFLICT
-#			" ":
-#				return FileBrowserItem.IconStatus.NONE
-#			"A":
-#				return FileBrowserItem.IconStatus.NEW
-#			"?":
-#				return FileBrowserItem.IconStatus.UNTRACKED
-#	else:
-#		return FileBrowserItem.IconStatus.NONE
-
 func item_clicked(item):
 	if not item.get_node("VBoxContainer/Control/WD").visible:
 		return
@@ -162,11 +143,11 @@ func item_clicked(item):
 		FileBrowserMode.WORKING_DIRECTORY:
 			text_edit.text = helpers.read_file(repository.shell._cwd + item.label)
 		FileBrowserMode.COMMIT:
-			text_edit.text = commit.repository.shell.run("git show %s:\"%s\"" % [commit.id, item.label])
+			text_edit.text = await commit.repository.shell.run("git show %s:\"%s\"" % [commit.id, item.label])
 		FileBrowserMode.INDEX:
 			if item.status == item.IconStatus.CONFLICT:
 				return
-			text_edit.text = repository.shell.run("git show :\"%s\"" % [item.label])
+			text_edit.text = await repository.shell.run("git show :\"%s\"" % [item.label])
 			
 	open_file = item.label
 	text_edit.show()

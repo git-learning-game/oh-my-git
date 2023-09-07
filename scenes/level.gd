@@ -115,32 +115,32 @@ func construct():
 		# Make sure that active_repository is in a temporary directory.
 		helpers.careful_delete(repo.path)
 		
-		game.global_shell.run("mkdir '%s'" % repo.path)
-		game.global_shell.cd(repo.path)
-		game.global_shell.run("git init")
-		game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
+		await game.global_shell.run("mkdir '%s'" % repo.path)
+		await game.global_shell.cd(repo.path)
+		await game.global_shell.run("git init")
+		await game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
 		
 		# Add other repos as remotes.
 		for r2 in repos:
 			if r == r2:
 				continue
-			game.global_shell.run("git remote add %s '%s'" % [r2, repos[r2].path])
+			await game.global_shell.run("git remote add %s '%s'" % [r2, repos[r2].path])
 		
 	for r in repos:
 		var repo = repos[r]
-		game.global_shell.cd(repo.path)
-		game.global_shell.run(repo.setup_commands)
+		await game.global_shell.cd(repo.path)
+		await game.global_shell.run(repo.setup_commands)
 
 func check_win():
 	var win_states = {}
 	for r in repos:
 		var repo = repos[r]
-		game.global_shell.cd(repo.path)
+		await game.global_shell.cd(repo.path)
 		if repo.action_commands.length() > 0:
-			game.global_shell.run("function actions { %s\n}; actions 2>/dev/null >/dev/null || true" % repo.action_commands)
+			await game.global_shell.run("function actions { %s\n}; actions 2>/dev/null >/dev/null || true" % repo.action_commands)
 		if repo.win_conditions.size() > 0:
 			for description in repo.win_conditions:
 				var commands = repo.win_conditions[description]
-				var won = game.global_shell.run("function win { %s\n}; win 2>/dev/null >/dev/null && echo yes || echo no" % commands) == "yes\n"
+				var won = (await game.global_shell.run("function win { %s\n}; win 2>/dev/null >/dev/null && echo yes || echo no" % commands)) == "yes\n"
 				win_states[description] = won		
 	return win_states 

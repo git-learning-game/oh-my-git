@@ -14,7 +14,7 @@ var git_commands_help = []
 var repository
 @onready var main = get_tree().get_root().get_node("Main")
 
-var shell = Shell.new()
+var shell = await Shell.new()
 
 var premade_commands = [
 	'git commit --allow-empty -m "empty"',
@@ -90,16 +90,10 @@ func send_command(command):
 
 	shell.cd(repository.path)
 	
+	print("running " + command)
 	var cmd = shell.run_async_web(command, false)
 	await cmd.done
 	call_deferred("command_done", cmd)
-	
-#	var output = shell.run(command, false)
-#	var shell_command = ShellCommand.new()
-#	shell_command.exit_code = 0
-#	shell_command.output = output
-#	shell_command.command = command
-#	command_done(shell_command)
 
 func command_done(cmd):
 	if cmd.exit_code == 0:
@@ -131,7 +125,7 @@ func editor_closed():
 	input.grab_focus()
 		
 func regenerate_completions_menu(new_text):
-	var comp = generate_completions(new_text)
+	var comp = await generate_completions(new_text)
 	
 	completions.clear()
 	

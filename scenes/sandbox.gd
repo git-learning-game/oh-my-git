@@ -16,12 +16,12 @@ func _ready():
 	
 	if path == null:
 		path = game.tmp_prefix+"/repos/sandbox/"
-		helpers.careful_delete(path)
+		await helpers.careful_delete(path)
 		
-		game.global_shell.run("mkdir '%s'" % path)
-		game.global_shell.cd(path)
-		game.global_shell.run("git init")
-		game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
+		await game.global_shell.run("mkdir '%s'" % path)
+		await game.global_shell.cd(path)
+		await game.global_shell.run("git init")
+		await game.global_shell.run("git symbolic-ref HEAD refs/heads/main")
 	
 	$Columns/Repository.path = path
 
