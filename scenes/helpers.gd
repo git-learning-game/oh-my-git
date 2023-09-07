@@ -96,6 +96,8 @@ func careful_delete(path_inside):
 		# Windows treats paths case-insensitively:
 		expected_prefix = expected_prefix.to_lower()
 		path_inside = path_inside.to_lower()
+	elif os == "Web":
+		expected_prefix = "/tmp"
 	
 	if path_inside.substr(0,expected_prefix.length()) != expected_prefix:
 		helpers.crash("Refusing to delete directory %s that does not start with %s" % [path_inside, expected_prefix])

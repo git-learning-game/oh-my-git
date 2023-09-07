@@ -12,7 +12,7 @@ func _init():
 	# Create required directories and move into the tmp directory.
 	_cwd = "/tmp"
 	run("mkdir -p '%s/repos'" % game.tmp_prefix)
-	_cwd = game.tmp_prefixls
+	_cwd = game.tmp_prefix
 	
 func cd(dir):
 	_cwd = dir
@@ -38,7 +38,14 @@ func run_async(command, crash_on_fail=true):
 	t.start(Callable(self, "run_async_thread").bind(shell_command))
 	
 	return shell_command
-	
+
+func run_async_web(command, crash_on_fail=true):
+	var shell_command = ShellCommand.new()
+	shell_command.command = command
+	shell_command.crash_on_fail = crash_on_fail
+	run_async_thread(shell_command)
+	return shell_command
+
 func run_async_thread(shell_command):
 	var debug = false
 	
@@ -86,28 +93,26 @@ func run_async_thread(shell_command):
 		helpers.write_file(script_path, hacky_command)
 		result = helpers.exec(_shell_binary(), [script_path], crash_on_fail)
 	elif _os == "Web":
-		hacky_command = hacky_command.replace("\\", "\\\\").replace("'", "\\'").replace("\n", "\\n")
+		#hacky_command = hacky_command.replace("\\", "\\\\").replace("'", "\\'").replace("\n", "\\n")
 		#var js_code = "await run_in_vm('" + hacky_command + "')"
 		#print(js_code)
 		#var output = JavaScriptBridge.eval(js_code, true)
 		
-		var output = JavaScriptBridge.eval("testy()")
+		#var output = JavaScriptBridge.eval("testy()")
 		
 		#print(hacky_command)
-		#var output = web_shell.run_in_vm(hacky_command)
-		
-		result = {}
-		result["output"] = output
-		result["exit_code"] = 0
+		shell_command.js_callback = JavaScriptBridge.create_callback(Callable(shell_command, "callback"))
+		web_shell.run_in_vm(hacky_command).then(shell_command.js_callback)
 	else:
 		helpers.crash("Unimplemented OS: %s" % _os)
 	
-	if debug:
-		print(result["output"])
-	
-	shell_command.output = result["output"]
-	shell_command.exit_code = result["exit_code"]
-	shell_command.emit_signal("done")
+	if _os != "Web":
+		if debug:
+			print(result["output"])
+		
+		shell_command.output = result["output"]
+		shell_command.exit_code = result["exit_code"]
+		shell_command.emit_signal("done")
 	
 func _shell_binary():
 	if _os == "Linux" or _os == "OSX":
@@ -117,25 +122,8 @@ func _shell_binary():
 	else:
 		helpers.crash("Unsupported OS: %s" % _os)
 
-#var _t	
-#func run_async(command):
-#	_t = Thread.new()
-#	_t.start(self, "run_async_thread", command)
-#
-#func run_async_thread(command):
-#	var port = 1000 + (randi() % 1000)
-#	var s = TCP_Server.new()
-#	s.listen(port)
-#	var _pid = OS.execute("ncat", ["127.0.0.1", str(port), "-c", command], false, [], true)
-#	while not s.is_connection_available():
-#		pass
-#	var c = s.take_connection()
-#	while c.get_status() == StreamPeerTCP.STATUS_CONNECTED:
-#		read_from(c)
-#		OS.delay_msec(1000/30)
-#	read_from(c)
-#	c.disconnect_from_host()
-#	s.stop()
+func callback(args):
+	print(args)
 
 func read_from(c):
 	var total_available = c.get_available_bytes()

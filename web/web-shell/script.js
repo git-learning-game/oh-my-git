@@ -3,11 +3,11 @@ var emulator;
 // Whether or not to restore the VM state from a file. Set to false to perform a regular boot.
 let restoreState = true;
 
-async function testy() {
-  return await new Promise((resolve, reject) => {
+function testy(cmd) {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve("testy");
-    }, 1000);
+      resolve("testy!!" + cmd);
+    }, 100);
   });
 }
 window.testy = testy;
@@ -40,7 +40,7 @@ function run_in_vm(cmd) {
   });
 }
 window.run_in_vm = run_in_vm;
-window.web_shell = { run_in_vm: run_in_vm };
+window.web_shell = { run_in_vm, testy };
 
 /*
 

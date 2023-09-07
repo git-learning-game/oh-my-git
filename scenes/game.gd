@@ -1,6 +1,6 @@
 extends Node
 
-var tmp_prefix = OS.get_user_data_dir() + "/tmp/"
+var tmp_prefix = get_tmp_prefix()
 var global_shell
 var fake_editor
 
@@ -16,6 +16,12 @@ var _file = "user://savegame.json"
 var state = {}
 
 var mutex
+
+func get_tmp_prefix():
+	if OS.get_name() == "Web":
+		return "/tmp/"
+	else:
+		OS.get_user_data_dir() + "/tmp/"
 
 func _ready():
 	mutex = Mutex.new()
