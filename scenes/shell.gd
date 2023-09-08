@@ -20,14 +20,13 @@ func cd(dir):
 # Run a shell command given as a string. Run this if you're interested in the
 # output of the command.
 func run(command, crash_on_fail=true):
-	print("run " + command)
 	var shell_command = ShellCommand.new()
 	shell_command.command = command
 	shell_command.crash_on_fail = crash_on_fail
 	
 	run_async_thread(shell_command)
 	await shell_command.done
-	print("output in run (" +command+ "): " + shell_command.output)
+	print("output of (" +command+ "): >>" + shell_command.output + "<<")
 	exit_code = shell_command.exit_code
 	return shell_command.output
 
@@ -39,7 +38,6 @@ func run_async_web(command, crash_on_fail=true):
 	return shell_command
 
 func run_async_thread(shell_command):
-	print("in async thread " + shell_command.command)
 	var debug = false
 	
 	var command = shell_command.command
@@ -58,6 +56,8 @@ func run_async_thread(shell_command):
 	hacky_command += "export PATH=\'"+game.tmp_prefix+":'\"$PATH\";"
 	hacky_command += "cd '%s' || exit 1;" % _cwd
 	hacky_command += command
+	
+	print("running >>" + hacky_command + "<<")
 
 	var result
 	if _os == "Linux" or _os == "OSX":
@@ -95,7 +95,7 @@ func run_async_thread(shell_command):
 		
 		#print(hacky_command)
 		shell_command.js_callback = JavaScriptBridge.create_callback(Callable(shell_command, "callback"))
-		web_shell.run_in_vm(hacky_command).then(shell_command.js_callback)
+		web_shell.run(hacky_command).then(shell_command.js_callback)
 	else:
 		helpers.crash("Unimplemented OS: %s" % _os)
 	
@@ -114,9 +114,6 @@ func _shell_binary():
 		return "dependencies\\windows\\git\\bin\\bash.exe"
 	else:
 		helpers.crash("Unsupported OS: %s" % _os)
-
-func callback(args):
-	print(args)
 
 func read_from(c):
 	var total_available = c.get_available_bytes()

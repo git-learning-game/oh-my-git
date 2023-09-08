@@ -112,9 +112,10 @@ function boot() {
         emulator = window["emulator"] = new V86Starter(config)
 
         // Wait for the emulator to start, then resolve the promise.
-        var interval = setInterval(() => {
+        var interval = setInterval(async () => {
             if (emulator.is_running()) {
-                run("PS1='#  '")
+                await run("PS1='#  '")
+                await run("stty -echo")
                 clearInterval(interval)
                 resolve(true)
             }

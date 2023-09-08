@@ -71,6 +71,7 @@ func set_path(new_path):
 	if path_node:
 		path_node.text = path
 	if new_path != "":
+		print("CD-ing repo shell to " + new_path)
 		shell.cd(new_path)
 		for o in objects.values():
 			o.queue_free()

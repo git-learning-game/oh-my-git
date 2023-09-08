@@ -108,6 +108,7 @@ func load_state():
 	
 # filename is relative to the tmp directory!
 func create_file_in_game_env(filename, content):
+	print("CD-ing to tmp in create_file")
 	await global_shell.cd(tmp_prefix)
 	# Quoted HERE doc doesn't do any substitutions inside.
 	await global_shell.run("cat > '%s' <<'HEREHEREHERE'\n%s\nHEREHEREHERE" % [filename, content])

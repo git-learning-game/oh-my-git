@@ -16,7 +16,7 @@ func _unused():
 
 func callback(_output):
 	#print(_output)
-	print(_output[0])
 	output = _output[0]
+	print("output of async command (" + command + "): >>"+output+"<<" )
 	exit_code = 0
 	emit_signal("done")

@@ -90,7 +90,6 @@ func send_command(command):
 
 	shell.cd(repository.path)
 	
-	print("running " + command)
 	var cmd = shell.run_async_web(command, false)
 	await cmd.done
 	call_deferred("command_done", cmd)
