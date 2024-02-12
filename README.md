@@ -21,7 +21,7 @@ Wanna build your own level? Great! Here's how to do it:
 1. Run the game – the easiest way to do so is to run `godot scenes/main.tscn` from the project directory.
 1. Get a bit familiar with the levels which are currently there.
 1. Take a look into the `levels` directory. It's split into chapters, and each level is a file.
-1. Make a copy of an existing level or start writing your own. See the documention of the format below.
+1. Make a copy of an existing level or start writing your own. See the documentation of the format below.
 1. Write and test your level. If you're happy with it, feel free to send it to us in a pull request! <3
 
 ### Level format
