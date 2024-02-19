@@ -38,7 +38,7 @@ func save():
 		if text.length() > 0 and text.substr(text.length()-1, 1) != "\n":
 			text += "\n"
 		
-		_client_connection.put_string(text)
+		_client_connection.put_string("s" + text)
 		
 		emit_signal("saved")
 		close()
