@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>org.ohmygit.OhMyGit</id>
+    <metadata_license>FSFAP</metadata_license>
+    <project_license>BlueOak-1.0.0</project_license>
+    <name>Oh My Git!</name>
+    <summary>An open source game about learning Git!</summary>
+    <description>
+        <p>
+            <em>Oh My Git!</em> is an open source game that introduces players to the popular version control system "Git". It is highly interactive, and aims at building intuition for operations like "merging" or "rebasing" branches. Players are guided through the features of Git step by step – each level tells a little story where the player can use their new-found powers to solve problems or help others.
+        </p>
+    </description>
+
+    <launchable type="desktop-id">org.ohmygit.OhMyGit.desktop</launchable>
+
+    <screenshots>
+        <screenshot type="default">
+            <image>https://ohmygit.org/assets/images/cover.png</image>
+        </screenshot>
+        <screenshot>
+            <image>https://ohmygit.org/assets/images/screenshots/commit.png</image>
+        </screenshot>
+        <screenshot>
+            <image>https://ohmygit.org/assets/images/screenshots/branches.png</image>
+        </screenshot>
+        <screenshot>
+            <image>https://ohmygit.org/assets/images/screenshots/bisect.png</image>
+        </screenshot>
+        <screenshot>
+            <image>https://ohmygit.org/assets/images/screenshots/levels.png</image>
+        </screenshot>
+    </screenshots>
+
+    <url type="homepage">https://ohmygit.org/</url>
+    <url type="bugtracker">https://github.com/git-learning-game/oh-my-git/issues</url>
+    <url type="vcs-browser">https://github.com/git-learning-game/oh-my-git</url>
+    <url type="contribute">https://github.com/git-learning-game/oh-my-git#contribute-code</url>
+
+    <developer_name>bleeptrack and blinry</developer_name>
+
+    <content_rating type="oars-1.1" />
+
+    <releases>
+        <release version="0.6.5" date="2022-07-21"/>
+    </releases>
+</component>
