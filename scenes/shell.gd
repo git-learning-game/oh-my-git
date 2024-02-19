@@ -26,9 +26,12 @@ func run(command, crash_on_fail=true):
 	exit_code = shell_command.exit_code
 	return shell_command.output
 
-func run_async(command, crash_on_fail=true):
+func run_async(command, pretty_command=null, crash_on_fail=true):
 	var shell_command = ShellCommand.new()
 	shell_command.command = command
+	shell_command.pretty_command = command
+	if pretty_command:
+		shell_command.pretty_command = pretty_command
 	shell_command.crash_on_fail = crash_on_fail
 	
 	var t = Thread.new()
@@ -48,6 +51,7 @@ func run_async_thread(shell_command):
 	
 	var env = {}
 	env["HOME"] = game.tmp_prefix
+	env["TERM"] = "xterm"
 	
 	var hacky_command = ""
 	for variable in env:
