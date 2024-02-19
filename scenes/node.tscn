@@ -50,8 +50,8 @@ margin_left = -19.9265
 margin_top = -12.0097
 margin_right = 129.073
 margin_bottom = 40.9903
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "object_id"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -75,12 +75,13 @@ margin_left = -22.057
 margin_top = 31.1738
 margin_right = -12.057
 margin_bottom = 66.1738
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/normal = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="mouse_entered" from="Rect" to="." method="_on_hover"]
 [connection signal="mouse_exited" from="Rect" to="." method="_on_unhover"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_hover"]

@@ -19,8 +19,8 @@ margin_left = 790.778
 margin_top = 594.135
 margin_right = 1131.78
 margin_bottom = 650.135
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "by bleeptrack & blinry"
 align = 1
 __meta__ = {
@@ -32,8 +32,8 @@ margin_left = 709.713
 margin_top = 621.416
 margin_right = 1209.71
 margin_bottom = 677.416
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "Original score by winniehell"
 align = 1
 __meta__ = {
@@ -72,6 +72,7 @@ text = "Quit"
 position = Vector2( 967.924, 306.066 )
 scale = Vector2( 0.320895, 0.320895 )
 texture = ExtResource( 2 )
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="levels"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="sandbox"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="quit"]

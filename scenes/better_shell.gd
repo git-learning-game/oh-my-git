@@ -41,7 +41,6 @@ func run_async_thread(shell_command):
 	var debug = false
 	
 	var command = shell_command.command
-	var crash_on_fail = shell_command.crash_on_fail
 	
 	if debug:
 		print("$ %s" % command)
@@ -59,7 +58,6 @@ func run_async_thread(shell_command):
 
 	#print(hacky_command)
 
-	var result
 	var shell_command_internal = game.shell_test(hacky_command)
 
 	shell_command.output = shell_command_internal.output

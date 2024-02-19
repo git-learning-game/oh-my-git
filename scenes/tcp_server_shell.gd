@@ -1,6 +1,6 @@
 extends Node
 
-signal data_received(string)
+#signal data_received(string)
 signal new_connection
 
 export var port: int

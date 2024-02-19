@@ -32,9 +32,6 @@ texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Particles2D" type="Particles2D" parent="."]
 show_behind_parent = true

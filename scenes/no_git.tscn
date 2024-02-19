@@ -19,17 +19,14 @@ margin_left = 1.4126
 margin_right = 1.4126
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label2" type="Label" parent="."]
 margin_left = 797.196
 margin_top = 545.117
 margin_right = 1138.2
 margin_bottom = 601.117
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "by bleeptrack & blinry"
 align = 1
 __meta__ = {
@@ -41,8 +38,8 @@ margin_left = 716.131
 margin_top = 572.398
 margin_right = 1216.13
 margin_bottom = 628.398
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "Original score by winniehell"
 align = 1
 __meta__ = {
@@ -100,6 +97,7 @@ On Linux, please install it from your package manager, usually the package is ca
 
 On macOS 10.8 and below, you can download Git from git-scm.com."
 autowrap = true
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="levels"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="sandbox"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="quit"]

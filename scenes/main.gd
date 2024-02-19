@@ -44,7 +44,7 @@ func _ready():
 	load_level(game.current_level)
 	input.grab_focus()
 	
-func _process(delta):
+func _process(_delta):
 	if _hint_server.is_connection_available():
 		_hint_client_connection = _hint_server.take_connection()
 		var length = _hint_client_connection.get_u32()

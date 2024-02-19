@@ -48,4 +48,5 @@ margin_left = 961.0
 margin_right = 1910.0
 margin_bottom = 1070.0
 size_flags_horizontal = 3
+
 [connection signal="command_done" from="Columns/Terminal" to="." method="update_repo"]
