@@ -4,29 +4,29 @@ cards = file-delete
 [description]
 
 El primer día en la Escuela de Viajes en el Tiempo llega a su fin y recibes la llave de tu habitación.
-Lleno de emoción abres la puerta solo para encontrar... ¡telarañas! ¡Telarañas por todas partes!
+Lleno de emoción abres la puerta solo para encontrar... ¡webs! ¡Telarañas por todas partes!
 
-¡Elimina todas las telarañas que puedas encontrar con la carta de eliminación!
+¡Elimina todas las webs que puedas encontrar con la carta de eliminación!
 
 [cli]
 
 En la línea de comandos, puedes eliminar fácilmente todos los archivos que terminan en -web usando este comando:
 
-    rm *telaraña
+    rm *web
 
 [setup]
 
-echo Una pequeña telaraña está junto a tu ventana. > pequeña_telaraña
-echo Una gran telaraña está sobre tu cama. > gran_telaraña
+echo Una pequeña web está junto a tu ventana. > peque_web
+echo Una gran web está sobre tu cama. > gran_web
 echo Una cama acogedora. > cama
-echo Una telaraña super gruesa está justo al lado de tu puerta. > gruesa_telaraña
+echo Una web super gruesa está justo al lado de tu puerta. > gruesa_web
 
 [win]
 
-# Elimina todas las telarañas.
-! ls | grep gruesa_telaraña &&
-! ls | grep gran_telaraña &&
-! ls | grep pequeña_telaraña
+# Elimina todas las webs.
+! ls | grep gruesa_web &&
+! ls | grep gran_web &&
+! ls | grep peque_web
 
 # ¡Pero asegúrate de mantener tu cama!
 ls | grep cama

@@ -11,7 +11,7 @@ Arma tus dos muebles jugando la carta de toque. Luego, nombra tus muebles: puede
 
 [setup]
 
-echo Una cama amarilla y acogedora. > bed
+echo Una cama amarilla y acogedora. > cama
 
 [win]
 
@@ -19,9 +19,9 @@ echo Una cama amarilla y acogedora. > bed
 NUM_FILES="$(ls | wc -l)"
 test "$NUM_FILES" -ge 3
 
-# Asegurate de que los colores sean acordes al color de tu cama.
+# Asegurate de que los colores sean iguales al color de tu cama.
 NUM_FILES="$(ls | wc -l)"
-YELLOW_FILES="$(grep -li yellow * | wc -l)"
+YELLOW_FILES="$(grep -li amarill* | wc -l)"
 test "$NUM_FILES" -ge 2 && test "$YELLOW_FILES" = "$NUM_FILES"
 
 [congrats]
