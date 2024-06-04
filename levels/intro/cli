@@ -1,15 +1,15 @@
-title = The command line
+title = La línea de comandos
 cards = 
 
 [description]
 
-These playing cards are designed to be easy to use and to remember! We'd suggest sticking to them if you don't have a lot of experience with Git!
+¡Estas cartas están diseñadas para ser fáciles de usar y recordar! ¡Te sugeriríamos que te apegues a ellas si no tienes mucha experiencia con Git!
 
 [cli]
 
-But there's another way to interact with Git:
+Pero hay otra forma de interactuar con Git:
 
-Try typing `git init` into the black terminal below, and pressing the enter key!
+¡Intenta escribir `git init` en la terminal negra de abajo y presiona la tecla Enter!
 
 [setup]
 
@@ -17,11 +17,11 @@ rm -rf .git
 
 [win]
 
-# Initialize the time machine!
+# ¡Inicializa la máquina del tiempo!
 test -d .git
 
 [congrats]
 
-Cool! Instead of using the playing cards, you can also do everything via the command line!
+¡Genial! ¡En lugar de usar las cartas, también puedes hacer todo a través de la línea de comandos!
 
-The command line is pretty powerful! Often, you can use it to solve tasks faster compared to using a graphical interface.
+¡La línea de comandos es bastante poderosa! A menudo, puedes usarla para resolver tareas más rápido en comparación con el uso de una interfaz gráfica.
