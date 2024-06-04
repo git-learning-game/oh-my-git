@@ -1,33 +1,68 @@
-title = Your first commit
+title = Tu primer commit
 cards = commit-auto
 
 [description]
 
-You can use your time machine to make snapshots of objects around you! Here, let's practice this!
+¡Puedes usar tu máquina del tiempo para hacer instantáneas de objetos a tu alrededor! ¡Aquí, practiquemos esto!
 
-(Your teacher pours some water into a glass.)
+(Tu profesora vierte un poco de agua en un vaso.)
 
 [cli]
 
-Again, instead of using the card, you can also type the commands which are printed on it into the black terminal below!
+¡De nuevo, en lugar de usar la tarjeta, también puedes escribir los comandos que están impresos en ella en la terminal negra de abajo!
 
-This is totally optional! But this will be a super useful skill in the real world - and it will give you a sparkling golden badge! :)
+¡Esto es completamente opcional! Pero esta será una habilidad súper útil en el mundo real, ¡y te dará una insignia dorada brillante! :)
 
 [setup]
 
-echo "The glass is full of water." > glass
+echo "El vaso está lleno de agua." > glass
 
 [win]
+Haz una instantánea del vaso (un "commit")
 
-# Make a snapshot of the glass (a "commit")
 git rev-parse HEAD
+¡Cambia el contenido del vaso!
 
-# Change the contents of the glass!
-! test "$(cat glass)" = "The glass is full of water."
+! test "$(cat glass)" = "El vaso está lleno de agua."
+¡Y haz un segundo commit!
 
-# And make a second commit!
-git rev-parse HEAD^ && ! test "$(git show main:glass)" = "The glass is full of water."
+git rev-parse HEAD^ && ! test "$(git show main
+)" = "El vaso está lleno de agua."
 
 [congrats]
 
-Nice! You can try making some additional commits. When you feel comfortable, click on "Next Level".
+¡Bien hecho! Puedes intentar hacer algunos commits adicionales. Cuando te sientas cómodo, haz clic en "Siguiente nivel".title = Your first commit
+cards = commit-auto
+
+[description]
+
+Puedes usar to máquina del tiempo para sacar fotos de los objetos que están alrededor tuyo! Vamos a practicar esto!
+You can use your time machine to make snapshots of objects around you! Here, let's practice this!
+
+(Tus profe Andrea se sirve un poco de agua en el vaso.)
+
+[cli]
+
+Nuevamente, en lugar de usar la tarjeta, ¡también puedes escribir los comandos que están impresos en ella en la terminal negra a continuación!
+
+¡Esto es totalmente opcional! Pero esta será una habilidad súper útil en el mundo real y te dará una insignia dorada brillante.! :)
+
+[setup]
+
+echo "El vaso esta lleno de agua." > glass
+
+[win]
+
+# Toma una foto (haz un "commit")
+git rev-parse HEAD
+
+# Cambia el contenido del vaso!
+! test "$(cat glass)" = "The glass is full of water."
+
+# Haz un segundo commiteo!
+git rev-parse HEAD^ && ! test "$(git show main:glass)" = "El vaso está lleno de agua."
+
+[congrats]
+
+Genial! Podés intentar hacer algun commit adicional. Cuando te sientas cómodo o cómoda clickea en Siguiente Nivel.
+
