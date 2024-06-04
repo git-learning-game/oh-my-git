@@ -5,7 +5,7 @@ cards = commit-auto
 
 ¡Puedes usar tu máquina del tiempo para hacer instantáneas de objetos a tu alrededor! ¡Aquí, practiquemos esto!
 
-(Tu profesora vierte un poco de agua en un vaso.)
+(La profe Andrea vierte un poco de agua en un vaso.)
 
 [cli]
 
@@ -15,7 +15,7 @@ cards = commit-auto
 
 [setup]
 
-echo "El vaso está lleno de agua." > glass
+echo "El vaso esta lleno de agua." > vaso
 
 [win]
 Haz una instantánea del vaso (un "commit")
@@ -23,45 +23,13 @@ Haz una instantánea del vaso (un "commit")
 git rev-parse HEAD
 ¡Cambia el contenido del vaso!
 
-! test "$(cat glass)" = "El vaso está lleno de agua."
+! test "$(cat vaso)" = "El vaso esta lleno de agua."
 ¡Y haz un segundo commit!
 
 git rev-parse HEAD^ && ! test "$(git show main
-)" = "El vaso está lleno de agua."
+)" = "El vaso esta lleno de agua."
 
 [congrats]
 
 ¡Bien hecho! Puedes intentar hacer algunos commits adicionales. Cuando te sientas cómodo, haz clic en "Siguiente nivel".title = Your first commit
 cards = commit-auto
-
-[description]
-
-Puedes usar to máquina del tiempo para sacar fotos de los objetos que están alrededor tuyo! Vamos a practicar esto!
-
-(Tus profe Andrea se sirve un poco de agua en el vaso.)
-
-[cli]
-
-Nuevamente, en lugar de usar la tarjeta, ¡también puedes escribir los comandos que están impresos en ella en la terminal negra a continuación!
-
-¡Esto es totalmente opcional! Pero esta será una habilidad súper útil en el mundo real y te dará una insignia dorada brillante.! :)
-
-[setup]
-
-echo "El vaso esta lleno de agua." > glass
-
-[win]
-
-# Toma una foto (haz un "commit")
-git rev-parse HEAD
-
-# Cambia el contenido del vaso!
-! test "$(cat glass)" = "The glass is full of water."
-
-# Haz un segundo commiteo!
-git rev-parse HEAD^ && ! test "$(git show main:glass)" = "El vaso está lleno de agua."
-
-[congrats]
-
-Genial! Podés intentar hacer algun commit adicional. Cuando te sientas cómodo o cómoda clickea en Siguiente Nivel.
-
