@@ -21,7 +21,7 @@ test "$NUM_FILES" -ge 3
 
 # Asegurate de que los colores sean iguales al color de tu cama.
 NUM_FILES="$(ls | wc -l)"
-YELLOW_FILES="$(grep -li amarill* | wc -l)"
+YELLOW_FILES="$(grep -li amarill * | wc -l)"
 test "$NUM_FILES" -ge 2 && test "$YELLOW_FILES" = "$NUM_FILES"
 
 [congrats]
