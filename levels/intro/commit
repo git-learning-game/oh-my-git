@@ -26,8 +26,7 @@ git rev-parse HEAD
 ! test "$(cat vaso)" = "El vaso esta lleno de agua."
 ¡Y haz un segundo commit!
 
-git rev-parse HEAD^ && ! test "$(git show main
-)" = "El vaso esta lleno de agua."
+git rev-parse HEAD^ && ! test "$(git show main)" = "El vaso esta lleno de agua."
 
 [congrats]
 
