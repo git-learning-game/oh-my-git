@@ -18,16 +18,15 @@ cards = commit-auto
 echo "El vaso esta lleno de agua." > vaso
 
 [win]
-Haz una instantánea del vaso (un "commit")
-
+# Haz una instantánea del vaso (un "commit")
 git rev-parse HEAD
-¡Cambia el contenido del vaso!
 
+# ¡Cambia el contenido del vaso!
 ! test "$(cat vaso)" = "El vaso esta lleno de agua."
-¡Y haz un segundo commit!
 
+# ¡Y haz un segundo commit!
 git rev-parse HEAD^ && ! test "$(git show main)" = "El vaso esta lleno de agua."
 
 [congrats]
+¡Bien hecho! Puedes intentar hacer algunos commits adicionales. Cuando te sientas cómodo, haz clic en "Siguiente nivel".
 
-¡Bien hecho! Puedes intentar hacer algunos commits adicionales. Cuando te sientas cómodo, haz clic en "Siguiente nivel".title = Your first commit
