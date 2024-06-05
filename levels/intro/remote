@@ -37,17 +37,17 @@ git add .
 git commit -m "Añadidos dos estudiantes"
 
 [win]
-Obtén el segundo commit de tu profesora usando git pull.
+# Obtén el segundo commit de tu profesora usando git pull.
 
 test "$(git log --oneline teacher/main | wc -l)" -ge 2
-Añade tu nombre a la lista de estudiantes
+# Añade tu nombre a la lista de estudiantes
 
 test "$(cat students |wc -l)" -ge 5
-Haz commit de tu resultado.
+# Haz commit de tu resultado.
 
 test "$(git show main |wc -l)" -ge 5
 
 [win teacher]
-¡Y usa git push para enviarlo a tu profesora!
+# ¡Y usa git push para enviarlo a tu profesora!
 
 test "$(git show main |wc -l)" -ge 5
