@@ -31,4 +31,3 @@ git rev-parse HEAD^ && ! test "$(git show main)" = "El vaso esta lleno de agua."
 [congrats]
 
 ¡Bien hecho! Puedes intentar hacer algunos commits adicionales. Cuando te sientas cómodo, haz clic en "Siguiente nivel".title = Your first commit
-cards = commit-auto
