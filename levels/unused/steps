@@ -1,23 +1,23 @@
-title = One step after another
-cards = checkout commit reset-hard add
+título = Un paso tras otro
+tarjetas = pago confirmar reinicio-adición completa
 
-[description]
+[descripción]
 
-Sometimes, you might want to record the order in which things changed, instead of making a single commit.
+A veces, es posible que desees registrar el orden en el que cambiaron las cosas, en lugar de realizar una única confirmación.
 
-What happened here? Make two commits from the changes (using the "add" card), in an order that makes sense!
+¿Que pasó aquí? Realice dos confirmaciones de los cambios (usando la tarjeta "agregar"), en un orden que tenga sentido.
 
-[setup]
+[configuración]
 
-echo something > file1
-echo something else > file2
-git add .
-git commit -m "Initial commit"
+hacer eco de algo > archivo1
+hacer eco de algo más > archivo2
+git agregar.
+git commit -m "Compromiso inicial"
 
-echo this should happen first >> file1
-echo and this should happen after that >> file2
+echo esto debería suceder primero >> archivo1
+echo y esto debería suceder después de eso >> archivo2
 
-[win]
+[ganar]
 
-test "$(git diff-tree --no-commit-id --name-status -r main)" = "M	file2" &&
-test "$(git diff-tree --no-commit-id --name-status -r main^)" = "M	file1"
+prueba "$(git diff-tree --no-commit-id --name-status -r main)" = "M archivo2" &&
+prueba "$(git diff-tree --no-commit-id --name-status -r main^)" = "M archivo1"

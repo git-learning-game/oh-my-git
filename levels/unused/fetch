@@ -1,35 +1,35 @@
-title = Fetching from remotes
-cards = checkout fetch commit-auto
+title = Obteniendo desde controles remotos
+tarjetas = finalizar compra buscar compromiso-auto
 
-[description]
+[descripción]
 
-Here, you already have two remotes configured! You can list them using `git remote`.
+¡Aquí ya tienes dos mandos configurados! Puede enumerarlos usando `git remoto`.
 
-Fetch from both, and look at the suggestions.
+Obtenga de ambos y mire las sugerencias.
 
-Then, make a new commit on top of your original one that introduces a compromise.
+Luego, haga un nuevo compromiso además del original que introduzca un compromiso.
 
-[setup]
+[configuración]
 
-echo "The bikeshed should be ???" > proposal
-git add .
-git commit -m "What do you think?"
+echo "El cobertizo para bicicletas debería ser ???" > propuesta
+git agregar.
+git commit -m "¿Qué piensas?"
 
-[setup friend1]
+[configurar amigo1]
 
-git pull yours main
-echo "The bikeshed should be green" > proposal
-git commit -am "Green"
+git tira el tuyo principal
+echo "El cobertizo para bicicletas debería ser verde" > propuesta
+git commit -soy "verde"
 
-[setup friend2]
+[configurar amigo2]
 
-git pull yours main
-echo "The bikeshed should be blue" > proposal
-git commit -am "Blue"
+git tira el tuyo principal
+echo "El cobertizo para bicicletas debería ser azul" > propuesta
+git commit -am "Azul"
 
-[win]
+[ganar]
 
-# Your proposal is acceptable for friend1.
-git show main:proposal | git grep green
-# Your proposal is acceptable for friend2.
-git show main:proposal | git grep blue
+# Tu propuesta es aceptable para amigo1.
+git show principal: propuesta | git grep verde
+# Tu propuesta es aceptable para amigo2.
+git show principal: propuesta | git grep azul

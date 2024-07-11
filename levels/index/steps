@@ -1,53 +1,53 @@
-title = Adding changes step by step
-cards = add reset-file commit
+title = Agregar cambios paso a paso
+tarjetas = agregar confirmación de reinicio de archivo
 
-[description]
+[descripción]
 
-The index is really useful, because it allows us to be precise about which changes we want to include in each commit!
+¡El índice es realmente útil porque nos permite ser precisos sobre qué cambios queremos incluir en cada confirmación!
 
-[setup]
+[configuración]
 
-echo "A hammer, balancing on its handle." > hammer
-echo "A bottle, containing a clear liquid." > bottle
-echo "A white sugar cube." > sugar_cube
+echo "Un martillo, balanceándose sobre su mango". > martillo
+echo "Una botella que contiene un líquido transparente". > botella
+echo "Un terrón de azúcar blanco". > cubo_de_azúcar
 
-git add .
-git commit -m "The beginning"
+git agregar.
+git commit -m "El comienzo"
 
-[win]
+[ganar]
 
-# Make changes to all three objects, to form a logical sequence of events!
-test "$(git diff --name-only | wc -l)" -eq 3 || file -f .git/candle-changed && touch .git/candle-changed
+# ¡Realice cambios en los tres objetos para formar una secuencia lógica de eventos!
+prueba "$(git diff --name-only | wc -l)" -eq 3 || archivo -f .git/vela-cambiada && toque .git/vela-cambiada
 
-# Only add one of these changes!
-test "$(git diff --cached --name-only | wc -l)" -eq 1 || file -f .git/candle-added && touch .git/candle-added
+# ¡Agregue solo uno de estos cambios!
+prueba "$(git diff --cached --name-only | wc -l)" -eq 1 || archivo -f .git/vela-añadida && toque .git/vela-añadida
 
-# And make a commit.
-COUNT=0
-for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
-    if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
-        COUNT=$((COUNT+1))
+# Y haz un compromiso.
+CONTAR=0
+para confirmar en $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d''); hacer
+    si prueba "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; entonces
+        CONTAR=$((CONTAR+1))
     fi
-done
+hecho
 
-test "$COUNT" -ge 1
+prueba "$COUNT" -ge 1
 
-# Make a second commit that only records a single change.
-COUNT=0
-for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
-    if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
-        COUNT=$((COUNT+1))
+# Realizar una segunda confirmación que solo registre un único cambio.
+CONTAR=0
+para confirmar en $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d''); hacer
+    si prueba "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; entonces
+        CONTAR=$((CONTAR+1))
     fi
-done
+hecho
 
-test "$COUNT" -ge 2
+prueba "$COUNT" -ge 2
 
-# And a third one.
-COUNT=0
-for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
-    if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
-        COUNT=$((COUNT+1))
+# Y un tercero.
+CONTAR=0
+para confirmar en $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d''); hacer
+    si prueba "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; entonces
+        CONTAR=$((CONTAR+1))
     fi
-done
+hecho
 
-test "$COUNT" -ge 3
+prueba "$COUNT" -ge 3

@@ -1,47 +1,47 @@
-title = Friend
-cards = pull push commit-auto checkout
+título = Amigo
+tarjetas = tirar empujar confirmar-pago automático
 
-[description]
+[descripción]
 
-Your friend added another line to your essay! Get it, add a third one and send it to them!
+¡Tu amigo agregó otra línea a tu ensayo! ¡Consíguelo, agrega un tercero y envíaselo!
 
-Take turns until you have five lines!
+¡Túrnense hasta tener cinco líneas!
 
-[setup yours]
+[configura el tuyo]
 
-echo "Line 1" > essay
-git add .
-git commit -m "One line"
+echo "Línea 1" > ensayo
+git agregar.
+git commit -m "Una línea"
 
-git push -u friend main
+git push -u amigo principal
 
-[setup friend]
+[amigo de configuración]
 
-git checkout main
-echo "Line 2, gnihihi" >> essay
-git commit -am "Another line"
+git pago principal
+echo "Línea 2, gnihihi" >> ensayo
+git commit -am "Otra línea"
 
-[actions friend]
+[acciones amigo]
 
-if test "$(git log --oneline | wc -l)" -eq 3; then
-    git reset --hard main # Necessary because the working directory isn't updated when we push to the friend.
-    echo "Line 4, blurbblubb" >> essay
-    git commit -am "Final line"
-    hint "Oh nice, I added a fourth line!"
+si prueba "$(git log --oneline | wc -l)" -eq 3; entonces
+    git reset --hard main # Necesario porque el directorio de trabajo no se actualiza cuando enviamos al amigo.
+    echo "Línea 4, Blubbblubb" >> ensayo
+    git commit -am "Línea final"
+    pista "¡Qué bien, agregué una cuarta línea!"
 fi
 
-[win]
+[ganar]
 
-# Got the second line from your friend
-git show HEAD:essay | grep gnihihi
+# Recibí la segunda línea de tu amigo.
+git show HEAD:ensayo | grep gnihihi
 
-# Got the fourth line from your friend.
-git show HEAD:essay | grep blurbblubb
+# Recibí la cuarta línea de tu amigo.
+git show HEAD:ensayo | grep blubbblubb
 
-[win friend]
+[gana amigo]
 
-# The friend got a third line from you
-test "$(git show HEAD:essay | wc -l)" -ge 3
+# El amigo recibió una tercera línea tuya
+prueba "$(git show HEAD:ensayo | wc -l)" -ge 3
 
-# The friend got a fifth line from you
-test "$(git show HEAD:essay | wc -l)" -ge 5
+# El amigo recibió una quinta línea tuya
+prueba "$(git show HEAD:ensayo | wc -l)" -ge 5

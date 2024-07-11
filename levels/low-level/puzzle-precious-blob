@@ -1,28 +1,28 @@
-[description]
+[descripción]
 
-Create two trees pointing to the same blob!
+¡Crea dos árboles que apunten al mismo blob!
 
-[setup]
+[configuración]
 
-[setup goal]
+[objetivo de configuración]
 
-BLOB=$(echo "I am precious" | git hash-object -w --stdin)
+BLOB=$(echo "Soy precioso" | git hash-object -w --stdin)
 git update-index --add --cacheinfo 100644,$BLOB,a
-git write-tree
-git update-index --force-remove a
-git update-index --add --cacheinfo 100644,$BLOB,b
-git write-tree
-git update-index --force-remove b
+árbol de escritura de git
+git update-index --forzar-eliminar un
+índice de actualización de git --add --cacheinfo 100644,$BLOB,b
+árbol de escritura de git
+índice de actualización de git --force-remove b
 
-[win]
+[ganar]
 
-TREES=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep tree | cut -f1 -d" ")
+ÁRBOLES=$(git cat-file --batch-check='%(nombre de objeto) %(tipo de objeto)' --batch-all-objects | árbol grep | cut -f1 -d" ")
 
-ALL_TREE_CHILDREN=$(for TREE in $TREES; do
-    git cat-file -p $TREE | cut -f1 | cut -f3 -d" "
-done)
+ALL_TREE_CHILDREN=$(para ÁRBOL en $ÁRBOLES; hacer
+    git cat-file -p $ÁRBOL | cortar -f1 | cortar -f3 -d" "
+hecho)
 
 NUMBER_OF_CHILDREN=$(echo "$ALL_TREE_CHILDREN" | wc -l)
-UNIQUE_CHILDREN=$(echo "$ALL_TREE_CHILDREN" | sort -u | wc -l)
+UNIQUE_CHILDREN=$(echo "$ALL_TREE_CHILDREN" | ordenar -u | wc -l)
 
-test "$NUMBER_OF_CHILDREN" -gt "$UNIQUE_CHILDREN"
+prueba "$NUMBER_OF_CHILDREN" -gt "$UNIQUE_CHILDREN"

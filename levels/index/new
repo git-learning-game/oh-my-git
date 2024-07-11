@@ -1,28 +1,28 @@
-title = Add new files to the index
-cards = add commit
+title = Agregar nuevos archivos al índice
+tarjetas = agregar compromiso
 
-[description]
+[descripción]
 
-So far, when we made a commit, we've always recorded the current status of all objects, right?
+Hasta ahora, cuando hicimos una confirmación, siempre registramos el estado actual de todos los objetos, ¿verdad?
 
-But Git allows you to pick which changes you want to put in a commit!
+¡Pero Git te permite elegir qué cambios deseas realizar en una confirmación!
 
-To learn how that works, we need to learn about the "index"! In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura around icons in the file browser!
+Para saber cómo funciona, ¡necesitamos aprender sobre el "índice"! En el índice, podemos preparar lo que habrá en la próxima confirmación. ¡En este juego, el índice está representado por un aura azul alrededor de los íconos en el explorador de archivos!
 
-Initially, the index is empty. To make a commit that contains a new file, we need to add it!
+Inicialmente, el índice está vacío. Para realizar una confirmación que contenga un archivo nuevo, ¡debemos agregarlo!
 
 [cli]
 
-You can use tab completion in the terminal! Start typing a filename, then press the tab key to complete its name. This will often save you some time!
+¡Puedes usar la función de completar tabulaciones en la terminal! Comience a escribir un nombre de archivo, luego presione la tecla tab para completar su nombre. ¡Esto a menudo le ahorrará algo de tiempo!
 
-[setup]
+[configuración]
 
-echo "The candle is burning with a blue flame." > candle
+echo "La vela arde con una llama azul". > vela
 
-[win]
+[ganar]
 
-# Add the candle.
-test "$(git diff --cached --name-only)" = "candle" || file -f .git/candle-added && touch .git/candle-added
+# Agrega la vela.
+prueba "$(git diff --cached --name-only)" = "vela" || archivo -f .git/vela-añadida && toque .git/vela-añadida
 
-# Make a commit.
-test "$(git ls-tree --name-only HEAD)" = "candle"
+# Haz un compromiso.
+prueba "$(git ls-tree --name-only HEAD)" = "vela"

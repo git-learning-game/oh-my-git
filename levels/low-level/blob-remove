@@ -1,27 +1,27 @@
-[description]
+[descripción]
 
-There's a simple command to remove all objects that are not referenced by anything:
+Hay un comando simple para eliminar todos los objetos a los que nada hace referencia:
 
-    git prune
+    git podar
 
-Remove all blobs in this repository.
+Elimine todos los blobs de este repositorio.
 
-[congrats]
+[felicitaciones]
 
-Generally, `git prune` will be useful if you want to clean up some objects you made.
+Generalmente, `git prune` será útil si desea limpiar algunos objetos que creó.
 
-Alternatively, you can also click the "Reload" button to restart a level.
+Alternativamente, también puedes hacer clic en el botón "Recargar" para reiniciar un nivel.
 
-[setup]
+[configuración]
 
-echo "My master password is a1b2c3d4e5" | git hash-object -w --stdin
-echo "This blob really should not exist" | git hash-object -w --stdin
-echo "This is a virus" | git hash-object -w --stdin
+echo "Mi contraseña maestra es a1b2c3d4e5" | git hash-objeto -w --stdin
+echo "Esta mancha realmente no debería existir" | git hash-objeto -w --stdin
+echo "Esto es un virus" | git hash-objeto -w --stdin
 
-[setup goal]
+[objetivo de configuración]
 
-[win]
+[ganar]
 
-OBJECT_COUNT=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | wc -l)
+OBJECT_COUNT=$(git cat-file --batch-check='%(nombre de objeto) %(tipo de objeto)' --batch-all-objects | wc -l)
 
-test "$OBJECT_COUNT" -eq 0
+prueba "$OBJECT_COUNT" -eq 0

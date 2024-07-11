@@ -1,26 +1,26 @@
-title = Split a commit!
-cards = checkout commit reset-hard reset add rebase-interactive rebase-continue show
+title = ¡Dividir un compromiso!
+tarjetas = pago confirmar reinicio-restablecimiento completo agregar rebase-interactivo rebase-continuar mostrar
 
-[description]
+[descripción]
 
-Here, both changes happened in one commit! Split them to be in two commits instead.
+¡Aquí, ambos cambios ocurrieron en una sola confirmación! En su lugar, divídalos para que estén en dos confirmaciones.
 
-[setup]
+[configuración]
 
-echo something > file1
-echo something else > file2
-git add .
-git commit -m "Initial commit"
+hacer eco de algo > archivo1
+hacer eco de algo más > archivo2
+git agregar.
+git commit -m "Compromiso inicial"
 
-echo this should happen first >> file1
-echo and this should happen after that >> file2
-git commit -am "Both together"
+echo esto debería suceder primero >> archivo1
+echo y esto debería suceder después de eso >> archivo2
+git commit -am "Ambos juntos"
 
-echo this is some other change >> file1
-echo this is some other change >> file2
-git commit -am "Something else"
+echo este es algún otro cambio >> archivo1
+echo este es algún otro cambio >> archivo2
+git commit -am "Algo más"
 
-[win]
+[ganar]
 
-test "$(git diff-tree --no-commit-id --name-status -r main^)" = "M	file2" &&
-test "$(git diff-tree --no-commit-id --name-status -r main~2)" = "M	file1"
+prueba "$(git diff-tree --no-commit-id --name-status -r main^)" = "M archivo2" &&
+prueba "$(git diff-tree --no-commit-id --name-status -r main~2)" = "M archivo1"

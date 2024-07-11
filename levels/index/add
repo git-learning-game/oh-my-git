@@ -1,38 +1,38 @@
-title = Updating files in the index
-cards = add commit checkout
+title = Actualizando archivos en el índice
+tarjetas = agregar confirmación de pago
 
-[description]
+[descripción]
 
-So you start working, and make changes to your files! Git lets you choose which of these changes you want to put in the next commit. This is like updating the index version of that file to the new version.
+¡Así que comienza a trabajar y realiza cambios en tus archivos! Git te permite elegir cuál de estos cambios deseas realizar en la siguiente confirmación. Esto es como actualizar la versión de índice de ese archivo a la nueva versión.
 
-This allows you to have smaller commits, that describe better what you changed!
+¡Esto le permite tener confirmaciones más pequeñas que describen mejor lo que cambió!
 
-The command for this is the same - `git add`!
+El comando para esto es el mismo: ¡`git add`!
 
-[setup]
+[configuración]
 
-echo a > a
-echo b > b
-echo c > c
-git add .
-git commit -m "Initial commit"
+eco a > a
+eco b > b
+eco c > c
+git agregar.
+git commit -m "Compromiso inicial"
 
-[win]
+[ganar]
 
-# Make changes to all files!
-test "$(cat a)" != "a" &&
-test "$(cat b)" != "b" &&
-test "$(cat c)" != "c"
+# ¡Haz cambios en todos los archivos!
+prueba "$(cat a)" != "a" &&
+prueba "$(cat b)" != "b" &&
+prueba "$(cat c)" != "c"
 
-# Add only the changes of a and c, and make a commit! Finally, make a commit which captures the changes in b!
+# ¡Agregue solo los cambios de a y c, y haga una confirmación! Finalmente, haga una confirmación que capture los cambios en b!
 
-test "$(git show main:a)" != "a" &&
-test "$(git show main:b)" != "b" &&
-test "$(git show main:c)" != "c" &&
-test "$(git show main^:a)" != "a" &&
-test "$(git show main^:b)" == "b" &&
-test "$(git show main^:c)" != "c"
+prueba "$(git show main:a)" != "a" &&
+prueba "$(git show main:b)" != "b" &&
+prueba "$(git show main:c)" != "c" &&
+prueba "$(git show main^:a)" != "a" &&
+prueba "$(git show main^:b)" == "b" &&
+prueba "$(git show main^:c)" != "c"
 
-[congrats]
+[felicitaciones]
 
-Well done! Try travelling between the commits using `git checkout`, so you can look at their contents again!
+¡Bien hecho! Intente viajar entre las confirmaciones usando `git checkout`, ¡para que pueda ver su contenido nuevamente!

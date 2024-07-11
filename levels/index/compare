@@ -1,51 +1,51 @@
-title = Step by step
-cards = checkout commit-auto
+título = Paso a paso
+tarjetas = pago confirmar-auto
 
-[description]
+[descripción]
 
-Welcome to today's lesson! We're going to learn how to make commits with more precision!
+¡Bienvenidos a la lección de hoy! ¡Aprenderemos a realizar confirmaciones con más precisión!
 
-Have a look at these two timelines. They have exactly the same outcome. But one of them makes it much easier to figure out what happened.
+Eche un vistazo a estas dos líneas de tiempo. Tienen exactamente el mismo resultado. Pero uno de ellos hace que sea mucho más fácil descubrir qué pasó.
 
-[win]
+[ganar]
 
-# Right! Having each change in its own commit makes it easier to understand what's going on! Let's learn how to do that!
-git branch --show-current | grep step-by-step
+# ¡Bien! ¡Tener cada cambio en su propio compromiso hace que sea más fácil entender lo que está pasando! ¡Aprendamos cómo hacer eso!
+rama git --show-current | grep paso a paso
 
-[setup]
+[configuración]
 
-echo "A small, but heavy glass ball." > ball
-echo "A thin book, that's standing upright." > book
-echo "A candle, burning with a blue flame." > candle
-echo "A smoke detector. It's absolutely silent." > smoke_detector
+echo "Una bola de cristal pequeña pero pesada". > pelota
+echo "Un libro delgado, que está de pie". > libro
+echo "Una vela ardiendo con una llama azul". > vela
+echo "Un detector de humo. Es absolutamente silencioso." > detector_de_humo
 
-git add .
-git commit -m "The beginning"
+git agregar.
+git commit -m "El comienzo"
 
-git branch -M all-at-once
+rama git -M todo a la vez
 
-echo "The ball is now touching the book." > ball
-echo "The book has fallen over." > book
-echo "The candle has been blown out." > candle
+echo "La pelota ahora toca el libro". > pelota
+echo "El libro se ha caído." > libro
+echo "La vela se ha apagado". > vela
 
-git commit -am "The end"
+git commit -am "El fin"
 
-git checkout HEAD^
+git checkout CABEZA^
 
-git checkout -b step-by-step
+git checkout -b paso a paso
 
-echo "The ball is now touching the book." > ball
-git commit -am "The ball rolls towards the book"
+echo "La pelota ahora toca el libro". > pelota
+git commit -am "La pelota rueda hacia el libro"
 
-echo "The book has fallen over." > book
-git commit -am "The book falls over"
+echo "El libro se ha caído." > libro
+git commit -am "El libro se cae"
 
-echo "The candle has been blown out." > candle
-git commit -am "The book blows out the candle"
+echo "La vela se ha apagado". > vela
+git commit -am "El libro apaga la vela"
 
-git checkout HEAD~3
+git pago CABEZA ~ 3
 
-[win]
+[ganar]
 
-# Pick the timeline that's clearer, and make the alarm go off!
-git show step-by-step:smoke_detector | tail -n 1 | grep -v "absolutely silent"
+# ¡Elija la línea de tiempo que sea más clara y haga sonar la alarma!
+git muestra paso a paso: detector_de_humo | cola -n 1 | grep -v "absolutamente silencioso"

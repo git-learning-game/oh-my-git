@@ -1,38 +1,38 @@
-title = Welcome to time travel school!
-cards = config-name commit-auto checkout
+title = ¡Bienvenido a la escuela de viajes en el tiempo!
+tarjetas = nombre de configuración confirmación-pago automático
 
-[description]
+[descripción]
 
-You're still pretty confused by everything that's going on. The next day, you decide to enroll in time travel school!
+Todavía estás bastante confundido por todo lo que está pasando. ¡Al día siguiente, decides inscribirte en la escuela de viajes en el tiempo!
 
-Your time travel teacher welcomes you: "Hello there! Wanna tell us your name?"
+Tu profesor de viajes en el tiempo te da la bienvenida: "¡Hola! ¿Quieres decirnos tu nombre?"
 
-[setup]
+[configuración]
 
-git config --global user.name "You"
+git config --global usuario.nombre "Tú"
 
-echo "~ Why do you want to learn how to use time machines? ~
+echo "~ ¿Por qué quieres aprender a usar máquinas del tiempo? ~
 
-[ ] To make sure that my cat doesn't eat my homework.
-[ ] So I don't have to keep copies of all my essays.
-[ ] To collaborate with other time travel students.
-[ ] Other, please specify:" > form
+[ ] Para asegurarme de que mi gato no se coma mi tarea.
+[] Así que no tengo que guardar copias de todos mis ensayos.
+[] Colaborar con otros estudiantes de viajes en el tiempo.
+[ ] Otro, por favor especifique:" > formulario
 
-[actions]
+[comportamiento]
 
-test "$(git config user.name)" != "You" && cat form | grep -v Signature && echo "
-Signature: $(git config user.name)" >> form
+prueba "$(git config user.name)" != "Tú" && forma de gato | grep -v Firma && eco "
+Firma: $(git config user.name)" >> formulario
 
-[win]
+[ganar]
 
-# Introduce yourself.
-test "$(git config user.name)" != "You"
+# Presentarte.
+prueba "$(git config user.name)" != "Tú"
 
-# Fill out the enrollment form, and commit it!
-git show main:form | grep '\[[xX]\]'
+# ¡Rellene el formulario de inscripción y confíelo!
+git show principal:formulario | grep '\[[xX]\]'
 
-[congrats]
+[felicitaciones]
 
-"We're so glad to have you!
+"¡Estamos muy contentos de tenerte!
 
-Git can help you fix problems in the past! It allows you to collaborate with other students of time travel! It's really powerful, and it's really popular! I'll see you for your first lesson tomorrow!"
+¡Git puede ayudarte a solucionar problemas del pasado! ¡Te permite colaborar con otros estudiantes de viajes en el tiempo! ¡Es realmente poderoso y muy popular! ¡Te veré mañana en tu primera lección!"

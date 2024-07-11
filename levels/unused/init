@@ -1,14 +1,14 @@
-title = Welcome!
-cards = init
+título = ¡Bienvenido!
+tarjetas = inicio
 
-[description]
+[descripción]
 
 
-[setup]
+[configuración]
 
-rm -rf .git
+rm-rf.git
 
-[win]
+[ganar]
 
-# Again, initialize your time machine!
-test -d .git
+# ¡Nuevamente, inicializa tu máquina del tiempo!
+prueba -d .git

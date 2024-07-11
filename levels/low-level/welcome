@@ -1,33 +1,33 @@
-[description]
+[descripción]
 
-This is prototype #1 for the Git learning game by @bleeptrack and @blinry. Thanks for checking it out! <3
+Este es el prototipo n.° 1 para el juego de aprendizaje Git de @bleeptrack y @blinry. Gracias por echarle un vistazo! <3
 
-You can interact with the repository labelled "yours" by typing Bash commands in the terminal below! The visualization will show you its internal status.
+¡Puedes interactuar con el repositorio etiquetado como "tuyo" escribiendo comandos Bash en la terminal a continuación! La visualización le mostrará su estado interno.
 
-Let's get started by initializing an empty Git repository in the current directory by typing:
+Comencemos inicializando un repositorio Git vacío en el directorio actual escribiendo:
 
-    git init
+    inicio de git
 
-[congrats]
+[felicitaciones]
 
-Well done!
+¡Bien hecho!
 
-An empty Git repository is... well, quite empty. The only thing that always exists is a reference called "HEAD" - we'll learn what that is later!
+Un repositorio Git vacío está... bueno, bastante vacío. Lo único que siempre existe es una referencia llamada "HEAD". ¡Aprenderemos qué es más adelante!
 
-But first, let's look at some basics!
+Pero primero, ¡veamos algunos conceptos básicos!
 
-(Click "Next Level" as soon as you're ready!)
+(¡Haga clic en "Siguiente nivel" tan pronto como esté listo!)
 
-[setup]
+[configuración]
 
-rm -rf .git
+rm-rf.git
 
-[setup goal]
+[objetivo de configuración]
 
-rm -rf .git
+rm-rf.git
 
-git init
+inicio de git
 
-[win]
+[ganar]
 
-test -d .git
+prueba -d .git

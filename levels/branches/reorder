@@ -1,89 +1,89 @@
-title = Moving branches around
-cards = checkout commit-auto merge reset-hard
+title = Moviendo ramas alrededor
+tarjetas = pago confirmar-fusión automática restablecer-hard
 
-[description]
+[descripción]
 
-One of your colleagues messed up here, and put the branches in the wrong timelines!
+¡Uno de tus colegas se equivocó aquí y colocó las ramas en los plazos equivocados!
 
-You could delete and re-create these branches - but you can also directly move them to different commits, by using
+Puede eliminar y volver a crear estas ramas, pero también puede moverlas directamente a diferentes confirmaciones mediante el uso
 
-    git checkout
+    git pago
 
-on the branch names, and then using
+en los nombres de las ramas, y luego usando
 
-    git reset --hard
+    reinicio de git --duro
 
-on the commit where you want the branch to be.
+en el compromiso donde desea que esté la rama.
 
-The donut branch is in the right place, but the timeline is still incomplete - make you actually *eat* the donut in that branch!
+La rama de donas está en el lugar correcto, pero la línea de tiempo aún está incompleta. ¡Haz que *te comas* la dona en esa rama!
 
-[setup]
+[configuración]
 
-echo "You do not have a baguette.
+echo "No tienes baguette.
 
-You do not have coffee.
+No tienes café.
 
-You do not have a donut." > you
+No tienes donut." > tu
 
-git add .
-git commit -m "The Beginning"
+git agregar.
+git commit -m "El comienzo"
 
-git checkout -b coffee
-echo "You have a baguette.
+git pago -b café
+echo "Tienes una baguette.
 
-You do not have coffee.
+No tienes café.
 
-You do not have a donut." > you
-git add .
-git commit -m "You buy a baguette"
+No tienes donut." > tu
+git agregar.
+git commit -m "Compras una baguette"
 
-echo "You ate a baguette.
+echo "Te comiste una baguette.
 
-You do not have coffee.
+No tienes café.
 
-You do not have a donut." > you
-git add .
-git commit -m "You eat the baguette"
+No tienes donut." > tu
+git agregar.
+git commit -m "Te comes la baguette"
 
-git checkout -b baguette main
-echo "You do not have a baguette.
+git checkout -b baguette principal
+echo "No tienes baguette.
 
-You have coffee.
+Tienes café.
 
-You do not have a donut." > you
-git add .
-git commit -m "You buy some coffee"
+No tienes donut." > tu
+git agregar.
+git commit -m "Compras un poco de café"
 
-echo "You do not have a baguette.
+echo "No tienes baguette.
 
-You drank coffee.
+Bebiste café.
 
-You do not have a donut." > you
-git add .
-git commit -m "You drink the coffee"
+No tienes donut." > tu
+git agregar.
+git commit -m "Tú bebes el café"
 
-git checkout -b donut main
-echo "You do not have a baguette.
+git checkout -b donut principal
+echo "No tienes baguette.
 
-You do not have coffee.
+No tienes café.
 
-You have a donut." > you
-git add .
-git commit -m "You buy a donut"
+Tienes un donut." > tú
+git agregar.
+git commit -m "Compras una dona"
 
-git checkout --detach main
+git checkout --separar principal
 
-[win]
+[ganar]
 
-# Did you eat a baguette on the baguette branch?
-git show baguette:you | grep "You ate.*baguette"
+# ¿Te comiste una baguette en la rama de baguette?
+git show baguette:tú | grep "Comiste.*baguette"
 
-# Did you drink a coffee on the coffee branch?
-git show coffee:you | grep "You drank.*coffee"
+# ¿Tomaste un café en la rama del café?
+git show café:tú | grep "Bebiste.*café"
 
-# Did you eat a donut on the donut branch?
-git show donut:you | grep "You ate.*donut"
+# ¿Te comiste una rosquilla en la rama de rosquilla?
+git show donut:tú | grep "Comiste.*dona"
 
-[actions]
+[comportamiento]
 
-test "$(git rev-parse HEAD^)" = "$(git rev-parse donut)" && hint "Remember to checkout the blue branch tag when you want it to grow with the timeline."
+test "$(git rev-parse HEAD^)" = "$(git rev-parse donut)" && sugerencia "Recuerda revisar la etiqueta de rama azul cuando quieras que crezca con la línea de tiempo".

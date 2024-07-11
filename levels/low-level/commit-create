@@ -1,37 +1,37 @@
-[description]
+[descripción]
 
-So a tree describes a directory structure at a specific point in time.
+Entonces, un árbol describe una estructura de directorios en un momento específico.
 
-It would be nice if we could remember when that state existed, and who authored it, right?
+Sería bueno si pudiéramos recordar cuándo existió ese estado y quién fue su autor, ¿verdad?
 
-Enter: commits. They are objects that point to a tree and contain some additional metadata. You can create a commit using
+Ingrese: confirma. Son objetos que apuntan a un árbol y contienen algunos metadatos adicionales. Puedes crear una confirmación usando
 
-    git commit-tree <tree> -m "Description of your commit"
+    git commit-tree <árbol> -m "Descripción de tu compromiso"
 
-Make a commit from the tree in this repository!
+¡Haz un compromiso desde el árbol de este repositorio!
 
-[setup]
+[configuración]
 
-touch empty_file
-git add .
-git write-tree
+toque archivo_vacío
+git agregar.
+árbol de escritura de git
 
-rm empty_file
-git update-index --remove empty_file
+rm archivo_vacío
+git update-index --eliminar archivo_vacío
 
-[setup goal]
+[objetivo de configuración]
 
-touch empty_file
-git add .
-git write-tree
+toque archivo_vacío
+git agregar.
+árbol de escritura de git
 
-rm empty_file
-git update-index --remove empty_file
+rm archivo_vacío
+git update-index --eliminar archivo_vacío
 
-git commit-tree 3185 -m 'Clever commit message'
+git commit-tree 3185 -m 'Mensaje de confirmación inteligente'
 
-[win]
+[ganar]
 
-COMMIT_COUNT=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep commit | wc -l)
+COMMIT_COUNT=$(git cat-file --batch-check='%(nombre de objeto) %(tipo de objeto)' --batch-all-objects | grep commit | wc -l)
 
-test "$COMMIT_COUNT" -gt 0
+prueba "$COMMIT_COUNT" -gt 0

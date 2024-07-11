@@ -1,23 +1,23 @@
-title = Deleting and renaming a remote
-cards = checkout
+title = Eliminar y cambiar el nombre de un control remoto
+tarjetas = pagar
 
-[description]
+[descripción]
 
-Here, you already have two remotes configured! You can list them using `git remote`.
+¡Aquí ya tienes dos mandos configurados! Puede enumerarlos usando `git remoto`.
 
-[setup]
+[configuración]
 
-git remote rename friend frend
+git remoto cambiar el nombre amigo frend
 
-[setup friend]
+[amigo de configuración]
 
-[setup enemy]
+[preparar enemigo]
 
-[win]
+[ganar]
 
-# Rename the remote with the typo (using `git remote rename [old name] [new name]`)
-git remote | grep friend
-# The remote with the typo is gone.
-! grep 'frend' <(git remote)
-# Delete the remote you don't want to keep (using `git remote remove [remote]`)
-! grep 'enemy' <(git remote)
+# Cambie el nombre del control remoto con el error tipográfico (usando `git remoto renombrar [nombre antiguo] [nombre nuevo]`)
+git remoto | gran amigo
+# El control remoto con el error tipográfico desapareció.
+! grep 'frend' <(git remoto)
+# Elimina el control remoto que no deseas conservar (usando `git remoto remove [remoto]`)
+! grep 'enemigo' <(git remoto)

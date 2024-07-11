@@ -1,26 +1,26 @@
-title = Make a commit, but faster!
-cards = add reset checkout commit commit-a
+title = ¡Haz un compromiso, pero más rápido!
+tarjetas = agregar restablecer pago confirmar compromiso-a
 
-[description]
+[descripción]
 
-There is a time-saving trick, where instead of a plain `git commit`, you can use
+Hay un truco para ahorrar tiempo, donde en lugar de un simple `git commit`, puedes usar
 
-    git commit -a
+    git confirmar -a
 
-This will automatically add all changes you made to local files! Very convenient.
+¡Esto agregará automáticamente todos los cambios que realizó en los archivos locales! Muy conveniente.
 
-[setup]
+[configuración]
 
-echo a > a
-echo b > b
-echo c > c
-git add .
-git commit -m "Initial commit"
-echo x > a
-echo x > b
-echo x > c
+eco a > a
+eco b > b
+eco c > c
+git agregar.
+git commit -m "Compromiso inicial"
+eco x > a
+eco x > b
+eco x > c
 
-[win]
+[ganar]
 
-# Make a commit where all files contain "x".
-test "$(git show main:a)" = x && test "$(git show main:b)" = x && test "$(git show main:c)" = x
+# Realizar una confirmación donde todos los archivos contengan "x".
+prueba "$(git show main:a)" = x && prueba "$(git show main:b)" = x && prueba "$(git show main:c)" = x

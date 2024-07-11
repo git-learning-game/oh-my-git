@@ -1,20 +1,20 @@
-title = Cloning a repo
-cards = clone commit-auto pull push
+título = Clonación de un repositorio
+cards = clonar compromiso-auto pull push
 
-[description]
+[descripción]
 
-Get your friend's repo using clone, change something, push it back.
+Obtenga el repositorio de su amigo usando clon, cambie algo, retírelo.
 
-[setup]
+[configuración]
 
-rm -rf .git
+rm-rf.git
 
-[setup friend]
+[amigo de configuración]
 
-echo hi > file
-git add .
-git commit -m "Initial commit"
+eco hola > archivo
+git agregar.
+git commit -m "Compromiso inicial"
 
-[win friend]
+[gana amigo]
 
-test "$(git show main:file)" != hi
+prueba "$(git show main:file)" != hola

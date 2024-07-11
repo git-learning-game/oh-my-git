@@ -1,54 +1,54 @@
-title = I pushed something broken
-cards = revert push
+título = Empujé algo roto
+tarjetas = revertir el empujón
 
-[description]
+[descripción]
 
-We were talking about how to undo a commit, and fix it. This only helps when you haven't already pushed it to a remote. When that has happened, and you want to undo the effects of the commit completely, your best option is `git revert`
+Estábamos hablando de cómo deshacer una confirmación y solucionarla. Esto sólo ayuda cuando aún no lo has activado a un control remoto. Cuando eso haya sucedido y desee deshacer completamente los efectos de la confirmación, su mejor opción es `git revert`
 
-[setup]
+[configuración]
 
-echo "this is fine
-
-?
+eco "esto está bien
 
 ?
 
-?" > text
-git add .
-git commit -m fine
-echo "this is fine
+?
 
-this is also fine
+?" > texto
+git agregar.
+git commit -m bien
+eco "esto está bien
+
+esto también está bien
 
 ?
 
-?" > text
-git commit -am "also fine"
-echo "this is fine
+?" > texto
+git commit -estoy "también bien"
+eco "esto está bien
 
-this is also fine
+esto también está bien
 
-this is very bad
+esto es muy malo
 
-?" > text
-git commit -am "very bad"
-echo "this is fine
+?" > texto
+git commit -soy "muy malo"
+eco "esto está bien
 
-this is also fine
+esto también está bien
 
-this is very bad
+esto es muy malo
 
-this is fine again" > text
-git commit -am "fine again"
+esto está bien otra vez" > texto
+git commit -estoy "bien otra vez"
 
-git push team main
-git branch -u team/main main
+equipo principal de git push
+git rama -u equipo/principal principal
 
-[setup team]
+[equipo de preparación]
 
-[win team]
+[equipo ganador]
 
-# The team's main branch no longer contains the bad thing.
-! { git show main:text | grep -q "very bad"; }
-# And the history has not been modified.
-git show main^:text | grep -q "very bad"
+# La rama principal del equipo ya no contiene lo malo.
+! { git show principal:texto | grep -q "muy malo"; }
+# Y el historial no ha sido modificado.
+git show principal^:texto | grep -q "muy malo"

@@ -1,42 +1,42 @@
-title = Living dangerously
-cards =
+título = Vivir peligrosamente
+tarjetas =
 
-[description]
+[descripción]
 
-So you have decided to apply for time travel school, to learn how to use this time machine called "Git"!
+¡Así que has decidido postularte a la escuela de viajes en el tiempo para aprender a usar esta máquina del tiempo llamada "Git"!
 
-How exciting!
+¡Que interesante!
 
-You're almost done with the paperwork! You just need to fill in one more reason why you want to learn Git.
+¡Ya casi has terminado con el papeleo! Sólo necesitas completar una razón más por la que quieres aprender Git.
 
-[congrats]
+[felicitaciones]
 
-Suddenly, your cat jumps on the table, snatches away the form, and runs away! Oh no. All your hard work, gone!
+De repente, tu gato salta sobre la mesa, le arrebata el formulario y sale corriendo. Oh, no. ¡Todo tu arduo trabajo, desaparecido!
 
-You clearly need a better solution.
+Claramente necesita una mejor solución.
 
-(Click "Next Level" as soon as you're ready!)
+(¡Haga clic en "Siguiente nivel" tan pronto como esté listo!)
 
-[setup]
+[configuración]
 
-rm -rf .git
+rm-rf.git
 
-echo "~ Why I want to learn Git ~
+echo "~ Por qué quiero aprender Git ~
 
-- So that I can undo mistakes
-- To track my projects over time" >> form.txt
+- Para poder deshacer errores
+- Para realizar un seguimiento de mis proyectos a lo largo del tiempo" >> form.txt
 
-[actions]
+[comportamiento]
 
-test "$(cat form.txt | wc -l )" -ge 5 && echo "(Has been stolen by your cat.)
-
-
+test "$(cat form.txt | wc -l )" -ge 5 && echo "(Ha sido robado por tu gato).
 
 
 
-" > form.txt
 
-[win]
 
-# Add another line to form.txt!
-test "$(cat form.txt | wc -l )" -ge 5
+" > formulario.txt
+
+[ganar]
+
+# ¡Agrega otra línea al formulario.txt!
+prueba "$(cat form.txt | wc -l )" -ge 5

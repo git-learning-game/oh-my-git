@@ -1,29 +1,29 @@
-[description]
+[descripción]
 
-To remove an entry from the index, use a command like this:
+Para eliminar una entrada del índice, use un comando como este:
 
-    git update-index --force-remove <file>
+    git update-index --force-remove <archivo>
 
-Remove all entries from the index!
+¡Elimine todas las entradas del índice!
 
-[setup]
+[configuración]
 
-echo "file 1" > file1
-echo "file 2" > file2
-echo "file 3" > file3
-git add .
+eco "archivo 1" > archivo1
+eco "archivo 2" > archivo2
+eco "archivo 3" > archivo3
+git agregar.
 
-[setup goal]
+[objetivo de configuración]
 
-echo "file 1" > file1
-echo "file 2" > file2
-echo "file 3" > file3
-git add .
+eco "archivo 1" > archivo1
+eco "archivo 2" > archivo2
+eco "archivo 3" > archivo3
+git agregar.
 
-git update-index --force-remove file1
-git update-index --force-remove file2
-git update-index --force-remove file3
+git update-index --force-remove archivo1
+git update-index --force-remove archivo2
+git update-index --force-remove archivo3
 
-[win]
+[ganar]
 
-test "$(git ls-files | wc -l)" -eq 0
+prueba "$(git ls-files | wc -l)" -eq 0

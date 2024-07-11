@@ -1,27 +1,27 @@
-title = No sleep required
-cards = file-new file-delete file-rename
+título = No es necesario dormir
+tarjetas = archivo-nuevo archivo-eliminar archivo-cambiar nombre
 
-[description]
+[descripción]
 
-Actually, you decide that you don't need any sleep.
+En realidad, decides que no necesitas dormir.
 
-Because of that, you won't require a bed, and can build some other piece of furniture from the wood!
+¡Por eso no necesitarás una cama y podrás construir otro mueble con madera!
 
 
-[setup]
+[configuración]
 
-echo A yellow cupboard with lots of drawers. > cupboard
-echo A really big yellow shelf. > shelf
-echo A comfortable, yellow bed with yellow cushions. > bed
+echo Un armario amarillo con muchos cajones. > armario
+echo Un estante amarillo muy grande. > estante
+echo Una cómoda cama amarilla con cojines amarillos. > cama
 
-[win]
+[ganar]
 
-# Rename the bed into something else, and give it a new description!
-NUM_FILES="$(ls | wc -l)"
-! test -f bed && test "$NUM_FILES" -ge 3 && ! grep -r "yellow bed" .
+# ¡Cambia el nombre de la cama por otro y dale una nueva descripción!
+NUM_FILES="$(ls | baño -l)"
+! prueba -f cama && prueba "$NUM_FILES" -ge 3 &&! grep -r "cama amarilla" .
 
-[congrats]
+[felicitaciones]
 
-Neat! It even still looks a bit comfortable!
+¡Limpio! ¡Incluso todavía parece un poco cómodo!
 
-You head out, eager for your first lesson at time travel school!
+¡Sales, ansioso por recibir tu primera lección en la escuela de viajes en el tiempo!

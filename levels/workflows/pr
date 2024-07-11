@@ -1,26 +1,26 @@
-title = Cloning a repo
-cards = clone commit-auto reset-hard checkout file-new branch
+título = Clonación de un repositorio
+tarjetas = clonar confirmación-restablecimiento automático-archivo de pago completo-nueva rama
 
-[description]
+[descripción]
 
-Your friend has a problem! Clone the repo located in `../friend`, create a branch called "solution", and fix the problem in this branch. When you're ready, make a "Pull Request" by using `git tag pr`.
+¡Tu amigo tiene un problema! Clona el repositorio ubicado en `../friend`, crea una rama llamada "solución" y soluciona el problema en esta rama. Cuando esté listo, haga una "Solicitud de extracción" usando `git tag pr`.
 
 
-[setup]
+[configuración]
 
-rm -rf .git
+rm-rf.git
 
-[setup friend]
+[amigo de configuración]
 
-echo "2 + 3 = " > file
-git add .
-git commit -m "Initial commit"
+eco "2 + 3 = " > archivo
+git agregar.
+git commit -m "Compromiso inicial"
 
-[actions friend]
+[acciones amigo]
 
-git ls-remote yours | grep pr && git fetch yours && git merge yours/solution
-git show main:file | grep 5 && hint "Thanks!"
+git ls-remoto tuyo | grep pr && git busca el tuyo && git fusiona el tuyo/solución
+git show principal:archivo | grep 5 && sugerencia "¡Gracias!"
 
-[win friend]
+[gana amigo]
 
-git show main:file | grep 5
+git show principal:archivo | grupo 5

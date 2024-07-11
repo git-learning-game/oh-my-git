@@ -1,12 +1,12 @@
-title = Stashing
-cards = checkout commit-auto merge reset-hard
+título = Escondite
+tarjetas = pago confirmar-fusión automática restablecer-hard
 
-[description]
+[descripción]
 
-You will encounter situations in which you are working on your project but you need to
-put your current changes aside temporarily. To do so, you can use the stash function. Use
-    git stash push 
-to add your current changes to the stash stack.
+Te encontrarás con situaciones en las que estás trabajando en tu proyecto pero necesitas
+deje a un lado sus cambios actuales temporalmente. Para hacerlo, puede utilizar la función de almacenamiento. Usar
+    git alijo empujar 
+para agregar sus cambios actuales a la pila de almacenamiento.
 
 ---
 tipp1
@@ -15,31 +15,31 @@ tipp2
 ---
 tipp3
 
-[setup]
+[configuración]
 
-echo "Apple Pie:" > recipe
+echo "Tarta de manzana:" > receta
 
-git add .
-git commit -m "creating a recipe"
+git agregar.
+git commit -m "creando una receta"
 
-echo "- 4 Apples" >> recipe
+echo "- 4 manzanas" >> receta
 
-git add .
-git commit -m "Adding ingredients"
+git agregar.
+git commit -m "Agregar ingredientes"
 
-echo "- 500g Flour" >> recipe
+echo "- 500g Harina" >> receta
 
-git checkout main
+git pago principal
 
-[win]
+[ganar]
 
-# Did you stash the current changes?
-test "$(git stash list | wc -l)" -ge 1
+# ¿Escondiste los cambios actuales?
+prueba "$(git stash list | wc -l)" -ge 1
 
-[actions]
+[comportamiento]
 
 
 
-[congrats]
+[felicitaciones]
 
-Nice stash you got there! :)
+¡Qué buen alijo tienes ahí! :)

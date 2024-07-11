@@ -1,14 +1,14 @@
-title = Branch from stash
-cards = checkout commit-auto merge reset-hard
+título = Rama del alijo
+tarjetas = pago confirmar-fusión automática restablecer-hard
 
-[description]
+[descripción]
 
-If you want to keep your changes but they don't belong to the main branch, you can easily
-create a new branch from your stashed changes. Just use
-    git stash branch <branchname> <stash>
-If you just want to use the latest stash entry, you can leave the <stash> option empty.
+Si desea conservar los cambios pero no pertenecen a la rama principal, puede hacerlo fácilmente
+cree una nueva rama a partir de sus cambios guardados. Solo usa
+    git stash rama <nombre de rama> <alijo>
+Si solo desea utilizar la última entrada de alijo, puede dejar la opción <stash> vacía.
 
-Create a new branch from the stashed changes!
+¡Crea una nueva rama a partir de los cambios escondidos!
 
 ---
 tipp1
@@ -17,32 +17,32 @@ tipp2
 ---
 tipp3
 
-[setup]
+[configuración]
 
-echo "Apple Pie:" > recipe
+echo "Tarta de manzana:" > receta
 
-git add .
-git commit -m "creating a recipe"
+git agregar.
+git commit -m "creando una receta"
 
-echo "- 4 Apples" >> recipe
+echo "- 4 manzanas" >> receta
 
-git add .
-git commit -m "Adding ingredients"
+git agregar.
+git commit -m "Agregar ingredientes"
 
-echo "- 500g Flour" >> recipe
-git stash push
+echo "- 500g Harina" >> receta
+git alijo empujar
 
-git checkout main
+git pago principal
 
-[win]
+[ganar]
 
-# Did you create a new branch from the stashed changes?
-test "$(git branch --list| wc -l)" -ge 2
+# ¿Creaste una nueva rama a partir de los cambios ocultos?
+prueba "$(git rama --list| wc -l)" -ge 2
 
-[actions]
+[comportamiento]
 
 
 
-[congrats]
+[felicitaciones]
 
-Stashed changes are in a new branch! :)
+¡Los cambios ocultos están en una nueva rama! :)

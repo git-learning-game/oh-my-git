@@ -1,41 +1,41 @@
-[description]
+[descripción]
 
-Delete all objects in this repository using git commands only!
+¡Elimine todos los objetos en este repositorio usando solo comandos git!
 
-Useful commands:
+Comandos útiles:
 
-    git prune
-    git reflog expire
+    git podar
+    git reflog expira
 
-[setup]
+[configuración]
 
-echo foo > foo
-BLOB=$(git hash-object -w foo)
-echo bar > bar
-git add .
-git commit -m "Initial commit"
-echo blabber >> bar
-git commit -a -m "Second commit"
-git update-ref refs/important HEAD
-git update-ref refs/interesting "$BLOB"
+eco foo > foo
+BLOB=$(git hash-objeto -w foo)
+barra de eco > barra
+git agregar.
+git commit -m "Compromiso inicial"
+eco parloteo >> barra
+git commit -a -m "Segundo compromiso"
+git update-ref refs/CABEZA importante
+git update-ref refs/interesante "$BLOB"
 
-[setup goal]
+[objetivo de configuración]
 
-echo foo > foo
-BLOB=$(git hash-object -w foo)
-echo bar > bar
-git add .
-git commit -m "Initial commit"
-echo blabber >> bar
-git commit -a -m "Second commit"
-git update-ref refs/important HEAD
-git update-ref refs/interesting "$BLOB"
+eco foo > foo
+BLOB=$(git hash-objeto -w foo)
+barra de eco > barra
+git agregar.
+git commit -m "Compromiso inicial"
+eco parloteo >> barra
+git commit -a -m "Segundo compromiso"
+git update-ref refs/CABEZA importante
+git update-ref refs/interesante "$BLOB"
 
-TREE=$(git mktree)
-git read-tree $TREE
+ÁRBOL=$(git mktree)
+git árbol de lectura $ÁRBOL
 rm -rf .git/refs/*
-rm -rf .git/objects/*
+rm -rf .git/objetos/*
 
-[win]
+[ganar]
 
-test "$(git cat-file --batch-check --batch-all-objects | wc -l)" -eq 0
+prueba "$(git cat-file --batch-check --batch-all-objects | wc -l)" -eq 0

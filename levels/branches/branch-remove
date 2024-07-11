@@ -1,47 +1,47 @@
-title = Deleting branches
-cards = checkout commit-auto reset-hard branch-delete
+título = Eliminando ramas
+tarjetas = pago confirmar-restablecimiento automático-eliminación completa de rama
 
-[description]
+[descripción]
 
-Life is full of dangers, right? Even when walking to school, it seems like there's a lot of risks!
+La vida está llena de peligros, ¿verdad? ¡Incluso cuando caminas hacia la escuela, parece que hay muchos riesgos!
 
-This Monday is especially bad. You made it to school, but there's some timelines you definitely don't want to keep around.
+Este lunes es especialmente malo. Llegaste a la escuela, pero hay algunas líneas de tiempo que definitivamente no quieres mantener.
 
-[setup]
+[configuración]
 
-echo You leave your house and start walking to school. > you
-git add .
-git commit -m "Good morning!"
+echo Sales de tu casa y empiezas a caminar hacia la escuela. > tu
+git agregar.
+git commit -m "¡Buenos días!"
 
-echo You walk on the right side of the street. >> you
-git commit -am "Right side"
+echo Caminas por el lado derecho de la calle. >> tu
+git commit -am "Lado derecho"
 
-echo You jump over an manhole in the walkway, and arrive at school on time. >> you
-git commit -am "Jump"
+echo Saltas sobre una alcantarilla en la pasarela y llegas a la escuela a tiempo. >> tu
+git commit -am "Saltar"
 
-git checkout HEAD^ -b friend
-echo Suddenly, you fall down, splash into stinking water, and are eaten by an alligator. >> you
-git commit -am "A new friend"
+git checkout HEAD^ -b amigo
+echo De repente, te caes, te sumerges en agua apestosa y eres devorado por un caimán. >> tu
+git commit -am "Un nuevo amigo"
 
-git checkout HEAD~2 -b music
-echo You walk on the left side of the street. >> you
-git commit -am "Left side"
+git checkout HEAD~2 -b música
+echo Caminas por el lado izquierdo de la calle. >> tu
+git commit -am "Lado izquierdo"
 
-echo Because you\'re kind of late, you start running. Someone throws a piano out of their windows, and it smashes you. >> you
-git commit -am "Sounds nice"
+echo Como llegas un poco tarde, empiezas a correr. Alguien arroja un piano por la ventana y te destroza. >> tu
+git commit -am "Suena bien"
 
-git checkout HEAD^ -b ice-cream
-echo You\'re not in a hurry, and walk slowly. You even get some ice cream on your way. You arrive at school too late, your teacher is angry, and you are expelled. >> you
+git checkout HEAD^ -b helado
+echo No tienes prisa y camina despacio. Incluso conseguirás un helado en el camino. Llegas demasiado tarde a la escuela, tu profesor se enoja y te expulsan. >> tu
 git commit -am "Yum"
 
-git branch -M main leap
-git checkout leap^^
+rama git -M salto principal
+salto de pago de git ^^
 
-[win]
+[ganar]
 
-# Find the bad branches and delete them. Keep only the best one.
+# Encuentra las ramas defectuosas y elimínalas. Quédate sólo con el mejor.
 test "$(git show-ref --heads | cut -f2 -d' ')" = "$(echo refs/heads/leap)"
 
-[congrats]
+[felicitaciones]
 
-On second thought, maybe you even prefer the ice cream timeline to the main one? :)
+Pensándolo bien, ¿tal vez incluso prefieras la línea de tiempo del helado a la principal? :)

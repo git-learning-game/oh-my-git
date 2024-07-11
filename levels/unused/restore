@@ -1,28 +1,28 @@
-title = Looking into the past
-cards = checkout-from
+título = Mirando hacia el pasado
+tarjetas = pagar desde
 
-[description]
+[descripción]
 
-You've been working on your essay for a while. But you're not happy with the changes you've made recently. You want to go back to the version called "Best version"!
+Has estado trabajando en tu ensayo por un tiempo. Pero no está satisfecho con los cambios que ha realizado recientemente. ¡Quieres volver a la versión llamada "Mejor versión"!
 
-No problem, you can use the `checkout` card to restore your essay from an older commit!
+No hay problema, puedes usar la tarjeta `checkout` para restaurar tu ensayo desde una confirmación anterior.
 
-[setup]
+[configuración]
 
-echo "Initial version" > essay.txt
-git add .
-git commit -m "Initial commit"
+echo "Versión inicial" > ensayo.txt
+git agregar.
+git commit -m "Compromiso inicial"
 
-echo "Improved version" > essay.txt
-git commit -a -m "Improved version"
+echo "Versión mejorada" > ensayo.txt
+git commit -a -m "Versión mejorada"
 
-echo "Best version" > essay.txt
-git commit -a -m "Best version"
+echo "Mejor versión" > ensayo.txt
+git commit -a -m "Mejor versión"
 
-echo "Less-good version" > essay.txt
-git commit -a -m "Less-good version"
+echo "Versión menos buena" > ensayo.txt
+git commit -a -m "Versión menos buena"
 
-[win]
+[ganar]
 
-# For nostalgic reasons, restore the very first backup you made!
-diff essay.txt <(echo "Best version")
+# ¡Por razones nostálgicas, restaure la primera copia de seguridad que realizó!
+diff ensayo.txt <(echo "Mejor versión")

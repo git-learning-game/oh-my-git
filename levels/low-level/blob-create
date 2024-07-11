@@ -1,38 +1,38 @@
-[description]
+[descripción]
 
-At its core, Git is very simple. It stores "objects", which are basically files identified by an "identifier" (short: ID).
+En esencia, Git es muy simple. Almacena "objetos", que son básicamente archivos identificados por un "identificador" (abreviado: ID).
 
-There are four types of objects: blobs, trees, commits, and tags. The simplest type is a "blob", which is just a piece of text.
+Hay cuatro tipos de objetos: blobs, árboles, confirmaciones y etiquetas. El tipo más simple es un "blob", que es simplemente un fragmento de texto.
 
-Let's create some blobs! To do that, create a file with the desired content, and then use
+¡Creemos algunas manchas! Para hacer eso, cree un archivo con el contenido deseado y luego use
 
-    git hash-object -w <file>
+    git hash-object -w <archivo>
 
-The flag -w means "write", and tells Git to actually write the new blob to the disk.
+La bandera -w significa "escribir" y le dice a Git que realmente escriba el nuevo blob en el disco.
 
-Create three new blobs!
+¡Crea tres nuevos blobs!
 
-[congrats]
+[felicitaciones]
 
-Tip: You can also use a command like this to create a blob in a single line:
+Consejo: También puedes usar un comando como este para crear un blob en una sola línea:
 
-    echo "awesome content" | git hash-object -w --stdin
+    echo "contenido increíble" | git hash-objeto -w --stdin
 
-Did you already notice that you can drag and drop all objects? :)
+¿Ya notaste que puedes arrastrar y soltar todos los objetos? :)
 
-[setup]
+[configuración]
 
-[setup goal]
+[objetivo de configuración]
 
-echo "Hi" > file1
-echo "Ho" > file2
-echo "Hu" > file3
-git hash-object -w file1
-git hash-object -w file2
-git hash-object -w file3
+eco "Hola" > archivo1
+eco "Ho" > archivo2
+eco "Hu" > archivo3
+git hash-objeto -w archivo1
+git hash-objeto -w archivo2
+git hash-objeto -w archivo3
 
-[win]
+[ganar]
 
-BLOB_COUNT=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep blob | wc -l)
+BLOB_COUNT=$(git cat-file --batch-check='%(nombre de objeto) %(tipo de objeto)' --batch-all-objects | grep blob | wc -l)
 
-test "$BLOB_COUNT" -gt 2
+prueba "$BLOB_COUNT" -gt 2

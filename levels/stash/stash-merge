@@ -1,13 +1,13 @@
-title = Merging popped stash
-cards = checkout commit-auto merge reset-hard
+title = Fusionando alijo reventado
+tarjetas = pago confirmar-fusión automática restablecer-hard
 
-[description]
+[descripción]
 
-When you want to reapply your changes but you already continued working on your file, you might get
-a merge conflict! Let's practise this situation.
-Pop the changes from the stash with
-    git stash pop
-and resolve the merge conflict. Commit the resolved changes and clear the stash stack afterwards.
+Cuando desee volver a aplicar sus cambios pero ya continuó trabajando en su archivo, es posible que obtenga
+¡Un conflicto de fusión! Practiquemos esta situación.
+Explota los cambios del alijo con
+    git alijo pop
+y resolver el conflicto de fusión. Confirme los cambios resueltos y borre la pila de alijo después.
 
 ---
 tipp1
@@ -16,39 +16,39 @@ tipp2
 ---
 tipp3
 
-[setup]
+[configuración]
 
-echo "Apple Pie:" > recipe
+echo "Tarta de manzana:" > receta
 
-git add .
-git commit -m "creating a recipe"
+git agregar.
+git commit -m "creando una receta"
 
-echo "- 4 Apples" >> recipe
+echo "- 4 manzanas" >> receta
 
-git add .
-git commit -m "Adding ingredients"
+git agregar.
+git commit -m "Agregar ingredientes"
 
-echo "- 500g Flour" >> recipe
+echo "- 500g Harina" >> receta
 
-git stash push
+git alijo empujar
 
-echo "- Pinch of Salt" >> recipe
+echo "- Una pizca de sal" >> receta
 
-git checkout main
-git add recipe
+git pago principal
+git agregar receta
 
-[win]
+[ganar]
 
-# Did you resolve the conflict and commit?
-{ git show HEAD | grep "Flour"; } && { git show HEAD | grep "Salt"; }
+# ¿Resolviste el conflicto y te comprometiste?
+{git show CABEZA | grep "Harina"; } && { git show CABEZA | grep "Sal"; }
 
-# Did you clear stash stack?
-test "$(git stash list | wc -l)" -eq 0
+# ¿Limpiaste la pila de alijo?
+prueba "$(lista de alijo de git | wc -l)" -eq 0
 
-[actions]
+[comportamiento]
 
 
 
-[congrats]
+[felicitaciones]
 
-Yay, you got your changes back! :)
+¡Sí, recuperaste tus cambios! :)

@@ -1,33 +1,33 @@
-[description]
+[descripción]
 
-Instead of removing an entry from the index and adding one with the same name, you can also directly update that entry!
+En lugar de eliminar una entrada del índice y agregar una con el mismo nombre, ¡también puedes actualizar esa entrada directamente!
 
-Put the content you want in a file with a matching name, and then run
+Coloque el contenido que desee en un archivo con un nombre coincidente y luego ejecute
 
-    git update-index <file>
+    git update-index <archivo>
 
-This will create a new blob, and update the hash of the entry to that blob.
+Esto creará un nuevo blob y actualizará el hash de la entrada de ese blob.
 
-Update an entry in the index!
+¡Actualiza una entrada en el índice!
 
-[setup]
+[configuración]
 
-echo "file 1" > file1
-echo "file 2" > file2
-echo "file 3" > file3
-git add .
+eco "archivo 1" > archivo1
+eco "archivo 2" > archivo2
+eco "archivo 3" > archivo3
+git agregar.
 
-[setup goal]
+[objetivo de configuración]
 
-echo "file 1" > file1
-echo "file 2" > file2
-echo "file 3" > file3
-git add .
+eco "archivo 1" > archivo1
+eco "archivo 2" > archivo2
+eco "archivo 3" > archivo3
+git agregar.
 
-echo "new content" > file1
-git update-index file1
+echo "nuevo contenido" > archivo1
+archivo de índice de actualización de git1
 
-[win]
+[ganar]
 
-# This is not really a good test for the winning condition...
+# Esta no es realmente una buena prueba para determinar la condición ganadora...
 test "$(git ls-files -s | git hash-object --stdin)" != "10c4b28623e7e44e09f5a596450a50ab7ac31fbe" -a "$(git ls-files | wc -l)" -eq 3

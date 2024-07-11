@@ -1,52 +1,52 @@
-title = Working together
-cards = pull commit-auto push
+título = Trabajando juntos
+tarjetas = tirar compromiso-empuje automático
 
-[description]
+[descripción]
 
-Let's add your name to our list of students!
+¡Agreguemos su nombre a nuestra lista de estudiantes!
 
-I already have a second commit of it in my time machine - let's work together!
+Ya tengo una segunda confirmación en mi máquina del tiempo: ¡trabajemos juntos!
 
 [cli]
 
-To go back to old commands, you can press arrow up and down. That way, you don't have to type in long commands twice.
+Para volver a los comandos antiguos, puede presionar las flechas hacia arriba y hacia abajo. De esa manera, no tendrás que escribir comandos largos dos veces.
 
-[congrats]
+[felicitaciones]
 
-Welcome to time travel school! :) I'll see you for your first class tomorrow!
+¡Bienvenidos a la escuela de viajes en el tiempo! :) ¡Te veré mañana en tu primera clase!
 
-[setup]
+[configuración]
 
-echo "~ List of current students ~" > students
-git add .
-git commit -m "Initial version"
-git push -u teacher main
+echo "~ Lista de estudiantes actuales ~" > estudiantes
+git agregar.
+git commit -m "Versión inicial"
+git push -u profesor principal
 
 git update-ref -d refs/remotes/teacher/main
 
-[setup teacher]
+[profesor de configuración]
 
-git reset --hard main
+git reset --hard principal
 
-echo " 
-- Sam
-- Alex" >> students
+eco " 
+-sam
+- Alex" >> estudiantes
 
-git add .
-git commit -m "Added two students"
+git agregar.
+git commit -m "Se agregaron dos estudiantes"
 
-[win]
+[ganar]
 
-# Get the second commit from your teacher using `git pull`.
-test "$(git log --oneline teacher/main | wc -l)" -ge 2
+# Obtén el segundo compromiso de tu maestro usando `git pull`.
+prueba "$(git log --oneline teacher/main | wc -l)" -ge 2
 
-# Add your name to the list of students
-test "$(cat students |wc -l)" -ge 5
+# Agrega tu nombre a la lista de estudiantes.
+prueba "$(estudiantes de gato |wc -l)" -ge 5
 
-# Commit your result.
-test "$(git show main:students |wc -l)" -ge 5
+# Confirma tu resultado.
+prueba "$(git show main:estudiantes |wc -l)" -ge 5
 
-[win teacher]
+[ganar maestro]
 
-# And use `git push` to send it to your teacher!
-test "$(git show main:students |wc -l)" -ge 5
+# ¡Y usa `git push` para enviárselo a tu profesor!
+prueba "$(git show main:estudiantes |wc -l)" -ge 5

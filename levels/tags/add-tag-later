@@ -1,14 +1,14 @@
-title = Tagging later
-cards = checkout commit-auto merge reset-hard
+título = Etiquetar más tarde
+tarjetas = pago confirmar-fusión automática restablecer-hard
 
-[description]
+[descripción]
 
-But what happens if you forgot to tag your current commit?
-No Prob! You can also tag older commits via
+Pero, ¿qué sucede si olvidaste etiquetar tu compromiso actual?
+¡No hay problema! También puedes etiquetar confirmaciones más antiguas a través de
 
-    git tag <tag-name> <commit-hash>
+    git tag <nombre-etiqueta> <hash-compromiso>
     
-Tag the commit "Adding feature 2" with the name "v1"!
+¡Etiquete la confirmación "Agregar función 2" con el nombre "v1"!
 
 ---
 tipp1
@@ -17,34 +17,34 @@ tipp2
 ---
 tipp3
 
-[setup]
+[configuración]
 
-echo "event 1" > feature-list
+echo "evento 1" > lista de características
 
-git add .
-git commit -m "Adding feature 1"
+git agregar.
+git commit -m "Agregar característica 1"
 
-echo "event 2" >> feature-list
+echo "evento 2" >> lista de características
 
-git add .
-git commit -m "Adding feature 2"
+git agregar.
+git commit -m "Agregar característica 2"
 
-echo "event 3" >> feature-list
+echo "evento 3" >> lista de características
 
-git add .
-git commit -m "Adding feature 3"
+git agregar.
+git commit -m "Agregar característica 3"
 
-git checkout --detach main
+git checkout --separar principal
 
-[win]
+[ganar]
 
-# Did you create a new tag?
+# ¿Creaste una nueva etiqueta?
 test "$(git show v1 -s --format=%h)" = "$(git show HEAD~1 -s --format=%h)"
 
-[actions]
+[comportamiento]
 
 
 
-[congrats]
+[felicitaciones]
 
-Well done :)
+Bien hecho :)

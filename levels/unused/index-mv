@@ -1,26 +1,26 @@
-title = Rename a file in the next commit
-cards = add reset-file checkout-file mv commit
+title = Cambiar el nombre de un archivo en la próxima confirmación
+tarjetas = agregar archivo de reinicio archivo de pago mv commit
 
-[description]
+[descripción]
 
-Other times, you might want to rename a file in the next commit. Use
+Otras veces, es posible que desees cambiar el nombre de un archivo en la próxima confirmación. Usar
 
-    git mv [file] [new name]
+    git mv [archivo] [nuevo nombre]
 
-for that. The effect is very similar as if you had created a copy with a new name, and removed the old version.
+para eso. El efecto es muy similar a si hubiera creado una copia con un nombre nuevo y hubiera eliminado la versión anterior.
 
-[setup]
+[configuración]
 
-echo a > a
-echo SPECIAL > b
-echo x > c
-git add .
-git commit -m "Initial commit"
-echo x > a
-echo b >> b
-git add b
+eco a > a
+eco ESPECIAL > b
+eco x > c
+git agregar.
+git commit -m "Compromiso inicial"
+eco x > a
+eco b >> b
+git agregar b
 
-[win]
+[ganar]
 
-# Make a commit where you rename the file b to "x".
+# Realiza una confirmación donde cambias el nombre del archivo b a "x".
 test "$(git ls-tree --name-only main)" = "$(echo -e "a\nc\nx")"

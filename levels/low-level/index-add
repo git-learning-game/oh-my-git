@@ -1,37 +1,37 @@
-[description]
+[descripción]
 
-Blobs usually represent the content of a file. But on their own, they don't have any metadata, not even a name!
+Los blobs suelen representar el contenido de un archivo. Pero por sí solos no tienen metadatos, ¡ni siquiera un nombre!
 
-Git has a very powerful concept to store metadata related to blobs: the index! It's a list that relates blobs to filenames and access permissions.
+Git tiene un concepto muy poderoso para almacenar metadatos relacionados con blobs: ¡el índice! Es una lista que relaciona los blobs con los nombres de archivos y los permisos de acceso.
 
-The most convenient option to add an entry to the index is via an existing file:
+La opción más conveniente para agregar una entrada al índice es a través de un archivo existente:
 
-    echo "my content" > file
-    git update-index --add file
+    echo "mi contenido" > archivo
+    git update-index --agregar archivo
 
-Add three entries to the index! For a bonus challenge: can you add a file that is inside of a directory, like "directory/file"?
+¡Agregue tres entradas al índice! Para un desafío adicional: ¿puedes agregar un archivo que esté dentro de un directorio, como "directorio/archivo"?
 
-[congrats]
+[felicitaciones]
 
-There's another way to add an entry to the index directly:
+Hay otra forma de agregar una entrada al índice directamente:
 
-    git update-index --add --cacheinfo <mode>,<blobhash>,<name>
+    git update-index --add --cacheinfo <modo>,<blobhash>,<nombre>
 
-The first three numbers of the mode describe the type of the entry, "100" is a regular file.
+Los primeros tres números del modo describen el tipo de entrada, "100" es un archivo normal.
 
-The second three number describe the permissions. Only "644" (non-executable) and "755" (executable) are supported.
+Los segundos tres números describen los permisos. Sólo se admiten "644" (no ejecutable) y "755" (ejecutable).
 
-You can insert the hash of an object into the terminal by right-clicking on it! :)
+¡Puedes insertar el hash de un objeto en la terminal haciendo clic derecho sobre él! :)
 
-[setup]
+[configuración]
 
-[setup goal]
+[objetivo de configuración]
 
-echo "file 1" > file1
-echo "file 2" > file2
-echo "file 3" > file3
-git add .
+eco "archivo 1" > archivo1
+eco "archivo 2" > archivo2
+eco "archivo 3" > archivo3
+git agregar.
 
-[win]
+[ganar]
 
-test "$(git ls-files | wc -l)" -ge 3
+prueba "$(git ls-files | wc -l)" -ge 3

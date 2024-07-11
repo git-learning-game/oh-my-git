@@ -1,33 +1,33 @@
-title = Adding a remote
-cards = checkout
+title = Agregar un control remoto
+tarjetas = pagar
 
-[description]
+[descripción]
 
-Let's work together with others! Your friend has their own repo at the URL `../friend` - you can add it using
+¡Trabajemos juntos con otros! Tu amigo tiene su propio repositorio en la URL `../friend`; puedes agregarlo usando
 
-    git remote add [name] [URL]
+    git remoto agregar [nombre] [URL]
 
-where `[name]` is an arbitrary, short name you pick for the remote.
+donde `[nombre]` es un nombre corto y arbitrario que usted elige para el control remoto.
 
-When you've done that, you can get all commits from that remote using
+Cuando hayas hecho eso, podrás obtener todas las confirmaciones desde ese control remoto usando
 
-    git pull friend
+    git pull amigo
 
-There's a letter for you!
+¡Hay una carta para ti!
 
-[setup]
+[configuración]
 
-git remote remove friend
+git remoto eliminar amigo
 
-[setup friend]
+[amigo de configuración]
 
-echo "I'm really committed to our friendship! <3" > love_letter
-git add .
-git commit -m "Write a letter"
+echo "¡Estoy realmente comprometido con nuestra amistad! <3" > love_letter
+git agregar.
+git commit -m "Escribe una carta"
 
-[win]
+[ganar]
 
-# Add a remote that points to ../friend.
-git remote -v | grep '../friend'
-# Pull from the remote.
-git show HEAD:love_letter | grep committed
+# Agrega un control remoto que apunte a ../friend.
+git remoto -v | grep '../amigo'
+# Tire del control remoto.
+git show HEAD:love_letter | grep comprometido

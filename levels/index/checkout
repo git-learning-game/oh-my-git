@@ -1,25 +1,25 @@
-title = Checking out files from the index
-cards = add reset-file checkout-file commit
+title = Extraer archivos del índice
+tarjetas = agregar confirmación de archivo de reinicio de archivo de pago
 
-[description]
+[descripción]
 
-So you've made changes to your files, but you decide that you don't want to keep them! You can use `git checkout` for that!
+¡Has realizado cambios en tus archivos, pero decides que no quieres conservarlos! ¡Puedes usar `git checkout` para eso!
 
-What happens if you have already update the index, like in file c? You have to reset the index first!
+¿Qué sucede si ya actualizó el índice, como en el archivo c? ¡Primero tienes que restablecer el índice!
 
-[setup]
+[configuración]
 
-echo a > a
-echo b > b
-echo c > c
-git add .
-git commit -m "Initial commit"
-echo x > a
-echo x > b
-echo x > c
-git add c
+eco a > a
+eco b > b
+eco c > c
+git agregar.
+git commit -m "Compromiso inicial"
+eco x > a
+eco x > b
+eco x > c
+git agregar c
 
-[win]
+[ganar]
 
-# Remove all changes in your local files!
-test "$(git diff --name-only | wc -l)" -eq 0
+# ¡Elimina todos los cambios en tus archivos locales!
+prueba "$(git diff --name-only | wc -l)" -eq 0

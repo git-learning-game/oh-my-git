@@ -1,17 +1,17 @@
-title = Clear the Stash
-cards = checkout commit-auto merge reset-hard
+título = Limpiar el alijo
+tarjetas = pago confirmar-fusión automática restablecer-hard
 
-[description]
+[descripción]
 
-If you want to inspect your stash stack, use the command
-    git stash list
+Si desea inspeccionar su pila de alijo, use el comando
+    lista de alijo de git
     
-Oh, you don't want to keep your stashed changes? There are way too many? Then go ahead and clear the stack with
-    git stash clear
-If you only want to discard a certain stash entry, you can use
-    git stash drop <stash>
+Oh, ¿no quieres conservar tus cambios escondidos? ¿Hay demasiados? Luego continúa y limpia la pila con
+    git alijo claro
+Si solo desea descartar una determinada entrada del alijo, puede utilizar
+    git alijo soltar <alijo>
     
-Clear your stash stack!
+¡Limpia tu alijo!
 
 ---
 tipp1
@@ -20,38 +20,38 @@ tipp2
 ---
 tipp3
 
-[setup]
+[configuración]
 
-echo "Apple Pie:" > recipe
+echo "Tarta de manzana:" > receta
 
-git add .
-git commit -m "creating a recipe"
+git agregar.
+git commit -m "creando una receta"
 
-echo "- 4 Apples" >> recipe
+echo "- 4 manzanas" >> receta
 
-git add .
-git commit -m "Adding ingredients"
+git agregar.
+git commit -m "Agregar ingredientes"
 
-echo "- 500g Flour" >> recipe
-git stash push
+echo "- 500g Harina" >> receta
+git alijo empujar
 
-echo "- 200g Sugar" >> recipe
-git stash push
+echo "- 200 g de azúcar" >> receta
+git alijo empujar
 
-echo "- Pinch of Salt" >> recipe
-git stash push
+echo "- Una pizca de sal" >> receta
+git alijo empujar
 
-git checkout main
+git pago principal
 
-[win]
+[ganar]
 
-# Did you clear your stash stack?
-test "$(git stash list | wc -l)" -eq 0
+# ¿Limpiaste tu pila de alijo?
+prueba "$(lista de alijo de git | wc -l)" -eq 0
 
-[actions]
+[comportamiento]
 
 
 
-[congrats]
+[felicitaciones]
 
-All clear! :)
+¡Todo claro! :)

@@ -1,27 +1,27 @@
-title = Make a commit \o/
-cards = add reset checkout commit
+título = Hacer una confirmación \o/
+tarjetas = agregar restablecer compromiso de pago
 
-[description]
+[descripción]
 
-For practice, make a commit where all files contain an "x"!
+Para practicar, haga una confirmación donde todos los archivos contengan una "x".
 
-[setup]
+[configuración]
 
-echo a > a
-echo x > b
-echo x > c
-git add .
-git commit -m "Initial commit"
-echo x > a
-echo b > b
-git add b
-echo c > c
+eco a > a
+eco x > b
+eco x > c
+git agregar.
+git commit -m "Compromiso inicial"
+eco x > a
+eco b > b
+git agregar b
+eco c > c
 
-[win]
+[ganar]
 
-# File a contains "x" in the last main commit.
-test "$(git show main:a)" = x
-# File b contains "x" in the last main commit.
-test "$(git show main:b)" = x
-# File c contains "x" in the last main commit.
-test "$(git show main:c)" = x
+# El archivo a contiene "x" en la última confirmación principal.
+prueba "$(git show main:a)" = x
+# El archivo b contiene "x" en la última confirmación principal.
+prueba "$(git show main:b)" = x
+# El archivo c contiene "x" en la última confirmación principal.
+prueba "$(git show main:c)" = x

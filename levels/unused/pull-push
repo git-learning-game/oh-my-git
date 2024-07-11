@@ -1,51 +1,51 @@
-title = Helping each other
-cards = checkout commit-auto reset-hard pull push
+título = Ayudándose unos a otros
+tarjetas = pago confirmar-reinicio automático-empuje duro
 
-[description]
+[descripción]
 
-The events and timelines you see are always only what your own time machine knows about!
+¡Los eventos y líneas de tiempo que ves son siempre solo lo que tu propia máquina del tiempo conoce!
 
-Of course, time agents don't have to work alone! Here, your sidekick has already prepared a merge for you! You can use the "pull" card to transfer it to your own time machine.
+¡Por supuesto, los agentes de tiempo no tienen que trabajar solos! ¡Aquí, tu compañero ya ha preparado una fusión para ti! Puedes utilizar la tarjeta "pull" para transferirla a tu propia máquina del tiempo.
 
-Then, add another event on top (what does Sam have for dinner?), and `push` the result, to transfer it back to your sidekick!
+Luego, agrega otro evento encima (¿qué cena Sam?) y "envía" el resultado para transferirlo de nuevo a tu compañero.
 
-You can only ever manipulate things in your own time machine (the one on the bottom).
+Sólo puedes manipular cosas en tu propia máquina del tiempo (la que está en la parte inferior).
 
-[setup yours]
+[configura el tuyo]
 
-echo "Just woke up. Is hungry." > sam
-git add .
-git commit -m "The beginning"
+echo "Acabo de despertar. Tiene hambre". > sam
+git agregar.
+git commit -m "El comienzo"
 
-git checkout -b pancakes
-echo "Had blueberry pancakes with maple syrup for breakfast." > sam
-git add .
-git commit -m "Pancakes!"
+git checkout -b panqueques
+echo "Comí panqueques de arándanos con jarabe de arce para desayunar". > sam
+git agregar.
+git commit -m "¡Panqueques!"
 
-git checkout -b muesli main
-echo "Had muesli with oats and strawberries for breakfast." > sam
-git add .
-git commit -m "Muesli!"
+git checkout -b muesli principal
+echo "Comí muesli con avena y fresas para desayunar." > sam
+git agregar.
+git commit -m "¡Muesli!"
 
-git checkout main
+git pago principal
 
-git push -u sidekick main pancakes muesli
+git push -u compañero panqueques principales muesli
 
-[setup sidekick]
+[compañero de configuración]
 
-git checkout main
-git merge pancakes
-git merge muesli
+git pago principal
+git fusionar panqueques
+git fusionar muesli
 
-echo "Had pancakes with strawberries for breakfast." > sam
-git add .
-git commit -m "Let's make this breakfast compromise" --author="Sidekick <sidekick@example.com>"
+echo "Comí panqueques con fresas para desayunar". > sam
+git agregar.
+git commit -m "Hagamos un compromiso con este desayuno" --author="Sidekick <sidekick@example.com>"
 
-[win sidekick]
+[gana compañero]
 
-# Below main's parent, there is a rhombus:
+# Debajo del padre principal, hay un rombo:
 git rev-parse main^^ && test "$(git rev-parse main^^1^)" = "$(git rev-parse main^^2^)"
 
-[congrats]
+[felicitaciones]
 
-In reality, in many cases, a lot of time agents work together to build a really good future together! :)
+En realidad, en muchos casos, ¡muchas veces los agentes trabajan juntos para construir juntos un futuro realmente bueno! :)

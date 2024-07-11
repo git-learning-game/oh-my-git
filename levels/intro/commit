@@ -1,33 +1,33 @@
-title = Your first commit
-cards = commit-auto
+título = Tu primer compromiso
+tarjetas = compromiso-automático
 
-[description]
+[descripción]
 
-You can use your time machine to make snapshots of objects around you! Here, let's practice this!
+¡Puedes usar tu máquina del tiempo para tomar instantáneas de los objetos que te rodean! ¡Aquí, practiquemos esto!
 
-(Your teacher pours some water into a glass.)
+(Tu maestra vierte un poco de agua en un vaso).
 
 [cli]
 
-Again, instead of using the card, you can also type the commands which are printed on it into the black terminal below!
+Nuevamente, en lugar de usar la tarjeta, ¡también puedes escribir los comandos que están impresos en ella en la terminal negra a continuación!
 
-This is totally optional! But this will be a super useful skill in the real world - and it will give you a sparkling golden badge! :)
+¡Esto es totalmente opcional! Pero esta será una habilidad súper útil en el mundo real, ¡y te dará una brillante insignia dorada! :)
 
-[setup]
+[configuración]
 
-echo "The glass is full of water." > glass
+echo "El vaso está lleno de agua". > vidrio
 
-[win]
+[ganar]
 
-# Make a snapshot of the glass (a "commit")
-git rev-parse HEAD
+# Hacer una instantánea del vaso (un "compromiso")
+git rev-parse CABEZA
 
-# Change the contents of the glass!
-! test "$(cat glass)" = "The glass is full of water."
+# ¡Cambia el contenido del vaso!
+! test "$(cat glass)" = "El vaso está lleno de agua."
 
-# And make a second commit!
-git rev-parse HEAD^ && ! test "$(git show main:glass)" = "The glass is full of water."
+# ¡Y haz un segundo compromiso!
+git rev-parse CABEZA^ &&! test "$(git show main:glass)" = "El vaso está lleno de agua".
 
-[congrats]
+[felicitaciones]
 
-Nice! You can try making some additional commits. When you feel comfortable, click on "Next Level".
+¡Lindo! Puedes intentar realizar algunas confirmaciones adicionales. Cuando te sientas cómodo, haz clic en "Siguiente nivel".

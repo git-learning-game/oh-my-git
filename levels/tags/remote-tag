@@ -1,58 +1,58 @@
-title = Remote Tags
-cards = pull push commit-auto checkout
+título = Etiquetas remotas
+tarjetas = tirar empujar confirmar-pago automático
 
-[description]
+[descripción]
 
-When you work with remote repositories, tags are not pushed or pulled automatically.
+Cuando trabaja con repositorios remotos, las etiquetas no se insertan ni se extraen automáticamente.
 
-You can push a tag with
-    git push <remote> <tag-name>
-Or all tags with:
-    git push <remote> --tags
+Puedes empujar una etiqueta con
+    git push <remoto> <nombre-etiqueta>
+O todas las etiquetas con:
+    git push <remoto> --etiquetas
     
-Deleting tags on your remote works with: 
-    git push <remote> --delete <tag-name>
+La eliminación de etiquetas en su control remoto funciona con: 
+    git push <remoto> --delete <nombre-etiqueta>
     
-You can also sync 
-    git fetch <remote> --prune --prune-tags
+También puedes sincronizar 
+    git fetch <remoto> --prune --prune-tags
 
 
-Add a tag named "v2" to the last commit and push it to the remote. Also pull the v1 tag to your local repository.
-[setup yours]
+Agregue una etiqueta llamada "v2" a la última confirmación y envíela al control remoto. También coloque la etiqueta v1 en su repositorio local.
+[configura el tuyo]
 
-git checkout main
+git pago principal
 
-git checkout main
-echo "toothbrush sharing" > project-ideas
-git add .
-git commit -m "First idea"
+git pago principal
+echo "compartir cepillo de dientes" > ideas-proyecto
+git agregar.
+git commit -m "Primera idea"
 
-echo "Is my phone upside down? App" >> project-ideas
-git commit -am "Another idea"
-
-
-
-git push friend main
-
-git branch -u friend/main main
-
-[setup friend]
+echo "¿Está mi teléfono al revés? Aplicación" >> ideas de proyecto
+git commit -am "Otra idea"
 
 
 
-[actions friend]
+git push amigo principal
 
-git tag v1 HEAD~1
+git rama -u amigo/principal principal
 
-[win]
-# v1 tag in your repo
+[amigo de configuración]
+
+
+
+[acciones amigo]
+
+etiqueta git v1 CABEZA ~ 1
+
+[ganar]
+# etiqueta v1 en tu repositorio
 test "$(git show v1 -s --format=%h)" = "$(git show HEAD~1 -s --format=%h)"
 
-# v2 tag in your repo
-test "$(git show v2 -s --format=%h)" = "$(git show HEAD -s --format=%h)"
+# etiqueta v2 en tu repositorio
+prueba "$(git show v2 -s --format=%h)" = "$(git show HEAD -s --format=%h)"
 
 
-[win friend]
+[gana amigo]
 
-# v2 tag in the remote
-test "$(git show v2 -s --format=%h)" = "$(git show HEAD -s --format=%h)"
+# etiqueta v2 en el control remoto
+prueba "$(git show v2 -s --format=%h)" = "$(git show HEAD -s --format=%h)"

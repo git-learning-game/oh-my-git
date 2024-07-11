@@ -1,34 +1,34 @@
-[description]
+[descripción]
 
-Construct a chain of three trees, which don't point to anything else.
+Construye una cadena de tres árboles, que no apunten a nada más.
 
-This is hard! The `git mktree` command might be useful.
+¡Esto es duro! El comando `git mktree` puede resultar útil.
 
-[setup]
+[configuración]
 
-[setup goal]
+[objetivo de configuración]
 
 git mktree
-TREE=$(echo -e "040000 tree 4b825dc642cb6eb9a060e54bf8d69288fbee4904\tdir" | git mktree)
-echo -e "040000 tree $TREE\tdir" | git mktree
+ÁRBOL=$(echo -e "040000 árbol 4b825dc642cb6eb9a060e54bf8d69288fbee4904\tdir" | git mktree)
+echo -e "040000 árbol $TREE\tdir" | git mktree
 
-[win]
+[ganar]
 
-TREES=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep tree | cut -f1 -d" ")
+ÁRBOLES=$(git cat-file --batch-check='%(nombre de objeto) %(tipo de objeto)' --batch-all-objects | árbol grep | cut -f1 -d" ")
 
-for TREE in $TREES; do
-    if [ "$(git cat-file -p $TREE | wc -l)" -eq 1 ]; then
-        if [ "$(git cat-file -p $TREE | cut -f1 | grep tree | wc -l)" -eq 1 ]; then
-            # So the tree has exactly one child, and it is a tree!
-            TREE2=$(git cat-file -p $TREE | cut -f1 | grep tree | cut -f3 -d" ")
-            if [ "$(git cat-file -p $TREE2 | wc -l)" -eq 1 ]; then
-                if [ "$(git cat-file -p $TREE2 | cut -f1 | grep tree | wc -l)" -eq 1 ]; then
-                    # Same for its child! \o/
-                    return 0
+para ÁRBOL en $ÁRBOLES; hacer
+    if [ "$(git cat-file -p $ÁRBOL | wc -l)" -eq 1 ]; entonces
+        if [ "$(git cat-file -p $TREE | cut -f1 | grep tree | wc -l)" -eq 1 ]; entonces
+            # Entonces el árbol tiene exactamente un hijo, ¡y es un árbol!
+            ÁRBOL2=$(git cat-file -p $ÁRBOL | cortar -f1 | árbol grep | cortar -f3 -d" ")
+            if [ "$(git cat-file -p $TREE2 | wc -l)" -eq 1 ]; entonces
+                if [ "$(git cat-file -p $TREE2 | cut -f1 | grep tree | wc -l)" -eq 1 ]; entonces
+                    # ¡Lo mismo para su hijo! \o/
+                    regresar 0
                 fi
             fi
         fi
     fi
-done
+hecho
 
-return 1
+regresar 1

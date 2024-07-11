@@ -1,42 +1,42 @@
-[description]
+[descripción]
 
-Let's take a look at "refs" (short for "references")! Refs are not objects, but rather very simple *pointers* to objects! They can help you keep track of what's where.
+¡Echemos un vistazo a las "refs" (abreviatura de "referencias")! ¡Las referencias no son objetos, sino *punteros* muy simples a objetos! Pueden ayudarle a realizar un seguimiento de qué está y dónde.
 
-You can create or update a ref with
+Puede crear o actualizar una referencia con
 
-    git update-ref refs/<refname> <newvalue>
+    git update-ref refs/<nombre de referencia> <nuevo valor>
 
-Make sure to always start a ref's name with "refs/"! That's a convention that helps Git find all refs you create. If you forget the "refs/", you will not see the ref.
+¡Asegúrate de comenzar siempre el nombre de un árbitro con "refs/"! Esa es una convención que ayuda a Git a encontrar todas las referencias que creas. Si olvida "refs/", no verá la referencia.
 
-Create refs that point to all objects in this repository!
+¡Crea referencias que apunten a todos los objetos en este repositorio!
 
-[setup]
+[configuración]
 
-echo hello > hello
-echo world > world
-BLOB1=$(git hash-object -w hello)
-BLOB2=$(git hash-object -w world)
-git add .
-TREE=$(git write-tree)
-COMMIT=$(git commit-tree $TREE -m "Initial commit")
+eco hola > hola
+eco mundo > mundo
+BLOB1=$(git hash-object -w hola)
+BLOB2=$(git hash-object -w mundo)
+git agregar.
+ÁRBOL=$(git escribir-árbol)
+COMMIT=$(git commit-tree $TREE -m "Compromiso inicial")
 
-[setup goal]
+[objetivo de configuración]
 
-echo hello > hello
-echo world > world
-BLOB1=$(git hash-object -w hello)
-BLOB2=$(git hash-object -w world)
-git add .
-TREE=$(git write-tree)
-COMMIT=$(git commit-tree $TREE -m "Initial commit")
+eco hola > hola
+eco mundo > mundo
+BLOB1=$(git hash-object -w hola)
+BLOB2=$(git hash-object -w mundo)
+git agregar.
+ÁRBOL=$(git escribir-árbol)
+COMMIT=$(git commit-tree $TREE -m "Compromiso inicial")
 
-git update-ref refs/a $BLOB1
-git update-ref refs/b $BLOB2
-git update-ref refs/c $TREE
-git update-ref refs/d $COMMIT
+git actualización-ref refs/a $BLOB1
+git actualización-ref refs/b $BLOB2
+git actualización-ref refs/c $ÁRBOL
+git actualización-ref refs/d $COMMIT
 
-[win]
+[ganar]
 
-OBJECTS=$(git cat-file --batch-check='%(objectname)' --batch-all-objects | sort)
-REF_TARGETS=$(git show-ref -s | sort | uniq)
-test "$OBJECTS" = "$REF_TARGETS"
+OBJETOS=$(git cat-file --batch-check='%(nombre de objeto)' --batch-all-objects | sort)
+REF_TARGETS=$(git show-ref -s | ordenar | uniq)
+prueba "$OBJECTS" = "$REF_TARGETS"

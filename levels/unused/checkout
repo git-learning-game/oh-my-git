@@ -1,31 +1,31 @@
-title = Getting the last version
-cards = checkout-file
+title = Obteniendo la última versión
+tarjetas = archivo de pago
 
-[description]
+[descripción]
 
-You've been working on your essay for a while. But - ughh! Now your cat walks over your keyboard and "helps you", so now it's all messed up! :/
+Has estado trabajando en tu ensayo por un tiempo. Pero... ¡uf! Ahora tu gato camina sobre tu teclado y "te ayuda", ¡así que ahora todo está arruinado! :/
 
-But Git is here to help! To discard all changes your cat made, and go back to the version in the last commit, use `checkout`!
+¡Pero Git está aquí para ayudar! Para descartar todos los cambios que hizo su gato y volver a la versión en la última confirmación, use `checkout`.
 
-[setup]
+[configuración]
 
-echo "A" >> essay.txt
-git add .
-git commit -m "Initial commit"
+eco "A" >> ensayo.txt
+git agregar.
+git commit -m "Compromiso inicial"
 
-echo "B" >> essay.txt
-git commit -a -m "Improved version"
+eco "B" >> ensayo.txt
+git commit -a -m "Versión mejorada"
 
-echo "C" >> essay.txt
-git commit -a -m "Even better version"
+eco "C" >> ensayo.txt
+git commit -a -m "Versión aún mejor"
 
-echo "D" >> essay.txt
-git commit -a -m "Marvelous version"
+eco "D" >> ensayo.txt
+git commit -a -m "Versión maravillosa"
 
-echo "blarg
-blaaaargh" > essay.txt
+eco "blarg
+blaaaargh" > ensayo.txt
 
-[win]
+[ganar]
 
-# Restore the version from the last commit.
-cat essay.txt | grep D
+# Restaurar la versión de la última confirmación.
+ensayo de gato.txt | grupo D

@@ -1,51 +1,51 @@
-[description]
+[descripción]
 
-As soon as you have some tree objects, you can always read them and set the index exactly to their content! Unsurprisingly, the command is called
+¡Tan pronto como tenga algunos objetos de árbol, siempre podrá leerlos y establecer el índice exactamente según su contenido! Como era de esperar, el comando se llama
 
-    git read-tree <tree>
+    git lectura-árbol <árbol>
 
-For <tree>, you can provide the hash of any tree object - you can right-click one to insert its hash into the terminal!
+Para <árbol>, puede proporcionar el hash de cualquier objeto de árbol; puede hacer clic derecho en uno para insertar su hash en la terminal.
 
-Try reading some of the trees in this repository into the index!
+¡Intenta leer algunos de los árboles de este repositorio en el índice!
 
-[setup]
+[configuración]
 
-EMPTY_TREE=$(git write-tree)
+EMPTY_TREE=$(git escribir-árbol)
 
-echo "file 1" > file1
-echo "file 2" > file2
-git add .
-git write-tree
+eco "archivo 1" > archivo1
+eco "archivo 2" > archivo2
+git agregar.
+árbol de escritura de git
 
-rm *
-echo "file A" > fileA
-echo "file B" > fileB
-echo "file C" > fileC
-git add .
-TRIPLE_TREE=$(git write-tree)
+habitación *
+echo "archivo A" > archivoA
+echo "archivo B" > archivoB
+echo "archivo C" > archivoC
+git agregar.
+TRIPLE_TREE=$(git escribir-árbol)
 
-git read-tree "$EMPTY_TREE"
+git árbol de lectura "$EMPTY_TREE"
 
-[setup goal]
+[objetivo de configuración]
 
-EMPTY_TREE=$(git write-tree)
+EMPTY_TREE=$(git escribir-árbol)
 
-echo "file 1" > file1
-echo "file 2" > file2
-git add .
-git write-tree
+eco "archivo 1" > archivo1
+eco "archivo 2" > archivo2
+git agregar.
+árbol de escritura de git
 
-rm *
-echo "file A" > fileA
-echo "file B" > fileB
-echo "file C" > fileC
-git add .
-TRIPLE_TREE=$(git write-tree)
+habitación *
+echo "archivo A" > archivoA
+echo "archivo B" > archivoB
+echo "archivo C" > archivoC
+git agregar.
+TRIPLE_TREE=$(git escribir-árbol)
 
-git read-tree "$EMPTY_TREE"
+git árbol de lectura "$EMPTY_TREE"
 
-git read-tree "$TRIPLE_TREE"
+git árbol de lectura "$TRIPLE_TREE"
 
-[win]
+[ganar]
 
-test "$(git ls-files | wc -l)" -gt 0
+prueba "$(git ls-files | wc -l)" -gt 0

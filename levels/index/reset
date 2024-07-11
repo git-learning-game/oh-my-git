@@ -1,37 +1,37 @@
-title = Resetting files in the index
-cards = add reset-file commit
+title = Restablecer archivos en el índice
+tarjetas = agregar confirmación de reinicio de archivo
 
-[description]
+[descripción]
 
-See the dark shadow behind the icons? That's the version of the file in the last commit!
+¿Ves la sombra oscura detrás de los íconos? ¡Esa es la versión del archivo en la última confirmación!
 
-For example, these candles have been blown out, and that change has been added.
+Por ejemplo, estas velas se han apagado y se ha añadido ese cambio.
 
-But you decide that this was a mistake! You only want to blow out the red candle in the next commit!
+¡Pero decides que esto fue un error! ¡Solo quieres apagar la vela roja en el próximo compromiso!
 
-If you already have updated the index to a changed file, but want to reset it, you can use `git reset`!
+Si ya actualizó el índice a un archivo modificado, pero desea restablecerlo, puede usar `git reset`.
 
-[setup]
+[configuración]
 
-echo "It's burning!" > red_candle
-echo "It's burning!" > green_candle
-echo "It's burning!" > blue_candle
-git add .
-git commit -m "The beginning"
+echo "¡Está ardiendo!" > vela_roja
+echo "¡Está ardiendo!" > vela_verde
+echo "¡Está ardiendo!" > vela_azul
+git agregar.
+git commit -m "El comienzo"
 
-echo "It's been blown out." > red_candle
-echo "It's been blown out." > green_candle
-echo "It's been blown out." > blue_candle
-git add .
+echo "Se ha apagado". > vela_roja
+echo "Se ha apagado". > vela_verde
+echo "Se ha apagado". > vela_azul
+git agregar.
 
-[win]
+[ganar]
 
-# Reset the changes in the green and blue candles!
-git show :green_candle | grep burning &&
-git show :blue_candle | grep burning &&
-git show :red_candle | grep -v burning
+# ¡Restablece los cambios en las velas verdes y azules!
+espectáculo de git: green_candle | grep quemando &&
+espectáculo de git: blue_candle | grep quemando &&
+espectáculo de git: red_candle | grep -v quemando
 
-# And make a commit!
-git show main:green_candle | grep burning &&
-git show main:blue_candle | grep burning &&
-git show main:red_candle | grep -v burning
+# ¡Y haz un compromiso!
+git show principal:green_candle | grep quemando &&
+git show principal:blue_candle | grep quemando &&
+git show principal:red_candle | grep -v quemando

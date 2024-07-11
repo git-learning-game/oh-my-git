@@ -1,31 +1,31 @@
-title = Update files in the index
-cards = add commit
+title = Actualizar archivos en el índice
+tarjetas = agregar compromiso
 
-[description]
+[descripción]
 
-When we change files, the index won't change on its own. We have to use `git add` to update the index to the changed version of the file.
+Cuando cambiamos archivos, el índice no cambiará por sí solo. Tenemos que usar `git add` para actualizar el índice a la versión modificada del archivo.
 
-Let's try that!
+¡Intentemos eso!
 
-The icons in the file browser show you when the actual file (white) and the version in the index (blue) are different, and when they are the same!
+Los íconos en el explorador de archivos le muestran cuándo el archivo real (blanco) y la versión en el índice (azul) son diferentes y cuándo son iguales.
 
-[win]
+[ganar]
 
-Good! The index is sometimes also called the "staging area" - it contains exactly what ends up in the next commit when you use `git commit`!
+¡Bien! El índice a veces también se denomina "área de preparación": ¡contiene exactamente lo que termina en la siguiente confirmación cuando usas `git commit`!
 
-[setup]
+[configuración]
 
-echo "The candle is burning with a blue flame." > candle
-git add .
-git commit -m "The beginning"
+echo "La vela arde con una llama azul". > vela
+git agregar.
+git commit -m "El comienzo"
 
-[win]
+[ganar]
 
-# Make a change to the candle.
-test "$(git diff --name-only)" = "candle" || file -f .git/candle-changed && touch .git/candle-changed
+# Haz un cambio en la vela.
+prueba "$(git diff --name-only)" = "vela" || archivo -f .git/vela-cambiada && toque .git/vela-cambiada
 
-# Add the candle.
-test "$(git diff --cached --name-only)" = "candle" || file -f .git/candle-added && touch .git/candle-added
+# Agrega la vela.
+prueba "$(git diff --cached --name-only)" = "vela" || archivo -f .git/vela-añadida && toque .git/vela-añadida
 
-# Make a commit.
-test "$(git diff --name-only HEAD HEAD^)" = "candle"
+# Haz un compromiso.
+prueba "$(git diff --name-only HEAD HEAD^)" = "vela"

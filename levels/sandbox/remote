@@ -1,22 +1,22 @@
-title = Sandbox with a remote
-cards = checkout commit-auto pull fetch push
+title = Sandbox con control remoto
+tarjetas = pago confirmar-auto tirar buscar empujar
 
-[description]
+[descripción]
 
-Here's a sandbox with a remote! Try pulling, fetching, or pushing!
+¡Aquí tienes una caja de arena con control remoto! ¡Intenta tirar, buscar o empujar!
 
-How can you push tags and branches on a remote? How can you delete them again?
+¿Cómo se pueden insertar etiquetas y ramas en un control remoto? ¿Cómo puedes borrarlos nuevamente?
 
-[setup yours]
+[configura el tuyo]
 
-echo "Line 1" > essay
-git add .
-git commit -m "Initial commit"
+echo "Línea 1" > ensayo
+git agregar.
+git commit -m "Compromiso inicial"
 
-git push -u friend main
+git push -u amigo principal
 
-[setup friend]
+[amigo de configuración]
 
-git checkout main
-echo "Line 2" >> essay
-git commit -am "Another line"
+git pago principal
+echo "Línea 2" >> ensayo
+git commit -am "Otra línea"

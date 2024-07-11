@@ -1,30 +1,30 @@
-[description]
+[descripción]
 
-A commit can have multiple parents! You can specify the -p option multiple times, like this:
+¡Un compromiso puede tener varios padres! Puede especificar la opción -p varias veces, así:
 
-    git commit-tree <tree> -m "Description" -p <parent1> -p <parent2>
+    git commit-tree <árbol> -m "Descripción" -p <padre1> -p <padre2>
 
-Build a rhombus shape from commits, where two commits point to the same parent, and then a fourth commit points to both of them.
+Construya una forma de rombo a partir de confirmaciones, donde dos confirmaciones apunten al mismo padre y luego una cuarta confirmación apunte a ambas.
 
-[setup]
+[configuración]
 
-[setup goal]
+[objetivo de configuración]
 
-TREE=$(git write-tree)
-SOUTH=$(git commit-tree $TREE -m "South")
-EAST=$(git commit-tree $TREE -m "East" -p $SOUTH)
-WEST=$(git commit-tree $TREE -m "West" -p $SOUTH)
-NORTH=$(git commit-tree $TREE -m "Nort" -p $EAST -p $WEST)
+ÁRBOL=$(git escribir-árbol)
+SUR=$(git commit-tree $TREE -m "Sur")
+ESTE=$(git commit-tree $ÁRBOL -m "Este" -p $SUR)
+OESTE=$(git commit-tree $ÁRBOL -m "Oeste" -p $SUR)
+NORTE=$(git commit-tree $ÁRBOL -m "Norte" -p $ESTE -p $OESTE)
 
-[win]
+[ganar]
 
-COMMITS=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep commit | cut -f1 -d" ")
+COMMITS=$(git cat-file --batch-check='%(nombre de objeto) %(tipo de objeto)' --batch-all-objects | grep commit | cut -f1 -d" ")
 
-for COMMIT in $COMMITS; do
-    # My first parent's parents has to be the same as my second parent's parent.
-    if [ "$(git rev-parse --verify -q $COMMIT^1^)" = "$(git rev-parse --verify -q $COMMIT^2^)" ]; then
-        return 0
+para COMMITIR en $COMMITS; hacer
+    # Los padres de mi primer padre tienen que ser los mismos que los de mi segundo padre.
+    if [ "$(git rev-parse --verify -q $COMMIT^1^)" = "$(git rev-parse --verify -q $COMMIT^2^)" ]; entonces
+        regresar 0
     fi
-done
+hecho
 
-return 1
+regresar 1

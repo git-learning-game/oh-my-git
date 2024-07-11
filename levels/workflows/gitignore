@@ -1,18 +1,18 @@
-title = Ignoring files
+título = Ignorar archivos
 
-[description]
+[descripción]
 
-That chicken is running around a lot, and changing often. We don't want to have it in our commits.
+Ese pollo corre mucho y cambia con frecuencia. No queremos tenerlo en nuestras confirmaciones.
 
-Add it to the file .gitignore, and try using `git add .`!
+¡Agréguelo al archivo .gitignore e intente usar `git add.`!
 
-[setup]
+[configuración]
 
-touch .gitignore
-echo important > important
-git add important
-git commit -m "Initial commit"
+toque .gitignore
+eco importante > importante
+git agregar importante
+git commit -m "Compromiso inicial"
 
-[actions]
+[comportamiento]
 
-echo "$RANDOM" > chicken
+echo "$RANDOM" > pollo

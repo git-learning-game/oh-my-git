@@ -1,26 +1,26 @@
-[description]
+[descripción]
 
-For this prototype, we assume you have some experience with the command line. Here are some commands that will be useful:
+Para este prototipo, asumimos que tienes algo de experiencia con la línea de comando. Aquí hay algunos comandos que serán útiles:
 
-- ls
-- echo content > file
-- cat file
-- mkdir dir
+- es
+- contenido de eco> archivo
+- archivo de gato
+- directorio mkdir
 
-Find the riddle in your current directory and put the answer into the file "answer"!
+¡Encuentra el acertijo en tu directorio actual y coloca la respuesta en el archivo "respuesta"!
 
-[congrats]
+[felicitaciones]
 
-Omnomnom!
+¡Om nom nom!
 
-For technical reasons, you can't use `cd` in this prototype yet. But there won't be a lot of interaction with the file system anyways. :)
+Por razones técnicas, todavía no puedes usar `cd` en este prototipo. Pero de todos modos no habrá mucha interacción con el sistema de archivos. :)
 
-[setup]
+[configuración]
 
-mkdir riddle
-echo "ppl p" > riddle/consonants
-echo "ae ie" > riddle/vowels
+acertijo mkdir
+echo "ppl p" > acertijo/consonantes
+echo "ae ie" > acertijo/vocales
 
-[win]
+[ganar]
 
-cat answer | grep -i "apple \\?pie"
+respuesta del gato | grep -i "manzana \\?tarta"

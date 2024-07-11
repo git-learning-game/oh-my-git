@@ -1,21 +1,21 @@
-[description]
+[descripción]
 
-Instead of pointing directly to objects, refs can also point to other refs!
+¡En lugar de apuntar directamente a objetos, las referencias también pueden apuntar a otras referencias!
 
-When that happens, they are called "symbolic refs". You can create or update a symbolic ref using
+Cuando eso sucede, se les llama "referencias simbólicas". Puede crear o actualizar una referencia simbólica usando
 
-    git symbolic-ref <name> <ref>
+    git simbólico-ref <nombre> <ref>
 
-Create a symbolic ref called "refs/rainbow"!
+¡Crea una referencia simbólica llamada "refs/rainbow"!
 
-[setup]
+[configuración]
 
-[setup goal]
+[objetivo de configuración]
 
 BLOB=$(git hash-object -w --stdin)
-git update-ref refs/double "$BLOB"
-git symbolic-ref refs/rainbow refs/double
+git update-ref refs/doble "$BLOB"
+git simbólico-ref refs/arcoíris refs/doble
 
-[win]
+[ganar]
 
-git symbolic-ref refs/rainbow
+git simbólico-ref refs/arco iris

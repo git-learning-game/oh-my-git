@@ -1,43 +1,43 @@
-title = Yellow brick road
-cards = checkout commit-auto reset-hard bisect-start bisect-good bisect-bad
+título = Camino de ladrillos amarillos
+tarjetas = pago confirmar-restablecimiento automático-duro bisect-start bisect-bueno bisect-malo
 
-[description]
+[descripción]
 
-(Please zoom out a bit using your mouse wheel! :D)
+(¡Aleje un poco el zoom con la rueda del mouse! :D)
 
-Oh no! You have lost your key at some point during the day!
+¡Oh, no! ¡Has perdido tu llave en algún momento del día!
 
-Sure, you could look at every single commit in an attempt to find it - but there's a better way: your time machine has a built-in way to find the point in time where things went wrong quickly!
+Claro, puedes mirar cada confirmación en un intento de encontrarla, pero hay una manera mejor: ¡tu máquina del tiempo tiene una forma incorporada de encontrar el momento en el que las cosas salieron mal rápidamente!
 
-First, play the "bisect start" card. Then, go to a commit where you don't have the key, and play the "bisect bad" card. Likewise, go to a commit early on where you have the key *in your pocket*, and play the "bisect good" card.
+Primero, juega la carta de "inicio en bisección". Luego, vaya a una confirmación donde no tenga la clave y juegue la carta "bisecta mala". Del mismo modo, vaya a un compromiso desde el principio donde tenga la llave *en su bolsillo* y juegue la carta "bisecta bien".
 
-After you've found the last good commit, reset the main branch to it. What happened to the key after you lost it?
+Una vez que haya encontrado la última confirmación buena, restablezca la rama principal. ¿Qué pasó con la llave después de que la perdiste?
 
-[setup]
+[configuración]
 
-echo "You still have your key." > you
+echo "Aún tienes tu llave". > tu
 
-for i in {1..30}; do
-    if test $i -eq 12; then
-        echo "Your pocket is empty." > you
-        echo "Is on the ground." > key
+para i en {1..30}; hacer
+    si prueba $i -eq 12; entonces
+        echo "Tu bolsillo está vacío." > tu
+        echo "Está en el suelo". > clave
     fi
-    if test $i -eq 13; then
-        echo "Is holding a key in its beak." > bird
-        rm key
+    si prueba $i -eq 13; entonces
+        echo "Tiene una llave en el pico." > pájaro
+        llave rm
     fi
-    if test $i -eq 14; then
-        rm bird
+    si prueba $i -eq 14; entonces
+        pájaro rm
     fi
-    git add .
+    git agregar.
     git commit --allow-empty -m "$i"
-done
+hecho
 
-[win]
+[ganar]
 
-# Find the last good commit
-test "$(git log --pretty=%s main | head -1)" -eq 11
+# Encuentra el último compromiso bueno
+prueba "$(git log --pretty=%s main | head -1)" -eq 11
 
-[congrats]
+[felicitaciones]
 
-Well done! :) The only problem is that you now have to walk all the way back home, again...
+¡Bien hecho! :) El único problema es que ahora tienes que caminar todo el camino de regreso a casa, otra vez...

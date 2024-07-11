@@ -1,22 +1,22 @@
-title = Restore a deleted file
-cards = checkout
+title = Restaurar un archivo eliminado
+tarjetas = pagar
 
-[description]
+[descripción]
 
-Oops - you deleted the "essay" file, which you worked on all night!
+¡Vaya! Eliminaste el archivo de "ensayo", en el que trabajaste toda la noche.
 
-Luckily, Git is here to help! You can use `git checkout` to restore the file!
+¡Afortunadamente, Git está aquí para ayudar! ¡Puedes usar `git checkout` para restaurar el archivo!
 
-[setup]
+[configuración]
 
-echo important > essay
-git add .
-git commit -m "Initial commit"
-echo "important content" > essay
-git commit -am "Improve essay"
-rm essay
+eco importante > ensayo
+git agregar.
+git commit -m "Compromiso inicial"
+echo "contenido importante" > ensayo
+git commit -am "Mejorar ensayo"
+ensayo rm
 
-[win]
+[ganar]
 
-# Restore the essay to contain "important content"
-test "$(cat essay)" = "important content"
+# Restaurar el ensayo para que contenga "contenido importante"
+test "$(cat essay)" = "contenido importante"

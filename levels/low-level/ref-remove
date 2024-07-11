@@ -1,41 +1,41 @@
-[description]
+[descripción]
 
-And finally, to delete a ref, use
+Y finalmente, para eliminar una referencia, use
 
-    git update-ref -d refs/<refname>
+    git update-ref -d refs/<nombre de referencia>
 
-Delete all refs! :P (Well, except for HEAD. HEAD is special.)
+¡Elimina todas las referencias! :P (Bueno, excepto HEAD. HEAD es especial).
 
-[setup]
+[configuración]
 
-echo hello > hello
-echo world > world
-BLOB1=$(git hash-object -w hello)
-BLOB2=$(git hash-object -w world)
-git add .
-TREE=$(git write-tree)
-COMMIT=$(git commit-tree $TREE -m "Initial commit")
-
-git update-ref refs/best_blob_ever "$BLOB1"
-git update-ref refs/beautiful_commit "$COMMIT"
-
-[setup goal]
-
-echo hello > hello
-echo world > world
-BLOB1=$(git hash-object -w hello)
-BLOB2=$(git hash-object -w world)
-git add .
-TREE=$(git write-tree)
-COMMIT=$(git commit-tree $TREE -m "Initial commit")
+eco hola > hola
+eco mundo > mundo
+BLOB1=$(git hash-object -w hola)
+BLOB2=$(git hash-object -w mundo)
+git agregar.
+ÁRBOL=$(git escribir-árbol)
+COMMIT=$(git commit-tree $TREE -m "Compromiso inicial")
 
 git update-ref refs/best_blob_ever "$BLOB1"
 git update-ref refs/beautiful_commit "$COMMIT"
 
-for REF in $(git for-each-ref --format='%(refname)'); do
-    git update-ref -d "$REF"
-done
+[objetivo de configuración]
 
-[win]
+eco hola > hola
+eco mundo > mundo
+BLOB1=$(git hash-object -w hola)
+BLOB2=$(git hash-object -w mundo)
+git agregar.
+ÁRBOL=$(git escribir-árbol)
+COMMIT=$(git commit-tree $TREE -m "Compromiso inicial")
 
-test "$(git show-ref | wc -l)" -eq 0
+git update-ref refs/best_blob_ever "$BLOB1"
+git update-ref refs/beautiful_commit "$COMMIT"
+
+para REF en $(git for-each-ref --format='%(refname)'); hacer
+    git actualización-ref -d "$REF"
+hecho
+
+[ganar]
+
+prueba "$(git show-ref | wc -l)" -eq 0

@@ -1,54 +1,54 @@
-title = Abort a merge
-cards = checkout commit-auto merge merge-abort
+title = Cancelar una fusión
+tarjetas = pago confirmar-fusión automática fusión-abortar
 
-[description]
+[descripción]
 
-Sometimes you want to merge two commits, but a merge conflict occurs that you currently don't want to resolve.
+A veces desea fusionar dos confirmaciones, pero se produce un conflicto de fusión que actualmente no desea resolver.
 
-In these situations you can abort the merge to merge later. Use
-    git merge --abort
-when you are in a merge process.
+En estas situaciones, puede cancelar la fusión para fusionarla más tarde. Usar
+    git fusionar --abortar
+cuando estás en un proceso de fusión.
 
-Try to merge both commits and abort the merge afterwards.
+Intente fusionar ambas confirmaciones y luego cancele la fusión.
 
-[setup]
+[configuración]
 
-echo "A new day is starting" > you
+echo "Un nuevo día está comenzando" > tú
 
-git add .
-git commit -m "Start"
+git agregar.
+git commit -m "Inicio"
 
-echo "Walking down the Main Lane." >> you
+echo "Caminando por el carril principal". >> tu
 
-git add .
-git commit -m "Main Lane"
+git agregar.
+git commit -m "Carril principal"
 
 
-git checkout HEAD~1
+git pago CABEZA~1
 
-echo "Walking down the Side Lane." >> you
+echo "Caminando por el carril lateral". >> tu
 
-git add .
-git commit -m "Side Lane"
+git agregar.
+git commit -m "Carril lateral"
 
-git checkout HEAD~1
+git pago CABEZA~1
 
-git branch -D main
+rama git -D principal
 
-[actions]
+[comportamiento]
 
-if test -f .git/MERGE_HEAD; then
-    touch .git/secretfile
+si prueba -f .git/MERGE_HEAD; entonces
+    toque .git/secretfile
 fi
 
-[win]
+[ganar]
 
-# You tried to merge?
-test -f .git/secretfile
+# ¿Intentaste fusionarte?
+prueba -f .git/archivosecreto
 
-# You aborted to merge?
-test -f .git/secretfile && ! test -f .git/MERGE_HEAD && ! git rev-parse HEAD^^
+# ¿Abortaste la fusión?
+prueba -f .git/secretfile &&! prueba -f .git/MERGE_HEAD &&! git rev-parse CABEZA^^
 
-[congrats]
+[felicitaciones]
 
-Aaah, let's merge later...
+Aaah, fusionémonos más tarde...

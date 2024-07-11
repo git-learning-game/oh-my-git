@@ -1,26 +1,26 @@
-title = Go back to where you were before
-cards = checkout reflog
+title = Vuelve a donde estabas antes
+tarjetas = finalizar compra reflog
 
-[description]
+[descripción]
 
-Say you were looking at something in the past, and then switched back to the main branch.
+Supongamos que estaba mirando algo en el pasado y luego volvió a la rama principal.
 
-But then, you got reaaally distracted, and after your lunch break, you can't remember on which commit in the past you were before. How can you find out?
+Pero luego, te distrajiste mucho y, después de la pausa para el almuerzo, no puedes recordar en qué compromiso del pasado estabas antes. ¿Cómo puedes saberlo?
 
-There's a convenient command that shows you all the places your HEAD did point to in the past:
+Hay un comando conveniente que le muestra todos los lugares a los que su HEAD apuntó en el pasado:
 
     git reflog
 
-[setup]
+[configuración]
 
-for i in {1..10}; do
-    git commit --allow-empty -m $i
-    git branch $i
-done
-git checkout 3
-git checkout main
+para i en {1..10}; hacer
+    git confirmar --allow-empty -m $i
+    rama git $i
+hecho
+git pago 3
+git pago principal
 
-[win]
+[ganar]
 
-# Find out where you've been before, and go back there!
-test "$(git rev-parse HEAD)" = "$(git rev-parse 3)"
+# ¡Descubre dónde has estado antes y regresa allí!
+prueba "$(git rev-parse HEAD)" = "$(git rev-parse 3)"

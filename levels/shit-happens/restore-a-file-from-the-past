@@ -1,21 +1,21 @@
-title = Restore a file from the past
-cards = checkout checkout-from commit
+title = Restaurar un archivo del pasado
+tarjetas = pago pago-desde compromiso
 
-[description]
+[descripción]
 
-Here's a similar problem: you really liked the essay from the very first commit, and want to have it back! Well, checkout can also restore things from older commits, Here's how:
+Aquí hay un problema similar: ¡realmente te gustó el ensayo desde el primer compromiso y quieres recuperarlo! Bueno, el pago también puede restaurar cosas de confirmaciones anteriores. Aquí se explica cómo:
 
-    git checkout [commit] [file]
+    git checkout [compromiso] [archivo]
 
-[setup]
+[configuración]
 
-echo "good version" > essay
-git add .
-git commit -m "Initial commit"
-echo "bad version" > essay
-git commit -am "\"Improve\" essay"
+echo "buena versión" > ensayo
+git agregar.
+git commit -m "Compromiso inicial"
+echo "mala versión" > ensayo
+git commit -am "\"Mejorar\" ensayo"
 
-[win]
+[ganar]
 
-# Get the first version of your essay, and make a new commit with it.
-test "$(git show main:essay)" = "good version"
+# Obtenga la primera versión de su ensayo y haga un nuevo compromiso con él.
+test "$(git show main:essay)" = "buena versión"

@@ -1,86 +1,86 @@
-title = Rebasing
-cards = checkout commit-auto reset-hard rebase
+título = Rebase
+tarjetas = pago compromiso-restablecimiento automático-rebase completa
 
-[description]
+[descripción]
 
-Okay - turns out that saving time in the morning by utilizing parallel universes is against the regulations of the International Time Travel Association. You'll have to do your tasks in sequence after all.
+Bien, resulta que ahorrar tiempo por la mañana utilizando universos paralelos va en contra de las regulaciones de la Asociación Internacional de Viajes en el Tiempo. Después de todo, tendrás que hacer tus tareas en secuencia.
 
-See the "rebase" card? When you drag it to a commit, it will copy the events in your current timeline after the specified one! This way, make a clean, linear timeline where you visit all three shops.
+¿Ves la tarjeta de "rebase"? Cuando lo arrastras a una confirmación, copiará los eventos en tu línea de tiempo actual después del especificado. De esta manera, cree una línea de tiempo limpia y lineal en la que visite las tres tiendas.
 
-Again, we want to make that our base reality - the "main" branch should point to that timeline!
+Nuevamente, queremos que esa sea nuestra realidad básica: ¡la rama "principal" debe apuntar a esa línea de tiempo!
 
-[setup]
+[configuración]
 
-echo "You do not have a baguette.
+echo "No tienes baguette.
 
-You do not have coffee.
+No tienes café.
 
-You do not have a donut." > you
+No tienes donut." > tu
 
-git add .
-git commit -m "The Beginning"
+git agregar.
+git commit -m "El comienzo"
 
-git checkout -b baguette main
-echo "You have a baguette.
+git checkout -b baguette principal
+echo "Tienes una baguette.
 
-You do not have coffee.
+No tienes café.
 
-You do not have a donut." > you
-git add .
-git commit -m "You buy a baguette"
+No tienes donut." > tu
+git agregar.
+git commit -m "Compras una baguette"
 
-echo "You ate a baguette.
+echo "Te comiste una baguette.
 
-You do not have coffee.
+No tienes café.
 
-You do not have a donut." > you
-git add .
-git commit -m "You eat the baguette"
+No tienes donut." > tu
+git agregar.
+git commit -m "Te comes la baguette"
 
-git checkout -b coffee main
-echo "You do not have a baguette.
+git checkout -b café principal
+echo "No tienes baguette.
 
-You have coffee.
+Tienes café.
 
-You do not have a donut." > you
-git add .
-git commit -m "You buy some coffee"
+No tienes donut." > tu
+git agregar.
+git commit -m "Compras un poco de café"
 
-echo "You do not have a baguette.
+echo "No tienes baguette.
 
-You drank coffee.
+Bebiste café.
 
-You do not have a donut." > you
-git add .
-git commit -m "You drink the coffee"
+No tienes donut." > tu
+git agregar.
+git commit -m "Tú bebes el café"
 
-git checkout -b donut main
-echo "You do not have a baguette.
+git checkout -b donut principal
+echo "No tienes baguette.
 
-You do not have coffee.
+No tienes café.
 
-You have a donut." > you
-git add .
-git commit -m "You buy a donut"
+Tienes un donut." > tú
+git agregar.
+git commit -m "Compras una dona"
 
-echo "You do not have a baguette.
+echo "No tienes baguette.
 
-You do not have coffee.
+No tienes café.
 
-You ate a donut." > you
-git add .
-git commit -m "You eat the donut"
+Te comiste un donut." > tú
+git agregar.
+git commit -m "Te comes el donut"
 
-git checkout --detach main
+git checkout --separar principal
 
 
-[win]
+[ganar]
 
-# Order all tree branches into one and move the main branch ref
-{ git show main:you | grep "You ate.*baguette"; } && { git show main:you | grep "You drank.*coffee"; } && { git show main:you | grep "You ate.*donut"; } && { test "$(git log main --oneline | wc -l)" -eq 7; }
+# Ordena todas las ramas de los árboles en una y mueve la rama principal ref.
+{ git show principal:tú | grep "Comiste.*baguette"; } && { git show main:tú | grep "Bebiste.*café"; } && { git show main:tú | grep "Comiste.*dona"; } && { prueba "$(git log main --oneline | wc -l)" -eq 7; }
 
-[congrats]
+[felicitaciones]
 
-Notice how the other timelines and commits are still there - if anything goes wrong, you can also travel back to them.
+Observe cómo las otras líneas de tiempo y confirmaciones todavía están allí; si algo sale mal, también puede regresar a ellas.
 
-It's really hard to actually *destroy* stuff with your time machine.
+Es realmente difícil *destruir* cosas con tu máquina del tiempo.

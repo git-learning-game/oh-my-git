@@ -1,35 +1,35 @@
-[description]
+[descripción]
 
-After carefully building the index we want, it would be nice to save a permanent snapshot of it, right?
+Después de crear cuidadosamente el índice que queremos, sería bueno guardar una instantánea permanente del mismo, ¿verdad?
 
-This is what the second type of objects is for: trees! You can convert the index into a tree using
+Para eso está el segundo tipo de objetos: ¡árboles! Puede convertir el índice en un árbol usando
 
-    git write-tree
+    árbol de escritura de git
 
-Try it! :)
+¡Intentalo! :)
 
-[congrats]
+[felicitaciones]
 
-Nice!
+¡Lindo!
 
-Can you make a different tree? Modify the index, then call `git write-tree` again!
+¿Puedes hacer un árbol diferente? Modifique el índice y luego llame a `git write-tree` nuevamente.
 
-[setup]
+[configuración]
 
-echo "file 1" > file1
-echo "file 2" > file2
-echo "file 3" > file3
-git add .
+eco "archivo 1" > archivo1
+eco "archivo 2" > archivo2
+eco "archivo 3" > archivo3
+git agregar.
 
-[setup goal]
+[objetivo de configuración]
 
-echo "file 1" > file1
-echo "file 2" > file2
-echo "file 3" > file3
-git add .
+eco "archivo 1" > archivo1
+eco "archivo 2" > archivo2
+eco "archivo 3" > archivo3
+git agregar.
 
-git write-tree
+árbol de escritura de git
 
-[win]
+[ganar]
 
 git cat-file -p 21a638f28022064c1f1df20844278b494d197979

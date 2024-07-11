@@ -1,41 +1,41 @@
-[description]
+[descripción]
 
-You can point refs to a new location using the same command you use to create them:
+Puede señalar referencias a una nueva ubicación usando el mismo comando que usa para crearlas:
 
-    git update-ref refs/<refname> <object>
+    git update-ref refs/<nombre de referencia> <objeto>
 
-As an exercise, make all refs in this repository point to the tree object!
+Como ejercicio, ¡haga que todas las referencias en este repositorio apunten al objeto del árbol!
 
-[setup]
+[configuración]
 
-echo hello > hello
-echo world > world
-BLOB1=$(git hash-object -w hello)
-BLOB2=$(git hash-object -w world)
-git add .
-TREE=$(git write-tree)
-COMMIT=$(git commit-tree $TREE -m "Initial commit")
+eco hola > hola
+eco mundo > mundo
+BLOB1=$(git hash-object -w hola)
+BLOB2=$(git hash-object -w mundo)
+git agregar.
+ÁRBOL=$(git escribir-árbol)
+COMMIT=$(git commit-tree $TREE -m "Compromiso inicial")
 
-git update-ref refs/a "$BLOB1"
+git actualización-ref refs/a "$BLOB1"
 git update-ref refs/b "$COMMIT"
 
-[setup goal]
+[objetivo de configuración]
 
-echo hello > hello
-echo world > world
-BLOB1=$(git hash-object -w hello)
-BLOB2=$(git hash-object -w world)
-git add .
-TREE=$(git write-tree)
-COMMIT=$(git commit-tree $TREE -m "Initial commit")
+eco hola > hola
+eco mundo > mundo
+BLOB1=$(git hash-object -w hola)
+BLOB2=$(git hash-object -w mundo)
+git agregar.
+ÁRBOL=$(git escribir-árbol)
+COMMIT=$(git commit-tree $TREE -m "Compromiso inicial")
 
-git update-ref refs/a "$BLOB1"
+git actualización-ref refs/a "$BLOB1"
 git update-ref refs/b "$COMMIT"
 
-for REF in $(git for-each-ref --format='%(refname)'); do
-    git update-ref "$REF" "$TREE"
-done
+para REF en $(git for-each-ref --format='%(refname)'); hacer
+    git update-ref "$REF" "$ÁRBOL"
+hecho
 
-[win]
+[ganar]
 
-test "$(git show-ref -s | sort -u)" = "c7863f72467ed8dd44f4b8ffdb8b57ca7d91dc9e"
+prueba "$(git show-ref -s | sort -u)" = "c7863f72467ed8dd44f4b8ffdb8b57ca7d91dc9e"

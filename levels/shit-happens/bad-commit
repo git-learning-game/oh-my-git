@@ -1,30 +1,30 @@
-title = Undo a bad commit
-cards = reset commit-a
+title = Deshacer una confirmación incorrecta
+tarjetas = restablecer compromiso-a
 
-[description]
+[descripción]
 
-Oh no, we made a bad commit! How can we undo making the commit, and go back to a point where we can try again?
+¡Oh no, hicimos un mal compromiso! ¿Cómo podemos deshacer el compromiso y volver a un punto en el que podamos volver a intentarlo?
 
-The answer is using `git reset [commit]`, which does two things:
+La respuesta es usar `git reset [commit]`, que hace dos cosas:
 
-- It resets the current branch ref to the commit you specify.
-- And it resets the index to that commit.
+- Restablece la referencia de la rama actual a la confirmación que especifiques.
+- Y restablece el índice de esa confirmación.
 
-It does not change your working directory in any way, which means that after that, you can try making the commit you want again.
+No cambia su directorio de trabajo de ninguna manera, lo que significa que después de eso, puede intentar realizar la confirmación que desee nuevamente.
 
-[setup]
+[configuración]
 
-echo "1 2 3 4" > numbers
-git add .
-git commit -m "Initial commit"
-echo "1 2 3 4 5 6 7 8 9 11" > numbers
-git commit -am "More numberrrrrs"
+eco "1 2 3 4" > números
+git agregar.
+git commit -m "Compromiso inicial"
+eco "1 2 3 4 5 6 7 8 9 11" > números
+git commit -am "Más númerosrrrrs"
 
-[win]
+[ganar]
 
-# In the last main commit, the numbers file contains the numbers from 1 to 10.
-test "$(git show main:numbers)" = "1 2 3 4 5 6 7 8 9 10"
-# The commit message of that commit is "More numbers".
-git log -1 --oneline | grep "More numbers"
-# The commit with the typo is not part of the main branch anymore.
-git log --oneline | grep -v "rrrrr"
+# En la última confirmación principal, el archivo de números contiene los números del 1 al 10.
+prueba "$(git show main:números)" = "1 2 3 4 5 6 7 8 9 10"
+# El mensaje de confirmación de esa confirmación es "Más números".
+git log -1 --oneline | grep "Más números"
+# La confirmación con el error tipográfico ya no forma parte de la rama principal.
+registro de git --oneline | grep -v "rrrrr"

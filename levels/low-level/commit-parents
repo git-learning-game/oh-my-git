@@ -1,31 +1,31 @@
-[description]
+[descripción]
 
-When using the commit-tree command, you can optionally specify a parent:
+Al utilizar el comando commit-tree, opcionalmente puedes especificar un padre:
 
-    git commit-tree <tree> -m "Description" -p <parent commit>
+    git commit-tree <árbol> -m "Descripción" -p <compromiso principal>
 
-Make a string of three commits!
+¡Haz una serie de tres confirmaciones!
 
-Hint: You'll need a tree object. What could be the easiest way to obtain one?
+Sugerencia: necesitarás un objeto de árbol. ¿Cuál podría ser la forma más sencilla de obtener uno?
 
-[setup]
+[configuración]
 
-[setup goal]
+[objetivo de configuración]
 
-git write-tree
-FIRST_COMMIT=$(git commit-tree 4b82 -m 'First commit :O')
-SECOND_COMMIT=$(git commit-tree 4b82 -p $FIRST_COMMIT -m 'Second commit :D')
-THIRD_COMMIT=$(git commit-tree 4b82 -p $SECOND_COMMIT -m 'Third commit \o/')
+árbol de escritura de git
+FIRST_COMMIT=$(git commit-tree 4b82 -m 'Primera confirmación:O')
+SECOND_COMMIT=$(git commit-tree 4b82 -p $FIRST_COMMIT -m 'Segundo compromiso :D')
+THIRD_COMMIT=$(git commit-tree 4b82 -p $SECOND_COMMIT -m 'Tercer compromiso \o/')
 
-[win]
+[ganar]
 
-COMMITS=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep commit | cut -f1 -d" ")
+COMMITS=$(git cat-file --batch-check='%(nombre de objeto) %(tipo de objeto)' --batch-all-objects | grep commit | cut -f1 -d" ")
 
-for COMMIT in $COMMITS; do
-    echo a commit named $COMMIT
-    if [ $(git rev-list $COMMIT | wc -l) -ge 3 ]; then
-        return 0
+para COMMITIR en $COMMITS; hacer
+    hacer eco de una confirmación llamada $COMMIT
+    if [ $(git rev-list $COMMIT | wc -l) -ge 3 ]; entonces
+        regresar 0
     fi
-done
+hecho
 
-return 1
+regresar 1
