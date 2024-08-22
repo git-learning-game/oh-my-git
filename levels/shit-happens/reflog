@@ -5,9 +5,9 @@ cards = checkout reflog
 
 Say you were looking at something in the past, and then switched back to the main branch.
 
-But then, you got reaaally distracted, and after your lunch break, you can't remember on which commit in the past you were before. How can you find out?
+But then, you got reaaally distracted, and after your lunch break, you can't remember which past commit you were on before. How can you find out?
 
-There's a convenient command that shows you all the places your HEAD did point to in the past:
+There's a convenient command that shows you all the places your HEAD has pointed to in the past:
 
     git reflog
 
