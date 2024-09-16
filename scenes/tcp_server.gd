@@ -13,7 +13,7 @@ func _ready():
 	start()
 
 func start():
-	_s.listen(port)
+	_s.listen(port, "127.0.0.1")
 		
 func _process(_delta):
 	if _s.is_connection_available():

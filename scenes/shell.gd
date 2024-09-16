@@ -109,7 +109,7 @@ func _shell_binary():
 #func run_async_thread(command):
 #	var port = 1000 + (randi() % 1000)
 #	var s = TCP_Server.new()
-#	s.listen(port)
+#	s.listen(port, "127.0.0.1")
 #	var _pid = OS.execute("ncat", ["127.0.0.1", str(port), "-c", command], false, [], true)
 #	while not s.is_connection_available():
 #		pass
