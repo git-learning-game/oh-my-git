@@ -1,33 +1,32 @@
-title = Your first commit
+title = Tu primer commit
 cards = commit-auto
 
 [description]
 
-You can use your time machine to make snapshots of objects around you! Here, let's practice this!
+¡Puedes usar tu máquina del tiempo para hacer instantáneas de objetos a tu alrededor! ¡Aquí, practiquemos esto!
 
-(Your teacher pours some water into a glass.)
+(La profe Andrea vierte un poco de agua en un vaso.)
 
 [cli]
 
-Again, instead of using the card, you can also type the commands which are printed on it into the black terminal below!
+¡De nuevo, en lugar de usar la tarjeta, también puedes escribir los comandos que están impresos en ella en la terminal negra de abajo!
 
-This is totally optional! But this will be a super useful skill in the real world - and it will give you a sparkling golden badge! :)
+¡Esto es completamente opcional! Pero esta será una habilidad súper útil en el mundo real, ¡y te dará una insignia dorada brillante! :)
 
 [setup]
 
-echo "The glass is full of water." > glass
+echo "El vaso esta lleno de agua." > vaso
 
 [win]
-
-# Make a snapshot of the glass (a "commit")
+# Haz una instantánea del vaso (un "commit")
 git rev-parse HEAD
 
-# Change the contents of the glass!
-! test "$(cat glass)" = "The glass is full of water."
+# ¡Cambia el contenido del vaso!
+! test "$(cat vaso)" = "El vaso esta lleno de agua."
 
-# And make a second commit!
-git rev-parse HEAD^ && ! test "$(git show main:glass)" = "The glass is full of water."
+# ¡Y haz un segundo commit!
+git rev-parse HEAD^ && ! test "$(git show main)" = "El vaso esta lleno de agua."
 
 [congrats]
+¡Bien hecho! Puedes intentar hacer algunos commits adicionales. Cuando te sientas cómodo, haz clic en "Siguiente nivel".
 
-Nice! You can try making some additional commits. When you feel comfortable, click on "Next Level".
