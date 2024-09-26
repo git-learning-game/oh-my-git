@@ -15,6 +15,17 @@ onready var main = get_tree().get_root().get_node("Main")
 
 var shell = Shell.new()
 
+var COLORS = [
+	Color.webgray, # black
+	Color.crimson, # red
+	Color.chartreuse, # green
+	Color.gold, # yellow
+	Color.royalblue, # blue
+	Color.magenta, # magenta
+	Color.cyan, # cyan
+	Color.white # white
+]
+
 var premade_commands = [
 	'git commit --allow-empty -m "empty"',
 	'echo $RANDOM | git hash-object -w --stdin',
@@ -82,15 +93,62 @@ func send_command(command):
 	input.editable = false
 	completions.hide()
 
+	var pretty_command = command
+
 	# If someone tries to run an editor, use fake-editor instead.
 	var editor_regex = RegEx.new()
 	editor_regex.compile("^(vim?|gedit|emacs|kate|nano|code) ")
 	command = editor_regex.sub(command, "fake-editor ")
+	# If someone tries to run git and don't pipe it, add color
+	var commands = command.rsplit("|", 1)
+	var git_regex = RegEx.new()
+	git_regex.compile("^git ([^>|]*)$")
+	commands[-1] = git_regex.sub(commands[-1], "git -c color.ui=always $1")
+	var gnu_color_regex = RegEx.new()
+	gnu_color_regex.compile("^(\\s*([a-z]?grep|ls|diff))\\b([^>]*)$")
+	commands[-1] = gnu_color_regex.sub(commands[-1], "$1 --color=always$3")
+	command = "|".join(commands)
 
 	shell.cd(repository.path)
-	var cmd = shell.run_async(command, false)
+	var cmd = shell.run_async(command, pretty_command, false)
 	yield(cmd, "done")
 	call_deferred("command_done", cmd)
+
+func add_ansi_command(pager, cmd):
+	pager.push_color(Color.darkgoldenrod)
+	pager.add_text("$ ")
+	pager.push_color(pager.get_color("default_color"))
+	pager.add_text(cmd.pretty_command + "\n")
+
+func perform_ansi(pager, codes):
+	# TODO lacks support for bold, italics, strikthrough, strong colors, etc
+	# Not doing that for now because there are no relevant fonts anyways.
+	for code in codes.split(";"):
+		match code:
+			"","0","39": # reset, reset, normal color
+				pager.push_color(pager.get_color("default_color"))
+			_: # 30 <= code <= 37 -> colors
+				var color_index = int(code) - 30
+				if (color_index >= 0) and (color_index <= 7):
+					pager.push_color(COLORS[color_index])
+
+func add_ansi_output(pager, cmd):
+	var escape_start = char(27) + "["
+	var escape_end = "m"
+	var data = cmd.output
+	while escape_start in data:
+		var parts = data.split(escape_start, true, 1)
+		pager.add_text(parts[0])
+		if parts[1].begins_with("K"):
+			data = parts[1].substr(1)
+			continue
+		if "m" in parts[1]:
+			parts = parts[1].split("m", true, 1)
+			data = parts[1]
+			perform_ansi(pager, parts[0])
+		else:
+			data = parts[1]
+	pager.add_text(data)
 
 func command_done(cmd):
 	if cmd.exit_code == 0:
@@ -102,11 +160,14 @@ func command_done(cmd):
 	input.text = ""
 	input.editable = true
 	
+	add_ansi_command(output, cmd)
 	if cmd.output.length() <= 1000:
-		output.text = output.text + "$ " + cmd.command + "\n" + cmd.output
+		add_ansi_output(output, cmd)
 		game.notify("This is your terminal! All commands are executed here, and you can see their output. You can also type your own commands here!", self, "terminal")
 	else:
-		$Pager/Text.text = cmd.output
+		var pager = $Pager/Text
+		pager.clear()
+		add_ansi_output(pager, cmd)
 		$Pager.popup()
 	
 	emit_signal("command_done")
@@ -116,7 +177,7 @@ func receive_output(text):
 	repository.update_everything()
 
 func clear():
-	output.text = ""
+	output.clear()
 	
 func editor_closed():
 	input.grab_focus()
