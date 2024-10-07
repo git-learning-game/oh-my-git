@@ -49,9 +49,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Card" type="Node2D" groups=[
-"cards",
-]]
+[node name="Card" type="Node2D" groups=["cards"]]
 script = ExtResource( 3 )
 
 [node name="Panel" type="Panel" parent="."]
@@ -120,8 +118,8 @@ margin_left = -92.0
 margin_top = -98.0
 margin_right = 90.0
 margin_bottom = -14.0
-custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 7 )
 text = "Description"
 autowrap = true
 __meta__ = {
@@ -170,5 +168,6 @@ stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_mouse_exited"]

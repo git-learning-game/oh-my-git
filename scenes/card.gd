@@ -115,7 +115,7 @@ func set_energy(new_energy):
 func set_id(new_id):
 	id = new_id
 	var art_path = "res://cards/%s.svg" % new_id
-	var file = File.new()
+	#var file = File.new()
 	#if file.file_exists(art_path):
 	var texture = load(art_path)
 	if texture:

@@ -12,9 +12,6 @@ rect_clip_content = true
 mouse_filter = 2
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Rows" type="HSplitContainer" parent="."]
 anchor_right = 1.0
@@ -113,6 +110,7 @@ margin_bottom = 61.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="Rows/RepoVis/Button" to="." method="update_everything"]

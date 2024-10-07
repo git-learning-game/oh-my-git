@@ -189,9 +189,9 @@ position = Vector2( 68.6342, 59.1206 )
 script = ExtResource( 9 )
 
 [node name="Area2D" type="Area2D" parent="Cursor"]
-input_pickable = false
 collision_layer = 524288
 collision_mask = 0
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D"]
 shape = SubResource( 1 )
@@ -276,6 +276,7 @@ text = "Next level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="saved" from="Rows/Columns/RightSide/FileBrowser" to="." method="update_repos"]
 [connection signal="command_done" from="Rows/Controls/Terminal" to="." method="update_repos"]
 [connection signal="pressed" from="Menu/BackButton" to="." method="back"]

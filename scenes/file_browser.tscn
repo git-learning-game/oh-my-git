@@ -4,17 +4,12 @@
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=3]
 
-[node name="FileBrowser" type="Control" groups=[
-"editors",
-]]
+[node name="FileBrowser" type="Control" groups=["editors"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 0, 142 )
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
@@ -131,5 +126,6 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="."]
 margin_right = 20.0
 margin_bottom = 20.0
+
 [connection signal="pressed" from="Panel/TextEdit/SaveButton" to="." method="save"]
 [connection signal="pressed" from="Panel/TextEdit/CloseButton" to="." method="close"]
