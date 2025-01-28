@@ -3,8 +3,8 @@ cards = checkout commit-auto merge reset-hard
 
 [description]
 
-When you want to reapply your changes but you already continued working on your file, you might get
-a merge conflict! Let's practise this situation.
+When you want to re-apply your changes but you already continued working on your file, you might get
+a merge conflict! Let's practice this situation.
 Pop the changes from the stash with
     git stash pop
 and resolve the merge conflict. Commit the resolved changes and clear the stash stack afterwards.
