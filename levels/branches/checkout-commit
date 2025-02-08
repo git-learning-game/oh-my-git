@@ -36,7 +36,7 @@ git branch -df main
 [win]
 
 # Restore sisterly peace.
-{ git show HEAD:piggy_bank | grep "10 coins"; } && { git show HEAD:little_sister | grep -v "10 coins"; } && { git rev-parse HEAD^^^; }
+{ git show HEAD:piggy_bank | grep "10 coins"; } && { test $(git show HEAD:little_sister | wc -l) -eq $(git show HEAD:little_sister | grep -v "10 coins" | wc -l); } && { git rev-parse HEAD^^^; }
 
 [congrats]
 
