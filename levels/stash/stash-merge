@@ -39,7 +39,7 @@ git add recipe
 
 [win]
 
-# Did you resolve the confict and commit?
+# Did you resolve the conflict and commit?
 { git show HEAD | grep "Flour"; } && { git show HEAD | grep "Salt"; }
 
 # Did you clear stash stack?
