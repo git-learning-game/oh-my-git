@@ -1,10 +1,6 @@
 [description]
 
-And finally, to delete a ref, use
-
-    git update-ref -d refs/<refname>
-
-Delete all refs! :P (Well, except for HEAD. HEAD is special.)
+refremove_description_304
 
 [setup]
 

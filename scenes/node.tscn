@@ -52,7 +52,7 @@ margin_right = 129.073
 margin_bottom = 40.9903
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "object_id"
+text = "node_id_028"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -1,0 +1,808 @@
+keys,en,ru
+card_description_001,Description,
+card_energy_002,0,
+music_button_button3_003,Toggle music,
+arrow_id_004,label,
+cards_button_005,Draw new cards,
+cards_energy_006,3,
+title_label2_007,by bleeptrack & blinry,
+title_label3_008,Original score by winniehell,
+title_button_009,Levels,
+title_button3_010,Sandbox,
+title_button2_011,Quit,
+survey_label_012,Oh My Git!,
+survey_button_013,Support us! (Open two browser tabs),
+main_levelname_014,Level name here!,
+main_leveldescription_015,Level description here!,
+main_backbutton_016,Back,
+main_reloadbutton2_017,Reload,
+main_cardsbutton_018,Cards!,
+main_tip_019,Tip!,
+main_nextlevelbutton_020,Next level,
+terminal_button_021,"git commit --allow-empty -m ""$RANDOM""",
+terminal_button2_022,git checkout HEAD^,
+terminal_button3_023,"git checkout -b ""$RANDOM""",
+repository_label_024,Repo name,
+repository_indexlabel_025,Index:,
+repository_button_026,Update,
+repository_simplifycheckbox_027,Hide trees and blobs,
+node_id_028,object_id,
+level_select_button3_029,To the survey /o/,
+no_git_button2_030,"Sure, I'll install it!",
+notification_label_031,This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint!,
+notification_ok_032,Got it!,
+file_browser_title_033,title,
+file_browser_button_034,root,
+file_browser_button2_035,dir,
+file_browser_savebutton_036,Save,
+text_editor_texteditor_038,Text here,
+file_browser_item_label_039,filename,
+merge_title_040,Merging timelines,
+merge_description_041,"Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!",
+merge_congrats_042,I wonder if you're more relaxed when you *sleep* in parallel timelines...,
+merge_win_hint_043,"Build a situation where you consumed a baguette, a coffee, *and* a donut.",
+merge_win_hint_044,Be on a merge commit.,
+conflict_title_045,Contradictions,
+conflict_description_046,"Sometimes, timelines will contradict each other.
+
+For example, in this case, one of our clients wants these timelines merged, but they ate different things for breakfast in both timelines.
+
+Try to merge them together! You'll notice that there will be a conflict! The time machine will leave it up to you how to proceed: you can edit the problematic item, it will show you the conflicting sections. You can keep either of the two versions - or create a combination of them! Remove the >>>, <<<, and === markers, and make a new commit to finalize the merge!
+
+Let your finalized timeline be the ""main"" one.",
+conflict_congrats_047,"Yum, that sounds like a good breakfast!",
+conflict_win_hint_048,Make a breakfast compromise in the 'main' branch.,
+mergeabort_title_049,Abort a merge,
+mergeabort_description_050,"Sometimes you want to merge two commits, but a merge conflict occurs that you currently don't want to resolve.
+
+In these situations you can abort the merge to merge later. Use
+    git merge --abort
+when you are in a merge process.
+
+Try to merge both commits and abort the merge afterwards.",
+mergeabort_congrats_051,"Aaah, let's merge later...",
+mergeabort_win_hint_052,You tried to merge?,
+mergeabort_win_hint_053,You aborted to merge?,
+reset_title_054,Resetting files in the index,
+reset_description_055,"See the dark shadow behind the icons? That's the version of the file in the last commit!
+
+For example, these candles have been blown out, and that change has been added.
+
+But you decide that this was a mistake! You only want to blow out the red candle in the next commit!
+
+If you already have updated the index to a changed file, but want to reset it, you can use `git reset`!",
+reset_win_hint_056,Reset the changes in the green and blue candles!,
+reset_win_hint_057,And make a commit!,
+change_title_058,Update files in the index,
+change_description_059,"When we change files, the index won't change on its own. We have to use `git add` to update the index to the changed version of the file.
+
+Let's try that!
+
+The icons in the file browser show you when the actual file (white) and the version in the index (blue) are different, and when they are the same!",
+rm_title_060,Delete a file in the next commit,
+rm_description_061,"If you want to remove a file in the next commit, you can use `git rm`! This will both delete the file locally, and in the index.
+
+If a file is modified, you'll need to reset these changes first/reset the files.",
+rm_win_hint_062,Make a commit where all files are deleted ¯\_(^_^)_/¯,
+steps_title_063,Adding changes step by step,
+steps_description_064,"The index is really useful, because it allows us to be precise about which changes we want to include in each commit!",
+steps_win_hint_065,"Make changes to all three objects, to form a logical sequence of events!",
+steps_win_hint_066,Only add one of these changes!,
+steps_win_hint_067,And make a commit.,
+steps_win_hint_068,Make a second commit that only records a single change.,
+steps_win_hint_069,And a third one.,
+compare_title_070,Step by step,
+compare_description_071,"Welcome to today's lesson! We're going to learn how to make commits with more precision!
+
+Have a look at these two timelines. They have exactly the same outcome. But one of them makes it much easier to figure out what happened.",
+compare_win_hint_072,Right! Having each change in its own commit makes it easier to understand what's going on! Let's learn how to do that!,
+checkout_title_073,Checking out files from the index,
+checkout_description_074,"So you've made changes to your files, but you decide that you don't want to keep them! You can use `git checkout` for that!
+
+What happens if you have already update the index, like in file c? You have to reset the index first!",
+checkout_win_hint_075,Remove all changes in your local files!,
+add_title_076,Updating files in the index,
+add_description_077,"So you start working, and make changes to your files! Git lets you choose which of these changes you want to put in the next commit. This is like updating the index version of that file to the new version.
+
+This allows you to have smaller commits, that describe better what you changed!
+
+The command for this is the same - `git add`!",
+add_congrats_078,"Well done! Try travelling between the commits using `git checkout`, so you can look at their contents again!",
+add_win_hint_079,Make changes to all files!,
+add_win_hint_080,"Add only the changes of a and c, and make a commit! Finally, make a commit which captures the changes in b!",
+new_title_081,Add new files to the index,
+new_description_082,"So far, when we made a commit, we've always recorded the current status of all objects, right?
+
+But Git allows you to pick which changes you want to put in a commit!
+
+To learn how that works, we need to learn about the ""index""! In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura around icons in the file browser!
+
+Initially, the index is empty. To make a commit that contains a new file, we need to add it!",
+new_win_hint_083,Add the candle.,
+new_win_hint_084,Make a commit.,
+checkoutcommit_title_085,Moving111 through time,Двигаюсьч
+checkoutcommit_description_086,"The yellow boxes are frozen points in time, we call them ""commits""! You can travel between them using the ""checkout"" card! (Try it!)
+
+Can you find out what happened here? Then, while on the last commit, edit the files to fix the problem, and make a new commit!",
+checkoutcommit_congrats_087,"Wonderful! Now that you're getting familiar with the time machine, let's look at some more complicated situations...",
+checkoutcommit_win_hint_088,Restore sisterly peace.,
+branchcreate_title_089,Creating branches,
+branchcreate_description_090,"You were invited to two parties! At one of them, your favorite band is playing - and the other one is your best friend's birthday party. Where should you go? No worries - as a time travel agent in training, you can go to both parties!
+
+To make it easier to tell which timeline is which, you can create time portals! (We call these ""branches"".)",
+branchcreate_congrats_091,"Now you can travel between those branches easily (using `git checkout`) - try it!
+
+Your friend is happy that you made it to the birthday party and you also got your concert ticket signed. Yay!",
+branchcreate_win_hint_092,Create a branch called 'birthday' that points to the birthday timeline.,
+branchcreate_win_hint_093,Create a branch called 'concert' that points to the concert timeline.,
+grow_title_094,Branches grow with you!,
+grow_description_095,"Note that there are two options to ""travel to the end of a timeline"":
+
+First, you can directly travel to the commit, like we've done it before.
+
+And second, you can travel to the branch label. In this case, when you make a new commit, the branch will grow with you, and still point at the end of the timeline!",
+grow_win_hint_096,"Travel directly to the last yellow commit of the birthday timeline, make a change to 'you', and make a commit",
+grow_win_hint_097,"Travel to the blue 'concert' branch, make a change to 'you', and a commit.",
+reorder_title_098,Moving branches around,
+reorder_description_099,"One of your colleagues messed up here, and put the branches in the wrong timelines!
+
+You could delete and re-create these branches - but you can also directly move them to different commits, by using
+
+    git checkout
+
+on the branch names, and then using
+
+    git reset --hard
+
+on the commit where you want the branch to be.
+
+The donut branch is in the right place, but the timeline is still incomplete - make you actually *eat* the donut in that branch!",
+reorder_win_hint_100,Did you eat a baguette on the baguette branch?,
+reorder_win_hint_101,Did you drink a coffee on the coffee branch?,
+reorder_win_hint_102,Did you eat a donut on the donut branch?,
+fork_title_103,Make parallel commits,
+fork_description_104,"Did you know that creating parallel timelines is perfectly legal and safe? It's true!
+
+Can you find out when things went wrong in this zoo? Then, go back to the last good commit and create a parallel universe where everyone is happy!",
+fork_congrats_105,"Whew, good job! This seems like a *much* better outcome.
+
+Feel free to add more parallel timelines, or make them longer.
+
+If you're ready, our next mission is already waiting...",
+fork_win_hint_106,Make sure that the child is happy.,
+fork_win_hint_107,Make sure that the lion gets something to eat.,
+branchremove_title_108,Deleting branches,
+branchremove_description_109,"Life is full of dangers, right? Even when walking to school, it seems like there's a lot of risks!
+
+This Monday is especially bad. You made it to school, but there's some timelines you definitely don't want to keep around.",
+branchremove_congrats_110,"On second thought, maybe you even prefer the ice cream timeline to the main one? :)",
+branchremove_win_hint_111,Find the bad branches and delete them. Keep only the best one.,
+cli_title_112,The command line,
+cli_description_113,These playing cards are designed to be easy to use and to remember! We'd suggest sticking to them if you don't have a lot of experience with Git!,
+cli_congrats_114,"Cool! Instead of using the playing cards, you can also do everything via the command line!
+
+The command line is pretty powerful! Often, you can use it to solve tasks faster compared to using a graphical interface.",
+cli_win_hint_115,Initialize the time machine!,
+whoareyou_title_116,Welcome to time travel school!,
+whoareyou_description_117,"You're still pretty confused by everything that's going on. The next day, you decide to enroll in time travel school!
+
+Your time travel teacher welcomes you: ""Hello there! Wanna tell us your name?""",
+whoareyou_congrats_118,"""We're so glad to have you!
+
+Git can help you fix problems in the past! It allows you to collaborate with other students of time travel! It's really powerful, and it's really popular! I'll see you for your first lesson tomorrow!""",
+whoareyou_win_hint_119,Introduce yourself.,
+whoareyou_win_hint_120,"Fill out the enrollment form, and commit it!",
+init_title_121,Enter the time machine,
+init_description_122,"You've been accepted to time travel school! Yay! It's your first day! Your teacher explains:
+
+""To do anything with a time machine, you first need to initialize it!""
+
+Drag that blue card up to play it!",
+init_congrats_123,"Nice! See that little owl squirrel that appeared? It will be your companion, and always show you where you are in time!",
+risky_title_124,Living dangerously,
+risky_description_125,"So you have decided to apply for time travel school, to learn how to use this time machine called ""Git""!
+
+How exciting!
+
+You're almost done with the paperwork! You just need to fill in one more reason why you want to learn Git.",
+risky_congrats_126,"Suddenly, your cat jumps on the table, snatches away the form, and runs away! Oh no. All your hard work, gone!
+
+You clearly need a better solution.
+
+(Click ""Next Level"" as soon as you're ready!)",
+risky_win_hint_127,Add another line to form.txt!,
+remote_title_128,Working together,
+remote_description_129,"Let's add your name to our list of students!
+
+I already have a second commit of it in my time machine - let's work together!",
+remote_congrats_130,Welcome to time travel school! :) I'll see you for your first class tomorrow!,
+remote_win_hint_131,Get the second commit from your teacher using `git pull`.,
+remote_win_hint_132,Add your name to the list of students,
+remote_win_hint_133,Commit your result.,
+commit_title_134,Your first commit,
+commit_description_135,"You can use your time machine to make snapshots of objects around you! Here, let's practice this!
+
+(Your teacher pours some water into a glass.)",
+commit_congrats_136,"Nice! You can try making some additional commits. When you feel comfortable, click on ""Next Level"".",
+commit_win_hint_137,"Make a snapshot of the glass (a ""commit"")",
+commit_win_hint_138,Change the contents of the glass!,
+commit_win_hint_139,And make a second commit!,
+copies_title_140,Making backups,
+copies_description_141,"This time, you're making a lot of backup copies - you can look at them by clicking on them!",
+copies_congrats_142,"Okay, this kind of works.
+
+But you're a bit worried that you'll end up with hundreds of copies of this form, and it will be hard to keep track of all of them.
+
+And especially when working with other people, sending copies back and forth doesn't seem ideal.
+
+You can't wait to try these time machines!",
+copies_win_hint_143,Add another line to form2_really_final.txt!,
+stash_title_144,Stashing,
+stash_description_145,"You will encounter situations in which you are working on your project but you need to
+put your current changes aside temporarily. To do so, you can use the stash function. Use
+    git stash push 
+to add your current changes to the stash stack.
+
+---
+tipp1
+---
+tipp2
+---
+tipp3",
+stash_congrats_146,Nice stash you got there! :),
+stash_win_hint_147,Did you stash the current changes?,
+stashpop_title_148,Pop from Stash,
+stashpop_description_149,"When you stashed your changes and you want to apply them back to your current working directory, you can use
+    git stash pop
+This will remove the changes from the stash stack. If you also want to keep the changes on the stash stack, use
+    git stash apply
+
+---
+tipp1
+---
+tipp2
+---
+tipp3",
+stashpop_congrats_150,"Yay, you got your changes back! :)",
+stashpop_win_hint_151,Did you pop the changes from the stash stack?,
+stashclear_title_152,Clear the Stash,
+stashclear_description_153,"If you want to inspect your stash stack, use the command
+    git stash list
+    
+Oh, you don't want to keep your stashed changes? There are way too many? Then go ahead and clear the stack with
+    git stash clear
+If you only want to discard a certain stash entry, you can use
+    git stash drop <stash>
+    
+Clear your stash stack!
+
+---
+tipp1
+---
+tipp2
+---
+tipp3",
+stashclear_congrats_154,All clear! :),
+stashclear_win_hint_155,Did you clear your stash stack?,
+stashmerge_title_156,Merging popped stash,
+stashmerge_description_157,"When you want to re-apply your changes but you already continued working on your file, you might get
+a merge conflict! Let's practice this situation.
+Pop the changes from the stash with
+    git stash pop
+and resolve the merge conflict. Commit the resolved changes and clear the stash stack afterwards.
+
+---
+tipp1
+---
+tipp2
+---
+tipp3",
+stashmerge_win_hint_158,Did you resolve the conflict and commit?,
+stashmerge_win_hint_159,Did you clear stash stack?,
+stashbranch_title_160,Branch from stash,
+stashbranch_description_161,"If you want to keep your changes but they don't belong to the main branch, you can easily
+create a new branch from your stashed changes. Just use
+    git stash branch <branchname> <stash>
+If you just want to use the latest stash entry, you can leave the <stash> option empty.
+
+Create a new branch from the stashed changes!
+
+---
+tipp1
+---
+tipp2
+---
+tipp3",
+stashbranch_congrats_162,Stashed changes are in a new branch! :),
+stashbranch_win_hint_163,Did you create a new branch from the stashed changes?,
+whoareyou_title_164,Nice to meet you!,
+whoareyou_description_165,"Introduce yourself using
+
+    git config --global user.name Firstname
+    git config --global user.email ""your@mail.com""",
+whoareyou_win_hint_166,Have a name configured.,
+whoareyou_win_hint_167,Have an email address configured.,
+clone_title_168,Cloning a repo,
+clone_description_169,"Get your friend's repo using clone, change something, push it back.",
+init_title_170,Welcome!,
+init_win_hint_171,"Again, initialize your time machine!",
+split_title_172,Split a commit!,
+split_description_173,"Here, both changes happened in one commit! Split them to be in two commits instead.",
+steps_title_174,One step after another,
+steps_description_175,"Sometimes, you might want to record the order in which things changed, instead of making a single commit.
+
+What happened here? Make two commits from the changes (using the ""add"" card), in an order that makes sense!",
+commita_title_176,"Make a commit, but faster!",
+commita_description_177,"There is a time-saving trick, where instead of a plain `git commit`, you can use
+
+    git commit -a
+
+This will automatically add all changes you made to local files! Very convenient.",
+commita_win_hint_178,"Make a commit where all files contain ""x"".",
+filesmove_title_179,No sleep required,
+filesmove_description_180,"Actually, you decide that you don't need any sleep.
+
+Because of that, you won't require a bed, and can build some other piece of furniture from the wood!",
+filesmove_congrats_181,"Neat! It even still looks a bit comfortable!
+
+You head out, eager for your first lesson at time travel school!",
+filesmove_win_hint_182,"Rename the bed into something else, and give it a new description!",
+remotesdelete_title_183,Deleting and renaming a remote,
+remotesdelete_description_184,"Here, you already have two remotes configured! You can list them using `git remote`.",
+remotesdelete_win_hint_185,Rename the remote with the typo (using `git remote rename [old name] [new name]`),
+remotesdelete_win_hint_186,The remote with the typo is gone.,
+remotesdelete_win_hint_187,Delete the remote you don't want to keep (using `git remote remove [remote]`),
+commit_title_188,Make a commit \o/,
+commit_description_189,"For practice, make a commit where all files contain an ""x""!",
+commit_win_hint_190,"File a contains ""x"" in the last main commit.",
+commit_win_hint_191,"File b contains ""x"" in the last main commit.",
+commit_win_hint_192,"File c contains ""x"" in the last main commit.",
+pullpush_title_193,Helping each other,
+pullpush_description_194,"The events and timelines you see are always only what your own time machine knows about!
+
+Of course, time agents don't have to work alone! Here, your sidekick has already prepared a merge for you! You can use the ""pull"" card to transfer it to your own time machine.
+
+Then, add another event on top (what does Sam have for dinner?), and `push` the result, to transfer it back to your sidekick!
+
+You can only ever manipulate things in your own time machine (the one on the bottom).",
+pullpush_congrats_195,"In reality, in many cases, a lot of time agents work together to build a really good future together! :)",
+fetch_title_196,Fetching from remotes,
+fetch_description_197,"Here, you already have two remotes configured! You can list them using `git remote`.
+
+Fetch from both, and look at the suggestions.
+
+Then, make a new commit on top of your original one that introduces a compromise.",
+fetch_win_hint_198,Your proposal is acceptable for friend1.,
+fetch_win_hint_199,Your proposal is acceptable for friend2.,
+remotesadd_title_200,Adding a remote,
+remotesadd_description_201,"Let's work together with others! Your friend has their own repo at the URL `../friend` - you can add it using
+
+    git remote add [name] [URL]
+
+where `[name]` is an arbitrary, short name you pick for the remote.
+
+When you've done that, you can get all commits from that remote using
+
+    git pull friend
+
+There's a letter for you!",
+remotesadd_win_hint_202,Add a remote that points to ../friend.,
+remotesadd_win_hint_203,Pull from the remote.,
+checkout_title_204,Getting the last version,
+checkout_description_205,"You've been working on your essay for a while. But - ughh! Now your cat walks over your keyboard and ""helps you"", so now it's all messed up! :/
+
+But Git is here to help! To discard all changes your cat made, and go back to the version in the last commit, use `checkout`!",
+checkout_win_hint_206,Restore the version from the last commit.,
+restore_title_207,Looking into the past,
+restore_description_208,"You've been working on your essay for a while. But you're not happy with the changes you've made recently. You want to go back to the version called ""Best version""!
+
+No problem, you can use the `checkout` card to restore your essay from an older commit!",
+restore_win_hint_209,"For nostalgic reasons, restore the very first backup you made!",
+indexmv_title_210,Rename a file in the next commit,
+indexmv_description_211,"Other times, you might want to rename a file in the next commit. Use
+
+    git mv [file] [new name]
+
+for that. The effect is very similar as if you had created a copy with a new name, and removed the old version.",
+indexmv_win_hint_212,"Make a commit where you rename the file b to ""x"".",
+reflog_title_213,Go back to where you were before,
+reflog_description_214,"Say you were looking at something in the past, and then switched back to the main branch.
+
+But then, you got reaaally distracted, and after your lunch break, you can't remember which past commit you were on before. How can you find out?
+
+There's a convenient command that shows you all the places your HEAD has pointed to in the past:
+
+    git reflog",
+reflog_win_hint_215,"Find out where you've been before, and go back there!",
+pushedsomethingbroken_title_216,I pushed something broken,
+pushedsomethingbroken_description_217,"We were talking about how to undo a commit, and fix it. This only helps when you haven't already pushed it to a remote. When that has happened, and you want to undo the effects of the commit completely, your best option is `git revert`",
+badcommit_title_218,Undo a bad commit,
+badcommit_description_219,"Oh no, we made a bad commit! How can we undo making the commit, and go back to a point where we can try again?
+
+The answer is using `git reset [commit]`, which does two things:
+
+- It resets the current branch ref to the commit you specify.
+- And it resets the index to that commit.
+
+It does not change your working directory in any way, which means that after that, you can try making the commit you want again.",
+badcommit_win_hint_220,"In the last main commit, the numbers file contains the numbers from 1 to 10.",
+badcommit_win_hint_221,"The commit message of that commit is ""More numbers"".",
+badcommit_win_hint_222,The commit with the typo is not part of the main branch anymore.,
+restoreafilefromthepast_title_223,Restore a file from the past,
+restoreafilefromthepast_description_224,"Here's a similar problem: you really liked the essay from the very first commit, and want to have it back! Well, checkout can also restore things from older commits, Here's how:
+
+    git checkout [commit] [file]",
+restoreafilefromthepast_win_hint_225,"Get the first version of your essay, and make a new commit with it.",
+restoreafile_title_226,Restore a deleted file,
+restoreafile_description_227,"Oops - you deleted the ""essay"" file, which you worked on all night!
+
+Luckily, Git is here to help! You can use `git checkout` to restore the file!",
+restoreafile_win_hint_228,"Restore the essay to contain ""important content""",
+remotetag_title_229,Remote Tags,
+remotetag_description_230,"When you work with remote repositories, tags are not pushed or pulled automatically.
+
+You can push a tag with
+    git push <remote> <tag-name>
+Or all tags with:
+    git push <remote> --tags
+    
+Deleting tags on your remote works with: 
+    git push <remote> --delete <tag-name>
+    
+You can also sync 
+    git fetch <remote> --prune --prune-tags
+
+
+Add a tag named ""v2"" to the last commit and push it to the remote. Also pull the v1 tag to your local repository.",
+remotetag_win_hint_231,v1 tag in your repo,
+remotetag_win_hint_232,v2 tag in your repo,
+addtaglater_title_233,Tagging later,
+addtaglater_description_234,"But what happens if you forgot to tag your current commit?
+No Prob! You can also tag older commits via
+
+    git tag <tag-name> <commit-hash>
+    
+Tag the commit ""Adding feature 2"" with the name ""v1""!
+
+---
+tipp1
+---
+tipp2
+---
+tipp3",
+addtaglater_congrats_235,Well done :),
+addtaglater_win_hint_236,Did you create a new tag?,
+removetag_title_237,Removing tags,
+removetag_description_238,"You added way too many tags? No prob! Delete them with
+
+    git tag -d <tag-name>
+    
+Remove all tags in this repo!
+
+---
+tipp1
+---
+tipp2
+---
+tipp3",
+removetag_win_hint_239,Did you remove all tags?,
+addtag_title_240,Creating tags,
+addtag_description_241,"Some of your commits may be special commits. Maybe you reached a milestone or a new version number.
+
+You can mark these commits with a special flag called 'tag'.
+
+Write 
+
+    git tag <tag-name> 
+    
+to tag your commit.
+
+---
+tipp1
+---
+tipp2
+---
+tipp3",
+addtag_congrats_242,Nice! You tagged your first commit :),
+filesdelete_title_243,Unexpected Roommates,
+filesdelete_description_244,"The first day at Time Travel School comes to an end and you receive the key to your room.
+Full of excitement you open the door just to find... spider webs! Spider webs everywhere!
+
+Remove all the spider webs you can find with the remove card!",
+filesdelete_congrats_245,Your room looks now very tidy and cozy! Time to unpack your stuff!,
+filesdelete_win_hint_246,Remove all spider webs.,
+filesdelete_win_hint_247,But make sure you keep your bed!,
+filesadd_title_248,Interior design,
+filesadd_description_249,"Now that your room looks tidy, you can start to unpack your stuff. You brought two new pieces of furniture with you and with a bright smile,
+you see that their colors match the color of your bed!
+
+Build up your two pieces of furniture by playing the touch card.
+Then name your furniture - you can choose whatever you like.
+
+Make sure the colors match! You can find the bed's color in its description.
+Don't forget to add a color and description to your new furnitures, too!",
+filesadd_congrats_250,Don't you immediately feel more at home?,
+filesadd_win_hint_251,Add two more pieces of furniture,
+filesadd_win_hint_252,Make sure the colors match your bed's color.,
+rebase_title_253,Rebasing,
+rebase_description_254,"Okay - turns out that saving time in the morning by utilizing parallel universes is against the regulations of the International Time Travel Association. You'll have to do your tasks in sequence after all.
+
+See the ""rebase"" card? When you drag it to a commit, it will copy the events in your current timeline after the specified one! This way, make a clean, linear timeline where you visit all three shops.
+
+Again, we want to make that our base reality - the ""main"" branch should point to that timeline!",
+rebase_congrats_255,"Notice how the other timelines and commits are still there - if anything goes wrong, you can also travel back to them.
+
+It's really hard to actually *destroy* stuff with your time machine.",
+rebase_win_hint_256,Order all tree branches into one and move the main branch ref,
+reorder_title_257,Reordering events,
+reorder_description_258,"Oops, looks like there's something messed up here. Can you put the events back into their correct order?
+
+There are two ways to do this: You can drag the ""interactive rebase"" card to the commit before the one you want to change, then reorder the lines in the file that opens, and save it.
+
+Or you can reset the main tag to the very first commit, and then cherry-pick single commits in the order you want. You have cards for both approaches!",
+reorder_congrats_259,Feel free to reset the level and try the other strategy! Which one do you like better?,
+reorder_win_hint_260,Reorder the commits to dress yourself in the correct way,
+bisect_title_261,Yellow brick road,
+bisect_description_262,"(Please zoom out a bit using your mouse wheel! :D)
+
+Oh no! You have lost your key at some point during the day!
+
+Sure, you could look at every single commit in an attempt to find it - but there's a better way: your time machine has a built-in way to find the point in time where things went wrong quickly!
+
+First, play the ""bisect start"" card. Then, go to a commit where you don't have the key, and play the ""bisect bad"" card. Likewise, go to a commit early on where you have the key *in your pocket*, and play the ""bisect good"" card.
+
+After you've found the last good commit, reset the main branch to it. What happened to the key after you lost it?",
+bisect_congrats_263,"Well done! :) The only problem is that you now have to walk all the way back home, again...",
+bisect_win_hint_264,Find the last good commit,
+gitignore_title_265,Ignoring files,
+gitignore_description_266,"That chicken is running around a lot, and changing often. We don't want to have it in our commits.
+
+Add it to the file .gitignore, and try using `git add .`!",
+pr_description_267,"Your friend has a problem! Clone the repo located in `../friend`, create a branch called ""solution"", and fix the problem in this branch. When you're ready, make a ""Pull Request"" by using `git tag pr`.",
+empty_title_268,Empty sandbox,
+empty_description_269,This is an empty sandbox you can play around in.,
+threecommits_title_270,Sandbox with three commits,
+threecommits_description_271,"Here's a sandbox you can play around in.
+
+You can use both the playing cards, as well as the terminal. This is a real Git terminal! Fun things to try:
+
+- Make a commit that merges three timelines together at once!
+- Create and delete some tags!
+- Make a timeline that's completely independent of the rest!",
+remote_title_272,Sandbox with a remote,
+remote_description_273,"Here's a sandbox with a remote! Try pulling, fetching, or pushing!
+
+How can you push tags and branches on a remote? How can you delete them again?",
+treenested_description_274,"Trees can also point to other trees! This way, they can describe nested directory structures.
+
+When you add a file inside of a directory to the index, and then call `git write-tree`, it will create a nested tree for the directory, and attach the blob to it.
+
+To solve this level, build a little stick figure, as shown on the left - a tree that points to two blobs, as well to a tree that points to two blobs.",
+indexupdate_description_275,"Instead of removing an entry from the index and adding one with the same name, you can also directly update that entry!
+
+Put the content you want in a file with a matching name, and then run
+
+    git update-index <file>
+
+This will create a new blob, and update the hash of the entry to that blob.
+
+Update an entry in the index!",
+indexupdate_win_hint_276,This is not really a good test for the winning condition...,
+indexremove_description_277,"To remove an entry from the index, use a command like this:
+
+    git update-index --force-remove <file>
+
+Remove all entries from the index!",
+commitcreate_description_278,"So a tree describes a directory structure at a specific point in time.
+
+It would be nice if we could remember when that state existed, and who authored it, right?
+
+Enter: commits. They are objects that point to a tree and contain some additional metadata. You can create a commit using
+
+    git commit-tree <tree> -m ""Description of your commit""
+
+Make a commit from the tree in this repository!",
+treeread_description_279,"As soon as you have some tree objects, you can always read them and set the index exactly to their content! Unsurprisingly, the command is called
+
+    git read-tree <tree>
+
+For <tree>, you can provide the hash of any tree object - you can right-click one to insert its hash into the terminal!
+
+Try reading some of the trees in this repository into the index!",
+commitrhombus_description_280,"A commit can have multiple parents! You can specify the -p option multiple times, like this:
+
+    git commit-tree <tree> -m ""Description"" -p <parent1> -p <parent2>
+
+Build a rhombus shape from commits, where two commits point to the same parent, and then a fourth commit points to both of them.",
+commitrhombus_win_hint_281,My first parent's parents has to be the same as my second parent's parent.,
+refmove_description_282,"You can point refs to a new location using the same command you use to create them:
+
+    git update-ref refs/<refname> <object>
+
+As an exercise, make all refs in this repository point to the tree object!",
+blobremove_description_283,"There's a simple command to remove all objects that are not referenced by anything:
+
+    git prune
+
+Remove all blobs in this repository.",
+blobremove_congrats_284,"Generally, `git prune` will be useful if you want to clean up some objects you made.
+
+Alternatively, you can also click the ""Reload"" button to restart a level.",
+symrefcreate_description_285,"Instead of pointing directly to objects, refs can also point to other refs!
+
+When that happens, they are called ""symbolic refs"". You can create or update a symbolic ref using
+
+    git symbolic-ref <name> <ref>
+
+Create a symbolic ref called ""refs/rainbow""!",
+commitparents_description_286,"When using the commit-tree command, you can optionally specify a parent:
+
+    git commit-tree <tree> -m ""Description"" -p <parent commit>
+
+Make a string of three commits!
+
+Hint: You'll need a tree object. What could be the easiest way to obtain one?",
+blobcreate_description_287,"At its core, Git is very simple. It stores ""objects"", which are basically files identified by an ""identifier"" (short: ID).
+
+There are four types of objects: blobs, trees, commits, and tags. The simplest type is a ""blob"", which is just a piece of text.
+
+Let's create some blobs! To do that, create a file with the desired content, and then use
+
+    git hash-object -w <file>
+
+The flag -w means ""write"", and tells Git to actually write the new blob to the disk.
+
+Create three new blobs!",
+blobcreate_congrats_288,"Tip: You can also use a command like this to create a blob in a single line:
+
+    echo ""awesome content"" | git hash-object -w --stdin
+
+Did you already notice that you can drag and drop all objects? :)",
+treecreate_description_289,"After carefully building the index we want, it would be nice to save a permanent snapshot of it, right?
+
+This is what the second type of objects is for: trees! You can convert the index into a tree using
+
+    git write-tree
+
+Try it! :)",
+treecreate_congrats_290,"Nice!
+
+Can you make a different tree? Modify the index, then call `git write-tree` again!",
+welcome_description_291,"This is prototype #1 for the Git learning game by @bleeptrack and @blinry. Thanks for checking it out! <3
+
+You can interact with the repository labelled ""yours"" by typing Bash commands in the terminal below! The visualization will show you its internal status.
+
+Let's get started by initializing an empty Git repository in the current directory by typing:
+
+    git init",
+welcome_congrats_292,"Well done!
+
+An empty Git repository is... well, quite empty. The only thing that always exists is a reference called ""HEAD"" - we'll learn what that is later!
+
+But first, let's look at some basics!
+
+(Click ""Next Level"" as soon as you're ready!)",
+basics_description_293,"For this prototype, we assume you have some experience with the command line. Here are some commands that will be useful:
+
+- ls
+- echo content > file
+- cat file
+- mkdir dir
+
+Find the riddle in your current directory and put the answer into the file ""answer""!",
+basics_congrats_294,"Omnomnom!
+
+For technical reasons, you can't use `cd` in this prototype yet. But there won't be a lot of interaction with the file system anyways. :)",
+puzzlepreciousblob_description_295,Create two trees pointing to the same blob!,
+indexadd_description_296,"Blobs usually represent the content of a file. But on their own, they don't have any metadata, not even a name!
+
+Git has a very powerful concept to store metadata related to blobs: the index! It's a list that relates blobs to filenames and access permissions.
+
+The most convenient option to add an entry to the index is via an existing file:
+
+    echo ""my content"" > file
+    git update-index --add file
+
+Add three entries to the index! For a bonus challenge: can you add a file that is inside of a directory, like ""directory/file""?",
+indexadd_congrats_297,"There's another way to add an entry to the index directly:
+
+    git update-index --add --cacheinfo <mode>,<blobhash>,<name>
+
+The first three numbers of the mode describe the type of the entry, ""100"" is a regular file.
+
+The second three number describe the permissions. Only ""644"" (non-executable) and ""755"" (executable) are supported.
+
+You can insert the hash of an object into the terminal by right-clicking on it! :)",
+puzzletreesallthewaydown_description_298,"Construct a chain of three trees, which don't point to anything else.
+
+This is hard! The `git mktree` command might be useful.",
+puzzletreesallthewaydown_win_hint_299,"So the tree has exactly one child, and it is a tree!",
+puzzletreesallthewaydown_win_hint_300,Same for its child! \o/,
+symrefnoderef_description_301,"When you have a symbolic ref (a ref pointing at another ref), and you decide you want it to be a regular ref again (pointing to an object), you're in for some trouble! :)
+
+What happens when you try pointing the symbolic ref directly to the blob using `git update-ref`?
+
+Oops! Turns out that when you reference a symbolic ref, it acts as if you had specified the ref it points to. To de-symbolic-ize it, use the `--no-deref` option directly after `update-ref`!
+
+Weird, huh?",
+symrefnoderef_congrats_302,"Whew, we've covered a lot of things: Blobs! The index! Trees! Commits! Refs!
+
+You now know about almost everything about how Git repositories look like on the inside! We think that's pretty cool! :)
+
+Everything else is just convention and high-level commands that make interacting with the objects more convenient.
+
+We haven't covered:
+
+- tag objects (they are the fourth object type - a bit like refs with a description and an author)
+- configuration (allows you to specify remote repositories, for example)
+- working with local files (which is, uh, arguably pretty important :P)
+
+Thanks for playing! You're welcome to check out the ""puzzle"" levels in the dropdown, some of them are more advanced!",
+puzzleapocalypse_description_303,"Delete all objects in this repository using git commands only!
+
+Useful commands:
+
+    git prune
+    git reflog expire",
+refremove_description_304,"And finally, to delete a ref, use
+
+    git update-ref -d refs/<refname>
+
+Delete all refs! :P (Well, except for HEAD. HEAD is special.)",
+refcreate_description_305,"Let's take a look at ""refs"" (short for ""references"")! Refs are not objects, but rather very simple *pointers* to objects! They can help you keep track of what's where.
+
+You can create or update a ref with
+
+    git update-ref refs/<refname> <newvalue>
+
+Make sure to always start a ref's name with ""refs/""! That's a convention that helps Git find all refs you create. If you forget the ""refs/"", you will not see the ref.
+
+Create refs that point to all objects in this repository!",
+problems_title_306,Problems,
+problems_description_307,"Both you and your friend have been working on the file, and want to sync up!",
+problems_win_hint_308,Commit your local changes.,
+friend_title_309,Friend,
+friend_description_310,"Your friend added another line to your essay! Get it, add a third one and send it to them!
+
+Take turns until you have five lines!",
+friend_win_hint_311,Got the second line from your friend,
+friend_win_hint_312,Got the fourth line from your friend.,
+card_init_desc_313,Drag this card into the empty space above to initialize the time machine!,
+card_clone_desc_314,Create your own copy of someone else's repo.,
+card_configname_desc_315,"Set your name.
+
+(Will not change anything outside of this game.)",
+card_configemail_desc_316,Set your email address.,
+card_checkout_desc_317,Drag this card to a commit or to a branch to travel to it!,
+card_checkoutfile_desc_318,Reset changes in a local file.,
+card_checkoutfrom_desc_319,"Get the file contents from the specified commits, and reset both the working directory, as well as the index, to it.",
+card_commita_desc_320,"Make a new commit, after automatically adding all changes to the index.
+You'll be asked to enter a short description of what you changed.",
+card_commitauto_desc_321,Make a new commit containing your current environment! Type in a description of what changed!,
+card_merge_desc_322,"Merge the specified timeline into yours. If necessary, will create a merge commit.",
+card_mergeabort_desc_323,"Abort the current merge attempt, and reconstruct the previous state.",
+card_rebase_desc_324,Put the events in your current timeline on top of the specified one.,
+card_pull_desc_325,"Get someone else's version of the current timeline, and try to merge it into yours.",
+card_fetch_desc_326,Get a someone else's version of the current timeline.,
+card_push_desc_327,Give the current timeline to someone else.,
+card_rebaseinteractive_desc_328,"Make changes to the events in your current timeline, back to the commit you drag this to.",
+card_rebasecontinue_desc_329,Continue the current rebasing process.,
+card_resethard_desc_330,Move the branch you're on to the specified commit.,
+card_reset_desc_331,"Jump to the commit, and update the index. Keep the current environment.",
+card_resetfile_desc_332,Reset the index version of a file to the version in the commit you're on.,
+card_cherrypick_desc_333,Repeat the specified action on top of your current timeline.,
+card_revert_desc_334,Make a new commit that reverts the changes of the specified commit.,
+card_bisectstart_desc_335,Start looking for the commit where things got bad.,
+card_bisectgood_desc_336,"State that the current commit is good! When you're automatically transferred, keep playing the `good` and `bad` cards!",
+card_bisectbad_desc_337,"State that the current commit is bad! When you're automatically transferred, keep playing the `good` and `bad` cards!",
+card_add_desc_338,Update the index version of the file to its current real content.,
+card_rm_desc_339,"Delete a file both in the working directory, as well as the index.",
+card_commit_desc_340,Make a commit from the current index.,
+card_show_desc_341,Show what changed in the commit.,
+card_branch_desc_342,Create a new branch at your current location.,
+card_branchdelete_desc_343,Delete a branch.,
+card_reflog_desc_344,Display a log of where the ref pointed to in the past.,
+card_filenew_desc_345,Create a new file.,
+card_filedelete_desc_346,Delete a file.,
+card_filerename_desc_347,Rename a file.,
+card_filecopy_desc_348,Make a copy of a file.,

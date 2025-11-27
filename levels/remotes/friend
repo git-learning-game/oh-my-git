@@ -1,11 +1,9 @@
-title = Friend
+title = friend_title_309
 cards = pull push commit-auto checkout
 
 [description]
 
-Your friend added another line to your essay! Get it, add a third one and send it to them!
-
-Take turns until you have five lines!
+friend_description_310
 
 [setup yours]
 
@@ -32,10 +30,10 @@ fi
 
 [win]
 
-# Got the second line from your friend
+# friend_win_hint_311
 git show HEAD:essay | grep gnihihi
 
-# Got the fourth line from your friend.
+# friend_win_hint_312
 git show HEAD:essay | grep blurbblubb
 
 [win friend]

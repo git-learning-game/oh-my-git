@@ -1,11 +1,9 @@
-title = Restore a deleted file
+title = restoreafile_title_226
 cards = checkout
 
 [description]
 
-Oops - you deleted the "essay" file, which you worked on all night!
-
-Luckily, Git is here to help! You can use `git checkout` to restore the file!
+restoreafile_description_227
 
 [setup]
 
@@ -18,5 +16,5 @@ rm essay
 
 [win]
 
-# Restore the essay to contain "important content"
+# restoreafile_win_hint_228
 test "$(cat essay)" = "important content"

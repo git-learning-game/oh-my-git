@@ -1,16 +1,9 @@
-title = Undo a bad commit
+title = badcommit_title_218
 cards = reset commit-a
 
 [description]
 
-Oh no, we made a bad commit! How can we undo making the commit, and go back to a point where we can try again?
-
-The answer is using `git reset [commit]`, which does two things:
-
-- It resets the current branch ref to the commit you specify.
-- And it resets the index to that commit.
-
-It does not change your working directory in any way, which means that after that, you can try making the commit you want again.
+badcommit_description_219
 
 [setup]
 
@@ -22,9 +15,9 @@ git commit -am "More numberrrrrs"
 
 [win]
 
-# In the last main commit, the numbers file contains the numbers from 1 to 10.
+# badcommit_win_hint_220
 test "$(git show main:numbers)" = "1 2 3 4 5 6 7 8 9 10"
-# The commit message of that commit is "More numbers".
+# badcommit_win_hint_221
 git log -1 --oneline | grep "More numbers"
-# The commit with the typo is not part of the main branch anymore.
+# badcommit_win_hint_222
 git log --oneline | grep -v "rrrrr"

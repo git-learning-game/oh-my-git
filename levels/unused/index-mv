@@ -1,13 +1,9 @@
-title = Rename a file in the next commit
+title = indexmv_title_210
 cards = add reset-file checkout-file mv commit
 
 [description]
 
-Other times, you might want to rename a file in the next commit. Use
-
-    git mv [file] [new name]
-
-for that. The effect is very similar as if you had created a copy with a new name, and removed the old version.
+indexmv_description_211
 
 [setup]
 
@@ -22,5 +18,5 @@ git add b
 
 [win]
 
-# Make a commit where you rename the file b to "x".
+# indexmv_win_hint_212
 test "$(git ls-tree --name-only main)" = "$(echo -e "a\nc\nx")"

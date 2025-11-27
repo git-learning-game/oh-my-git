@@ -34,7 +34,7 @@ margin_top = 13.0
 margin_right = -15.0
 margin_bottom = -15.0
 custom_fonts/font = ExtResource( 1 )
-text = "This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint!"
+text = "notification_label_031"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -56,7 +56,7 @@ margin_right = 282.0
 margin_bottom = 48.0
 focus_mode = 0
 enabled_focus_mode = 0
-text = "Got it!"
+text = "notification_ok_032"
 __meta__ = {
 "_edit_use_anchors_": false
 }

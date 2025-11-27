@@ -1,24 +1,9 @@
-title = Clear the Stash
+title = stashclear_title_152
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-If you want to inspect your stash stack, use the command
-    git stash list
-    
-Oh, you don't want to keep your stashed changes? There are way too many? Then go ahead and clear the stack with
-    git stash clear
-If you only want to discard a certain stash entry, you can use
-    git stash drop <stash>
-    
-Clear your stash stack!
-
----
-tipp1
----
-tipp2
----
-tipp3
+stashclear_description_153
 
 [setup]
 
@@ -45,7 +30,7 @@ git checkout main
 
 [win]
 
-# Did you clear your stash stack?
+# stashclear_win_hint_155
 test "$(git stash list | wc -l)" -eq 0
 
 [actions]
@@ -54,4 +39,4 @@ test "$(git stash list | wc -l)" -eq 0
 
 [congrats]
 
-All clear! :)
+stashclear_congrats_154

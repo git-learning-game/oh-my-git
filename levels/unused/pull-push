@@ -1,15 +1,9 @@
-title = Helping each other
+title = pullpush_title_193
 cards = checkout commit-auto reset-hard pull push
 
 [description]
 
-The events and timelines you see are always only what your own time machine knows about!
-
-Of course, time agents don't have to work alone! Here, your sidekick has already prepared a merge for you! You can use the "pull" card to transfer it to your own time machine.
-
-Then, add another event on top (what does Sam have for dinner?), and `push` the result, to transfer it back to your sidekick!
-
-You can only ever manipulate things in your own time machine (the one on the bottom).
+pullpush_description_194
 
 [setup yours]
 
@@ -48,4 +42,4 @@ git rev-parse main^^ && test "$(git rev-parse main^^1^)" = "$(git rev-parse main
 
 [congrats]
 
-In reality, in many cases, a lot of time agents work together to build a really good future together! :)
+pullpush_congrats_195

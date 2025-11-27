@@ -12,6 +12,9 @@ var current_chapter = 0
 var current_level = 0
 var skipped_title = false
 
+var translations = {}
+var current_locale = "en"
+
 var _file = "user://savegame.json"
 var state = {}
 
@@ -20,6 +23,8 @@ var mutex
 func _ready():
 	mutex = Mutex.new()
 	load_state()
+	
+	TranslationServer.set_locale("en")
 	
 	if OS.has_feature("standalone"):
 		get_tree().set_auto_accept_quit(false)
@@ -160,3 +165,49 @@ func new_shell():
 		return BetterShell.new()
 	else:
 		return Shell.new()
+
+# --- ДОБАВИТЬ ЭТИ ДВЕ ФУНКЦИИ В КОНЕЦ ФАЙЛА ---
+
+# Загружает наш CSV в словарь для быстрого доступа
+func _load_translations():
+	var file = File.new()
+	if not file.file_exists("res://translations.csv"):
+		print_debug("Локализация: Файл translations.csv не найден.")
+		return
+		
+	file.open("res://translations.csv", File.READ)
+	var headers = file.get_csv_line() # Пропускаем первую строку с заголовками
+	
+	while not file.eof_reached():
+		var line = file.get_csv_line()
+		# Проверяем, что в строке есть все нужные столбцы
+		if line != null and line.size() >= 3:
+			var key = line[0]
+			var en_text = line[1]
+			var ru_text = line[2]
+			translations[key] = {"en": en_text, "ru": ru_text}
+	file.close()
+
+# Наша собственная функция перевода
+# Улучшенная, "безопасная" версия функции
+func tr_custom(key):
+	# Если ключ - это не строка, всегда возвращаем ПУСТУЮ СТРОКУ, а не Nil.
+	if typeof(key) != TYPE_STRING:
+		return ""
+
+	if translations.has(key) and translations[key].has(current_locale):
+		var translated_text = translations[key][current_locale]
+		# Эта проверка гарантирует, что мы не вернем null/Nil
+		if translated_text != null and translated_text != "":
+			return translated_text
+		# Если перевод пустой, возвращаем английский текст
+		var en_text = translations[key]["en"]
+		return en_text if en_text != null else ""
+		
+	# Если ключ не найден, возвращаем сам ключ (или пустую строку, если ключ пустой)
+	return key if key != null else ""
+	
+func _init():
+	# --- ПРИВЕСТИ ФУНКЦИЮ _init() К ТАКОМУ ВИДУ ---
+	_load_translations()
+	current_locale = "ru"

@@ -1,15 +1,9 @@
-title = Add new files to the index
+title = new_title_081
 cards = add commit
 
 [description]
 
-So far, when we made a commit, we've always recorded the current status of all objects, right?
-
-But Git allows you to pick which changes you want to put in a commit!
-
-To learn how that works, we need to learn about the "index"! In the index, we can prepare what will be in the next commit. In this game, the index is represented by a blue aura around icons in the file browser!
-
-Initially, the index is empty. To make a commit that contains a new file, we need to add it!
+new_description_082
 
 [cli]
 
@@ -21,8 +15,8 @@ echo "The candle is burning with a blue flame." > candle
 
 [win]
 
-# Add the candle.
+# new_win_hint_083
 test "$(git diff --cached --name-only)" = "candle" || file -f .git/candle-added && touch .git/candle-added
 
-# Make a commit.
+# new_win_hint_084
 test "$(git ls-tree --name-only HEAD)" = "candle"

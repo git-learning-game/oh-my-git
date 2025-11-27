@@ -1,19 +1,9 @@
-title = Adding a remote
+title = remotesadd_title_200
 cards = checkout
 
 [description]
 
-Let's work together with others! Your friend has their own repo at the URL `../friend` - you can add it using
-
-    git remote add [name] [URL]
-
-where `[name]` is an arbitrary, short name you pick for the remote.
-
-When you've done that, you can get all commits from that remote using
-
-    git pull friend
-
-There's a letter for you!
+remotesadd_description_201
 
 [setup]
 
@@ -27,7 +17,7 @@ git commit -m "Write a letter"
 
 [win]
 
-# Add a remote that points to ../friend.
+# remotesadd_win_hint_202
 git remote -v | grep '../friend'
-# Pull from the remote.
+# remotesadd_win_hint_203
 git show HEAD:love_letter | grep committed

@@ -1,9 +1,9 @@
-title = I pushed something broken
+title = pushedsomethingbroken_title_216
 cards = revert push
 
 [description]
 
-We were talking about how to undo a commit, and fix it. This only helps when you haven't already pushed it to a remote. When that has happened, and you want to undo the effects of the commit completely, your best option is `git revert`
+pushedsomethingbroken_description_217
 
 [setup]
 

@@ -122,7 +122,7 @@ margin_right = 90.0
 margin_bottom = -14.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Description"
+text = "card_description_001"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -141,7 +141,7 @@ margin_right = -17.1637
 margin_bottom = -16.4558
 rect_scale = Vector2( 3, 3 )
 custom_fonts/font = ExtResource( 1 )
-text = "0"
+text = "card_energy_002"
 align = 1
 valign = 1
 __meta__ = {

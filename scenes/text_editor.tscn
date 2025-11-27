@@ -9,7 +9,7 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/background_color = Color( 0, 0, 0, 1 )
-text = "Text here"
+text = "text_editor_texteditor_038"
 syntax_highlighting = true
 wrap_enabled = true
 script = ExtResource( 2 )
@@ -29,7 +29,7 @@ margin_bottom = -14.399
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
-text = "Save"
+text = "file_browser_savebutton_036"
 __meta__ = {
 "_edit_use_anchors_": false
 }

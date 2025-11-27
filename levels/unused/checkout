@@ -1,11 +1,9 @@
-title = Getting the last version
+title = checkout_title_204
 cards = checkout-file
 
 [description]
 
-You've been working on your essay for a while. But - ughh! Now your cat walks over your keyboard and "helps you", so now it's all messed up! :/
-
-But Git is here to help! To discard all changes your cat made, and go back to the version in the last commit, use `checkout`!
+checkout_description_205
 
 [setup]
 
@@ -27,5 +25,5 @@ blaaaargh" > essay.txt
 
 [win]
 
-# Restore the version from the last commit.
+# checkout_win_hint_206
 cat essay.txt | grep D

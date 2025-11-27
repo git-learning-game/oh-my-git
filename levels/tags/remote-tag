@@ -1,23 +1,9 @@
-title = Remote Tags
+title = remotetag_title_229
 cards = pull push commit-auto checkout
 
 [description]
 
-When you work with remote repositories, tags are not pushed or pulled automatically.
-
-You can push a tag with
-    git push <remote> <tag-name>
-Or all tags with:
-    git push <remote> --tags
-    
-Deleting tags on your remote works with: 
-    git push <remote> --delete <tag-name>
-    
-You can also sync 
-    git fetch <remote> --prune --prune-tags
-
-
-Add a tag named "v2" to the last commit and push it to the remote. Also pull the v1 tag to your local repository.
+remotetag_description_230
 [setup yours]
 
 git checkout main
@@ -45,10 +31,10 @@ git branch -u friend/main main
 git tag v1 HEAD~1
 
 [win]
-# v1 tag in your repo
+# remotetag_win_hint_231
 test "$(git show v1 -s --format=%h)" = "$(git show HEAD~1 -s --format=%h)"
 
-# v2 tag in your repo
+# remotetag_win_hint_232
 test "$(git show v2 -s --format=%h)" = "$(git show HEAD -s --format=%h)"
 
 

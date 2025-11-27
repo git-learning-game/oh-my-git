@@ -1,9 +1,9 @@
-title = Problems
+title = problems_title_306
 cards = checkout add pull push commit-auto merge
 
 [description]
 
-Both you and your friend have been working on the file, and want to sync up!
+problems_description_307
 
 [setup yours]
 
@@ -24,7 +24,7 @@ git commit -a -m "friends version"
 
 [win]
 
-# Commit your local changes.
+# problems_win_hint_308
 test "$(git status -s)" = ""
 
 [win friend]

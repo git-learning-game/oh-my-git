@@ -1,11 +1,9 @@
-title = One step after another
+title = steps_title_174
 cards = checkout commit reset-hard add
 
 [description]
 
-Sometimes, you might want to record the order in which things changed, instead of making a single commit.
-
-What happened here? Make two commits from the changes (using the "add" card), in an order that makes sense!
+steps_description_175
 
 [setup]
 

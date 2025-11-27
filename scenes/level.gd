@@ -20,14 +20,24 @@ func load(path):
 		# This is a new-style level.
 		var config = helpers.parse(path)
 		
-		title = config.get("title", slug)
-		description = config.get("description", "(no description)")
+		# --- НАЧАЛО БЛОКА ЛОКАЛИЗАЦИИ ---
+		# 1. Сначала получаем КЛЮЧИ из файла уровня.
+		#    "default_..." - это запасные ключи, если в файле уровня чего-то нет.
+		var title_key = config.get("title", "default_title_key")
+		var description_key = config.get("description", "default_description_key")
+		var congrats_key = config.get("congrats", "default_congrats_key")
 		
-		# Surround all lines indented with four spaces with [code] tags.
+		# 2. Теперь ПЕРЕВОДИМ ключи с помощью нашего глобального переводчика из game.gd.
+		title = game.tr_custom(title_key)
+		var description_text = game.tr_custom(description_key)
+		congrats = game.tr_custom(congrats_key)
+		# --- КОНЕЦ БЛОКА ЛОКАЛИЗАЦИИ ---
+
+		# 3. Дальше идет оригинальная обработка УЖЕ ПЕРЕВЕДЕННОГО текста description.
 		var monospace_regex = RegEx.new()
 		monospace_regex.compile("\\n    ([^\\n]*)")
-		description = monospace_regex.sub(description, "\n      [code][color=#e1e160]$1[/color][/code]", true)
-		description = description.split("---")
+		description_text = monospace_regex.sub(description_text, "\n      [code][color=#e1e160]$1[/color][/code]", true)
+		description = description_text.split("---")
 		
 		var cli_hints = config.get("cli", "")
 		# Also do this substitution in the CLI hints.
@@ -42,7 +52,7 @@ func load(path):
 		if cli_hints != "":
 			description[0] = description[0] + "\n\n[color=#787878]"+cli_hints+"[/color]"
 		
-		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
+		# Этот код остается без изменений, так как он не работает с переводимым текстом
 		cards = Array(config.get("cards", "").split(" "))
 		if cards == [""]:
 			cards = []
@@ -78,10 +88,16 @@ func load(path):
 			else:
 				repo = "yours"
 			
-			var desc = "Complete the goal of this level"
+			# Наш "защитный" код от ошибки, которую мы исправили ранее
+			if not repos.has(repo):
+				repos[repo] = LevelRepo.new()
+			
+			var desc = game.tr_custom(config.get("win_desc", "default_win_desc_key"))
 			for line in Array(config[k].split("\n")):
 				if line.length() > 0 and line[0] == "#":
-					desc = line.substr(1).strip_edges(true, true)
+					# --- ДОПОЛНИТЕЛЬНОЕ ИЗМЕНЕНИЕ: ПЕРЕВОДИМ ПОДСКАЗКИ В [WIN] ---
+					var hint_key = line.substr(1).strip_edges(true, true)
+					desc = game.tr_custom(hint_key)
 				else:
 					if not repos[repo].win_conditions.has(desc):
 						repos[repo].win_conditions[desc] = ""
@@ -96,16 +112,12 @@ func load(path):
 			
 			repos[repo].action_commands = config[k]
 				
-#			for desc in repos[repo].win_conditions:
-#				print("Desc: " + desc)
-#				print("Commands: " + repos[repo].win_conditions[desc])
 	else:
 		helpers.crash("Level %s does not exist." % path)
 	
 	for repo in repos:
 		repos[repo].path = game.tmp_prefix+"repos/%s/" % repo
 		repos[repo].slug = repo
-	
 	
 
 func construct():

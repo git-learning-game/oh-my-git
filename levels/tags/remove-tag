@@ -1,20 +1,9 @@
-title = Removing tags
+title = removetag_title_237
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-You added way too many tags? No prob! Delete them with
-
-    git tag -d <tag-name>
-    
-Remove all tags in this repo!
-
----
-tipp1
----
-tipp2
----
-tipp3
+removetag_description_238
 
 [setup]
 
@@ -41,7 +30,7 @@ git checkout --detach main
 
 [win]
 
-# Did you remove all tags?
+# removetag_win_hint_239
 test "$(git tag -l | wc -l)" -eq 0
 
 [actions]
@@ -50,4 +39,4 @@ test "$(git tag -l | wc -l)" -eq 0
 
 [congrats]
 
-Well done :)
+addtaglater_congrats_235

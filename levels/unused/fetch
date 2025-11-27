@@ -1,13 +1,9 @@
-title = Fetching from remotes
+title = fetch_title_196
 cards = checkout fetch commit-auto
 
 [description]
 
-Here, you already have two remotes configured! You can list them using `git remote`.
-
-Fetch from both, and look at the suggestions.
-
-Then, make a new commit on top of your original one that introduces a compromise.
+fetch_description_197
 
 [setup]
 
@@ -29,7 +25,7 @@ git commit -am "Blue"
 
 [win]
 
-# Your proposal is acceptable for friend1.
+# fetch_win_hint_198
 git show main:proposal | git grep green
-# Your proposal is acceptable for friend2.
+# fetch_win_hint_199
 git show main:proposal | git grep blue

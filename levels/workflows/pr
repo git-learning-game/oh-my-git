@@ -1,9 +1,9 @@
-title = Cloning a repo
+title = clone_title_168
 cards = clone commit-auto reset-hard checkout file-new branch
 
 [description]
 
-Your friend has a problem! Clone the repo located in `../friend`, create a branch called "solution", and fix the problem in this branch. When you're ready, make a "Pull Request" by using `git tag pr`.
+pr_description_267
 
 
 [setup]

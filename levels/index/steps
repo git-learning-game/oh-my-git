@@ -1,9 +1,9 @@
-title = Adding changes step by step
+title = steps_title_063
 cards = add reset-file commit
 
 [description]
 
-The index is really useful, because it allows us to be precise about which changes we want to include in each commit!
+steps_description_064
 
 [setup]
 
@@ -16,13 +16,13 @@ git commit -m "The beginning"
 
 [win]
 
-# Make changes to all three objects, to form a logical sequence of events!
+# steps_win_hint_065
 test "$(git diff --name-only | wc -l)" -eq 3 || file -f .git/candle-changed && touch .git/candle-changed
 
-# Only add one of these changes!
+# steps_win_hint_066
 test "$(git diff --cached --name-only | wc -l)" -eq 1 || file -f .git/candle-added && touch .git/candle-added
 
-# And make a commit.
+# steps_win_hint_067
 COUNT=0
 for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
     if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
@@ -32,7 +32,7 @@ done
 
 test "$COUNT" -ge 1
 
-# Make a second commit that only records a single change.
+# steps_win_hint_068
 COUNT=0
 for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
     if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then
@@ -42,7 +42,7 @@ done
 
 test "$COUNT" -ge 2
 
-# And a third one.
+# steps_win_hint_069
 COUNT=0
 for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
     if test "$(git diff --name-only $commit $commit^ | wc -l)" -eq 1; then

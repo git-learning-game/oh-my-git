@@ -1,15 +1,13 @@
-title = Step by step
+title = compare_title_070
 cards = checkout commit-auto
 
 [description]
 
-Welcome to today's lesson! We're going to learn how to make commits with more precision!
-
-Have a look at these two timelines. They have exactly the same outcome. But one of them makes it much easier to figure out what happened.
+compare_description_071
 
 [win]
 
-# Right! Having each change in its own commit makes it easier to understand what's going on! Let's learn how to do that!
+# compare_win_hint_072
 git branch --show-current | grep step-by-step
 
 [setup]
@@ -30,7 +28,7 @@ echo "The candle has been blown out." > candle
 
 git commit -am "The end"
 
-git checkout HEAD^
+terminal_button2_022
 
 git checkout -b step-by-step
 

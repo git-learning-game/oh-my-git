@@ -53,7 +53,7 @@ margin_top = -64.5048
 margin_right = 229.063
 margin_bottom = -8.50476
 custom_fonts/font = ExtResource( 3 )
-text = "Repo name"
+text = "repository_label_024"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,7 +64,7 @@ margin_left = 21.0
 margin_top = 65.0
 margin_right = 377.0
 margin_bottom = 108.0
-text = "Index:"
+text = "repository_indexlabel_025"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -75,7 +75,7 @@ margin_left = 36.5602
 margin_top = 67.9891
 margin_right = 119.56
 margin_bottom = 109.989
-text = "Update"
+text = "repository_button_026"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -90,7 +90,7 @@ margin_right = -15.7146
 margin_bottom = 42.9594
 focus_mode = 0
 enabled_focus_mode = 0
-text = "Hide trees and blobs"
+text = "repository_simplifycheckbox_027"
 __meta__ = {
 "_edit_use_anchors_": false
 }

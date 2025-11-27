@@ -1,9 +1,9 @@
-title = Deleting and renaming a remote
+title = remotesdelete_title_183
 cards = checkout
 
 [description]
 
-Here, you already have two remotes configured! You can list them using `git remote`.
+remotesdelete_description_184
 
 [setup]
 
@@ -15,9 +15,9 @@ git remote rename friend frend
 
 [win]
 
-# Rename the remote with the typo (using `git remote rename [old name] [new name]`)
+# remotesdelete_win_hint_185
 git remote | grep friend
-# The remote with the typo is gone.
+# remotesdelete_win_hint_186
 ! grep 'frend' <(git remote)
-# Delete the remote you don't want to keep (using `git remote remove [remote]`)
+# remotesdelete_win_hint_187
 ! grep 'enemy' <(git remote)

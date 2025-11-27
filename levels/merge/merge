@@ -1,9 +1,9 @@
-title = Merging timelines
+title = merge_title_040
 cards = checkout commit-auto merge
 
 [description]
 
-Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!
+merge_description_041
 
 [setup]
 
@@ -71,12 +71,12 @@ git branch -D main
 
 [win]
 
-# Build a situation where you consumed a baguette, a coffee, *and* a donut.
+# merge_win_hint_043
 { git show HEAD:you | grep "You ate.*baguette"; } && { git show HEAD:you | grep "You drank.*coffee"; } && { git show HEAD:you | grep "You ate.*donut"; }
 
-# Be on a merge commit.
+# merge_win_hint_044
 test "$(git log --pretty=%P -n 1 HEAD | wc -w)" -ge 2
 
 [congrats]
 
-I wonder if you're more relaxed when you *sleep* in parallel timelines...
+merge_congrats_042

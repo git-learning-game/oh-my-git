@@ -1,11 +1,9 @@
-title = Make parallel commits
+title = fork_title_103
 cards = checkout commit-auto
 
 [description]
 
-Did you know that creating parallel timelines is perfectly legal and safe? It's true!
-
-Can you find out when things went wrong in this zoo? Then, go back to the last good commit and create a parallel universe where everyone is happy!
+fork_description_104
 
 [cli]
 
@@ -50,16 +48,12 @@ git branch -d main
 
 [win]
 
-# Make sure that the child is happy.
+# fork_win_hint_106
 git ls-tree --name-only -r HEAD | grep child
 
-# Make sure that the lion gets something to eat.
+# fork_win_hint_107
 git show HEAD:cage/lion | grep -v "very hungry"
 
 [congrats]
 
-Whew, good job! This seems like a *much* better outcome.
-
-Feel free to add more parallel timelines, or make them longer.
-
-If you're ready, our next mission is already waiting...
+fork_congrats_105

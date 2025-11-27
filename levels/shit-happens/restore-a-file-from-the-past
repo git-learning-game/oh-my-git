@@ -1,11 +1,9 @@
-title = Restore a file from the past
+title = restoreafilefromthepast_title_223
 cards = checkout checkout-from commit
 
 [description]
 
-Here's a similar problem: you really liked the essay from the very first commit, and want to have it back! Well, checkout can also restore things from older commits, Here's how:
-
-    git checkout [commit] [file]
+restoreafilefromthepast_description_224
 
 [setup]
 
@@ -17,5 +15,5 @@ git commit -am "\"Improve\" essay"
 
 [win]
 
-# Get the first version of your essay, and make a new commit with it.
+# restoreafilefromthepast_win_hint_225
 test "$(git show main:essay)" = "good version"

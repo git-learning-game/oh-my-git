@@ -1,11 +1,6 @@
 [description]
 
-Delete all objects in this repository using git commands only!
-
-Useful commands:
-
-    git prune
-    git reflog expire
+puzzleapocalypse_description_303
 
 [setup]
 

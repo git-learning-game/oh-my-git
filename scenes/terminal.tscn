@@ -83,21 +83,21 @@ margin_bottom = 1052.0
 [node name="Button" type="Button" parent="Rows/VBoxContainer"]
 margin_right = 1920.0
 margin_bottom = 20.0
-text = "git commit --allow-empty -m \"$RANDOM\""
+text = "terminal_button_021"
 script = SubResource( 2 )
 
 [node name="Button2" type="Button" parent="Rows/VBoxContainer"]
 margin_top = 24.0
 margin_right = 1920.0
 margin_bottom = 44.0
-text = "git checkout HEAD^"
+text = "terminal_button2_022"
 script = SubResource( 2 )
 
 [node name="Button3" type="Button" parent="Rows/VBoxContainer"]
 margin_top = 48.0
 margin_right = 1920.0
 margin_bottom = 68.0
-text = "git checkout -b \"$RANDOM\""
+text = "terminal_button3_023"
 script = SubResource( 2 )
 
 [node name="InputLine" type="HBoxContainer" parent="Rows"]

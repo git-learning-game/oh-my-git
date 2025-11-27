@@ -1,11 +1,9 @@
-title = Moving through time
+title = checkoutcommit_title_085
 cards = checkout commit-auto
 
 [description]
 
-The yellow boxes are frozen points in time, we call them "commits"! You can travel between them using the "checkout" card! (Try it!)
-
-Can you find out what happened here? Then, while on the last commit, edit the files to fix the problem, and make a new commit!
+checkoutcommit_description_086
 
 [cli]
 
@@ -35,9 +33,9 @@ git branch -df main
 
 [win]
 
-# Restore sisterly peace.
+# checkoutcommit_win_hint_088
 { git show HEAD:piggy_bank | grep "10 coins"; } && { test $(git show HEAD:little_sister | wc -l) -eq $(git show HEAD:little_sister | grep -v "10 coins" | wc -l); } && { git rev-parse HEAD^^^; }
 
 [congrats]
 
-Wonderful! Now that you're getting familiar with the time machine, let's look at some more complicated situations...
+checkoutcommit_congrats_087

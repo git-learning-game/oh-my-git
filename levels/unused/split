@@ -1,9 +1,9 @@
-title = Split a commit!
+title = split_title_172
 cards = checkout commit reset-hard reset add rebase-interactive rebase-continue show
 
 [description]
 
-Here, both changes happened in one commit! Split them to be in two commits instead.
+split_description_173
 
 [setup]
 

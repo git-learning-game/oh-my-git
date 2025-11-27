@@ -1,14 +1,6 @@
 [description]
 
-So a tree describes a directory structure at a specific point in time.
-
-It would be nice if we could remember when that state existed, and who authored it, right?
-
-Enter: commits. They are objects that point to a tree and contain some additional metadata. You can create a commit using
-
-    git commit-tree <tree> -m "Description of your commit"
-
-Make a commit from the tree in this repository!
+commitcreate_description_278
 
 [setup]
 

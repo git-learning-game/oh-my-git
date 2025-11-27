@@ -1,13 +1,9 @@
-title = Branches grow with you!
+title = grow_title_094
 cards = checkout commit-auto branch branch-delete reset-hard
 
 [description]
 
-Note that there are two options to "travel to the end of a timeline":
-
-First, you can directly travel to the commit, like we've done it before.
-
-And second, you can travel to the branch label. In this case, when you make a new commit, the branch will grow with you, and still point at the end of the timeline!
+grow_description_095
 
 [cli]
 
@@ -37,7 +33,7 @@ git branch -D main
 
 [win]
 
-# Travel directly to the last yellow commit of the birthday timeline, make a change to 'you', and make a commit
+# grow_win_hint_096
 for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-objects | grep 'commit$' | cut -f1 -d' '); do
     if test $(git rev-parse $commit^) = $(git rev-parse birthday); then
         return 0
@@ -45,5 +41,5 @@ for commit in $(git cat-file --batch-check='%(objectname) %(objecttype)' --batch
 done
 return 1
 
-# Travel to the blue 'concert' branch, make a change to 'you', and a commit.
+# grow_win_hint_097
 git show concert^ | grep "Go to the concert"

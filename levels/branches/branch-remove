@@ -1,11 +1,9 @@
-title = Deleting branches
+title = branchremove_title_108
 cards = checkout commit-auto reset-hard branch-delete
 
 [description]
 
-Life is full of dangers, right? Even when walking to school, it seems like there's a lot of risks!
-
-This Monday is especially bad. You made it to school, but there's some timelines you definitely don't want to keep around.
+branchremove_description_109
 
 [setup]
 
@@ -39,9 +37,9 @@ git checkout leap^^
 
 [win]
 
-# Find the bad branches and delete them. Keep only the best one.
+# branchremove_win_hint_111
 test "$(git show-ref --heads | cut -f2 -d' ')" = "$(echo refs/heads/leap)"
 
 [congrats]
 
-On second thought, maybe you even prefer the ice cream timeline to the main one? :)
+branchremove_congrats_110

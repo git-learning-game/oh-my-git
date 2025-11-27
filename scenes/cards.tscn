@@ -31,7 +31,7 @@ margin_top = 16.0
 margin_right = -16.0
 margin_bottom = 47.0
 custom_fonts/font = ExtResource( 1 )
-text = "Draw new cards"
+text = "cards_button_005"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -45,7 +45,7 @@ margin_right = 68.2219
 margin_bottom = 65.6766
 rect_scale = Vector2( 2, 2 )
 custom_fonts/font = ExtResource( 2 )
-text = "3"
+text = "cards_energy_006"
 __meta__ = {
 "_edit_use_anchors_": false
 }

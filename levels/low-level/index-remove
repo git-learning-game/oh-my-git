@@ -1,10 +1,6 @@
 [description]
 
-To remove an entry from the index, use a command like this:
-
-    git update-index --force-remove <file>
-
-Remove all entries from the index!
+indexremove_description_277
 
 [setup]
 

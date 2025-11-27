@@ -1,11 +1,9 @@
-title = Looking into the past
+title = restore_title_207
 cards = checkout-from
 
 [description]
 
-You've been working on your essay for a while. But you're not happy with the changes you've made recently. You want to go back to the version called "Best version"!
-
-No problem, you can use the `checkout` card to restore your essay from an older commit!
+restore_description_208
 
 [setup]
 
@@ -24,5 +22,5 @@ git commit -a -m "Less-good version"
 
 [win]
 
-# For nostalgic reasons, restore the very first backup you made!
+# restore_win_hint_209
 diff essay.txt <(echo "Best version")

@@ -1,14 +1,6 @@
 [description]
 
-Instead of removing an entry from the index and adding one with the same name, you can also directly update that entry!
-
-Put the content you want in a file with a matching name, and then run
-
-    git update-index <file>
-
-This will create a new blob, and update the hash of the entry to that blob.
-
-Update an entry in the index!
+indexupdate_description_275
 
 [setup]
 
@@ -29,5 +21,5 @@ git update-index file1
 
 [win]
 
-# This is not really a good test for the winning condition...
+# indexupdate_win_hint_276
 test "$(git ls-files -s | git hash-object --stdin)" != "10c4b28623e7e44e09f5a596450a50ab7ac31fbe" -a "$(git ls-files | wc -l)" -eq 3

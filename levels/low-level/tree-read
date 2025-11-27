@@ -1,12 +1,6 @@
 [description]
 
-As soon as you have some tree objects, you can always read them and set the index exactly to their content! Unsurprisingly, the command is called
-
-    git read-tree <tree>
-
-For <tree>, you can provide the hash of any tree object - you can right-click one to insert its hash into the terminal!
-
-Try reading some of the trees in this repository into the index!
+treeread_description_279
 
 [setup]
 

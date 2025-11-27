@@ -47,7 +47,7 @@ margin_left = 61.0902
 margin_top = 59.0538
 margin_right = 126.09
 margin_bottom = 98.0538
-text = "Back"
+text = "main_backbutton_016"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,7 +59,7 @@ margin_right = 226.588
 margin_bottom = 98.3009
 focus_mode = 0
 enabled_focus_mode = 0
-text = "Reload"
+text = "main_reloadbutton2_017"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -86,7 +86,7 @@ margin_bottom = 118.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
-text = "To the survey /o/"
+text = "level_select_button3_029"
 __meta__ = {
 "_edit_use_anchors_": false
 }
