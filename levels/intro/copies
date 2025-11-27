@@ -13,20 +13,13 @@ copies_congrats_142
 
 rm -rf .git
 
-echo "~ Why I want to learn Git ~
-
-(I still need to write this.)" >> form.txt
+echo "@@setup_auto_021@@" >> form.txt
 
 
-echo "~ Why I want to learn Git ~
-
-- So that I can undo mistakes" >> form2.txt
+echo "@@setup_auto_022@@" >> form2.txt
 
 
-echo "~ Why I want to learn Git ~
-
-- So that I can undo mistakes
-- To track my projects over time" >> form2_final.txt
+echo "@@setup_auto_023@@" >> form2_final.txt
 
 cp form2_final.txt form2_really_final.txt
 

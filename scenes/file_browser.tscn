@@ -10,9 +10,6 @@ anchor_bottom = 1.0
 rect_min_size = Vector2( 0, 142 )
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
@@ -74,6 +71,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Grid" type="GridContainer" parent="Panel/Margin/Rows/Scroll"]
+margin_right = 1904.0
+margin_bottom = 1064.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 16
@@ -101,6 +100,7 @@ margin_left = -114.396
 margin_top = -59.399
 margin_right = -14.3955
 margin_bottom = -14.399
+grow_horizontal = 0
 focus_mode = 0
 custom_fonts/font = ExtResource( 2 )
 enabled_focus_mode = 0

@@ -19,7 +19,7 @@ func cd(dir):
 # output of the command.
 func run(command, crash_on_fail=true):
 	var shell_command = ShellCommand.new()
-	shell_command.command = command
+	shell_command.command = translate_shell_command(command)
 	shell_command.crash_on_fail = crash_on_fail
 	
 	run_async_thread(shell_command)
@@ -28,8 +28,8 @@ func run(command, crash_on_fail=true):
 
 func run_async(command, pretty_command=null, crash_on_fail=true):
 	var shell_command = ShellCommand.new()
-	shell_command.command = command
-	shell_command.pretty_command = command
+	shell_command.command = translate_shell_command(command)
+	shell_command.pretty_command = shell_command.command
 	if pretty_command:
 		shell_command.pretty_command = pretty_command
 	shell_command.crash_on_fail = crash_on_fail
@@ -124,6 +124,25 @@ func _shell_binary():
 #	read_from(c)
 #	c.disconnect_from_host()
 #	s.stop()
+
+func translate_shell_command(command: String) -> String:
+	var regex = RegEx.new()
+	var compile_result = regex.compile("@@([^@]+)@@")
+	
+
+	if compile_result != OK:
+		print_debug("[Shell] ОШИБКА: Не удалось скомпилировать regex для перевода команд")
+		return command
+	
+	var result = command
+	var matches = regex.search_all(command)
+	
+	for match_obj in matches:
+		var key = match_obj.get_string(1)
+		var translated = tr(key)		
+		result = result.replace("@@%s@@" % key, translated)
+	
+	return result
 
 func read_from(c):
 	var total_available = c.get_available_bytes()

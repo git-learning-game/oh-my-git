@@ -7,17 +7,17 @@ addtaglater_description_234
 
 [setup]
 
-echo "event 1" > feature-list
+echo "@@setup_auto_134@@" > feature-list
 
 git add .
 git commit -m "Adding feature 1"
 
-echo "event 2" >> feature-list
+echo "@@setup_auto_135@@" >> feature-list
 
 git add .
 git commit -m "Adding feature 2"
 
-echo "event 3" >> feature-list
+echo "@@setup_auto_136@@" >> feature-list
 
 git add .
 git commit -m "Adding feature 3"

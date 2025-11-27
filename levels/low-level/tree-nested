@@ -6,11 +6,11 @@ treenested_description_274
 
 [setup goal]
 
-echo "I'm the left arm" > arm1
-echo "I'm the right arm" > arm2
+echo "@@setup_auto_127@@" > arm1
+echo "@@setup_auto_128@@" > arm2
 mkdir hip
-echo "I'm the left leg" > hip/leg1
-echo "I'm the right leg" > hip/leg2
+echo "@@setup_auto_129@@" > hip/leg1
+echo "@@setup_auto_130@@" > hip/leg2
 git add .
 git write-tree
 

@@ -7,17 +7,17 @@ addtag_description_241
 
 [setup]
 
-echo "event 1" > feature-list
+echo "@@setup_auto_131@@" > feature-list
 
 git add .
 git commit -m "Adding feature 1"
 
-echo "event 2" >> feature-list
+echo "@@setup_auto_132@@" >> feature-list
 
 git add .
 git commit -m "Adding feature 2"
 
-echo "event 3" >> feature-list
+echo "@@setup_auto_133@@" >> feature-list
 
 git add .
 git commit -m "Adding feature 3"

@@ -7,10 +7,10 @@ restoreafile_description_227
 
 [setup]
 
-echo important > essay
+echo @@setup_auto_205@@  > essay
 git add .
 git commit -m "Initial commit"
-echo "important content" > essay
+echo "@@setup_auto_206@@" > essay
 git commit -am "Improve essay"
 rm essay
 

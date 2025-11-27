@@ -7,13 +7,13 @@ steps_description_175
 
 [setup]
 
-echo something > file1
-echo something else > file2
+echo @@setup_auto_057@@  > file1
+echo @@setup_auto_058@@  > file2
 git add .
 git commit -m "Initial commit"
 
-echo this should happen first >> file1
-echo and this should happen after that >> file2
+echo @@setup_auto_059@@  >> file1
+echo @@setup_auto_060@@  >> file2
 
 [win]
 

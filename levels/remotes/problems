@@ -7,19 +7,19 @@ problems_description_307
 
 [setup yours]
 
-echo "The bike shed should be ???" > file
+echo "@@setup_auto_228@@" > file
 git add .
 git commit -m "initial"
 
 git push -u friend main
 
-echo "The bike shed should be green" > file
+echo "@@setup_auto_229@@" > file
 
 [setup friend]
 
 git checkout main
 
-echo "The bike shed should be blue" > file
+echo "@@setup_auto_230@@" > file
 git commit -a -m "friends version"
 
 [win]

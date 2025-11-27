@@ -13,18 +13,16 @@ cli_checkoutcommit_016
 
 [setup]
 
-echo "This piggy bank belongs to the big sister.
-It contains 10 coins." > piggy_bank
+echo "@@setup_auto_201@@" > piggy_bank
 git add .
 git commit -m "The beginning"
 
-echo "A young girl with brown, curly hair." > little_sister
+echo "@@setup_auto_202@@" > little_sister
 git add .
 git commit -m "Little sister comes in"
 
-echo "Has 10 coins." >> little_sister
-echo "This piggy bank belongs to the big sister.
-It is empty." > piggy_bank
+echo "@@setup_auto_203@@" >> little_sister
+echo "@@setup_auto_204@@" > piggy_bank
 git add .
 git commit -m "Little sister does something"
 

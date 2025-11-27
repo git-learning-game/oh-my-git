@@ -7,17 +7,17 @@ split_description_173
 
 [setup]
 
-echo something > file1
-echo something else > file2
+echo @@setup_auto_061@@  > file1
+echo @@setup_auto_062@@  > file2
 git add .
 git commit -m "Initial commit"
 
-echo this should happen first >> file1
-echo and this should happen after that >> file2
+echo @@setup_auto_063@@  >> file1
+echo @@setup_auto_064@@  >> file2
 git commit -am "Both together"
 
-echo this is some other change >> file1
-echo this is some other change >> file2
+echo @@setup_auto_065@@  >> file1
+echo @@setup_auto_066@@  >> file2
 git commit -am "Something else"
 
 [win]

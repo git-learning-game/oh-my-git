@@ -7,21 +7,21 @@ stashmerge_description_157
 
 [setup]
 
-echo "Apple Pie:" > recipe
+echo "@@setup_auto_167@@" > recipe
 
 git add .
 git commit -m "creating a recipe"
 
-echo "- 4 Apples" >> recipe
+echo "@@setup_auto_168@@" >> recipe
 
 git add .
 git commit -m "Adding ingredients"
 
-echo "- 500g Flour" >> recipe
+echo "@@setup_auto_169@@" >> recipe
 
 git stash push
 
-echo "- Pinch of Salt" >> recipe
+echo "@@setup_auto_170@@" >> recipe
 
 git checkout main
 git add recipe

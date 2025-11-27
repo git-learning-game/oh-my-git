@@ -7,7 +7,7 @@ gitignore_description_266
 [setup]
 
 touch .gitignore
-echo important > important
+echo @@setup_auto_215@@  > important
 git add important
 git commit -m "Initial commit"
 

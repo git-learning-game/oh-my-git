@@ -13,10 +13,10 @@ cli_filesdelete_017
 
 [setup]
 
-echo A tiny spider web is next to your window. > tiny_web
-echo A big spider web sticks above your bed. > big_web
-echo A cozy bed. > bed
-echo An extra thick spider web is right beside your door. > thick_web
+echo @@setup_auto_222@@  > tiny_web
+echo @@setup_auto_223@@  > big_web
+echo @@setup_auto_224@@  > bed
+echo @@setup_auto_225@@  > thick_web
 
 [win]
 

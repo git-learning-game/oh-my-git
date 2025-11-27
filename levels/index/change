@@ -11,7 +11,7 @@ change_win_060
 
 [setup]
 
-echo "The candle is burning with a blue flame." > candle
+echo "@@setup_auto_024@@" > candle
 git add .
 git commit -m "The beginning"
 

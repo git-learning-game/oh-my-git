@@ -7,17 +7,17 @@ stashbranch_description_161
 
 [setup]
 
-echo "Apple Pie:" > recipe
+echo "@@setup_auto_174@@" > recipe
 
 git add .
 git commit -m "creating a recipe"
 
-echo "- 4 Apples" >> recipe
+echo "@@setup_auto_175@@" >> recipe
 
 git add .
 git commit -m "Adding ingredients"
 
-echo "- 500g Flour" >> recipe
+echo "@@setup_auto_176@@" >> recipe
 git stash push
 
 git checkout main

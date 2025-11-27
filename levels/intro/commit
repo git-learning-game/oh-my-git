@@ -13,7 +13,7 @@ cli_commit_003
 
 [setup]
 
-echo "The glass is full of water." > glass
+echo "@@setup_auto_018@@" > glass
 
 [win]
 

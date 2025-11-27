@@ -7,38 +7,14 @@ pushedsomethingbroken_description_217
 
 [setup]
 
-echo "this is fine
-
-?
-
-?
-
-?" > text
+echo "@@setup_auto_211@@" > text
 git add .
 git commit -m fine
-echo "this is fine
-
-this is also fine
-
-?
-
-?" > text
+echo "@@setup_auto_212@@" > text
 git commit -am "also fine"
-echo "this is fine
-
-this is also fine
-
-this is very bad
-
-?" > text
+echo "@@setup_auto_213@@" > text
 git commit -am "very bad"
-echo "this is fine
-
-this is also fine
-
-this is very bad
-
-this is fine again" > text
+echo "@@setup_auto_214@@" > text
 git commit -am "fine again"
 
 git push team main

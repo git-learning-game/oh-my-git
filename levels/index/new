@@ -11,7 +11,7 @@ cli_new_006
 
 [setup]
 
-echo "The candle is burning with a blue flame." > candle
+echo "@@setup_auto_038@@" > candle
 
 [win]
 

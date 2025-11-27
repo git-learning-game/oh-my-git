@@ -20,14 +20,13 @@ cli_fork_013
 [setup]
 
 mkdir cage
-echo "Looks very hungry." > cage/lion
+echo "@@setup_auto_196@@" > cage/lion
 
-echo "A small child.
-It really loves cats!" > child
+echo "@@setup_auto_197@@" > child
 git add .
 git commit -m "The beginning"
 
-echo "It's holding a lollipop." >> child
+echo "@@setup_auto_198@@" >> child
 git commit -am "The child buys something"
 
 mv child cage
@@ -35,11 +34,11 @@ git add .
 git commit -m "The child climbs somewhere"
 
 git rm cage/child
-echo "Looks happy. :)" > cage/lion
+echo "@@setup_auto_199@@" > cage/lion
 git add .
 git commit -m "Oh no"
 
-echo "It's sleeping." > cage/lion
+echo "@@setup_auto_200@@" > cage/lion
 git add .
 git commit -m "Nap time!"
 

@@ -7,10 +7,10 @@ restoreafilefromthepast_description_224
 
 [setup]
 
-echo "good version" > essay
+echo "@@setup_auto_207@@" > essay
 git add .
 git commit -m "Initial commit"
-echo "bad version" > essay
+echo "@@setup_auto_208@@" > essay
 git commit -am "\"Improve\" essay"
 
 [win]

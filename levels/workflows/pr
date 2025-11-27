@@ -12,7 +12,7 @@ rm -rf .git
 
 [setup friend]
 
-echo "2 + 3 = " > file
+echo "@@setup_auto_216@@" > file
 git add .
 git commit -m "Initial commit"
 

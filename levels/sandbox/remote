@@ -7,7 +7,7 @@ remote_description_273
 
 [setup yours]
 
-echo "Line 1" > essay
+echo "@@setup_auto_157@@" > essay
 git add .
 git commit -m "Initial commit"
 
@@ -16,5 +16,5 @@ git push -u friend main
 [setup friend]
 
 git checkout main
-echo "Line 2" >> essay
+echo "@@setup_auto_158@@" >> essay
 git commit -am "Another line"

@@ -7,20 +7,20 @@ fetch_description_197
 
 [setup]
 
-echo "The bikeshed should be ???" > proposal
+echo "@@setup_auto_049@@" > proposal
 git add .
 git commit -m "What do you think?"
 
 [setup friend1]
 
 git pull yours main
-echo "The bikeshed should be green" > proposal
+echo "@@setup_auto_050@@" > proposal
 git commit -am "Green"
 
 [setup friend2]
 
 git pull yours main
-echo "The bikeshed should be blue" > proposal
+echo "@@setup_auto_051@@" > proposal
 git commit -am "Blue"
 
 [win]

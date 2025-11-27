@@ -7,63 +7,35 @@ rebase_description_254
 
 [setup]
 
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_147@@" > you
 
 git add .
 git commit -m "The Beginning"
 
 git checkout -b baguette main
-echo "You have a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_148@@" > you
 git add .
 git commit -m "You buy a baguette"
 
-echo "You ate a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_149@@" > you
 git add .
 git commit -m "You eat the baguette"
 
 git checkout -b coffee main
-echo "You do not have a baguette.
-
-You have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_150@@" > you
 git add .
 git commit -m "You buy some coffee"
 
-echo "You do not have a baguette.
-
-You drank coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_151@@" > you
 git add .
 git commit -m "You drink the coffee"
 
 git checkout -b donut main
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You have a donut." > you
+echo "@@setup_auto_152@@" > you
 git add .
 git commit -m "You buy a donut"
 
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You ate a donut." > you
+echo "@@setup_auto_153@@" > you
 git add .
 git commit -m "You eat the donut"
 

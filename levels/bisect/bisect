@@ -7,15 +7,15 @@ bisect_description_262
 
 [setup]
 
-echo "You still have your key." > you
+echo "@@setup_auto_217@@" > you
 
 for i in {1..30}; do
     if test $i -eq 12; then
-        echo "Your pocket is empty." > you
-        echo "Is on the ground." > key
+        echo "@@setup_auto_218@@" > you
+        echo "@@setup_auto_219@@" > key
     fi
     if test $i -eq 13; then
-        echo "Is holding a key in its beak." > bird
+        echo "@@setup_auto_220@@" > bird
         rm key
     fi
     if test $i -eq 14; then

@@ -7,26 +7,24 @@ conflict_description_046
 
 [setup]
 
-echo "Just woke up. Is hungry." > sam
+echo "@@setup_auto_011@@" > sam
 git add .
 git commit -m "The beginning"
 
 git checkout -b pancakes
-echo "Had blueberry pancakes with maple syrup for breakfast." > sam
+echo "@@setup_auto_012@@" > sam
 git add .
 git commit -m "Pancakes!"
 
-echo "
-Is at work." >> sam
+echo "@@setup_auto_013@@" >> sam
 git commit -am "Go to work"
 
 git checkout -b muesli main
-echo "Had muesli with oats and strawberries for breakfast." > sam
+echo "@@setup_auto_014@@" > sam
 git add .
 git commit -m "Muesli!"
 
-echo "
-Is at work." >> sam
+echo "@@setup_auto_015@@" >> sam
 git commit -am "Go to work"
 
 git checkout main

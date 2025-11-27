@@ -20,8 +20,7 @@ git commit -a -m "Even better version"
 echo "D" >> essay.txt
 git commit -a -m "Marvelous version"
 
-echo "blarg
-blaaaargh" > essay.txt
+echo "@@setup_auto_053@@" > essay.txt
 
 [win]
 

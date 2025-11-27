@@ -7,10 +7,10 @@ badcommit_description_219
 
 [setup]
 
-echo "1 2 3 4" > numbers
+echo "@@setup_auto_209@@" > numbers
 git add .
 git commit -m "Initial commit"
-echo "1 2 3 4 5 6 7 8 9 11" > numbers
+echo "@@setup_auto_210@@" > numbers
 git commit -am "More numberrrrrs"
 
 [win]

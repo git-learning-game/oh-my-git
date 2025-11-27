@@ -9,7 +9,7 @@ whoareyou_description_117
 
 git config --global user.name "You"
 
-echo "~ Why do you want to learn how to use time machines? ~
+echo @@setup_auto_020@@ 
 
 [ ] To make sure that my cat doesn't eat my homework.
 [ ] So I don't have to keep copies of all my essays.

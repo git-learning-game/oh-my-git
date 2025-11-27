@@ -7,17 +7,17 @@ removetag_description_238
 
 [setup]
 
-echo "event 1" > feature-list
+echo "@@setup_auto_139@@" > feature-list
 
 git add .
 git commit -m "Adding feature 1"
 
-echo "event 2" >> feature-list
+echo "@@setup_auto_140@@" >> feature-list
 
 git add .
 git commit -m "Adding feature 2"
 
-echo "event 3" >> feature-list
+echo "@@setup_auto_141@@" >> feature-list
 
 git add .
 git commit -m "Adding feature 3"

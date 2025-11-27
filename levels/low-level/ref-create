@@ -4,8 +4,8 @@ refcreate_description_305
 
 [setup]
 
-echo hello > hello
-echo world > world
+echo @@setup_auto_097@@  > hello
+echo @@setup_auto_098@@  > world
 BLOB1=$(git hash-object -w hello)
 BLOB2=$(git hash-object -w world)
 git add .
@@ -14,8 +14,8 @@ COMMIT=$(git commit-tree $TREE -m "Initial commit")
 
 [setup goal]
 
-echo hello > hello
-echo world > world
+echo @@setup_auto_099@@  > hello
+echo @@setup_auto_100@@  > world
 BLOB1=$(git hash-object -w hello)
 BLOB2=$(git hash-object -w world)
 git add .

@@ -7,12 +7,12 @@ mergeabort_description_050
 
 [setup]
 
-echo "A new day is starting" > you
+echo "@@setup_auto_008@@" > you
 
 git add .
 git commit -m "Start"
 
-echo "Walking down the Main Lane." >> you
+echo "@@setup_auto_009@@" >> you
 
 git add .
 git commit -m "Main Lane"
@@ -20,7 +20,7 @@ git commit -m "Main Lane"
 
 git checkout HEAD~1
 
-echo "Walking down the Side Lane." >> you
+echo "@@setup_auto_010@@" >> you
 
 git add .
 git commit -m "Side Lane"

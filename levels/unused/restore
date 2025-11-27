@@ -7,17 +7,17 @@ restore_description_208
 
 [setup]
 
-echo "Initial version" > essay.txt
+echo "@@setup_auto_045@@" > essay.txt
 git add .
 git commit -m "Initial commit"
 
-echo "Improved version" > essay.txt
+echo "@@setup_auto_046@@" > essay.txt
 git commit -a -m "Improved version"
 
-echo "Best version" > essay.txt
+echo "@@setup_auto_047@@" > essay.txt
 git commit -a -m "Best version"
 
-echo "Less-good version" > essay.txt
+echo "@@setup_auto_048@@" > essay.txt
 git commit -a -m "Less-good version"
 
 [win]

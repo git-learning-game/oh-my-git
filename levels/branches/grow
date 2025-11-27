@@ -13,16 +13,16 @@ cli_grow_008
 
 [setup]
 
-echo "You wrap the birthday present, and grab your concert ticket." > you
+echo "@@setup_auto_183@@" > you
 git add .
 git commit -m "Evening preparations"
-echo "You go to the birthday party!" >> you
+echo "@@setup_auto_184@@" >> you
 git add .
 git commit -m "Go to the birthday"
 git branch birthday
 
 git checkout HEAD~1
-echo "You go to the concert!" > you
+echo "@@setup_auto_185@@" > you
 git add .
 git commit -m "Go to the concert"
 git branch concert

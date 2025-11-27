@@ -7,62 +7,34 @@ merge_description_041
 
 [setup]
 
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_001@@" > you
 
 git add .
 git commit -m "The Beginning"
 
-echo "You have a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_002@@" > you
 git add .
 git commit -m "You buy a baguette"
 
-echo "You ate a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_003@@" > you
 git add .
 git commit -m "You eat the baguette"
 
 git checkout HEAD~2
-echo "You do not have a baguette.
-
-You have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_004@@" > you
 git add .
 git commit -m "You buy some coffee"
 
-echo "You do not have a baguette.
-
-You drank coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_005@@" > you
 git add .
 git commit -m "You drink the coffee"
 
 git checkout HEAD~2
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You have a donut." > you
+echo "@@setup_auto_006@@" > you
 git add .
 git commit -m "You buy a donut"
 
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You ate a donut." > you
+echo "@@setup_auto_007@@" > you
 git add .
 git commit -m "You eat the donut"
 

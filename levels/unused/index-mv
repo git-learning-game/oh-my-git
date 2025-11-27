@@ -8,7 +8,7 @@ indexmv_description_211
 [setup]
 
 echo a > a
-echo SPECIAL > b
+echo @@setup_auto_067@@  > b
 echo x > c
 git add .
 git commit -m "Initial commit"

@@ -7,15 +7,15 @@ reset_description_055
 
 [setup]
 
-echo "It's burning!" > red_candle
-echo "It's burning!" > green_candle
-echo "It's burning!" > blue_candle
+echo "@@setup_auto_039@@" > red_candle
+echo "@@setup_auto_040@@" > green_candle
+echo "@@setup_auto_041@@" > blue_candle
 git add .
 git commit -m "The beginning"
 
-echo "It's been blown out." > red_candle
-echo "It's been blown out." > green_candle
-echo "It's been blown out." > blue_candle
+echo "@@setup_auto_042@@" > red_candle
+echo "@@setup_auto_043@@" > green_candle
+echo "@@setup_auto_044@@" > blue_candle
 git add .
 
 [win]

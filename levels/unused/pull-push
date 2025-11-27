@@ -7,17 +7,17 @@ pullpush_description_194
 
 [setup yours]
 
-echo "Just woke up. Is hungry." > sam
+echo "@@setup_auto_068@@" > sam
 git add .
 git commit -m "The beginning"
 
 git checkout -b pancakes
-echo "Had blueberry pancakes with maple syrup for breakfast." > sam
+echo "@@setup_auto_069@@" > sam
 git add .
 git commit -m "Pancakes!"
 
 git checkout -b muesli main
-echo "Had muesli with oats and strawberries for breakfast." > sam
+echo "@@setup_auto_070@@" > sam
 git add .
 git commit -m "Muesli!"
 
@@ -31,7 +31,7 @@ git checkout main
 git merge pancakes
 git merge muesli
 
-echo "Had pancakes with strawberries for breakfast." > sam
+echo "@@setup_auto_071@@" > sam
 git add .
 git commit -m "Let's make this breakfast compromise" --author="Sidekick <sidekick@example.com>"
 

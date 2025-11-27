@@ -7,7 +7,7 @@ filesadd_description_249
 
 [setup]
 
-echo A yellow cozy bed. > bed
+echo @@setup_auto_221@@  > bed
 
 [win]
 

@@ -8,9 +8,9 @@ blobremove_congrats_284
 
 [setup]
 
-echo "My master password is a1b2c3d4e5" | git hash-object -w --stdin
-echo "This blob really should not exist" | git hash-object -w --stdin
-echo "This is a virus" | git hash-object -w --stdin
+echo "@@setup_auto_112@@" | git hash-object -w --stdin
+echo "@@setup_auto_113@@" | git hash-object -w --stdin
+echo "@@setup_auto_114@@" | git hash-object -w --stdin
 
 [setup goal]
 

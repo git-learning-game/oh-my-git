@@ -11,15 +11,15 @@ cli_branchcreate_009
 
 [setup]
 
-echo "You wrap the birthday present, and grab your concert ticket." > you
+echo "@@setup_auto_193@@" > you
 git add .
 git commit -m "Evening preparations"
-echo "You go to the birthday party!" >> you
+echo "@@setup_auto_194@@" >> you
 git add .
 git commit -m "Go to the birthday"
 
 git checkout HEAD~1
-echo "You go to the concert!" > you
+echo "@@setup_auto_195@@" > you
 git add .
 git commit -m "Go to the concert"
 

@@ -9,7 +9,7 @@ BLOB=$(git hash-object -w foo)
 echo bar > bar
 git add .
 git commit -m "Initial commit"
-echo blabber >> bar
+echo @@setup_auto_115@@  >> bar
 git commit -a -m "Second commit"
 git update-ref refs/important HEAD
 git update-ref refs/interesting "$BLOB"
@@ -21,7 +21,7 @@ BLOB=$(git hash-object -w foo)
 echo bar > bar
 git add .
 git commit -m "Initial commit"
-echo blabber >> bar
+echo @@setup_auto_116@@  >> bar
 git commit -a -m "Second commit"
 git update-ref refs/important HEAD
 git update-ref refs/interesting "$BLOB"

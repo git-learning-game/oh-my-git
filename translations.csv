@@ -1,4 +1,4 @@
-keys,en,ru,,
+keys,en,ru
 card_description_001,Description,Описание,,
 card_energy_002,0,0,,
 music_button_button3_003,Toggle music,Переключить музыку,,
@@ -1317,3 +1317,555 @@ pushed_win_hint_2,And the history has not been modified.,И история не 
 default_win_desc_key,Complete the goal of this level,Выполните цель этого уровня
 remote_tag_win_hint_1,v2 tag in the remote,тег v2 в удалённом репозитории
 remote_win_hint_134,And use `git push` to send it to your teacher!,Используй `git push` и отправь это своему учителю!
+setup_auto_001,"You do not have a baguette.
+
+You do not have coffee.
+
+You do not have a donut.","У вас нет багета.
+
+У вас нет кофе.
+
+У вас нет пончика."
+setup_auto_002,"You have a baguette.
+
+You do not have coffee.
+
+You do not have a donut.","У вас есть багет.
+
+У вас нет кофе.
+
+У вас нет пончика."
+setup_auto_003,"You ate a baguette.
+
+You do not have coffee.
+
+You do not have a donut.","Вы съели багет.
+
+У вас нет кофе.
+
+У вас нет пончика."
+setup_auto_004,"You do not have a baguette.
+
+You have coffee.
+
+You do not have a donut.","У вас нет багета.
+
+У вас есть кофе.
+
+У вас нет пончика."
+setup_auto_005,"You do not have a baguette.
+
+You drank coffee.
+
+You do not have a donut.","У вас нет багета.
+
+Вы выпили кофе.
+
+У вас нет пончика."
+setup_auto_006,"You do not have a baguette.
+
+You do not have coffee.
+
+You have a donut.","У вас нет багета.
+
+У вас нет кофе.
+
+У вас есть пончик."
+setup_auto_007,"You do not have a baguette.
+
+You do not have coffee.
+
+You ate a donut.","У вас нет багета.
+
+У вас нет кофе.
+
+Вы съели пончик."
+setup_auto_008,A new day is starting,Начинается новый день
+setup_auto_009,Walking down the Main Lane.,Прогулка по Основной линии.
+setup_auto_010,Walking down the Side Lane.,Прогулка по Боковой линии.
+setup_auto_011,Just woke up. Is hungry.,Только проснулся. Голоден.
+setup_auto_012,Had blueberry pancakes with maple syrup for breakfast.,На завтрак были блины с черникой и кленовым сиропом.
+setup_auto_013,"
+Is at work.","
+На работе."
+setup_auto_014,Had muesli with oats and strawberries for breakfast.,На завтрак были мюсли с овсянкой и клубникой.
+setup_auto_015,"
+Is at work.","
+На работе."
+setup_auto_016,~ List of current students ~,~ Список текущих студентов ~
+setup_auto_017,"
+- Sam
+- Alex","
+- Сэм
+- Алекс"
+setup_auto_018,The glass is full of water.,Стакан полон воды.
+setup_auto_019,"~ Why I want to learn Git ~
+
+- So that I can undo mistakes
+- To track my projects over time","~ Почему я хочу изучить Git ~
+
+- Чтобы я мог отменять ошибки
+- Чтобы отслеживать свои проекты со временем"
+setup_auto_020,"""~ Why do you want to learn how to use time machines? ~""","""~ Почему вы хотите научиться пользоваться машинами времени? ~"""
+setup_auto_021,"~ Why I want to learn Git ~
+
+(I still need to write this.)","~ Почему я хочу изучить Git ~
+
+(Мне еще нужно это написать.)"
+setup_auto_022,"~ Why I want to learn Git ~
+
+- So that I can undo mistakes","~ Почему я хочу изучить Git ~
+
+- Чтобы я мог отменять ошибки"
+setup_auto_023,"~ Why I want to learn Git ~
+
+- So that I can undo mistakes
+- To track my projects over time","~ Почему я хочу изучить Git ~
+
+- Чтобы я мог отменять ошибки
+- Чтобы отслеживать свои проекты со временем"
+setup_auto_024,The candle is burning with a blue flame.,Свеча горит синим пламенем.
+setup_auto_025,"A small, but heavy glass ball.","Маленький, но тяжелый стеклянный шар."
+setup_auto_026,"A thin book, that's standing upright.","Тонкая книга, которая стоит вертикально."
+setup_auto_027,"A candle, burning with a blue flame.","Свеча, горящая синим пламенем."
+setup_auto_028,A smoke detector. It's absolutely silent.,Детектор дыма. Он абсолютно бесшумен.
+setup_auto_029,The ball is now touching the book.,Шар теперь касается книги.
+setup_auto_030,The book has fallen over.,Книга упала.
+setup_auto_031,The candle has been blown out.,Свечу задули.
+setup_auto_032,The ball is now touching the book.,Шар теперь касается книги.
+setup_auto_033,The book has fallen over.,Книга упала.
+setup_auto_034,The candle has been blown out.,Свечу задули.
+setup_auto_035,"A hammer, balancing on its handle.","Молоток, балансирующий на рукоятке."
+setup_auto_036,"A bottle, containing a clear liquid.","Бутылка с прозрачной жидкостью."
+setup_auto_037,A white sugar cube.,Белый кубик сахара.
+setup_auto_038,The candle is burning with a blue flame.,Свеча горит синим пламенем.
+setup_auto_039,It's burning!,Она горит!
+setup_auto_040,It's burning!,Она горит!
+setup_auto_041,It's burning!,Она горит!
+setup_auto_042,It's been blown out.,Ее задули.
+setup_auto_043,It's been blown out.,Ее задули.
+setup_auto_044,It's been blown out.,Ее задули.
+setup_auto_045,Initial version,Начальная версия
+setup_auto_046,Improved version,Улучшенная версия
+setup_auto_047,Best version,Лучшая версия
+setup_auto_048,Less-good version,Менее удачная версия
+setup_auto_049,The bikeshed should be ???,Велосипедный сарай должен быть ???
+setup_auto_050,The bikeshed should be green,Велосипедный сарай должен быть зеленым
+setup_auto_051,The bikeshed should be blue,Велосипедный сарай должен быть синим
+setup_auto_052,I'm really committed to our friendship! <3,Я очень предан нашей дружбе! <3
+setup_auto_053,"blarg
+blaaaargh","блаарг
+блааааргх"
+setup_auto_054,A yellow cupboard with lots of drawers.,Желтый шкаф с множеством ящиков.
+setup_auto_055,A really big yellow shelf.,Очень большая желтая полка.
+setup_auto_056,"A comfortable, yellow bed with yellow cushions.","Удобная, желтая кровать с желтыми подушками."
+setup_auto_057,something,что-то
+setup_auto_058,something else,что-то еще
+setup_auto_059,this should happen first,это должно произойти сначала
+setup_auto_060,and this should happen after that,а это должно произойти после
+setup_auto_061,something,что-то
+setup_auto_062,something else,что-то еще
+setup_auto_063,this should happen first,это должно произойти сначала
+setup_auto_064,and this should happen after that,а это должно произойти после
+setup_auto_065,this is some other change,это какое-то другое изменение
+setup_auto_066,this is some other change,это какое-то другое изменение
+setup_auto_067,SPECIAL,ОСОБЕННЫЙ
+setup_auto_068,Just woke up. Is hungry.,Только проснулся. Голоден.
+setup_auto_069,Had blueberry pancakes with maple syrup for breakfast.,На завтрак были блины с черникой и кленовым сиропом.
+setup_auto_070,Had muesli with oats and strawberries for breakfast.,На завтрак были мюсли с овсянкой и клубникой.
+setup_auto_071,Had pancakes with strawberries for breakfast.,На завтрак были блины с клубникой.
+setup_auto_072,I am precious,Я драгоценный
+setup_auto_073,hello,привет
+setup_auto_074,world,мир
+setup_auto_075,hello,привет
+setup_auto_076,world,мир
+setup_auto_077,ppl p,ppl p
+setup_auto_078,ae ie,ae ie
+setup_auto_079,file 1,файл 1
+setup_auto_080,file 2,файл 2
+setup_auto_081,file 3,файл 3
+setup_auto_082,file 1,файл 1
+setup_auto_083,file 2,файл 2
+setup_auto_084,file 3,файл 3
+setup_auto_085,file 1,файл 1
+setup_auto_086,file 2,файл 2
+setup_auto_087,file 3,файл 3
+setup_auto_090,file 1,файл 1
+setup_auto_091,file 2,файл 2
+setup_auto_092,file 3,файл 3
+setup_auto_093,file 1,файл 1
+setup_auto_094,file 2,файл 2
+setup_auto_095,file 3,файл 3
+setup_auto_096,new content,новое содержимое
+setup_auto_097,hello,привет
+setup_auto_098,world,мир
+setup_auto_099,hello,привет
+setup_auto_100,world,мир
+setup_auto_102,file 1,файл 1
+setup_auto_103,file 2,файл 2
+setup_auto_104,file A,файл A
+setup_auto_105,file B,файл B
+setup_auto_106,file C,файл C
+setup_auto_107,file 1,файл 1
+setup_auto_108,file 2,файл 2
+setup_auto_109,file A,файл A
+setup_auto_110,file B,файл B
+setup_auto_111,file C,файл C
+setup_auto_112,My master password is a1b2c3d4e5,Мой мастер-пароль a1b2c3d4e5
+setup_auto_113,This blob really should not exist,Этого blob действительно не должно существовать
+setup_auto_114,This is a virus,Это вирус
+setup_auto_115,blabber,болтовня
+setup_auto_116,blabber,болтовня
+setup_auto_117,file 1,файл 1
+setup_auto_118,file 2,файл 2
+setup_auto_119,file 3,файл 3
+setup_auto_120,file 1,файл 1
+setup_auto_121,file 2,файл 2
+setup_auto_122,file 3,файл 3
+setup_auto_123,hello,привет
+setup_auto_124,world,мир
+setup_auto_125,hello,привет
+setup_auto_126,world,мир
+setup_auto_127,I'm the left arm,Я левая рука
+setup_auto_128,I'm the right arm,Я правая рука
+setup_auto_129,I'm the left leg,Я левая нога
+setup_auto_130,I'm the right leg,Я правая нога
+setup_auto_131,event 1,событие 1
+setup_auto_132,event 2,событие 2
+setup_auto_133,event 3,событие 3
+setup_auto_134,event 1,событие 1
+setup_auto_135,event 2,событие 2
+setup_auto_136,event 3,событие 3
+setup_auto_137,toothbrush sharing,совместное использование зубной щетки
+setup_auto_138,Is my phone upside down? App,Приложение "Мой телефон перевернут?"
+setup_auto_139,event 1,событие 1
+setup_auto_140,event 2,событие 2
+setup_auto_141,event 3,событие 3
+setup_auto_142,"You just woke up.
+
+You are NOT wearing underwear.
+
+You are NOT wearing pants.
+
+You are NOT wearing a shirt.
+
+You are NOT wearing shoes.","Вы только что проснулись.
+
+На вас НЕТ нижнего белья.
+
+На вас НЕТ штанов.
+
+На вас НЕТ рубашки.
+
+На вас НЕТ обуви."
+setup_auto_143,"You just woke up.
+
+You are NOT wearing underwear.
+
+You are NOT wearing pants.
+
+You are NOT wearing a shirt.
+
+You are wearing shoes.","Вы только что проснулись.
+
+На вас НЕТ нижнего белья.
+
+На вас НЕТ штанов.
+
+На вас НЕТ рубашки.
+
+На вас ЕСТЬ обувь."
+setup_auto_144,"You just woke up.
+
+You are NOT wearing underwear.
+
+You are wearing pants.
+
+You are NOT wearing a shirt.
+
+You are wearing shoes.","Вы только что проснулись.
+
+На вас НЕТ нижнего белья.
+
+На вас ЕСТЬ штаны.
+
+На вас НЕТ рубашки.
+
+На вас ЕСТЬ обувь."
+setup_auto_145,"You just woke up.
+
+You are wearing underwear.
+
+You are wearing pants.
+
+You are NOT wearing a shirt.
+
+You are wearing shoes.","Вы только что проснулись.
+
+На вас ЕСТЬ нижнее белье.
+
+На вас ЕСТЬ штаны.
+
+На вас НЕТ рубашки.
+
+На вас ЕСТЬ обувь."
+setup_auto_146,"You just woke up.
+
+You are wearing underwear.
+
+You are wearing pants.
+
+You are wearing a shirt.
+
+You are wearing shoes.","Вы только что проснулись.
+
+На вас ЕСТЬ нижнее белье.
+
+На вас ЕСТЬ штаны.
+
+На вас ЕСТЬ рубашка.
+
+На вас ЕСТЬ обувь."
+setup_auto_147,"You do not have a baguette.
+
+You do not have coffee.
+
+You do not have a donut.","У вас нет багета.
+
+У вас нет кофе.
+
+У вас нет пончика."
+setup_auto_148,"You have a baguette.
+
+You do not have coffee.
+
+You do not have a donut.","У вас есть багет.
+
+У вас нет кофе.
+
+У вас нет пончика."
+setup_auto_149,"You ate a baguette.
+
+You do not have coffee.
+
+You do not have a donut.","Вы съели багет.
+
+У вас нет кофе.
+
+У вас нет пончика."
+setup_auto_150,"You do not have a baguette.
+
+You have coffee.
+
+You do not have a donut.","У вас нет багета.
+
+У вас есть кофе.
+
+У вас нет пончика."
+setup_auto_151,"You do not have a baguette.
+
+You drank coffee.
+
+You do not have a donut.","У вас нет багета.
+
+Вы выпили кофе.
+
+У вас нет пончика."
+setup_auto_152,"You do not have a baguette.
+
+You do not have coffee.
+
+You have a donut.","У вас нет багета.
+
+У вас нет кофе.
+
+У вас есть пончик."
+setup_auto_153,"You do not have a baguette.
+
+You do not have coffee.
+
+You ate a donut.","У вас нет багета.
+
+У вас нет кофе.
+
+Вы съели пончик."
+setup_auto_154,You wake up.,Вы просыпаетесь.
+setup_auto_155,You drink coffee.,Вы пьете кофе.
+setup_auto_156,You hear a knock on the door.,Вы слышите стук в дверь.
+setup_auto_157,Line 1,Строка 1
+setup_auto_158,Line 2,Строка 2
+setup_auto_159,Apple Pie:,Яблочный пирог:
+setup_auto_160,- 4 Apples,- 4 яблока
+setup_auto_161,- 500g Flour,- 500г муки
+setup_auto_162,- 200g Sugar,- 200г сахара
+setup_auto_163,- Pinch of Salt,- Щепотка соли
+setup_auto_164,Apple Pie:,Яблочный пирог:
+setup_auto_165,- 4 Apples,- 4 яблока
+setup_auto_166,- 500g Flour,- 500г муки
+setup_auto_167,Apple Pie:,Яблочный пирог:
+setup_auto_168,- 4 Apples,- 4 яблока
+setup_auto_169,- 500g Flour,- 500г муки
+setup_auto_170,- Pinch of Salt,- Щепотка соли
+setup_auto_171,Apple Pie:,Яблочный пирог:
+setup_auto_172,- 4 Apples,- 4 яблока
+setup_auto_173,- 500g Flour,- 500г муки
+setup_auto_174,Apple Pie:,Яблочный пирог:
+setup_auto_175,- 4 Apples,- 4 яблока
+setup_auto_176,- 500g Flour,- 500г муки
+setup_auto_177,"You do not have a baguette.
+
+You do not have coffee.
+
+You do not have a donut.","У вас нет багета.
+
+У вас нет кофе.
+
+У вас нет пончика."
+setup_auto_178,"You have a baguette.
+
+You do not have coffee.
+
+You do not have a donut.","У вас есть багет.
+
+У вас нет кофе.
+
+У вас нет пончика."
+setup_auto_179,"You ate a baguette.
+
+You do not have coffee.
+
+You do not have a donut.","Вы съели багет.
+
+У вас нет кофе.
+
+У вас нет пончика."
+setup_auto_180,"You do not have a baguette.
+
+You have coffee.
+
+You do not have a donut.","У вас нет багета.
+
+У вас есть кофе.
+
+У вас нет пончика."
+setup_auto_181,"You do not have a baguette.
+
+You drank coffee.
+
+You do not have a donut.","У вас нет багета.
+
+Вы выпили кофе.
+
+У вас нет пончика."
+setup_auto_182,"You do not have a baguette.
+
+You do not have coffee.
+
+You have a donut.","У вас нет багета.
+
+У вас нет кофе.
+
+У вас есть пончик."
+setup_auto_183,"You wrap the birthday present, and grab your concert ticket.","Вы заворачиваете подарок на день рождения и берете билет на концерт."
+setup_auto_184,You go to the birthday party!,Вы идете на вечеринку в честь дня рождения!
+setup_auto_185,You go to the concert!,Вы идете на концерт!
+setup_auto_186,You leave your house and start walking to school.,Вы выходите из дома и идете в школу.
+setup_auto_187,You walk on the right side of the street.,Вы идете по правой стороне улицы.
+setup_auto_188,"You jump over an manhole in the walkway, and arrive at school on time.","Вы перепрыгиваете через люк на тротуаре и приходите в школу вовремя."
+setup_auto_189,"Suddenly, you fall down, splash into stinking water, and are eaten by an alligator.","Внезапно вы падаете, шлепаетесь в вонючую воду, и вас съедает аллигатор."
+setup_auto_190,You walk on the left side of the street.,Вы идете по левой стороне улицы.
+setup_auto_191,"Because you're kind of late, you start running. Someone throws a piano out of their windows, and it smashes you.","Поскольку вы немного опаздываете, вы начинаете бежать. Кто-то выбрасывает пианино из окна, и оно вас раздавливает."
+setup_auto_192,"You're not in a hurry, and walk slowly. You even get some ice cream on your way. You arrive at school too late, your teacher is angry, and you are expelled.","Вы не торопитесь и идете медленно. По дороге вы даже покупаете мороженое. Вы приходите в школу слишком поздно, ваш учитель злится, и вас исключают."
+setup_auto_193,"You wrap the birthday present, and grab your concert ticket.","Вы заворачиваете подарок на день рождения и берете билет на концерт."
+setup_auto_194,You go to the birthday party!,Вы идете на вечеринку в честь дня рождения!
+setup_auto_195,You go to the concert!,Вы идете на концерт!
+setup_auto_196,Looks very hungry.,Выглядит очень голодным.
+setup_auto_197,"A small child.
+It really loves cats!","Маленький ребенок.
+Он очень любит кошек!"
+setup_auto_198,It's holding a lollipop.,Он держит леденец.
+setup_auto_199,Looks happy. :),Выглядит счастливым. :)
+setup_auto_200,It's sleeping.,Он спит.
+setup_auto_201,"This piggy bank belongs to the big sister.
+It contains 10 coins.","Эта копилка принадлежит старшей сестре.
+В ней 10 монет."
+setup_auto_202,"A young girl with brown, curly hair.","Молодая девушка с каштановыми, вьющимися волосами."
+setup_auto_203,Has 10 coins.,Имеет 10 монет.
+setup_auto_204,"This piggy bank belongs to the big sister.
+It is empty.","Эта копилка принадлежит старшей сестре.
+Она пуста."
+setup_auto_205,important,важно
+setup_auto_206,important content,важное содержимое
+setup_auto_207,good version,хорошая версия
+setup_auto_208,bad version,плохая версия
+setup_auto_209,1 2 3 4,1 2 3 4
+setup_auto_210,1 2 3 4 5 6 7 8 9 11,1 2 3 4 5 6 7 8 9 11
+setup_auto_211,"this is fine
+
+?
+
+?
+
+?","это нормально
+
+?
+
+?
+
+?"
+setup_auto_212,"this is fine
+
+this is also fine
+
+?
+
+?","это нормально
+
+это тоже нормально
+
+?
+
+?"
+setup_auto_213,"this is fine
+
+this is also fine
+
+this is very bad
+
+?","это нормально
+
+это тоже нормально
+
+это очень плохо
+
+?"
+setup_auto_214,"this is fine
+
+this is also fine
+
+this is very bad
+
+this is fine again","это нормально
+
+это тоже нормально
+
+это очень плохо
+
+это снова нормально"
+setup_auto_215,important,важно
+setup_auto_216,"2 + 3 = ","2 + 3 = "
+setup_auto_217,You still have your key.,У вас все еще есть ключ.
+setup_auto_218,Your pocket is empty.,Ваш карман пуст.
+setup_auto_219,Is on the ground.,Лежит на земле.
+setup_auto_220,Is holding a key in its beak.,Держит ключ в клюве.
+setup_auto_221,A yellow cozy bed.,Желтая уютная кровать.
+setup_auto_222,A tiny spider web is next to your window.,Крошечная паутина рядом с вашим окном.
+setup_auto_223,A big spider web sticks above your bed.,Большая паутина висит над вашей кроватью.
+setup_auto_224,A cozy bed.,Уютная кровать.
+setup_auto_225,An extra thick spider web is right beside your door.,Очень толстая паутина прямо у вашей двери.
+setup_auto_226,Line 1,Строка 1
+setup_auto_227,"Line 2, gnihihi","Строка 2, хихихи"
+setup_auto_228,The bike shed should be ???,Велосипедный сарай должен быть ???
+setup_auto_229,The bike shed should be green,Велосипедный сарай должен быть зеленым
+setup_auto_230,The bike shed should be blue,Велосипедный сарай должен быть синим
+compare_win_hint_073,"Pick the timeline that's clearer, and make the alarm go off!","Выберите более понятную ветку и включите будильник!"

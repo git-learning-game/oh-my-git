@@ -13,10 +13,7 @@ risky_congrats_126
 
 rm -rf .git
 
-echo "~ Why I want to learn Git ~
-
-- So that I can undo mistakes
-- To track my projects over time" >> form.txt
+echo "@@setup_auto_019@@" >> form.txt
 
 [actions]
 

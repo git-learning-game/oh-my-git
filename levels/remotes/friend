@@ -7,7 +7,7 @@ friend_description_310
 
 [setup yours]
 
-echo "Line 1" > essay
+echo "@@setup_auto_226@@" > essay
 git add .
 git commit -m "One line"
 
@@ -16,7 +16,7 @@ git push -u friend main
 [setup friend]
 
 git checkout main
-echo "Line 2, gnihihi" >> essay
+echo "@@setup_auto_227@@" >> essay
 git commit -am "Another line"
 
 [actions friend]

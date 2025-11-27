@@ -7,9 +7,9 @@ steps_description_064
 
 [setup]
 
-echo "A hammer, balancing on its handle." > hammer
-echo "A bottle, containing a clear liquid." > bottle
-echo "A white sugar cube." > sugar_cube
+echo "@@setup_auto_035@@" > hammer
+echo "@@setup_auto_036@@" > bottle
+echo "@@setup_auto_037@@" > sugar_cube
 
 git add .
 git commit -m "The beginning"

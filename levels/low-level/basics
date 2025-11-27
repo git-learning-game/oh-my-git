@@ -9,8 +9,8 @@ basics_congrats_294
 [setup]
 
 mkdir riddle
-echo "ppl p" > riddle/consonants
-echo "ae ie" > riddle/vowels
+echo "@@setup_auto_077@@" > riddle/consonants
+echo "@@setup_auto_078@@" > riddle/vowels
 
 [win]
 

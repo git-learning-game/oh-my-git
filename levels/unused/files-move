@@ -8,9 +8,9 @@ filesmove_description_180
 
 [setup]
 
-echo A yellow cupboard with lots of drawers. > cupboard
-echo A really big yellow shelf. > shelf
-echo A comfortable, yellow bed with yellow cushions. > bed
+echo @@setup_auto_054@@  > cupboard
+echo @@setup_auto_055@@  > shelf
+echo @@setup_auto_056@@  > bed
 
 [win]
 

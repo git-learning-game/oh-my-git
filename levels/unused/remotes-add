@@ -11,7 +11,7 @@ git remote remove friend
 
 [setup friend]
 
-echo "I'm really committed to our friendship! <3" > love_letter
+echo "@@setup_auto_052@@" > love_letter
 git add .
 git commit -m "Write a letter"
 

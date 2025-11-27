@@ -15,7 +15,7 @@ remote_congrats_130
 
 [setup]
 
-echo "~ List of current students ~" > students
+echo "@@setup_auto_016@@" > students
 git add .
 git commit -m "Initial version"
 git push -u teacher main
@@ -26,9 +26,7 @@ git update-ref -d refs/remotes/teacher/main
 
 git reset --hard main
 
-echo " 
-- Sam
-- Alex" >> students
+echo "@@setup_auto_017@@" >> students
 
 git add .
 git commit -m "Added two students"

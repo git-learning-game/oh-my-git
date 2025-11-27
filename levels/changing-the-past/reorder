@@ -7,61 +7,21 @@ reorder_description_258
 
 [setup]
 
-echo "You just woke up.
-
-You are NOT wearing underwear.
-
-You are NOT wearing pants.
-
-You are NOT wearing a shirt.
-
-You are NOT wearing shoes." > you
+echo "@@setup_auto_142@@" > you
 git add .
 
 git commit -m "The Beginning"
 
-echo "You just woke up.
-
-You are NOT wearing underwear.
-
-You are NOT wearing pants.
-
-You are NOT wearing a shirt.
-
-You are wearing shoes." > you
+echo "@@setup_auto_143@@" > you
 git commit -am "Put on shoes"
 
-echo "You just woke up.
-
-You are NOT wearing underwear.
-
-You are wearing pants.
-
-You are NOT wearing a shirt.
-
-You are wearing shoes." > you
+echo "@@setup_auto_144@@" > you
 git commit -am "Put on pants"
 
-echo "You just woke up.
-
-You are wearing underwear.
-
-You are wearing pants.
-
-You are NOT wearing a shirt.
-
-You are wearing shoes." > you
+echo "@@setup_auto_145@@" > you
 git commit -am "Put on underwear"
 
-echo "You just woke up.
-
-You are wearing underwear.
-
-You are wearing pants.
-
-You are wearing a shirt.
-
-You are wearing shoes." > you
+echo "@@setup_auto_146@@" > you
 git commit -am "Put on shirt"
 
 [win]
