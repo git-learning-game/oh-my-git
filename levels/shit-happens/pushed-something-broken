@@ -48,7 +48,7 @@ git branch -u team/main main
 
 [win team]
 
-# The team's main branch no longer contains the bad thing.
+# pushed_win_hint_1
 ! { git show main:text | grep -q "very bad"; }
-# And the history has not been modified.
+# pushed_win_hint_2
 git show main^:text | grep -q "very bad"

@@ -7,7 +7,7 @@ change_description_059
 
 [win]
 
-Good! The index is sometimes also called the "staging area" - it contains exactly what ends up in the next commit when you use `git commit`!
+change_win_060
 
 [setup]
 
@@ -17,7 +17,7 @@ git commit -m "The beginning"
 
 [win]
 
-# Make a change to the candle.
+# new_win_hint_085
 test "$(git diff --name-only)" = "candle" || file -f .git/candle-changed && touch .git/candle-changed
 
 # new_win_hint_083

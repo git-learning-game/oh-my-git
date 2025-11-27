@@ -13,7 +13,7 @@ var current_level = 0
 var skipped_title = false
 
 var translations = {}
-var current_locale = "ru"
+var current_locale
 
 var _file = "user://savegame.json"
 var state = {}
@@ -34,7 +34,6 @@ func _ready():
 	if OS.get_name() == "Windows":
 		start_remote_shell()
 	global_shell = new_shell()
-	
 #	var cmd = global_shell.run("echo hi")
 #	print(cmd)
 #	cmd = global_shell.run("seq 1 10")

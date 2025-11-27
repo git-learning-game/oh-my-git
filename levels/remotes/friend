@@ -38,8 +38,8 @@ git show HEAD:essay | grep blurbblubb
 
 [win friend]
 
-# The friend got a third line from you
+# friend_win_hint_313
 test "$(git show HEAD:essay | wc -l)" -ge 3
 
-# The friend got a fifth line from you
+# friend_win_hint_314
 test "$(git show HEAD:essay | wc -l)" -ge 5
