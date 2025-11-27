@@ -170,52 +170,27 @@ func new_shell():
 func _load_translations():
 	var file = File.new()
 	var path = "res://translations.csv"
-	
-	if not file.file_exists(path):
-		printerr("ЛОКАЛИЗАЦИЯ (ОШИБКА): Файл %s не найден." % path)
-		return
-	
+
 	file.open(path, File.READ)
 	
-	# ★ Читаем заголовок, чтобы узнать, какие языки есть в CSV
 	var header = file.get_csv_line()
-	# header = ["key", "en", "ru", "de", ...]
-	
-	if header.size() < 2:
-		printerr("ЛОКАЛИЗАЦИЯ (ОШИБКА): Некорректный формат CSV.")
-		file.close()
-		return
-	
-	# ★★ Создаем словарь: язык → объект Translation
 	var translations_map = {}
 	
-	# Пропускаем первую колонку (это "key"), остальные — языки
 	for i in range(1, header.size()):
-		var locale = header[i].strip_edges()  # "en", "ru", "de"...
-		
-		if locale == "":
-			continue
+		var locale = header[i].strip_edges()
 		
 		available_languages.append(locale)
 		
-		# Создаем Translation для каждого языка
 		var translation = Translation.new()
 		translation.set_locale(locale)
 		translations_map[locale] = translation
 	
-	print_debug("ЛОКАЛИЗАЦИЯ: Найдены языки: %s" % str(available_languages))
-	
-	# ★★★ Читаем все строки и заполняем переводы для ВСЕХ языков
 	var loaded_keys = 0
+	
 	while not file.eof_reached():
 		var line = file.get_csv_line()
-		
-		if line == null or line.size() < 2 or line[0].strip_edges() == "":
-			continue
-		
 		var key = line[0].strip_edges()
 		
-		# Для каждого языка добавляем перевод
 		for i in range(1, min(line.size(), header.size())):
 			var locale = header[i].strip_edges()
 			var translated_text = line[i]
@@ -227,10 +202,8 @@ func _load_translations():
 	
 	file.close()
 	
-	# ★★★★ Регистрируем ВСЕ переводы в TranslationServer
 	for locale in translations_map.keys():
 		TranslationServer.add_translation(translations_map[locale])
-		print_debug("ЛОКАЛИЗАЦИЯ: Загружено %d ключей для языка '%s'" % [loaded_keys, locale])
 
 func _set_initial_language():
 	var system_language = OS.get_locale_language()
@@ -251,6 +224,5 @@ func _update_title_ui():
 func change_language(new_language: String):
 	current_language = new_language
 	TranslationServer.set_locale(new_language)
-	
 	_update_title_ui()
 	

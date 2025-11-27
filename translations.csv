@@ -1885,3 +1885,8 @@ notif_btn_whatever,"Whatever...","Как скажешь..."
 notif_btn_okay,"Okay!","Окей!"
 notif_btn_yay,"Yay!","Ура!"
 notif_btn_awesome,"Awesome!","Потрясающе!"
+default_congrats_key,"Good job, you solved the level!
+
+Feel free to try a few more things or click 'Next level'.","Отличная работа, уровень пройден!
+
+Можешь ещё поэкспериментировать или нажми 'Следующий уровень'."

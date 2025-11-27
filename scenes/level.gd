@@ -19,31 +19,22 @@ func load(path):
 	if dir.file_exists(path):
 		var config = helpers.parse(path)
 		
-		# --- Перевод однострочных ключей ---
 		title = tr(config.get("title", "default_title_key"))
 		var description_text = tr(config.get("description", "default_description_key"))
 		congrats = tr(config.get("congrats", "default_congrats_key"))
 
-		# --- ПРАВИЛЬНАЯ ОБРАБОТКА МНОГОСТРОЧНОГО [CLI] ---
-		var cli_hints_keys_block = config.get("cli", "") # Получаем блок с ключами
-		var translated_cli_lines = [] # Массив для переведенных строк
+		var cli_hints_keys_block = config.get("cli", "")
+		var translated_cli_lines = []
 		
 		if cli_hints_keys_block != "":
-			# Разбиваем блок на отдельные ключи по символу переноса строки
 			for key in cli_hints_keys_block.split("\n"):
 				var stripped_key = key.strip_edges(true, true)
 				if stripped_key != "":
-					# Переводим каждый ключ индивидуально
 					translated_cli_lines.push_back(tr(stripped_key))
 				else:
-					# Сохраняем пустые строки для форматирования
 					translated_cli_lines.push_back("")
 		
-		# Собираем переведенные строки обратно в единый текст
 		var cli_hints_text = PoolStringArray(translated_cli_lines).join("\n")
-		# ---------------------------------------------------------
-
-		# --- Дальше идет блок форматирования, он остается без изменений ---
 		var monospace_regex = RegEx.new()
 		monospace_regex.compile("\\n    ([^\\n]*)")
 		var monospace_inline_regex = RegEx.new()
@@ -98,14 +89,12 @@ func load(path):
 			else:
 				repo = "yours"
 			
-			# Наш "защитный" код от ошибки, которую мы исправили ранее
 			if not repos.has(repo):
 				repos[repo] = LevelRepo.new()
 			
 			var desc = tr(config.get("win_desc", "default_win_desc_key"))
 			for line in Array(config[k].split("\n")):
 				if line.length() > 0 and line[0] == "#":
-					# --- ДОПОЛНИТЕЛЬНОЕ ИЗМЕНЕНИЕ: ПЕРЕВОДИМ ПОДСКАЗКИ В [WIN] ---
 					var hint_key = line.substr(1).strip_edges(true, true)
 					desc = tr(hint_key)
 				else:

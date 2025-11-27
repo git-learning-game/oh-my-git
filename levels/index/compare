@@ -46,4 +46,4 @@ git checkout HEAD~3
 [win]
 
 # compare_win_hint_073
-git show step-by-step:smoke_detector | tail -n 1 | grep -v "absolutely silent"
+git show step-by-step:smoke_detector | tail -n 1 | grep -v "@@setup_auto_028@@"

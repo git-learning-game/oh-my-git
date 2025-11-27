@@ -8,9 +8,9 @@ func _ready():
 	
 	$Label2.text = tr("title_label2_007")
 	$Label3.text = tr("title_label3_008")
-	$VBoxContainer/Button.text = tr("title_button_009")   # Кнопка Levels
-	$VBoxContainer/Button3.text = tr("title_button3_010") # Кнопка Sandbox
-	$VBoxContainer/Button2.text = tr("title_button2_011") # Кнопка Quit
+	$VBoxContainer/Button.text = tr("title_button_009")
+	$VBoxContainer/Button3.text = tr("title_button3_010")
+	$VBoxContainer/Button2.text = tr("title_button2_011")
 
 
 func quit():

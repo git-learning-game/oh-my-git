@@ -2,7 +2,6 @@ extends OptionButton
 
 	
 func _ready():
-	# Заполняем список языков
 	var languages = game.get_available_languages()
 	
 	for i in range(languages.size()):
@@ -10,7 +9,6 @@ func _ready():
 		add_item(_get_language_name(locale), i)
 		set_item_metadata(i, locale)
 	
-	# Выбираем текущий язык
 	_select_current_language()
 	
 	connect("item_selected", self, "_on_language_selected")
@@ -28,7 +26,6 @@ func _on_language_selected(index: int):
 	game.change_language(selected_language)
 
 func _get_language_name(locale: String) -> String:
-	# Человекочитаемые названия языков
 	var names = {
 		"en": "English",
 		"ru": "Русский",
