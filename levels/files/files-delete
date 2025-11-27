@@ -7,9 +7,9 @@ filesdelete_description_244
 
 [cli]
 
-On the command line, you can easily delete all files ending in -web using this command:
+cli_filesdelete_017
 
-    rm *web
+    cli_filesdelete_018
 
 [setup]
 

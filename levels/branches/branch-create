@@ -7,7 +7,7 @@ branchcreate_description_090
 
 [cli]
 
-Branches also make it really easy to travel between different places using the command line! As soon as you have a branch called "birthday", you can type `git checkout birthday` to travel to it!
+cli_branchcreate_009
 
 [setup]
 

@@ -7,9 +7,9 @@ grow_description_095
 
 [cli]
 
-To travel to a branch, type `git checkout name_of_the_branch`.
+cli_grow_007
 
-And to travel to the last commit, type `git checkout --detach name_of_the_branch`.
+cli_grow_008
 
 [setup]
 

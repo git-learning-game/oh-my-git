@@ -7,9 +7,9 @@ checkoutcommit_description_086
 
 [cli]
 
-To checkout a specific commit, type `git checkout`, then a space, and then right click on the commit you want!
+cli_checkoutcommit_015
 
-This will insert the commit's unique identifier!
+cli_checkoutcommit_016
 
 [setup]
 

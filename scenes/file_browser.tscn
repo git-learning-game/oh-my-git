@@ -74,8 +74,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Grid" type="GridContainer" parent="Panel/Margin/Rows/Scroll"]
-margin_right = 1904.0
-margin_bottom = 1064.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/vseparation = 16

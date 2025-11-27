@@ -210,4 +210,4 @@ func tr_custom(key):
 func _init():
 	# --- ПРИВЕСТИ ФУНКЦИЮ _init() К ТАКОМУ ВИДУ ---
 	_load_translations()
-	current_locale = "ru"
+	current_locale = "en"

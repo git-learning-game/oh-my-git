@@ -7,15 +7,15 @@ fork_description_104
 
 [cli]
 
-The blue animal represents a concept known as the "HEAD pointer" in Git: It shows you which commit is the current one.
+cli_fork_010
 
-Here's a cool trick to go to the previous commit: 
+cli_fork_011
 
-    git checkout HEAD^
+    cli_fork_012
 
-You can also go back two commits by typing, for example: 
+cli_fork_013
 
-    git checkout HEAD~2
+    cli_fork_014
 
 [setup]
 

@@ -7,9 +7,9 @@ cli_description_113
 
 [cli]
 
-But there's another way to interact with Git:
+cli_cli_004
 
-Try typing `git init` into the black terminal below, and pressing the enter key!
+cli_cli_005
 
 [setup]
 

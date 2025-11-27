@@ -17,42 +17,52 @@ func load(path):
 	
 	var dir = Directory.new()
 	if dir.file_exists(path):
-		# This is a new-style level.
 		var config = helpers.parse(path)
 		
-		# --- НАЧАЛО БЛОКА ЛОКАЛИЗАЦИИ ---
-		# 1. Сначала получаем КЛЮЧИ из файла уровня.
-		#    "default_..." - это запасные ключи, если в файле уровня чего-то нет.
-		var title_key = config.get("title", "default_title_key")
-		var description_key = config.get("description", "default_description_key")
-		var congrats_key = config.get("congrats", "default_congrats_key")
-		
-		# 2. Теперь ПЕРЕВОДИМ ключи с помощью нашего глобального переводчика из game.gd.
-		title = game.tr_custom(title_key)
-		var description_text = game.tr_custom(description_key)
-		congrats = game.tr_custom(congrats_key)
-		# --- КОНЕЦ БЛОКА ЛОКАЛИЗАЦИИ ---
+		# --- Перевод однострочных ключей ---
+		title = game.tr_custom(config.get("title", "default_title_key"))
+		var description_text = game.tr_custom(config.get("description", "default_description_key"))
+		congrats = game.tr_custom(config.get("congrats", "default_congrats_key"))
 
-		# 3. Дальше идет оригинальная обработка УЖЕ ПЕРЕВЕДЕННОГО текста description.
+		# --- ПРАВИЛЬНАЯ ОБРАБОТКА МНОГОСТРОЧНОГО [CLI] ---
+		var cli_hints_keys_block = config.get("cli", "") # Получаем блок с ключами
+		var translated_cli_lines = [] # Массив для переведенных строк
+		
+		if cli_hints_keys_block != "":
+			# Разбиваем блок на отдельные ключи по символу переноса строки
+			for key in cli_hints_keys_block.split("\n"):
+				var stripped_key = key.strip_edges(true, true)
+				if stripped_key != "":
+					# Переводим каждый ключ индивидуально
+					translated_cli_lines.push_back(game.tr_custom(stripped_key))
+				else:
+					# Сохраняем пустые строки для форматирования
+					translated_cli_lines.push_back("")
+		
+		# Собираем переведенные строки обратно в единый текст
+		var cli_hints_text = PoolStringArray(translated_cli_lines).join("\n")
+		# ---------------------------------------------------------
+
+		# --- Дальше идет блок форматирования, он остается без изменений ---
 		var monospace_regex = RegEx.new()
 		monospace_regex.compile("\\n    ([^\\n]*)")
-		description_text = monospace_regex.sub(description_text, "\n      [code][color=#e1e160]$1[/color][/code]", true)
-		description = description_text.split("---")
-		
-		var cli_hints = config.get("cli", "")
-		# Also do this substitution in the CLI hints.
-		cli_hints = monospace_regex.sub(cli_hints, "\n      [code][color=#bbbb5d]$1[/color][/code]", true)
-		
-		# Also replace `code` with [code] tags.
 		var monospace_inline_regex = RegEx.new()
 		monospace_inline_regex.compile("`([^`]+)`")
-		description[0] = monospace_inline_regex.sub(description[0], "[code][color=#e1e160]$1[/color][/code]")
-		cli_hints = monospace_inline_regex.sub(cli_hints, "[code][color=#bbbb5d]$1[/color][/code]", true)
+
+		if description_text != null:
+			description_text = monospace_regex.sub(description_text, "\n      [code][color=#e1e160]$1[/color][/code]", true)
+			description_text = monospace_inline_regex.sub(description_text, "[code][color=#e1e160]$1[/color][/code]")
+		else:
+			description_text = ""
 		
-		if cli_hints != "":
-			description[0] = description[0] + "\n\n[color=#787878]"+cli_hints+"[/color]"
+		description = description_text.split("---")
 		
-		# Этот код остается без изменений, так как он не работает с переводимым текстом
+		if cli_hints_text != null and cli_hints_text != "":
+			cli_hints_text = monospace_regex.sub(cli_hints_text, "\n      [code][color=#bbbb5d]$1[/color][/code]", true)
+			cli_hints_text = monospace_inline_regex.sub(cli_hints_text, "[code][color=#bbbb5d]$1[/color][/code]", true)
+			if description.size() > 0:
+				description[0] = description[0] + "\n\n[color=#787878]"+cli_hints_text+"[/color]"
+				
 		cards = Array(config.get("cards", "").split(" "))
 		if cards == [""]:
 			cards = []
