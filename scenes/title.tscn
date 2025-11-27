@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://styles/theme.tres" type="Theme" id=1]
 [ext_resource path="res://images/oh-my-git.png" type="Texture" id=2]
 [ext_resource path="res://scenes/title.gd" type="Script" id=3]
-[ext_resource path="res://scripts/translator.gd" type="Script" id=4]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
 
 [node name="Title" type="Control"]
@@ -25,9 +24,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="translator" type="Node" parent="Label2"]
-script = ExtResource( 4 )
-
 [node name="Label3" type="Label" parent="."]
 margin_left = 709.713
 margin_top = 621.416
@@ -37,9 +33,6 @@ custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
 custom_fonts/font = ExtResource( 5 )
 text = "title_label3_008"
 align = 1
-
-[node name="translator" type="Node" parent="Label3"]
-script = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 784.553
@@ -55,26 +48,17 @@ margin_right = 351.0
 margin_bottom = 39.0
 text = "title_button_009"
 
-[node name="translator" type="Node" parent="VBoxContainer/Button"]
-script = ExtResource( 4 )
-
 [node name="Button3" type="Button" parent="VBoxContainer"]
 margin_top = 44.0
 margin_right = 351.0
 margin_bottom = 83.0
 text = "title_button3_010"
 
-[node name="translator" type="Node" parent="VBoxContainer/Button3"]
-script = ExtResource( 4 )
-
 [node name="Button2" type="Button" parent="VBoxContainer"]
 margin_top = 88.0
 margin_right = 351.0
 margin_bottom = 127.0
 text = "title_button2_011"
-
-[node name="translator" type="Node" parent="VBoxContainer/Button2"]
-script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 

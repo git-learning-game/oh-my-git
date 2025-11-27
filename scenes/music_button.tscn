@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scripts/translator.gd" type="Script" id=1]
 [ext_resource path="res://scenes/music_button.gd" type="Script" id=2]
 
 [node name="Button3" type="Button"]
@@ -12,8 +11,5 @@ focus_mode = 0
 enabled_focus_mode = 0
 text = "music_button_button3_003"
 script = ExtResource( 2 )
-
-[node name="translator" type="Node" parent="."]
-script = ExtResource( 1 )
 
 [connection signal="pressed" from="." to="." method="toggle_music"]
