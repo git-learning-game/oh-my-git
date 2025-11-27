@@ -27,7 +27,7 @@ func reload():
 		
 		var l = Label.new()
 		var chapter_key = "chapter_" + chapter.slug 
-		l.text = game.tr_custom(chapter_key)
+		l.text = tr(chapter_key)
 		l.set("custom_fonts/font", preload("res://fonts/big.tres"))
 		l.align = HALIGN_CENTER
 		level_list.add_child(l)

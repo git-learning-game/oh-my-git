@@ -12,8 +12,8 @@ var current_chapter = 0
 var current_level = 0
 var skipped_title = false
 
-var translations = {}
-var current_locale
+var available_languages = []
+var current_language
 
 var _file = "user://savegame.json"
 var state = {}
@@ -24,8 +24,6 @@ func _ready():
 	mutex = Mutex.new()
 	load_state()
 	
-	TranslationServer.set_locale("en")
-	
 	if OS.has_feature("standalone"):
 		get_tree().set_auto_accept_quit(false)
 	else:
@@ -34,6 +32,9 @@ func _ready():
 	if OS.get_name() == "Windows":
 		start_remote_shell()
 	global_shell = new_shell()
+	
+	_load_translations()
+	_set_initial_language()
 #	var cmd = global_shell.run("echo hi")
 #	print(cmd)
 #	cmd = global_shell.run("seq 1 10")
@@ -165,48 +166,80 @@ func new_shell():
 	else:
 		return Shell.new()	
 
-# --- ДОБАВИТЬ ЭТИ ДВЕ ФУНКЦИИ В КОНЕЦ ФАЙЛА ---
-
-# Загружает наш CSV в словарь для быстрого доступа
 func _load_translations():
 	var file = File.new()
-	if not file.file_exists("res://translations.csv"):
-		print_debug("Локализация: Файл translations.csv не найден.")
-		return
-		
-	file.open("res://translations.csv", File.READ)
-	var headers = file.get_csv_line() # Пропускаем первую строку с заголовками
+	var path = "res://translations.csv"
 	
+	if not file.file_exists(path):
+		printerr("ЛОКАЛИЗАЦИЯ (ОШИБКА): Файл %s не найден." % path)
+		return
+	
+	file.open(path, File.READ)
+	
+	# ★ Читаем заголовок, чтобы узнать, какие языки есть в CSV
+	var header = file.get_csv_line()
+	# header = ["key", "en", "ru", "de", ...]
+	
+	if header.size() < 2:
+		printerr("ЛОКАЛИЗАЦИЯ (ОШИБКА): Некорректный формат CSV.")
+		file.close()
+		return
+	
+	# ★★ Создаем словарь: язык → объект Translation
+	var translations_map = {}
+	
+	# Пропускаем первую колонку (это "key"), остальные — языки
+	for i in range(1, header.size()):
+		var locale = header[i].strip_edges()  # "en", "ru", "de"...
+		
+		if locale == "":
+			continue
+		
+		available_languages.append(locale)
+		
+		# Создаем Translation для каждого языка
+		var translation = Translation.new()
+		translation.set_locale(locale)
+		translations_map[locale] = translation
+	
+	print_debug("ЛОКАЛИЗАЦИЯ: Найдены языки: %s" % str(available_languages))
+	
+	# ★★★ Читаем все строки и заполняем переводы для ВСЕХ языков
+	var loaded_keys = 0
 	while not file.eof_reached():
 		var line = file.get_csv_line()
-		# Проверяем, что в строке есть все нужные столбцы
-		if line != null and line.size() >= 3:
-			var key = line[0]
-			var en_text = line[1]
-			var ru_text = line[2]
-			translations[key] = {"en": en_text, "ru": ru_text}
-	file.close()
-
-# Наша собственная функция перевода
-# Улучшенная, "безопасная" версия функции
-func tr_custom(key):
-	# Если ключ - это не строка, всегда возвращаем ПУСТУЮ СТРОКУ, а не Nil.
-	if typeof(key) != TYPE_STRING:
-		return ""
-
-	if translations.has(key) and translations[key].has(current_locale):
-		var translated_text = translations[key][current_locale]
-		# Эта проверка гарантирует, что мы не вернем null/Nil
-		if translated_text != null and translated_text != "":
-			return translated_text
-		# Если перевод пустой, возвращаем английский текст
-		var en_text = translations[key]["en"]
-		return en_text if en_text != null else ""
 		
-	# Если ключ не найден, возвращаем сам ключ (или пустую строку, если ключ пустой)
-	return key if key != null else ""
+		if line == null or line.size() < 2 or line[0].strip_edges() == "":
+			continue
+		
+		var key = line[0].strip_edges()
+		
+		# Для каждого языка добавляем перевод
+		for i in range(1, min(line.size(), header.size())):
+			var locale = header[i].strip_edges()
+			var translated_text = line[i]
+			
+			if translations_map.has(locale):
+				translations_map[locale].add_message(key, translated_text)
+		
+		loaded_keys += 1
 	
-func _init():
-	# --- ПРИВЕСТИ ФУНКЦИЮ _init() К ТАКОМУ ВИДУ ---
-	_load_translations()
-	current_locale = "ru"
+	file.close()
+	
+	# ★★★★ Регистрируем ВСЕ переводы в TranslationServer
+	for locale in translations_map.keys():
+		TranslationServer.add_translation(translations_map[locale])
+		print_debug("ЛОКАЛИЗАЦИЯ: Загружено %d ключей для языка '%s'" % [loaded_keys, locale])
+
+func _set_initial_language():
+	var system_language = OS.get_locale_language()  # Возвращает "ru", "en", "de"...
+
+	if system_language in available_languages:
+		current_language = system_language
+	else:
+		current_language = "en"
+		
+	TranslationServer.set_locale(current_language)
+
+
+	

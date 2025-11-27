@@ -15,12 +15,12 @@ func _ready():
 	$NextLevelButton.visible = show_next_level_button
 	$CLIBadge.visible = show_cli_badge
 	
-	$BackButton.text = game.tr_custom("main_backbutton_016")
-	$ReloadButton2.text = game.tr_custom("main_reloadbutton2_017")
-	$CardsButton.text = game.tr_custom("main_cardsbutton_018")
-	$"Tip!".text = game.tr_custom("main_tip_019")
-	$Button3.text = game.tr_custom("music_button_button3_003")
-	$NextLevelButton.text = game.tr_custom("main_nextlevelbutton_020")
+	$BackButton.text = tr("main_backbutton_016")
+	$ReloadButton2.text = tr("main_reloadbutton2_017")
+	$CardsButton.text = tr("main_cardsbutton_018")
+	$"Tip!".text = tr("main_tip_019")
+	$Button3.text = tr("music_button_button3_003")
+	$NextLevelButton.text = tr("main_nextlevelbutton_020")
 
 func _on_BackButton_pressed():
 	emit_signal("back_pressed")

@@ -20,9 +20,9 @@ func load(path):
 		var config = helpers.parse(path)
 		
 		# --- Перевод однострочных ключей ---
-		title = game.tr_custom(config.get("title", "default_title_key"))
-		var description_text = game.tr_custom(config.get("description", "default_description_key"))
-		congrats = game.tr_custom(config.get("congrats", "default_congrats_key"))
+		title = tr(config.get("title", "default_title_key"))
+		var description_text = tr(config.get("description", "default_description_key"))
+		congrats = tr(config.get("congrats", "default_congrats_key"))
 
 		# --- ПРАВИЛЬНАЯ ОБРАБОТКА МНОГОСТРОЧНОГО [CLI] ---
 		var cli_hints_keys_block = config.get("cli", "") # Получаем блок с ключами
@@ -34,7 +34,7 @@ func load(path):
 				var stripped_key = key.strip_edges(true, true)
 				if stripped_key != "":
 					# Переводим каждый ключ индивидуально
-					translated_cli_lines.push_back(game.tr_custom(stripped_key))
+					translated_cli_lines.push_back(tr(stripped_key))
 				else:
 					# Сохраняем пустые строки для форматирования
 					translated_cli_lines.push_back("")
@@ -102,12 +102,12 @@ func load(path):
 			if not repos.has(repo):
 				repos[repo] = LevelRepo.new()
 			
-			var desc = game.tr_custom(config.get("win_desc", "default_win_desc_key"))
+			var desc = tr(config.get("win_desc", "default_win_desc_key"))
 			for line in Array(config[k].split("\n")):
 				if line.length() > 0 and line[0] == "#":
 					# --- ДОПОЛНИТЕЛЬНОЕ ИЗМЕНЕНИЕ: ПЕРЕВОДИМ ПОДСКАЗКИ В [WIN] ---
 					var hint_key = line.substr(1).strip_edges(true, true)
-					desc = game.tr_custom(hint_key)
+					desc = tr(hint_key)
 				else:
 					if not repos[repo].win_conditions.has(desc):
 						repos[repo].win_conditions[desc] = ""

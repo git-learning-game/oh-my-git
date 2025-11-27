@@ -104,7 +104,7 @@ func set_command(new_command):
 	#$Label.text = command
 
 func set_description(new_description):
-	description = game.tr_custom(new_description)
+	description = tr(new_description)
 	$Description.text = description
 
 func set_energy(new_energy):
