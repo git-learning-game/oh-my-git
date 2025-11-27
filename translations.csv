@@ -1,7 +1,7 @@
 keys,en,ru
 card_description_001,Description,Описание,,
 card_energy_002,0,0,,
-music_button_button3_003,Toggle music,Переключить музыку,,
+music_button_button3_003,Toggle music,Вкл/Выкл музыку
 arrow_id_004,label,метка,,
 cards_button_005,Draw new cards,Взять новые карты,,
 cards_energy_006,3,3,,
