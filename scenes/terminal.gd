@@ -171,7 +171,7 @@ func command_done(cmd):
 	add_ansi_command(output, cmd)
 	if cmd.output.length() <= 1000:
 		add_ansi_output(output, cmd)
-		game.notify("This is your terminal! All commands are executed here, and you can see their output. You can also type your own commands here!", self, "terminal")
+		game.notify(tr("hint_terminal"), self, "terminal")
 	else:
 		var pager = $Pager/Text
 		pager.clear()

@@ -232,7 +232,7 @@ func _load_translations():
 		print_debug("ЛОКАЛИЗАЦИЯ: Загружено %d ключей для языка '%s'" % [loaded_keys, locale])
 
 func _set_initial_language():
-	var system_language = OS.get_locale_language()  # Возвращает "ru", "en", "de"...
+	var system_language = OS.get_locale_language()
 
 	if system_language in available_languages:
 		current_language = system_language
@@ -244,16 +244,12 @@ func _set_initial_language():
 func get_available_languages() -> Array:
 	return available_languages
 
-func _update_all_ui():
+func _update_title_ui():
 	get_tree().reload_current_scene()
 
 func change_language(new_language: String):
-	if not new_language in available_languages:
-		printerr("ЛОКАЛИЗАЦИЯ: Язык '%s' не поддерживается. Доступны: %s" % [new_language, str(available_languages)])
-		return
-	
 	current_language = new_language
 	TranslationServer.set_locale(new_language)
 	
-	_update_all_ui()
+	_update_title_ui()
 	

@@ -80,7 +80,7 @@ func type_set(new_type):
 			$Sprite.texture = preload("res://nodes/tree.svg")
 		"commit":
 			$Sprite.texture = preload("res://nodes/commit.svg")
-			game.notify("You can drag these around with your mouse!", self, "drag-nodes")
+			game.notify(tr("hint_drag_nodes"), self, "drag-nodes")
 		"tag":
 			$Sprite.texture = preload("res://nodes/blob.svg")
 		"ref":

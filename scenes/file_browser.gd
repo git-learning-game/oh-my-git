@@ -82,7 +82,7 @@ func update():
 			grid.add_child(item)
 		
 		if files.size() > 0:
-			game.notify("Click on these files to edit them!", self, "file-browser")
+			game.notify(tr("hint_file_browser"), self, "file-browser")
 						
 		if false:
 			match mode:
