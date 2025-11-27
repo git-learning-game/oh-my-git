@@ -124,7 +124,8 @@ func notify(text, target=null, hint_slug=null):
 			return
 		
 	var notification = preload("res://scenes/notification.tscn").instance()
-	notification.text = text
+	notification.get_node("Notification/Panel/Label").text = text
+	
 	if not target:
 		target = get_tree().root
 	target.call_deferred("add_child", notification)

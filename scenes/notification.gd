@@ -1,4 +1,4 @@
-extends Node2D
+extends PanelContainer
 
 var text setget _set_text
 var button_texts = [
