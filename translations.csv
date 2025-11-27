@@ -1,54 +1,48 @@
-keys,en,ru
-card_description_001,Description,Описание,,
-card_energy_002,0,0,,
-music_button_button3_003,Toggle music,Вкл/Выкл музыку
-arrow_id_004,label,метка,,
-cards_button_005,Draw new cards,Взять новые карты,,
-cards_energy_006,3,3,,
-title_label2_007,by bleeptrack & blinry,от bleeptrack & blinry,,
-title_label3_008,Original score by winniehell,Оригинальная музыка от winniehell,,
-title_button_009,Levels,Уровни,,
-title_button3_010,Sandbox,Песочница,,
-title_button2_011,Quit,Выход,,
-survey_label_012,Oh My Git!,Oh My Git!,,
-survey_button_013,Support us! (Open two browser tabs),Поддержите нас! (Откроются две вкладки браузера),,
-main_levelname_014,Level name here!,Название уровня здесь!,,
-main_leveldescription_015,Level description here!,Описание уровня здесь!,,
-main_backbutton_016,Back,Назад,,
-main_reloadbutton2_017,Reload,Перезагрузить,,
-main_cardsbutton_018,Cards!,Карты!,,
-main_tip_019,Tip!,Подсказка!,,
-main_nextlevelbutton_020,Next level,Следующий уровень,,
-terminal_button_021,"git commit --allow-empty -m ""
-RANDOM""","gitcommit−−allow−empty−m""
-RANDOM""","gitcommit−−allow−empty−m""
-RANDOM""",
-terminal_button2_022,git checkout HEAD^,git checkout HEAD^,,
-terminal_button3_023,"git checkout -b ""
-RANDOM""","gitcheckout−b""
-RANDOM""","gitcheckout−b""
-RANDOM""",
-repository_label_024,Repo name,Имя репозитория,,
-repository_indexlabel_025,Index:,Индекс:,,
-repository_button_026,Update,Обновить,,
-repository_simplifycheckbox_027,Hide trees and blobs,Скрыть деревья и блобы,,
-node_id_028,object_id,id_объекта,,
-level_select_button3_029,To the survey /o/,К опросу /o/,,
-no_git_button2_030,"Sure, I'll install it!","Конечно, я установлю!",,
-notification_label_031,This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint!,Это подсказка! Это подсказка! Это подсказка! Это подсказка! Это подсказка! Это подсказка! Это подсказка! Это подсказка! Это подсказка!,,
-notification_ok_032,Got it!,Понятно!,,
-file_browser_title_033,title,заголовок,,
-file_browser_button_034,root,корень,,
-file_browser_button2_035,dir,папка,,
-file_browser_savebutton_036,Save,Сохранить,,
-text_editor_texteditor_038,Text here,Текст здесь,,
-file_browser_item_label_039,filename,имя_файла,,
-merge_title_040,Merging timelines,Слияние временных линий,,
-merge_description_041,"Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!","Вот трюк, который позволит вам поспать немного дольше: просто выполняйте все свои утренние дела в параллельных вселенных, а в конце слейте их воедино!",,
-merge_congrats_042,I wonder if you're more relaxed when you sleep in parallel timelines...,Интересно, вы более расслаблены, когда спите в параллельных временных линиях...
-merge_win_hint_043,"Build a situation where you consumed a baguette, a coffee, and a donut.","Создайте ситуацию, в которой вы съели багет, выпили кофе и съели пончик.",,
-merge_win_hint_044,Be on a merge commit.,Находитесь на коммите слияния.,,
-conflict_title_045,Contradictions,Противоречия,,
+keys,en,ru,br
+br,Brazil,Brazil,Brazil
+ru,Русский,Русский,Русский
+en,English,English,English
+card_description_001,Description,Описание,TRANSLATED
+card_energy_002,0,0,TRANSLATED
+music_button_button3_003,Toggle music,Вкл/выкл музыку,TRANSLATED
+arrow_id_004,label,метка,TRANSLATED
+cards_button_005,Draw new cards,Взять новые карты,TRANSLATED
+cards_energy_006,3,3,TRANSLATED
+title_label2_007,by bleeptrack & blinry,от bleeptrack & blinry,TRANSLATED
+title_label3_008,Original score by winniehell,Оригинальная музыка от winniehell,TRANSLATED
+title_button_009,Levels,Уровни,TRANSLATED
+title_button3_010,Sandbox,Песочница,TRANSLATED
+title_button2_011,Quit,Выход,TRANSLATED
+survey_label_012,Oh My Git!,Oh My Git!,TRANSLATED
+survey_button_013,Support us! (Open two browser tabs),Поддержите нас! (Откроются две вкладки браузера),TRANSLATED
+main_levelname_014,Level name here!,Название уровня здесь!,TRANSLATED
+main_leveldescription_015,Level description here!,Описание уровня здесь!,TRANSLATED
+main_backbutton_016,Back,Назад,TRANSLATED
+main_reloadbutton2_017,Reload,Перезагрузить,TRANSLATED
+main_cardsbutton_018,Cards!,Карты!,TRANSLATED
+main_tip_019,Tip!,Подсказка!,TRANSLATED
+main_nextlevelbutton_020,Next level,Следующий уровень,TRANSLATED
+repository_label_024,Repo name,Имя репозитория,TRANSLATED
+repository_indexlabel_025,Index:,Индекс:,TRANSLATED
+repository_button_026,Update,Обновить,TRANSLATED
+repository_simplifycheckbox_027,Hide trees and blobs,Скрыть деревья и блобы,TRANSLATED
+node_id_028,object_id,id_объекта,TRANSLATED
+level_select_button3_029,To the survey /o/,К опросу /o/,TRANSLATED
+no_git_button2_030,"Sure, I'll install it!","Конечно, я установлю!",TRANSLATED
+notification_label_031,This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint!,Это подсказка! Это подсказка! Это подсказка! Это подсказка! Это подсказка! Это подсказка! Это подсказка! Это подсказка! Это подсказка!,TRANSLATED
+notification_ok_032,Got it!,Понятно!,TRANSLATED
+file_browser_title_033,title,заголовок,TRANSLATED
+file_browser_button_034,root,корень,TRANSLATED
+file_browser_button2_035,dir,папка,TRANSLATED
+file_browser_savebutton_036,Save,Сохранить,TRANSLATED
+text_editor_texteditor_038,Text here,Текст здесь,TRANSLATED
+file_browser_item_label_039,filename,имя_файла,TRANSLATED
+merge_title_040,Merging timelines,Слияние временных линий,TRANSLATED
+merge_description_041,"Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!","Вот трюк, который позволит вам поспать немного дольше: просто выполняйте все свои утренние дела в параллельных вселенных, а в конце слейте их воедино!",TRANSLATED
+merge_congrats_042,I wonder if you're more relaxed when you sleep in parallel timelines...,"Интересно, вы более расслаблены, когда спите в параллельных временных линиях...",TRANSLATED
+merge_win_hint_043,"Build a situation where you consumed a baguette, a coffee, and a donut.","Создайте ситуацию, в которой вы съели багет, выпили кофе и съели пончик.",TRANSLATED
+merge_win_hint_044,Be on a merge commit.,Находитесь на коммите слияния.,TRANSLATED
+conflict_title_045,Contradictions,Противоречия,TRANSLATED
 conflict_description_046,"Sometimes, timelines will contradict each other.
 
 For example, in this case, one of our clients wants these timelines merged, but they ate different things for breakfast in both timelines.
@@ -62,10 +56,10 @@ Let your finalized timeline be the ""main"" one.","Иногда временны
 Попробуйте слить их! Вы заметите, что возникнет конфликт! Машина времени оставит решение за вами: вы можете отредактировать проблемный элемент, она покажет вам конфликтующие разделы. Вы можете сохранить любую из двух версий или создать их комбинацию! Удалите маркеры >>>, <<< и === и сделайте новый коммит для завершения слияния!
 
 Пусть ваша окончательная временная линия будет ""main"".
-",,
-conflict_congrats_047,"Yum, that sounds like a good breakfast!","Мм, звучит как хороший завтрак!",,
-conflict_win_hint_048,Make a breakfast compromise in the 'main' branch.,Найдите компромисс по завтраку в ветке 'main'.,,
-mergeabort_title_049,Abort a merge,Прервать слияние,,
+",TRANSLATED
+conflict_congrats_047,"Yum, that sounds like a good breakfast!","Мм, звучит как хороший завтрак!",TRANSLATED
+conflict_win_hint_048,Make a breakfast compromise in the 'main' branch.,Найдите компромисс по завтраку в ветке 'main'.,TRANSLATED
+mergeabort_title_049,Abort a merge,Прервать слияние,TRANSLATED
 mergeabort_description_050,"Sometimes you want to merge two commits, but a merge conflict occurs that you currently don't want to resolve.
 
 In these situations you can abort the merge to merge later. Use
@@ -78,11 +72,11 @@ Try to merge both commits and abort the merge afterwards.","Иногда вы х
 git merge --abort
 когда вы находитесь в процессе слияния.
 
-Попробуйте слить оба коммита, а затем прервать слияние.",,
-mergeabort_congrats_051,"Aaah, let's merge later...","Ааа, давайте сольём позже...",,
-mergeabort_win_hint_052,You tried to merge?,Вы пытались выполнить слияние?,,
-mergeabort_win_hint_053,You aborted to merge?,Вы прервали слияние?,,
-reset_title_054,Resetting files in the index,Сброс файлов в индексе,,
+Попробуйте слить оба коммита, а затем прервать слияние.",TRANSLATED
+mergeabort_congrats_051,"Aaah, let's merge later...","Ааа, давайте сольём позже...",TRANSLATED
+mergeabort_win_hint_052,You tried to merge?,Вы пытались выполнить слияние?,TRANSLATED
+mergeabort_win_hint_053,You aborted to merge?,Вы прервали слияние?,TRANSLATED
+reset_title_054,Resetting files in the index,Сброс файлов в индексе,TRANSLATED
 reset_description_055,"See the dark shadow behind the icons? That's the version of the file in the last commit!
 
 For example, these candles have been blown out, and that change has been added.
@@ -95,10 +89,10 @@ If you already have updated the index to a changed file, but want to reset it, y
 
 Но вы решаете, что это была ошибка! Вы хотите задуть только красную свечу в следующем коммите!
 
-Если вы уже обновили индекс изменённым файлом, но хотите сбросить его, вы можете использовать git reset!",,
-reset_win_hint_056,Reset the changes in the green and blue candles!,Сбросьте изменения в зелёной и синей свечах!,,
-reset_win_hint_057,And make a commit!,И сделайте коммит!,,
-change_title_058,Update files in the index,Обновление файлов в индексе,,
+Если вы уже обновили индекс изменённым файлом, но хотите сбросить его, вы можете использовать git reset!",TRANSLATED
+reset_win_hint_056,Reset the changes in the green and blue candles!,Сбросьте изменения в зелёной и синей свечах!,TRANSLATED
+reset_win_hint_057,And make a commit!,И сделайте коммит!,TRANSLATED
+change_title_058,Update files in the index,Обновление файлов в индексе,TRANSLATED
 change_description_059,"When we change files, the index won't change on its own. We have to use git add to update the index to the changed version of the file.
 
 Let's try that!
@@ -107,36 +101,36 @@ The icons in the file browser show you when the actual file (white) and the vers
 
 Давайте попробуем!
 
-Иконки в файловом браузере показывают, когда фактический файл (белый) и версия в индексе (синий) отличаются, и когда они одинаковы!",,
-rm_title_060,Delete a file in the next commit,Удалить файл в следующем коммите,,
+Иконки в файловом браузере показывают, когда фактический файл (белый) и версия в индексе (синий) отличаются, и когда они одинаковы!",TRANSLATED
+rm_title_060,Delete a file in the next commit,Удалить файл в следующем коммите,TRANSLATED
 rm_description_061,"If you want to remove a file in the next commit, you can use git rm! This will both delete the file locally, and in the index.
 
 If a file is modified, you'll need to reset these changes first/reset the files.","Если вы хотите удалить файл в следующем коммите, вы можете использовать git rm! Это удалит файл как локально, так и в индексе.
 
-Если файл изменён, вам нужно сначала сбросить эти изменения/сбросить файлы.",,
-rm_win_hint_062,Make a commit where all files are deleted ¯_(^^)/¯,"Сделайте коммит, в котором удалены все файлы ¯_(^^)/¯",
-steps_title_063,Adding changes step by step,Добавление изменений шаг за шагом,,
-steps_description_064,"The index is really useful, because it allows us to be precise about which changes we want to include in each commit!","Индекс действительно полезен, потому что он позволяет нам точно определять, какие изменения мы хотим включить в каждый коммит!",,
-steps_win_hint_065,"Make changes to all three objects, to form a logical sequence of events!","Внесите изменения во все три объекта, чтобы сформировать логическую последовательность событий!",,
-steps_win_hint_066,Only add one of these changes!,Добавьте только одно из этих изменений!,,
-steps_win_hint_067,And make a commit.,И сделайте коммит.,,
-steps_win_hint_068,Make a second commit that only records a single change.,"Сделайте второй коммит, который фиксирует только одно изменение.",
-steps_win_hint_069,And a third one.,И третий.,,
-compare_title_070,Step by step,Шаг за шагом,,
+Если файл изменён, вам нужно сначала сбросить эти изменения/сбросить файлы.",TRANSLATED
+rm_win_hint_062,Make a commit where all files are deleted ¯_(^^)/¯,"Сделайте коммит, в котором удалены все файлы ¯_(^^)/¯",TRANSLATED
+steps_title_063,Adding changes step by step,Добавление изменений шаг за шагом,TRANSLATED
+steps_description_064,"The index is really useful, because it allows us to be precise about which changes we want to include in each commit!","Индекс действительно полезен, потому что он позволяет нам точно определять, какие изменения мы хотим включить в каждый коммит!",TRANSLATED
+steps_win_hint_065,"Make changes to all three objects, to form a logical sequence of events!","Внесите изменения во все три объекта, чтобы сформировать логическую последовательность событий!",TRANSLATED
+steps_win_hint_066,Only add one of these changes!,Добавьте только одно из этих изменений!,TRANSLATED
+steps_win_hint_067,And make a commit.,И сделайте коммит.,TRANSLATED
+steps_win_hint_068,Make a second commit that only records a single change.,"Сделайте второй коммит, который фиксирует только одно изменение.",TRANSLATED
+steps_win_hint_069,And a third one.,И третий.,TRANSLATED
+compare_title_070,Step by step,Шаг за шагом,TRANSLATED
 compare_description_071,"Welcome to today's lesson! We're going to learn how to make commits with more precision!
 
 Have a look at these two timelines. They have exactly the same outcome. But one of them makes it much easier to figure out what happened.","Добро пожаловать на сегодняшний урок! Мы научимся делать коммиты с большей точностью!
 
-Взгляните на эти две временные линии. У них абсолютно одинаковый результат. Но одна из них значительно облегчает понимание того, что произошло.",,
-compare_win_hint_072,Right! Having each change in its own commit makes it easier to understand what's going on! Let's learn how to do that!,Верно! Наличие каждого изменения в собственном коммите облегчает понимание происходящего! Давайте научимся это делать!,,
-checkout_title_073,Checking out files from the index,Извлечение файлов из индекса,,
+Взгляните на эти две временные линии. У них абсолютно одинаковый результат. Но одна из них значительно облегчает понимание того, что произошло.",TRANSLATED
+compare_win_hint_072,Right! Having each change in its own commit makes it easier to understand what's going on! Let's learn how to do that!,Верно! Наличие каждого изменения в собственном коммите облегчает понимание происходящего! Давайте научимся это делать!,TRANSLATED
+checkout_title_073,Checking out files from the index,Извлечение файлов из индекса,TRANSLATED
 checkout_description_074,"So you've made changes to your files, but you decide that you don't want to keep them! You can use git checkout for that!
 
 What happens if you have already update the index, like in file c? You have to reset the index first!","Итак, вы внесли изменения в свои файлы, но решили, что не хотите их сохранять! Для этого можно использовать git checkout!
 
-Что произойдет, если вы уже обновили индекс, как в файле c? Сначала нужно сбросить индекс!",,
-checkout_win_hint_075,Remove all changes in your local files!,Удалите все изменения в ваших локальных файлах!,,
-add_title_076,Updating files in the index,Обновление файлов в индексе,,
+Что произойдет, если вы уже обновили индекс, как в файле c? Сначала нужно сбросить индекс!",TRANSLATED
+checkout_win_hint_075,Remove all changes in your local files!,Удалите все изменения в ваших локальных файлах!,TRANSLATED
+add_title_076,Updating files in the index,Обновление файлов в индексе,TRANSLATED
 add_description_077,"So you start working, and make changes to your files! Git lets you choose which of these changes you want to put in the next commit. This is like updating the index version of that file to the new version.
 
 This allows you to have smaller commits, that describe better what you changed!
@@ -145,11 +139,11 @@ The command for this is the same - git add!","Итак, вы начинаете 
 
 Это позволяет вам делать более мелкие коммиты, которые лучше описывают, что вы изменили!
 
-Команда для этого та же - git add!",,
-add_congrats_078,"Well done! Try travelling between the commits using git checkout, so you can look at their contents again!","Отлично! Попробуйте перемещаться между коммитами с помощью git checkout, чтобы снова посмотреть их содержимое!",,
-add_win_hint_079,Make changes to all files!,Внесите изменения во все файлы!,,
-add_win_hint_080,"Add only the changes of a and c, and make a commit! Finally, make a commit which captures the changes in b!","Добавьте только изменения файлов a и c и сделайте коммит! Наконец, сделайте коммит, который зафиксирует изменения в файле b!",,
-new_title_081,Add new files to the index,Добавление новых файлов в индекс,,
+Команда для этого та же - git add!",TRANSLATED
+add_congrats_078,"Well done! Try travelling between the commits using git checkout, so you can look at their contents again!","Отлично! Попробуйте перемещаться между коммитами с помощью git checkout, чтобы снова посмотреть их содержимое!",TRANSLATED
+add_win_hint_079,Make changes to all files!,Внесите изменения во все файлы!,TRANSLATED
+add_win_hint_080,"Add only the changes of a and c, and make a commit! Finally, make a commit which captures the changes in b!","Добавьте только изменения файлов a и c и сделайте коммит! Наконец, сделайте коммит, который зафиксирует изменения в файле b!",TRANSLATED
+new_title_081,Add new files to the index,Добавление новых файлов в индекс,TRANSLATED
 new_description_082,"So far, when we made a commit, we've always recorded the current status of all objects, right?
 
 But Git allows you to pick which changes you want to put in a commit!
@@ -162,31 +156,31 @@ Initially, the index is empty. To make a commit that contains a new file, we nee
 
 Чтобы узнать, как это работает, нам нужно узнать об ""индексе""! В индексе мы можем подготовить то, что будет в следующем коммите. В этой игре индекс представлен синей аурой вокруг иконок в файловом браузере!
 
-Изначально индекс пуст. Чтобы сделать коммит, содержащий новый файл, нам нужно его добавить!",,
-new_win_hint_083,Add the candle.,Добавьте свечу.,,
-new_win_hint_084,Make a commit.,Сделайте коммит.,,
-checkoutcommit_title_085,Moving111 through time,Перемещение во времени,,
+Изначально индекс пуст. Чтобы сделать коммит, содержащий новый файл, нам нужно его добавить!",TRANSLATED
+new_win_hint_083,Add the candle.,Добавьте свечу.,TRANSLATED
+new_win_hint_084,Make a commit.,Сделайте коммит.,TRANSLATED
+checkoutcommit_title_085,Moving through time,Перемещение во времени,TRANSLATED
 checkoutcommit_description_086,"The yellow boxes are frozen points in time, we call them ""commits""! You can travel between them using the ""checkout"" card! (Try it!)
 
 Can you find out what happened here? Then, while on the last commit, edit the files to fix the problem, and make a new commit!","Желтые ящики - это застывшие моменты времени, мы называем их ""коммитами""! Вы можете путешествовать между ними, используя карту ""checkout""! (Попробуйте!)
 
-Сможете ли вы выяснить, что здесь произошло? Затем, находясь на последнем коммите, отредактируйте файлы, чтобы исправить проблему, и сделайте новый коммит!",,
-checkoutcommit_congrats_087,"Wonderful! Now that you're getting familiar with the time machine, let's look at some more complicated situations...","Замечательно! Теперь, когда вы осваиваетесь с машиной времени, давайте рассмотрим несколько более сложных ситуаций...",,
-checkoutcommit_win_hint_088,Restore sisterly peace.,Восстановите сестринский мир.,,
-branchcreate_title_089,Creating branches,Создание веток,,
+Сможете ли вы выяснить, что здесь произошло? Затем, находясь на последнем коммите, отредактируйте файлы, чтобы исправить проблему, и сделайте новый коммит!",TRANSLATED
+checkoutcommit_congrats_087,"Wonderful! Now that you're getting familiar with the time machine, let's look at some more complicated situations...","Замечательно! Теперь, когда вы осваиваетесь с машиной времени, давайте рассмотрим несколько более сложных ситуаций...",TRANSLATED
+checkoutcommit_win_hint_088,Restore sisterly peace.,Восстановите сестринский мир.,TRANSLATED
+branchcreate_title_089,Creating branches,Создание веток,TRANSLATED
 branchcreate_description_090,"You were invited to two parties! At one of them, your favorite band is playing - and the other one is your best friend's birthday party. Where should you go? No worries - as a time travel agent in training, you can go to both parties!
 
 To make it easier to tell which timeline is which, you can create time portals! (We call these ""branches"".)","Вас пригласили на две вечеринки! На одной из них играет ваша любимая группа, а другая — день рождения вашего лучшего друга. Куда пойти? Не беспокойтесь — как стажер-агент по путешествиям во времени, вы можете пойти на обе вечеринки!
 
-Чтобы было легче различать временные линии, вы можете создавать временные порталы! (Мы называем их ""ветками"".)",,
+Чтобы было легче различать временные линии, вы можете создавать временные порталы! (Мы называем их ""ветками"".)",TRANSLATED
 branchcreate_congrats_091,"Now you can travel between those branches easily (using git checkout) - try it!
 
 Your friend is happy that you made it to the birthday party and you also got your concert ticket signed. Yay!","Теперь вы можете легко перемещаться между этими ветками (используя git checkout) - попробуйте!
 
-Ваш друг рад, что вы пришли на день рождения, и вы также получили автограф на билете на концерт. Ура!",,
-branchcreate_win_hint_092,Create a branch called 'birthday' that points to the birthday timeline.,Создайте ветку с именем 'birthday', которая указывает на временную линию дня рождения.,
-branchcreate_win_hint_093,Create a branch called 'concert' that points to the concert timeline.,Создайте ветку с именем 'concert', которая указывает на временную линию концерта.,
-grow_title_094,Branches grow with you!,Ветки растут вместе с вами!,,
+Ваш друг рад, что вы пришли на день рождения, и вы также получили автограф на билете на концерт. Ура!",TRANSLATED
+branchcreate_win_hint_092,Create a branch called 'birthday' that points to the birthday timeline.,"Создайте ветку с именем 'birthday', которая указывает на временную линию дня рождения.",TRANSLATED
+branchcreate_win_hint_093,Create a branch called 'concert' that points to the concert timeline.,"Создайте ветку с именем 'concert', которая указывает на временную линию концерта.",TRANSLATED
+grow_title_094,Branches grow with you!,Ветки растут вместе с вами!,TRANSLATED
 grow_description_095,"Note that there are two options to ""travel to the end of a timeline"":
 
 First, you can directly travel to the commit, like we've done it before.
@@ -195,10 +189,10 @@ And second, you can travel to the branch label. In this case, when you make a ne
 
 Во-первых, вы можете напрямую переместиться к коммиту, как мы делали это раньше.
 
-И во-вторых, вы можете переместиться к метке ветки. В этом случае, когда вы делаете новый коммит, ветка будет расти вместе с вами и по-прежнему указывать на конец временной линии!",,
-grow_win_hint_096,"Travel directly to the last yellow commit of the birthday timeline, make a change to 'you', and make a commit","Переместитесь напрямую к последнему желтому коммиту временной линии дня рождения, внесите изменение в 'you' и сделайте коммит",,
-grow_win_hint_097,"Travel to the blue 'concert' branch, make a change to 'you', and a commit.","Переместитесь к синей ветке 'concert', внесите изменение в 'you' и сделайте коммит.",,
-reorder_title_098,Moving branches around,Перемещение веток,,
+И во-вторых, вы можете переместиться к метке ветки. В этом случае, когда вы делаете новый коммит, ветка будет расти вместе с вами и по-прежнему указывать на конец временной линии!",TRANSLATED
+grow_win_hint_096,"Travel directly to the last yellow commit of the birthday timeline, make a change to 'you', and make a commit","Переместитесь напрямую к последнему желтому коммиту временной линии дня рождения, внесите изменение в 'you' и сделайте коммит",TRANSLATED
+grow_win_hint_097,"Travel to the blue 'concert' branch, make a change to 'you', and a commit.","Переместитесь к синей ветке 'concert', внесите изменение в 'you' и сделайте коммит.",TRANSLATED
+reorder_title_098,Moving branches around,Перемещение веток,TRANSLATED
 reorder_description_099,"One of your colleagues messed up here, and put the branches in the wrong timelines!
 
 You could delete and re-create these branches - but you can also directly move them to different commits, by using
@@ -223,16 +217,16 @@ The donut branch is in the right place, but the timeline is still incomplete - m
 
 на коммите, где вы хотите, чтобы была ветка.
 
-Ветка с пончиком находится в правильном месте, но временная линия все еще неполная - убедитесь, что вы действительно съели пончик в этой ветке!",,
-reorder_win_hint_100,Did you eat a baguette on the baguette branch?,"Вы съели багет на ветке ""багет""?",,
-reorder_win_hint_101,Did you drink a coffee on the coffee branch?,"Вы выпили кофе на ветке ""кофе""?",,
-reorder_win_hint_102,Did you eat a donut on the donut branch?,"Вы съели пончик на ветке ""пончик""?",,
-fork_title_103,Make parallel commits,Делайте параллельные коммиты,,
+Ветка с пончиком находится в правильном месте, но временная линия все еще неполная - убедитесь, что вы действительно съели пончик в этой ветке!",TRANSLATED
+reorder_win_hint_100,Did you eat a baguette on the baguette branch?,"Вы съели багет на ветке ""багет""?",TRANSLATED
+reorder_win_hint_101,Did you drink a coffee on the coffee branch?,"Вы выпили кофе на ветке ""кофе""?",TRANSLATED
+reorder_win_hint_102,Did you eat a donut on the donut branch?,"Вы съели пончик на ветке ""пончик""?",TRANSLATED
+fork_title_103,Make parallel commits,Делайте параллельные коммиты,TRANSLATED
 fork_description_104,"Did you know that creating parallel timelines is perfectly legal and safe? It's true!
 
 Can you find out when things went wrong in this zoo? Then, go back to the last good commit and create a parallel universe where everyone is happy!","Знаете ли вы, что создание параллельных временных линий совершенно законно и безопасно? Это правда!
 
-Сможете ли вы выяснить, когда в этом зоопарке все пошло не так? Затем вернитесь к последнему удачному коммиту и создайте параллельную вселенную, где все счастливы!",,
+Сможете ли вы выяснить, когда в этом зоопарке все пошло не так? Затем вернитесь к последнему удачному коммиту и создайте параллельную вселенную, где все счастливы!",TRANSLATED
 fork_congrats_105,"Whew, good job! This seems like a much better outcome.
 
 Feel free to add more parallel timelines, or make them longer.
@@ -241,39 +235,39 @@ If you're ready, our next mission is already waiting...","Уф, хорошая �
 
 Не стесняйтесь добавлять больше параллельных временных линий или делать их длиннее.
 
-Если вы готовы, наша следующая миссия уже ждет...",,
-fork_win_hint_106,Make sure that the child is happy.,"Убедитесь, что ребенок счастлив.",
-fork_win_hint_107,Make sure that the lion gets something to eat.,"Убедитесь, что лев получил что-нибудь поесть.",
-branchremove_title_108,Deleting branches,Удаление веток,,
+Если вы готовы, наша следующая миссия уже ждет...",TRANSLATED
+fork_win_hint_106,Make sure that the child is happy.,"Убедитесь, что ребенок счастлив.",TRANSLATED
+fork_win_hint_107,Make sure that the lion gets something to eat.,"Убедитесь, что лев получил что-нибудь поесть.",TRANSLATED
+branchremove_title_108,Deleting branches,Удаление веток,TRANSLATED
 branchremove_description_109,"Life is full of dangers, right? Even when walking to school, it seems like there's a lot of risks!
 
 This Monday is especially bad. You made it to school, but there's some timelines you definitely don't want to keep around.","Жизнь полна опасностей, верно? Даже по дороге в школу, кажется, много рисков!
 
-Этот понедельник особенно плох. Вы добрались до школы, но есть некоторые временные линии, которые вы определенно не хотите сохранять.",,
-branchremove_congrats_110,"On second thought, maybe you even prefer the ice cream timeline to the main one? :)","Хотя, если подумать, может быть, вы даже предпочитаете временную линию с мороженым основной? :)",,
-branchremove_win_hint_111,Find the bad branches and delete them. Keep only the best one.,Найдите плохие ветки и удалите их. Оставьте только лучшую.,,
-cli_title_112,The command line,Командная строка,,
-cli_description_113,These playing cards are designed to be easy to use and to remember! We'd suggest sticking to them if you don't have a lot of experience with Git!,"Эти игральные карты разработаны так, чтобы их было легко использовать и запоминать! Мы бы посоветовали придерживаться их, если у вас не так много опыта работы с Git!"
+Этот понедельник особенно плох. Вы добрались до школы, но есть некоторые временные линии, которые вы определенно не хотите сохранять.",TRANSLATED
+branchremove_congrats_110,"On second thought, maybe you even prefer the ice cream timeline to the main one? :)","Хотя, если подумать, может быть, вы даже предпочитаете временную линию с мороженым основной? :)",TRANSLATED
+branchremove_win_hint_111,Find the bad branches and delete them. Keep only the best one.,Найдите плохие ветки и удалите их. Оставьте только лучшую.,TRANSLATED
+cli_title_112,The command line,Командная строка,TRANSLATED
+cli_description_113,These playing cards are designed to be easy to use and to remember! We'd suggest sticking to them if you don't have a lot of experience with Git!,"Эти игральные карты разработаны так, чтобы их было легко использовать и запоминать! Мы бы посоветовали придерживаться их, если у вас не так много опыта работы с Git!",TRANSLATED
 cli_congrats_114,"Cool! Instead of using the playing cards, you can also do everything via the command line!
 
 The command line is pretty powerful! Often, you can use it to solve tasks faster compared to using a graphical interface.","Круто! Вместо использования игральных карт вы также можете делать все через командную строку!
 
-Командная строка довольно мощная! Часто вы можете использовать ее для решения задач быстрее по сравнению с использованием графического интерфейса.",,
-cli_win_hint_115,Initialize the time machine!,Инициализируйте машину времени!,,
-whoareyou_title_116,Welcome to time travel school!,Добро пожаловать в школу путешествий во времени!,,
+Командная строка довольно мощная! Часто вы можете использовать ее для решения задач быстрее по сравнению с использованием графического интерфейса.",TRANSLATED
+cli_win_hint_115,Initialize the time machine!,Инициализируйте машину времени!,TRANSLATED
+whoareyou_title_116,Welcome to time travel school!,Добро пожаловать в школу путешествий во времени!,TRANSLATED
 whoareyou_description_117,"You're still pretty confused by everything that's going on. The next day, you decide to enroll in time travel school!
 
 Your time travel teacher welcomes you: ""Hello there! Wanna tell us your name?""","Вы все еще в замешательстве от всего происходящего. На следующий день вы решаете записаться в школу путешествий во времени!
 
-Ваш учитель по путешествиям во времени приветствует вас: ""Привет! Хочешь сказать нам свое имя?""",,
+Ваш учитель по путешествиям во времени приветствует вас: ""Привет! Хочешь сказать нам свое имя?""",TRANSLATED
 whoareyou_congrats_118,"We're so glad to have you!
 
 Git can help you fix problems in the past! It allows you to collaborate with other students of time travel! It's really powerful, and it's really popular! I'll see you for your first lesson tomorrow!","Мы так рады видеть вас!
 
-Git может помочь вам исправить проблемы в прошлом! Он позволяет вам сотрудничать с другими учениками путешествий во времени! Он действительно мощный и очень популярный! Увидимся на вашем первом уроке завтра!",,
-whoareyou_win_hint_119,Introduce yourself.,Представьтесь.,,
-whoareyou_win_hint_120,"Fill out the enrollment form, and commit it!",Заполните форму зачисления и закоммитьте ее!,,
-init_title_121,Enter the time machine,Войдите в машину времени,,
+Git может помочь вам исправить проблемы в прошлом! Он позволяет вам сотрудничать с другими учениками путешествий во времени! Он действительно мощный и очень популярный! Увидимся на вашем первом уроке завтра!",TRANSLATED
+whoareyou_win_hint_119,Introduce yourself.,Представьтесь.,TRANSLATED
+whoareyou_win_hint_120,"Fill out the enrollment form, and commit it!",Заполните форму зачисления и закоммитьте ее!,TRANSLATED
+init_title_121,Enter the time machine,Войдите в машину времени,TRANSLATED
 init_description_122,"You've been accepted to time travel school! Yay! It's your first day! Your teacher explains:
 
 ""To do anything with a time machine, you first need to initialize it!""
@@ -282,9 +276,9 @@ Drag that blue card up to play it!","Вас приняли в школу пут�
 
 ""Чтобы что-то делать с машиной времени, сначала нужно ее инициализировать!""
 
-Перетащите эту синюю карту вверх, чтобы сыграть ею!",,
-init_congrats_123,"Nice! See that little owl squirrel that appeared? It will be your companion, and always show you where you are in time!","Отлично! Видите эту маленькую сову-белку, которая появилась? Она будет вашим спутником и всегда будет показывать, где вы находитесь во времени!",,
-risky_title_124,Living dangerously,Жить опасно,,
+Перетащите эту синюю карту вверх, чтобы сыграть ею!",TRANSLATED
+init_congrats_123,"Nice! See that little owl squirrel that appeared? It will be your companion, and always show you where you are in time!","Отлично! Видите эту маленькую сову-белку, которая появилась? Она будет вашим спутником и всегда будет показывать, где вы находитесь во времени!",TRANSLATED
+risky_title_124,Living dangerously,Жить опасно,TRANSLATED
 risky_description_125,"So you have decided to apply for time travel school, to learn how to use this time machine called ""Git""!
 
 How exciting!
@@ -293,7 +287,7 @@ You're almost done with the paperwork! You just need to fill in one more reason 
 
 Как захватывающе!
 
-Вы почти закончили с документами! Вам просто нужно указать еще одну причину, почему вы хотите изучать Git.",,
+Вы почти закончили с документами! Вам просто нужно указать еще одну причину, почему вы хотите изучать Git.",TRANSLATED
 risky_congrats_126,"Suddenly, your cat jumps on the table, snatches away the form, and runs away! Oh no. All your hard work, gone!
 
 You clearly need a better solution.
@@ -302,30 +296,30 @@ You clearly need a better solution.
 
 Вам явно нужно лучшее решение.
 
-(Нажмите ""Следующий уровень"", как только будете готовы!)",,
-risky_win_hint_127,Add another line to form.txt!,Добавьте еще одну строку в form.txt!,,
-remote_title_128,Working together,Работаем вместе,,
+(Нажмите ""Следующий уровень"", как только будете готовы!)",TRANSLATED
+risky_win_hint_127,Add another line to form.txt!,Добавьте еще одну строку в form.txt!,TRANSLATED
+remote_title_128,Working together,Работаем вместе,TRANSLATED
 remote_description_129,"Let's add your name to our list of students!
 
 I already have a second commit of it in my time machine - let's work together!","Давайте добавим ваше имя в наш список студентов!
 
-У меня уже есть второй коммит этого в моей машине времени - давайте работать вместе!",,
-remote_congrats_130,Welcome to time travel school! :) I'll see you for your first class tomorrow!,Добро пожаловать в школу путешествий во времени! :) Увидимся на вашем первом занятии завтра!,,
-remote_win_hint_131,Get the second commit from your teacher using git pull.,Получите второй коммит от вашего учителя, используя git pull.,
-remote_win_hint_132,Add your name to the list of students,Добавьте свое имя в список студентов,,
-remote_win_hint_133,Commit your result.,Закоммитьте свой результат.,,
-commit_title_134,Your first commit,Ваш первый коммит,,
+У меня уже есть второй коммит этого в моей машине времени - давайте работать вместе!",TRANSLATED
+remote_congrats_130,Welcome to time travel school! :) I'll see you for your first class tomorrow!,Добро пожаловать в школу путешествий во времени! :) Увидимся на вашем первом занятии завтра!,TRANSLATED
+remote_win_hint_131,Get the second commit from your teacher using git pull.,"Получите второй коммит от вашего учителя, используя git pull.,",TRANSLATED
+remote_win_hint_132,Add your name to the list of students,Добавьте свое имя в список студентов,TRANSLATED
+remote_win_hint_133,Commit your result.,Закоммитьте свой результат.,TRANSLATED
+commit_title_134,Your first commit,Ваш первый коммит,TRANSLATED
 commit_description_135,"You can use your time machine to make snapshots of objects around you! Here, let's practice this!
 
 (Your teacher pours some water into a glass.)","Вы можете использовать свою машину времени, чтобы делать снимки объектов вокруг вас! Давайте попрактикуемся!
 
-(Ваш учитель наливает немного воды в стакан.)",,
-commit_congrats_136,"Nice! You can try making some additional commits. When you feel comfortable, click on ""Next Level"".","Отлично! Вы можете попробовать сделать еще несколько коммитов. Когда почувствуете себя уверенно, нажмите ""Следующий уровень"".",,
-commit_win_hint_137,"Make a snapshot of the glass (a ""commit"")","Сделайте снимок стакана (""коммит"")",,
-commit_win_hint_138,Change the contents of the glass!,Измените содержимое стакана!,,
-commit_win_hint_139,And make a second commit!,И сделайте второй коммит!,,
-copies_title_140,Making backups,Создание резервных копий,,
-copies_description_141,"This time, you're making a lot of backup copies - you can look at them by clicking on them!","На этот раз вы делаете много резервных копий - вы можете посмотреть их, кликнув по ним!",,
+(Ваш учитель наливает немного воды в стакан.)",TRANSLATED
+commit_congrats_136,"Nice! You can try making some additional commits. When you feel comfortable, click on ""Next Level"".","Отлично! Вы можете попробовать сделать еще несколько коммитов. Когда почувствуете себя уверенно, нажмите ""Следующий уровень"".",TRANSLATED
+commit_win_hint_137,"Make a snapshot of the glass (a ""commit"")","Сделайте снимок стакана (""коммит"")",TRANSLATED
+commit_win_hint_138,Change the contents of the glass!,Измените содержимое стакана!,TRANSLATED
+commit_win_hint_139,And make a second commit!,И сделайте второй коммит!,TRANSLATED
+copies_title_140,Making backups,Создание резервных копий,TRANSLATED
+copies_description_141,"This time, you're making a lot of backup copies - you can look at them by clicking on them!","На этот раз вы делаете много резервных копий - вы можете посмотреть их, кликнув по ним!",TRANSLATED
 copies_congrats_142,"Okay, this kind of works.
 
 But you're a bit worried that you'll end up with hundreds of copies of this form, and it will be hard to keep track of all of them.
@@ -338,9 +332,9 @@ You can't wait to try these time machines!","Хорошо, это вроде б�
 
 И особенно при работе с другими людьми, отправка копий туда и обратно не кажется идеальным решением.
 
-Вам не терпится опробовать эти машины времени!",,
-copies_win_hint_143,Add another line to form2_really_final.txt!,Добавьте еще одну строку в form2_really_final.txt!,,
-stash_title_144,Stashing,Сохранение в тайнике (Stashing),,
+Вам не терпится опробовать эти машины времени!",TRANSLATED
+copies_win_hint_143,Add another line to form2_really_final.txt!,Добавьте еще одну строку в form2_really_final.txt!,TRANSLATED
+stash_title_144,Stashing,Сохранение в тайнике (Stashing),TRANSLATED
 stash_description_145,"You will encounter situations in which you are working on your project but you need to put your current changes aside temporarily. To do so, you can use the stash function. Use `git stash push` to add your current changes to the stash stack.
 
 ---
@@ -355,10 +349,10 @@ tipp1
 ---
 tipp2
 ---
-tipp3",
-stash_congrats_146,Nice stash you got there! :),Хороший у вас тайник! :),,
-stash_win_hint_147,Did you stash the current changes?,Вы сохранили текущие изменения в тайнике?,,
-stashpop_title_148,Pop from Stash,Извлечь из тайника (Pop from Stash),,
+tipp3",TRANSLATED
+stash_congrats_146,Nice stash you got there! :),Хороший у вас тайник! :),TRANSLATED
+stash_win_hint_147,Did you stash the current changes?,Вы сохранили текущие изменения в тайнике?,TRANSLATED
+stashpop_title_148,Pop from Stash,Извлечь из тайника (Pop from Stash),TRANSLATED
 stashpop_description_149,"When you stashed your changes and you want to apply them back to your current working directory, you can use `git stash pop`.
 This will remove the changes from the stash stack. If you also want to keep the changes on the stash stack, use `git stash apply`.
 
@@ -375,10 +369,10 @@ tipp1
 ---
 tipp2
 ---
-tipp3",,
-stashpop_congrats_150,"Yay, you got your changes back! :)","Ура, вы вернули свои изменения! :)",,
-stashpop_win_hint_151,Did you pop the changes from the stash stack?,Вы извлекли изменения из стека тайника?,,
-stashclear_title_152,Clear the Stash,Очистить тайник (Clear the Stash),,
+tipp3",TRANSLATED
+stashpop_congrats_150,"Yay, you got your changes back! :)","Ура, вы вернули свои изменения! :)",TRANSLATED
+stashpop_win_hint_151,Did you pop the changes from the stash stack?,Вы извлекли изменения из стека тайника?,TRANSLATED
+stashclear_title_152,Clear the Stash,Очистить тайник (Clear the Stash),TRANSLATED
 stashclear_description_153,"If you want to inspect your stash stack, use the command
 
     git stash list
@@ -417,10 +411,10 @@ tipp1
 ---
 tipp2
 ---
-tipp3",,
-stashclear_congrats_154,All clear! :),Все чисто! :),,
-stashclear_win_hint_155,Did you clear your stash stack?,Вы очистили свой стек тайника?,,
-stashmerge_title_156,Merging popped stash,Слияние извлеченных из тайника изменений,,
+tipp3",TRANSLATED
+stashclear_congrats_154,All clear! :),Все чисто! :),TRANSLATED
+stashclear_win_hint_155,Did you clear your stash stack?,Вы очистили свой стек тайника?,TRANSLATED
+stashmerge_title_156,Merging popped stash,Слияние извлеченных из тайника изменений,TRANSLATED
 stashmerge_description_157,"When you want to re-apply your changes but you already continued working on your file, you might get a merge conflict! Let's practice this situation.
 Pop the changes from the stash with
 
@@ -445,10 +439,10 @@ tipp1
 ---
 tipp2
 ---
-tipp3",,
-stashmerge_win_hint_158,Did you resolve the conflict and commit?,Вы разрешили конфликт и закоммитили?,,
-stashmerge_win_hint_159,Did you clear stash stack?,Вы очистили стек тайника?,,
-stashbranch_title_160,Branch from stash,Ветка из тайника,,
+tipp3",TRANSLATED
+stashmerge_win_hint_158,Did you resolve the conflict and commit?,Вы разрешили конфликт и закоммитили?,TRANSLATED
+stashmerge_win_hint_159,Did you clear stash stack?,Вы очистили стек тайника?,TRANSLATED
+stashbranch_title_160,Branch from stash,Ветка из тайника,TRANSLATED
 stashbranch_description_161,"If you want to keep your changes but they don't belong to the main branch, you can easily create a new branch from your stashed changes. Just use
 
     git stash branch <branchname> <stash>
@@ -476,32 +470,32 @@ tipp1
 ---
 tipp2
 ---
-tipp3",,
-stashbranch_congrats_162,Stashed changes are in a new branch! :),Изменения из тайника теперь в новой ветке! :),,
-stashbranch_win_hint_163,Did you create a new branch from the stashed changes?,Вы создали новую ветку из изменений в тайнике?,,
-whoareyou_title_164,Nice to meet you!,Приятно познакомиться!,,
+tipp3",TRANSLATED
+stashbranch_congrats_162,Stashed changes are in a new branch! :),Изменения из тайника теперь в новой ветке! :),TRANSLATED
+stashbranch_win_hint_163,Did you create a new branch from the stashed changes?,Вы создали новую ветку из изменений в тайнике?,TRANSLATED
+whoareyou_title_164,Nice to meet you!,Приятно познакомиться!,TRANSLATED
 whoareyou_description_165,"Introduce yourself using
 
     git config --global user.name Firstname
     git config --global user.email ""your@mail.com""","Представьтесь, используя
 
     git config --global user.name Имя
-    git config --global user.email ""your@mail.com""`"
-whoareyou_win_hint_166,Have a name configured.,Имя настроено.,,
-whoareyou_win_hint_167,Have an email address configured.,Адрес электронной почты настроен.,,
-clone_title_168,Cloning a repo,Клонирование репозитория,,
-clone_description_169,"Get your friend's repo using `clone`, change something, push it back.","Получите репозиторий вашего друга с помощью `clone`, измените что-нибудь, отправьте обратно.",,
-init_title_170,Welcome!,Добро пожаловать!,,
-init_win_hint_171,"Again, initialize your time machine!",Снова инициализируйте вашу машину времени!,,
-split_title_172,Split a commit!,Разделить коммит!,,
-split_description_173,"Here, both changes happened in one commit! Split them to be in two commits instead.",Здесь оба изменения произошли в одном коммите! Разделите их на два коммита.,,
-steps_title_174,One step after another,Шаг за шагом,,
+    git config --global user.email ""your@mail.com""`",TRANSLATED
+whoareyou_win_hint_166,Have a name configured.,Имя настроено.,TRANSLATED
+whoareyou_win_hint_167,Have an email address configured.,Адрес электронной почты настроен.,TRANSLATED
+clone_title_168,Cloning a repo,Клонирование репозитория,TRANSLATED
+clone_description_169,"Get your friend's repo using `clone`, change something, push it back.","Получите репозиторий вашего друга с помощью `clone`, измените что-нибудь, отправьте обратно.",TRANSLATED
+init_title_170,Welcome!,Добро пожаловать!,TRANSLATED
+init_win_hint_171,"Again, initialize your time machine!",Снова инициализируйте вашу машину времени!,TRANSLATED
+split_title_172,Split a commit!,Разделить коммит!,TRANSLATED
+split_description_173,"Here, both changes happened in one commit! Split them to be in two commits instead.",Здесь оба изменения произошли в одном коммите! Разделите их на два коммита.,TRANSLATED
+steps_title_174,One step after another,Шаг за шагом,TRANSLATED
 steps_description_175,"Sometimes, you might want to record the order in which things changed, instead of making a single commit.
 
 What happened here? Make two commits from the changes (using the ""add"" card), in an order that makes sense!","Иногда вы можете захотеть записать порядок, в котором происходили изменения, вместо того, чтобы делать один коммит.
 
-Что здесь произошло? Сделайте два коммита из изменений (используя карту ""add""), в осмысленном порядке!",,
-commita_title_176,"Make a commit, but faster!","Сделай коммит, но быстрее!",,
+Что здесь произошло? Сделайте два коммита из изменений (используя карту ""add""), в осмысленном порядке!",TRANSLATED
+commita_title_176,"Make a commit, but faster!","Сделай коммит, но быстрее!",TRANSLATED
 commita_description_177,"There is a time-saving trick, where instead of a plain git commit, you can use
 
     git commit -a
@@ -510,31 +504,31 @@ This will automatically add all changes you made to local files! Very convenient
 
     git commit -a
 
-Это автоматически добавит все изменения, которые вы внесли в локальные файлы! Очень удобно.",,
-commita_win_hint_178,"Make a commit where all files contain ""x"".","Сделайте коммит, в котором все файлы содержат ""x"".",,
-filesmove_title_179,No sleep required,Сон не требуется,,
+Это автоматически добавит все изменения, которые вы внесли в локальные файлы! Очень удобно.",TRANSLATED
+commita_win_hint_178,"Make a commit where all files contain ""x"".","Сделайте коммит, в котором все файлы содержат ""x"".",TRANSLATED
+filesmove_title_179,No sleep required,Сон не требуется,TRANSLATED
 filesmove_description_180,"Actually, you decide that you don't need any sleep.
 
 Because of that, you won't require a bed, and can build some other piece of furniture from the wood!","На самом деле, вы решаете, что вам не нужен сон.
 
-Из-за этого вам не понадобится кровать, и вы можете сделать какой-нибудь другой предмет мебели из дерева!",,
+Из-за этого вам не понадобится кровать, и вы можете сделать какой-нибудь другой предмет мебели из дерева!",TRANSLATED
 filesmove_congrats_181,"Neat! It even still looks a bit comfortable!
 
 You head out, eager for your first lesson at time travel school!","Классно! Она даже все еще выглядит немного удобной!
 
-Вы отправляетесь, с нетерпением ожидая своего первого урока в школе путешествий во времени!",,
-filesmove_win_hint_182,"Rename the bed into something else, and give it a new description!",Переименуйте кровать во что-то другое и дайте ей новое описание!,,
-remotesdelete_title_183,Deleting and renaming a remote,Удаление и переименование удаленного репозитория,,
-remotesdelete_description_184,"Here, you already have two remotes configured! You can list them using `git remote`.",Здесь у вас уже настроено два удаленных репозитория! Вы можете их перечислить с помощью `git remote`,,
-remotesdelete_win_hint_185,Rename the remote with the typo (using `git remote rename [old name] [new name]`),Переименуйте удаленный репозиторий с опечаткой (используя `git remote rename [старое имя] [новое имя]`),,
-remotesdelete_win_hint_186,The remote with the typo is gone.,Удаленный репозиторий с опечаткой исчез.,,
+Вы отправляетесь, с нетерпением ожидая своего первого урока в школе путешествий во времени!",TRANSLATED
+filesmove_win_hint_182,"Rename the bed into something else, and give it a new description!",Переименуйте кровать во что-то другое и дайте ей новое описание!,TRANSLATED
+remotesdelete_title_183,Deleting and renaming a remote,Удаление и переименование удаленного репозитория,TRANSLATED
+remotesdelete_description_184,"Here, you already have two remotes configured! You can list them using `git remote`.",Здесь у вас уже настроено два удаленных репозитория! Вы можете их перечислить с помощью `git remote`,TRANSLATED
+remotesdelete_win_hint_185,Rename the remote with the typo (using `git remote rename [old name] [new name]`),Переименуйте удаленный репозиторий с опечаткой (используя `git remote rename [старое имя] [новое имя]`),TRANSLATED
+remotesdelete_win_hint_186,The remote with the typo is gone.,Удаленный репозиторий с опечаткой исчез.,TRANSLATED
 remotesdelete_win_hint_187,Delete the remote you don't want to keep (using `git remote remove [remote]`),Удалите удаленный репозиторий, который вы не хотите сохранять (используя `git remote remove [remote]`),
-commit_title_188,Make a commit \o/,Сделайте коммит \o/,,
-commit_description_189,"For practice, make a commit where all files contain an ""x""!","Для практики сделайте коммит, в котором все файлы содержат ""x""!",,
-commit_win_hint_190,"File a contains ""x"" in the last main commit.","Файл a содержит ""x"" в последнем коммите ветки main.",,
-commit_win_hint_191,"File b contains ""x"" in the last main commit.","Файл b содержит ""x"" в последнем коммите ветки main.",,
-commit_win_hint_192,"File c contains ""x"" in the last main commit.","Файл c содержит ""x"" в последнем коммите ветки main.",,
-pullpush_title_193,Helping each other,Помогая друг другу,,
+commit_title_188,Make a commit \o/,Сделайте коммит \o/,TRANSLATED
+commit_description_189,"For practice, make a commit where all files contain an ""x""!","Для практики сделайте коммит, в котором все файлы содержат ""x""!",TRANSLATED
+commit_win_hint_190,"File a contains ""x"" in the last main commit.","Файл a содержит ""x"" в последнем коммите ветки main.",TRANSLATED
+commit_win_hint_191,"File b contains ""x"" in the last main commit.","Файл b содержит ""x"" в последнем коммите ветки main.",TRANSLATED
+commit_win_hint_192,"File c contains ""x"" in the last main commit.","Файл c содержит ""x"" в последнем коммите ветки main.",TRANSLATED
+pullpush_title_193,Helping each other,Помогая друг другу,TRANSLATED
 pullpush_description_194,"The events and timelines you see are always only what your own time machine knows about!
 
 Of course, time agents don't have to work alone! Here, your sidekick has already prepared a merge for you! You can use the ""pull"" card to transfer it to your own time machine.
@@ -547,9 +541,9 @@ You can only ever manipulate things in your own time machine (the one on the bot
 
 Затем добавьте еще одно событие сверху (что Сэм ест на ужин?) и push результат, чтобы передать его обратно вашему помощнику!
 
-Вы можете манипулировать вещами только в своей собственной машине времени (той, что внизу).",,
-pullpush_congrats_195,"In reality, in many cases, a lot of time agents work together to build a really good future together! :)","В реальности, во многих случаях, множество временных агентов работают вместе, чтобы построить действительно хорошее будущее! :)",,
-fetch_title_196,Fetching from remotes,Получение данных с удаленных репозиториев,,
+Вы можете манипулировать вещами только в своей собственной машине времени (той, что внизу).",TRANSLATED
+pullpush_congrats_195,"In reality, in many cases, a lot of time agents work together to build a really good future together! :)","В реальности, во многих случаях, множество временных агентов работают вместе, чтобы построить действительно хорошее будущее! :)",TRANSLATED
+fetch_title_196,Fetching from remotes,Получение данных с удаленных репозиториев,TRANSLATED
 fetch_description_197,"Here, you already have two remotes configured! You can list them using `git remote`.
 
 Fetch from both, and look at the suggestions.
@@ -558,10 +552,10 @@ Then, make a new commit on top of your original one that introduces a compromise
 
 Получите данные с обоих и посмотрите на предложения.
 
-Затем сделайте новый коммит поверх вашего оригинального, который вводит компромисс.",,
-fetch_win_hint_198,Your proposal is acceptable for friend1.,Ваше предложение приемлемо для friend1.,,
-fetch_win_hint_199,Your proposal is acceptable for friend2.,Ваше предложение приемлемо для friend2.,,
-remotesadd_title_200,Adding a remote,Добавление удаленного репозитория,,
+Затем сделайте новый коммит поверх вашего оригинального, который вводит компромисс.",TRANSLATED
+fetch_win_hint_198,Your proposal is acceptable for friend1.,Ваше предложение приемлемо для friend1.,TRANSLATED
+fetch_win_hint_199,Your proposal is acceptable for friend2.,Ваше предложение приемлемо для friend2.,TRANSLATED
+remotesadd_title_200,Adding a remote,Добавление удаленного репозитория,TRANSLATED
 remotesadd_description_201,"Let's work together with others! Your friend has their own repo at the URL `../friend` - you can add it using
 
     git remote add [name] [URL]
@@ -582,24 +576,24 @@ There's a letter for you!","Давайте работать вместе с др
 
     git pull friend
 
-Для вас есть письмо!",,
-remotesadd_win_hint_202,Add a remote that points to ../friend.,Добавьте удаленный репозиторий, который указывает на `../friend`.,
-remotesadd_win_hint_203,Pull from the remote.,Получите данные с удаленного репозитория.,,
-checkout_title_204,Getting the last version,Получение последней версии,,
+Для вас есть письмо!",TRANSLATED
+remotesadd_win_hint_202,Add a remote that points to ../friend.,"Добавьте удаленный репозиторий, который указывает на `../friend`.",TRANSLATED
+remotesadd_win_hint_203,Pull from the remote.,Получите данные с удаленного репозитория.,TRANSLATED
+checkout_title_204,Getting the last version,Получение последней версии,TRANSLATED
 checkout_description_205,"You've been working on your essay for a while. But - ughh! Now your cat walks over your keyboard and ""helps you"", so now it's all messed up! :/
 
 But Git is here to help! To discard all changes your cat made, and go back to the version in the last commit, use checkout!","Вы уже некоторое время работаете над своим эссе. Но - ух! Теперь ваша кошка прошлась по клавиатуре и ""помогла вам"", так что теперь все испорчено! :/
 
-Но Git здесь, чтобы помочь! Чтобы отменить все изменения, которые сделала ваша кошка, и вернуться к версии в последнем коммите, используйте checkout!",,
-checkout_win_hint_206,Restore the version from the last commit.,Восстановите версию из последнего коммита.,,
-restore_title_207,Looking into the past,Заглядывая в прошлое,,
+Но Git здесь, чтобы помочь! Чтобы отменить все изменения, которые сделала ваша кошка, и вернуться к версии в последнем коммите, используйте checkout!",TRANSLATED
+checkout_win_hint_206,Restore the version from the last commit.,Восстановите версию из последнего коммита.,TRANSLATED
+restore_title_207,Looking into the past,Заглядывая в прошлое,TRANSLATED
 restore_description_208,"You've been working on your essay for a while. But you're not happy with the changes you've made recently. You want to go back to the version called ""Best version""!
 
 No problem, you can use the checkout card to restore your essay from an older commit!","Вы уже некоторое время работаете над своим эссе. Но вы недовольны недавними изменениями. Вы хотите вернуться к версии под названием ""Лучшая версия""!
 
-Нет проблем, вы можете использовать карту checkout, чтобы восстановить свое эссе из более старого коммита!",,
-restore_win_hint_209,"For nostalgic reasons, restore the very first backup you made!","Из ностальгических соображений восстановите самую первую резервную копию, которую вы сделали!",,
-indexmv_title_210,Rename a file in the next commit,Переименовать файл в следующем коммите,,
+Нет проблем, вы можете использовать карту checkout, чтобы восстановить свое эссе из более старого коммита!",TRANSLATED
+restore_win_hint_209,"For nostalgic reasons, restore the very first backup you made!","Из ностальгических соображений восстановите самую первую резервную копию, которую вы сделали!",TRANSLATED
+indexmv_title_210,Rename a file in the next commit,Переименовать файл в следующем коммите,TRANSLATED
 indexmv_description_211,"Other times, you might want to rename a file in the next commit. Use
 
     git mv [file] [new name]
@@ -608,9 +602,9 @@ for that. The effect is very similar as if you had created a copy with a new nam
 
     git mv [файл] [новое имя]
 
-для этого. Эффект очень похож на то, как если бы вы создали копию с новым именем и удалили старую версию.",,
-indexmv_win_hint_212,"Make a commit where you rename the file b to ""x"".","Сделайте коммит, в котором вы переименовываете файл b в ""x"".",,
-reflog_title_213,Go back to where you were before,"Вернуться туда, где вы были раньше",,
+для этого. Эффект очень похож на то, как если бы вы создали копию с новым именем и удалили старую версию.",TRANSLATED
+indexmv_win_hint_212,"Make a commit where you rename the file b to ""x"".","Сделайте коммит, в котором вы переименовываете файл b в ""x"".",TRANSLATED
+reflog_title_213,Go back to where you were before,"Вернуться туда, где вы были раньше",TRANSLATED
 reflog_description_214,"Say you were looking at something in the past, and then switched back to the main branch.
 
 But then, you got reaaally distracted, and after your lunch break, you can't remember which past commit you were on before. How can you find out?
@@ -623,11 +617,11 @@ There's a convenient command that shows you all the places your `HEAD` has point
 
 Есть удобная команда, которая показывает все места, на которые указывал ваш `HEAD` в прошлом:
 
-    git reflog",,
-reflog_win_hint_215,"Find out where you've been before, and go back there!","Узнайте, где вы были раньше, и вернитесь туда!",,
-pushedsomethingbroken_title_216,I pushed something broken,Я отправил что-то сломанное,,
-pushedsomethingbroken_description_217,"We were talking about how to undo a commit, and fix it. This only helps when you haven't already pushed it to a remote. When that has happened, and you want to undo the effects of the commit completely, your best option is `git revert`","Мы говорили о том, как отменить коммит и исправить его. Это помогает только тогда, когда вы еще не отправили его на удаленный репозиторий. Когда это произошло, и вы хотите полностью отменить эффекты коммита, ваш лучший вариант — `git revert`",,
-badcommit_title_218,Undo a bad commit,Отменить плохой коммит,,
+    git reflog",TRANSLATED
+reflog_win_hint_215,"Find out where you've been before, and go back there!","Узнайте, где вы были раньше, и вернитесь туда!",TRANSLATED
+pushedsomethingbroken_title_216,I pushed something broken,Я отправил что-то сломанное,TRANSLATED
+pushedsomethingbroken_description_217,"We were talking about how to undo a commit, and fix it. This only helps when you haven't already pushed it to a remote. When that has happened, and you want to undo the effects of the commit completely, your best option is `git revert`","Мы говорили о том, как отменить коммит и исправить его. Это помогает только тогда, когда вы еще не отправили его на удаленный репозиторий. Когда это произошло, и вы хотите полностью отменить эффекты коммита, ваш лучший вариант — `git revert`",TRANSLATED
+badcommit_title_218,Undo a bad commit,Отменить плохой коммит,TRANSLATED
 badcommit_description_219,"Oh no, we made a bad commit! How can we undo making the commit, and go back to a point where we can try again?
 
 The answer is using `git reset [commit]`, which does two things:
@@ -644,25 +638,25 @@ It does not change your working directory in any way, which means that after tha
 
 И сбрасывает индекс к этому коммиту.
 
-Это никак не изменяет ваш рабочий каталог, что означает, что после этого вы можете снова попытаться сделать нужный коммит.",,
-badcommit_win_hint_220,"In the last main commit, the numbers file contains the numbers from 1 to 10.",В последнем коммите ветки main файл numbers содержит числа от 1 до 10.,,
-badcommit_win_hint_221,"The commit message of that commit is ""More numbers"".","Сообщение этого коммита — ""Больше чисел"".",,
-badcommit_win_hint_222,The commit with the typo is not part of the main branch anymore.,Коммит с опечаткой больше не является частью основной ветки.,,
-restoreafilefromthepast_title_223,Restore a file from the past,Восстановить файл из прошлого,,
+Это никак не изменяет ваш рабочий каталог, что означает, что после этого вы можете снова попытаться сделать нужный коммит.",TRANSLATED
+badcommit_win_hint_220,"In the last main commit, the numbers file contains the numbers from 1 to 10.",В последнем коммите ветки main файл numbers содержит числа от 1 до 10.,TRANSLATED
+badcommit_win_hint_221,"The commit message of that commit is ""More numbers"".","Сообщение этого коммита — ""Больше чисел"".",TRANSLATED
+badcommit_win_hint_222,The commit with the typo is not part of the main branch anymore.,Коммит с опечаткой больше не является частью основной ветки.,TRANSLATED
+restoreafilefromthepast_title_223,Restore a file from the past,Восстановить файл из прошлого,TRANSLATED
 restoreafilefromthepast_description_224,"Here's a similar problem: you really liked the essay from the very first commit, and want to have it back! Well, checkout can also restore things from older commits, Here's how:
 
     git checkout [commit] [file]","Вот похожая проблема: вам очень понравилось эссе из самого первого коммита, и вы хотите его вернуть! Что ж, checkout также может восстанавливать вещи из более старых коммитов. Вот как:
 
-    git checkout [коммит] [файл]",,
-restoreafilefromthepast_win_hint_225,"Get the first version of your essay, and make a new commit with it.",Получите первую версию вашего эссе и сделайте с ней новый коммит.,,
-restoreafile_title_226,Restore a deleted file,Восстановить удаленный файл,,
+    git checkout [коммит] [файл]",TRANSLATED
+restoreafilefromthepast_win_hint_225,"Get the first version of your essay, and make a new commit with it.",Получите первую версию вашего эссе и сделайте с ней новый коммит.,TRANSLATED
+restoreafile_title_226,Restore a deleted file,Восстановить удаленный файл,TRANSLATED
 restoreafile_description_227,"Oops - you deleted the ""essay"" file, which you worked on all night!
 
 Luckily, Git is here to help! You can use `git checkout` to restore the file!","Ой - вы удалили файл ""эссе"", над которым работали всю ночь!
 
-К счастью, Git здесь, чтобы помочь! Вы можете использовать `git checkout`, чтобы восстановить файл!",,
-restoreafile_win_hint_228,"Restore the essay to contain ""important content""","Восстановите эссе, чтобы оно содержало ""важное содержимое""",,
-remotetag_title_229,Remote Tags,Удаленные теги,,
+К счастью, Git здесь, чтобы помочь! Вы можете использовать `git checkout`, чтобы восстановить файл!",TRANSLATED
+restoreafile_win_hint_228,"Restore the essay to contain ""important content""","Восстановите эссе, чтобы оно содержало ""важное содержимое""",TRANSLATED
+remotetag_title_229,Remote Tags,Удаленные теги,TRANSLATED
 remotetag_description_230,"When you work with remote repositories, tags are not pushed or pulled automatically.
 
 You can push a tag with
@@ -689,10 +683,10 @@ Add a tag named ""v2"" to the last commit and push it to the remote. Also pull t
 Вы также можете синхронизировать
     git fetch <удаленный_репозиторий> --prune --prune-tags
 
-Добавьте тег с именем ""v2"" к последнему коммиту и отправьте его на удаленный репозиторий. Также загрузите тег v1 в свой локальный репозиторий.",,
-remotetag_win_hint_231,v1 tag in your repo,тег v1 в вашем репозитории,,
-remotetag_win_hint_232,v2 tag in your repo,тег v2 в вашем репозитории,,
-addtaglater_title_233,Tagging later,Добавление тега позже,,
+Добавьте тег с именем ""v2"" к последнему коммиту и отправьте его на удаленный репозиторий. Также загрузите тег v1 в свой локальный репозиторий.",TRANSLATED
+remotetag_win_hint_231,v1 tag in your repo,тег v1 в вашем репозитории,TRANSLATED
+remotetag_win_hint_232,v2 tag in your repo,тег v2 в вашем репозитории,TRANSLATED
+addtaglater_title_233,Tagging later,Добавление тега позже,TRANSLATED
 addtaglater_description_234,"But what happens if you forgot to tag your current commit?
 No Prob! You can also tag older commits via
 
@@ -717,10 +711,10 @@ tipp1
 ---
 tipp2
 ---
-tipp3"
-addtaglater_congrats_235,Well done :),Отлично :),
-addtaglater_win_hint_236,Did you create a new tag?,Вы создали новый тег?,
-removetag_title_237,Removing tags,Удаление тегов,
+tipp3",TRANSLATED
+addtaglater_congrats_235,Well done :),Отлично :),TRANSLATED
+addtaglater_win_hint_236,Did you create a new tag?,Вы создали новый тег?,TRANSLATED
+removetag_title_237,Removing tags,Удаление тегов,TRANSLATED
 removetag_description_238,"You added way too many tags? No prob! Delete them with
 
     git tag -d <tag-name>
@@ -743,9 +737,9 @@ tipp1
 ---
 tipp2
 ---
-tipp3",,
-removetag_win_hint_239,Did you remove all tags?,Вы удалили все теги?,,
-addtag_title_240,Creating tags,Создание тегов,,
+tipp3",TRANSLATED
+removetag_win_hint_239,Did you remove all tags?,Вы удалили все теги?,TRANSLATED
+addtag_title_240,Creating tags,Создание тегов,TRANSLATED
 addtag_description_241,"Some of your commits may be special commits. Maybe you reached a milestone or a new version number.
 
 You can mark these commits with a special flag called 'tag'.
@@ -762,20 +756,20 @@ to tag your commit.","Некоторые из ваших коммитов мог
 
     git tag <имя-тега>
 
-чтобы пометить ваш коммит.",,
-addtag_congrats_242,Nice! You tagged your first commit :),Отлично! Вы пометили свой первый коммит :),,
-filesdelete_title_243,Unexpected Roommates,Неожиданные соседи по комнате,,
+чтобы пометить ваш коммит.",TRANSLATED
+addtag_congrats_242,Nice! You tagged your first commit :),Отлично! Вы пометили свой первый коммит :),TRANSLATED
+filesdelete_title_243,Unexpected Roommates,Неожиданные соседи по комнате,TRANSLATED
 filesdelete_description_244,"The first day at Time Travel School comes to an end and you receive the key to your room.
 Full of excitement you open the door just to find... spider webs! Spider webs everywhere!
 
 Remove all the spider webs you can find with the remove card!","Первый день в Школе Путешествий во Времени подходит к концу, и вы получаете ключ от своей комнаты.
 Полные восторга, вы открываете дверь и обнаруживаете... паутину! Паутина повсюду!
 
-Уберите всю паутину, которую сможете найти, с помощью карты удаления!",,
-filesdelete_congrats_245,Your room looks now very tidy and cozy! Time to unpack your stuff!,Ваша комната теперь выглядит очень опрятной и уютной! Время распаковывать вещи!,,
-filesdelete_win_hint_246,Remove all spider webs.,Уберите всю паутину.,,
-filesdelete_win_hint_247,But make sure you keep your bed!,"Но убедитесь, что вы оставили свою кровать!",
-filesadd_title_248,Interior design,Дизайн интерьера,,
+Уберите всю паутину, которую сможете найти, с помощью карты удаления!",TRANSLATED
+filesdelete_congrats_245,Your room looks now very tidy and cozy! Time to unpack your stuff!,Ваша комната теперь выглядит очень опрятной и уютной! Время распаковывать вещи!,TRANSLATED
+filesdelete_win_hint_246,Remove all spider webs.,Уберите всю паутину.,TRANSLATED
+filesdelete_win_hint_247,But make sure you keep your bed!,"Но убедитесь, что вы оставили свою кровать!",TRANSLATED
+filesadd_title_248,Interior design,Дизайн интерьера,TRANSLATED
 filesadd_description_249,"Now that your room looks tidy, you can start to unpack your stuff. You brought two new pieces of furniture with you and with a bright smile,
 you see that their colors match the color of your bed!
 
@@ -790,11 +784,11 @@ Don't forget to add a color and description to your new furnitures, too!","Те�
 Затем назовите свою мебель - вы можете выбрать любое название.
 
 Убедитесь, что цвета совпадают! Цвет кровати вы можете найти в ее описании.
-Не забудьте также добавить цвет и описание для вашей новой мебели!",,
-filesadd_congrats_250,Don't you immediately feel more at home?,Разве вы не чувствуете себя сразу как дома?,,
-filesadd_win_hint_251,Add two more pieces of furniture,Добавьте еще два предмета мебели,,
-filesadd_win_hint_252,Make sure the colors match your bed's color.,"Убедитесь, что цвета соответствуют цвету вашей кровати.",
-rebase_title_253,Rebasing,Перебазирование (Rebasing),,
+Не забудьте также добавить цвет и описание для вашей новой мебели!",TRANSLATED
+filesadd_congrats_250,Don't you immediately feel more at home?,Разве вы не чувствуете себя сразу как дома?,TRANSLATED
+filesadd_win_hint_251,Add two more pieces of furniture,Добавьте еще два предмета мебели,TRANSLATED
+filesadd_win_hint_252,Make sure the colors match your bed's color.,"Убедитесь, что цвета соответствуют цвету вашей кровати.",TRANSLATED
+rebase_title_253,Rebasing,Перебазирование (Rebasing),TRANSLATED
 rebase_description_254,"Okay - turns out that saving time in the morning by utilizing parallel universes is against the regulations of the International Time Travel Association. You'll have to do your tasks in sequence after all.
 
 See the ""rebase"" card? When you drag it to a commit, it will copy the events in your current timeline after the specified one! This way, make a clean, linear timeline where you visit all three shops.
@@ -803,14 +797,14 @@ Again, we want to make that our base reality - the ""main"" branch should point 
 
 Видите карту ""rebase""? Когда вы перетаскиваете ее на коммит, она скопирует события из вашей текущей временной линии после указанного! Таким образом, создайте чистую, линейную временную линию, где вы посещаете все три магазина.
 
-Опять же, мы хотим сделать это нашей базовой реальностью - ветка ""main"" должна указывать на эту временную линию!",,
+Опять же, мы хотим сделать это нашей базовой реальностью - ветка ""main"" должна указывать на эту временную линию!",TRANSLATED
 rebase_congrats_255,"Notice how the other timelines and commits are still there - if anything goes wrong, you can also travel back to them.
 
 It's really hard to actually destroy stuff with your time machine.","Обратите внимание, как другие временные линии и коммиты все еще на месте - если что-то пойдет не так, вы также можете вернуться к ним.
 
-На самом деле очень трудно уничтожить что-либо с помощью вашей машины времени.",,
-rebase_win_hint_256,Order all tree branches into one and move the main branch ref,Упорядочите все ветви дерева в одну и переместите ссылку основной ветви,,
-reorder_title_257,Reordering events,Изменение порядка событий,,
+На самом деле очень трудно уничтожить что-либо с помощью вашей машины времени.",TRANSLATED
+rebase_win_hint_256,Order all tree branches into one and move the main branch ref,Упорядочите все ветви дерева в одну и переместите ссылку основной ветви,TRANSLATED
+reorder_title_257,Reordering events,Изменение порядка событий,TRANSLATED
 reorder_description_258,"Oops, looks like there's something messed up here. Can you put the events back into their correct order?
 
 There are two ways to do this: You can drag the ""interactive rebase"" card to the commit before the one you want to change, then reorder the lines in the file that opens, and save it.
@@ -819,10 +813,10 @@ Or you can reset the main tag to the very first commit, and then cherry-pick sin
 
 Есть два способа сделать это: Вы можете перетащить карту ""interactive rebase"" на коммит перед тем, который вы хотите изменить, затем изменить порядок строк в открывшемся файле и сохранить его.
 
-Или вы можете сбросить основной тег на самый первый коммит, а затем выбрать отдельные коммиты (`cherry-pick`) в нужном порядке. У вас есть карты для обоих подходов!",,
-reorder_congrats_259,Feel free to reset the level and try the other strategy! Which one do you like better?,Не стесняйтесь сбросить уровень и попробовать другую стратегию! Какая вам нравится больше?,,
-reorder_win_hint_260,Reorder the commits to dress yourself in the correct way,"Измените порядок коммитов, чтобы одеться правильно",
-bisect_title_261,Yellow brick road,Дорога из желтого кирпича,,
+Или вы можете сбросить основной тег на самый первый коммит, а затем выбрать отдельные коммиты (`cherry-pick`) в нужном порядке. У вас есть карты для обоих подходов!",TRANSLATED
+reorder_congrats_259,Feel free to reset the level and try the other strategy! Which one do you like better?,Не стесняйтесь сбросить уровень и попробовать другую стратегию! Какая вам нравится больше?,TRANSLATED
+reorder_win_hint_260,Reorder the commits to dress yourself in the correct way,"Измените порядок коммитов, чтобы одеться правильно",TRANSLATED
+bisect_title_261,Yellow brick road,Дорога из желтого кирпича,TRANSLATED
 bisect_description_262,"(Please zoom out a bit using your mouse wheel! :D)
 
 Oh no! You have lost your key at some point during the day!
@@ -839,19 +833,19 @@ After you've found the last good commit, reset the main branch to it. What happe
 
 Сначала сыграйте карту ""bisect start"". Затем перейдите к коммиту, где у вас нет ключа, и сыграйте карту ""bisect bad"". Аналогично, перейдите к раннему коммиту, где у вас есть ключ в кармане, и сыграйте карту ""bisect good"".
 
-После того, как вы найдете последний хороший коммит, сбросьте основную ветку на него. Что случилось с ключом после того, как вы его потеряли?",,
-bisect_congrats_263,"Well done! :) The only problem is that you now have to walk all the way back home, again...","Отлично! :) Единственная проблема в том, что теперь вам снова придется идти пешком до самого дома...",,
-bisect_win_hint_264,Find the last good commit,Найдите последний хороший коммит,,
-gitignore_title_265,Ignoring files,Игнорирование файлов,,
+После того, как вы найдете последний хороший коммит, сбросьте основную ветку на него. Что случилось с ключом после того, как вы его потеряли?",TRANSLATED
+bisect_congrats_263,"Well done! :) The only problem is that you now have to walk all the way back home, again...","Отлично! :) Единственная проблема в том, что теперь вам снова придется идти пешком до самого дома...",TRANSLATED
+bisect_win_hint_264,Find the last good commit,Найдите последний хороший коммит,TRANSLATED
+gitignore_title_265,Ignoring files,Игнорирование файлов,TRANSLATED
 gitignore_description_266,"That chicken is running around a lot, and changing often. We don't want to have it in our commits.
 
 Add it to the file .gitignore, and try using `git add .`!","Эта курица много бегает и часто меняется. Мы не хотим, чтобы она была в наших коммитах.
 
-Добавьте ее в файл .gitignore и попробуйте использовать `git add .`!",,
-pr_description_267,"Your friend has a problem! Clone the repo located in ../friend, create a branch called ""solution"", and fix the problem in this branch. When you're ready, make a ""Pull Request"" by using git tag pr.","У вашего друга проблема! Клонируйте репозиторий, находящийся в ../friend, создайте ветку с именем ""solution"" и исправьте проблему в этой ветке. Когда будете готовы, сделайте ""Pull Request"", используя git tag pr.",,
-empty_title_268,Empty sandbox,Пустая песочница,,
-empty_description_269,This is an empty sandbox you can play around in.,Это пустая песочница, в которой вы можете поиграть.,
-threecommits_title_270,Sandbox with three commits,Песочница с тремя коммитами,,
+Добавьте ее в файл .gitignore и попробуйте использовать `git add .`!",TRANSLATED
+pr_description_267,"Your friend has a problem! Clone the repo located in ../friend, create a branch called ""solution"", and fix the problem in this branch. When you're ready, make a ""Pull Request"" by using git tag pr.","У вашего друга проблема! Клонируйте репозиторий, находящийся в ../friend, создайте ветку с именем ""solution"" и исправьте проблему в этой ветке. Когда будете готовы, сделайте ""Pull Request"", используя git tag pr.",TRANSLATED
+empty_title_268,Empty sandbox,Пустая песочница,TRANSLATED
+empty_description_269,This is an empty sandbox you can play around in.,"Это пустая песочница, в которой вы можете поиграть.",TRANSLATED
+threecommits_title_270,Sandbox with three commits,Песочница с тремя коммитами,TRANSLATED
 threecommits_description_271,"Here's a sandbox you can play around in.
 
 You can use both the playing cards, as well as the terminal. This is a real Git terminal! Fun things to try:
@@ -868,13 +862,13 @@ Make a timeline that's completely independent of the rest!","Вот песочн
 
 Создать и удалить несколько тегов!
 
-Создать временную линию, полностью независимую от остальных!",,
-remote_title_272,Sandbox with a remote,Песочница с удаленным репозиторием,,
+Создать временную линию, полностью независимую от остальных!",TRANSLATED
+remote_title_272,Sandbox with a remote,Песочница с удаленным репозиторием,TRANSLATED
 remote_description_273,"Here's a sandbox with a remote! Try pulling, fetching, or pushing!
 
 How can you push tags and branches on a remote? How can you delete them again?","Вот песочница с удаленным репозиторием! Попробуйте pull, fetch или push!
 
-Как можно отправлять теги и ветки на удаленный репозиторий? Как их можно снова удалить?",,
+Как можно отправлять теги и ветки на удаленный репозиторий? Как их можно снова удалить?",TRANSLATED
 treenested_description_274,"Trees can also point to other trees! This way, they can describe nested directory structures.
 
 When you add a file inside of a directory to the index, and then call `git write-tree`, it will create a nested tree for the directory, and attach the blob to it.
@@ -883,7 +877,7 @@ To solve this level, build a little stick figure, as shown on the left - a tree 
 
 Когда вы добавляете файл внутри каталога в индекс, а затем вызываете `git write-tree`, это создаст вложенное дерево для каталога и прикрепит к нему блоб.
 
-Чтобы решить этот уровень, постройте маленькую фигурку из палочек, как показано слева - дерево, которое указывает на два блоба, а также на дерево, которое указывает на два блоба.",,
+Чтобы решить этот уровень, постройте маленькую фигурку из палочек, как показано слева - дерево, которое указывает на два блоба, а также на дерево, которое указывает на два блоба.",TRANSLATED
 indexupdate_description_275,"Instead of removing an entry from the index and adding one with the same name, you can also directly update that entry!
 
 Put the content you want in a file with a matching name, and then run
@@ -900,8 +894,8 @@ Update an entry in the index!","Вместо удаления записи из 
 
 Это создаст новый блоб и обновит хэш записи до этого блоба.
 
-Обновите запись в индексе!",,
-indexupdate_win_hint_276,This is not really a good test for the winning condition...,Это не очень хороший тест для условия победы...,,
+Обновите запись в индексе!",TRANSLATED
+indexupdate_win_hint_276,This is not really a good test for the winning condition...,Это не очень хороший тест для условия победы...,TRANSLATED
 indexremove_description_277,"To remove an entry from the index, use a command like this:
 
     git update-index --force-remove <file>
@@ -910,7 +904,7 @@ Remove all entries from the index!","Чтобы удалить запись из
 
     git update-index --force-remove <файл>
 
-Удалите все записи из индекса!",,
+Удалите все записи из индекса!",TRANSLATED
 commitcreate_description_278,"So a tree describes a directory structure at a specific point in time.
 
 It would be nice if we could remember when that state existed, and who authored it, right?
@@ -927,7 +921,7 @@ Make a commit from the tree in this repository!","Итак, дерево опи�
 
     git commit-tree <дерево> -m ""Описание вашего коммита""
 
-Сделайте коммит из дерева в этом репозитории!",,
+Сделайте коммит из дерева в этом репозитории!",TRANSLATED
 treeread_description_279,"As soon as you have some tree objects, you can always read them and set the index exactly to their content! Unsurprisingly, the command is called
 
     git read-tree <tree>
@@ -940,7 +934,7 @@ Try reading some of the trees in this repository into the index!","Как тол
 
 Для <дерева> вы можете указать хэш любого объекта-дерева - вы можете щелкнуть правой кнопкой мыши по одному из них, чтобы вставить его хэш в терминал!
 
-Попробуйте прочитать некоторые из деревьев в этом репозитории в индекс!",,
+Попробуйте прочитать некоторые из деревьев в этом репозитории в индекс!",TRANSLATED
 commitrhombus_description_280,"A commit can have multiple parents! You can specify the -p option multiple times, like this:
 
     git commit-tree <tree> -m ""Description"" -p <parent1> -p <parent2>
@@ -949,8 +943,8 @@ Build a rhombus shape from commits, where two commits point to the same parent, 
 
     git commit-tree <дерево> -m ""Описание"" -p <родитель1> -p <родитель2>
 
-Постройте ромбовидную форму из коммитов, где два коммита указывают на одного и того же родителя, а затем четвертый коммит указывает на них обоих.",,
-commitrhombus_win_hint_281,My first parent's parents has to be the same as my second parent's parent.,Родители моего первого родителя должны быть такими же, как родитель моего второго родителя.,
+Постройте ромбовидную форму из коммитов, где два коммита указывают на одного и того же родителя, а затем четвертый коммит указывает на них обоих.",TRANSLATED
+commitrhombus_win_hint_281,My first parent's parents has to be the same as my second parent's parent.,"Родители моего первого родителя должны быть такими же, как родитель моего второго родителя.",TRANSLATED
 refmove_description_282,"You can point refs to a new location using the same command you use to create them:
 
     git update-ref refs/<refname> <object>
@@ -959,7 +953,7 @@ As an exercise, make all refs in this repository point to the tree object!","В�
 
     git update-ref refs/<имя_ссылки> <объект>
 
-В качестве упражнения, сделайте так, чтобы все ссылки в этом репозитории указывали на объект-дерево!",,
+В качестве упражнения, сделайте так, чтобы все ссылки в этом репозитории указывали на объект-дерево!",TRANSLATED
 blobremove_description_283,"There's a simple command to remove all objects that are not referenced by anything:
 
     git prune
@@ -968,12 +962,12 @@ Remove all blobs in this repository.","Есть простая команда д
 
     git prune
 
-Удалите все блобы в этом репозитории.",,
+Удалите все блобы в этом репозитории.",TRANSLATED
 blobremove_congrats_284,"Generally, git prune will be useful if you want to clean up some objects you made.
 
 Alternatively, you can also click the ""Reload"" button to restart a level.","В общем, git prune будет полезен, если вы хотите очистить некоторые созданные вами объекты.
 
-В качестве альтернативы вы также можете нажать кнопку ""Перезагрузить"", чтобы перезапустить уровень.",,
+В качестве альтернативы вы также можете нажать кнопку ""Перезагрузить"", чтобы перезапустить уровень.",TRANSLATED
 symrefcreate_description_285,"Instead of pointing directly to objects, refs can also point to other refs!
 
 When that happens, they are called ""symbolic refs"". You can create or update a symbolic ref using
@@ -986,7 +980,7 @@ Create a symbolic ref called ""refs/rainbow""!","Вместо того чтоб�
 
     git symbolic-ref <имя> <ссылка>
 
-Создайте символическую ссылку с именем ""refs/rainbow""!",,
+Создайте символическую ссылку с именем ""refs/rainbow""!",TRANSLATED
 commitparents_description_286,"When using the commit-tree command, you can optionally specify a parent:
 
     git commit-tree <tree> -m ""Description"" -p <parent commit>
@@ -999,7 +993,7 @@ Hint: You'll need a tree object. What could be the easiest way to obtain one?","
 
 Создайте цепочку из трех коммитов!
 
-Подсказка: Вам понадобится объект-дерево. Какой самый простой способ его получить?",,
+Подсказка: Вам понадобится объект-дерево. Какой самый простой способ его получить?",TRANSLATED
 blobcreate_description_287,"At its core, Git is very simple. It stores ""objects"", which are basically files identified by an ""identifier"" (short: ID).
 
 There are four types of objects: blobs, trees, commits, and tags. The simplest type is a ""blob"", which is just a piece of text.
@@ -1020,7 +1014,7 @@ Create three new blobs!","В своей основе Git очень прост. 
 
 Флаг -w означает ""запись"" и указывает Git фактически записать новый блоб на диск.
 
-Создайте три новых блоба!",,
+Создайте три новых блоба!",TRANSLATED
 blobcreate_congrats_288,"Tip: You can also use a command like this to create a blob in a single line:
 
     echo ""awesome content"" | git hash-object -w --stdin
@@ -1029,7 +1023,7 @@ Did you already notice that you can drag and drop all objects? :)","Совет: 
 
     echo ""отличное содержимое"" | git hash-object -w --stdin
 
-Вы уже заметили, что можете перетаскивать все объекты? :)",,
+Вы уже заметили, что можете перетаскивать все объекты? :)",TRANSLATED
 treecreate_description_289,"After carefully building the index we want, it would be nice to save a permanent snapshot of it, right?
 
 This is what the second type of objects is for: trees! You can convert the index into a tree using
@@ -1042,12 +1036,12 @@ Try it! :)","После того, как мы тщательно построи�
 
     git write-tree
 
-Попробуйте! :)",,
+Попробуйте! :)",TRANSLATED
 treecreate_congrats_290,"Nice!
 
 Can you make a different tree? Modify the index, then call git write-tree again!","Отлично!
 
-Можете ли вы создать другое дерево? Измените индекс, затем снова вызовите git write-tree!",,
+Можете ли вы создать другое дерево? Измените индекс, затем снова вызовите git write-tree!",TRANSLATED
 welcome_description_291,"This is prototype #1 for the Git learning game by @bleeptrack and @blinry. Thanks for checking it out! <3
 
 You can interact with the repository labelled ""yours"" by typing Bash commands in the terminal below! The visualization will show you its internal status.
@@ -1060,7 +1054,7 @@ Let's get started by initializing an empty Git repository in the current directo
 
 Давайте начнем с инициализации пустого репозитория Git в текущем каталоге, набрав:
 
-    git init"
+    git init",TRANSLATED
 welcome_congrats_292,"Well done!
 
 An empty Git repository is... well, quite empty. The only thing that always exists is a reference called ""HEAD"" - we'll learn what that is later!
@@ -1073,7 +1067,7 @@ But first, let's look at some basics!
 
 Но сначала давайте рассмотрим некоторые основы!
 
-(Нажмите ""Следующий уровень"", как только будете готовы!)",,
+(Нажмите ""Следующий уровень"", как только будете готовы!)",TRANSLATED
 basics_description_293,"For this prototype, we assume you have some experience with the command line. Here are some commands that will be useful:
 
 ls
@@ -1094,13 +1088,13 @@ cat файл
 
 mkdir папка
 
-Найдите загадку в вашем текущем каталоге и поместите ответ в файл ""answer""!",,
+Найдите загадку в вашем текущем каталоге и поместите ответ в файл ""answer""!",TRANSLATED
 basics_congrats_294,"Omnomnom!
 
 For technical reasons, you can't use cd in this prototype yet. But there won't be a lot of interaction with the file system anyways. :)","Омномном!
 
-По техническим причинам вы пока не можете использовать cd в этом прототипе. Но в любом случае взаимодействия с файловой системой будет немного. :)",,
-puzzlepreciousblob_description_295,Create two trees pointing to the same blob!,"Создайте два дерева, указывающих на один и тот же блоб!",
+По техническим причинам вы пока не можете использовать cd в этом прототипе. Но в любом случае взаимодействия с файловой системой будет немного. :)",TRANSLATED
+puzzlepreciousblob_description_295,Create two trees pointing to the same blob!,"Создайте два дерева, указывающих на один и тот же блоб!",TRANSLATED
 indexadd_description_296,"Blobs usually represent the content of a file. But on their own, they don't have any metadata, not even a name!
 
 Git has a very powerful concept to store metadata related to blobs: the index! It's a list that relates blobs to filenames and access permissions.
@@ -1119,7 +1113,7 @@ Add three entries to the index! For a bonus challenge: can you add a file that i
     echo ""мое содержимое"" > файл
     git update-index --add файл
 
-Добавьте три записи в индекс! Для дополнительного задания: можете ли вы добавить файл, который находится внутри каталога, например, ""каталог/файл""?",,
+Добавьте три записи в индекс! Для дополнительного задания: можете ли вы добавить файл, который находится внутри каталога, например, ""каталог/файл""?",TRANSLATED
 indexadd_congrats_297,"There's another way to add an entry to the index directly:
 
     git update-index --add --cacheinfo <mode>,<blobhash>,<name>
@@ -1136,14 +1130,14 @@ You can insert the hash of an object into the terminal by right-clicking on it! 
 
 Вторые три числа описывают права доступа. Поддерживаются только ""644"" (неисполняемый) и ""755"" (исполняемый).
 
-Вы можете вставить хэш объекта в терминал, щелкнув по нему правой кнопкой мыши! :)",,
+Вы можете вставить хэш объекта в терминал, щелкнув по нему правой кнопкой мыши! :)",TRANSLATED
 puzzletreesallthewaydown_description_298,"Construct a chain of three trees, which don't point to anything else.
 
 This is hard! The git mktree command might be useful.","Создайте цепочку из трех деревьев, которые не указывают ни на что другое.
 
-Это сложно! Команда git mktree может быть полезна.",,
-puzzletreesallthewaydown_win_hint_299,"So the tree has exactly one child, and it is a tree!","Итак, у дерева ровно один дочерний элемент, и это дерево!",,
-puzzletreesallthewaydown_win_hint_300,Same for its child! \o/,То же самое для его дочернего элемента! \o/,,
+Это сложно! Команда git mktree может быть полезна.",TRANSLATED
+puzzletreesallthewaydown_win_hint_299,"So the tree has exactly one child, and it is a tree!","Итак, у дерева ровно один дочерний элемент, и это дерево!",TRANSLATED
+puzzletreesallthewaydown_win_hint_300,Same for its child! \o/,То же самое для его дочернего элемента! \o/,TRANSLATED
 symrefnoderef_description_301,"When you have a symbolic ref (a ref pointing at another ref), and you decide you want it to be a regular ref again (pointing to an object), you're in for some trouble! :)
 
 What happens when you try pointing the symbolic ref directly to the blob using git update-ref?
@@ -1156,7 +1150,7 @@ Weird, huh?","Когда у вас есть символическая ссыл�
 
 Ой! Оказывается, когда вы ссылаетесь на символическую ссылку, она ведет себя так, как если бы вы указали ссылку, на которую она указывает. Чтобы ""де-символизировать"" ее, используйте опцию --no-deref сразу после update-ref!
 
-Странно, да?",,
+Странно, да?",TRANSLATED
 symrefnoderef_congrats_302,"Whew, we've covered a lot of things: Blobs! The index! Trees! Commits! Refs!
 
 You now know about almost everything about how Git repositories look like on the inside! We think that's pretty cool! :)
@@ -1185,7 +1179,7 @@ Thanks for playing! You're welcome to check out the ""puzzle"" levels in the dro
 
 работа с локальными файлами (что, э-э, пожалуй, довольно важно :P)
 
-Спасибо за игру! Вы можете ознакомиться с уровнями-""загадками"" в выпадающем списке, некоторые из них более продвинутые!",,
+Спасибо за игру! Вы можете ознакомиться с уровнями-""загадками"" в выпадающем списке, некоторые из них более продвинутые!",TRANSLATED
 puzzleapocalypse_description_303,"Delete all objects in this repository using git commands only!
 
 Useful commands:
@@ -1196,7 +1190,7 @@ Useful commands:
 Полезные команды:
 
     git prune
-    git reflog expire"
+    git reflog expire",TRANSLATED
 refremove_description_304,"And finally, to delete a ref, use
 
     git update-ref -d refs/<refname>
@@ -1205,7 +1199,7 @@ Delete all refs! :P (Well, except for HEAD. HEAD is special.)","И, наконе
 
     git update-ref -d refs/<имя_ссылки>
 
-Удалите все ссылки! :P (Ну, кроме HEAD. HEAD - особенная.)",,
+Удалите все ссылки! :P (Ну, кроме HEAD. HEAD - особенная.)",TRANSLATED
 refcreate_description_305,"Let's take a look at ""refs"" (short for ""references"")! Refs are not objects, but rather very simple pointers to objects! They can help you keep track of what's where.
 
 You can create or update a ref with
@@ -1222,101 +1216,101 @@ Create refs that point to all objects in this repository!","Давайте по�
 
 Убедитесь, что имя ссылки всегда начинается с ""refs/""! Это соглашение, которое помогает Git находить все созданные вами ссылки. Если вы забудете ""refs/"", вы не увидите ссылку.
 
-Создайте ссылки, которые указывают на все объекты в этом репозитории!",,
-problems_title_306,Problems,Проблемы,,
-problems_description_307,"Both you and your friend have been working on the file, and want to sync up!","И вы, и ваш друг работали над файлом и хотите синхронизироваться!",,
-problems_win_hint_308,Commit your local changes.,Закоммитьте ваши локальные изменения.,,
-friend_title_309,Friend,Друг,,
+Создайте ссылки, которые указывают на все объекты в этом репозитории!",TRANSLATED
+problems_title_306,Problems,Проблемы,TRANSLATED
+problems_description_307,"Both you and your friend have been working on the file, and want to sync up!","И вы, и ваш друг работали над файлом и хотите синхронизироваться!",TRANSLATED
+problems_win_hint_308,Commit your local changes.,Закоммитьте ваши локальные изменения.,TRANSLATED
+friend_title_309,Friend,Друг,TRANSLATED
 friend_description_310,"Your friend added another line to your essay! Get it, add a third one and send it to them!
 
 Take turns until you have five lines!","Ваш друг добавил еще одну строку в ваше эссе! Получите ее, добавьте третью и отправьте ему!
 
-Делайте это по очереди, пока у вас не будет пяти строк!",,
-friend_win_hint_311,Got the second line from your friend,Получил вторую строку от друга,,
-friend_win_hint_312,Got the fourth line from your friend,Получил четвертую строку от друга,,
+Делайте это по очереди, пока у вас не будет пяти строк!",TRANSLATED
+friend_win_hint_311,Got the second line from your friend,Получил вторую строку от друга,TRANSLATED
+friend_win_hint_312,Got the fourth line from your friend,Получил четвертую строку от друга,TRANSLATED
 card_init_desc_313,Drag this card into the empty space above to initialize the time machine!,Перетащите эту карту в пустое пространство выше, чтобы инициализировать машину времени!,
-card_clone_desc_314,Create your own copy of someone else's repo.,Создайте свою собственную копию чужого репозитория.,,
+card_clone_desc_314,Create your own copy of someone else's repo.,Создайте свою собственную копию чужого репозитория.,TRANSLATED
 card_configname_desc_315,"Set your name.
 
 (Will not change anything outside of this game.)","Установите свое имя.
 
-(Ничего не изменит вне этой игры.)",,
-card_configemail_desc_316,Set your email address.,Установите свой адрес электронной почты.,,
-card_checkout_desc_317,Drag this card to a commit or to a branch to travel to it!,"Перетащите эту карту на коммит или на ветку, чтобы переместиться к ней!",
-card_checkoutfile_desc_318,Reset changes in a local file.,Сбросить изменения в локальном файле.,,
-card_checkoutfrom_desc_319,"Get the file contents from the specified commits, and reset both the working directory, as well as the index, to it.","Получить содержимое файла из указанных коммитов и сбросить к нему как рабочий каталог, так и индекс.",,
+(Ничего не изменит вне этой игры.)",TRANSLATED
+card_configemail_desc_316,Set your email address.,Установите свой адрес электронной почты.,TRANSLATED
+card_checkout_desc_317,Drag this card to a commit or to a branch to travel to it!,"Перетащите эту карту на коммит или на ветку, чтобы переместиться к ней!",TRANSLATED
+card_checkoutfile_desc_318,Reset changes in a local file.,Сбросить изменения в локальном файле.,TRANSLATED
+card_checkoutfrom_desc_319,"Get the file contents from the specified commits, and reset both the working directory, as well as the index, to it.","Получить содержимое файла из указанных коммитов и сбросить к нему как рабочий каталог, так и индекс.",TRANSLATED
 card_commita_desc_320,"Make a new commit, after automatically adding all changes to the index.
 You'll be asked to enter a short description of what you changed.","Сделайте новый коммит, автоматически добавив все изменения в индекс.
-Вас попросят ввести краткое описание того, что вы изменили.",,
-card_commitauto_desc_321,Make a new commit containing your current environment! Type in a description of what changed!,Сделайте новый коммит, содержащий ваше текущее окружение! Введите описание того, что изменилось!
-card_merge_desc_322,"Merge the specified timeline into yours. If necessary, will create a merge commit.",Слейте указанную временную линию в свою. При необходимости будет создан коммит слияния.,,
-card_mergeabort_desc_323,"Abort the current merge attempt, and reconstruct the previous state.",Прервать текущую попытку слияния и восстановить предыдущее состояние.,,
-card_rebase_desc_324,Put the events in your current timeline on top of the specified one.,Поместите события из вашей текущей временной линии поверх указанной.,,
-card_pull_desc_325,"Get someone else's version of the current timeline, and try to merge it into yours.",Получите чужую версию текущей временной линии и попробуйте слить ее со своей.,,
-card_fetch_desc_326,Get a someone else's version of the current timeline.,Получить чужую версию текущей временной линии.,,
-card_push_desc_327,Give the current timeline to someone else.,Передайте текущую временную линию кому-нибудь еще.,,
-card_rebaseinteractive_desc_328,"Make changes to the events in your current timeline, back to the commit you drag this to.","Внесите изменения в события вашей текущей временной линии, вплоть до коммита, на который вы перетащите это.",,
-card_rebasecontinue_desc_329,Continue the current rebasing process.,Продолжить текущий процесс перебазирования.,,
-card_resethard_desc_330,Move the branch you're on to the specified commit.,"Переместите ветку, на которой вы находитесь, к указанному коммиту."
-card_reset_desc_331,"Jump to the commit, and update the index. Keep the current environment.",Перейти к коммиту и обновить индекс. Сохранить текущее окружение.,,
-card_resetfile_desc_332,Reset the index version of a file to the version in the commit you're on.,"Сбросить версию файла в индексе до версии в коммите, на котором вы находитесь.",
-card_cherrypick_desc_333,Repeat the specified action on top of your current timeline.,Повторите указанное действие поверх вашей текущей временной линии.,,
-card_revert_desc_334,Make a new commit that reverts the changes of the specified commit.,"Создайте новый коммит, который отменяет изменения указанного коммита.",
-card_bisectstart_desc_335,Start looking for the commit where things got bad.,"Начать поиск коммита, в котором все пошло не так.",
-card_bisectgood_desc_336,"State that the current commit is good! When you're automatically transferred, keep playing the good and bad cards!","Укажите, что текущий коммит хороший! Когда вас автоматически перенесут, продолжайте играть картами good и bad!",,
-card_bisectbad_desc_337,"State that the current commit is bad! When you're automatically transferred, keep playing the good and bad cards!","Укажите, что текущий коммит плохой! Когда вас автоматически перенесут, продолжайте играть картами good и bad!",,
-card_add_desc_338,Update the index version of the file to its current real content.,Обновите версию файла в индексе до его текущего реального содержимого.,,
-card_rm_desc_339,"Delete a file both in the working directory, as well as the index.","Удалить файл как в рабочем каталоге, так и в индексе.",,
-card_commit_desc_340,Make a commit from the current index.,Сделать коммит из текущего индекса.,,
-card_show_desc_341,Show what changed in the commit.,"Показать, что изменилось в коммите.",
-card_branch_desc_342,Create a new branch at your current location.,Создать новую ветку в вашем текущем местоположении.,,
-card_branchdelete_desc_343,Delete a branch.,Удалить ветку.,,
-card_reflog_desc_344,Display a log of where the ref pointed to in the past.,"Отобразить журнал того, куда указывала ссылка в прошлом.",
-card_filenew_desc_345,Create a new file.,Создать новый файл.,,
-card_filedelete_desc_346,Delete a file.,Удалить файл.,,
-card_filerename_desc_347,Rename a file.,Переименовать файл.,,
-card_filecopy_desc_348,Make a copy of a file.,Сделать копию файла.,,
-cli_remote_001,"To go back to old commands, you can press arrow up and down. That way, you don't have to type in long commands twice.","Чтобы вернуться к старым командам, вы можете нажимать стрелки вверх и вниз. Таким образом, вам не придется дважды вводить длинные команды.",,
-cli_commit_002,"Again, instead of using the card, you can also type the commands which are printed on it into the black terminal below!","Опять же, вместо использования карты, вы также можете вводить команды, напечатанные на ней, в черный терминал ниже!",,
-cli_commit_003,This is totally optional! But this will be a super useful skill in the real world - and it will give you a sparkling golden badge! :),Это совершенно необязательно! Но это будет суперполезный навык в реальном мире - и он даст вам сверкающий золотой значок! :),,
-cli_cli_004,But there's another way to interact with Git:,Но есть и другой способ взаимодействия с Git:,,
-cli_cli_005,"Try typing git init into the black terminal below, and pressing the enter key!",Попробуйте набрать git init в черном терминале ниже и нажать клавишу Enter!,,
-cli_new_006,"You can use tab completion in the terminal! Start typing a filename, then press the tab key to complete its name. This will often save you some time!","Вы можете использовать автодополнение по Tab в терминале! Начните вводить имя файла, затем нажмите клавишу Tab, чтобы дополнить его имя. Это часто сэкономит вам время!",,
-cli_grow_007,"To travel to a branch, type `git checkout name_of_the_branch`","Чтобы переместиться на ветку, введите `git checkout имя_ветки`",,
-cli_grow_008,"And to travel to the last commit, type `git checkout --detach name_of_the_branch`","А чтобы переместиться к последнему коммиту, введите `git checkout --detach имя_ветки`.",,
-cli_branchcreate_009,"Branches also make it really easy to travel between different places using the command line! As soon as you have a branch called ""birthday"", you can type `git checkout birthday` to travel to it!","Ветки также значительно упрощают перемещение между разными местами с помощью командной строки! Как только у вас появится ветка с именем ""birthday"", вы сможете набрать `git checkout birthday`, чтобы переместиться на нее!",,
-cli_fork_010,"The blue animal represents a concept known as the ""HEAD pointer"" in Git: It shows you which commit is the current one.","Синее животное представляет собой концепцию, известную в Git как ""указатель HEAD"": он показывает вам, какой коммит является текущим.",,
-cli_fork_011,Here's a cool trick to go to the previous commit:,"Вот крутой трюк, чтобы перейти к предыдущему коммиту:",,
-cli_fork_012,`git checkout HEAD^`,`git checkout HEAD^`,,
-cli_fork_013,"You can also go back two commits by typing, for example:","Вы также можете вернуться на два коммита назад, набрав, например:",,
-cli_fork_014,`git checkout HEAD~2`,`git checkout HEAD~2`,,
-cli_checkoutcommit_015,"To checkout a specific commit, type `git checkout`, then a space, and then right click on the commit you want!","Чтобы переключиться на определенный коммит, введите `git checkout`, затем пробел, а затем щелкните правой кнопкой мыши по нужному коммиту!",,
-cli_checkoutcommit_016,This will insert the commit's unique identifier!,Это вставит уникальный идентификатор коммита!,,
-cli_filesdelete_017,"On the command line, you can easily delete all files ending in -web using this command:","В командной строке вы можете легко удалить все файлы, заканчивающиеся на -web, с помощью этой команды:",,
-cli_filesdelete_018,    `rm *web`,    `rm *web`,,
-chapter_intro,Introduction,Введение,,
-chapter_files,Files,Файлы,,
-chapter_branches,Branches,Ветви,,
-chapter_merge,Merging,Слияние,,
-chapter_index,The Index,Индекс,,
-chapter_remotes,Remotes,Удалённые репозитории,,
-chapter_changing-the-past,Changing the Past,Изменение прошлого,,
-chapter_shit-happens,When Things Go Wrong,Когда всё идёт не так,,
-chapter_workflows,Workflows,Рабочие процессы,,
-chapter_bisect,Bisect,Поиск ошибки (Bisect),,
-chapter_stash,Stash,Тайник (Stash),,
-chapter_tags,Tags,Метки,,
-chapter_sandbox,Sandbox,Песочница,,
-new_win_hint_085,Make a change to the candle.,Измените свечу.,,
-change_win_060," Good! The index is sometimes also called the ""staging area"" - it contains exactly what ends up in the next commit when you use `git commit`!","Отлично! Индекс также иногда называют ""областью подготовки"" (staging area) — он содержит именно то, что попадёт в следующий коммит, когда вы используете `git commit`!"
-friend_win_hint_313,The friend got a third line from you,Друг получил от тебя третью строку,,
-friend_win_hint_314,The friend got a fifth line from you,Друг получил от тебя пятую строку,,
-problems_win_hint_309,"Look at your friend's suggestion, make a compromise, and push it back.","Посмотри на предложение твоего друга, найди компромисс и отправь его обратно.",,
-pushed_win_hint_1,The team's main branch no longer contains the bad thing.,Командная ветка main больше не содержит плохой вещи.
-pushed_win_hint_2,And the history has not been modified.,И история не была изменена.
-default_win_desc_key,Complete the goal of this level,Выполните цель этого уровня
-remote_tag_win_hint_1,v2 tag in the remote,тег v2 в удалённом репозитории
-remote_win_hint_134,And use `git push` to send it to your teacher!,Используй `git push` и отправь это своему учителю!
+Вас попросят ввести краткое описание того, что вы изменили.",TRANSLATED
+card_commitauto_desc_321,Make a new commit containing your current environment! Type in a description of what changed!,"Сделайте новый коммит, содержащий ваше текущее окружение! Введите описание того, что изменилось!",TRANSLATED
+card_merge_desc_322,"Merge the specified timeline into yours. If necessary, will create a merge commit.",Слейте указанную временную линию в свою. При необходимости будет создан коммит слияния.,TRANSLATED
+card_mergeabort_desc_323,"Abort the current merge attempt, and reconstruct the previous state.",Прервать текущую попытку слияния и восстановить предыдущее состояние.,TRANSLATED
+card_rebase_desc_324,Put the events in your current timeline on top of the specified one.,Поместите события из вашей текущей временной линии поверх указанной.,TRANSLATED
+card_pull_desc_325,"Get someone else's version of the current timeline, and try to merge it into yours.",Получите чужую версию текущей временной линии и попробуйте слить ее со своей.,TRANSLATED
+card_fetch_desc_326,Get a someone else's version of the current timeline.,Получить чужую версию текущей временной линии.,TRANSLATED
+card_push_desc_327,Give the current timeline to someone else.,Передайте текущую временную линию кому-нибудь еще.,TRANSLATED
+card_rebaseinteractive_desc_328,"Make changes to the events in your current timeline, back to the commit you drag this to.","Внесите изменения в события вашей текущей временной линии, вплоть до коммита, на который вы перетащите это.",TRANSLATED
+card_rebasecontinue_desc_329,Continue the current rebasing process.,Продолжить текущий процесс перебазирования.,TRANSLATED
+card_resethard_desc_330,Move the branch you're on to the specified commit.,"Переместите ветку, на которой вы находитесь, к указанному коммиту.",TRANSLATED
+card_reset_desc_331,"Jump to the commit, and update the index. Keep the current environment.",Перейти к коммиту и обновить индекс. Сохранить текущее окружение.,TRANSLATED
+card_resetfile_desc_332,Reset the index version of a file to the version in the commit you're on.,"Сбросить версию файла в индексе до версии в коммите, на котором вы находитесь.",TRANSLATED
+card_cherrypick_desc_333,Repeat the specified action on top of your current timeline.,Повторите указанное действие поверх вашей текущей временной линии.,TRANSLATED
+card_revert_desc_334,Make a new commit that reverts the changes of the specified commit.,"Создайте новый коммит, который отменяет изменения указанного коммита.",TRANSLATED
+card_bisectstart_desc_335,Start looking for the commit where things got bad.,"Начать поиск коммита, в котором все пошло не так.",TRANSLATED
+card_bisectgood_desc_336,"State that the current commit is good! When you're automatically transferred, keep playing the good and bad cards!","Укажите, что текущий коммит хороший! Когда вас автоматически перенесут, продолжайте играть картами good и bad!",TRANSLATED
+card_bisectbad_desc_337,"State that the current commit is bad! When you're automatically transferred, keep playing the good and bad cards!","Укажите, что текущий коммит плохой! Когда вас автоматически перенесут, продолжайте играть картами good и bad!",TRANSLATED
+card_add_desc_338,Update the index version of the file to its current real content.,Обновите версию файла в индексе до его текущего реального содержимого.,TRANSLATED
+card_rm_desc_339,"Delete a file both in the working directory, as well as the index.","Удалить файл как в рабочем каталоге, так и в индексе.",TRANSLATED
+card_commit_desc_340,Make a commit from the current index.,Сделать коммит из текущего индекса.,TRANSLATED
+card_show_desc_341,Show what changed in the commit.,"Показать, что изменилось в коммите.",TRANSLATED
+card_branch_desc_342,Create a new branch at your current location.,Создать новую ветку в вашем текущем местоположении.,TRANSLATED
+card_branchdelete_desc_343,Delete a branch.,Удалить ветку.,TRANSLATED
+card_reflog_desc_344,Display a log of where the ref pointed to in the past.,"Отобразить журнал того, куда указывала ссылка в прошлом.",TRANSLATED
+card_filenew_desc_345,Create a new file.,Создать новый файл.,TRANSLATED
+card_filedelete_desc_346,Delete a file.,Удалить файл.,TRANSLATED
+card_filerename_desc_347,Rename a file.,Переименовать файл.,TRANSLATED
+card_filecopy_desc_348,Make a copy of a file.,Сделать копию файла.,TRANSLATED
+cli_remote_001,"To go back to old commands, you can press arrow up and down. That way, you don't have to type in long commands twice.","Чтобы вернуться к старым командам, вы можете нажимать стрелки вверх и вниз. Таким образом, вам не придется дважды вводить длинные команды.",TRANSLATED
+cli_commit_002,"Again, instead of using the card, you can also type the commands which are printed on it into the black terminal below!","Опять же, вместо использования карты, вы также можете вводить команды, напечатанные на ней, в черный терминал ниже!",TRANSLATED
+cli_commit_003,This is totally optional! But this will be a super useful skill in the real world - and it will give you a sparkling golden badge! :),Это совершенно необязательно! Но это будет суперполезный навык в реальном мире - и он даст вам сверкающий золотой значок! :),TRANSLATED
+cli_cli_004,But there's another way to interact with Git:,Но есть и другой способ взаимодействия с Git:,TRANSLATED
+cli_cli_005,"Try typing git init into the black terminal below, and pressing the enter key!",Попробуйте набрать git init в черном терминале ниже и нажать клавишу Enter!,TRANSLATED
+cli_new_006,"You can use tab completion in the terminal! Start typing a filename, then press the tab key to complete its name. This will often save you some time!","Вы можете использовать автодополнение по Tab в терминале! Начните вводить имя файла, затем нажмите клавишу Tab, чтобы дополнить его имя. Это часто сэкономит вам время!",TRANSLATED
+cli_grow_007,"To travel to a branch, type `git checkout name_of_the_branch`","Чтобы переместиться на ветку, введите `git checkout имя_ветки`",TRANSLATED
+cli_grow_008,"And to travel to the last commit, type `git checkout --detach name_of_the_branch`","А чтобы переместиться к последнему коммиту, введите `git checkout --detach имя_ветки`.",TRANSLATED
+cli_branchcreate_009,"Branches also make it really easy to travel between different places using the command line! As soon as you have a branch called ""birthday"", you can type `git checkout birthday` to travel to it!","Ветки также значительно упрощают перемещение между разными местами с помощью командной строки! Как только у вас появится ветка с именем ""birthday"", вы сможете набрать `git checkout birthday`, чтобы переместиться на нее!",TRANSLATED
+cli_fork_010,"The blue animal represents a concept known as the ""HEAD pointer"" in Git: It shows you which commit is the current one.","Синее животное представляет собой концепцию, известную в Git как ""указатель HEAD"": он показывает вам, какой коммит является текущим.",TRANSLATED
+cli_fork_011,Here's a cool trick to go to the previous commit:,"Вот крутой трюк, чтобы перейти к предыдущему коммиту:",TRANSLATED
+cli_fork_012,`git checkout HEAD^`,`git checkout HEAD^`,TRANSLATED
+cli_fork_013,"You can also go back two commits by typing, for example:","Вы также можете вернуться на два коммита назад, набрав, например:",TRANSLATED
+cli_fork_014,`git checkout HEAD~2`,`git checkout HEAD~2`,TRANSLATED
+cli_checkoutcommit_015,"To checkout a specific commit, type `git checkout`, then a space, and then right click on the commit you want!","Чтобы переключиться на определенный коммит, введите `git checkout`, затем пробел, а затем щелкните правой кнопкой мыши по нужному коммиту!",TRANSLATED
+cli_checkoutcommit_016,This will insert the commit's unique identifier!,Это вставит уникальный идентификатор коммита!,TRANSLATED
+cli_filesdelete_017,"On the command line, you can easily delete all files ending in -web using this command:","В командной строке вы можете легко удалить все файлы, заканчивающиеся на -web, с помощью этой команды:",TRANSLATED
+cli_filesdelete_018,    `rm *web`,    `rm *web`,TRANSLATED
+chapter_intro,Introduction,Введение,TRANSLATED
+chapter_files,Files,Файлы,TRANSLATED
+chapter_branches,Branches,Ветви,TRANSLATED
+chapter_merge,Merging,Слияние,TRANSLATED
+chapter_index,The Index,Индекс,TRANSLATED
+chapter_remotes,Remotes,Удалённые репозитории,TRANSLATED
+chapter_changing-the-past,Changing the Past,Изменение прошлого,TRANSLATED
+chapter_shit-happens,When Things Go Wrong,Когда всё идёт не так,TRANSLATED
+chapter_workflows,Workflows,Рабочие процессы,TRANSLATED
+chapter_bisect,Bisect,Поиск ошибки (Bisect),TRANSLATED
+chapter_stash,Stash,Тайник (Stash),TRANSLATED
+chapter_tags,Tags,Метки,TRANSLATED
+chapter_sandbox,Sandbox,Песочница,TRANSLATED
+new_win_hint_085,Make a change to the candle.,Измените свечу.,TRANSLATED
+change_win_060," Good! The index is sometimes also called the ""staging area"" - it contains exactly what ends up in the next commit when you use `git commit`!","Отлично! Индекс также иногда называют ""областью подготовки"" (staging area) — он содержит именно то, что попадёт в следующий коммит, когда вы используете `git commit`!",TRANSLATED
+friend_win_hint_313,The friend got a third line from you,Друг получил от тебя третью строку,TRANSLATED
+friend_win_hint_314,The friend got a fifth line from you,Друг получил от тебя пятую строку,TRANSLATED
+problems_win_hint_309,"Look at your friend's suggestion, make a compromise, and push it back.","Посмотри на предложение твоего друга, найди компромисс и отправь его обратно.",TRANSLATED
+pushed_win_hint_1,The team's main branch no longer contains the bad thing.,Командная ветка main больше не содержит плохой вещи.,TRANSLATED
+pushed_win_hint_2,And the history has not been modified.,И история не была изменена.,TRANSLATED
+default_win_desc_key,Complete the goal of this level,Выполните цель этого уровня,TRANSLATED
+remote_tag_win_hint_1,v2 tag in the remote,тег v2 в удалённом репозитории,TRANSLATED
+remote_win_hint_134,And use `git push` to send it to your teacher!,Используй `git push` и отправь это своему учителю!,TRANSLATED
 setup_auto_001,"You do not have a baguette.
 
 You do not have coffee.
@@ -1325,7 +1319,7 @@ You do not have a donut.","У вас нет багета.
 
 У вас нет кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_002,"You have a baguette.
 
 You do not have coffee.
@@ -1334,7 +1328,7 @@ You do not have a donut.","У вас есть багет.
 
 У вас нет кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_003,"You ate a baguette.
 
 You do not have coffee.
@@ -1343,7 +1337,7 @@ You do not have a donut.","Вы съели багет.
 
 У вас нет кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_004,"You do not have a baguette.
 
 You have coffee.
@@ -1352,7 +1346,7 @@ You do not have a donut.","У вас нет багета.
 
 У вас есть кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_005,"You do not have a baguette.
 
 You drank coffee.
@@ -1361,7 +1355,7 @@ You do not have a donut.","У вас нет багета.
 
 Вы выпили кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_006,"You do not have a baguette.
 
 You do not have coffee.
@@ -1370,7 +1364,7 @@ You have a donut.","У вас нет багета.
 
 У вас нет кофе.
 
-У вас есть пончик."
+У вас есть пончик.",TRANSLATED
 setup_auto_007,"You do not have a baguette.
 
 You do not have coffee.
@@ -1379,168 +1373,168 @@ You ate a donut.","У вас нет багета.
 
 У вас нет кофе.
 
-Вы съели пончик."
-setup_auto_008,A new day is starting,Начинается новый день
-setup_auto_009,Walking down the Main Lane.,Прогулка по Основной линии.
-setup_auto_010,Walking down the Side Lane.,Прогулка по Боковой линии.
-setup_auto_011,Just woke up. Is hungry.,Только проснулся. Голоден.
-setup_auto_012,Had blueberry pancakes with maple syrup for breakfast.,На завтрак были блины с черникой и кленовым сиропом.
+Вы съели пончик.",TRANSLATED
+setup_auto_008,A new day is starting,Начинается новый день,TRANSLATED
+setup_auto_009,Walking down the Main Lane.,Прогулка по Основной линии.,TRANSLATED
+setup_auto_010,Walking down the Side Lane.,Прогулка по Боковой линии.,TRANSLATED
+setup_auto_011,Just woke up. Is hungry.,Только проснулся. Голоден.,TRANSLATED
+setup_auto_012,Had blueberry pancakes with maple syrup for breakfast.,На завтрак были блины с черникой и кленовым сиропом.,TRANSLATED
 setup_auto_013,"
 Is at work.","
-На работе."
-setup_auto_014,Had muesli with oats and strawberries for breakfast.,На завтрак были мюсли с овсянкой и клубникой.
+На работе.",TRANSLATED
+setup_auto_014,Had muesli with oats and strawberries for breakfast.,На завтрак были мюсли с овсянкой и клубникой.,TRANSLATED
 setup_auto_015,"
 Is at work.","
-На работе."
-setup_auto_016,~ List of current students ~,~ Список текущих студентов ~
+На работе.",TRANSLATED
+setup_auto_016,~ List of current students ~,~ Список текущих студентов ~,TRANSLATED
 setup_auto_017,"
 - Sam
 - Alex","
 - Сэм
-- Алекс"
-setup_auto_018,The glass is full of water.,Стакан полон воды.
+- Алекс",TRANSLATED
+setup_auto_018,The glass is full of water.,Стакан полон воды.,TRANSLATED
 setup_auto_019,"~ Why I want to learn Git ~
 
 - So that I can undo mistakes
 - To track my projects over time","~ Почему я хочу изучить Git ~
 
 - Чтобы я мог отменять ошибки
-- Чтобы отслеживать свои проекты со временем"
-setup_auto_020,"""~ Why do you want to learn how to use time machines? ~""","""~ Почему вы хотите научиться пользоваться машинами времени? ~"""
+- Чтобы отслеживать свои проекты со временем",TRANSLATED
+setup_auto_020,"""~ Why do you want to learn how to use time machines? ~""","""~ Почему вы хотите научиться пользоваться машинами времени? ~""",TRANSLATED
 setup_auto_021,"~ Why I want to learn Git ~
 
 (I still need to write this.)","~ Почему я хочу изучить Git ~
 
-(Мне еще нужно это написать.)"
+(Мне еще нужно это написать.)",TRANSLATED
 setup_auto_022,"~ Why I want to learn Git ~
 
 - So that I can undo mistakes","~ Почему я хочу изучить Git ~
 
-- Чтобы я мог отменять ошибки"
+- Чтобы я мог отменять ошибки",TRANSLATED
 setup_auto_023,"~ Why I want to learn Git ~
 
 - So that I can undo mistakes
 - To track my projects over time","~ Почему я хочу изучить Git ~
 
 - Чтобы я мог отменять ошибки
-- Чтобы отслеживать свои проекты со временем"
-setup_auto_024,The candle is burning with a blue flame.,Свеча горит синим пламенем.
-setup_auto_025,"A small, but heavy glass ball.","Маленький, но тяжелый стеклянный шар."
-setup_auto_026,"A thin book, that's standing upright.","Тонкая книга, которая стоит вертикально."
-setup_auto_027,"A candle, burning with a blue flame.","Свеча, горящая синим пламенем."
-setup_auto_028,A smoke detector. It's absolutely silent.,Детектор дыма. Он абсолютно бесшумен.
-setup_auto_029,The ball is now touching the book.,Шар теперь касается книги.
-setup_auto_030,The book has fallen over.,Книга упала.
-setup_auto_031,The candle has been blown out.,Свечу задули.
-setup_auto_032,The ball is now touching the book.,Шар теперь касается книги.
-setup_auto_033,The book has fallen over.,Книга упала.
-setup_auto_034,The candle has been blown out.,Свечу задули.
-setup_auto_035,"A hammer, balancing on its handle.","Молоток, балансирующий на рукоятке."
-setup_auto_036,"A bottle, containing a clear liquid.","Бутылка с прозрачной жидкостью."
-setup_auto_037,A white sugar cube.,Белый кубик сахара.
-setup_auto_038,The candle is burning with a blue flame.,Свеча горит синим пламенем.
-setup_auto_039,It's burning!,Она горит!
-setup_auto_040,It's burning!,Она горит!
-setup_auto_041,It's burning!,Она горит!
-setup_auto_042,It's been blown out.,Ее задули.
-setup_auto_043,It's been blown out.,Ее задули.
-setup_auto_044,It's been blown out.,Ее задули.
-setup_auto_045,Initial version,Начальная версия
-setup_auto_046,Improved version,Улучшенная версия
-setup_auto_047,Best version,Лучшая версия
-setup_auto_048,Less-good version,Менее удачная версия
-setup_auto_049,The bikeshed should be ???,Велосипедный сарай должен быть ???
-setup_auto_050,The bikeshed should be green,Велосипедный сарай должен быть зеленым
-setup_auto_051,The bikeshed should be blue,Велосипедный сарай должен быть синим
-setup_auto_052,I'm really committed to our friendship! <3,Я очень предан нашей дружбе! <3
+- Чтобы отслеживать свои проекты со временем",TRANSLATED
+setup_auto_024,The candle is burning with a blue flame.,Свеча горит синим пламенем.,TRANSLATED
+setup_auto_025,"A small, but heavy glass ball.","Маленький, но тяжелый стеклянный шар.",TRANSLATED
+setup_auto_026,"A thin book, that's standing upright.","Тонкая книга, которая стоит вертикально.",TRANSLATED
+setup_auto_027,"A candle, burning with a blue flame.","Свеча, горящая синим пламенем.",TRANSLATED
+setup_auto_028,A smoke detector. It's absolutely silent.,Детектор дыма. Он абсолютно бесшумен.,TRANSLATED
+setup_auto_029,The ball is now touching the book.,Шар теперь касается книги.,TRANSLATED
+setup_auto_030,The book has fallen over.,Книга упала.,TRANSLATED
+setup_auto_031,The candle has been blown out.,Свечу задули.,TRANSLATED
+setup_auto_032,The ball is now touching the book.,Шар теперь касается книги.,TRANSLATED
+setup_auto_033,The book has fallen over.,Книга упала.,TRANSLATED
+setup_auto_034,The candle has been blown out.,Свечу задули.,TRANSLATED
+setup_auto_035,"A hammer, balancing on its handle.","Молоток, балансирующий на рукоятке.",TRANSLATED
+setup_auto_036,"A bottle, containing a clear liquid.",Бутылка с прозрачной жидкостью.,TRANSLATED
+setup_auto_037,A white sugar cube.,Белый кубик сахара.,TRANSLATED
+setup_auto_038,The candle is burning with a blue flame.,Свеча горит синим пламенем.,TRANSLATED
+setup_auto_039,It's burning!,Она горит!,TRANSLATED
+setup_auto_040,It's burning!,Она горит!,TRANSLATED
+setup_auto_041,It's burning!,Она горит!,TRANSLATED
+setup_auto_042,It's been blown out.,Ее задули.,TRANSLATED
+setup_auto_043,It's been blown out.,Ее задули.,TRANSLATED
+setup_auto_044,It's been blown out.,Ее задули.,TRANSLATED
+setup_auto_045,Initial version,Начальная версия,TRANSLATED
+setup_auto_046,Improved version,Улучшенная версия,TRANSLATED
+setup_auto_047,Best version,Лучшая версия,TRANSLATED
+setup_auto_048,Less-good version,Менее удачная версия,TRANSLATED
+setup_auto_049,The bikeshed should be ???,Велосипедный сарай должен быть ???,TRANSLATED
+setup_auto_050,The bikeshed should be green,Велосипедный сарай должен быть зеленым,TRANSLATED
+setup_auto_051,The bikeshed should be blue,Велосипедный сарай должен быть синим,TRANSLATED
+setup_auto_052,I'm really committed to our friendship! <3,Я очень предан нашей дружбе! <3,TRANSLATED
 setup_auto_053,"blarg
 blaaaargh","блаарг
-блааааргх"
-setup_auto_054,A yellow cupboard with lots of drawers.,Желтый шкаф с множеством ящиков.
-setup_auto_055,A really big yellow shelf.,Очень большая желтая полка.
-setup_auto_056,"A comfortable, yellow bed with yellow cushions.","Удобная, желтая кровать с желтыми подушками."
-setup_auto_057,something,что-то
-setup_auto_058,something else,что-то еще
-setup_auto_059,this should happen first,это должно произойти сначала
-setup_auto_060,and this should happen after that,а это должно произойти после
-setup_auto_061,something,что-то
-setup_auto_062,something else,что-то еще
-setup_auto_063,this should happen first,это должно произойти сначала
-setup_auto_064,and this should happen after that,а это должно произойти после
-setup_auto_065,this is some other change,это какое-то другое изменение
-setup_auto_066,this is some other change,это какое-то другое изменение
-setup_auto_067,SPECIAL,ОСОБЕННЫЙ
-setup_auto_068,Just woke up. Is hungry.,Только проснулся. Голоден.
-setup_auto_069,Had blueberry pancakes with maple syrup for breakfast.,На завтрак были блины с черникой и кленовым сиропом.
-setup_auto_070,Had muesli with oats and strawberries for breakfast.,На завтрак были мюсли с овсянкой и клубникой.
-setup_auto_071,Had pancakes with strawberries for breakfast.,На завтрак были блины с клубникой.
-setup_auto_072,I am precious,Я драгоценный
-setup_auto_073,hello,привет
-setup_auto_074,world,мир
-setup_auto_075,hello,привет
-setup_auto_076,world,мир
-setup_auto_077,ppl p,ppl p
-setup_auto_078,ae ie,ae ie
-setup_auto_079,file 1,файл 1
-setup_auto_080,file 2,файл 2
-setup_auto_081,file 3,файл 3
-setup_auto_082,file 1,файл 1
-setup_auto_083,file 2,файл 2
-setup_auto_084,file 3,файл 3
-setup_auto_085,file 1,файл 1
-setup_auto_086,file 2,файл 2
-setup_auto_087,file 3,файл 3
-setup_auto_090,file 1,файл 1
-setup_auto_091,file 2,файл 2
-setup_auto_092,file 3,файл 3
-setup_auto_093,file 1,файл 1
-setup_auto_094,file 2,файл 2
-setup_auto_095,file 3,файл 3
-setup_auto_096,new content,новое содержимое
-setup_auto_097,hello,привет
-setup_auto_098,world,мир
-setup_auto_099,hello,привет
-setup_auto_100,world,мир
-setup_auto_102,file 1,файл 1
-setup_auto_103,file 2,файл 2
-setup_auto_104,file A,файл A
-setup_auto_105,file B,файл B
-setup_auto_106,file C,файл C
-setup_auto_107,file 1,файл 1
-setup_auto_108,file 2,файл 2
-setup_auto_109,file A,файл A
-setup_auto_110,file B,файл B
-setup_auto_111,file C,файл C
-setup_auto_112,My master password is a1b2c3d4e5,Мой мастер-пароль a1b2c3d4e5
-setup_auto_113,This blob really should not exist,Этого blob действительно не должно существовать
-setup_auto_114,This is a virus,Это вирус
-setup_auto_115,blabber,болтовня
-setup_auto_116,blabber,болтовня
-setup_auto_117,file 1,файл 1
-setup_auto_118,file 2,файл 2
-setup_auto_119,file 3,файл 3
-setup_auto_120,file 1,файл 1
-setup_auto_121,file 2,файл 2
-setup_auto_122,file 3,файл 3
-setup_auto_123,hello,привет
-setup_auto_124,world,мир
-setup_auto_125,hello,привет
-setup_auto_126,world,мир
-setup_auto_127,I'm the left arm,Я левая рука
-setup_auto_128,I'm the right arm,Я правая рука
-setup_auto_129,I'm the left leg,Я левая нога
-setup_auto_130,I'm the right leg,Я правая нога
-setup_auto_131,event 1,событие 1
-setup_auto_132,event 2,событие 2
-setup_auto_133,event 3,событие 3
-setup_auto_134,event 1,событие 1
-setup_auto_135,event 2,событие 2
-setup_auto_136,event 3,событие 3
-setup_auto_137,toothbrush sharing,совместное использование зубной щетки
-setup_auto_138,Is my phone upside down? App,Приложение "Мой телефон перевернут?"
-setup_auto_139,event 1,событие 1
-setup_auto_140,event 2,событие 2
-setup_auto_141,event 3,событие 3
+блааааргх",TRANSLATED
+setup_auto_054,A yellow cupboard with lots of drawers.,Желтый шкаф с множеством ящиков.,TRANSLATED
+setup_auto_055,A really big yellow shelf.,Очень большая желтая полка.,TRANSLATED
+setup_auto_056,"A comfortable, yellow bed with yellow cushions.","Удобная, желтая кровать с желтыми подушками.",TRANSLATED
+setup_auto_057,something,что-то,TRANSLATED
+setup_auto_058,something else,что-то еще,TRANSLATED
+setup_auto_059,this should happen first,это должно произойти сначала,TRANSLATED
+setup_auto_060,and this should happen after that,а это должно произойти после,TRANSLATED
+setup_auto_061,something,что-то,TRANSLATED
+setup_auto_062,something else,что-то еще,TRANSLATED
+setup_auto_063,this should happen first,это должно произойти сначала,TRANSLATED
+setup_auto_064,and this should happen after that,а это должно произойти после,TRANSLATED
+setup_auto_065,this is some other change,это какое-то другое изменение,TRANSLATED
+setup_auto_066,this is some other change,это какое-то другое изменение,TRANSLATED
+setup_auto_067,SPECIAL,ОСОБЕННЫЙ,TRANSLATED
+setup_auto_068,Just woke up. Is hungry.,Только проснулся. Голоден.,TRANSLATED
+setup_auto_069,Had blueberry pancakes with maple syrup for breakfast.,На завтрак были блины с черникой и кленовым сиропом.,TRANSLATED
+setup_auto_070,Had muesli with oats and strawberries for breakfast.,На завтрак были мюсли с овсянкой и клубникой.,TRANSLATED
+setup_auto_071,Had pancakes with strawberries for breakfast.,На завтрак были блины с клубникой.,TRANSLATED
+setup_auto_072,I am precious,Я драгоценный,TRANSLATED
+setup_auto_073,hello,привет,TRANSLATED
+setup_auto_074,world,мир,TRANSLATED
+setup_auto_075,hello,привет,TRANSLATED
+setup_auto_076,world,мир,TRANSLATED
+setup_auto_077,ppl p,ppl p,TRANSLATED
+setup_auto_078,ae ie,ae ie,TRANSLATED
+setup_auto_079,file 1,файл 1,TRANSLATED
+setup_auto_080,file 2,файл 2,TRANSLATED
+setup_auto_081,file 3,файл 3,TRANSLATED
+setup_auto_082,file 1,файл 1,TRANSLATED
+setup_auto_083,file 2,файл 2,TRANSLATED
+setup_auto_084,file 3,файл 3,TRANSLATED
+setup_auto_085,file 1,файл 1,TRANSLATED
+setup_auto_086,file 2,файл 2,TRANSLATED
+setup_auto_087,file 3,файл 3,TRANSLATED
+setup_auto_090,file 1,файл 1,TRANSLATED
+setup_auto_091,file 2,файл 2,TRANSLATED
+setup_auto_092,file 3,файл 3,TRANSLATED
+setup_auto_093,file 1,файл 1,TRANSLATED
+setup_auto_094,file 2,файл 2,TRANSLATED
+setup_auto_095,file 3,файл 3,TRANSLATED
+setup_auto_096,new content,новое содержимое,TRANSLATED
+setup_auto_097,hello,привет,TRANSLATED
+setup_auto_098,world,мир,TRANSLATED
+setup_auto_099,hello,привет,TRANSLATED
+setup_auto_100,world,мир,TRANSLATED
+setup_auto_102,file 1,файл 1,TRANSLATED
+setup_auto_103,file 2,файл 2,TRANSLATED
+setup_auto_104,file A,файл A,TRANSLATED
+setup_auto_105,file B,файл B,TRANSLATED
+setup_auto_106,file C,файл C,TRANSLATED
+setup_auto_107,file 1,файл 1,TRANSLATED
+setup_auto_108,file 2,файл 2,TRANSLATED
+setup_auto_109,file A,файл A,TRANSLATED
+setup_auto_110,file B,файл B,TRANSLATED
+setup_auto_111,file C,файл C,TRANSLATED
+setup_auto_112,My master password is a1b2c3d4e5,Мой мастер-пароль a1b2c3d4e5,TRANSLATED
+setup_auto_113,This blob really should not exist,Этого blob действительно не должно существовать,TRANSLATED
+setup_auto_114,This is a virus,Это вирус,TRANSLATED
+setup_auto_115,blabber,болтовня,TRANSLATED
+setup_auto_116,blabber,болтовня,TRANSLATED
+setup_auto_117,file 1,файл 1,TRANSLATED
+setup_auto_118,file 2,файл 2,TRANSLATED
+setup_auto_119,file 3,файл 3,TRANSLATED
+setup_auto_120,file 1,файл 1,TRANSLATED
+setup_auto_121,file 2,файл 2,TRANSLATED
+setup_auto_122,file 3,файл 3,TRANSLATED
+setup_auto_123,hello,привет,TRANSLATED
+setup_auto_124,world,мир,TRANSLATED
+setup_auto_125,hello,привет,TRANSLATED
+setup_auto_126,world,мир,TRANSLATED
+setup_auto_127,I'm the left arm,Я левая рука,TRANSLATED
+setup_auto_128,I'm the right arm,Я правая рука,TRANSLATED
+setup_auto_129,I'm the left leg,Я левая нога,TRANSLATED
+setup_auto_130,I'm the right leg,Я правая нога,TRANSLATED
+setup_auto_131,event 1,событие 1,TRANSLATED
+setup_auto_132,event 2,событие 2,TRANSLATED
+setup_auto_133,event 3,событие 3,TRANSLATED
+setup_auto_134,event 1,событие 1,TRANSLATED
+setup_auto_135,event 2,событие 2,TRANSLATED
+setup_auto_136,event 3,событие 3,TRANSLATED
+setup_auto_137,toothbrush sharing,совместное использование зубной щетки,TRANSLATED
+setup_auto_138,Is my phone upside down? App,"Приложение ""Мой телефон перевернут?""",TRANSLATED
+setup_auto_139,event 1,событие 1,TRANSLATED
+setup_auto_140,event 2,событие 2,TRANSLATED
+setup_auto_141,event 3,событие 3,TRANSLATED
 setup_auto_142,"You just woke up.
 
 You are NOT wearing underwear.
@@ -1557,7 +1551,7 @@ You are NOT wearing shoes.","Вы только что проснулись.
 
 На вас НЕТ рубашки.
 
-На вас НЕТ обуви."
+На вас НЕТ обуви.",TRANSLATED
 setup_auto_143,"You just woke up.
 
 You are NOT wearing underwear.
@@ -1574,7 +1568,7 @@ You are wearing shoes.","Вы только что проснулись.
 
 На вас НЕТ рубашки.
 
-На вас ЕСТЬ обувь."
+На вас ЕСТЬ обувь.",TRANSLATED
 setup_auto_144,"You just woke up.
 
 You are NOT wearing underwear.
@@ -1591,7 +1585,7 @@ You are wearing shoes.","Вы только что проснулись.
 
 На вас НЕТ рубашки.
 
-На вас ЕСТЬ обувь."
+На вас ЕСТЬ обувь.",TRANSLATED
 setup_auto_145,"You just woke up.
 
 You are wearing underwear.
@@ -1608,7 +1602,7 @@ You are wearing shoes.","Вы только что проснулись.
 
 На вас НЕТ рубашки.
 
-На вас ЕСТЬ обувь."
+На вас ЕСТЬ обувь.",TRANSLATED
 setup_auto_146,"You just woke up.
 
 You are wearing underwear.
@@ -1625,7 +1619,7 @@ You are wearing shoes.","Вы только что проснулись.
 
 На вас ЕСТЬ рубашка.
 
-На вас ЕСТЬ обувь."
+На вас ЕСТЬ обувь.",TRANSLATED
 setup_auto_147,"You do not have a baguette.
 
 You do not have coffee.
@@ -1634,7 +1628,7 @@ You do not have a donut.","У вас нет багета.
 
 У вас нет кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_148,"You have a baguette.
 
 You do not have coffee.
@@ -1643,7 +1637,7 @@ You do not have a donut.","У вас есть багет.
 
 У вас нет кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_149,"You ate a baguette.
 
 You do not have coffee.
@@ -1652,7 +1646,7 @@ You do not have a donut.","Вы съели багет.
 
 У вас нет кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_150,"You do not have a baguette.
 
 You have coffee.
@@ -1661,7 +1655,7 @@ You do not have a donut.","У вас нет багета.
 
 У вас есть кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_151,"You do not have a baguette.
 
 You drank coffee.
@@ -1670,7 +1664,7 @@ You do not have a donut.","У вас нет багета.
 
 Вы выпили кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_152,"You do not have a baguette.
 
 You do not have coffee.
@@ -1679,7 +1673,7 @@ You have a donut.","У вас нет багета.
 
 У вас нет кофе.
 
-У вас есть пончик."
+У вас есть пончик.",TRANSLATED
 setup_auto_153,"You do not have a baguette.
 
 You do not have coffee.
@@ -1688,30 +1682,30 @@ You ate a donut.","У вас нет багета.
 
 У вас нет кофе.
 
-Вы съели пончик."
-setup_auto_154,You wake up.,Вы просыпаетесь.
-setup_auto_155,You drink coffee.,Вы пьете кофе.
-setup_auto_156,You hear a knock on the door.,Вы слышите стук в дверь.
-setup_auto_157,Line 1,Строка 1
-setup_auto_158,Line 2,Строка 2
-setup_auto_159,Apple Pie:,Яблочный пирог:
-setup_auto_160,- 4 Apples,- 4 яблока
-setup_auto_161,- 500g Flour,- 500г муки
-setup_auto_162,- 200g Sugar,- 200г сахара
-setup_auto_163,- Pinch of Salt,- Щепотка соли
-setup_auto_164,Apple Pie:,Яблочный пирог:
-setup_auto_165,- 4 Apples,- 4 яблока
-setup_auto_166,- 500g Flour,- 500г муки
-setup_auto_167,Apple Pie:,Яблочный пирог:
-setup_auto_168,- 4 Apples,- 4 яблока
-setup_auto_169,- 500g Flour,- 500г муки
-setup_auto_170,- Pinch of Salt,- Щепотка соли
-setup_auto_171,Apple Pie:,Яблочный пирог:
-setup_auto_172,- 4 Apples,- 4 яблока
-setup_auto_173,- 500g Flour,- 500г муки
-setup_auto_174,Apple Pie:,Яблочный пирог:
-setup_auto_175,- 4 Apples,- 4 яблока
-setup_auto_176,- 500g Flour,- 500г муки
+Вы съели пончик.",TRANSLATED
+setup_auto_154,You wake up.,Вы просыпаетесь.,TRANSLATED
+setup_auto_155,You drink coffee.,Вы пьете кофе.,TRANSLATED
+setup_auto_156,You hear a knock on the door.,Вы слышите стук в дверь.,TRANSLATED
+setup_auto_157,Line 1,Строка 1,TRANSLATED
+setup_auto_158,Line 2,Строка 2,TRANSLATED
+setup_auto_159,Apple Pie:,Яблочный пирог:,TRANSLATED
+setup_auto_160,- 4 Apples,- 4 яблока,TRANSLATED
+setup_auto_161,- 500g Flour,- 500г муки,TRANSLATED
+setup_auto_162,- 200g Sugar,- 200г сахара,TRANSLATED
+setup_auto_163,- Pinch of Salt,- Щепотка соли,TRANSLATED
+setup_auto_164,Apple Pie:,Яблочный пирог:,TRANSLATED
+setup_auto_165,- 4 Apples,- 4 яблока,TRANSLATED
+setup_auto_166,- 500g Flour,- 500г муки,TRANSLATED
+setup_auto_167,Apple Pie:,Яблочный пирог:,TRANSLATED
+setup_auto_168,- 4 Apples,- 4 яблока,TRANSLATED
+setup_auto_169,- 500g Flour,- 500г муки,TRANSLATED
+setup_auto_170,- Pinch of Salt,- Щепотка соли,TRANSLATED
+setup_auto_171,Apple Pie:,Яблочный пирог:,TRANSLATED
+setup_auto_172,- 4 Apples,- 4 яблока,TRANSLATED
+setup_auto_173,- 500g Flour,- 500г муки,TRANSLATED
+setup_auto_174,Apple Pie:,Яблочный пирог:,TRANSLATED
+setup_auto_175,- 4 Apples,- 4 яблока,TRANSLATED
+setup_auto_176,- 500g Flour,- 500г муки,TRANSLATED
 setup_auto_177,"You do not have a baguette.
 
 You do not have coffee.
@@ -1720,7 +1714,7 @@ You do not have a donut.","У вас нет багета.
 
 У вас нет кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_178,"You have a baguette.
 
 You do not have coffee.
@@ -1729,7 +1723,7 @@ You do not have a donut.","У вас есть багет.
 
 У вас нет кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_179,"You ate a baguette.
 
 You do not have coffee.
@@ -1738,7 +1732,7 @@ You do not have a donut.","Вы съели багет.
 
 У вас нет кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_180,"You do not have a baguette.
 
 You have coffee.
@@ -1747,7 +1741,7 @@ You do not have a donut.","У вас нет багета.
 
 У вас есть кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_181,"You do not have a baguette.
 
 You drank coffee.
@@ -1756,7 +1750,7 @@ You do not have a donut.","У вас нет багета.
 
 Вы выпили кофе.
 
-У вас нет пончика."
+У вас нет пончика.",TRANSLATED
 setup_auto_182,"You do not have a baguette.
 
 You do not have coffee.
@@ -1765,41 +1759,40 @@ You have a donut.","У вас нет багета.
 
 У вас нет кофе.
 
-У вас есть пончик."
-setup_auto_183,"You wrap the birthday present, and grab your concert ticket.","Вы заворачиваете подарок на день рождения и берете билет на концерт."
-setup_auto_184,You go to the birthday party!,Вы идете на вечеринку в честь дня рождения!
-setup_auto_185,You go to the concert!,Вы идете на концерт!
-setup_auto_186,You leave your house and start walking to school.,Вы выходите из дома и идете в школу.
-setup_auto_187,You walk on the right side of the street.,Вы идете по правой стороне улицы.
-setup_auto_188,"You jump over an manhole in the walkway, and arrive at school on time.","Вы перепрыгиваете через люк на тротуаре и приходите в школу вовремя."
-setup_auto_189,"Suddenly, you fall down, splash into stinking water, and are eaten by an alligator.","Внезапно вы падаете, шлепаетесь в вонючую воду, и вас съедает аллигатор."
-setup_auto_190,You walk on the left side of the street.,Вы идете по левой стороне улицы.
-setup_auto_191,"Because you're kind of late, you start running. Someone throws a piano out of their windows, and it smashes you.","Поскольку вы немного опаздываете, вы начинаете бежать. Кто-то выбрасывает пианино из окна, и оно вас раздавливает."
-setup_auto_192,"You're not in a hurry, and walk slowly. You even get some ice cream on your way. You arrive at school too late, your teacher is angry, and you are expelled.","Вы не торопитесь и идете медленно. По дороге вы даже покупаете мороженое. Вы приходите в школу слишком поздно, ваш учитель злится, и вас исключают."
-setup_auto_193,"You wrap the birthday present, and grab your concert ticket.","Вы заворачиваете подарок на день рождения и берете билет на концерт."
-setup_auto_194,You go to the birthday party!,Вы идете на вечеринку в честь дня рождения!
-setup_auto_195,You go to the concert!,Вы идете на концерт!
-setup_auto_196,Looks very hungry.,Выглядит очень голодным.
+У вас есть пончик.",TRANSLATED
+setup_auto_183,"You wrap the birthday present, and grab your concert ticket.",Вы заворачиваете подарок на день рождения и берете билет на концерт.,TRANSLATED
+setup_auto_184,You go to the birthday party!,Вы идете на вечеринку в честь дня рождения!,TRANSLATED
+setup_auto_185,You go to the concert!,Вы идете на концерт!,TRANSLATED
+setup_auto_186,You leave your house and start walking to school.,Вы выходите из дома и идете в школу.,TRANSLATED
+setup_auto_187,You walk on the right side of the street.,Вы идете по правой стороне улицы.,TRANSLATED
+setup_auto_188,"You jump over an manhole in the walkway, and arrive at school on time.",Вы перепрыгиваете через люк на тротуаре и приходите в школу вовремя.,TRANSLATED
+setup_auto_189,"Suddenly, you fall down, splash into stinking water, and are eaten by an alligator.","Внезапно вы падаете, шлепаетесь в вонючую воду, и вас съедает аллигатор.",TRANSLATED
+setup_auto_190,You walk on the left side of the street.,Вы идете по левой стороне улицы.,TRANSLATED
+setup_auto_191,"Because you're kind of late, you start running. Someone throws a piano out of their windows, and it smashes you.","Поскольку вы немного опаздываете, вы начинаете бежать. Кто-то выбрасывает пианино из окна, и оно вас раздавливает.",TRANSLATED
+setup_auto_192,"You're not in a hurry, and walk slowly. You even get some ice cream on your way. You arrive at school too late, your teacher is angry, and you are expelled.","Вы не торопитесь и идете медленно. По дороге вы даже покупаете мороженое. Вы приходите в школу слишком поздно, ваш учитель злится, и вас исключают.",TRANSLATED
+setup_auto_193,"You wrap the birthday present, and grab your concert ticket.",Вы заворачиваете подарок на день рождения и берете билет на концерт.,TRANSLATED
+setup_auto_194,You go to the birthday party!,Вы идете на вечеринку в честь дня рождения!,TRANSLATED
+setup_auto_195,You go to the concert!,Вы идете на концерт!,TRANSLATED
+setup_auto_196,Looks very hungry.,Выглядит очень голодным.,TRANSLATED
 setup_auto_197,"A small child.
 It really loves cats!","Маленький ребенок.
-Он очень любит кошек!"
-setup_auto_198,It's holding a lollipop.,Он держит леденец.
-setup_auto_199,Looks happy. :),Выглядит счастливым. :)
-setup_auto_200,It's sleeping.,Он спит.
+Он очень любит кошек!",TRANSLATED
+setup_win_112,very hungry,очень голодным,TRANSLATED
+setup_auto_198,It's holding a lollipop.,Он держит леденец.,TRANSLATED
+setup_auto_199,Looks happy. :),Выглядит счастливым. :),TRANSLATED
+setup_auto_200,It's sleeping.,Он спит.,TRANSLATED
 setup_auto_201,"This piggy bank belongs to the big sister.
 It contains 10 coins.","Эта копилка принадлежит старшей сестре.
-В ней 10 монет."
-setup_auto_202,"A young girl with brown, curly hair.","Молодая девушка с каштановыми, вьющимися волосами."
-setup_auto_203,Has 10 coins.,Имеет 10 монет.
+В ней 10 монет.",TRANSLATED
+setup_auto_202,"A young girl with brown, curly hair.","Молодая девушка с каштановыми, вьющимися волосами.",TRANSLATED
+setup_auto_203,Has 10 coins.,Имеет 10 монет.,TRANSLATED
 setup_auto_204,"This piggy bank belongs to the big sister.
 It is empty.","Эта копилка принадлежит старшей сестре.
-Она пуста."
-setup_auto_205,important,важно
-setup_auto_206,important content,важное содержимое
-setup_auto_207,good version,хорошая версия
-setup_auto_208,bad version,плохая версия
-setup_auto_209,1 2 3 4,1 2 3 4
-setup_auto_210,1 2 3 4 5 6 7 8 9 11,1 2 3 4 5 6 7 8 9 11
+Она пуста.",TRANSLATED
+setup_auto_205,important,важно,TRANSLATED
+setup_auto_206,important content,важное содержимое,TRANSLATED
+setup_auto_207,good version,хорошая версия,TRANSLATED
+setup_auto_208,bad version,плохая версия,TRANSLATED
 setup_auto_211,"this is fine
 
 ?
@@ -1812,7 +1805,7 @@ setup_auto_211,"this is fine
 
 ?
 
-?"
+?",TRANSLATED
 setup_auto_212,"this is fine
 
 this is also fine
@@ -1825,7 +1818,7 @@ this is also fine
 
 ?
 
-?"
+?",TRANSLATED
 setup_auto_213,"this is fine
 
 this is also fine
@@ -1838,7 +1831,7 @@ this is very bad
 
 это очень плохо
 
-?"
+?",TRANSLATED
 setup_auto_214,"this is fine
 
 this is also fine
@@ -1851,42 +1844,42 @@ this is fine again","это нормально
 
 это очень плохо
 
-это снова нормально"
-setup_auto_215,important,важно
-setup_auto_216,"2 + 3 = ","2 + 3 = "
-setup_auto_217,You still have your key.,У вас все еще есть ключ.
-setup_auto_218,Your pocket is empty.,Ваш карман пуст.
-setup_auto_219,Is on the ground.,Лежит на земле.
-setup_auto_220,Is holding a key in its beak.,Держит ключ в клюве.
-setup_auto_221,A yellow cozy bed.,Желтая уютная кровать.
-setup_auto_222,A tiny spider web is next to your window.,Крошечная паутина рядом с вашим окном.
-setup_auto_223,A big spider web sticks above your bed.,Большая паутина висит над вашей кроватью.
-setup_auto_224,A cozy bed.,Уютная кровать.
-setup_auto_225,An extra thick spider web is right beside your door.,Очень толстая паутина прямо у вашей двери.
-setup_auto_226,Line 1,Строка 1
-setup_auto_227,"Line 2, gnihihi","Строка 2, хихихи"
-setup_auto_228,The bike shed should be ???,Велосипедный сарай должен быть ???
-setup_auto_229,The bike shed should be green,Велосипедный сарай должен быть зеленым
-setup_auto_230,The bike shed should be blue,Велосипедный сарай должен быть синим
-compare_win_hint_073,"Pick the timeline that's clearer, and make the alarm go off!","Выберите более понятную ветку и включите будильник!"
-hint_drag_nodes,"You can drag these around with your mouse!","Вы можете перетаскивать их мышкой!"
-hint_remote,"This is the time machine of another person! To interact with it, you need special commands!","Это машина времени другого человека! Чтобы взаимодействовать с ней, нужны особые команды!"
-hint_file_browser,"Click on these files to edit them!","Нажмите на эти файлы, чтобы их отредактировать!"
-hint_cli_badge,"You get a golden badge for each level you solve without using the playing cards! Can you solve them all using the command line?","Вы получаете золотой значок за каждый уровень, решенный без игральных карт! Сможете ли вы пройти их все, используя только командную строку?"
-hint_cards,"These are your cards! Drag them to highlighted areas to play them!","Это ваши карты! Перетаскивайте их на подсвеченные области, чтобы сыграть!"
-hint_terminal,"This is your terminal! All commands are executed here, and you can see their output. You can also type your own commands here!","Это ваш терминал! Все команды выполняются здесь, и вы видите их вывод. Вы также можете вводить здесь свои собственные команды!"
-notif_btn_got_it,"Got it!","Понятно!"
-notif_btn_interesting,"Interesting!","Интересно!"
-notif_btn_very_useful,"Very useful!","Очень полезно!"
-notif_btn_cool,"Cool!","Круто!"
-notif_btn_nice,"Nice!","Отлично!"
-notif_btn_thanks,"Thanks!","Спасибо!"
-notif_btn_whatever,"Whatever...","Как скажешь..."
-notif_btn_okay,"Okay!","Окей!"
-notif_btn_yay,"Yay!","Ура!"
-notif_btn_awesome,"Awesome!","Потрясающе!"
+это снова нормально",TRANSLATED
+setup_auto_215,important,важно,TRANSLATED
+setup_auto_216,2 + 3 = ,2 + 3 = ,TRANSLATED
+setup_auto_217,You still have your key.,У вас все еще есть ключ.,TRANSLATED
+setup_auto_218,Your pocket is empty.,Ваш карман пуст.,TRANSLATED
+setup_auto_219,Is on the ground.,Лежит на земле.,TRANSLATED
+setup_auto_220,Is holding a key in its beak.,Держит ключ в клюве.,TRANSLATED
+setup_auto_221,A yellow cozy bed.,Желтая уютная кровать.,TRANSLATED
+setup_auto_222,A tiny spider web is next to your window.,Крошечная паутина рядом с вашим окном.,TRANSLATED
+setup_auto_223,A big spider web sticks above your bed.,Большая паутина висит над вашей кроватью.,TRANSLATED
+setup_auto_224,A cozy bed.,Уютная кровать.,TRANSLATED
+setup_auto_225,An extra thick spider web is right beside your door.,Очень толстая паутина прямо у вашей двери.,TRANSLATED
+setup_auto_226,Line 1,Строка 1,TRANSLATED
+setup_auto_227,"Line 2, gnihihi","Строка 2, хихихи",TRANSLATED
+setup_auto_228,The bike shed should be ???,Велосипедный сарай должен быть ???,TRANSLATED
+setup_auto_229,The bike shed should be green,Велосипедный сарай должен быть зеленым,TRANSLATED
+setup_auto_230,The bike shed should be blue,Велосипедный сарай должен быть синим,TRANSLATED
+compare_win_hint_073,"Pick the timeline that's clearer, and make the alarm go off!",Выберите более понятную ветку и включите будильник!,TRANSLATED
+hint_drag_nodes,You can drag these around with your mouse!,Вы можете перетаскивать их мышкой!,TRANSLATED
+hint_remote,"This is the time machine of another person! To interact with it, you need special commands!","Это машина времени другого человека! Чтобы взаимодействовать с ней, нужны особые команды!",TRANSLATED
+hint_file_browser,Click on these files to edit them!,"Нажмите на эти файлы, чтобы их отредактировать!",TRANSLATED
+hint_cli_badge,You get a golden badge for each level you solve without using the playing cards! Can you solve them all using the command line?,"Вы получаете золотой значок за каждый уровень, решенный без игральных карт! Сможете ли вы пройти их все, используя только командную строку?",TRANSLATED
+hint_cards,These are your cards! Drag them to highlighted areas to play them!,"Это ваши карты! Перетаскивайте их на подсвеченные области, чтобы сыграть!",TRANSLATED
+hint_terminal,"This is your terminal! All commands are executed here, and you can see their output. You can also type your own commands here!","Это ваш терминал! Все команды выполняются здесь, и вы видите их вывод. Вы также можете вводить здесь свои собственные команды!",TRANSLATED
+notif_btn_got_it,Got it!,Понятно!,TRANSLATED
+notif_btn_interesting,Interesting!,Интересно!,TRANSLATED
+notif_btn_very_useful,Very useful!,Очень полезно!,TRANSLATED
+notif_btn_cool,Cool!,Круто!,TRANSLATED
+notif_btn_nice,Nice!,Отлично!,TRANSLATED
+notif_btn_thanks,Thanks!,Спасибо!,TRANSLATED
+notif_btn_whatever,Whatever...,Как скажешь...,TRANSLATED
+notif_btn_okay,Okay!,Окей!,TRANSLATED
+notif_btn_yay,Yay!,Ура!,TRANSLATED
+notif_btn_awesome,Awesome!,Потрясающе!,TRANSLATED
 default_congrats_key,"Good job, you solved the level!
 
 Feel free to try a few more things or click 'Next level'.","Отличная работа, уровень пройден!
 
-Можешь ещё поэкспериментировать или нажми 'Следующий уровень'."
+Можешь ещё поэкспериментировать или нажми 'Следующий уровень'.",TRANSLATED

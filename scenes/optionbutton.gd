@@ -26,9 +26,5 @@ func _on_language_selected(index: int):
 	game.change_language(selected_language)
 
 func _get_language_name(locale: String) -> String:
-	var names = {
-		"en": "English",
-		"ru": "Русский",
-	}
-	return names.get(locale, locale.to_upper())
+	return tr(locale)
 

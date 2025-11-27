@@ -51,7 +51,7 @@ git branch -d main
 git ls-tree --name-only -r HEAD | grep child
 
 # fork_win_hint_107
-git show HEAD:cage/lion | grep -v "very hungry"
+git show HEAD:cage/lion | grep -v "@@setup_win_112@@"
 
 [congrats]
 

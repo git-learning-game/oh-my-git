@@ -34,16 +34,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Rows" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TopHalf" type="Control" parent="Rows"]
 margin_right = 1920.0
@@ -56,12 +50,9 @@ anchor_bottom = 1.0
 margin_top = -1.92206
 margin_bottom = -1.92212
 size_flags_vertical = 3
-custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 3 )
+custom_styles/normal = SubResource( 1 )
 scroll_following = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Completions" type="Tree" parent="Rows/TopHalf"]
 anchor_top = 1.0
@@ -83,21 +74,21 @@ margin_bottom = 1052.0
 [node name="Button" type="Button" parent="Rows/VBoxContainer"]
 margin_right = 1920.0
 margin_bottom = 20.0
-text = "terminal_button_021"
+text = "git commit --allow-empty -m \"$RANDOM\""
 script = SubResource( 2 )
 
 [node name="Button2" type="Button" parent="Rows/VBoxContainer"]
 margin_top = 24.0
 margin_right = 1920.0
 margin_bottom = 44.0
-text = "terminal_button2_022"
+text = "git checkout HEAD^"
 script = SubResource( 2 )
 
 [node name="Button3" type="Button" parent="Rows/VBoxContainer"]
 margin_top = 48.0
 margin_right = 1920.0
 margin_bottom = 68.0
-text = "terminal_button3_023"
+text = "git checkout -b \"$RANDOM\""
 script = SubResource( 2 )
 
 [node name="InputLine" type="HBoxContainer" parent="Rows"]
@@ -147,6 +138,7 @@ volume_db = -10.0
 [node name="OkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -5.0
+
 [connection signal="item_selected" from="Rows/TopHalf/Completions" to="." method="_completion_selected"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button" to="Rows/VBoxContainer/Button" method="pressed"]
 [connection signal="pressed" from="Rows/VBoxContainer/Button2" to="Rows/VBoxContainer/Button2" method="pressed"]

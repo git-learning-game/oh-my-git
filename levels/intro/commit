@@ -21,10 +21,10 @@ echo "@@setup_auto_018@@" > glass
 git rev-parse HEAD
 
 # commit_win_hint_138
-! test "$(cat glass)" = "The glass is full of water."
+! test "$(cat glass)" = "@@setup_auto_018@@"
 
 # commit_win_hint_139
-git rev-parse HEAD^ && ! test "$(git show main:glass)" = "The glass is full of water."
+git rev-parse HEAD^ && ! test "$(git show main:glass)" = "@@setup_auto_018@@"
 
 [congrats]
 
