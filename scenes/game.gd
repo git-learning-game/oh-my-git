@@ -13,7 +13,7 @@ var current_level = 0
 var skipped_title = false
 
 var translations = {}
-var current_locale = "en"
+var current_locale = "ru"
 
 var _file = "user://savegame.json"
 var state = {}
@@ -164,7 +164,7 @@ func new_shell():
 	if OS.get_name() == "Windows":
 		return BetterShell.new()
 	else:
-		return Shell.new()
+		return Shell.new()	
 
 # --- ДОБАВИТЬ ЭТИ ДВЕ ФУНКЦИИ В КОНЕЦ ФАЙЛА ---
 
@@ -210,4 +210,4 @@ func tr_custom(key):
 func _init():
 	# --- ПРИВЕСТИ ФУНКЦИЮ _init() К ТАКОМУ ВИДУ ---
 	_load_translations()
-	current_locale = "en"
+	current_locale = "ru"

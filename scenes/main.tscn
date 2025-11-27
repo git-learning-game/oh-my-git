@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
@@ -6,9 +6,13 @@
 [ext_resource path="res://scenes/global_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/file_browser.tscn" type="PackedScene" id=5]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=6]
-[ext_resource path="res://fonts/big.tres" type="DynamicFont" id=7]
+[ext_resource path="res://fonts/Moderustic-VariableFont_wght.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://sounds/success.wav" type="AudioStream" id=8]
 [ext_resource path="res://scenes/cursor.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=2]
+size = 46
+font_data = ExtResource( 7 )
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 1.0
@@ -88,7 +92,7 @@ margin_right = 633.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_stretch_ratio = 0.0
-custom_fonts/normal_font = ExtResource( 7 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "main_levelname_014"
 fit_content_height = true
 scroll_active = false
@@ -109,9 +113,6 @@ size_flags_vertical = 3
 bbcode_enabled = true
 bbcode_text = "main_leveldescription_015"
 text = "main_leveldescription_015"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LevelCongrats" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
 visible = false

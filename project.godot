@@ -151,7 +151,7 @@ mute={
 
 [locale]
 
-translations=PoolStringArray( "res://translations.en.translation", "res://translations.ru.translation" )
+translations=PoolStringArray(  )
 
 [network]
 

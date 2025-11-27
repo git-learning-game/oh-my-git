@@ -59,8 +59,8 @@ __meta__ = {
 
 [node name="Tip!" type="Button" parent="."]
 visible = false
-margin_left = 501.0
-margin_right = 598.0
+margin_left = 337.0
+margin_right = 434.0
 margin_bottom = 39.0
 focus_mode = 0
 enabled_focus_mode = 0

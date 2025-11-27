@@ -23,6 +23,7 @@ func reload():
 
 	dir.list_dir_end()
 	chapter_names.sort()
+	print_debug(chapter_names)
 	
 	var final_chapter_sequence = []
 	
