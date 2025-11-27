@@ -1,9 +1,10 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://fonts/cabin-bold.ttf" type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/Moderustic-VariableFont_wght.ttf"
 
 [resource]
-size = 45
+size = 38
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = SubResource( 1 )

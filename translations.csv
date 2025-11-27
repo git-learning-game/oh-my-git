@@ -1548,3 +1548,16 @@ cli_checkoutcommit_015,"To checkout a specific commit, type `git checkout`, then
 cli_checkoutcommit_016,"This will insert the commit's unique identifier!","Это вставит уникальный идентификатор коммита!"
 cli_filesdelete_017,"On the command line, you can easily delete all files ending in -web using this command:","В командной строке вы можете легко удалить все файлы, заканчивающиеся на -web, с помощью этой команды:"
 cli_filesdelete_018,"    `rm *web`","    `rm *web`"
+chapter_intro,Introduction,Введение
+chapter_files,Files,Файлы
+chapter_branches,Branches,Ветви
+chapter_merge,Merging,Слияние
+chapter_index,The Index,Индекс
+chapter_remotes,Remotes,Удалённые репозитории
+chapter_changing-the-past,Changing the Past,Изменение прошлого
+chapter_shit-happens,When Things Go Wrong,Когда всё идёт не так
+chapter_workflows,Workflows,Рабочие процессы
+chapter_bisect,Bisect,Поиск ошибки (Bisect)
+chapter_stash,Stash,Тайник (Stash)
+chapter_tags,Tags,Метки
+chapter_sandbox,Sandbox,Песочница
