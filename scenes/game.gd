@@ -240,6 +240,20 @@ func _set_initial_language():
 		current_language = "en"
 		
 	TranslationServer.set_locale(current_language)
+	
+func get_available_languages() -> Array:
+	return available_languages
 
+func _update_all_ui():
+	get_tree().reload_current_scene()
 
+func change_language(new_language: String):
+	if not new_language in available_languages:
+		printerr("ЛОКАЛИЗАЦИЯ: Язык '%s' не поддерживается. Доступны: %s" % [new_language, str(available_languages)])
+		return
+	
+	current_language = new_language
+	TranslationServer.set_locale(new_language)
+	
+	_update_all_ui()
 	
