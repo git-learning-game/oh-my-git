@@ -40,5 +40,5 @@ test "$(git show v2 -s --format=%h)" = "$(git show HEAD -s --format=%h)"
 
 [win friend]
 
-# v2 tag in the remote
+# remote_tag_win_hint_1
 test "$(git show v2 -s --format=%h)" = "$(git show HEAD -s --format=%h)"

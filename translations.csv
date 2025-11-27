@@ -367,7 +367,7 @@ tipp1
 ---
 tipp2
 ---
-tipp3","Когда вы сохранили свои изменения в тайнике и хотите применить их обратно в свой текущий рабочий каталог, вы можете использовать `git stash pop`
+tipp3","Когда вы сохранили свои изменения в тайнике и хотите применить их обратно в свой текущий рабочий каталог, вы можете использовать `git stash pop`.
 Это удалит изменения из стека тайника. Если вы также хотите сохранить изменения в стеке тайника, используйте `git stash apply`.
 
 ---
@@ -793,7 +793,7 @@ Don't forget to add a color and description to your new furnitures, too!","Те�
 Не забудьте также добавить цвет и описание для вашей новой мебели!",,
 filesadd_congrats_250,Don't you immediately feel more at home?,Разве вы не чувствуете себя сразу как дома?,,
 filesadd_win_hint_251,Add two more pieces of furniture,Добавьте еще два предмета мебели,,
-filesadd_win_hint_252,Make sure the colors match your bed's color.,Убедитесь, что цвета соответствуют цвету вашей кровати.,
+filesadd_win_hint_252,Make sure the colors match your bed's color.,"Убедитесь, что цвета соответствуют цвету вашей кровати.",
 rebase_title_253,Rebasing,Перебазирование (Rebasing),,
 rebase_description_254,"Okay - turns out that saving time in the morning by utilizing parallel universes is against the regulations of the International Time Travel Association. You'll have to do your tasks in sequence after all.
 
@@ -1233,7 +1233,7 @@ Take turns until you have five lines!","Ваш друг добавил еще о
 
 Делайте это по очереди, пока у вас не будет пяти строк!",,
 friend_win_hint_311,Got the second line from your friend,Получил вторую строку от друга,,
-friend_win_hint_312,Got the fourth line from your friend.,Получил четвертую строку от друга.,,
+friend_win_hint_312,Got the fourth line from your friend,Получил четвертую строку от друга,,
 card_init_desc_313,Drag this card into the empty space above to initialize the time machine!,Перетащите эту карту в пустое пространство выше, чтобы инициализировать машину времени!,
 card_clone_desc_314,Create your own copy of someone else's repo.,Создайте свою собственную копию чужого репозитория.,,
 card_configname_desc_315,"Set your name.
@@ -1315,3 +1315,5 @@ problems_win_hint_309,"Look at your friend's suggestion, make a compromise, and 
 pushed_win_hint_1,The team's main branch no longer contains the bad thing.,Командная ветка main больше не содержит плохой вещи.
 pushed_win_hint_2,And the history has not been modified.,И история не была изменена.
 default_win_desc_key,Complete the goal of this level,Выполните цель этого уровня
+remote_tag_win_hint_1,v2 tag in the remote,тег v2 в удалённом репозитории
+remote_win_hint_134,And use `git push` to send it to your teacher!,Используй `git push` и отправь это своему учителю!

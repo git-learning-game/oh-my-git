@@ -46,5 +46,5 @@ test "$(git show main:students |wc -l)" -ge 5
 
 [win teacher]
 
-# And use `git push` to send it to your teacher!
+# remote_win_hint_134
 test "$(git show main:students |wc -l)" -ge 5
