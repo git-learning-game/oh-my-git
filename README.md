@@ -6,11 +6,20 @@
 
 You can download binaries for Linux, macOS, and Windows [from itch.io](https://blinry.itch.io/oh-my-git)!
 
+## ℹ️ A note on the maintenance status
+
+bleeptrack and blinry developed Oh My Git! in 2020/2021, with six months of funding from the Prototype Fund.
+Currently, the project is in low-maintenance mode, and we don't have a lot of time to dedicate to it.
+
+While we can review and merge simple fixes, **please have patience with us and understand it might take a long time,**
+especially with larger changes.
+
+If you'd like to work on a big change, we suggest you get in touch with us before you start working on it,
+to discuss how to approach that best. Thanks for your interest to contribute!
+
 ## Report bugs!
 
 If something doesn't work or looks broken, please let us know! You can describe the issue you're having [in our issue tracker](https://github.com/git-learning-game/oh-my-git/issues).
-
-If you have ideas for new features, we'd be excited to hear them! Also in that case, we invite you to [open an issue](https://github.com/git-learning-game/oh-my-git/issues)!
 
 ## Build your own level!
 
@@ -71,10 +80,6 @@ test "$(git show HEAD:people_who_are_awesome | wc -l)" -ge 2
 
 A level can consist of multiple repositories. To have more than one, you can use sections like `[setup <name>]` and `[win <name>]`, where `<name>` is the name of the remote. The default name is "yours". All repositories will add each other as remotes. Refer to the [remote](levels/remotes) levels examples.
 
-### Level guidelines
-
-At this stage, we're still exploring ourselves which kind of levels would be fun! So feel free to try new things: basic introductions with a little story? Really hard puzzles? Levels where you have to find information? Levels where you need to fix a problem? Levels with three remotes?
-
 ## Contribute code!
 
 To open the game in the [Godot editor](https://godotengine.org), run `godot project.godot`. You can then run the game using *F5*.
@@ -87,7 +92,9 @@ To build your own binaries, you'll need Godot's [export templates](https://docs.
 
 We have a [Code of Conduct](CODE_OF_CONDUCT.md) in place that applies to all project contributions, including issues and pull requests.
 
-## Funded by
+## Funding
+
+We received funding for six months in 2020/2021 from the [Prototype Fund](https://www.prototypefund.de). Thanks!
 
 <a href="https://www.bmbf.de/en/"><img src="https://www.dipf.de/en/images/BMBF_4C_M_e.jpg/@@download/image/BMBF_4C_M_e.jpg" alt="Logo of the German Ministry for Education and Research" height="100px"></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://prototypefund.de/en/"><img src="https://raw.githubusercontent.com/prototypefund/ptf-ci/main/logos/PrototypeFund-Icon.svg" alt="Logo of the Prototype Fund" height="100px"></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://okfn.de/en/"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Open_Knowledge_Foundation_Deutschland_Logo.svg" alt="Logo of the Open Knowledge Foundation Germany" height="100px"></a>
 
