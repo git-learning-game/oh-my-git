@@ -1,36 +1,36 @@
-title = Unexpected Roommates
+title = Compañeros no esperados
 cards = file-delete
 
 [description]
 
-The first day at Time Travel School comes to an end and you receive the key to your room.
-Full of excitement you open the door just to find... spider webs! Spider webs everywhere!
+El primer día en la Escuela de Viajes en el Tiempo llega a su fin y recibes la llave de tu habitación.
+Lleno de emoción abres la puerta solo para encontrar... ¡webs! ¡Telarañas por todas partes!
 
-Remove all the spider webs you can find with the remove card!
+¡Elimina todas las webs que puedas encontrar con la carta de eliminación!
 
 [cli]
 
-On the command line, you can easily delete all files ending in -web using this command:
+En la línea de comandos, puedes eliminar fácilmente todos los archivos que terminan en -web usando este comando:
 
     rm *web
 
 [setup]
 
-echo A tiny spider web is next to your window. > tiny_web
-echo A big spider web sticks above your bed. > big_web
-echo A cozy bed. > bed
-echo An extra thick spider web is right beside your door. > thick_web
+echo Una pequeña web está junto a tu ventana. > peque_web
+echo Una gran web está sobre tu cama. > gran_web
+echo Una cama acogedora. > cama
+echo Una web super gruesa está justo al lado de tu puerta. > gruesa_web
 
 [win]
 
-# Remove all spider webs.
-! ls | grep thick_web &&
-! ls | grep big_web &&
-! ls | grep tiny_web
+# Elimina todas las webs.
+! ls | grep gruesa_web &&
+! ls | grep gran_web &&
+! ls | grep peque_web
 
-# But make sure you keep your bed!
-ls | grep bed
+# ¡Pero asegúrate de mantener tu cama!
+ls | grep cama
 
 [congrats]
 
-Your room looks now very tidy and cozy! Time to unpack your stuff!
+¡Tu habitación ahora se ve muy ordenada y acogedora! ¡Es hora de desempacar tus cosas!
