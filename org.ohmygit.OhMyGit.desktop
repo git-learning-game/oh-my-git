@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Oh My Git!
+
+Exec=oh-my-git
+Terminal=false
+Icon=org.ohmygit.OhMyGit
+Type=Application
+Categories=Game;LogicGame;Education;ComputerScience;
