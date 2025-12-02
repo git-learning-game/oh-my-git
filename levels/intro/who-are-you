@@ -1,38 +1,38 @@
-title = Welcome to time travel school!
+title = ¡Bienvenido a la escuela de viajes en el tiempo!
 cards = config-name commit-auto checkout
 
 [description]
 
-You're still pretty confused by everything that's going on. The next day, you decide to enroll in time travel school!
+Sigues bastante confundido por todo lo que está sucediendo. ¡Al día siguiente, decides inscribirte en la escuela de viajes en el tiempo!
 
-Your time travel teacher welcomes you: "Hello there! Wanna tell us your name?"
+Tu profesor de viajes en el tiempo te da la bienvenida: "¡Hola! ¿Quieres decirnos tu nombre?"
 
 [setup]
 
 git config --global user.name "You"
 
-echo "~ Why do you want to learn how to use time machines? ~
+echo "~ ¿Por qué quieres aprender a usar máquinas del tiempo? ~
 
-[ ] To make sure that my cat doesn't eat my homework.
-[ ] So I don't have to keep copies of all my essays.
-[ ] To collaborate with other time travel students.
-[ ] Other, please specify:" > form
+[ ] Para asegurarme de que mi gato no se coma mi tarea.
+[ ] Para no tener que guardar copias de todos mis ensayos.
+[ ] Para colaborar con otros estudiantes de viajes en el tiempo.
+[ ] Otro, por favor especifica:" > form
 
 [actions]
 
 test "$(git config user.name)" != "You" && cat form | grep -v Signature && echo "
-Signature: $(git config user.name)" >> form
+Firma: $(git config user.name)" >> form
 
 [win]
 
-# Introduce yourself.
+# Preséntate.
 test "$(git config user.name)" != "You"
 
-# Fill out the enrollment form, and commit it!
+# ¡Completa el formulario de inscripción y haz commit!
 git show main:form | grep '\[[xX]\]'
 
 [congrats]
 
-"We're so glad to have you!
+"¡Estamos encantados de tenerte aquí!
 
-Git can help you fix problems in the past! It allows you to collaborate with other students of time travel! It's really powerful, and it's really popular! I'll see you for your first lesson tomorrow!"
+¡Git puede ayudarte a solucionar problemas en el pasado! ¡Te permite colaborar con otros estudiantes de viajes en el tiempo! ¡Es realmente poderoso y muy popular! ¡Te veré para tu primera lección mañana!"
