@@ -1,13 +1,9 @@
-title = Updating files in the index
+title = add_title_076
 cards = add commit checkout
 
 [description]
 
-So you start working, and make changes to your files! Git lets you choose which of these changes you want to put in the next commit. This is like updating the index version of that file to the new version.
-
-This allows you to have smaller commits, that describe better what you changed!
-
-The command for this is the same - `git add`!
+add_description_077
 
 [setup]
 
@@ -19,12 +15,12 @@ git commit -m "Initial commit"
 
 [win]
 
-# Make changes to all files!
+# add_win_hint_079
 test "$(cat a)" != "a" &&
 test "$(cat b)" != "b" &&
 test "$(cat c)" != "c"
 
-# Add only the changes of a and c, and make a commit! Finally, make a commit which captures the changes in b!
+# add_win_hint_080
 
 test "$(git show main:a)" != "a" &&
 test "$(git show main:b)" != "b" &&
@@ -35,4 +31,4 @@ test "$(git show main^:c)" != "c"
 
 [congrats]
 
-Well done! Try travelling between the commits using `git checkout`, so you can look at their contents again!
+add_congrats_078

@@ -1,28 +1,10 @@
 [description]
 
-When you have a symbolic ref (a ref pointing at another ref), and you decide you want it to be a regular ref again (pointing to an object), you're in for some trouble! :)
-
-What happens when you try pointing the symbolic ref directly to the blob using `git update-ref`?
-
-Oops! Turns out that when you reference a symbolic ref, it acts as if you had specified the ref it points to. To de-symbolic-ize it, use the `--no-deref` option directly after `update-ref`!
-
-Weird, huh?
+symrefnoderef_description_301
 
 [congrats]
 
-Whew, we've covered a lot of things: Blobs! The index! Trees! Commits! Refs!
-
-You now know about almost everything about how Git repositories look like on the inside! We think that's pretty cool! :)
-
-Everything else is just convention and high-level commands that make interacting with the objects more convenient.
-
-We haven't covered:
-
-- tag objects (they are the fourth object type - a bit like refs with a description and an author)
-- configuration (allows you to specify remote repositories, for example)
-- working with local files (which is, uh, arguably pretty important :P)
-
-Thanks for playing! You're welcome to check out the "puzzle" levels in the dropdown, some of them are more advanced!
+symrefnoderef_congrats_302
 
 [setup]
 

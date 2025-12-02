@@ -1,27 +1,25 @@
-title = Creating branches
+title = branchcreate_title_089
 cards = checkout commit-auto branch branch-delete reset-hard
 
 [description]
 
-You were invited to two parties! At one of them, your favorite band is playing - and the other one is your best friend's birthday party. Where should you go? No worries - as a time travel agent in training, you can go to both parties!
-
-To make it easier to tell which timeline is which, you can create time portals! (We call these "branches".)
+branchcreate_description_090
 
 [cli]
 
-Branches also make it really easy to travel between different places using the command line! As soon as you have a branch called "birthday", you can type `git checkout birthday` to travel to it!
+cli_branchcreate_009
 
 [setup]
 
-echo "You wrap the birthday present, and grab your concert ticket." > you
+echo "@@setup_auto_193@@" > you
 git add .
 git commit -m "Evening preparations"
-echo "You go to the birthday party!" >> you
+echo "@@setup_auto_194@@" >> you
 git add .
 git commit -m "Go to the birthday"
 
 git checkout HEAD~1
-echo "You go to the concert!" > you
+echo "@@setup_auto_195@@" > you
 git add .
 git commit -m "Go to the concert"
 
@@ -31,14 +29,12 @@ git branch -D main
 
 [win]
 
-# Create a branch called 'birthday' that points to the birthday timeline.
+# branchcreate_win_hint_092
 git show birthday | grep 'to the birthday'
 
-# Create a branch called 'concert' that points to the concert timeline.
+# branchcreate_win_hint_093
 git show concert | grep 'to the concert'
 
 [congrats]
 
-Now you can travel between those branches easily (using `git checkout`) - try it!
-
-Your friend is happy that you made it to the birthday party and you also got your concert ticket signed. Yay!
+branchcreate_congrats_091

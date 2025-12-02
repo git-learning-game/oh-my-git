@@ -4,6 +4,14 @@ func _ready():
 	if !OS.has_feature("standalone") and !game.skipped_title:
 		game.skipped_title = true
 		get_tree().change_scene("res://scenes/level_select.tscn")
+	
+	
+	$Label2.text = tr("title_label2_007")
+	$Label3.text = tr("title_label3_008")
+	$VBoxContainer/Button.text = tr("title_button_009")
+	$VBoxContainer/Button3.text = tr("title_button3_010")
+	$VBoxContainer/Button2.text = tr("title_button2_011")
+
 
 func quit():
 	get_tree().quit()

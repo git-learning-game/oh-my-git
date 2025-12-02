@@ -1,33 +1,31 @@
-title = Your first commit
+title = commit_title_134
 cards = commit-auto
 
 [description]
 
-You can use your time machine to make snapshots of objects around you! Here, let's practice this!
-
-(Your teacher pours some water into a glass.)
+commit_description_135
 
 [cli]
 
-Again, instead of using the card, you can also type the commands which are printed on it into the black terminal below!
+cli_commit_002
 
-This is totally optional! But this will be a super useful skill in the real world - and it will give you a sparkling golden badge! :)
+cli_commit_003
 
 [setup]
 
-echo "The glass is full of water." > glass
+echo "@@setup_auto_018@@" > glass
 
 [win]
 
-# Make a snapshot of the glass (a "commit")
+# commit_win_hint_137
 git rev-parse HEAD
 
-# Change the contents of the glass!
-! test "$(cat glass)" = "The glass is full of water."
+# commit_win_hint_138
+! test "$(cat glass)" = "@@setup_auto_018@@"
 
-# And make a second commit!
-git rev-parse HEAD^ && ! test "$(git show main:glass)" = "The glass is full of water."
+# commit_win_hint_139
+git rev-parse HEAD^ && ! test "$(git show main:glass)" = "@@setup_auto_018@@"
 
 [congrats]
 
-Nice! You can try making some additional commits. When you feel comfortable, click on "Next Level".
+commit_congrats_136

@@ -1,15 +1,15 @@
-title = The command line
+title = cli_title_112
 cards = 
 
 [description]
 
-These playing cards are designed to be easy to use and to remember! We'd suggest sticking to them if you don't have a lot of experience with Git!
+cli_description_113
 
 [cli]
 
-But there's another way to interact with Git:
+cli_cli_004
 
-Try typing `git init` into the black terminal below, and pressing the enter key!
+cli_cli_005
 
 [setup]
 
@@ -17,11 +17,9 @@ rm -rf .git
 
 [win]
 
-# Initialize the time machine!
+# cli_win_hint_115
 test -d .git
 
 [congrats]
 
-Cool! Instead of using the playing cards, you can also do everything via the command line!
-
-The command line is pretty powerful! Often, you can use it to solve tasks faster compared to using a graphical interface.
+cli_congrats_114

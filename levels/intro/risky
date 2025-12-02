@@ -1,30 +1,19 @@
-title = Living dangerously
+title = risky_title_124
 cards =
 
 [description]
 
-So you have decided to apply for time travel school, to learn how to use this time machine called "Git"!
-
-How exciting!
-
-You're almost done with the paperwork! You just need to fill in one more reason why you want to learn Git.
+risky_description_125
 
 [congrats]
 
-Suddenly, your cat jumps on the table, snatches away the form, and runs away! Oh no. All your hard work, gone!
-
-You clearly need a better solution.
-
-(Click "Next Level" as soon as you're ready!)
+risky_congrats_126
 
 [setup]
 
 rm -rf .git
 
-echo "~ Why I want to learn Git ~
-
-- So that I can undo mistakes
-- To track my projects over time" >> form.txt
+echo "@@setup_auto_019@@" >> form.txt
 
 [actions]
 
@@ -38,5 +27,5 @@ test "$(cat form.txt | wc -l )" -ge 5 && echo "(Has been stolen by your cat.)
 
 [win]
 
-# Add another line to form.txt!
+# risky_win_hint_127
 test "$(cat form.txt | wc -l )" -ge 5

@@ -1,22 +1,20 @@
-title = Restore a deleted file
+title = restoreafile_title_226
 cards = checkout
 
 [description]
 
-Oops - you deleted the "essay" file, which you worked on all night!
-
-Luckily, Git is here to help! You can use `git checkout` to restore the file!
+restoreafile_description_227
 
 [setup]
 
-echo important > essay
+echo @@setup_auto_205@@  > essay
 git add .
 git commit -m "Initial commit"
-echo "important content" > essay
+echo "@@setup_auto_206@@" > essay
 git commit -am "Improve essay"
 rm essay
 
 [win]
 
-# Restore the essay to contain "important content"
+# restoreafile_win_hint_228
 test "$(cat essay)" = "important content"

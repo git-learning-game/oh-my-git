@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://styles/theme.tres" type="Theme" id=1]
 [ext_resource path="res://images/oh-my-git.png" type="Texture" id=2]
 [ext_resource path="res://scenes/title.gd" type="Script" id=3]
+[ext_resource path="res://scenes/optionbutton.gd" type="Script" id=4]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=5]
+[ext_resource path="res://styles/option_button.tres" type="StyleBox" id=6]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
@@ -18,7 +20,7 @@ margin_right = 1131.78
 margin_bottom = 650.135
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
 custom_fonts/font = ExtResource( 5 )
-text = "by bleeptrack & blinry"
+text = "title_label2_007"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -31,37 +33,44 @@ margin_right = 1209.71
 margin_bottom = 677.416
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
 custom_fonts/font = ExtResource( 5 )
-text = "Original score by winniehell"
+text = "title_label3_008"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 784.553
 margin_top = 702.517
 margin_right = 1136.55
 margin_bottom = 885.517
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 margin_right = 351.0
 margin_bottom = 39.0
-text = "Levels"
+text = "title_button_009"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 margin_top = 44.0
 margin_right = 351.0
 margin_bottom = 83.0
-text = "Sandbox"
+text = "title_button3_010"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
 margin_top = 88.0
 margin_right = 351.0
 margin_bottom = 127.0
-text = "Quit"
+custom_constants/hseparation = 0
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+align = 1
+script = ExtResource( 4 )
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+margin_top = 132.0
+margin_right = 351.0
+margin_bottom = 171.0
+text = "title_button2_011"
 
 [node name="Sprite" type="Sprite" parent="."]
 

@@ -17,32 +17,43 @@ func load(path):
 	
 	var dir = Directory.new()
 	if dir.file_exists(path):
-		# This is a new-style level.
 		var config = helpers.parse(path)
 		
-		title = config.get("title", slug)
-		description = config.get("description", "(no description)")
+		title = tr(config.get("title", "default_title_key"))
+		var description_text = tr(config.get("description", "default_description_key"))
+		congrats = tr(config.get("congrats", "default_congrats_key"))
+
+		var cli_hints_keys_block = config.get("cli", "")
+		var translated_cli_lines = []
 		
-		# Surround all lines indented with four spaces with [code] tags.
+		if cli_hints_keys_block != "":
+			for key in cli_hints_keys_block.split("\n"):
+				var stripped_key = key.strip_edges(true, true)
+				if stripped_key != "":
+					translated_cli_lines.push_back(tr(stripped_key))
+				else:
+					translated_cli_lines.push_back("")
+		
+		var cli_hints_text = PoolStringArray(translated_cli_lines).join("\n")
 		var monospace_regex = RegEx.new()
 		monospace_regex.compile("\\n    ([^\\n]*)")
-		description = monospace_regex.sub(description, "\n      [code][color=#e1e160]$1[/color][/code]", true)
-		description = description.split("---")
-		
-		var cli_hints = config.get("cli", "")
-		# Also do this substitution in the CLI hints.
-		cli_hints = monospace_regex.sub(cli_hints, "\n      [code][color=#bbbb5d]$1[/color][/code]", true)
-		
-		# Also replace `code` with [code] tags.
 		var monospace_inline_regex = RegEx.new()
 		monospace_inline_regex.compile("`([^`]+)`")
-		description[0] = monospace_inline_regex.sub(description[0], "[code][color=#e1e160]$1[/color][/code]")
-		cli_hints = monospace_inline_regex.sub(cli_hints, "[code][color=#bbbb5d]$1[/color][/code]", true)
+
+		if description_text != null:
+			description_text = monospace_regex.sub(description_text, "\n      [code][color=#e1e160]$1[/color][/code]", true)
+			description_text = monospace_inline_regex.sub(description_text, "[code][color=#e1e160]$1[/color][/code]")
+		else:
+			description_text = ""
 		
-		if cli_hints != "":
-			description[0] = description[0] + "\n\n[color=#787878]"+cli_hints+"[/color]"
+		description = description_text.split("---")
 		
-		congrats = config.get("congrats", "Good job, you solved the level!\n\nFeel free to try a few more things or click 'Next level'.")
+		if cli_hints_text != null and cli_hints_text != "":
+			cli_hints_text = monospace_regex.sub(cli_hints_text, "\n      [code][color=#bbbb5d]$1[/color][/code]", true)
+			cli_hints_text = monospace_inline_regex.sub(cli_hints_text, "[code][color=#bbbb5d]$1[/color][/code]", true)
+			if description.size() > 0:
+				description[0] = description[0] + "\n\n[color=#787878]"+cli_hints_text+"[/color]"
+				
 		cards = Array(config.get("cards", "").split(" "))
 		if cards == [""]:
 			cards = []
@@ -78,10 +89,14 @@ func load(path):
 			else:
 				repo = "yours"
 			
-			var desc = "Complete the goal of this level"
+			if not repos.has(repo):
+				repos[repo] = LevelRepo.new()
+			
+			var desc = tr(config.get("win_desc", "default_win_desc_key"))
 			for line in Array(config[k].split("\n")):
 				if line.length() > 0 and line[0] == "#":
-					desc = line.substr(1).strip_edges(true, true)
+					var hint_key = line.substr(1).strip_edges(true, true)
+					desc = tr(hint_key)
 				else:
 					if not repos[repo].win_conditions.has(desc):
 						repos[repo].win_conditions[desc] = ""
@@ -96,16 +111,12 @@ func load(path):
 			
 			repos[repo].action_commands = config[k]
 				
-#			for desc in repos[repo].win_conditions:
-#				print("Desc: " + desc)
-#				print("Commands: " + repos[repo].win_conditions[desc])
 	else:
 		helpers.crash("Level %s does not exist." % path)
 	
 	for repo in repos:
 		repos[repo].path = game.tmp_prefix+"repos/%s/" % repo
 		repos[repo].slug = repo
-	
 	
 
 func construct():

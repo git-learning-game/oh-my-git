@@ -1,35 +1,32 @@
-title = Make parallel commits
+title = fork_title_103
 cards = checkout commit-auto
 
 [description]
 
-Did you know that creating parallel timelines is perfectly legal and safe? It's true!
-
-Can you find out when things went wrong in this zoo? Then, go back to the last good commit and create a parallel universe where everyone is happy!
+fork_description_104
 
 [cli]
 
-The blue animal represents a concept known as the "HEAD pointer" in Git: It shows you which commit is the current one.
+cli_fork_010
 
-Here's a cool trick to go to the previous commit: 
+cli_fork_011
 
-    git checkout HEAD^
+    cli_fork_012
 
-You can also go back two commits by typing, for example: 
+cli_fork_013
 
-    git checkout HEAD~2
+    cli_fork_014
 
 [setup]
 
 mkdir cage
-echo "Looks very hungry." > cage/lion
+echo "@@setup_auto_196@@" > cage/lion
 
-echo "A small child.
-It really loves cats!" > child
+echo "@@setup_auto_197@@" > child
 git add .
 git commit -m "The beginning"
 
-echo "It's holding a lollipop." >> child
+echo "@@setup_auto_198@@" >> child
 git commit -am "The child buys something"
 
 mv child cage
@@ -37,11 +34,11 @@ git add .
 git commit -m "The child climbs somewhere"
 
 git rm cage/child
-echo "Looks happy. :)" > cage/lion
+echo "@@setup_auto_199@@" > cage/lion
 git add .
 git commit -m "Oh no"
 
-echo "It's sleeping." > cage/lion
+echo "@@setup_auto_200@@" > cage/lion
 git add .
 git commit -m "Nap time!"
 
@@ -50,16 +47,12 @@ git branch -d main
 
 [win]
 
-# Make sure that the child is happy.
+# fork_win_hint_106
 git ls-tree --name-only -r HEAD | grep child
 
-# Make sure that the lion gets something to eat.
-git show HEAD:cage/lion | grep -v "very hungry"
+# fork_win_hint_107
+git show HEAD:cage/lion | grep -v "@@setup_win_112@@"
 
 [congrats]
 
-Whew, good job! This seems like a *much* better outcome.
-
-Feel free to add more parallel timelines, or make them longer.
-
-If you're ready, our next mission is already waiting...
+fork_congrats_105

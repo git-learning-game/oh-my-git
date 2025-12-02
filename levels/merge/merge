@@ -1,68 +1,40 @@
-title = Merging timelines
+title = merge_title_040
 cards = checkout commit-auto merge
 
 [description]
 
-Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!
+merge_description_041
 
 [setup]
 
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_001@@" > you
 
 git add .
 git commit -m "The Beginning"
 
-echo "You have a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_002@@" > you
 git add .
 git commit -m "You buy a baguette"
 
-echo "You ate a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_003@@" > you
 git add .
 git commit -m "You eat the baguette"
 
 git checkout HEAD~2
-echo "You do not have a baguette.
-
-You have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_004@@" > you
 git add .
 git commit -m "You buy some coffee"
 
-echo "You do not have a baguette.
-
-You drank coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_005@@" > you
 git add .
 git commit -m "You drink the coffee"
 
 git checkout HEAD~2
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You have a donut." > you
+echo "@@setup_auto_006@@" > you
 git add .
 git commit -m "You buy a donut"
 
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You ate a donut." > you
+echo "@@setup_auto_007@@" > you
 git add .
 git commit -m "You eat the donut"
 
@@ -71,12 +43,12 @@ git branch -D main
 
 [win]
 
-# Build a situation where you consumed a baguette, a coffee, *and* a donut.
+# merge_win_hint_043
 { git show HEAD:you | grep "You ate.*baguette"; } && { git show HEAD:you | grep "You drank.*coffee"; } && { git show HEAD:you | grep "You ate.*donut"; }
 
-# Be on a merge commit.
+# merge_win_hint_044
 test "$(git log --pretty=%P -n 1 HEAD | wc -w)" -ge 2
 
 [congrats]
 
-I wonder if you're more relaxed when you *sleep* in parallel timelines...
+merge_congrats_042

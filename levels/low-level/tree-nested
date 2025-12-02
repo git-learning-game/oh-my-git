@@ -1,20 +1,16 @@
 [description]
 
-Trees can also point to other trees! This way, they can describe nested directory structures.
-
-When you add a file inside of a directory to the index, and then call `git write-tree`, it will create a nested tree for the directory, and attach the blob to it.
-
-To solve this level, build a little stick figure, as shown on the left - a tree that points to two blobs, as well to a tree that points to two blobs.
+treenested_description_274
 
 [setup]
 
 [setup goal]
 
-echo "I'm the left arm" > arm1
-echo "I'm the right arm" > arm2
+echo "@@setup_auto_127@@" > arm1
+echo "@@setup_auto_128@@" > arm2
 mkdir hip
-echo "I'm the left leg" > hip/leg1
-echo "I'm the right leg" > hip/leg2
+echo "@@setup_auto_129@@" > hip/leg1
+echo "@@setup_auto_130@@" > hip/leg2
 git add .
 git write-tree
 

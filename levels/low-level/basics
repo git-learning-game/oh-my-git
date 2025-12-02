@@ -1,25 +1,16 @@
 [description]
 
-For this prototype, we assume you have some experience with the command line. Here are some commands that will be useful:
-
-- ls
-- echo content > file
-- cat file
-- mkdir dir
-
-Find the riddle in your current directory and put the answer into the file "answer"!
+basics_description_293
 
 [congrats]
 
-Omnomnom!
-
-For technical reasons, you can't use `cd` in this prototype yet. But there won't be a lot of interaction with the file system anyways. :)
+basics_congrats_294
 
 [setup]
 
 mkdir riddle
-echo "ppl p" > riddle/consonants
-echo "ae ie" > riddle/vowels
+echo "@@setup_auto_077@@" > riddle/consonants
+echo "@@setup_auto_078@@" > riddle/vowels
 
 [win]
 

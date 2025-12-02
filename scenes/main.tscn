@@ -1,30 +1,21 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/terminal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/cards.tscn" type="PackedScene" id=3]
-[ext_resource path="res://styles/alert_button.tres" type="StyleBox" id=4]
+[ext_resource path="res://scenes/global_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/file_browser.tscn" type="PackedScene" id=5]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=6]
-[ext_resource path="res://fonts/big.tres" type="DynamicFont" id=7]
+[ext_resource path="res://fonts/Moderustic-VariableFont_wght.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://sounds/success.wav" type="AudioStream" id=8]
 [ext_resource path="res://scenes/cursor.gd" type="Script" id=9]
-[ext_resource path="res://scenes/cli_badge.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/music_button.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=2]
+size = 46
+font_data = ExtResource( 7 )
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 1.0
-
-[sub_resource type="StyleBoxFlat" id=2]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 5.0
-content_margin_bottom = 5.0
-bg_color = Color( 0.847059, 0.0666667, 0.0666667, 1 )
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -101,8 +92,8 @@ margin_right = 633.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_stretch_ratio = 0.0
-custom_fonts/normal_font = ExtResource( 7 )
-text = "Level name here!"
+custom_fonts/normal_font = SubResource( 2 )
+text = "main_levelname_014"
 fit_content_height = true
 scroll_active = false
 __meta__ = {
@@ -120,11 +111,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
 bbcode_enabled = true
-bbcode_text = "Level description here!"
-text = "Level description here!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+bbcode_text = "main_leveldescription_015"
+text = "main_leveldescription_015"
 
 [node name="LevelCongrats" type="RichTextLabel" parent="Rows/Columns/RightSide/LevelInfo/LevelPanel/Text"]
 visible = false
@@ -132,8 +120,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_vertical = 3
 bbcode_enabled = true
-bbcode_text = "Level description here!"
-text = "Level description here!"
+bbcode_text = "main_leveldescription_015"
+text = "main_leveldescription_015"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -189,97 +177,23 @@ position = Vector2( 68.6342, 59.1206 )
 script = ExtResource( 9 )
 
 [node name="Area2D" type="Area2D" parent="Cursor"]
-input_pickable = false
 collision_layer = 524288
 collision_mask = 0
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D"]
 shape = SubResource( 1 )
 
-[node name="Menu" type="HBoxContainer" parent="."]
-margin_left = 3.86392
-margin_top = 5.13129
-margin_right = 636.864
-margin_bottom = 44.1313
-custom_constants/separation = 8
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Menu" parent="." instance=ExtResource( 4 )]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1280.0
+margin_bottom = 46.0
 
-[node name="BackButton" type="Button" parent="Menu"]
-margin_right = 65.0
-margin_bottom = 39.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ReloadButton2" type="Button" parent="Menu"]
-margin_left = 73.0
-margin_right = 161.0
-margin_bottom = 39.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Reload"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CardsButton" type="Button" parent="Menu"]
-visible = false
-margin_left = 458.0
-margin_right = 539.0
-margin_bottom = 39.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Cards!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tip!" type="Button" parent="Menu"]
-visible = false
-margin_left = 169.0
-margin_right = 225.0
-margin_bottom = 39.0
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Tip!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button3" parent="Menu" instance=ExtResource( 11 )]
-margin_left = 169.0
-margin_top = 0.0
-margin_right = 315.0
-margin_bottom = 39.0
-
-[node name="CLIBadge" parent="Menu" instance=ExtResource( 10 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 323.0
-margin_right = 368.0
-margin_bottom = 39.0
-
-[node name="NextLevelButton" type="Button" parent="Menu"]
-margin_left = 376.0
-margin_right = 493.0
-margin_bottom = 39.0
-focus_mode = 0
-custom_styles/hover = SubResource( 2 )
-custom_styles/normal = ExtResource( 4 )
-enabled_focus_mode = 0
-text = "Next level"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="saved" from="Rows/Columns/RightSide/FileBrowser" to="." method="update_repos"]
 [connection signal="command_done" from="Rows/Controls/Terminal" to="." method="update_repos"]
-[connection signal="pressed" from="Menu/BackButton" to="." method="back"]
-[connection signal="pressed" from="Menu/ReloadButton2" to="." method="reload_level"]
-[connection signal="pressed" from="Menu/CardsButton" to="." method="toggle_cards"]
-[connection signal="pressed" from="Menu/Tip!" to="." method="new_tip"]
-[connection signal="pressed" from="Menu/NextLevelButton" to="." method="load_next_level"]
+[connection signal="back_pressed" from="Menu" to="." method="back"]
+[connection signal="cards_toggle_pressed" from="Menu" to="." method="toggle_cards"]
+[connection signal="new_tip_pressed" from="Menu" to="." method="new_tip"]
+[connection signal="next_level_pressed" from="Menu" to="." method="load_next_level"]
+[connection signal="reload_pressed" from="Menu" to="." method="reload_level"]

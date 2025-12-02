@@ -1,36 +1,33 @@
-title = Unexpected Roommates
+title = filesdelete_title_243
 cards = file-delete
 
 [description]
 
-The first day at Time Travel School comes to an end and you receive the key to your room.
-Full of excitement you open the door just to find... spider webs! Spider webs everywhere!
-
-Remove all the spider webs you can find with the remove card!
+filesdelete_description_244
 
 [cli]
 
-On the command line, you can easily delete all files ending in -web using this command:
+cli_filesdelete_017
 
-    rm *web
+    cli_filesdelete_018
 
 [setup]
 
-echo A tiny spider web is next to your window. > tiny_web
-echo A big spider web sticks above your bed. > big_web
-echo A cozy bed. > bed
-echo An extra thick spider web is right beside your door. > thick_web
+echo @@setup_auto_222@@  > tiny_web
+echo @@setup_auto_223@@  > big_web
+echo @@setup_auto_224@@  > bed
+echo @@setup_auto_225@@  > thick_web
 
 [win]
 
-# Remove all spider webs.
+# filesdelete_win_hint_246
 ! ls | grep thick_web &&
 ! ls | grep big_web &&
 ! ls | grep tiny_web
 
-# But make sure you keep your bed!
+# filesdelete_win_hint_247
 ls | grep bed
 
 [congrats]
 
-Your room looks now very tidy and cozy! Time to unpack your stuff!
+filesdelete_congrats_245

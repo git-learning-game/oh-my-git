@@ -1,31 +1,23 @@
 [description]
 
-After carefully building the index we want, it would be nice to save a permanent snapshot of it, right?
-
-This is what the second type of objects is for: trees! You can convert the index into a tree using
-
-    git write-tree
-
-Try it! :)
+treecreate_description_289
 
 [congrats]
 
-Nice!
-
-Can you make a different tree? Modify the index, then call `git write-tree` again!
+treecreate_congrats_290
 
 [setup]
 
-echo "file 1" > file1
-echo "file 2" > file2
-echo "file 3" > file3
+echo "@@setup_auto_117@@" > file1
+echo "@@setup_auto_118@@" > file2
+echo "@@setup_auto_119@@" > file3
 git add .
 
 [setup goal]
 
-echo "file 1" > file1
-echo "file 2" > file2
-echo "file 3" > file3
+echo "@@setup_auto_120@@" > file1
+echo "@@setup_auto_121@@" > file2
+echo "@@setup_auto_122@@" > file3
 git add .
 
 git write-tree

@@ -1,73 +1,41 @@
-title = Rebasing
+title = rebase_title_253
 cards = checkout commit-auto reset-hard rebase
 
 [description]
 
-Okay - turns out that saving time in the morning by utilizing parallel universes is against the regulations of the International Time Travel Association. You'll have to do your tasks in sequence after all.
-
-See the "rebase" card? When you drag it to a commit, it will copy the events in your current timeline after the specified one! This way, make a clean, linear timeline where you visit all three shops.
-
-Again, we want to make that our base reality - the "main" branch should point to that timeline!
+rebase_description_254
 
 [setup]
 
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_147@@" > you
 
 git add .
 git commit -m "The Beginning"
 
 git checkout -b baguette main
-echo "You have a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_148@@" > you
 git add .
 git commit -m "You buy a baguette"
 
-echo "You ate a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_149@@" > you
 git add .
 git commit -m "You eat the baguette"
 
 git checkout -b coffee main
-echo "You do not have a baguette.
-
-You have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_150@@" > you
 git add .
 git commit -m "You buy some coffee"
 
-echo "You do not have a baguette.
-
-You drank coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_151@@" > you
 git add .
 git commit -m "You drink the coffee"
 
 git checkout -b donut main
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You have a donut." > you
+echo "@@setup_auto_152@@" > you
 git add .
 git commit -m "You buy a donut"
 
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You ate a donut." > you
+echo "@@setup_auto_153@@" > you
 git add .
 git commit -m "You eat the donut"
 
@@ -76,11 +44,9 @@ git checkout --detach main
 
 [win]
 
-# Order all tree branches into one and move the main branch ref
+# rebase_win_hint_256
 { git show main:you | grep "You ate.*baguette"; } && { git show main:you | grep "You drank.*coffee"; } && { git show main:you | grep "You ate.*donut"; } && { test "$(git log main --oneline | wc -l)" -eq 7; }
 
 [congrats]
 
-Notice how the other timelines and commits are still there - if anything goes wrong, you can also travel back to them.
-
-It's really hard to actually *destroy* stuff with your time machine.
+rebase_congrats_255

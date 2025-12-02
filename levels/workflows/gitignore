@@ -1,15 +1,13 @@
-title = Ignoring files
+title = gitignore_title_265
 
 [description]
 
-That chicken is running around a lot, and changing often. We don't want to have it in our commits.
-
-Add it to the file .gitignore, and try using `git add .`!
+gitignore_description_266
 
 [setup]
 
 touch .gitignore
-echo important > important
+echo @@setup_auto_215@@  > important
 git add important
 git commit -m "Initial commit"
 

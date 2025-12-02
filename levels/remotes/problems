@@ -1,33 +1,33 @@
-title = Problems
+title = problems_title_306
 cards = checkout add pull push commit-auto merge
 
 [description]
 
-Both you and your friend have been working on the file, and want to sync up!
+problems_description_307
 
 [setup yours]
 
-echo "The bike shed should be ???" > file
+echo "@@setup_auto_228@@" > file
 git add .
 git commit -m "initial"
 
 git push -u friend main
 
-echo "The bike shed should be green" > file
+echo "@@setup_auto_229@@" > file
 
 [setup friend]
 
 git checkout main
 
-echo "The bike shed should be blue" > file
+echo "@@setup_auto_230@@" > file
 git commit -a -m "friends version"
 
 [win]
 
-# Commit your local changes.
+# problems_win_hint_308
 test "$(git status -s)" = ""
 
 [win friend]
 
-# Look at your friend's suggestion, make a compromise, and push it back.
+# problems_win_hint_309
 git rev-parse main^ && test "$(git rev-parse main^1^)" = "$(git rev-parse main^2^)"

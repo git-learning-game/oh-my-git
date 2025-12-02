@@ -1,20 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/file_browser.gd" type="Script" id=1]
 [ext_resource path="res://fonts/default.tres" type="DynamicFont" id=2]
 [ext_resource path="res://styles/theme.tres" type="Theme" id=3]
 
-[node name="FileBrowser" type="Control" groups=[
-"editors",
-]]
+[sub_resource type="StyleBoxEmpty" id=1]
+content_margin_left = 10.0
+content_margin_right = 145.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[node name="FileBrowser" type="Control" groups=["editors"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 0, 142 )
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
@@ -48,7 +49,7 @@ __meta__ = {
 visible = false
 margin_right = 1904.0
 margin_bottom = 29.0
-text = "title"
+text = "file_browser_title_033"
 align = 1
 
 [node name="Breadcrumbs" type="HBoxContainer" parent="Panel/Margin/Rows"]
@@ -61,13 +62,13 @@ custom_constants/separation = 8
 [node name="Button" type="Button" parent="Panel/Margin/Rows/Breadcrumbs"]
 margin_right = 55.0
 margin_bottom = 50.0
-text = "root"
+text = "file_browser_button_034"
 
 [node name="Button2" type="Button" parent="Panel/Margin/Rows/Breadcrumbs"]
 margin_left = 63.0
 margin_right = 104.0
 margin_bottom = 50.0
-text = "dir"
+text = "file_browser_button2_035"
 
 [node name="Scroll" type="ScrollContainer" parent="Panel/Margin/Rows"]
 margin_right = 1904.0
@@ -91,6 +92,7 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_styles/normal = SubResource( 1 )
 wrap_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -105,10 +107,11 @@ margin_left = -114.396
 margin_top = -59.399
 margin_right = -14.3955
 margin_bottom = -14.399
+grow_horizontal = 0
 focus_mode = 0
 custom_fonts/font = ExtResource( 2 )
 enabled_focus_mode = 0
-text = "Save"
+text = "file_browser_savebutton_036"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -131,5 +134,6 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="."]
 margin_right = 20.0
 margin_bottom = 20.0
+
 [connection signal="pressed" from="Panel/TextEdit/SaveButton" to="." method="save"]
 [connection signal="pressed" from="Panel/TextEdit/CloseButton" to="." method="close"]

@@ -5,59 +5,60 @@
 [ext_resource path="res://scenes/notification.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 13.0
+content_margin_bottom = 13.0
 bg_color = Color( 0.0431373, 0.368627, 0.141176, 0.843137 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="Notification" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 z_index = 4096
-script = ExtResource( 3 )
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Notification" type="PanelContainer" parent="."]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 492.0
 margin_bottom = 170.0
-theme = ExtResource( 2 )
 custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Panel" type="VBoxContainer" parent="Notification"]
 margin_left = 16.0
 margin_top = 13.0
-margin_right = -15.0
-margin_bottom = -15.0
+margin_right = 468.0
+margin_bottom = 149.0
+theme = ExtResource( 2 )
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="Notification/Panel"]
+margin_right = 452.0
+margin_bottom = 87.0
+size_flags_vertical = 7
 custom_fonts/font = ExtResource( 1 )
-text = "This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint! This is a hint!"
+text = "notification_label_031"
 autowrap = true
+
+[node name="CenterContainer" type="CenterContainer" parent="Notification/Panel"]
+margin_top = 97.0
+margin_right = 452.0
+margin_bottom = 136.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="Panel"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -58.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OK" type="Button" parent="Panel/CenterContainer"]
-margin_left = 202.0
-margin_top = 9.0
-margin_right = 282.0
-margin_bottom = 48.0
+[node name="OK" type="Button" parent="Notification/Panel/CenterContainer"]
+margin_left = 106.0
+margin_right = 345.0
+margin_bottom = 39.0
 focus_mode = 0
 enabled_focus_mode = 0
-text = "Got it!"
+text = "notification_ok_032"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Panel/CenterContainer/OK" to="." method="confirm"]
+
+[connection signal="pressed" from="Notification/Panel/CenterContainer/OK" to="Notification" method="confirm"]

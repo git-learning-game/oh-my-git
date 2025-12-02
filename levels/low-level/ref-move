@@ -1,15 +1,11 @@
 [description]
 
-You can point refs to a new location using the same command you use to create them:
-
-    git update-ref refs/<refname> <object>
-
-As an exercise, make all refs in this repository point to the tree object!
+refmove_description_282
 
 [setup]
 
-echo hello > hello
-echo world > world
+echo @@setup_auto_123@@  > hello
+echo @@setup_auto_124@@  > world
 BLOB1=$(git hash-object -w hello)
 BLOB2=$(git hash-object -w world)
 git add .
@@ -21,8 +17,8 @@ git update-ref refs/b "$COMMIT"
 
 [setup goal]
 
-echo hello > hello
-echo world > world
+echo @@setup_auto_125@@  > hello
+echo @@setup_auto_126@@  > world
 BLOB1=$(git hash-object -w hello)
 BLOB2=$(git hash-object -w world)
 git add .

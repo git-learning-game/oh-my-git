@@ -27,7 +27,7 @@ margin_top = 234.592
 margin_right = 1034.46
 margin_bottom = 290.592
 custom_fonts/font = ExtResource( 4 )
-text = "Oh My Git!"
+text = "survey_label_012"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -39,7 +39,7 @@ margin_right = 1115.7
 margin_bottom = 353.059
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
 custom_fonts/font = ExtResource( 5 )
-text = "by bleeptrack & blinry"
+text = "title_label2_007"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -64,7 +64,7 @@ __meta__ = {
 [node name="Button2" type="Button" parent="VBoxContainer"]
 margin_right = 351.0
 margin_bottom = 39.0
-text = "Quit"
+text = "title_button2_011"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -101,7 +101,7 @@ custom_styles/pressed = ExtResource( 7 )
 custom_styles/focus = ExtResource( 7 )
 custom_styles/normal = ExtResource( 6 )
 enabled_focus_mode = 0
-text = "Support us! (Open two browser tabs)"
+text = "survey_button_013"
 __meta__ = {
 "_edit_use_anchors_": false
 }

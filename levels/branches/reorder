@@ -1,73 +1,37 @@
-title = Moving branches around
+title = reorder_title_098
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-One of your colleagues messed up here, and put the branches in the wrong timelines!
-
-You could delete and re-create these branches - but you can also directly move them to different commits, by using
-
-    git checkout
-
-on the branch names, and then using
-
-    git reset --hard
-
-on the commit where you want the branch to be.
-
-The donut branch is in the right place, but the timeline is still incomplete - make you actually *eat* the donut in that branch!
+reorder_description_099
 
 [setup]
 
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_177@@" > you
 
 git add .
 git commit -m "The Beginning"
 
 git checkout -b coffee
-echo "You have a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_178@@" > you
 git add .
 git commit -m "You buy a baguette"
 
-echo "You ate a baguette.
-
-You do not have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_179@@" > you
 git add .
 git commit -m "You eat the baguette"
 
 git checkout -b baguette main
-echo "You do not have a baguette.
-
-You have coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_180@@" > you
 git add .
 git commit -m "You buy some coffee"
 
-echo "You do not have a baguette.
-
-You drank coffee.
-
-You do not have a donut." > you
+echo "@@setup_auto_181@@" > you
 git add .
 git commit -m "You drink the coffee"
 
 git checkout -b donut main
-echo "You do not have a baguette.
-
-You do not have coffee.
-
-You have a donut." > you
+echo "@@setup_auto_182@@" > you
 git add .
 git commit -m "You buy a donut"
 
@@ -75,13 +39,13 @@ git checkout --detach main
 
 [win]
 
-# Did you eat a baguette on the baguette branch?
+# reorder_win_hint_100
 git show baguette:you | grep "You ate.*baguette"
 
-# Did you drink a coffee on the coffee branch?
+# reorder_win_hint_101
 git show coffee:you | grep "You drank.*coffee"
 
-# Did you eat a donut on the donut branch?
+# reorder_win_hint_102
 git show donut:you | grep "You ate.*donut"
 
 [actions]

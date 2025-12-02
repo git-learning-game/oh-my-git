@@ -1,9 +1,9 @@
-title = Make a commit \o/
+title = commit_title_188
 cards = add reset checkout commit
 
 [description]
 
-For practice, make a commit where all files contain an "x"!
+commit_description_189
 
 [setup]
 
@@ -19,9 +19,9 @@ echo c > c
 
 [win]
 
-# File a contains "x" in the last main commit.
+# commit_win_hint_190
 test "$(git show main:a)" = x
-# File b contains "x" in the last main commit.
+# commit_win_hint_191
 test "$(git show main:b)" = x
-# File c contains "x" in the last main commit.
+# commit_win_hint_192
 test "$(git show main:c)" = x

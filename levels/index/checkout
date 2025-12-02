@@ -1,11 +1,9 @@
-title = Checking out files from the index
+title = checkout_title_073
 cards = add reset-file checkout-file commit
 
 [description]
 
-So you've made changes to your files, but you decide that you don't want to keep them! You can use `git checkout` for that!
-
-What happens if you have already update the index, like in file c? You have to reset the index first!
+checkout_description_074
 
 [setup]
 
@@ -21,5 +19,5 @@ git add c
 
 [win]
 
-# Remove all changes in your local files!
+# checkout_win_hint_075
 test "$(git diff --name-only | wc -l)" -eq 0

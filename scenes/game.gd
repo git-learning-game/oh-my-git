@@ -12,6 +12,9 @@ var current_chapter = 0
 var current_level = 0
 var skipped_title = false
 
+var available_languages = []
+var current_language
+
 var _file = "user://savegame.json"
 var state = {}
 
@@ -30,6 +33,8 @@ func _ready():
 		start_remote_shell()
 	global_shell = new_shell()
 	
+	_load_translations()
+	_set_initial_language()
 #	var cmd = global_shell.run("echo hi")
 #	print(cmd)
 #	cmd = global_shell.run("seq 1 10")
@@ -119,7 +124,8 @@ func notify(text, target=null, hint_slug=null):
 			return
 		
 	var notification = preload("res://scenes/notification.tscn").instance()
-	notification.text = text
+	notification.get_node("Notification/Panel/Label").text = text
+	
 	if not target:
 		target = get_tree().root
 	target.call_deferred("add_child", notification)
@@ -159,4 +165,64 @@ func new_shell():
 	if OS.get_name() == "Windows":
 		return BetterShell.new()
 	else:
-		return Shell.new()
+		return Shell.new()	
+
+func _load_translations():
+	var file = File.new()
+	var path = "res://translations.csv"
+
+	file.open(path, File.READ)
+	
+	var header = file.get_csv_line()
+	var translations_map = {}
+	
+	for i in range(1, header.size()):
+		var locale = header[i].strip_edges()
+		
+		available_languages.append(locale)
+		
+		var translation = Translation.new()
+		translation.set_locale(locale)
+		translations_map[locale] = translation
+	
+	var loaded_keys = 0
+	
+	while not file.eof_reached():
+		var line = file.get_csv_line()
+		var key = line[0].strip_edges()
+		
+		for i in range(1, min(line.size(), header.size())):
+			var locale = header[i].strip_edges()
+			var translated_text = line[i]
+			
+			if translations_map.has(locale):
+				translations_map[locale].add_message(key, translated_text)
+		
+		loaded_keys += 1
+	
+	file.close()
+	
+	for locale in translations_map.keys():
+		TranslationServer.add_translation(translations_map[locale])
+
+func _set_initial_language():
+	var system_language = OS.get_locale_language()
+
+	if system_language in available_languages:
+		current_language = system_language
+	else:
+		current_language = "en"
+		
+	TranslationServer.set_locale(current_language)
+	
+func get_available_languages() -> Array:
+	return available_languages
+
+func _update_title_ui():
+	get_tree().reload_current_scene()
+
+func change_language(new_language: String):
+	current_language = new_language
+	TranslationServer.set_locale(new_language)
+	_update_title_ui()
+	

@@ -30,7 +30,7 @@ margin_right = 1138.2
 margin_bottom = 601.117
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
-text = "by bleeptrack & blinry"
+text = "title_label2_007"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -43,7 +43,7 @@ margin_right = 1216.13
 margin_bottom = 628.398
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.533333, 0.392157, 0.392157, 1 )
-text = "Original score by winniehell"
+text = "title_label3_008"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -62,18 +62,18 @@ __meta__ = {
 visible = false
 margin_right = 351.0
 margin_bottom = 39.0
-text = "Levels"
+text = "title_button_009"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 visible = false
 margin_right = 351.0
 margin_bottom = 39.0
-text = "Sandbox"
+text = "title_button3_010"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 margin_right = 351.0
 margin_bottom = 39.0
-text = "Sure, I'll install it!"
+text = "no_git_button2_030"
 
 [node name="Sprite" type="Sprite" parent="."]
 

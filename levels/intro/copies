@@ -1,42 +1,29 @@
-title = Making backups
+title = copies_title_140
 cards =
 
 [description]
 
-This time, you're making a lot of backup copies - you can look at them by clicking on them!
+copies_description_141
 
 [congrats]
 
-Okay, this kind of works.
-
-But you're a bit worried that you'll end up with hundreds of copies of this form, and it will be hard to keep track of all of them.
-
-And especially when working with other people, sending copies back and forth doesn't seem ideal.
-
-You can't wait to try these time machines!
+copies_congrats_142
 
 [setup]
 
 rm -rf .git
 
-echo "~ Why I want to learn Git ~
-
-(I still need to write this.)" >> form.txt
+echo "@@setup_auto_021@@" >> form.txt
 
 
-echo "~ Why I want to learn Git ~
-
-- So that I can undo mistakes" >> form2.txt
+echo "@@setup_auto_022@@" >> form2.txt
 
 
-echo "~ Why I want to learn Git ~
-
-- So that I can undo mistakes
-- To track my projects over time" >> form2_final.txt
+echo "@@setup_auto_023@@" >> form2_final.txt
 
 cp form2_final.txt form2_really_final.txt
 
 [win]
 
-# Add another line to form2_really_final.txt!
+# copies_win_hint_143
 test "$(cat form2_really_final.txt | wc -l )" -ge 5

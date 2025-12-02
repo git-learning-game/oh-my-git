@@ -1,8 +1,6 @@
 [description]
 
-Construct a chain of three trees, which don't point to anything else.
-
-This is hard! The `git mktree` command might be useful.
+puzzletreesallthewaydown_description_298
 
 [setup]
 
@@ -19,11 +17,11 @@ TREES=$(git cat-file --batch-check='%(objectname) %(objecttype)' --batch-all-obj
 for TREE in $TREES; do
     if [ "$(git cat-file -p $TREE | wc -l)" -eq 1 ]; then
         if [ "$(git cat-file -p $TREE | cut -f1 | grep tree | wc -l)" -eq 1 ]; then
-            # So the tree has exactly one child, and it is a tree!
+            # puzzletreesallthewaydown_win_hint_299
             TREE2=$(git cat-file -p $TREE | cut -f1 | grep tree | cut -f3 -d" ")
             if [ "$(git cat-file -p $TREE2 | wc -l)" -eq 1 ]; then
                 if [ "$(git cat-file -p $TREE2 | cut -f1 | grep tree | wc -l)" -eq 1 ]; then
-                    # Same for its child! \o/
+                    # puzzletreesallthewaydown_win_hint_300
                     return 0
                 fi
             fi

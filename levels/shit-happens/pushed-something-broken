@@ -1,44 +1,20 @@
-title = I pushed something broken
+title = pushedsomethingbroken_title_216
 cards = revert push
 
 [description]
 
-We were talking about how to undo a commit, and fix it. This only helps when you haven't already pushed it to a remote. When that has happened, and you want to undo the effects of the commit completely, your best option is `git revert`
+pushedsomethingbroken_description_217
 
 [setup]
 
-echo "this is fine
-
-?
-
-?
-
-?" > text
+echo "@@setup_auto_211@@" > text
 git add .
 git commit -m fine
-echo "this is fine
-
-this is also fine
-
-?
-
-?" > text
+echo "@@setup_auto_212@@" > text
 git commit -am "also fine"
-echo "this is fine
-
-this is also fine
-
-this is very bad
-
-?" > text
+echo "@@setup_auto_213@@" > text
 git commit -am "very bad"
-echo "this is fine
-
-this is also fine
-
-this is very bad
-
-this is fine again" > text
+echo "@@setup_auto_214@@" > text
 git commit -am "fine again"
 
 git push team main
@@ -48,7 +24,7 @@ git branch -u team/main main
 
 [win team]
 
-# The team's main branch no longer contains the bad thing.
+# pushed_win_hint_1
 ! { git show main:text | grep -q "very bad"; }
-# And the history has not been modified.
+# pushed_win_hint_2
 git show main^:text | grep -q "very bad"

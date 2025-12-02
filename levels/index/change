@@ -1,31 +1,27 @@
-title = Update files in the index
+title = change_title_058
 cards = add commit
 
 [description]
 
-When we change files, the index won't change on its own. We have to use `git add` to update the index to the changed version of the file.
-
-Let's try that!
-
-The icons in the file browser show you when the actual file (white) and the version in the index (blue) are different, and when they are the same!
+change_description_059
 
 [win]
 
-Good! The index is sometimes also called the "staging area" - it contains exactly what ends up in the next commit when you use `git commit`!
+change_win_060
 
 [setup]
 
-echo "The candle is burning with a blue flame." > candle
+echo "@@setup_auto_024@@" > candle
 git add .
 git commit -m "The beginning"
 
 [win]
 
-# Make a change to the candle.
+# new_win_hint_085
 test "$(git diff --name-only)" = "candle" || file -f .git/candle-changed && touch .git/candle-changed
 
-# Add the candle.
+# new_win_hint_083
 test "$(git diff --cached --name-only)" = "candle" || file -f .git/candle-added && touch .git/candle-added
 
-# Make a commit.
+# new_win_hint_084
 test "$(git diff --name-only HEAD HEAD^)" = "candle"

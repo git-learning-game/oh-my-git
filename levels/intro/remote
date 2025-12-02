@@ -1,23 +1,21 @@
-title = Working together
+title = remote_title_128
 cards = pull commit-auto push
 
 [description]
 
-Let's add your name to our list of students!
-
-I already have a second commit of it in my time machine - let's work together!
+remote_description_129
 
 [cli]
 
-To go back to old commands, you can press arrow up and down. That way, you don't have to type in long commands twice.
+cli_remote_001
 
 [congrats]
 
-Welcome to time travel school! :) I'll see you for your first class tomorrow!
+remote_congrats_130
 
 [setup]
 
-echo "~ List of current students ~" > students
+echo "@@setup_auto_016@@" > students
 git add .
 git commit -m "Initial version"
 git push -u teacher main
@@ -28,25 +26,23 @@ git update-ref -d refs/remotes/teacher/main
 
 git reset --hard main
 
-echo " 
-- Sam
-- Alex" >> students
+echo "@@setup_auto_017@@" >> students
 
 git add .
 git commit -m "Added two students"
 
 [win]
 
-# Get the second commit from your teacher using `git pull`.
+# remote_win_hint_131
 test "$(git log --oneline teacher/main | wc -l)" -ge 2
 
-# Add your name to the list of students
+# remote_win_hint_132
 test "$(cat students |wc -l)" -ge 5
 
-# Commit your result.
+# remote_win_hint_133
 test "$(git show main:students |wc -l)" -ge 5
 
 [win teacher]
 
-# And use `git push` to send it to your teacher!
+# remote_win_hint_134
 test "$(git show main:students |wc -l)" -ge 5

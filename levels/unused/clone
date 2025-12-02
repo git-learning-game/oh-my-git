@@ -1,9 +1,9 @@
-title = Cloning a repo
+title = clone_title_168
 cards = clone commit-auto pull push
 
 [description]
 
-Get your friend's repo using clone, change something, push it back.
+clone_description_169
 
 [setup]
 

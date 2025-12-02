@@ -1,12 +1,9 @@
-title = Nice to meet you!
+title = whoareyou_title_164
 cards = config-name config-email
 
 [description]
 
-Introduce yourself using
-
-    git config --global user.name Firstname
-    git config --global user.email "your@mail.com"
+whoareyou_description_165
 
 [setup]
 
@@ -16,8 +13,8 @@ test "$(git config user.name)" != "You" && hint "Hey $(git config user.name), ni
 
 [win]
 
-# Have a name configured.
+# whoareyou_win_hint_166
 test "$(git config user.name)" != "You"
 
-# Have an email address configured.
+# whoareyou_win_hint_167
 test "$(git config user.email)" != "you@time.agency"

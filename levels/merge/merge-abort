@@ -1,24 +1,18 @@
-title = Abort a merge
+title = mergeabort_title_049
 cards = checkout commit-auto merge merge-abort
 
 [description]
 
-Sometimes you want to merge two commits, but a merge conflict occurs that you currently don't want to resolve.
-
-In these situations you can abort the merge to merge later. Use
-    git merge --abort
-when you are in a merge process.
-
-Try to merge both commits and abort the merge afterwards.
+mergeabort_description_050
 
 [setup]
 
-echo "A new day is starting" > you
+echo "@@setup_auto_008@@" > you
 
 git add .
 git commit -m "Start"
 
-echo "Walking down the Main Lane." >> you
+echo "@@setup_auto_009@@" >> you
 
 git add .
 git commit -m "Main Lane"
@@ -26,7 +20,7 @@ git commit -m "Main Lane"
 
 git checkout HEAD~1
 
-echo "Walking down the Side Lane." >> you
+echo "@@setup_auto_010@@" >> you
 
 git add .
 git commit -m "Side Lane"
@@ -43,12 +37,12 @@ fi
 
 [win]
 
-# You tried to merge?
+# mergeabort_win_hint_052
 test -f .git/secretfile
 
-# You aborted to merge?
+# mergeabort_win_hint_053
 test -f .git/secretfile && ! test -f .git/MERGE_HEAD && ! git rev-parse HEAD^^
 
 [congrats]
 
-Aaah, let's merge later...
+mergeabort_congrats_051
