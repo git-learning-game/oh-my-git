@@ -1,42 +1,42 @@
-title = Making backups
+title = _(Making backups)
 cards =
 
 [description]
 
-This time, you're making a lot of backup copies - you can look at them by clicking on them!
+_(This time, you're making a lot of backup copies - you can look at them by clicking on them!)
 
 [congrats]
 
-Okay, this kind of works.
+_(Okay, this kind of works.
 
 But you're a bit worried that you'll end up with hundreds of copies of this form, and it will be hard to keep track of all of them.
 
 And especially when working with other people, sending copies back and forth doesn't seem ideal.
 
-You can't wait to try these time machines!
+You can't wait to try these time machines!)
 
 [setup]
 
 rm -rf .git
 
-echo "~ Why I want to learn Git ~
+echo "_(~ Why I want to learn Git ~
 
-(I still need to write this.)" >> form.txt
-
-
-echo "~ Why I want to learn Git ~
-
-- So that I can undo mistakes" >> form2.txt
+(I still need to write this.))" >> form.txt
 
 
-echo "~ Why I want to learn Git ~
+echo "_(~ Why I want to learn Git ~
+
+- So that I can undo mistakes)" >> form2.txt
+
+
+echo "_(~ Why I want to learn Git ~
 
 - So that I can undo mistakes
-- To track my projects over time" >> form2_final.txt
+- To track my projects over time)" >> form2_final.txt
 
 cp form2_final.txt form2_really_final.txt
 
 [win]
 
-# Add another line to form2_really_final.txt!
+# _(Add another line to form2_really_final.txt!)
 test "$(cat form2_really_final.txt | wc -l )" -ge 5

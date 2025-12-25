@@ -1,15 +1,15 @@
-title = Ignoring files
+title = _(Ignoring files)
 
 [description]
 
-That chicken is running around a lot, and changing often. We don't want to have it in our commits.
+_(That chicken is running around a lot, and changing often. We don't want to have it in our commits.
 
-Add it to the file .gitignore, and try using `git add .`!
+Add it to the file .gitignore, and try using `git add .`!)
 
 [setup]
 
 touch .gitignore
-echo important > important
+echo "_(important)"  > important
 git add important
 git commit -m "Initial commit"
 

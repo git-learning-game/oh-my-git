@@ -1,13 +1,13 @@
-title = Make a commit, but faster!
+title = _(Make a commit, but faster!)
 cards = add reset checkout commit commit-a
 
 [description]
 
-There is a time-saving trick, where instead of a plain `git commit`, you can use
+_(There is a time-saving trick, where instead of a plain git commit, you can use
 
     git commit -a
 
-This will automatically add all changes you made to local files! Very convenient.
+This will automatically add all changes you made to local files! Very convenient.)
 
 [setup]
 
@@ -22,5 +22,5 @@ echo x > c
 
 [win]
 
-# Make a commit where all files contain "x".
+# _(Make a commit where all files contain "x".)
 test "$(git show main:a)" = x && test "$(git show main:b)" = x && test "$(git show main:c)" = x

@@ -1,68 +1,68 @@
-title = Merging timelines
+title = _(Merging timelines)
 cards = checkout commit-auto merge
 
 [description]
 
-Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!
+_(Here's a trick so that you can sleep a bit longer: just do all your morning activities in parallel universes, and then at the end, merge them together!)
 
 [setup]
 
-echo "You do not have a baguette.
+echo "_(You do not have a baguette.
 
 You do not have coffee.
 
-You do not have a donut." > you
+You do not have a donut.)" > you
 
 git add .
 git commit -m "The Beginning"
 
-echo "You have a baguette.
+echo "_(You have a baguette.
 
 You do not have coffee.
 
-You do not have a donut." > you
+You do not have a donut.)" > you
 git add .
 git commit -m "You buy a baguette"
 
-echo "You ate a baguette.
+echo "_(You ate a baguette.
 
 You do not have coffee.
 
-You do not have a donut." > you
+You do not have a donut.)" > you
 git add .
 git commit -m "You eat the baguette"
 
 git checkout HEAD~2
-echo "You do not have a baguette.
+echo "_(You do not have a baguette.
 
 You have coffee.
 
-You do not have a donut." > you
+You do not have a donut.)" > you
 git add .
 git commit -m "You buy some coffee"
 
-echo "You do not have a baguette.
+echo "_(You do not have a baguette.
 
 You drank coffee.
 
-You do not have a donut." > you
+You do not have a donut.)" > you
 git add .
 git commit -m "You drink the coffee"
 
 git checkout HEAD~2
-echo "You do not have a baguette.
+echo "_(You do not have a baguette.
 
 You do not have coffee.
 
-You have a donut." > you
+You have a donut.)" > you
 git add .
 git commit -m "You buy a donut"
 
-echo "You do not have a baguette.
+echo "_(You do not have a baguette.
 
 You do not have coffee.
 
-You ate a donut." > you
+You ate a donut.)" > you
 git add .
 git commit -m "You eat the donut"
 
@@ -71,12 +71,12 @@ git branch -D main
 
 [win]
 
-# Build a situation where you consumed a baguette, a coffee, *and* a donut.
-{ git show HEAD:you | grep "You ate.*baguette"; } && { git show HEAD:you | grep "You drank.*coffee"; } && { git show HEAD:you | grep "You ate.*donut"; }
+# _(Build a situation where you consumed a baguette, a coffee, and a donut.)
+{ git show HEAD:you | grep "_(You ate.*baguette)"; } && { git show HEAD:you | grep "_(You drank.*coffee)"; } && { git show HEAD:you | grep "_(You ate.*donut)"; }
 
-# Be on a merge commit.
+# _(Be on a merge commit.)
 test "$(git log --pretty=%P -n 1 HEAD | wc -w)" -ge 2
 
 [congrats]
 
-I wonder if you're more relaxed when you *sleep* in parallel timelines...
+_(I wonder if you're more relaxed when you sleep in parallel timelines...)

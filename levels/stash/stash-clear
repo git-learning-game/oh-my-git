@@ -1,16 +1,20 @@
-title = Clear the Stash
+title = _(Clear the Stash)
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-If you want to inspect your stash stack, use the command
+_(If you want to inspect your stash stack, use the command
+
     git stash list
-    
+
 Oh, you don't want to keep your stashed changes? There are way too many? Then go ahead and clear the stack with
+
     git stash clear
+
 If you only want to discard a certain stash entry, you can use
+
     git stash drop <stash>
-    
+
 Clear your stash stack!
 
 ---
@@ -18,34 +22,34 @@ tipp1
 ---
 tipp2
 ---
-tipp3
+tipp3)
 
 [setup]
 
-echo "Apple Pie:" > recipe
+echo "_(Apple Pie:)" > recipe
 
 git add .
 git commit -m "creating a recipe"
 
-echo "- 4 Apples" >> recipe
+echo "_(- 4 Apples)" >> recipe
 
 git add .
 git commit -m "Adding ingredients"
 
-echo "- 500g Flour" >> recipe
+echo "_(- 500g Flour)" >> recipe
 git stash push
 
-echo "- 200g Sugar" >> recipe
+echo "_(- 200g Sugar)" >> recipe
 git stash push
 
-echo "- Pinch of Salt" >> recipe
+echo "_(- Pinch of Salt)" >> recipe
 git stash push
 
 git checkout main
 
 [win]
 
-# Did you clear your stash stack?
+# _(Did you clear your stash stack?)
 test "$(git stash list | wc -l)" -eq 0
 
 [actions]
@@ -54,4 +58,4 @@ test "$(git stash list | wc -l)" -eq 0
 
 [congrats]
 
-All clear! :)
+_(All clear! :\))

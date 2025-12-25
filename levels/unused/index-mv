@@ -1,18 +1,18 @@
-title = Rename a file in the next commit
+title = _(Rename a file in the next commit)
 cards = add reset-file checkout-file mv commit
 
 [description]
 
-Other times, you might want to rename a file in the next commit. Use
+_(Other times, you might want to rename a file in the next commit. Use
 
     git mv [file] [new name]
 
-for that. The effect is very similar as if you had created a copy with a new name, and removed the old version.
+for that. The effect is very similar as if you had created a copy with a new name, and removed the old version.)
 
 [setup]
 
 echo a > a
-echo SPECIAL > b
+echo "_(SPECIAL)"  > b
 echo x > c
 git add .
 git commit -m "Initial commit"
@@ -22,5 +22,5 @@ git add b
 
 [win]
 
-# Make a commit where you rename the file b to "x".
+# _(Make a commit where you rename the file b to "x".)
 test "$(git ls-tree --name-only main)" = "$(echo -e "a\nc\nx")"

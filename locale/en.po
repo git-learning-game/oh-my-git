@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: oh-my-git\n"
+
+msgid "intro"
+msgstr "Introduction"
+
+msgid "files"
+msgstr "Files"
+
+msgid "branches"
+msgstr "Branches"
+
+msgid "merge"
+msgstr "Merging"
+
+msgid "index"
+msgstr "The Index"
+
+msgid "remotes"
+msgstr "Remotes"
+
+msgid "changing-the-past"
+msgstr "Changing the Past"
+
+msgid "shit-happens"
+msgstr "When Things Go Wrong"
+
+msgid "workflows"
+msgstr "Workflows"
+
+msgid "bisect"
+msgstr "Bisect"
+
+msgid "stash"
+msgstr "Stash"
+
+msgid "tags"
+msgstr "Tags"
+
+msgid "sandbox"
+msgstr "Sandbox"
+
+msgid "ru"
+msgstr "Русский"
+
+msgid "br"
+msgstr "Brazil"
+
+msgid "en"
+msgstr "English"

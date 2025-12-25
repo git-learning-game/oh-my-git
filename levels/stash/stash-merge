@@ -1,12 +1,13 @@
-title = Merging popped stash
+title = _(Merging popped stash)
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-When you want to re-apply your changes but you already continued working on your file, you might get
-a merge conflict! Let's practice this situation.
+_(When you want to re-apply your changes but you already continued working on your file, you might get a merge conflict! Let's practice this situation.
 Pop the changes from the stash with
+
     git stash pop
+
 and resolve the merge conflict. Commit the resolved changes and clear the stash stack afterwards.
 
 ---
@@ -14,35 +15,35 @@ tipp1
 ---
 tipp2
 ---
-tipp3
+tipp3)
 
 [setup]
 
-echo "Apple Pie:" > recipe
+echo "_(Apple Pie:)" > recipe
 
 git add .
 git commit -m "creating a recipe"
 
-echo "- 4 Apples" >> recipe
+echo "_(- 4 Apples)" >> recipe
 
 git add .
 git commit -m "Adding ingredients"
 
-echo "- 500g Flour" >> recipe
+echo "_(- 500g Flour)" >> recipe
 
 git stash push
 
-echo "- Pinch of Salt" >> recipe
+echo "_(- Pinch of Salt)" >> recipe
 
 git checkout main
 git add recipe
 
 [win]
 
-# Did you resolve the conflict and commit?
-{ git show HEAD | grep "Flour"; } && { git show HEAD | grep "Salt"; }
+# _(Did you resolve the conflict and commit?)
+{ git show HEAD | grep "_(Flour)"; } && { git show HEAD | grep "_(Salt)"; }
 
-# Did you clear stash stack?
+# _(Did you clear stash stack?)
 test "$(git stash list | wc -l)" -eq 0
 
 [actions]
@@ -51,4 +52,4 @@ test "$(git stash list | wc -l)" -eq 0
 
 [congrats]
 
-Yay, you got your changes back! :)
+_(Yay, you got your changes back! :\))

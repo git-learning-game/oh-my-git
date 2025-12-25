@@ -1,15 +1,15 @@
-title = The command line
+title = _(The command line)
 cards = 
 
 [description]
 
-These playing cards are designed to be easy to use and to remember! We'd suggest sticking to them if you don't have a lot of experience with Git!
+_(These playing cards are designed to be easy to use and to remember! We'd suggest sticking to them if you don't have a lot of experience with Git!)
 
 [cli]
 
-But there's another way to interact with Git:
+_(But there's another way to interact with Git:
 
-Try typing `git init` into the black terminal below, and pressing the enter key!
+Try typing `git init` into the black terminal below, and pressing the enter key!)
 
 [setup]
 
@@ -17,11 +17,11 @@ rm -rf .git
 
 [win]
 
-# Initialize the time machine!
+# _(Initialize the time machine!)
 test -d .git
 
 [congrats]
 
-Cool! Instead of using the playing cards, you can also do everything via the command line!
+_(Cool! Instead of using the playing cards, you can also do everything via the command line!
 
-The command line is pretty powerful! Often, you can use it to solve tasks faster compared to using a graphical interface.
+The command line is pretty powerful! Often, you can use it to solve tasks faster compared to using a graphical interface.)

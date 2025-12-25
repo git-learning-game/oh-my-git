@@ -1,13 +1,13 @@
-title = Tagging later
+title = _(Tagging later)
 cards = checkout commit-auto merge reset-hard
 
 [description]
 
-But what happens if you forgot to tag your current commit?
+_(But what happens if you forgot to tag your current commit?
 No Prob! You can also tag older commits via
 
     git tag <tag-name> <commit-hash>
-    
+
 Tag the commit "Adding feature 2" with the name "v1"!
 
 ---
@@ -15,21 +15,21 @@ tipp1
 ---
 tipp2
 ---
-tipp3
+tipp3)
 
 [setup]
 
-echo "event 1" > feature-list
+echo "_(event 1)" > feature-list
 
 git add .
 git commit -m "Adding feature 1"
 
-echo "event 2" >> feature-list
+echo "_(event 2)" >> feature-list
 
 git add .
 git commit -m "Adding feature 2"
 
-echo "event 3" >> feature-list
+echo "_(event 3)" >> feature-list
 
 git add .
 git commit -m "Adding feature 3"
@@ -38,7 +38,7 @@ git checkout --detach main
 
 [win]
 
-# Did you create a new tag?
+# _(Did you create a new tag?)
 test "$(git show v1 -s --format=%h)" = "$(git show HEAD~1 -s --format=%h)"
 
 [actions]
@@ -47,4 +47,4 @@ test "$(git show v1 -s --format=%h)" = "$(git show HEAD~1 -s --format=%h)"
 
 [congrats]
 
-Well done :)
+_(Well done :\))

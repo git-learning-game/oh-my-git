@@ -1,23 +1,23 @@
-title = Working together
+title = _(Working together)
 cards = pull commit-auto push
 
 [description]
 
-Let's add your name to our list of students!
+_(Let's add your name to our list of students!
 
-I already have a second commit of it in my time machine - let's work together!
+I already have a second commit of it in my time machine - let's work together!)
 
 [cli]
 
-To go back to old commands, you can press arrow up and down. That way, you don't have to type in long commands twice.
+_(To go back to old commands, you can press arrow up and down. That way, you don't have to type in long commands twice.)
 
 [congrats]
 
-Welcome to time travel school! :) I'll see you for your first class tomorrow!
+_(Welcome to time travel school! :\) I'll see you for your first class tomorrow!)
 
 [setup]
 
-echo "~ List of current students ~" > students
+echo "_(~ List of current students ~)" > students
 git add .
 git commit -m "Initial version"
 git push -u teacher main
@@ -28,25 +28,25 @@ git update-ref -d refs/remotes/teacher/main
 
 git reset --hard main
 
-echo " 
+echo "_(
 - Sam
-- Alex" >> students
+- Alex)" >> students
 
 git add .
 git commit -m "Added two students"
 
 [win]
 
-# Get the second commit from your teacher using `git pull`.
+# _(Get the second commit from your teacher using git pull.)
 test "$(git log --oneline teacher/main | wc -l)" -ge 2
 
-# Add your name to the list of students
+# _(Add your name to the list of students)
 test "$(cat students |wc -l)" -ge 5
 
-# Commit your result.
+# _(Commit your result.)
 test "$(git show main:students |wc -l)" -ge 5
 
 [win teacher]
 
-# And use `git push` to send it to your teacher!
+# _(And use `git push` to send it to your teacher!)
 test "$(git show main:students |wc -l)" -ge 5

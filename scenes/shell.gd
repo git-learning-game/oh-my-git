@@ -29,7 +29,7 @@ func run(command, crash_on_fail=true):
 func run_async(command, pretty_command=null, crash_on_fail=true):
 	var shell_command = ShellCommand.new()
 	shell_command.command = command
-	shell_command.pretty_command = command
+	shell_command.pretty_command = shell_command.command
 	if pretty_command:
 		shell_command.pretty_command = pretty_command
 	shell_command.crash_on_fail = crash_on_fail

@@ -1,11 +1,27 @@
-extends Node2D
+extends PanelContainer
 
 var text setget _set_text
-var button_texts = ["Got it!", "Interesting!", "Very useful!", "Cool!", "Nice!", "Thanks!", "Whatever...", "Okay!", "Yay!", "Awesome!"]
+var button_texts = [
+	"Got it!",
+	"Interesting!",
+	"Very useful!",
+	"Cool!",
+	"Nice!",
+	"Thanks!",
+	"Whatever...",
+	"Okay!",
+	"Yay!",
+	"Awesome!"
+]
 
 func _ready():
-	button_texts.shuffle()
-	$Panel/CenterContainer/OK.text = button_texts[0]
+	var translated_button_texts = []
+	for key in button_texts:
+		translated_button_texts.push_back(tr(key))
+
+	translated_button_texts.shuffle()
+	$Panel/CenterContainer/OK.text = translated_button_texts[0]
+
 
 #func _gui_input(event):
 #	if event is InputEventMouseButton:

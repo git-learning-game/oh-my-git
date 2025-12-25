@@ -15,6 +15,9 @@ var hovered = false
 var arrow = preload("res://scenes/arrow.tscn")
 
 func _ready():
+	if content_label:
+		content_label.set_message_translation(false)
+
 	content_set(content)
 	type_set(type)
 	id_set(id)
@@ -80,7 +83,7 @@ func type_set(new_type):
 			$Sprite.texture = preload("res://nodes/tree.svg")
 		"commit":
 			$Sprite.texture = preload("res://nodes/commit.svg")
-			game.notify("You can drag these around with your mouse!", self, "drag-nodes")
+			game.notify(tr("You can drag these around with your mouse!"), self, "drag-nodes")
 		"tag":
 			$Sprite.texture = preload("res://nodes/blob.svg")
 		"ref":

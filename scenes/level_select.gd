@@ -26,7 +26,7 @@ func reload():
 		var level_id = 0
 		
 		var l = Label.new()
-		l.text = chapter.slug
+		l.text = tr(chapter.slug)
 		l.set("custom_fonts/font", preload("res://fonts/big.tres"))
 		l.align = HALIGN_CENTER
 		level_list.add_child(l)
@@ -56,7 +56,7 @@ func reload():
 			level_list.add_child(hb)
 			
 			if badge.active:
-				game.notify("You get a golden badge for each level you solve without using the playing cards! Can you solve them all using the command line?", badge, "cli-badge")
+				game.notify(tr("You get a golden badge for each level you solve without using the playing cards! Can you solve them all using the command line?"), badge, "cli-badge")
 			level_id += 1
 			
 		chapter_id += 1

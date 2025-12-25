@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/input_dialog.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Moderustic-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
 
 [node name="InputDialog" type="WindowDialog"]
 anchor_right = 1.0
@@ -9,6 +16,7 @@ margin_left = 816.0
 margin_top = 446.0
 margin_right = -826.0
 margin_bottom = -591.0
+custom_fonts/title_font = SubResource( 1 )
 window_title = "Please enter a value:"
 script = ExtResource( 1 )
 __meta__ = {
@@ -18,7 +26,9 @@ __meta__ = {
 [node name="LineEdit" type="LineEdit" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="text_entered" from="LineEdit" to="." method="_text_entered"]

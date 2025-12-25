@@ -1,11 +1,11 @@
-title = Getting the last version
+title = _(Getting the last version)
 cards = checkout-file
 
 [description]
 
-You've been working on your essay for a while. But - ughh! Now your cat walks over your keyboard and "helps you", so now it's all messed up! :/
+_(You've been working on your essay for a while. But - ughh! Now your cat walks over your keyboard and "helps you", so now it's all messed up! :/
 
-But Git is here to help! To discard all changes your cat made, and go back to the version in the last commit, use `checkout`!
+But Git is here to help! To discard all changes your cat made, and go back to the version in the last commit, use checkout!)
 
 [setup]
 
@@ -22,10 +22,10 @@ git commit -a -m "Even better version"
 echo "D" >> essay.txt
 git commit -a -m "Marvelous version"
 
-echo "blarg
-blaaaargh" > essay.txt
+echo "_(blarg
+blaaaargh)" > essay.txt
 
 [win]
 
-# Restore the version from the last commit.
+# _(Restore the version from the last commit.)
 cat essay.txt | grep D

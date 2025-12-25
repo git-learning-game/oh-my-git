@@ -1,11 +1,11 @@
 [description]
 
-Delete all objects in this repository using git commands only!
+_(Delete all objects in this repository using git commands only!
 
 Useful commands:
 
     git prune
-    git reflog expire
+    git reflog expire)
 
 [setup]
 
@@ -14,7 +14,7 @@ BLOB=$(git hash-object -w foo)
 echo bar > bar
 git add .
 git commit -m "Initial commit"
-echo blabber >> bar
+echo "_(blabber)"  >> bar
 git commit -a -m "Second commit"
 git update-ref refs/important HEAD
 git update-ref refs/interesting "$BLOB"
@@ -26,7 +26,7 @@ BLOB=$(git hash-object -w foo)
 echo bar > bar
 git add .
 git commit -m "Initial commit"
-echo blabber >> bar
+echo "_(blabber)"  >> bar
 git commit -a -m "Second commit"
 git update-ref refs/important HEAD
 git update-ref refs/interesting "$BLOB"

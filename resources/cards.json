@@ -117,12 +117,12 @@
     {
         "id": "bisect-good",
         "command": "git bisect good",
-        "description": "State that the current commit is good! When you're automatically transferred, keep playing the `good` and `bad` cards!"
+        "description": "State that the current commit is good! When you're automatically transferred, keep playing the good and bad cards!"
     },
     {
         "id": "bisect-bad",
         "command": "git bisect bad",
-        "description": "State that the current commit is bad! When you're automatically transferred, keep playing the `good` and `bad` cards!"
+        "description": "State that the current commit is bad! When you're automatically transferred, keep playing the good and bad cards!"
     },
     {
         "id": "add",

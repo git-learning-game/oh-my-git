@@ -1,4 +1,4 @@
-title = Welcome!
+title = _(Welcome!)
 cards = init
 
 [description]
@@ -10,5 +10,5 @@ rm -rf .git
 
 [win]
 
-# Again, initialize your time machine!
+# _(Again, initialize your time machine!)
 test -d .git

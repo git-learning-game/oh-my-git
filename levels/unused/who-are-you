@@ -1,12 +1,12 @@
-title = Nice to meet you!
+title = _(Nice to meet you!)
 cards = config-name config-email
 
 [description]
 
-Introduce yourself using
+_(Introduce yourself using
 
     git config --global user.name Firstname
-    git config --global user.email "your@mail.com"
+    git config --global user.email "your@mail.com")
 
 [setup]
 
@@ -16,8 +16,8 @@ test "$(git config user.name)" != "You" && hint "Hey $(git config user.name), ni
 
 [win]
 
-# Have a name configured.
+# _(Have a name configured.)
 test "$(git config user.name)" != "You"
 
-# Have an email address configured.
+# _(Have an email address configured.)
 test "$(git config user.email)" != "you@time.agency"

@@ -49,7 +49,7 @@ func _process(delta):
 	if _hint_server.is_connection_available():
 		_hint_client_connection = _hint_server.take_connection()
 		var length = _hint_client_connection.get_u32()
-		var message = _hint_client_connection.get_string(length)
+		var message = _hint_client_connection.get_utf8_string(length)
 		game.notify(message)
 #	if game.used_cards:
 #		$Menu/CLIBadge.impossible = true
@@ -227,3 +227,5 @@ func new_tip():
 
 func back():
 	get_tree().change_scene("res://scenes/level_select.tscn")
+
+

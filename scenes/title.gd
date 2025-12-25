@@ -5,6 +5,13 @@ func _ready():
 		game.skipped_title = true
 		get_tree().change_scene("res://scenes/level_select.tscn")
 
+	$Label2.text = tr("by bleeptrack & blinry")
+	$Label3.text = tr("Original score by winniehell")
+	$VBoxContainer/Button.text = tr("Levels")
+	$VBoxContainer/Button3.text = tr("Sandbox")
+	$VBoxContainer/Button2.text = tr("Quit")
+
+
 func quit():
 	get_tree().quit()
 

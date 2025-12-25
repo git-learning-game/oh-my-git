@@ -12,6 +12,9 @@ var current_chapter = 0
 var current_level = 0
 var skipped_title = false
 
+var available_languages = []
+var current_language
+
 var _file = "user://savegame.json"
 var state = {}
 
@@ -30,6 +33,7 @@ func _ready():
 		start_remote_shell()
 	global_shell = new_shell()
 	
+	_set_initial_language()
 #	var cmd = global_shell.run("echo hi")
 #	print(cmd)
 #	cmd = global_shell.run("seq 1 10")
@@ -119,7 +123,8 @@ func notify(text, target=null, hint_slug=null):
 			return
 		
 	var notification = preload("res://scenes/notification.tscn").instance()
-	notification.text = text
+	notification.get_node("Notification/Panel/Label").text = text
+
 	if not target:
 		target = get_tree().root
 	target.call_deferred("add_child", notification)
@@ -160,3 +165,29 @@ func new_shell():
 		return BetterShell.new()
 	else:
 		return Shell.new()
+
+func _set_initial_language():
+	var system_language = OS.get_locale_language()
+
+	available_languages = get_available_languages()
+	if system_language in available_languages:
+		current_language = system_language
+	else:
+		current_language = "English"
+
+	TranslationServer.set_locale(current_language)
+
+func get_available_languages() -> Array:
+	var locales = Array(TranslationServer.get_loaded_locales())
+
+	if not "en" in locales:
+		locales.push_front("en")
+	return locales
+
+func _update_title_ui():
+	get_tree().reload_current_scene()
+
+func change_language(new_language: String):
+	current_language = new_language
+	TranslationServer.set_locale(new_language)
+	_update_title_ui()
