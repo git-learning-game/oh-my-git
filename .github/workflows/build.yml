@@ -3,28 +3,27 @@ name: "Build"
 on:
   push:
     tags:
-      - '*'
+      - "*"
+permissions:
+  contents: write
 
 env:
   PROJECT_NAME: oh-my-git
-  GODOT_VERSION: 3.2.3
+  GODOT_VERSION: 3.6.2
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     container:
-      image: barichello/godot-ci:3.2.3
+      image: barichello/godot-ci@sha256:026e1f652dd1d718073bb5c32372b3a5d73e7ad7bfe13b9052423604fca6918f
     steps:
-      - name: Get tag name
-        id: tag_name
-        run: echo ::set-output name=TAG_NAME::${GITHUB_REF#refs/tags/}
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: apt-get update && apt-get install -y rsync p7zip make
-      - uses: actions/checkout@v2
       - name: Setup
         run: |
           mkdir -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/$GODOT_VERSION.stable ~/.local/share/godot/templates/$GODOT_VERSION.stable
+          mv /root/.local/share/godot/export_templates/$GODOT_VERSION.stable ~/.local/share/godot/templates/$GODOT_VERSION.stable
       - name: Build Linux
         run: make linux
       - name: Build macOS
@@ -33,6 +32,13 @@ jobs:
         run: make windows
       - name: Clean up
         run: make clean-unzipped
+      - name: Publish to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            build/${{ env.PROJECT_NAME }}-linux.zip
+            build/${{ env.PROJECT_NAME }}-macos.zip
+            build/${{ env.PROJECT_NAME }}-windows.zip
       - name: Deploy Linux
         uses: josephbmanley/butler-publish-itchio-action@v1.0.3
         env:
