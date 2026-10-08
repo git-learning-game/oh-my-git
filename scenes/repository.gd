@@ -43,10 +43,18 @@ func _process(_delta):
 		apply_forces()
 		
 func _unhandled_input(event):
-	if event.is_action_pressed("zoom_out") and nodes.rect_scale.x > 0.3:
+	if event as InputEventPanGesture:
+		var factor = event.get_delta().y * 0.1
+		nodes.rect_scale += Vector2(factor, factor)
+	elif event.is_action_pressed("zoom_out"):
 		nodes.rect_scale -= Vector2(0.05, 0.05)
-	if event.is_action_pressed("zoom_in") and nodes.rect_scale.x < 2:
+	elif event.is_action_pressed("zoom_in"):
 		nodes.rect_scale += Vector2(0.05, 0.05)
+
+	if nodes.rect_scale.x < 0.3:
+		nodes.rect_scale = Vector2(0.3, 0.3)
+	elif nodes.rect_scale.x > 2:
+		nodes.rect_scale = Vector2(2, 2)
 
 func there_is_a_git():
 	return shell.run("test -d .git && echo yes || echo no") == "yes\n"
