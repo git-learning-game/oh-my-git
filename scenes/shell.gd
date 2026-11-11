@@ -79,7 +79,10 @@ func run_async_thread(shell_command):
 		#     "'test '"'"'fu'"'"' "bla" blubb"
 		
 		hacky_command = '"\''+hacky_command.replace("'", "'\"'\"'")+'\'"'
-		result = helpers.exec(_shell_binary(), ["-c",  hacky_command], crash_on_fail)
+		if _needs_native_arm():
+			result = helpers.exec("/usr/bin/arch", ["-arm64", _shell_binary(), "-c",  hacky_command], crash_on_fail)
+		else:
+			result = helpers.exec(_shell_binary(), ["-c",  hacky_command], crash_on_fail)
 	elif _os == "Windows":
 		# On Windows, if the command contains a newline (even if inside a string),
 		# execution will end. To avoid that, we first write the command to a file,
@@ -97,6 +100,16 @@ func run_async_thread(shell_command):
 	shell_command.exit_code = result["exit_code"]
 	shell_command.emit_signal("done")
 	
+var _native_arm = null
+
+func _needs_native_arm():
+	if _os != "OSX":
+		return false
+	if _native_arm == null:
+		var r = helpers.exec("/usr/sbin/sysctl", ["-n", "sysctl.proc_translated"], false)
+		_native_arm = r["exit_code"] == 0 and r["output"].strip_edges() == "1"
+	return _native_arm
+
 func _shell_binary():
 	if _os == "X11" or _os == "OSX":
 		return "bash"
