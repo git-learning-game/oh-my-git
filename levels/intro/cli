@@ -25,3 +25,5 @@ test -d .git
 Cool! Instead of using the playing cards, you can also do everything via the command line!
 
 The command line is pretty powerful! Often, you can use it to solve tasks faster compared to using a graphical interface.
+
+By the way: Whenever you've solved a level, you can also type `next-level` into the terminal instead of clicking "Next Level"!
