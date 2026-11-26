@@ -98,6 +98,18 @@ func send_command(command):
 	game.save_state()
 	history_position = game.state["history"].size()
 	
+	# Built-in game command: once the level is solved, jump to the next one,
+	# just like the "Next Level" button.
+	if command.strip_edges() == "next-level":
+		input.text = ""
+		completions.hide()
+		if main.next_level_button.visible:
+			main.load_next_level()
+		else:
+			$ErrorSound.play()
+			output.add_text("$ next-level\nSolve this level first, then you can go to the next one.\n")
+		return
+	
 	input.editable = false
 	completions.hide()
 
